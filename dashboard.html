@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard e Indicadores (KPI) — Manual Omnichannel</title>
+<meta name="description" content="Como usar o Dashboard e os indicadores (KPIs) da plataforma AtenderBem / Habilis.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="dashboard.html" class="active">Dashboard</a>
+    <a href="crm.html">CRM</a>
+    <a href="tickets.html">Tickets</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="relatorios.html">Relatórios</a>
+    <a href="relatorios-personalizados.html">Personalizados</a>
+    <a href="configuracoes.html">Configurações</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › Dashboard e Indicadores</div>
+
+  <h1>Dashboard e Indicadores (KPI)</h1>
+  <p class="subtitle">O painel principal de atendimento. É a primeira tela após o login e também é acessado pelo endereço <code>/base/reports/kpidashboard</code>.</p>
+
+  <div class="callout info">
+    <strong>Observação sobre a plataforma:</strong> na AtenderBem, o endereço de “Dashboard de KPIs” (<code>/base/reports/kpidashboard</code>) abre a tela de <strong>Service Interactions</strong> (Interações de Serviço), que reúne os principais indicadores de atendimento. É aqui que você acompanha, em tempo real, o desempenho do dia.
+  </div>
+
+  <figure class="figure">
+    <img src="assets/dashboard-kpi.png" alt="Dashboard de KPIs com indicadores e gráficos">
+    <figcaption>Painel de Service Interactions (KPIs) com período “Hoje” e fila “Todas”.</figcaption>
+  </figure>
+
+  <h2>1. Filtros no topo da tela</h2>
+  <p>Antes de ler os números, defina o recorte desejado. Dois filtros aparecem no topo:</p>
+  <table class="doc">
+    <thead><tr><th>Filtro</th><th>O que faz</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Queue (Fila)</strong></td><td>Mostra dados de uma fila específica ou de “All” (todas as filas).</td></tr>
+      <tr><td><strong>Period (Período)</strong></td><td>Define o intervalo de tempo, por exemplo “Today” (Hoje).</td></tr>
+    </tbody>
+  </table>
+  <p>Após ajustar os filtros, clique no botão <strong>Atualizar</strong> para aplicar.</p>
+
+  <h2>2. Cartões de KPI (Indicadores principais)</h2>
+  <p>Cada cartão mostra o valor atual e a variação em relação a um período anterior (seta verde = alta, vermelha = queda, azul = estável).</p>
+  <table class="doc">
+    <thead><tr><th>Indicador</th><th>Significado</th></tr></thead>
+    <tbody>
+      <tr><td>Service Interactions</td><td>Total de interações de atendimento no período.</td></tr>
+      <tr><td>Unique customers</td><td>Clientes únicos atendidos.</td></tr>
+      <tr><td>Messages sent</td><td>Mensagens enviadas pela equipe.</td></tr>
+      <tr><td>Messages received</td><td>Mensagens recebidas dos clientes.</td></tr>
+      <tr><td>Avg. services / agent</td><td>Média de atendimentos por agente.</td></tr>
+      <tr><td>TMA</td><td>Tempo Médio de Atendimento (formato HH:MM:SS).</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout tip">
+    <strong>Dica:</strong> o anel circular verde (100%) exibido no topo é um indicador de meta/ocupação. Os valores variam conforme o período selecionado.
+  </div>
+
+  <h2>3. Gráfico de contatos por hora</h2>
+  <p>A barra roxa mostra a distribuição dos contatos ao longo do dia (00h a 23h). Você pode alternar entre duas visões:</p>
+  <ul>
+    <li><strong>Contacts per hour</strong> — contatos por hora do dia.</li>
+    <li><strong>Contacts per day of the month</strong> — contatos por dia do mês.</li>
+  </ul>
+  <p>Na legenda, as cores representam os tipos de contato: <strong>Chats</strong>, <strong>Calls</strong> (ligações) e <strong>Abandoned</strong> (abandonados).</p>
+
+  <h2>4. Gráficos de distribuição (pizza)</h2>
+  <p>Dois gráficos de pizza permitem visualizar de onde vêm os atendimentos:</p>
+  <ul>
+    <li><strong>Services by queue</strong> vs <strong>Services by channel</strong> — atendimentos por fila ou por canal (ex.: TG do Ivann, IvannCorporativo, Lex Digital - Teste, TESTES_robson).</li>
+    <li><strong>Services by IVR filter</strong> vs <strong>Services by closure</strong> — atendimentos por filtro de URA (IVR) ou por tipo de encerramento.</li>
+  </ul>
+
+  <h2>5. Tabela de agentes</h2>
+  <p>Na parte inferior, uma tabela detalha o desempenho por atendente:</p>
+  <table class="doc">
+    <thead><tr><th>Coluna</th><th>Descrição</th></tr></thead>
+    <tbody>
+      <tr><td>Agent</td><td>Nome do atendente.</td></tr>
+      <tr><td>Service Interactions</td><td>Quantidade de atendimentos.</td></tr>
+      <tr><td>Days</td><td>Dias com atividade no período.</td></tr>
+      <tr><td>Avg. Serv. / Day</td><td>Média de atendimentos por dia.</td></tr>
+      <tr><td>Messages Sent</td><td>Mensagens enviadas.</td></tr>
+      <tr><td>Messages Received</td><td>Mensagens recebidas.</td></tr>
+      <tr><td>TMA</td><td>Tempo médio de atendimento do agente.</td></tr>
+    </tbody>
+  </table>
+  <p>Os cabeçalhos das colunas são clicáveis para ordenação.</p>
+
+  <h2>6. Passo a passo — leitura diária do dashboard</h2>
+  <ol class="steps">
+    <li>Faça login em <code>fastcorte.atenderbem.com</code> (usuário <em>gerente</em>).</li>
+    <li>Confirme os filtros <strong>Queue = All</strong> e <strong>Period = Today</strong>.</li>
+    <li>Observe os cartões de KPI e as setas de variação.</li>
+    <li>Analise o pico de contatos no gráfico “por hora” para dimensionar a equipe.</li>
+    <li>Verifique a tabela de agentes para identificar gargalos de TMA.</li>
+    <li>Clique em <strong>Atualizar</strong> a qualquer momento para refrescar os dados.</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>Atenção:</strong> os dados deste manual foram capturados em um ambiente com poucos atendimentos de exemplo. Seus números reais serão diferentes — o importante é entender o que cada indicador representa.
+  </div>
+
+  <h2>7. Aba Integrations (Mensagens)</h2>
+  <p>Na mesma tela de Service Interactions, há a aba <strong>Integrations</strong>, que monitora o desempenho de envio de mensagens pelas integrações (ex.: WhatsApp/API).</p>
+
+  <figure class="figure">
+    <img src="assets/dashboard-integrations.png" alt="Aba Integrations do dashboard">
+    <figcaption>Aba Integrations com métricas de mensagens e tabela por integração/fila.</figcaption>
+  </figure>
+
+  <h3>Métricas de mensagens</h3>
+  <ul>
+    <li><strong>Total messages</strong> — total de mensagens processadas.</li>
+    <li><strong>Sent successfully</strong> — envios com sucesso.</li>
+    <li><strong>Problems with the number</strong> — problemas com o número.</li>
+    <li><strong>Other issues</strong> — outros problemas.</li>
+    <li><strong>Total failures</strong> — total de falhas.</li>
+    <li><strong>Messages replied</strong> — mensagens respondidas.</li>
+  </ul>
+  <p>O gráfico "Messages per hour" (ou "per day of the month") mostra <strong>Submissions</strong>, <strong>Replies</strong> e <strong>Failures</strong> ao longo do dia.</p>
+
+  <h3>Tabela de integrações</h3>
+  <p>Colunas: <strong>Integration</strong>, <strong>Queue</strong>, <strong>Sends</strong>, <strong>Failures</strong>, <strong>Responses</strong>. Abaixo, um gráfico de "Submissions by integration" / "Replies by integration".</p>
+
+  <div class="pagenav">
+    <a href="index.html"><span>← Voltar</span> Índice do manual</a>
+    <a class="next" href="agentes.html"><span>Próximo →</span> Agent Dashboard (Agentes)</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
+</footer>
+
+</body>
+</html>

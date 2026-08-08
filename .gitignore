@@ -1,0 +1,7 @@
+# Arquivos que não devem ser versionados
+.DS_Store
+Thumbs.db
+*.log
+.cache/
+node_modules/
+*.zip

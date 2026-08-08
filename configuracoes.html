@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configurações — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="crm.html">CRM</a>
+    <a href="tickets.html">Tickets</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="relatorios.html">Relatórios</a>
+    <a href="relatorios-personalizados.html">Personalizados</a>
+    <a href="configuracoes.html" class="active">Configurações</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › Configurações</div>
+
+  <h1>Configurações</h1>
+  <p class="subtitle">Área administrativa da plataforma: filas, usuários, pausas, campanhas, automações e mais.</p>
+
+  <figure class="figure">
+    <img src="assets/settings-menu.png" alt="Menu de Configurações">
+    <figcaption>Menu lateral de Settings com as categorias administrativas.</figcaption>
+  </figure>
+
+  <h2>1. Categorias de configuração</h2>
+  <p>O menu <strong>Settings</strong> reúne as seguintes áreas (observadas na plataforma):</p>
+
+  <ul class="menulist">
+    <li><span class="ico">🏷️</span><div><b>Queues</b> — filas de atendimento.</div></li>
+    <li><span class="ico">👤</span><div><b>Users</b> — usuários/agentes.</div></li>
+    <li><span class="ico">☕</span><div><b>Breaks</b> — pausas.</div></li>
+    <li><span class="ico">📣</span><div><b>Campaigns</b> — campanhas.</div></li>
+    <li><span class="ico">📞</span><div><b>Auto-dialer</b> — discador automático.</div></li>
+    <li><span class="ico">📝</span><div><b>Surveys</b> — pesquisas de satisfação.</div></li>
+    <li><span class="ico">🤖</span><div><b>Assistants</b> — assistentes.</div></li>
+    <li><span class="ico">🤝</span><div><b>CRM and Tasks</b> — ajustes de CRM e tarefas (submenu).</div></li>
+    <li><span class="ico">👥</span><div><b>Contacts</b> — configurações de contatos (submenu).</div></li>
+    <li><span class="ico">⚙️</span><div><b>Automation</b> — automações (submenu).</div></li>
+    <li><span class="ico">📁</span><div><b>Records</b> — registros (submenu).</div></li>
+    <li><span class="ico">🏷️</span><div><b>Labels</b> — rótulos (submenu).</div></li>
+    <li><span class="ico">👥</span><div><b>Groups</b> — grupos (submenu).</div></li>
+    <li><span class="ico">🎫</span><div><b>Ticket</b> — configurações de tickets (submenu).</div></li>
+    <li><span class="ico">📊</span><div><b>Custom Reports</b> — relatórios personalizados.</div></li>
+    <li><span class="ico">⚡</span><div><b>Productivity Monitoring</b> — monitoramento de produtividade (submenu).</div></li>
+    <li><span class="ico">🧾</span><div><b>Audit Log</b> — log de auditoria.</div></li>
+    <li><span class="ico">🌐</span><div><b>General</b> — configurações gerais.</div></li>
+  </ul>
+
+  <h2>2. Exemplo: Filas (Queues)</h2>
+  <p>A tela de <strong>Queues</strong> permite cadastrar e gerenciar as filas de atendimento.</p>
+
+  <figure class="figure">
+    <img src="assets/settings-queues.png" alt="Configuração de Filas">
+    <figcaption>Tela de Filas com botões de API Documentation e Add, e grade de filas.</figcaption>
+  </figure>
+
+  <h3>Recursos da tela</h3>
+  <ul>
+    <li><strong>API Documentation</strong> — acesso à documentação da API.</li>
+    <li><strong>Add</strong> — adiciona uma nova fila.</li>
+    <li><strong>Search</strong> — busca dentro da grade.</li>
+  </ul>
+
+  <h3>Colunas da grade de filas</h3>
+  <table class="doc">
+    <thead><tr><th>Coluna</th><th>Descrição</th></tr></thead>
+    <tbody>
+      <tr><td>ID</td><td>Identificador da fila.</td></tr>
+      <tr><td>Queue</td><td>Nome da fila.</td></tr>
+      <tr><td>WhatsApp Number</td><td>Número de WhatsApp vinculado.</td></tr>
+      <tr><td>Name</td><td>Nome associado.</td></tr>
+      <tr><td>Number</td><td>Outro campo numérico.</td></tr>
+      <tr><td>Type</td><td>Tipo da fila.</td></tr>
+      <tr><td>Server</td><td>Servidor associado.</td></tr>
+      <tr><td>Last modified</td><td>Data da última modificação.</td></tr>
+      <tr><td>Functions</td><td>Ações (editar/excluir).</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <strong>Observado:</strong> no ambiente de exemplo, a lista de filas estava vazia (“No data”), ou seja, nenhuma fila havia sido cadastrada ainda.
+  </div>
+
+  <h2>4. Usuários (Users)</h2>
+  <p>A tela de <strong>Users</strong> gerencia as contas da equipe. No topo, três contadores resumem a equipe (ex.: 17 / 8 / 23) e há o botão <strong>Add</strong> para incluir usuários.</p>
+
+  <figure class="figure">
+    <img src="assets/settings-users.png" alt="Tela de Usuários">
+    <figcaption>Lista de usuários com tipo (Administrator, Supervisor, Agent) e ações.</figcaption>
+  </figure>
+
+  <h3>Colunas da grade</h3>
+  <table class="doc">
+    <thead><tr><th>Coluna</th><th>Descrição</th></tr></thead>
+    <tbody>
+      <tr><td>Name</td><td>Nome completo (com avatar de iniciais).</td></tr>
+      <tr><td>User</td><td>Login / nome de usuário.</td></tr>
+      <tr><td>Sector</td><td>Setor (ex.: Financeiro).</td></tr>
+      <tr><td>Position</td><td>Cargo.</td></tr>
+      <tr><td>Type</td><td>Tipo: Administrator, Supervisor ou Agent.</td></tr>
+      <tr><td>Created On</td><td>Data/hora de criação da conta.</td></tr>
+      <tr><td>ID</td><td>Identificador do usuário.</td></tr>
+      <tr><td>Functions</td><td>Ações: calendário, chave (permissões), perfil, excluir.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout info">
+    <strong>Observado:</strong> a base de exemplo continha 48 usuários, com perfis como Administrator (admin, gerente, Suporte Habilis, etc.), Supervisor (supervisor, Athyanielly, robson-supervisor) e Agent (ivann, Mobile01, teste, julia, entre outros).
+  </div>
+
+  <h2>5. Relatório de Pausas (Break Report)</h2>
+  <p>Em <strong>Reports › Break Report</strong>, há um relatório de tempo de pausa por agente. O filtro <strong>Period</strong> define o recorte.</p>
+
+  <figure class="figure">
+    <img src="assets/reports-break.png" alt="Relatório de Pausas">
+    <figcaption>Break Report com colunas por tipo de pausa (Lanche da manhã, Almoço, etc.) e Total.</figcaption>
+  </figure>
+
+  <p>A grade lista cada agente e, para cada tipo de pausa cadastrado, o tempo acumulado no período:</p>
+  <ul>
+    <li><strong>Available</strong> e <strong>Logged in</strong> — tempo disponível e logado.</li>
+    <li><strong>Lanche da manhã</strong>, <strong>Almoço</strong>, <strong>Lanche da tarde</strong> — pausas padrão.</li>
+    <li><strong>Conferência de medidas com os colaboradores</strong>, <strong>Visita externa</strong> — pausas operacionais.</li>
+    <li><strong>teste</strong>, <strong>testando2</strong>, <strong>testeteste</strong>, <strong>Fim expediente</strong> — pausas personalizadas/do ambiente.</li>
+    <li><strong>Total</strong> — soma do tempo de pausa.</li>
+  </ul>
+
+  <h2>6. Central de Ajuda (Help)</h2>
+  <figure class="figure">
+    <img src="assets/help.png" alt="Widget de Ajuda / Suporte">
+    <figcaption>Widget de suporte aberto pelo ícone Help, com opções de atendimento e base de conhecimento.</figcaption>
+  </figure>
+  <p>O ícone <strong>Help</strong> (ponto de interrogação) abre um widget de suporte à direita da tela, com a mensagem “Olá! Como podemos ajudá-lo hoje?” e opções:</p>
+  <ul>
+    <li><strong>Iniciar atendimento</strong> — inicia um atendimento por chat.</li>
+    <li><strong>Buscar ajuda</strong> — consulta a base de conhecimento.</li>
+    <li>Abas <strong>Início</strong>, <strong>Ajuda</strong> e <strong>Chat</strong> na parte inferior.</li>
+  </ul>
+
+  <div class="pagenav">
+    <a href="relatorios.html"><span>← Anterior</span> Relatórios</a>
+    <a href="index.html"><span>Voltar ao início</span> Índice do manual</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
+</footer>
+
+</body>
+</html>

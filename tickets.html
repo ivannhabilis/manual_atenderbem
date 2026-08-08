@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tickets (Mesa de Ajuda) — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="crm.html">CRM</a>
+    <a href="tickets.html" class="active">Tickets</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="relatorios.html">Relatórios</a>
+    <a href="relatorios-personalizados.html">Personalizados</a>
+    <a href="configuracoes.html">Configurações</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › Tickets (Mesa de Ajuda)</div>
+
+  <h1>Tickets (Mesa de Ajuda)</h1>
+  <p class="subtitle">Organize solicitações de suporte em um quadro Kanban por status, com filtros por fila, prioridade e motivo.</p>
+
+  <figure class="figure">
+    <img src="assets/tickets.png" alt="Quadro de Tickets em Kanban">
+    <figcaption>Tickets organizados em colunas de status (Open, In Progress, Awaiting Resource, Resolved, Awaiting Customer).</figcaption>
+  </figure>
+
+  <h2>1. Visão geral</h2>
+  <p>O módulo <strong>Tickets</strong> é a mesa de ajuda (helpdesk) da plataforma. Cada solicitação vira um “ticket” que trafega por colunas de status até ser resolvido.</p>
+
+  <h2>2. Filtros</h2>
+  <p>No topo, refine a visualização antes de atuar:</p>
+  <table class="doc">
+    <thead><tr><th>Filtro</th><th>Descrição</th></tr></thead>
+    <tbody>
+      <tr><td>Classifications (All classifications)</td><td>Filtra por classificação do ticket.</td></tr>
+      <tr><td>Reason (All reasons)</td><td>Filtra por motivo da solicitação.</td></tr>
+      <tr><td>Queue (All queues)</td><td>Filtra por fila responsável.</td></tr>
+      <tr><td>Priority (All priorities)</td><td>Filtra por prioridade (ex.: Low, Medium).</td></tr>
+      <tr><td>My tickets</td><td>Mostra apenas os tickets atribuídos a você.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>3. Colunas de status (Kanban)</h2>
+  <p>Os tickets são organizados em colunas, cada uma com contador próprio:</p>
+  <ul>
+    <li><strong>Open</strong> (Azul) — tickets abertos.</li>
+    <li><strong>In Progress</strong> (Amarelo) — em andamento.</li>
+    <li><strong>Awaiting Resource</strong> (Roxo) — aguardando recurso.</li>
+    <li><strong>Resolved</strong> (Verde) — resolvidos.</li>
+    <li><strong>Awaiting Customer</strong> (Laranja) — aguardando cliente.</li>
+  </ul>
+
+  <h2>4. Cartões de ticket</h2>
+  <p>Cada cartão traz informações rápidas para triagem:</p>
+  <ul>
+    <li><strong>Agente:</strong> “No agent” quando não atribuído.</li>
+    <li><strong>ID:</strong> código do ticket (ex.: TK-20260807-05115).</li>
+    <li><strong>Título:</strong> assunto da solicitação.</li>
+    <li><strong>Tags:</strong> rótulos como motivo, prioridade (Low/Medium) e triagem.</li>
+    <li><strong>Data/hora</strong> e, quando aplicável, <strong>barra de progresso/SLA</strong>.</li>
+    <li><strong>Tempo decorrido:</strong> relógio com tempo aberto (ex.: “-42d 5h” em tickets antigos).</li>
+  </ul>
+
+  <h2>5. Criando e acompanhando</h2>
+  <ol class="steps">
+    <li>Use o botão <strong>+</strong> (roxo) para abrir um novo ticket.</li>
+    <li>Aplique filtros para separar o que é sua responsabilidade (“My tickets”).</li>
+    <li>Arraste ou mova o ticket entre colunas conforme o andamento.</li>
+    <li>Use o ícone de engrenagem no cartão para ações específicas do ticket.</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>Observado no ambiente:</strong> no exemplo capturado, havia 4 tickets Open e 46 Resolved, evidenciando um histórico de atendimentos já finalizados.
+  </div>
+
+  <div class="pagenav">
+    <a href="crm.html"><span>← Anterior</span> CRM e Funil de Vendas</a>
+    <a class="next" href="chat-interno.html"><span>Próximo →</span> Chat Interno</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,268 @@
+/* ============================================================
+   Manual Omnichannel — AtenderBem / Habilis
+   Estilo moderno, limpo e responsivo (blog de documentação)
+   ============================================================ */
+
+:root {
+  --roxo: #6c3fb5;
+  --roxo-escuro: #4a2a82;
+  --roxo-claro: #f1ebfa;
+  --azul: #2563eb;
+  --verde: #16a34a;
+  --vermelho: #dc2626;
+  --amarelo: #d97706;
+  --cinza-900: #1f2430;
+  --cinza-700: #3b4252;
+  --cinza-500: #6b7280;
+  --cinza-300: #d1d5db;
+  --cinza-100: #f3f4f6;
+  --branco: #ffffff;
+  --fundo: #f7f7fb;
+  --sombra: 0 1px 3px rgba(0,0,0,.08), 0 8px 24px rgba(0,0,0,.06);
+  --raio: 14px;
+  --max: 1080px;
+  --fonte: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--fonte);
+  color: var(--cinza-900);
+  background: var(--fundo);
+  line-height: 1.65;
+  font-size: 16.5px;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--roxo); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- Barra de topo ---------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--roxo-escuro);
+  color: var(--branco);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  height: 60px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.18);
+}
+.topbar .brand {
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: .3px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.topbar .brand .dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: #c9a4ff; display: inline-block;
+}
+.topbar nav {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.topbar nav::-webkit-scrollbar { display: none; }
+.topbar nav a {
+  color: #e7def7;
+  font-size: .9rem;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+.topbar nav a:hover { background: rgba(255,255,255,.12); text-decoration: none; }
+.topbar nav a.active { background: var(--branco); color: var(--roxo-escuro); }
+
+/* ---------- Container ---------- */
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- Hero (index) ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--roxo-escuro), var(--roxo));
+  color: var(--branco);
+  padding: 64px 20px 72px;
+  text-align: center;
+}
+.hero h1 { font-size: clamp(1.9rem, 4vw, 3rem); margin: 0 0 14px; font-weight: 800; }
+.hero p { font-size: clamp(1rem, 2vw, 1.25rem); margin: 0 auto; max-width: 680px; opacity: .95; }
+.hero .pill {
+  display: inline-block;
+  margin-top: 22px;
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.3);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+/* ---------- Cartões de artigos (index) ---------- */
+.section { padding: 48px 0; }
+.section h2 { font-size: 1.6rem; margin: 0 0 6px; }
+.section .lead { color: var(--cinza-500); margin: 0 0 28px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 22px;
+}
+.card {
+  background: var(--branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .18s ease, box-shadow .18s ease;
+  border: 1px solid var(--cinza-100);
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,.12); }
+.card .thumb {
+  background: var(--roxo-claro);
+  aspect-ratio: 16 / 9;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.4rem;
+  color: var(--roxo);
+  overflow: hidden;
+}
+.card .thumb img { width: 100%; height: 100%; object-fit: cover; }
+.card .body { padding: 18px 18px 20px; display: flex; flex-direction: column; flex: 1; }
+.card .body h3 { margin: 0 0 8px; font-size: 1.12rem; }
+.card .body p { margin: 0 0 16px; color: var(--cinza-500); font-size: .93rem; flex: 1; }
+.card .body .tag {
+  align-self: flex-start;
+  background: var(--roxo-claro);
+  color: var(--roxo-escuro);
+  font-size: .72rem; font-weight: 700;
+  padding: 3px 10px; border-radius: 999px;
+  text-transform: uppercase; letter-spacing: .4px;
+}
+.card .body .more {
+  margin-top: 12px; font-weight: 700; font-size: .9rem;
+}
+
+/* ---------- Conteúdo de artigo ---------- */
+.article { padding: 44px 0 64px; }
+.breadcrumb { font-size: .85rem; color: var(--cinza-500); margin-bottom: 18px; }
+.breadcrumb a { color: var(--cinza-500); }
+.breadcrumb a:hover { color: var(--roxo); }
+
+.article h1 { font-size: clamp(1.7rem, 3.5vw, 2.4rem); margin: 0 0 6px; }
+.article .subtitle { color: var(--cinza-500); font-size: 1.05rem; margin: 0 0 26px; }
+
+.article h2 {
+  font-size: 1.45rem; margin: 40px 0 12px;
+  padding-bottom: 8px; border-bottom: 2px solid var(--roxo-claro);
+}
+.article h3 { font-size: 1.15rem; margin: 28px 0 8px; color: var(--roxo-escuro); }
+.article p { margin: 12px 0; }
+.article ul, .article ol { margin: 12px 0; padding-left: 22px; }
+.article li { margin: 6px 0; }
+
+.callout {
+  border-left: 4px solid var(--roxo);
+  background: var(--roxo-claro);
+  padding: 14px 18px;
+  border-radius: 0 10px 10px 0;
+  margin: 22px 0;
+  font-size: .95rem;
+}
+.callout.info { border-color: var(--azul); background: #eaf1ff; }
+.callout.warn { border-color: var(--amarelo); background: #fef3e2; }
+.callout.tip  { border-color: var(--verde); background: #e9f8ee; }
+
+.figure {
+  margin: 26px 0;
+  background: var(--branco);
+  border: 1px solid var(--cinza-100);
+  border-radius: var(--raio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+}
+.figure img { width: 100%; display: block; }
+.figure figcaption {
+  padding: 10px 14px; font-size: .85rem; color: var(--cinza-500);
+  border-top: 1px solid var(--cinza-100);
+}
+
+/* Tabelas */
+.table-wrap { overflow-x: auto; margin: 22px 0; border-radius: var(--raio); box-shadow: var(--sombra); }
+table.doc {
+  width: 100%; border-collapse: collapse; background: var(--branco); min-width: 520px;
+}
+table.doc th, table.doc td {
+  text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--cinza-100); font-size: .92rem;
+}
+table.doc th { background: var(--roxo-escuro); color: var(--branco); font-weight: 700; }
+table.doc tr:nth-child(even) td { background: var(--cinza-100); }
+
+/* Etapas / passo-a-passo */
+.steps { counter-reset: step; list-style: none; padding: 0; margin: 22px 0; }
+.steps li {
+  position: relative; padding: 12px 16px 12px 56px; margin: 10px 0;
+  background: var(--branco); border: 1px solid var(--cinza-100);
+  border-radius: 10px; box-shadow: var(--sombra);
+}
+.steps li::before {
+  counter-increment: step; content: counter(step);
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--roxo); color: #fff; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Lista de recursos / menu */
+.menulist { list-style: none; padding: 0; margin: 18px 0; }
+.menulist li {
+  padding: 10px 14px; border: 1px solid var(--cinza-100); border-radius: 10px;
+  margin: 8px 0; background: var(--branco); display: flex; gap: 12px; align-items: flex-start;
+}
+.menulist .ico { font-size: 1.3rem; line-height: 1.2; }
+.menulist b { color: var(--roxo-escuro); }
+
+/* Navegação entre páginas */
+.pagenav {
+  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  margin: 48px 0 0;
+}
+.pagenav a {
+  flex: 1 1 200px; background: var(--branco); border: 1px solid var(--cinza-100);
+  border-radius: 12px; padding: 14px 16px; box-shadow: var(--sombra); font-weight: 600;
+}
+.pagenav a span { display: block; font-size: .78rem; color: var(--cinza-500); font-weight: 500; }
+.pagenav a.next { text-align: right; }
+
+/* Rodapé */
+.footer {
+  background: var(--cinza-900); color: #cbd2e0; padding: 36px 20px; text-align: center;
+  font-size: .88rem; margin-top: 20px;
+}
+.footer a { color: #c9b3f5; }
+
+/* Responsivo */
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .hero { padding: 44px 16px 52px; }
+  .topbar { padding: 0 12px; height: 54px; }
+  .topbar nav a { padding: 7px 9px; font-size: .82rem; }
+  .grid { grid-template-columns: 1fr; }
+  .article { padding: 30px 0 48px; }
+}

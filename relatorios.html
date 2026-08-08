@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatórios — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="crm.html">CRM</a>
+    <a href="tickets.html">Tickets</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="relatorios.html" class="active">Relatórios</a>
+    <a href="relatorios-personalizados.html">Personalizados</a>
+    <a href="configuracoes.html">Configurações</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › Relatórios</div>
+
+  <h1>Relatórios</h1>
+  <p class="subtitle">Acesse o histórico detalhado da operação: chats, filas, pausas, gravações, produtividade e mais.</p>
+
+  <figure class="figure">
+    <img src="assets/reports-menu.png" alt="Menu de Relatórios">
+    <figcaption>Menu de Relatórios com as opções disponíveis na plataforma.</figcaption>
+  </figure>
+
+  <h2>1. Abrindo os relatórios</h2>
+  <p>No menu lateral de <strong>Reports</strong>, selecione o tipo de relatório desejado. As opções observadas na plataforma são:</p>
+
+  <ul class="menulist">
+    <li><span class="ico">💬</span><div><b>Chat History</b> — histórico de atendimentos (Service report).</div></li>
+    <li><span class="ico">🔁</span><div><b>Scheduled Reopenings</b> — reaberturas agendadas.</div></li>
+    <li><span class="ico">🤝</span><div><b>Opportunity History</b> — histórico de oportunidades (CRM).</div></li>
+    <li><span class="ico">👤</span><div><b>Agents</b> — relatório por agente.</div></li>
+    <li><span class="ico">🏷️</span><div><b>Queues</b> — relatório por fila.</div></li>
+    <li><span class="ico">☕</span><div><b>Break Report</b> — relatório de pausas.</div></li>
+    <li><span class="ico">🎙️</span><div><b>CDR and Recordings</b> — registros de chamadas e gravações.</div></li>
+    <li><span class="ico">🚫</span><div><b>Abandoned</b> — atendimentos abandonados.</div></li>
+    <li><span class="ico">🎫</span><div><b>Tickets</b> — relatórios de tickets (submenu).</div></li>
+    <li><span class="ico">📤</span><div><b>Records in AutoSend</b> — registros em envio automático.</div></li>
+    <li><span class="ico">📊</span><div><b>Monitoring</b> — monitoramento.</div></li>
+    <li><span class="ico">😴</span><div><b>Inactive Users</b> — usuários inativos.</div></li>
+    <li><span class="ico">⚡</span><div><b>Productivity</b> — relatórios de produtividade (submenu).</div></li>
+  </ul>
+
+  <h2>2. Exemplo: Chat History (Service report)</h2>
+  <p>O relatório de histórico de chat traz filtros e uma grade detalhada:</p>
+
+  <figure class="figure">
+    <img src="assets/reports-chathistory.png" alt="Relatório Chat History / Service report">
+    <figcaption>Chat History com filtros e grade de atendimentos do dia.</figcaption>
+  </figure>
+
+  <h3>Filtros</h3>
+  <table class="doc">
+    <thead><tr><th>Filtro</th><th>Descrição</th></tr></thead>
+    <tbody>
+      <tr><td>Number</td><td>Filtrar por número do cliente.</td></tr>
+      <tr><td>Protocol</td><td>Filtrar por protocolo do atendimento.</td></tr>
+      <tr><td>Queue</td><td>Filtrar por fila.</td></tr>
+      <tr><td>Type</td><td>Filtrar por tipo (All = todos).</td></tr>
+      <tr><td>Reference</td><td>Ordenar/referênciar por (ex.: Open date).</td></tr>
+      <tr><td>Period</td><td>Período (ex.: Today).</td></tr>
+      <tr><td>Show hidden</td><td>Exibir registros ocultos.</td></tr>
+      <tr><td>Keywords</td><td>Buscar por palavras-chave.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Colunas da grade</h3>
+  <p>ID, Customer, Label, Result, Duration, State (OPEN/CLOSED), Date, Closing date, Customer rating, AI Evaluation, Dissatisfied customer, além das funções de ação. Ao final, há o totalizador “Customer Count”.</p>
+
+  <div class="callout info">
+    <strong>Exportação:</strong> relatórios com grade costumam oferecer botões para exportar para Excel e escolher colunas (Column Chooser).
+  </div>
+
+  <div class="pagenav">
+    <a href="contatos.html"><span>← Anterior</span> Contatos e Empresas</a>
+    <a class="next" href="relatorios-personalizados.html"><span>Próximo →</span> Relatórios Personalizados</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
+</footer>
+
+</body>
+</html>
