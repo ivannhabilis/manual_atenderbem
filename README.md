@@ -1,7 +1,7 @@
 # Manual Omnichannel — AtenderBem / Habilis
 
 Guia de instrução em formato de blog (HTML estático, responsivo) da plataforma
-**AtenderBem** (Habilis — Gestão de Atendimentos), ambiente fastcorte.atenderbem.com.
+**AtenderBem** (Habilis — Gestão de Atendimentos).
 
 ## Conteúdo
 

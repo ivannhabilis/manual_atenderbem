@@ -151,7 +151,7 @@
       <thead><tr><th>Opção / Seção</th><th>Tipo</th><th>Descrição e Regra</th></tr></thead>
       <tbody>
         <tr><td><strong>SMTP / Outgoing Server</strong></td><td>Host/Port/Auth</td><td>Servidor de envio de e-mails (Host, Porta 587/465, TLS/SSL, Usuário e Senha).</td></tr>
-        <tr><td><strong>Sender Name & Address</strong></td><td>Texto / E-mail</td><td>Nome exibido (ex.: <em>Suporte FastCorte</em>) e e-mail remetente (ex.: <code>suporte@fastcorte.com.br</code>).</td></tr>
+        <tr><td><strong>Sender Name & Address</strong></td><td>Texto / E-mail</td><td>Nome exibido (ex.: <em>Suporte Central</em>) e e-mail remetente (ex.: <code>suporte@suaempresa.com.br</code>).</td></tr>
         <tr><td><strong>IMAP / Inbound Ingestion</strong></td><td>Host/Port/Auth</td><td>[Opcional] Leitura de caixa de entrada para criação automática de tickets a partir de e-mails recebidos.</td></tr>
         <tr><td><strong>Template: New Ticket</strong></td><td>HTML / Tags</td><td>Modelo de e-mail enviado ao cliente quando um ticket é criado (contendo <code>{protocol}</code> e <code>{subject}</code>).</td></tr>
         <tr><td><strong>Template: Ticket Updated</strong></td><td>HTML / Tags</td><td>Notificação enviada ao cliente quando um atendente adiciona uma resposta pública.</td></tr>
@@ -206,7 +206,7 @@
     </li>
     <li>
       <strong>Passo 2 — Configurar o Canal de E-mail (`tickets-email-config`):</strong><br>
-      Insira as credenciais SMTP de <code>suporte@fastcorte.com.br</code> e ative o envio automático do comprovante de abertura com a tag <code>{protocol}</code>.
+      Insira as credenciais SMTP de <code>suporte@suaempresa.com.br</code> e ative o envio automático do comprovante de abertura com a tag <code>{protocol}</code>.
     </li>
     <li>
       <strong>Passo 3 — Criar o Grupo de Atendimento (`tickets-service-groups`):</strong><br>

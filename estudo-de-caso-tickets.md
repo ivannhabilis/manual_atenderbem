@@ -1,6 +1,6 @@
 # ESTUDO DE CASO PRÁTICO: CONFIGURAÇÃO DO MÓDULO DE TICKETS (ATENDERBEM)
-**Ambiente:** https://fastcorte.atenderbem.com
-**Empresa:** FastCorte (Central de Manutenção e Assistência Técnica)
+**Sistema:** Plataforma AtenderBem (Mesa de Ajuda Omnichannel)
+**Empresa Modelo:** Central de Manutenção e Assistência Técnica
 
 ---
 
@@ -27,8 +27,8 @@ Para configurar o módulo de Tickets do zero sem erros de dependência, siga rig
 - **Max Attachment Size:** `10 MB`
 
 ### Passo 2: Configuração de E-mail (`/base/config/tickets-email-config`)
-- **SMTP Host:** `smtp.fastcorte.com.br` | **Porta:** `587` (TLS)
-- **Sender Name & Address:** `Suporte FastCorte <suporte@fastcorte.com.br>`
+- **SMTP Host:** `smtp.suaempresa.com.br` | **Porta:** `587` (TLS)
+- **Sender Name & Address:** `Suporte Central <suporte@suaempresa.com.br>`
 - **Template de Abertura:**
   > "Olá {contact_name}, seu chamado sobre '{subject}' foi registrado sob o protocolo **{protocol}**. Previsão de resposta: {sla_due_at}."
 
