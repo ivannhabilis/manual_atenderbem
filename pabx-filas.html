@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Filas de Atendimento (Queues) — Manual PABX Fácil</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="pabx.html">Portal PABX</a>
+    <a href="pabx-troncos.html">Troncos SIP</a>
+    <a href="pabx-rotas.html">Rotas</a>
+    <a href="pabx-ramais.html">Ramais</a>
+    <a href="pabx-filas.html" class="active">Filas</a>
+    <a href="pabx-ura-audios.html">URAs & Áudios</a>
+    <a href="pabx-horarios.html">Horários</a>
+    <a href="pabx-custom.html">Custom & ARI</a>
+    <a href="pabx-cdr-auditoria.html">CDR</a>
+    <a href="pabx-cli-troubleshooting.html">CLI & Debug</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › <a href="pabx.html">PABX & Telefonia</a> › Filas de Atendimento (Queues)</div>
+
+  <h1>Filas de Atendimento (Queues)</h1>
+  <p class="subtitle">Como criar e gerenciar filas de espera no FreePBX, configurar estratégias de distribuição entre atendentes, tempos de transbordo e música de espera.</p>
+
+  <h2>1. O que é uma Fila de Atendimento?</h2>
+  <p>Uma <strong>Fila (Queue)</strong> organiza o fluxo de ligações quando há mais clientes ligando do que atendentes disponíveis. O cliente permanece ouvindo uma música de espera e mensagens periódicas (ex.: <em>"Sua posição na fila é 2..."</em>) enquanto o sistema busca o próximo operador de acordo com a regra de distribuição configurada.</p>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>2. Estratégias de Distribuição (Ring Strategies)</h2>
+  <p>Ao criar uma fila em <code>Applications › Queues</code>, a escolha da estratégia determina a experiência de atendimento e a divisão da carga de trabalho:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Estratégia</th><th>Como Funciona</th><th>Cenário Recomendado</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ringall</strong></td><td>Toca em todos os ramais livres ao mesmo tempo. O primeiro que atender pega a chamada.</td><td>Equipes pequenas ou suporte emergencial / vendas de alta velocidade.</td></tr>
+        <tr><td><strong>rrmemory (Round-Robin com Memória)</strong></td><td>Distribui sequencialmente (1, 2, 3...), lembrando quem atendeu por último para chamar o próximo da lista.</td><td><strong>Padrão da Indústria:</strong> Distribui as chamadas de forma justa e equilibrada entre toda a equipe.</td></tr>
+        <tr><td><strong>leastrecent</strong></td><td>Toca no atendente que está há mais tempo ocioso sem atender chamadas.</td><td>Operações de Call Center com foco em nivelamento de ociosidade.</td></tr>
+        <tr><td><strong>fewestcalls</strong></td><td>Toca no atendente que recebeu menos chamadas completadas durante o dia.</td><td>Equipes com metas de chamadas diárias por operador.</td></tr>
+        <tr><td><strong>random</strong></td><td>Escolhe um atendente livre de forma puramente aleatória.</td><td>Ambientes onde não há necessidade de fila sequencial.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>3. Configurações Críticas de uma Fila no FreePBX</h2>
+  <p>Acesse <code>Applications › Queues › + Add Queue</code> para parametrizar os seguintes itens:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo / Parâmetro</th><th>Valor Recomendado</th><th>Finalidade Operacional</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Queue Number</strong></td><td><code>100</code> ou <code>200</code></td><td>Número de discagem interna da fila.</td></tr>
+        <tr><td><strong>Queue Name</strong></td><td><code>Suporte_Nivel_1</code></td><td>Identificação descritiva da fila.</td></tr>
+        <tr><td><strong>Music on Hold Class</strong></td><td><code>default</code> ou personalizada</td><td>Música ou mensagem institucional tocada durante a espera.</td></tr>
+        <tr><td><strong>Max Wait Time</strong></td><td><code>300 segundos</code> (5 minutos)</td><td>Tempo limite que o cliente pode ficar aguardando antes do transbordo.</td></tr>
+        <tr><td><strong>Max Callers</strong></td><td><code>0</code> (Ilimitado) ou limite</td><td>Número máximo de clientes esperando simultaneamente na fila.</td></tr>
+        <tr><td><strong>Agent Timeout</strong></td><td><code>15 segundos</code></td><td>Tempo que toca no ramal do atendente antes de passar para o próximo.</td></tr>
+        <tr><td><strong>Retry</strong></td><td><code>2 segundos</code></td><td>Tempo de intervalo antes de tentar o próximo atendente.</td></tr>
+        <tr><td><strong>Fail Over Destination</strong></td><td>Outra fila / URA / Caixa Postal</td><td>Para onde enviar a chamada se o tempo esgotar (Max Wait Time) ou se não houver atendentes logados.</td></tr>
+        <tr><td><strong>Call Recording</strong></td><td><code>Force</code></td><td>Obriga a gravação de 100% das chamadas atendidas nesta fila.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>4. Membros Estáticos vs Dinâmicos</h2>
+  <ul>
+    <li><strong>Static Agents (Agentes Estáticos):</strong> Ramais adicionados no campo <em>Static Agents</em> da fila (ex.: <code>PJSIP/1001,0</code>). Permanecem sempre conectados na fila.</li>
+    <li><strong>Dynamic Agents (Agentes Dinâmicos):</strong> O atendente entra na fila discando <code>*45</code> no teclado do softphone ou através do sistema web do AtenderBem, podendo pausar e despausar conforme sua jornada.</li>
+  </ul>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>5. Comandos de Gerenciamento de Filas via CLI</h2>
+  <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code># Exibir status completo da fila 100 (membros, tempo de espera e chamadas):
+asterisk -rx "queue show 100"
+
+# Pausar o ramal 1001 na fila 100 (ex: saída para almoço/pausa):
+asterisk -rx "queue pause member PJSIP/1001 from 100"
+
+# Despausar o ramal 1001 na fila 100:
+asterisk -rx "queue unpause member PJSIP/1001 from 100"
+
+# Resetar estatísticas de atendimento da fila:
+asterisk -rx "queue reset stats 100"</code></pre>
+
+  <div class="pagenav">
+    <a href="pabx-ramais.html"><span>← Anterior</span> Gestão de Ramais & Softphones</a>
+    <a class="next" href="pabx-ura-audios.html"><span>Próximo Capítulo →</span> URAs, Áudios & Anúncios</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Módulo de Telefonia e PABX.</p>
+</footer>
+
+</body>
+</html>

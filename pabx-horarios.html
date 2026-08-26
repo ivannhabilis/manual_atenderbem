@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Condições de Horário (Time Conditions) — Manual PABX Fácil</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="pabx.html">Portal PABX</a>
+    <a href="pabx-troncos.html">Troncos SIP</a>
+    <a href="pabx-rotas.html">Rotas</a>
+    <a href="pabx-ramais.html">Ramais</a>
+    <a href="pabx-filas.html">Filas</a>
+    <a href="pabx-ura-audios.html">URAs & Áudios</a>
+    <a href="pabx-horarios.html" class="active">Horários</a>
+    <a href="pabx-custom.html">Custom & ARI</a>
+    <a href="pabx-cdr-auditoria.html">CDR</a>
+    <a href="pabx-cli-troubleshooting.html">CLI & Debug</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › <a href="pabx.html">PABX & Telefonia</a> › Condições de Horário</div>
+
+  <h1>Condições de Horário (Time Conditions & Time Groups)</h1>
+  <p class="subtitle">Como automatizar a abertura e o fechamento da central telefônica por dia e horário, tratar feriados e configurar códigos de sobreposição manual.</p>
+
+  <h2>1. Visão Geral do Controle Temporal</h2>
+  <p>As <strong>Condições de Horário</strong> garantem que os clientes sejam atendidos pela equipe durante o expediente e recebam mensagens adequadas quando ligarem fora do horário comercial, à noite ou aos finais de semana e feriados.</p>
+
+  <p>A configuração opera sempre em duas etapas complementares:</p>
+  <ol>
+    <li><strong>Time Group (Grupo de Horários):</strong> Define o calendário (quais dias e horários a empresa funciona).</li>
+    <li><strong>Time Condition (Condição de Decisão):</strong> Testa se a chamada atual está dentro do grupo de horários e direciona para o destino A (aberto) ou B (fechado).</li>
+  </ol>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>2. Passo 1: Criando o Time Group (`Applications › Time Groups`)</h2>
+  <p>Acesse <code>Applications › Time Groups › + Add Time Group</code> e cadastre as faixas de trabalho da empresa:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Linha / Regra</th><th>Horário Início / Fim</th><th>Dias da Semana</th><th>Meses / Dias do Mês</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Regra 1: Seg a Sex</strong></td><td><code>08:00</code> às <code>18:00</code></td><td>Segunda a Sexta (Monday-Friday)</td><td>Todos</td></tr>
+        <tr><td><strong>Regra 2: Sábado (Plantão)</strong></td><td><code>08:00</code> às <code>12:00</code></td><td>Sábado (Saturday)</td><td>Todos</td></tr>
+        <tr><td><strong>Feriados Exceção</strong></td><td>-</td><td>-</td><td>Cadastrar data exata (ex.: 25 de Dezembro) com horário vazio para fechar o dia todo.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>3. Passo 2: Criando a Time Condition (`Applications › Time Conditions`)</h2>
+  <p>Acesse <code>Applications › Time Conditions › + Add Time Condition</code> e configure os destinos de atendimento:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo</th><th>Valor Configurado</th><th>Comportamento no Sistema</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Time Condition Name</strong></td><td><code>Horario_Comercial_Geral</code></td><td>Identificação descritiva.</td></tr>
+        <tr><td><strong>Time Group</strong></td><td><code>Horario_Comercial_Seg_Sex</code></td><td>O grupo de horários criado no Passo 1.</td></tr>
+        <tr><td><strong>Destination if time matches (Dentro do Horário)</strong></td><td><code>IVR › URA_Principal</code> ou <code>Queues › Suporte</code></td><td>Quando o cliente liga em horário útil, entra no atendimento normal.</td></tr>
+        <tr><td><strong>Destination if time does not match (Fora do Horário)</strong></td><td><code>Announcements › Fora_Horario</code></td><td>À noite ou aos domingos, toca o áudio informativo e desliga ou vai para a caixa postal.</td></tr>
+        <tr><td><strong>Override Code (Código de Sobreposição)</strong></td><td>Ex.: <code>*271</code></td><td>Código que o gerente pode discar no ramal para forçar abertura ou fechamento manual em emergências.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout tip">
+    <strong>Como conectar à rota:</strong> Após criar a Time Condition, vá em <code>Connectivity › Inbound Routes</code> na rota do seu número de telefone e altere o <em>Set Destination</em> para apontar para a <strong>Time Condition: Horario_Comercial_Geral</strong>.
+  </div>
+
+  <div class="pagenav">
+    <a href="pabx-ura-audios.html"><span>← Anterior</span> URAs & Áudios</a>
+    <a class="next" href="pabx-custom.html"><span>Próximo Capítulo →</span> Custom Destinations & ARI Bridge</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Módulo de Telefonia e PABX.</p>
+</footer>
+
+</body>
+</html>

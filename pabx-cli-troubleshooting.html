@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comandos CLI do Asterisk e Troubleshooting — Manual PABX Fácil</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="pabx.html">Portal PABX</a>
+    <a href="pabx-troncos.html">Troncos SIP</a>
+    <a href="pabx-rotas.html">Rotas</a>
+    <a href="pabx-ramais.html">Ramais</a>
+    <a href="pabx-filas.html">Filas</a>
+    <a href="pabx-ura-audios.html">URAs & Áudios</a>
+    <a href="pabx-horarios.html">Horários</a>
+    <a href="pabx-custom.html">Custom & ARI</a>
+    <a href="pabx-cdr-auditoria.html">CDR</a>
+    <a href="pabx-cli-troubleshooting.html" class="active">CLI & Debug</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › <a href="pabx.html">PABX & Telefonia</a> › Comandos CLI & Troubleshooting</div>
+
+  <h1>Comandos CLI do Asterisk e Resolução de Problemas</h1>
+  <p class="subtitle">Guia completo de comandos de console traduzidos para diagnóstico avançado e resolução definitiva dos 5 problemas mais comuns em telefonia VoIP.</p>
+
+  <h2>1. Como Acessar a Linha de Comando (CLI)</h2>
+  <p>Você pode executar comandos do Asterisk de duas formas:</p>
+  <ul>
+    <li><strong>Via Painel Web do FreePBX:</strong> Acesse o menu <code>Admin › Asterisk CLI</code>, digite o comando no campo e clique em <em>Send Command</em>.</li>
+    <li><strong>Via Terminal SSH no Servidor:</strong> Execute <code>asterisk -rx "SEU_COMANDO_AQUI"</code> para uma execução rápida e segura sem travar a sessão.</li>
+  </ul>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>2. Tabela de Comandos CLI Traduzidos e Comentados</h2>
+
+  <h3>A. Comandos Gerais e de Status do Sistema</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>core show version</code></td><td>Mostra a versão instalada do Asterisk.</td><td><code>asterisk -rx "core show version"</code></td></tr>
+        <tr><td><code>core show uptime</code></td><td>Exibe o tempo que o servidor está rodando sem quedas.</td><td>Identificar se houve reinício inesperado.</td></tr>
+        <tr><td><code>core reload</code></td><td>Recarrega todas as configurações sem derrubar ligações.</td><td>Aplicar alterações com segurança.</td></tr>
+        <tr><td><code>core restart gracefully</code></td><td>Reinicia o Asterisk apenas quando a última ligação for finalizada.</td><td>Manutenção segura durante o expediente.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>B. Comandos de Canais e Chamadas Ativas</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>core show channels</code></td><td>Lista todas as chamadas em andamento no momento.</td><td>Ver quais clientes e ramais estão conversando.</td></tr>
+        <tr><td><code>core show channel PJSIP/1001-xxxx</code></td><td>Mostra detalhes técnicos de uma chamada específica.</td><td>Verificar codec, jitter e tempo de conexão.</td></tr>
+        <tr><td><code>channel request hangup PJSIP/1001-xxxx</code></td><td>Derruba imediatamente uma chamada travada.</td><td>Liberar um ramal que ficou preso.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>C. Comandos PJSIP (Ramais e Troncos)</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>pjsip show endpoints</code></td><td>Lista todos os ramais e troncos com estado de registro.</td><td>Ver quem está Online / Offline.</td></tr>
+        <tr><td><code>pjsip show registrations</code></td><td>Mostra status dos troncos conectados a operadoras.</td><td>Testar se a linha telefônica externa está funcionando.</td></tr>
+        <tr><td><code>pjsip set logger on</code></td><td>Ativa a exibição de pacotes SIP brutos no console.</td><td>Diagnosticar falhas de autenticação e mensagens SIP (401, 404, 486).</td></tr>
+        <tr><td><code>pjsip set logger off</code></td><td>Desativa o log de pacotes SIP.</td><td>Evitar sobrecarga de logs no terminal.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>3. Guia de Resolução dos 5 Maiores Problemas (Troubleshooting)</h2>
+
+  <h3>Problema 1: Áudio Mudo ou de Uma Via Só (One-Way Audio)</h3>
+  <ul>
+    <li><strong>Causa Raiz:</strong> O PABX está atrás de um roteador/NAT e não está enviando seu IP público correto no cabeçalho SDP dos pacotes de voz (RTP).</li>
+    <li><strong>Solução:</strong> Acesse <code>Settings › Asterisk SIP Settings › General SIP Settings</code>, clique em <strong>Detect Network Settings</strong> para preencher o <em>External Address</em> e confirme se as portas UDP <strong>10000 a 20000</strong> estão liberadas no firewall.</li>
+  </ul>
+
+  <h3>Problema 2: Tronco WhatsApp Meta Offline (Canal Não Sobe)</h3>
+  <ul>
+    <li><strong>Causa Raiz:</strong> Falha de handshake TLSv1.2 ou certificado Let's Encrypt gerado com hostname incorreto.</li>
+    <li><strong>Solução:</strong> Certifique-se de que o certificado em <code>Admin › Certificate Management</code> tem o mesmo hostname com sufixo <code>-direct</code> fornecido pelo AtenderBem e que o transporte está como <code>0.0.0.0-tls</code> com codec <code>opus</code> habilitado.</li>
+  </ul>
+
+  <h3>Problema 3: Ramal do Webphone no AtenderBem Não Conecta</h3>
+  <ul>
+    <li><strong>Causa Raiz:</strong> Senha (<code>secret</code>) digitada incorretamente no cadastro do usuário ou bloqueio de porta WebSocket.</li>
+    <li><strong>Solução:</strong> Copie novamente a senha do ramal em <code>Applications › Extensions</code> no PABX e cole em <code>Configurações › Usuários › Habilitar Softphone</code> no AtenderBem.</li>
+  </ul>
+
+  <h3>Problema 4: O Cliente Digita os Números na URA e o PABX Não Reconhece</h3>
+  <ul>
+    <li><strong>Causa Raiz:</strong> Incompatibilidade no envio de tons DTMF entre a operadora e o Asterisk.</li>
+    <li><strong>Solução:</strong> No tronco SIP da operadora, ajuste o parâmetro <strong>DTMF Mode</strong> para <code>rfc4733</code> ou <code>rfc2833</code>.</li>
+  </ul>
+
+  <h3>Problema 5: Chamada Cai Imediatamente Após Atender</h3>
+  <ul>
+    <li><strong>Causa Raiz:</strong> Incompatibilidade de codecs de áudio entre as duas pontas.</li>
+    <li><strong>Solução:</strong> No FreePBX, em <code>Settings › Asterisk SIP Settings</code>, ative os codecs <code>ulaw</code>, <code>alaw</code>, <code>g729</code> e <code>opus</code> para garantir compatibilidade universal.</li>
+  </ul>
+
+  <div class="pagenav">
+    <a href="pabx-cdr-auditoria.html"><span>← Anterior</span> Auditoria de Chamadas & CDR</a>
+    <a class="next" href="pabx.html"><span>Voltar ao Início →</span> Portal PABX Fácil</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Módulo de Telefonia e PABX.</p>
+</footer>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tickets (Mesa de Ajuda) — Manual Omnichannel</title>
+<title>Tickets (Mesa de Ajuda e Configurações Administrativas) — Manual Omnichannel</title>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -15,6 +15,7 @@
     <a href="dashboard.html">Dashboard</a>
     <a href="crm.html">CRM</a>
     <a href="tickets.html" class="active">Tickets</a>
+    <a href="pabx.html">PABX & Telefonia</a>
     <a href="contatos.html">Contatos</a>
     <a href="relatorios.html">Relatórios</a>
     <a href="relatorios-personalizados.html">Personalizados</a>
@@ -23,68 +24,220 @@
 </header>
 
 <main class="container article">
-  <div class="breadcrumb"><a href="index.html">Início</a> › Tickets (Mesa de Ajuda)</div>
+  <div class="breadcrumb"><a href="index.html">Início</a> › Tickets (Mesa de Ajuda e Configurações)</div>
 
-  <h1>Tickets (Mesa de Ajuda)</h1>
-  <p class="subtitle">Organize solicitações de suporte em um quadro Kanban por status, com filtros por fila, prioridade e motivo.</p>
+  <h1>Tickets (Mesa de Ajuda e Configurações)</h1>
+  <p class="subtitle">Guia operacional do quadro Kanban e manual técnico de parametrização de todos os 6 módulos administrativos de Tickets no AtenderBem.</p>
 
   <figure class="figure">
     <img src="assets/tickets.png" alt="Quadro de Tickets em Kanban">
-    <figcaption>Tickets organizados em colunas de status (Open, In Progress, Awaiting Resource, Resolved, Awaiting Customer).</figcaption>
+    <figcaption>Quadro Kanban operacional: cartões organizados por status, contadores e filtros de triagem rápida.</figcaption>
   </figure>
 
-  <h2>1. Visão geral</h2>
-  <p>O módulo <strong>Tickets</strong> é a mesa de ajuda (helpdesk) da plataforma. Cada solicitação vira um “ticket” que trafega por colunas de status até ser resolvido.</p>
+  <!-- ==================== PARTE 1: OPERAÇÃO KANBAN ==================== -->
+  <h2>1. Visão geral da operação (Mesa de Ajuda)</h2>
+  <p>O módulo de <strong>Tickets</strong> é o centro de resolução de demandas assíncronas e estruturadas da plataforma <strong>AtenderBem</strong>. Ele gerencia solicitações que dependem de prazos contratuais (SLA), análise técnica aprofundada, dependência de peças ou validações financeiras.</p>
 
-  <h2>2. Filtros</h2>
-  <p>No topo, refine a visualização antes de atuar:</p>
-  <table class="doc">
-    <thead><tr><th>Filtro</th><th>Descrição</th></tr></thead>
-    <tbody>
-      <tr><td>Classifications (All classifications)</td><td>Filtra por classificação do ticket.</td></tr>
-      <tr><td>Reason (All reasons)</td><td>Filtra por motivo da solicitação.</td></tr>
-      <tr><td>Queue (All queues)</td><td>Filtra por fila responsável.</td></tr>
-      <tr><td>Priority (All priorities)</td><td>Filtra por prioridade (ex.: Low, Medium).</td></tr>
-      <tr><td>My tickets</td><td>Mostra apenas os tickets atribuídos a você.</td></tr>
-    </tbody>
-  </table>
+  <div class="callout info">
+    <strong>Omnichannel Integrado:</strong> Um ticket pode nascer automaticamente a partir de um atendimento via WhatsApp/Telefonia ou ser criado manualmente pelo atendente através do botão <code>+</code> roxo no topo do painel.
+  </div>
 
-  <h2>3. Colunas de status (Kanban)</h2>
-  <p>Os tickets são organizados em colunas, cada uma com contador próprio:</p>
+  <h2>2. Filtros de triagem e visualização</h2>
+  <p>A barra superior do quadro Kanban oferece ferramentas para refinamento de visualização em tempo real:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Filtro</th><th>Valores Possíveis</th><th>Finalidade Operacional</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Classifications</strong></td><td>Todas ou classificação específica</td><td>Segmenta por macro-departamento (ex.: Suporte Técnico, Financeiro, Comercial).</td></tr>
+        <tr><td><strong>Reason</strong></td><td>Todos ou motivo específico</td><td>Filtra pela causa-raiz do chamado (ex.: Troca de Peça, Cobrança Indevida).</td></tr>
+        <tr><td><strong>Queue</strong></td><td>Todas ou fila específica</td><td>Filtra os tickets atribuídos a uma fila de atendimento setorial.</td></tr>
+        <tr><td><strong>Priority</strong></td><td>Low, Medium, High, Critical</td><td>Ordena e destaca demandas pelo nível de urgência/impacto.</td></tr>
+        <tr><td><strong>My tickets</strong></td><td>Alternador (Toggle)</td><td>Exibe exclusivamente os chamados sob responsabilidade do usuário autenticado.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>3. Colunas de status no Kanban</h2>
+  <p>Os chamados transitam horizontalmente pelas 5 colunas de status padrão:</p>
   <ul>
-    <li><strong>Open</strong> (Azul) — tickets abertos.</li>
-    <li><strong>In Progress</strong> (Amarelo) — em andamento.</li>
-    <li><strong>Awaiting Resource</strong> (Roxo) — aguardando recurso.</li>
-    <li><strong>Resolved</strong> (Verde) — resolvidos.</li>
-    <li><strong>Awaiting Customer</strong> (Laranja) — aguardando cliente.</li>
+    <li><strong>Open (Azul):</strong> Chamados novos aguardando atribuição de responsável ou triagem inicial.</li>
+    <li><strong>In Progress (Amarelo):</strong> Chamados em análise ativa pelo atendente ou técnico responsável.</li>
+    <li><strong>Awaiting Resource (Roxo):</strong> Chamado pausado aguardando liberação de terceiro, peça física, visita técnica ou outro departamento.</li>
+    <li><strong>Awaiting Customer (Laranja):</strong> Chamado pausado aguardando envio de evidências, fotos, documentos ou retorno do cliente.</li>
+    <li><strong>Resolved (Verde):</strong> Demanda totalmente solucionada e encerrada.</li>
   </ul>
 
-  <h2>4. Cartões de ticket</h2>
-  <p>Cada cartão traz informações rápidas para triagem:</p>
+  <h2>4. Anatomia do cartão de ticket</h2>
   <ul>
-    <li><strong>Agente:</strong> “No agent” quando não atribuído.</li>
-    <li><strong>ID:</strong> código do ticket (ex.: TK-20260807-05115).</li>
-    <li><strong>Título:</strong> assunto da solicitação.</li>
-    <li><strong>Tags:</strong> rótulos como motivo, prioridade (Low/Medium) e triagem.</li>
-    <li><strong>Data/hora</strong> e, quando aplicável, <strong>barra de progresso/SLA</strong>.</li>
-    <li><strong>Tempo decorrido:</strong> relógio com tempo aberto (ex.: “-42d 5h” em tickets antigos).</li>
+    <li><strong>Código do Protocolo:</strong> Identificador amigável (ex.: <code>TK-20260807-05115</code>).</li>
+    <li><strong>Responsável:</strong> Nome do agente ou <em>"No agent"</em> (quando não distribuído).</li>
+    <li><strong>Assunto / Título:</strong> Resumo da necessidade do cliente.</li>
+    <li><strong>Tags e Rótulos:</strong> Motivo, prioridade e classificação associados.</li>
+    <li><strong>Contador de SLA / Tempo decorrido:</strong> Indicador de tempo aberto (ex.: <code>-42d 5h</code>) e barra de progresso do prazo.</li>
+    <li><strong>Engrenagem de Ações:</strong> Menu para reatribuição, adição de notas internas, troca de status ou anexo de arquivos.</li>
   </ul>
 
-  <h2>5. Criando e acompanhando</h2>
+  <hr style="margin: 44px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <!-- ==================== PARTE 2: CONFIGURAÇÕES DETALHADAS ==================== -->
+  <h2>5. Guia Completo de Configurações Administrativas</h2>
+  <p>O ecossistema de Tickets é configurado em <strong>6 áreas administrativas dedicadas</strong>. Abaixo está o detalhamento completo de cada tela, seus campos, regras e opções:</p>
+
+  <ul class="menulist">
+    <li><span class="ico">👥</span><div><b>1. Service Groups</b> (<code>/base/config/tickets-service-groups</code>) — Grupos de atendimento e equipes responsáveis.</div></li>
+    <li><span class="ico">🗂️</span><div><b>2. Classifications</b> (<code>/base/config/tickets-classifications</code>) — Categorias e macro-divisões dos tickets.</div></li>
+    <li><span class="ico">🎯</span><div><b>3. Reasons</b> (<code>/base/config/tickets-reasons</code>) — Motivos detalhados de abertura de chamados.</div></li>
+    <li><span class="ico">✉️</span><div><b>4. Email Config</b> (<code>/base/config/tickets-email-config</code>) — Servidor de e-mail, notificações e modelos automáticos.</div></li>
+    <li><span class="ico">🔄</span><div><b>5. Stage Flows</b> (<code>/base/config/tickets-stage-flows</code>) — Fluxos de etapas, transições de status e regras de movimentação.</div></li>
+    <li><span class="ico">⚙️</span><div><b>6. System Config</b> (<code>/base/config/tickets-system-config</code>) — Parâmetros globais, prefixo de protocolo, SLAs e automações.</div></li>
+  </ul>
+
+  <!-- 5.1 Service Groups -->
+  <h3>5.1. Grupos de Atendimento (`/base/config/tickets-service-groups`)</h3>
+  <p>Define quais grupos de atendentes respondem por quais tipos de demanda dentro da empresa.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo / Parâmetro</th><th>Tipo</th><th>Descrição e Regra de Negócio</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Group Name</strong></td><td>Texto</td><td>Nome de identificação do grupo (ex.: <em>Suporte Técnico N2</em>, <em>Backoffice Financeiro</em>).</td></tr>
+        <tr><td><strong>Description</strong></td><td>Texto longo</td><td>Finalidade e escopo de atuação da equipe.</td></tr>
+        <tr><td><strong>Members (Usuários)</strong></td><td>Multi-seleção</td><td>Lista de atendentes/usuários que fazem parte deste grupo.</td></tr>
+        <tr><td><strong>Supervisors</strong></td><td>Multi-seleção</td><td>Gestores que recebem alertas de SLA estourado e têm permissão de reatribuição forçada.</td></tr>
+        <tr><td><strong>Routing Policy</strong></td><td>Seleção</td><td>Política de distribuição entre membros: <em>Manual (Pull)</em>, <em>Round-Robin (Circular)</em> ou <em>Menor Carga (Least Busy)</em>.</td></tr>
+        <tr><td><strong>Active</strong></td><td>Booleano (On/Off)</td><td>Habilita ou desativa a disponibilidade do grupo para novos tickets.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5.2 Classifications -->
+  <h3>5.2. Classificações (`/base/config/tickets-classifications`)</h3>
+  <p>As classificações são as grandes categorias que organizam os chamados para relatórios e direcionamento inicial.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo / Parâmetro</th><th>Tipo</th><th>Descrição e Regra de Negócio</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Classification Name</strong></td><td>Texto</td><td>Nome da classificação (ex.: <em>Garantia & Trocas</em>, <em>Dúvidas de Faturamento</em>, <em>Manutenção Preventiva</em>).</td></tr>
+        <tr><td><strong>Color / Tag Style</strong></td><td>Seletor de cor</td><td>Cor de destaque visual nos cartões do quadro Kanban.</td></tr>
+        <tr><td><strong>Default Service Group</strong></td><td>Seleção</td><td>Grupo de atendimento que recebe os tickets desta classificação por padrão.</td></tr>
+        <tr><td><strong>Default Stage Flow</strong></td><td>Seleção</td><td>Fluxo de etapas (esteira Kanban) associado a esta categoria de chamado.</td></tr>
+        <tr><td><strong>Order / Weight</strong></td><td>Numérico</td><td>Ordem de exibição nos menus suspensos dos operadores.</td></tr>
+        <tr><td><strong>Status</strong></td><td>Ativo / Inativo</td><td>Determina se a classificação aparece no formulário de criação de tickets.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5.3 Reasons -->
+  <h3>5.3. Motivos de Abertura (`/base/config/tickets-reasons`)</h3>
+  <p>Subcategorias específicas vinculadas obrigatoriamente a uma Classificação pai.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo / Parâmetro</th><th>Tipo</th><th>Descrição e Regra de Negócio</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Classification</strong></td><td>Seleção</td><td>Classificação pai à qual o motivo pertence.</td></tr>
+        <tr><td><strong>Reason Name</strong></td><td>Texto</td><td>Nome do motivo (ex.: <em>Falha no Cabeçote Laser</em>, <em>Erro de Emissão de Nota Fiscal</em>).</td></tr>
+        <tr><td><strong>Default Priority</strong></td><td>Seleção</td><td>Prioridade atribuída automaticamente ao selecionar o motivo (<em>Low</em>, <em>Medium</em>, <em>High</em>, <em>Critical</em>).</td></tr>
+        <tr><td><strong>Default SLA (Horas)</strong></td><td>Numérico</td><td>Tempo limite customizado de resolução específico para este motivo.</td></tr>
+        <tr><td><strong>Require Resolution Note</strong></td><td>Booleano</td><td>Quando <code>True</code>, bloqueia a conclusão do ticket sem preenchimento da justificativa de solução.</td></tr>
+        <tr><td><strong>Active</strong></td><td>Booleano</td><td>Controla a disponibilidade do motivo no sistema.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5.4 Email Config -->
+  <h3>5.4. Configuração de E-mail de Tickets (`/base/config/tickets-email-config`)</h3>
+  <p>Parametrização do canal de comunicação por e-mail para envio de comprovantes, respostas e alertas aos solicitantes.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Opção / Seção</th><th>Tipo</th><th>Descrição e Regra</th></tr></thead>
+      <tbody>
+        <tr><td><strong>SMTP / Outgoing Server</strong></td><td>Host/Port/Auth</td><td>Servidor de envio de e-mails (Host, Porta 587/465, TLS/SSL, Usuário e Senha).</td></tr>
+        <tr><td><strong>Sender Name & Address</strong></td><td>Texto / E-mail</td><td>Nome exibido (ex.: <em>Suporte FastCorte</em>) e e-mail remetente (ex.: <code>suporte@fastcorte.com.br</code>).</td></tr>
+        <tr><td><strong>IMAP / Inbound Ingestion</strong></td><td>Host/Port/Auth</td><td>[Opcional] Leitura de caixa de entrada para criação automática de tickets a partir de e-mails recebidos.</td></tr>
+        <tr><td><strong>Template: New Ticket</strong></td><td>HTML / Tags</td><td>Modelo de e-mail enviado ao cliente quando um ticket é criado (contendo <code>{protocol}</code> e <code>{subject}</code>).</td></tr>
+        <tr><td><strong>Template: Ticket Updated</strong></td><td>HTML / Tags</td><td>Notificação enviada ao cliente quando um atendente adiciona uma resposta pública.</td></tr>
+        <tr><td><strong>Template: Ticket Resolved</strong></td><td>HTML / Tags</td><td>E-mail de conclusão com resumo da solução e link para pesquisa de satisfação.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5.5 Stage Flows -->
+  <h3>5.5. Fluxos de Etapas (`/base/config/tickets-stage-flows`)</h3>
+  <p>Configura o ciclo de vida e a esteira de estágios pela qual o chamado transita (a máquina de estados do Kanban).</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Recurso / Configuração</th><th>Tipo</th><th>Descrição e Regra de Transição</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Flow Name</strong></td><td>Texto</td><td>Nome do fluxo (ex.: <em>Fluxo Padrão de Suporte</em>, <em>Fluxo de Garantia e Devolução</em>).</td></tr>
+        <tr><td><strong>Stages (Etapas / Colunas)</strong></td><td>Lista ordenada</td><td>Cadastro das colunas visíveis (ex.: <em>Open</em>, <em>In Progress</em>, <em>Awaiting Resource</em>, <em>Awaiting Customer</em>, <em>Resolved</em>).</td></tr>
+        <tr><td><strong>Stage Color & Type</strong></td><td>Seleção</td><td>Define a cor da coluna e o tipo lógico (<em>Inicial</em>, <em>Em Andamento</em>, <em>Pausado</em>, <em>Finalizado</em>).</td></tr>
+        <tr><td><strong>Allowed Transitions</strong></td><td>Matriz de regras</td><td>Restringe para quais colunas um ticket pode ser arrastado a partir do estágio atual.</td></tr>
+        <tr><td><strong>Mandatory Fields on Stage</strong></td><td>Seleção de campos</td><td>Campos que devem estar obrigatoriamente preenchidos antes de mover o ticket para esta etapa.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5.6 System Config -->
+  <h3>5.6. Configurações Gerais do Sistema (`/base/config/tickets-system-config`)</h3>
+  <p>Parâmetros globais de comportamento do módulo de Tickets:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Parâmetro Global</th><th>Valor Padrão / Tipo</th><th>Efeito no Sistema</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Protocol Prefix</strong></td><td><code>TK</code> (Texto)</td><td>Prefixo dos números de protocolo gerados (ex.: <code>TK-YYYYMMDD-XXXXX</code>).</td></tr>
+        <tr><td><strong>Business Hours Schedule</strong></td><td>Dias e Horários</td><td>Calendário operacional para cálculo de SLA (ex.: Segunda a Sexta, 08:00 às 18:00).</td></tr>
+        <tr><td><strong>Pause SLA on Pending</strong></td><td>Sim (Booleano)</td><td>Congela a contagem de SLA enquanto o ticket estiver em <em>Awaiting Customer</em> ou <em>Awaiting Resource</em>.</td></tr>
+        <tr><td><strong>Auto-Close Inactive Days</strong></td><td>7 (Numérico)</td><td>Dias de inatividade em <em>Awaiting Customer</em> antes de encerrar o ticket automaticamente.</td></tr>
+        <tr><td><strong>Allow Customer Reopen</strong></td><td>Não (Booleano)</td><td>Define se o cliente pode reabrir um ticket após estar em <em>Resolved</em> respondendo à mensagem.</td></tr>
+        <tr><td><strong>Max Attachment Size</strong></td><td>10 MB (Numérico)</td><td>Tamanho máximo permitido para upload de arquivos, fotos e laudos nos tickets.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr style="margin: 44px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <!-- ==================== PARTE 3: EXEMPLO PRÁTICO ==================== -->
+  <h2>6. Estudo de Caso Prático: Configuração Completa na Ordem de Dependência</h2>
+  <p>Abaixo está o roteiro de parametrização de uma central de atendimento técnica completa na ordem exata de dependência dos cadastros:</p>
+
   <ol class="steps">
-    <li>Use o botão <strong>+</strong> (roxo) para abrir um novo ticket.</li>
-    <li>Aplique filtros para separar o que é sua responsabilidade (“My tickets”).</li>
-    <li>Arraste ou mova o ticket entre colunas conforme o andamento.</li>
-    <li>Use o ícone de engrenagem no cartão para ações específicas do ticket.</li>
+    <li>
+      <strong>Passo 1 — Configurar Parâmetros Gerais do Sistema (`tickets-system-config`):</strong><br>
+      Defina o prefixo de protocolo como <code>TK</code>, ative o congelamento de SLA em status de espera (<em>Pause SLA on Pending = True</em>) e configure o horário de atendimento comercial (Seg a Sex das 08h às 18h).
+    </li>
+    <li>
+      <strong>Passo 2 — Configurar o Canal de E-mail (`tickets-email-config`):</strong><br>
+      Insira as credenciais SMTP de <code>suporte@fastcorte.com.br</code> e ative o envio automático do comprovante de abertura com a tag <code>{protocol}</code>.
+    </li>
+    <li>
+      <strong>Passo 3 — Criar o Grupo de Atendimento (`tickets-service-groups`):</strong><br>
+      Crie o grupo <em>"Equipe Técnica de Campo"</em>, adicione os técnicos especialistas como membros e selecione a distribuição por <em>Menor Carga (Least Busy)</em>.
+    </li>
+    <li>
+      <strong>Passo 4 — Definir o Fluxo de Etapas (`tickets-stage-flows`):</strong><br>
+      Crie o fluxo <em>"Atendimento Técnico Industrial"</em> contendo as etapas: <em>Open › Triagem Técnica › Aguardando Peça › Em Manutenção › Concluído</em>.
+    </li>
+    <li>
+      <strong>Passo 5 — Cadastrar a Classificação (`tickets-classifications`):</strong><br>
+      Cadastre a classificação <em>"Assistência de Máquinas Laser"</em> (Cor Roxa), associando-a ao grupo <em>"Equipe Técnica de Campo"</em> e ao fluxo <em>"Atendimento Técnico Industrial"</em>.
+    </li>
+    <li>
+      <strong>Passo 6 — Cadastrar os Motivos de Abertura (`tickets-reasons`):</strong><br>
+      Cadastre o motivo <em>"Substituição de Espelho Óptico"</em> (Prioridade: <strong>High</strong> | SLA: <strong>8 horas</strong> | Exigir nota de resolução: <strong>Sim</strong>).
+    </li>
   </ol>
 
-  <div class="callout warn">
-    <strong>Observado no ambiente:</strong> no exemplo capturado, havia 4 tickets Open e 46 Resolved, evidenciando um histórico de atendimentos já finalizados.
+  <h2>7. Resumo e Boas Práticas de Governança</h2>
+  <div class="callout tip">
+    <ul>
+      <li><strong>Ordem de Cadastro:</strong> Sempre configure primeiro o <em>System Config</em> e os <em>Service Groups</em> antes de cadastrar <em>Classificações</em> e <em>Motivos</em>, pois os últimos dependem dos primeiros.</li>
+      <li><strong>SLA Justo:</strong> Mantenha o congelamento de SLA ativado em status de pendência externa para que as métricas da equipe reflitam apenas o tempo de trabalho real.</li>
+      <li><strong>Obrigatoriedade de Resolução:</strong> Ative sempre o campo <em>Require Resolution Note</em> nos motivos críticos para manter um histórico rico de base de conhecimento.</li>
+    </ul>
   </div>
 
   <div class="pagenav">
     <a href="crm.html"><span>← Anterior</span> CRM e Funil de Vendas</a>
-    <a class="next" href="chat-interno.html"><span>Próximo →</span> Chat Interno</a>
+    <a class="next" href="pabx.html"><span>Próximo →</span> PABX Fácil e Telefonia VoIP</a>
   </div>
 </main>
 

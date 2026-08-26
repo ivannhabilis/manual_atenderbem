@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URAs, Áudios e Anúncios — Manual PABX Fácil</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="pabx.html">Portal PABX</a>
+    <a href="pabx-troncos.html">Troncos SIP</a>
+    <a href="pabx-rotas.html">Rotas</a>
+    <a href="pabx-ramais.html">Ramais</a>
+    <a href="pabx-filas.html">Filas</a>
+    <a href="pabx-ura-audios.html" class="active">URAs & Áudios</a>
+    <a href="pabx-horarios.html">Horários</a>
+    <a href="pabx-custom.html">Custom & ARI</a>
+    <a href="pabx-cdr-auditoria.html">CDR</a>
+    <a href="pabx-cli-troubleshooting.html">CLI & Debug</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › <a href="pabx.html">PABX & Telefonia</a> › URAs, Áudios e Anúncios</div>
+
+  <h1>Gravações de Áudio, Anúncios e Menus de URA (IVR)</h1>
+  <p class="subtitle">Como fazer upload de áudios profissionais, criar mensagens informativas (Announcements) e estruturar menus vocais interativos de autoatendimento.</p>
+
+  <h2>1. Gravações do Sistema (System Recordings)</h2>
+  <p>As <strong>Gravações do Sistema</strong> são a base sonora da central. Elas contêm as vozes que os clientes escutam ao ligar para a empresa.</p>
+
+  <div class="callout tip">
+    <strong>Padrão Técnico de Áudio para Telefonia:</strong> Para máxima clareza e compatibilidade com o Asterisk, os arquivos de áudio devem estar no formato <strong>WAV PCM, 16-bit Mono, taxa de amostragem de 8000 Hz ou 16000 Hz</strong>. Arquivos em MP3 ou estéreo sofrem conversão e podem gerar ruído.
+  </div>
+
+  <h3>Como cadastrar um áudio no FreePBX:</h3>
+  <ol class="steps">
+    <li>No menu do PABX, acesse <code>Admin › System Recordings › + Add Recording</code>.</li>
+    <li>Clique em <strong>Upload Recording</strong> e selecione o arquivo <code>.wav</code> gravado em seu computador.</li>
+    <li>Defina um <strong>Name</strong> descritivo (ex.: <code>Audio_Menu_Principal</code> ou <code>Audio_Fora_Horario</code>).</li>
+    <li>Clique em <strong>Save</strong> e aplique as alterações com <strong>Apply Config</strong>.</li>
+  </ol>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>2. Anúncios Informativos (Announcements)</h2>
+  <p>Um <strong>Anúncio (Announcement)</strong> reproduz uma mensagem gravada para o cliente e, imediatamente após o fim da fala, transfere a chamada para o próximo destino automaticamente, sem esperar interação de teclas.</p>
+
+  <h3>Casos de uso comuns:</h3>
+  <ul>
+    <li><em>"Esta ligação está sendo gravada para fins de controle de qualidade..."</em> ➔ Direciona para a <strong>Fila de Atendimento</strong>.</li>
+    <li><em>"Nosso horário de atendimento é de segunda a sexta, das 8h às 18h..."</em> ➔ Direciona para <strong>Desligar (Hangup)</strong> ou <strong>Caixa Postal</strong>.</li>
+    <li><em>"Estamos realizando manutenção técnica preventiva..."</em> ➔ Direciona para a <strong>URA de Emergência</strong>.</li>
+  </ul>
+
+  <p>Para configurar, acesse <code>Applications › Announcements › + Add Announcement</code>, selecione a gravação cadastrada no campo <em>Recording</em> e defina o destino final em <em>Destination after playback</em>.</p>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>3. Criação de URA / IVR (Interactive Voice Response)</h2>
+  <p>A <strong>URA (IVR)</strong> é o menu eletrônico que orienta o cliente: <em>"Olá, bem-vindo à FastCorte! Digite 1 para Suporte Técnico, 2 para Financeiro, ou 3 para Vendas."</em></p>
+
+  <figure class="figure">
+    <div style="background: #1f2430; color: #fff; padding: 24px; text-align: center; border-radius: 8px; font-family: monospace;">
+      ┌──────────────────────────────────────────────┐<br>
+      │           URA PRINCIPAL (IVR)                │<br>
+      │  Áudio: "Digite 1 Suporte / 2 Financeiro"    │<br>
+      └──────────────────────┬───────────────────────┘<br>
+             ┌───────────────┼───────────────┐        <br>
+             ▼ [Dígito 1]    ▼ [Dígito 2]    ▼ [Timeout/Inválido]<br>
+      ┌──────────────┐ ┌──────────────┐ ┌──────────────┐<br>
+      │ Fila Suporte │ │Fila Financeir│ │ Repete Áudio │<br>
+      └──────────────┘ └──────────────┘ └──────────────┘
+    </div>
+    <figcaption>Fluxo lógico de decisão por DTMF na URA do PABX.</figcaption>
+  </figure>
+
+  <h3>Passo a passo no FreePBX (`Applications › IVR`):</h3>
+  <ol class="steps">
+    <li>Acesse <code>Applications › IVR › + Add IVR</code>.</li>
+    <li>Defina o <strong>IVR Name</strong> (ex.: <code>URA_Principal_Diurna</code>).</li>
+    <li>No campo <strong>Announcement</strong>, selecione a gravação com as opções de menu (ex.: <code>Audio_Menu_Principal</code>).</li>
+    <li><strong>Timeout:</strong> Defina o tempo de espera pelo dígito do cliente (padrão: <code>5 segundos</code>).</li>
+    <li><strong>Invalid Retries:</strong> Número de tentativas permitidas se o cliente digitar uma opção inexistente (ex.: <code>2</code>).</li>
+    <li><strong>Timeout Destination:</strong> O que fazer se o cliente não digitar nada (ex.: repetir o menu ou transferir para a recepção).</li>
+    <li>
+      <strong>Tabela de Entradas (IVR Entries):</strong> Mapeie os dígitos numéricos para seus destinos:
+      <table class="doc" style="margin-top: 10px;">
+        <thead><tr><th>Dígito DTMF</th><th>Destino (Destination)</th><th>Descrição</th></tr></thead>
+        <tbody>
+          <tr><td><code>1</code></td><td>Queues › Fila_Suporte</td><td>Direciona para os técnicos de suporte.</td></tr>
+          <tr><td><code>2</code></td><td>Queues › Fila_Financeiro</td><td>Direciona para faturamento/cobrança.</td></tr>
+          <tr><td><code>3</code></td><td>Queues › Fila_Comercial</td><td>Direciona para o time de vendas.</td></tr>
+          <tr><td><code>9</code></td><td>Extensions › 1000 (Recepção)</td><td>Atendimento humano geral.</td></tr>
+          <tr><td><code>t</code> (Timeout)</td><td>IVR › URA_Principal_Diurna</td><td>Repete o menu caso nada seja digitado.</td></tr>
+          <tr><td><code>i</code> (Invalid)</td><td>Announcements › Opcao_Invalida</td><td>Toca aviso de opção incorreta.</td></tr>
+        </tbody>
+      </table>
+    </li>
+    <li>Clique em <strong>Submit</strong> e em <strong>Apply Config</strong>.</li>
+  </ol>
+
+  <div class="pagenav">
+    <a href="pabx-filas.html"><span>← Anterior</span> Filas de Atendimento</a>
+    <a class="next" href="pabx-horarios.html"><span>Próximo Capítulo →</span> Condições de Horário (Time Conditions)</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Módulo de Telefonia e PABX.</p>
+</footer>
+
+</body>
+</html>

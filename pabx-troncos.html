@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Troncos SIP e WhatsApp Cloud API — Manual PABX Fácil</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="pabx.html">Portal PABX</a>
+    <a href="pabx-troncos.html" class="active">Troncos SIP</a>
+    <a href="pabx-rotas.html">Rotas</a>
+    <a href="pabx-ramais.html">Ramais</a>
+    <a href="pabx-filas.html">Filas</a>
+    <a href="pabx-ura-audios.html">URAs & Áudios</a>
+    <a href="pabx-horarios.html">Horários</a>
+    <a href="pabx-custom.html">Custom & ARI</a>
+    <a href="pabx-cdr-auditoria.html">CDR</a>
+    <a href="pabx-cli-troubleshooting.html">CLI & Debug</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › <a href="pabx.html">PABX & Telefonia</a> › Troncos SIP & WhatsApp Cloud API</div>
+
+  <h1>Guia Completo de Troncos SIP (Trunks)</h1>
+  <p class="subtitle">Aprenda a configurar Troncos SIP convencionais de operadoras VoIP e o Tronco PJSIP seguro (TLS/SRTP) para números oficiais da WhatsApp Cloud API (Meta).</p>
+
+  <figure class="figure">
+    <img src="assets/pabx-trunk-meta.png" alt="Configuração de Tronco PJSIP">
+    <figcaption>Interface de configuração de Tronco PJSIP em Connectivity › Trunks.</figcaption>
+  </figure>
+
+  <h2>1. O que é um Tronco (Trunk)?</h2>
+  <p>O <strong>Tronco SIP</strong> é o canal digital de comunicação que conecta o PABX Fácil (Asterisk) ao mundo externo. É através dos troncos que as chamadas originadas em telefones convencionais, celulares ou chamadas de voz via WhatsApp chegam até a sua central e que as ligações feitas pelos seus atendentes saem para os clientes.</p>
+
+  <div class="callout tip">
+    <strong>Regra de Ouro:</strong> Sempre que alterar qualquer configuração de tronco, clique em <strong>Submit</strong> no rodapé da página e em seguida na barra <strong>Apply Config</strong> no topo.
+  </div>
+
+  <h2>2. Tipos de Troncos Suportados</h2>
+  <ul>
+    <li><strong>Tronco SIP Convencional (Operadora VoIP / PSTN):</strong> Utiliza autenticação por IP ou Usuário/Senha (SIP Registration), transportado via UDP/TCP padrão e codecs como G.711 (alaw/ulaw) ou G.729.</li>
+    <li><strong>Tronco WhatsApp Cloud API (Meta):</strong> Utiliza criptografia de mídia <strong>SRTP</strong>, transporte seguro <strong>TLSv1.2</strong>, autenticação de entrada via cabeçalho SIP e codec de alta fidelidade <strong>Opus</strong>.</li>
+  </ul>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>3. Configuração Passo a Passo: Tronco WhatsApp Cloud API (Meta)</h2>
+  <p>Esta configuração permite receber e realizar chamadas de voz oficiais do WhatsApp diretamente na plataforma.</p>
+
+  <h3>Passo 1: Habilitar Telefonia no AtenderBem</h3>
+  <p>No painel do AtenderBem, acesse <code>Configurações › Filas</code>. No número WhatsApp Cloud API Oficial, clique no botão <strong>"Configurar telefonia"</strong>. O sistema exibirá o Servidor SIP gerado (com sufixo <code>-direct</code>) e a senha.</p>
+
+  <h3>Passo 2: Instalar Certificado SSL Let's Encrypt no PABX</h3>
+  <figure class="figure">
+    <img src="assets/pabx-cert-meta.png" alt="Instalação de Certificado Let's Encrypt">
+    <figcaption>Geração de certificado Let's Encrypt no menu Admin › Certificate Management.</figcaption>
+  </figure>
+
+  <ol class="steps">
+    <li>No PABX, acesse <code>Admin › Certificate Management › + New Certificate › Generate Let's Encrypt Certificate</code>.</li>
+    <li>No campo <strong>Certificate Host Name</strong>, insira exatamente o hostname fornecido pelo AtenderBem (com o sufixo <code>-direct</code>).</li>
+    <li>Preencha o e-mail do administrador, selecione o país e clique em <strong>Generate</strong>.</li>
+    <li>Acesse <code>Settings › Asterisk SIP Settings › SIP Settings (chan_pjsip)</code>. Na seção <strong>TLS/SSL</strong>, selecione o certificado criado e configure o <strong>SSL Method</strong> como <code>tlsv1_2</code>.</li>
+    <li>Na aba <strong>General SIP Settings</strong>, na seção <strong>Audio Codecs</strong>, marque a opção <code>opus</code>.</li>
+  </ol>
+
+  <h3>Passo 3: Criar o Tronco PJSIP no FreePBX</h3>
+  <p>Acesse <code>Connectivity › Trunks › + Add Trunk › Add SIP (chan_pjsip) Trunk</code> e preencha rigorosamente conforme a tabela abaixo:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Aba do FreePBX</th><th>Parâmetro</th><th>Valor Obrigatório</th><th>Explicação Técnica</th></tr></thead>
+      <tbody>
+        <tr><td><strong>General</strong></td><td>Trunk Name</td><td><code>5511987654321</code></td><td>Número do WhatsApp com DDI (55) + DDD (11) + Número (12 dígitos no total).</td></tr>
+        <tr><td><strong>General</strong></td><td>Outbound CallerID</td><td><code>5511987654321</code></td><td>Identificador que será enviado nas chamadas efetuadas.</td></tr>
+        <tr><td><strong>pjsip Settings › General</strong></td><td>Authentication</td><td><code>None</code></td><td>A Meta não utiliza autenticação SIP tradicional por REGISTER.</td></tr>
+        <tr><td><strong>pjsip Settings › General</strong></td><td>Registration</td><td><code>None</code></td><td>O canal opera via roteamento direto por IP/TLS.</td></tr>
+        <tr><td><strong>pjsip Settings › General</strong></td><td>SIP Server</td><td><code>wa.meta.vc</code></td><td>Servidor oficial de telefonia da Meta.</td></tr>
+        <tr><td><strong>pjsip Settings › General</strong></td><td>Context</td><td><code>from-pstn</code></td><td>Contexto padrão do Asterisk para entrada de chamadas externas.</td></tr>
+        <tr><td><strong>pjsip Settings › General</strong></td><td>Transport</td><td><code>0.0.0.0-tls</code></td><td>Exige transporte seguro criptografado com o certificado instalado.</td></tr>
+        <tr><td><strong>pjsip Settings › Advanced</strong></td><td>Media Encryption</td><td><code>srtp</code></td><td>Criptografia obrigatória dos pacotes de áudio (RTP).</td></tr>
+        <tr><td><strong>pjsip Settings › Advanced</strong></td><td>Match Inbound Auth</td><td><code>Auth username</code></td><td>Identificação da chamada de entrada pelo cabeçalho de usuário.</td></tr>
+        <tr><td><strong>pjsip Settings › Codecs</strong></td><td>Codecs habilitados</td><td>Marcar <code>opus</code> e desmarcar incompatíveis</td><td>O WhatsApp utiliza áudio em banda larga com codec Opus.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Passo 4: Verificação de Status</h3>
+  <p>Após clicar em <strong>Submit</strong> e <strong>Apply Config</strong>, vá até <code>Reports › Asterisk Info</code>. Na seção <em>Chan_PJSIP Registrations / Channels</em>, o tronco recém-criado deve constar com status <strong>ONLINE</strong>.</p>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>4. Configuração de Tronco SIP Convencional (Operadora VoIP)</h2>
+  <p>Para troncos fornecidos por operadoras como Vivo, Embratel, TotalVoice, Directcall ou provedores SIP locais:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Parâmetro PJSIP</th><th>Valor Típico (Exemplo)</th><th>Descrição</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Trunk Name</strong></td><td><code>Tronco_Operadora_Principal</code></td><td>Nome de identificação interna.</td></tr>
+        <tr><td><strong>Outbound CallerID</strong></td><td><code>"Empresa" &lt;1130902755&gt;</code></td><td>Número do telefone fixo principal ou DDR.</td></tr>
+        <tr><td><strong>Authentication</strong></td><td><code>Outbound</code></td><td>Exige usuário e senha para discar.</td></tr>
+        <tr><td><strong>Registration</strong></td><td><code>Send</code></td><td>O PABX envia registro periódico para a operadora.</td></tr>
+        <tr><td><strong>SIP Server</strong></td><td><code>sip.operadora.com.br</code></td><td>Host ou IP fornecido pela operadora.</td></tr>
+        <tr><td><strong>Username / Secret</strong></td><td><code>usuario_sip</code> / <code>senha_forte</code></td><td>Credenciais fornecidas no contrato VoIP.</td></tr>
+        <tr><td><strong>Codecs</strong></td><td><code>alaw, ulaw, g729</code></td><td>Codecs padrão da rede pública de telefonia.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>5. Diagnóstico de Troncos via Linha de Comando (CLI)</h2>
+  <p>Execute no terminal SSH para verificar a saúde dos troncos:</p>
+  <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code># Verificar status de troncos PJSIP registrados:
+asterisk -rx "pjsip show registrations"
+
+# Listar todos os endpoints de troncos e ramais:
+asterisk -rx "pjsip show endpoints"
+
+# Testar se a porta TLS 5061 está escutando:
+netstat -tulpn | grep 5061</code></pre>
+
+  <div class="pagenav">
+    <a href="pabx.html"><span>← Voltar</span> Portal PABX</a>
+    <a class="next" href="pabx-rotas.html"><span>Próximo Capítulo →</span> Rotas de Entrada e Saída</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Módulo de Telefonia e PABX.</p>
+</footer>
+
+</body>
+</html>

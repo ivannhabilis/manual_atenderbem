@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auditoria de Chamadas e CDR — Manual PABX Fácil</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="pabx.html">Portal PABX</a>
+    <a href="pabx-troncos.html">Troncos SIP</a>
+    <a href="pabx-rotas.html">Rotas</a>
+    <a href="pabx-ramais.html">Ramais</a>
+    <a href="pabx-filas.html">Filas</a>
+    <a href="pabx-ura-audios.html">URAs & Áudios</a>
+    <a href="pabx-horarios.html">Horários</a>
+    <a href="pabx-custom.html">Custom & ARI</a>
+    <a href="pabx-cdr-auditoria.html" class="active">CDR</a>
+    <a href="pabx-cli-troubleshooting.html">CLI & Debug</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › <a href="pabx.html">PABX & Telefonia</a> › Auditoria de Chamadas & CDR</div>
+
+  <h1>Auditoria de Chamadas e Análise Profunda de CDR</h1>
+  <p class="subtitle">Guia completo para decifrar os registros de CDR (Call Detail Record), identificar atendentes que recusam chamadas e executar consultas analíticas em SQL.</p>
+
+  <h2>1. O que é o CDR (Call Detail Record)?</h2>
+  <p>O <strong>CDR</strong> é o log pericial e financeiro gerado pelo Asterisk para cada tentativa ou conclusão de chamada telefônica. Ele registra exatamente quem ligou, para quem, por quanto tempo, qual atendente recebeu, se houve transferência e o nome do arquivo de áudio gravado.</p>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>2. Dicionário Completo das Colunas do CDR</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Coluna</th><th>Nome Técnico</th><th>Significado e Exemplo Real</th></tr></thead>
+      <tbody>
+        <tr><td><code>calldate</code></td><td>Data e Hora</td><td>Momento de início da chamada (ex.: <code>2026-02-09 14:24:35</code>).</td></tr>
+        <tr><td><code>clid</code></td><td>Caller ID Completo</td><td>Nome e número de quem originou (ex.: <code>"11982076263" &lt;11982076263&gt;</code>).</td></tr>
+        <tr><td><code>src</code></td><td>Source (Origem)</td><td>Número puro do chamador ou ramal de origem.</td></tr>
+        <tr><td><code>dst</code></td><td>Destination (Destino)</td><td>Número discado ou código especial (ex.: <code>1001</code>, <code>100</code>, <code>s</code>).</td></tr>
+        <tr><td><code>dcontext</code></td><td>Contexto</td><td>Onde no dialplan a chamada rodou (ex.: <code>ivr-9</code>, <code>ext-queues</code>, <code>from-internal</code>).</td></tr>
+        <tr><td><code>channel</code></td><td>Canal de Entrada</td><td>Canal SIP/PJSIP de entrada (ex.: <code>PJSIP/wa.meta.vc-00001ba8</code>).</td></tr>
+        <tr><td><code>dstchannel</code></td><td>Canal do Atendente</td><td>Ramal que recebeu o toque (ex.: <code>PJSIP/1003-00001ba7</code>).</td></tr>
+        <tr><td><code>lastapp</code></td><td>Última Aplicação</td><td>Comando executado (ex.: <code>Queue</code>, <code>Dial</code>, <code>BackGround</code>, <code>Hangup</code>).</td></tr>
+        <tr><td><code>duration</code></td><td>Duração Total</td><td>Tempo total em segundos desde a entrada até o desligamento.</td></tr>
+        <tr><td><code>billsec</code></td><td>Tempo Cobrado/Falado</td><td>Tempo efetivo de conversação após o atendimento (em segundos).</td></tr>
+        <tr><td><code>disposition</code></td><td>Desfecho da Chamada</td><td><code>ANSWERED</code>, <code>NO ANSWER</code>, <code>BUSY</code>, <code>FAILED</code>.</td></tr>
+        <tr><td><code>recordingfile</code></td><td>Arquivo de Gravação</td><td>Nome do arquivo WAV gravado no disco (ex.: <code>in-s-11982076263-20260209-142435.wav</code>).</td></tr>
+        <tr><td><code>linkedid</code></td><td>ID Unificado</td><td>Permite rastrear toda a jornada da chamada mesmo após transferências.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>3. Como Identificar Chamadas Recusadas por Atendentes</h2>
+  <p>Na gestão de contact centers, alguns operadores desenvolvem comportamentos evasivos para evitar o atendimento. O CDR permite auditar esses padrões com 100% de precisão matemática:</p>
+
+  <h3>Padrão 1: Não Atendimento Proposital (NO ANSWER no Ramal)</h3>
+  <ul>
+    <li><strong>Sintoma no CDR:</strong> <code>disposition = 'NO ANSWER'</code> com o campo <code>dstchannel</code> preenchido com o ramal do atendente (ex.: <code>PJSIP/1003-xxxx</code>).</li>
+    <li><strong>Significado:</strong> A chamada foi entregue com sucesso pela fila até a mesa do atendente, tocou por 15 segundos e o atendente deliberadamente não atendeu.</li>
+  </ul>
+
+  <h3>Padrão 2: Desligamento Imediato / Descarte Rápido</h3>
+  <ul>
+    <li><strong>Sintoma no CDR:</strong> <code>disposition = 'ANSWERED'</code> e <code>billsec &lt; 10</code> segundos em chamadas originadas de filas de suporte.</li>
+    <li><strong>Significado:</strong> O atendente aperta para atender e imediatamente desliga na cara do cliente para ficar livre ou constar como produtivo.</li>
+  </ul>
+
+  <h3>Padrão 3: Rejeição Manual (BUSY Falso)</h3>
+  <ul>
+    <li><strong>Sintoma no CDR:</strong> <code>disposition = 'BUSY'</code> quando o atendente não estava em nenhuma outra chamada ativa.</li>
+    <li><strong>Significado:</strong> O atendente apertou o botão "Rejeitar / Ocupado" no softphone para derrubar a chamada.</li>
+  </ul>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>4. Consultas SQL Avançadas para Auditoria (`asteriskcdrdb`)</h2>
+  <p>Conecte-se ao banco de dados MySQL/MariaDB do servidor para gerar relatórios periciais instantâneos:</p>
+
+  <h3>Query 1: Relatório de Taxa de Recusa por Atendente</h3>
+  <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code>SELECT 
+    CASE 
+        WHEN dstchannel LIKE '%/1001-%' THEN '1001 - Carlos'
+        WHEN dstchannel LIKE '%/1002-%' THEN '1002 - Mariana'
+        WHEN dstchannel LIKE '%/1003-%' THEN '1003 - Roberto'
+        ELSE 'Outros'
+    END AS atendente,
+    COUNT(*) AS total_chamadas_recebidas,
+    SUM(CASE WHEN disposition = 'ANSWERED' THEN 1 ELSE 0 END) AS atendidas,
+    SUM(CASE WHEN disposition = 'NO ANSWER' THEN 1 ELSE 0 END) AS nao_atendidas,
+    SUM(CASE WHEN disposition = 'BUSY' THEN 1 ELSE 0 END) AS rejeitadas,
+    ROUND((SUM(CASE WHEN disposition IN ('NO ANSWER', 'BUSY') THEN 1 ELSE 0 END) / COUNT(*)) * 100, 2) AS taxa_recusa_percent
+FROM cdr
+WHERE dstchannel IS NOT NULL AND dstchannel != ''
+  AND calldate >= DATE_SUB(NOW(), INTERVAL 7 DAY)
+GROUP BY atendente
+ORDER BY taxa_recusa_percent DESC;</code></pre>
+
+  <h3>Query 2: Localizar Chamadas Desligadas em Menos de 10 Segundos</h3>
+  <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code>SELECT calldate, src, dstchannel, billsec, recordingfile
+FROM cdr
+WHERE dcontext = 'ext-queues'
+  AND disposition = 'ANSWERED'
+  AND billsec < 10
+ORDER BY calldate DESC;</code></pre>
+
+  <div class="pagenav">
+    <a href="pabx-custom.html"><span>← Anterior</span> Custom Destinations & ARI</a>
+    <a class="next" href="pabx-cli-troubleshooting.html"><span>Próximo Capítulo →</span> CLI do Asterisk & Diagnóstico</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Módulo de Telefonia e PABX.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestão de Ramais e Softphones — Manual PABX Fácil</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="pabx.html">Portal PABX</a>
+    <a href="pabx-troncos.html">Troncos SIP</a>
+    <a href="pabx-rotas.html">Rotas</a>
+    <a href="pabx-ramais.html" class="active">Ramais</a>
+    <a href="pabx-filas.html">Filas</a>
+    <a href="pabx-ura-audios.html">URAs & Áudios</a>
+    <a href="pabx-horarios.html">Horários</a>
+    <a href="pabx-custom.html">Custom & ARI</a>
+    <a href="pabx-cdr-auditoria.html">CDR</a>
+    <a href="pabx-cli-troubleshooting.html">CLI & Debug</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › <a href="pabx.html">PABX & Telefonia</a> › Gestão de Ramais & Softphones</div>
+
+  <h1>Gestão de Ramais (Extensions) e Softphones</h1>
+  <p class="subtitle">Como criar e administrar ramais PJSIP, configurar telefones físicos/MicroSIP, habilitar gravação de chamadas e vincular o Webphone ao sistema AtenderBem.</p>
+
+  <figure class="figure">
+    <img src="assets/pabx-extensions.png" alt="Listagem de Ramais no PABX">
+    <figcaption>Painel de gerenciamento de ramais em Applications › Extensions.</figcaption>
+  </figure>
+
+  <h2>1. O que é um Ramal (Extension)?</h2>
+  <p>O <strong>Ramal</strong> é o ponto de terminação individual de cada atendente ou estação de trabalho. Ele permite que os colaboradores conversem gratuitamente entre si dentro da empresa e recebam ou realizem chamadas externas através dos troncos SIP.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Tipo de Ramal</th><th>Onde é Utilizado</th><th>Protocolo / Recomendação</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Ramal Webphone (Navegador)</strong></td><td>Diretamente dentro do painel do AtenderBem, sem instalar nada.</td><td>PJSIP / WebRTC (Recomendado para agentes de atendimento).</td></tr>
+        <tr><td><strong>Ramal Softphone (Computador)</strong></td><td>Aplicativos de desktop como MicroSIP, Zoiper ou Linphone.</td><td>PJSIP / SIP UDP/TCP (Recomendado para estações administrativas).</td></tr>
+        <tr><td><strong>Telefone IP Físico / ATA</strong></td><td>Aparelhos de mesa físicos (Yealink, Grandstream, Intelbras).</td><td>PJSIP / SIP UDP com registro no IP público do PABX.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>2. Passo a Passo: Criando um Ramal PJSIP no FreePBX</h2>
+  <ol class="steps">
+    <li>No menu do PABX, acesse <code>Applications › Extensions › Add Extension › Add New PJSIP Extension</code>.</li>
+    <li>
+      <strong>Aba General:</strong>
+      <ul>
+        <li><strong>User Extension:</strong> Número numérico do ramal (ex.: <code>1001</code>, <code>1002</code>, <code>2001</code>).</li>
+        <li><strong>Display Name:</strong> Nome do atendente ou departamento (ex.: <code>Carlos Silva - Suporte</code>).</li>
+        <li><strong>Outbound CID:</strong> Identificador enviado ao discar externamente (opcional, pode herdar do tronco).</li>
+        <li><strong>Secret:</strong> Senha alfanumérica forte gerada pelo sistema. <em>Copie este valor!</em></li>
+      </ul>
+    </li>
+    <li>
+      <strong>Aba Recording Options (Gravação de Voz):</strong>
+      <ul>
+        <li><strong>Inbound External Calls:</strong> Definir como <code>Force</code> ou <code>Yes</code> para gravar todas as ligações recebidas de clientes.</li>
+        <li><strong>Outbound External Calls:</strong> Definir como <code>Force</code> ou <code>Yes</code> para gravar todas as ligações feitas pelos atendentes.</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Aba Voicemail (Caixa Postal - Opcional):</strong>
+      <ul>
+        <li>Habilite <code>Status = Enable</code>, defina uma senha numérica e insira o e-mail do atendente para receber o áudio da mensagem por e-mail em formato WAV.</li>
+      </ul>
+    </li>
+    <li>Clique em <strong>Submit</strong> e depois em <strong>Apply Config</strong> no topo da tela.</li>
+  </ol>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>3. Vinculando o Ramal ao Atendente no AtenderBem</h2>
+  <p>Após criar o ramal no PABX, é necessário vinculá-lo ao cadastro do operador no sistema omnichannel:</p>
+
+  <figure class="figure">
+    <img src="assets/pabx-user-softphone.png" alt="Vinculação de Softphone no AtenderBem">
+    <figcaption>Tela de edição de usuário em Configurações › Usuários no AtenderBem.</figcaption>
+  </figure>
+
+  <ol class="steps">
+    <li>No sistema AtenderBem, acesse <code>Configurações › Usuários</code>.</li>
+    <li>Localize o atendente na listagem e clique no ícone de edição.</li>
+    <li>Nas opções do formulário, ative a chave <strong>"Habilitar softphone"</strong>.</li>
+    <li>No campo <strong>Ramal</strong>, informe o número da extension criada (ex.: <code>1001</code>).</li>
+    <li>No campo <strong>Senha</strong>, cole o <code>secret</code> copiado do PABX.</li>
+    <li>Clique em <strong>Salvar</strong>.</li>
+  </ol>
+
+  <div class="callout tip">
+    <strong>Verificação em Tempo Real:</strong> Quando o atendente fizer login no AtenderBem, o ícone do telefone no cabeçalho ficará <strong>Verde</strong> indicando registro SIP com sucesso. No PABX, execute <code>asterisk -rx "pjsip show endpoints"</code> para ver o ramal em estado <em>Available / Reachable</em>.
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>4. Configuração em Aplicativos Softphone (Ex: MicroSIP)</h2>
+  <p>Caso o atendente utilize um aplicativo desktop (MicroSIP):</p>
+  <ul>
+    <li><strong>Account Name:</strong> Nome do atendente (ex.: <code>Carlos</code>).</li>
+    <li><strong>SIP Server:</strong> IP Externo do PABX (obtido no Asterisk SIP Settings) ou domínio (ex.: <code>habilistest.pbxfacil.com.br</code>).</li>
+    <li><strong>User / Login:</strong> Número do ramal (ex.: <code>1001</code>).</li>
+    <li><strong>Password:</strong> O <code>secret</code> do ramal.</li>
+    <li><strong>Media Encryption:</strong> Desativado para conexões locais padrão ou <em>Mandatory SRTP</em> se configurado com TLS.</li>
+  </ul>
+
+  <div class="pagenav">
+    <a href="pabx-rotas.html"><span>← Anterior</span> Rotas de Entrada e Saída</a>
+    <a class="next" href="pabx-filas.html"><span>Próximo Capítulo →</span> Filas de Atendimento (Queues)</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Módulo de Telefonia e PABX.</p>
+</footer>
+
+</body>
+</html>

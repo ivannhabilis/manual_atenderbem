@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal PABX Fácil e Telefonia VoIP — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="crm.html">CRM</a>
+    <a href="tickets.html">Tickets</a>
+    <a href="pabx.html" class="active">PABX & Telefonia</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="relatorios.html">Relatórios</a>
+    <a href="relatorios-personalizados.html">Personalizados</a>
+    <a href="configuracoes.html">Configurações</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › PABX Fácil e Telefonia VoIP</div>
+
+  <h1>Portal de Telefonia VoIP e PABX Fácil</h1>
+  <p class="subtitle">Guia mestre de arquitetura, operação e parametrização do servidor Asterisk / FreePBX integrado à plataforma AtenderBem.</p>
+
+  <figure class="figure">
+    <img src="assets/pabx-painel.png" alt="Painel do PABX Fácil">
+    <figcaption>Ambiente de administração do PABX Fácil (Incredible PBX / FreePBX) integrado ao AtenderBem.</figcaption>
+  </figure>
+
+  <h2>1. Visão Geral da Arquitetura</h2>
+  <p>O <strong>PABX Fácil</strong> é o motor de telefonia em nuvem do <strong>AtenderBem</strong>. Ele integra canais telefônicos tradicionais (PSTN / E1 / SIP Trunk) e ligações de voz da <strong>WhatsApp Cloud API Oficial (Meta)</strong> em uma única central inteligente com Webphone integrado no navegador dos atendentes.</p>
+
+  <div class="callout tip">
+    <strong>Regra de Ouro do FreePBX:</strong> Toda alteração feita em qualquer menu exige clicar em <strong>Submit</strong> (no rodapé) e em seguida na barra <strong>Apply Config</strong> (no topo) para recarregar o dialplan no Asterisk em tempo real.
+  </div>
+
+  <h2>2. Capítulos da Documentação de Telefonia</h2>
+  <p>Acesse os guias detalhados de cada módulo nos cards abaixo:</p>
+
+  <div class="grid" style="margin: 28px 0;">
+
+    <a class="card" href="pabx-troncos.html">
+      <div class="thumb"><img src="assets/pabx-trunk-meta.png" alt="Troncos SIP"></div>
+      <div class="body">
+        <span class="tag">Conectividade</span>
+        <h3>1. Troncos SIP & WhatsApp Cloud API</h3>
+        <p>Configuração de troncos de operadoras VoIP e conexão segura com WhatsApp Cloud API Meta (TLS, SRTP e Opus).</p>
+        <div class="more">Acessar capítulo →</div>
+      </div>
+    </a>
+
+    <a class="card" href="pabx-rotas.html">
+      <div class="thumb"><img src="assets/pabx-nat-ip.png" alt="Rotas de Entrada e Saída"></div>
+      <div class="body">
+        <span class="tag">Roteamento</span>
+        <h3>2. Rotas de Entrada e Saída</h3>
+        <p>Controle de DIDs de entrada, regras de encaminhamento e padrões de discagem de saída (Dial Patterns).</p>
+        <div class="more">Acessar capítulo →</div>
+      </div>
+    </a>
+
+    <a class="card" href="pabx-ramais.html">
+      <div class="thumb"><img src="assets/pabx-extensions.png" alt="Gestão de Ramais"></div>
+      <div class="body">
+        <span class="tag">Equipe</span>
+        <h3>3. Gestão de Ramais & Softphones</h3>
+        <p>Criação de ramais PJSIP, configuração no MicroSIP/Telefones IP e vínculo com atendentes no AtenderBem.</p>
+        <div class="more">Acessar capítulo →</div>
+      </div>
+    </a>
+
+    <a class="card" href="pabx-filas.html">
+      <div class="thumb"><img src="assets/pabx-user-softphone.png" alt="Filas de Atendimento"></div>
+      <div class="body">
+        <span class="tag">Atendimento</span>
+        <h3>4. Filas de Atendimento (Queues)</h3>
+        <p>Estratégias de distribuição (ringall, rrmemory, leastrecent), agentes estáticos/dinâmicos e transbordo.</p>
+        <div class="more">Acessar capítulo →</div>
+      </div>
+    </a>
+
+    <a class="card" href="pabx-ura-audios.html">
+      <div class="thumb"><img src="assets/pabx-painel.png" alt="URAs e Áudios"></div>
+      <div class="body">
+        <span class="tag">Autoatendimento</span>
+        <h3>5. URAs, Gravações & Anúncios</h3>
+        <p>Upload de áudios WAV, avisos gravados (Announcements) e estruturação de menus de URA (IVR) com DTMF.</p>
+        <div class="more">Acessar capítulo →</div>
+      </div>
+    </a>
+
+    <a class="card" href="pabx-horarios.html">
+      <div class="thumb"><img src="assets/pabx-nat-ip.png" alt="Condições de Horário"></div>
+      <div class="body">
+        <span class="tag">Automação</span>
+        <h3>6. Condições de Horário (Time Conditions)</h3>
+        <p>Horário comercial, atendimento noturno, feriados e códigos de sobreposição manual via ramal.</p>
+        <div class="more">Acessar capítulo →</div>
+      </div>
+    </a>
+
+    <a class="card" href="pabx-custom.html">
+      <div class="thumb"><img src="assets/pabx-custom-destination.png" alt="Custom Destinations"></div>
+      <div class="body">
+        <span class="tag">Integração</span>
+        <h3>7. Custom Destinations & ARI Bridge</h3>
+        <p>Conexão do Asterisk à inteligência de URA Avançada do sistema AtenderBem através de pontes ARI.</p>
+        <div class="more">Acessar capítulo →</div>
+      </div>
+    </a>
+
+    <a class="card" href="pabx-cdr-auditoria.html">
+      <div class="thumb"><img src="assets/pabx-extensions.png" alt="Auditoria de CDR"></div>
+      <div class="body">
+        <span class="tag">Auditoria & BI</span>
+        <h3>8. Auditoria de Chamadas & Análise de CDR</h3>
+        <p>Decifre as 25 colunas do CDR, detecte atendentes que recusam chamadas e consulte o banco em SQL.</p>
+        <div class="more">Acessar capítulo →</div>
+      </div>
+    </a>
+
+    <a class="card" href="pabx-cli-troubleshooting.html">
+      <div class="thumb"><img src="assets/pabx-painel.png" alt="Comandos CLI"></div>
+      <div class="body">
+        <span class="tag">Diagnóstico</span>
+        <h3>9. Comandos CLI & Resolução de Problemas</h3>
+        <p>Guia de comandos de console traduzidos e solução definitiva para áudio mudo, NAT e queda de chamadas.</p>
+        <div class="more">Acessar capítulo →</div>
+      </div>
+    </a>
+
+  </div>
+
+  <h2>3. Topologia de Fluxo de Voz</h2>
+  <div style="background: #1f2430; color: #fff; padding: 22px; border-radius: 12px; font-family: monospace; line-height: 1.5; overflow-x: auto;">
+    ┌─────────────────────────┐<br>
+    │   CLIENTE LIGA (PSTN /  │<br>
+    │   WhatsApp Cloud API)   │<br>
+    └────────────┬────────────┘<br>
+                 ▼<br>
+    ┌─────────────────────────┐     [Fora do Horário]<br>
+    │ Inbound Route / DID     ├──────────────────────► [ Anúncio / Caixa Postal ]<br>
+    └────────────┬────────────┘<br>
+                 │ [Horário Comercial]<br>
+                 ▼<br>
+    ┌─────────────────────────┐<br>
+    │ URA / IVR Interativa    ├──────────┐ [Opção 2]<br>
+    └────────────┬────────────┘          ▼<br>
+                 │ [Opção 1]      ┌─────────────────────────┐<br>
+                 ▼                │ Fila Financeiro (Queue) │<br>
+    ┌─────────────────────────┐   └──────────┬──────────────┘<br>
+    │ Fila Suporte N1 (Queue) │              │<br>
+    └────────────┬────────────┘              ▼<br>
+                 │                ┌─────────────────────────┐<br>
+                 └───────────────►│ Webphone no AtenderBem  │<br>
+                                  │ (Atendente Conectado)   │<br>
+                                  └─────────────────────────┘
+  </div>
+
+  <div class="pagenav">
+    <a href="tickets.html"><span>← Anterior</span> Tickets e Mesa de Ajuda</a>
+    <a class="next" href="contatos.html"><span>Próximo →</span> Contatos e Empresas</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
+</footer>
+
+</body>
+</html>

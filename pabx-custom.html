@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Destinations e ARI Bridge — Manual PABX Fácil</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="pabx.html">Portal PABX</a>
+    <a href="pabx-troncos.html">Troncos SIP</a>
+    <a href="pabx-rotas.html">Rotas</a>
+    <a href="pabx-ramais.html">Ramais</a>
+    <a href="pabx-filas.html">Filas</a>
+    <a href="pabx-ura-audios.html">URAs & Áudios</a>
+    <a href="pabx-horarios.html">Horários</a>
+    <a href="pabx-custom.html" class="active">Custom & ARI</a>
+    <a href="pabx-cdr-auditoria.html">CDR</a>
+    <a href="pabx-cli-troubleshooting.html">CLI & Debug</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › <a href="pabx.html">PABX & Telefonia</a> › Custom Destinations & ARI Bridge</div>
+
+  <h1>Custom Destinations e Integração ARI Bridge com AtenderBem</h1>
+  <p class="subtitle">Como conectar o motor de telefonia do Asterisk à inteligência de URA Avançada e fluxos de atendimento do AtenderBem via ARI (Asterisk REST Interface).</p>
+
+  <figure class="figure">
+    <img src="assets/pabx-custom-destination.png" alt="Configuração de Custom Destination no FreePBX">
+    <figcaption>Tela de cadastro em Admin › Custom Destinations no FreePBX.</figcaption>
+  </figure>
+
+  <h2>1. O que é o ARI Bridge?</h2>
+  <p>O <strong>ARI (Asterisk REST Interface)</strong> é uma API moderna do Asterisk que permite que aplicações externas controlem canais de voz em tempo real. Através do destino especial <code>ari-bridge</code>, o PABX Fácil transfere a chamada recebida para a URA Visual Avançada do sistema <strong>AtenderBem</strong>, permitindo fluxos com inteligência artificial, integração de banco de dados e roteamento dinâmico.</p>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>2. Passo 1: Criando o Custom Destination no FreePBX</h2>
+  <ol class="steps">
+    <li>No menu superior do PABX, acesse <code>Admin › Custom Destinations</code>.</li>
+    <li>Clique no botão <strong>+ Add Destination</strong>.</li>
+    <li>
+      <strong>Preencha os campos com os parâmetros exatos:</strong>
+      <ul>
+        <li><strong>Target:</strong> <code>ari-bridge,NOME_FILA,1</code> (Exemplo: <code>ari-bridge,apptest,1</code>). <em>Importante: O nome <code>apptest</code> será o identificador da fila no sistema web.</em></li>
+        <li><strong>Description:</strong> <code>Ponte ARI - URA Telefonia AtenderBem</code>.</li>
+        <li><strong>Notes:</strong> <code>Encaminha chamada de voz para o fluxo de URA do sistema omnichannel</code>.</li>
+        <li><strong>Return:</strong> Selecione <code>No</code>.</li>
+      </ul>
+    </li>
+    <li>Clique em <strong>Submit</strong> e em <strong>Apply Config</strong>.</li>
+  </ol>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>3. Passo 2: Criando a Fila no AtenderBem</h2>
+  <ol class="steps">
+    <li>No painel do AtenderBem, acesse <code>Configurações › Filas › + Adicionar</code>.</li>
+    <li>
+      No campo <strong>Nome da Fila</strong>, digite <strong>RIGOROSAMENTE O MESMO NOME</strong> informado no target do PABX (no exemplo: <code>apptest</code>).
+    </li>
+    <li>No campo <strong>Tipo da Fila</strong>, selecione a opção <strong>Telefonia (URA)</strong>.</li>
+    <li>Na seção de configurações da fila, na opção <strong>Enviar para a URA</strong>, selecione a URA do tipo <em>"URA Avançada (telefonia)"</em> que você deseja que atenda as chamadas.</li>
+    <li>Clique em <strong>Salvar</strong>.</li>
+  </ol>
+
+  <div class="callout tip">
+    <strong>Vínculo Estabelecido:</strong> A partir deste momento, qualquer rota de entrada no PABX que tiver como destino este <em>Custom Destination</em> entregará a chamada diretamente para o fluxo de URA inteligente do AtenderBem.
+  </div>
+
+  <div class="pagenav">
+    <a href="pabx-horarios.html"><span>← Anterior</span> Condições de Horário</a>
+    <a class="next" href="pabx-cdr-auditoria.html"><span>Próximo Capítulo →</span> Auditoria de Chamadas & CDR</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Módulo de Telefonia e PABX.</p>
+</footer>
+
+</body>
+</html>
