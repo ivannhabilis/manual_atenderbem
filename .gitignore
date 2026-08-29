@@ -5,3 +5,5 @@ Thumbs.db
 .cache/
 node_modules/
 *.zip
+# Cookies de sessão (não versionar em repo público)
+cataloglist/
