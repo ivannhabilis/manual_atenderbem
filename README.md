@@ -53,3 +53,13 @@ python3 -m http.server 8000
 Este projeto é um site estático e pode ser publicado via GitHub Pages:
 nas configurações do repositório, em *Pages*, escolha a branch `main` e a
 pasta raiz (`/`). O `index.html` será a página inicial.
+
+## Catálogo de paths (estrutura de pastas)
+
+`PATHS.md` — catálogo completo dos paths (rotas) do sistema, extraído do
+bundle de produção e cruzado com sessão real + MCP. Cada path virou uma
+pasta espelhada na raiz do projeto (ex.: `/base/config/userslist` →
+`base/config/userslist/`, parâmetros `:id` viram `[id]`). São 124 paths
+navegáveis catalogados. As pastas contêm `.gitkeep` e aguardam o conteúdo
+do manual (páginas HTML + capturas) por módulo.
+
