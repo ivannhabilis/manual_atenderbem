@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de Produtos — Manual Omnichannel</title>
+<link rel="stylesheet" href="../../../assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="../../../index.html">Início</a>
+    <a href="../../../dashboard.html">Dashboard</a>
+    <a href="../../../crm.html">CRM</a>
+    <a href="../../../tickets.html">Tickets</a>
+    <a href="../../../pabx.html">PABX & Telefonia</a>
+    <a href="../../../contatos.html">Contatos</a>
+    <a href="../../../relatorios.html">Relatórios</a>
+    <a href="../../../relatorios-personalizados.html">Personalizados</a>
+    <a href="../../../configuracoes.html" class="active">Configurações</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="../../../index.html">Início</a> › <a href="../../../configuracoes.html">Configurações</a> › Catálogo de Produtos</div>
+
+  <h1>Catálogo de Produtos</h1>
+  <p class="subtitle">Alimente o catálogo do sistema e do WhatsApp (Meta), conecte ao número e transforme o atendimento em uma máquina de vendas.</p>
+
+  <div class="callout info">
+    <strong>Base deste capítulo:</strong> tutorial oficial da Habilis Sistemas — “Catálogo de Produtos no WhatsApp: Tutorial Completo da Nova Ferramenta” (Versão 11 do sistema, 33 min). As capturas abaixo são frames reais do vídeo.
+  </div>
+
+  <figure class="figure">
+    <img src="../../../assets/catalogo/navegacao-modulo.jpg" alt="Menu Cadastros com o item Catálogo de Produtos em destaque">
+    <figcaption>Acesso ao módulo: Configurações → Cadastros → Catálogo de Produtos.</figcaption>
+  </figure>
+
+  <h2>1. Visão geral</h2>
+  <p>O <strong>Catálogo de Produtos</strong> é a ferramenta que permite cadastrar, importar e gerenciar produtos, conectá-los ao catálogo do WhatsApp (Meta Business Suite) e enviá-los durante os atendimentos. Com ele o agente envia produtos diretamente do chat e recebe pedidos prontos pelo carrinho do aplicativo do WhatsApp.</p>
+  <p>O módulo possui <strong>duas visões</strong>:</p>
+  <ul>
+    <li><strong>Produtos</strong> — cadastro e lista dos itens.</li>
+    <li><strong>Grupos</strong> — agrupamento lógico dos produtos (um grupo é vinculado a uma fila).</li>
+  </ul>
+  <p>Para utilizar os produtos no WhatsApp é obrigatório criar um <strong>grupo de produtos</strong> e depois <strong>vincular esse grupo a uma fila</strong>.</p>
+
+  <h2>2. Fonte da verdade: de onde vêm os produtos</h2>
+  <p>Antes de qualquer configuração, defina a <strong>fonte da verdade</strong> — a origem das informações de cadastro dos produtos. A ideia é manter a consistência em vários pontos (sistema, catálogo da Meta), tendo uma única referência.</p>
+  <table class="doc">
+    <thead><tr><th>Cenário</th><th>Fonte da verdade</th><th>Como funciona</th><th>Recomendado para</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Cenário 1</strong></td><td>ERP / e-commerce</td><td>Os produtos vêm de um ERP ou plataforma de e-commerce e mantêm o sistema e o catálogo da Meta atualizados via feed (CSV/XML).</td><td>Sempre o preferido — varejo convencional, muitos itens, controle de estoque.</td></tr>
+      <tr><td><strong>Cenário 2</strong></td><td>Sistema (cadastro manual)</td><td>Você cadastra e gerencia todos os produtos manualmente no sistema e alimenta a Meta a partir de um feed gerado nele.</td><td>Poucos itens, alterações raras, sem controle de estoque (serviços e indústria). Ex.: cardápio de uma pizzaria.</td></tr>
+      <tr><td><strong>Cenário 3</strong></td><td>ERP legado + enriquecimento no sistema</td><td>O ERP legado (offline) é a fonte da verdade; os dados são importados no sistema, o cadastro é enriquecido (ex.: fotos) e o sistema vira o feed para a Meta.</td><td>ERPs legados que não geram links e não fornecem fotos dos itens.</td></tr>
+    </tbody>
+  </table>
+  <p>O <strong>feed</strong> é um arquivo CSV ou XML (formato Google ou Meta) usado para importar e atualizar o cadastro dos produtos. A maioria dos ERPs gera arquivo compatível; as plataformas de e-commerce, em geral, também.</p>
+
+  <div class="callout tip">
+    <strong>Dica:</strong> mesmo no cenário 2 (pizzaria, por exemplo), se existir a opção de usar o sistema de gestão como fonte (cenário 1), prefira sempre o cenário 1 para reduzir atritos e problemas de consistência.
+  </div>
+
+  <h2>3. Criando um grupo de produtos</h2>
+  <p>Na aba <strong>Grupos</strong>, clique em adicionar e dê um nome ao grupo (ex.: “Produtos de informática”). O grupo é o vínculo entre os produtos e a fila de atendimento.</p>
+
+  <h2>4. Cadastro manual de produtos (Cenário 2)</h2>
+  <p>Na aba <strong>Produtos</strong>, clique em <strong>Adicionar</strong>. Os campos seguem a mesma estrutura do catálogo da Meta, com poucos campos adicionais específicos do sistema.</p>
+
+  <figure class="figure">
+    <img src="../../../assets/catalogo/cadastro-manual.jpg" alt="Modal de cadastro de produto">
+    <figcaption>Formulário de cadastro manual: campos padrão (Tamanho, Quantidade em estoque, Categoria, Cor, Material, ID do grupo de itens) e seções Fotos, Arquivos, Formulários e Grupos.</figcaption>
+  </figure>
+
+  <table class="doc">
+    <thead><tr><th>Seção / Campo</th><th>Descrição</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Código interno</strong></td><td>Campo-chave: deve ser igual ao campo <strong>ID</strong> do produto no catálogo da Meta. Idealmente, contém o ID do produto na fonte da verdade (ex.: ID 1000 no ERP).</td></tr>
+      <tr><td><strong>Arquivos</strong></td><td>Anexos complementares ao item (ex.: manual de usuário de uma TV, bula de medicamento). Não são enviados à Meta nem alimentados por feed — são enriquecimento feito no sistema.</td></tr>
+      <tr><td><strong>Formulários</strong></td><td>Seleciona formulários personalizados pré-cadastrados. Quando o produto entra no carrinho de uma oportunidade, os formulários são acrescentados à oportunidade no CRM (ex.: formulário de reparo de motor pedindo marca, modelo, quilometragem).</td></tr>
+      <tr><td><strong>Grupos</strong></td><td>Vincula o produto a um grupo de produtos.</td></tr>
+      <tr><td><strong>Fotos</strong></td><td>Imagem do produto (obrigatória para a Meta — ver seção 7).</td></tr>
+    </tbody>
+  </table>
+
+  <h2>5. Importação de produtos (Cenário 1)</h2>
+  <p>No botão <strong>Importar</strong>, escolha entre <strong>arquivo</strong> ou <strong>URL</strong>:</p>
+  <ul>
+    <li><strong>Arquivo</strong> — importação manual de CSV/XML exportado (ERP legado, por exemplo).</li>
+    <li><strong>URL</strong> — feed online (e-commerce/ERP na nuvem) com atualização automática regular.</li>
+  </ul>
+  <p>Passos: selecione o <strong>formato</strong> (Google ou Meta), a <strong>estrutura</strong> (CSV/XML), o arquivo, o <strong>grupo</strong> onde os produtos serão criados e clique em <strong>Importar</strong>. A importação pode levar de alguns segundos até vários minutos (o sistema baixa as fotos e cadastra os itens).</p>
+
+  <figure class="figure">
+    <img src="../../../assets/catalogo/lista-produtos.jpg" alt="Lista de produtos importados">
+    <figcaption>Produtos importados via CSV: colunas ID, Foto, Nome, Descrição, Cd. Int. (código interno), GTIN, Valor, Valor Rec., Estoque e Ações.</figcaption>
+  </figure>
+
+  <div class="callout warn">
+    <strong>Atenção:</strong> após a importação, a maioria dos campos fica bloqueada para edição — a atualização deve ser feita novamente por importação, garantindo a consistência do cadastro. Permanecem editáveis: <strong>desconto</strong> máximo aplicável, <strong>arquivos</strong>, <strong>formulários</strong>, associação a <strong>grupos</strong> e a <strong>foto</strong> (apenas se o produto não veio com foto do feed).
+  </div>
+
+  <h2>6. Enriquecendo cadastros de ERPs legados (Cenário 3)</h2>
+  <p>ERPs legados offline não fornecem as fotos (a coluna de foto do CSV precisa de um <strong>link</strong>). Nesse caso: importe os dados no sistema, <strong>adicione as fotos no sistema</strong> e use o sistema como feed para a Meta. As atualizações seguintes da fonte da verdade virão basicamente para atualizar disponibilidade e preço.</p>
+
+  <h2>7. Requisitos obrigatórios da Meta</h2>
+  <p>Para o produto ser aceito e exibido no catálogo do WhatsApp, é obrigatório ter:</p>
+  <ul>
+    <li><strong>Nome</strong></li>
+    <li><strong>Descrição</strong></li>
+    <li><strong>ID</strong></li>
+    <li><strong>Preço</strong></li>
+    <li><strong>Foto</strong></li>
+  </ul>
+  <p>Os demais campos (cor, marca, gênero) são opcionais. Produtos com problema de cadastro não aparecem no catálogo do WhatsApp, mas aparecem no catálogo da Meta sinalizados como “produtos com problema”.</p>
+
+  <h2>8. Meta Business Suite: criando e alimentando o catálogo</h2>
+  <p>No Business Suite da conta onde o número está vinculado, acesse <strong>Fontes de dados → Catálogos</strong>. Clique em <strong>Adicionar → Create a new catalog</strong> (ou use um catálogo existente — não é necessário um catálogo exclusivo para WhatsApp).</p>
+  <ul>
+    <li>Escolha <strong>produtos online</strong> (portfólio empresarial) e dê um nome (ex.: “Produtos do WhatsApp”).</li>
+    <li>Pixel de rastreio não é necessário.</li>
+    <li>Selecione <strong>conectar a um feed de dados</strong>: use URL ou carregue o arquivo do computador.</li>
+  </ul>
+
+  <figure class="figure">
+    <img src="../../../assets/catalogo/meta-visao-geral.jpg" alt="Visão geral do catálogo no Meta Business Suite">
+    <figcaption>Meta Business Suite (Gerenciador de Comércio): catálogo “Produtos do Whatsapp” com itens sincronizados.</figcaption>
+  </figure>
+
+  <h2>9. Conectando o catálogo ao número do WhatsApp</h2>
+  <ol class="steps">
+    <li><strong>Anote o ID do catálogo</strong> (seção “identificação do catálogo” ou na barra de endereços do navegador) — será usado na configuração do sistema.</li>
+    <li>No <strong>Gerenciador do WhatsApp</strong>, na visão geral, clique sobre o número.</li>
+    <li>Vá em <strong>Catálogo → Escolher um catálogo</strong>, selecione o catálogo e clique em <strong>Conectar catálogo</strong>.</li>
+    <li>Certifique-se de que as duas opções exibidas estão <strong>ativadas</strong>.</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>Atenção:</strong> um catálogo só pode ser associado a <strong>um único número</strong> de WhatsApp. Para vários números com os mesmos produtos, crie vários catálogos (podem usar o mesmo feed) e associe cada um a um número.
+  </div>
+
+  <h2>10. Verificando erros e políticas comerciais</h2>
+  <p>Após a importação, use o filtro <strong>Problemas</strong> do catálogo para revisar os itens (ex.: “Link da imagem não fornecido”, “Violações de política”).</p>
+
+  <figure class="figure">
+    <img src="../../../assets/catalogo/meta-problemas.jpg" alt="Filtro de problemas do catálogo na Meta">
+    <figcaption>Filtro de problemas: 1 item com “Link da imagem não fornecido”. Produtos fora da política comercial da Meta podem ser rejeitados.</figcaption>
+  </figure>
+
+  <div class="callout warn">
+    <strong>Política comercial:</strong> produtos proibidos (ex.: medicamentos com prescrição) não podem ser vendidos pelo WhatsApp. Revise os itens antes de importar — se a Meta deixar passar um produto proibido, o número pode ser <strong>banido</strong> por violação da política comercial.
+  </div>
+
+  <h2>11. Gerando o link de feed do sistema (atualização automática)</h2>
+  <ol class="steps">
+    <li>No sistema, em <strong>Grupos</strong>, clique em <strong>Links de acesso ao feed</strong>.</li>
+    <li>Clique em <strong>Criar link de acesso</strong> e copie o link gerado.</li>
+    <li>No catálogo da Meta, clique em <strong>Adicionar arquivo de dados</strong> e escolha <strong>URL</strong>.</li>
+    <li>Em <strong>Atualizar seu feed de dados</strong> (atualização, não cadastro/substituição), configure a frequência (ex.: semanal, sexta-feira) e a moeda (Real brasileiro).</li>
+  </ol>
+  <p>Assim, itens enriquecidos no sistema (ex.: produto sem foto corrigido) são propagados para a Meta automaticamente.</p>
+
+  <h2>12. Configuração final no sistema: vinculando o catálogo à fila</h2>
+  <p>No sistema, acesse <strong>Filas</strong>, expanda a fila da <strong>Cloud API</strong> e abra a aba <strong>Catálogo e produtos</strong>:</p>
+  <ol class="steps">
+    <li>Clique em <strong>Configurar catálogo</strong> e cole o <strong>ID do catálogo</strong> da Meta. Os dois indicadores devem ficar habilitados (verdes).</li>
+    <li>Defina se o <strong>carrinho</strong> fica visível/habilitado ou oculto (oculto: o cliente vê os itens, mas não pode adicioná-los ao carrinho nem enviar pedidos).</li>
+    <li>Em <strong>Grupos de produtos vinculados</strong>, selecione o grupo que compartilha os produtos do catálogo da Meta (ex.: Informática).</li>
+    <li>Em <strong>Grupos de produtos fora do catálogo</strong>, selecione grupos não presentes no catálogo da Meta: aparecem para consulta do agente, mas não podem ser enviados no chat nem aparecem para o cliente. Disponível também em filas que não são Cloud API.</li>
+    <li>Clique em <strong>Salvar</strong>.</li>
+  </ol>
+
+  <figure class="figure">
+    <img src="../../../assets/catalogo/fila-configuracao.jpg" alt="Aba Catálogo e produtos da fila Cloud API">
+    <figcaption>Fila Cloud API → aba “Catálogo e produtos”: botão Configurar catálogo, grupos vinculados (Informática) e grupos fora do catálogo.</figcaption>
+  </figure>
+
+  <div class="callout tip">
+    <strong>Propagação:</strong> depois de configurado, o catálogo pode levar de <strong>30 a 40 minutos</strong> para aparecer para os clientes no número da empresa. Se não aparecer de imediato, aguarde e verifique novamente.
+  </div>
+
+  <h2>13. Visão do agente: enviando produtos no chat</h2>
+  <p>Na tela do agente, o botão de <strong>anexos</strong> ganha a opção <strong>Produtos</strong>. Nela o agente pode:</p>
+  <ul>
+    <li><strong>Buscar</strong> produtos e visualizar a <strong>ficha</strong> do produto.</li>
+    <li>Visualizar <strong>anexos</strong> (ex.: manual do roteador Netgear adicionado no cadastro).</li>
+    <li>Com o recurso avançado contratado, <strong>perguntar ao produto</strong> — a IA responde com base na ficha e nos arquivos anexos (ex.: “como configuro o servidor NTP?”; a pergunta em português é respondida em português mesmo com manual em inglês).</li>
+    <li><strong>Selecionar vários produtos</strong> e enviá-los ao cliente.</li>
+  </ul>
+  <p>No WhatsApp do cliente, a mensagem chega com o botão para <strong>exibir os itens</strong> e, se o carrinho estiver habilitado, os botões de <strong>adicionar ao carrinho</strong>. O cliente monta o pedido e envia — o pedido chega no sistema com itens, valores e quantidades.</p>
+
+  <figure class="figure">
+    <img src="../../../assets/catalogo/demo-agente-whatsapp.jpg" alt="Demonstração: agente envia produtos e cliente monta pedido no WhatsApp">
+    <figcaption>Demonstração: agente envia cards de produtos (“Veja essas opções”) e o cliente monta o carrinho no WhatsApp (pedido de 2 itens, R$ 2.299,80).</figcaption>
+  </figure>
+
+  <h2>14. Pedido, CRM e oportunidade</h2>
+  <p>Do pedido recebido, o agente pode abrir a ficha de cada produto e, se houver oportunidade vinculada ao atendimento, <strong>adicionar os produtos à oportunidade</strong> (na seção de produtos da oportunidade — lembre de salvar/atualizar). Os formulários associados ao produto (seção 4) são acrescentados à oportunidade no CRM.</p>
+  <p>Consultar produtos, ver a ficha e fazer perguntas funcionam em <strong>qualquer fila</strong>. Enviar produtos e receber pedidos são recursos <strong>exclusivos das filas Cloud API</strong>.</p>
+
+  <h2>15. Automação avançada (Cloud API): fluxo de pedidos com IA</h2>
+  <p>O fluxo de pedidos pode ser automatizado com <strong>gatilhos de mensagem</strong> e fluxos de automação construídos com auxílio de IA:</p>
+  <ol class="steps">
+    <li><strong>Gatilho de mensagem</strong> (executado em mensagens recebidas): se a mensagem contém um pedido, a automação cria uma <strong>oportunidade</strong> e adiciona os produtos do pedido ao carrinho da oportunidade (etapa inicial, ex.: “Pedido recebido”).</li>
+    <li><strong>Automação ao mudar de etapa</strong>: quando a oportunidade confirma o pedido, o sistema <strong>envia o pedido pelo WhatsApp</strong> com <strong>link de pagamento</strong> (ou código Pix) para o cliente.</li>
+    <li><strong>Automação de confirmação</strong>: quando o pagamento é confirmado (via <strong>webhook/captura</strong> ou manualmente), o sistema <strong>atualiza o status do pedido</strong> (“pagamento efetuado”) e move a oportunidade (ex.: etapa “Aguardando separação”).</li>
+  </ol>
+
+  <figure class="figure">
+    <img src="../../../assets/catalogo/demo-pedido.jpg" alt="Pedido enviado no WhatsApp com detalhes">
+    <figcaption>Card de pedido no WhatsApp: “Pedido feito no catálogo”, 2 itens, subtotal R$ 1.649,80, com detalhes e status atualizado.</figcaption>
+  </figure>
+
+  <div class="callout info">
+    <strong>Observação:</strong> os elementos de pedido (enviar pedido e atualizar status) <strong>não dependem do catálogo</strong>. Na Cloud API, mesmo sem catálogo conectado, é possível enviar o card de pedido desde que os <strong>valores estejam íntegros</strong> (soma dos itens batendo com totais, todos os itens com valor).
+  </div>
+
+  <div class="callout tip">
+    <strong>Na prática:</strong> num cenário real, o link de pagamento viria da integração com o gateway (ou um código Pix gerado), não um link fixo. O tutorial usou link fixo apenas como exemplo.
+  </div>
+
+  <div class="pagenav">
+    <a href="../../../configuracoes.html"><span>← Anterior</span> Configurações</a>
+    <a class="next" href="../../../index.html"><span>Próximo →</span> Início</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo. Capítulo baseado no tutorial oficial da Habilis Sistemas.</p>
+</footer>
+
+</body>
+</html>
