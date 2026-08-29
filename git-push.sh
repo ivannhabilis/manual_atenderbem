@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 # git-push.sh — Push seguro para o repositório do manual (ivannhabilis/manual_atenderbem)
 #
-# MOTIVO: ~/.hermes/.env contém DOIS GITHUB_TOKEN:
-#   1º (github_pat_...)  fine-grained SEM permissão de escrita -> push 403
-#   2º (ghp_...)         classic com escopo "repo"             -> push OK
-# Este script escolhe o token CLASSIC (ghp_) automaticamente.
+# Usa o GITHUB_TOKEN do arquivo de credenciais (~/.hermes/.env).
+# Prefere token CLASSIC (ghp_) — com escopo "repo" e escrita confirmada;
+# se não houver, usa qualquer GITHUB_TOKEN disponível.
 #
 # Uso: ./git-push.sh [mensagem de commit opcional]
 #   - Se houver mudanças não commitadas, faz commit com a mensagem informada
@@ -17,14 +16,17 @@ cd "$(dirname "$0")"
 ENV_FILE="${HOME}/.hermes/.env"
 REPO_URL="https://github.com/ivannhabilis/manual_atenderbem.git"
 
-# Escolhe o token classic (ghp_) — o único com escrita confirmada
+# Prefere token classic (ghp_); senão usa o primeiro GITHUB_TOKEN disponível
 TOKEN=""
 if [ -f "$ENV_FILE" ]; then
   TOKEN=$(grep '^GITHUB_TOKEN' "$ENV_FILE" | sed 's/^GITHUB_TOKEN=//' | grep -E '^ghp_' | head -1 || true)
+  if [ -z "$TOKEN" ]; then
+    TOKEN=$(grep '^GITHUB_TOKEN' "$ENV_FILE" | head -1 | sed 's/^GITHUB_TOKEN=//' || true)
+  fi
 fi
 if [ -z "$TOKEN" ]; then
-  echo "ERRO: token classic (ghp_) não encontrado em $ENV_FILE" >&2
-  echo "Crie um token classic com escopo 'repo' e adicione/ajuste em GITHUB_TOKEN no .env" >&2
+  echo "ERRO: GITHUB_TOKEN não encontrado em $ENV_FILE" >&2
+  echo "Crie um token classic com escopo 'repo' e adicione em GITHUB_TOKEN no arquivo de credenciais" >&2
   exit 1
 fi
 
