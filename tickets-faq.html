@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — Módulo de Tickets e Automações | Manual Omnichannel</title>
+<meta name="description" content="Respostas às dúvidas mais frequentes dos usuários sobre o módulo de Tickets do AtenderBem: níveis de atendimento, motivos, templates de e-mail, SLA, estágios, automações e variáveis.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="crm.html">CRM</a>
+    <a href="tickets.html" class="active">Tickets</a>
+    <a href="pabx.html">PABX & Telefonia</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="relatorios.html">Relatórios</a>
+    <a href="configuracoes.html">Configurações</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › <a href="tickets.html">Tickets</a> › FAQ</div>
+
+  <h1>FAQ — Módulo de Tickets e Automações</h1>
+  <p class="subtitle">As 15 dúvidas mais frequentes dos usuários sobre o módulo de Tickets, respondidas de forma objetiva com base no comportamento real do sistema.</p>
+
+  <div class="callout info">
+    <strong>Sobre este FAQ:</strong> este material foi elaborado a partir das dúvidas reais levantadas pelos usuários durante o uso da função de Tickets. Cada resposta reflete o comportamento oficial da plataforma AtenderBem (configurações em <code>/base/config/tickets-*</code>).
+  </div>
+
+  <h2>Grupos de Serviço e Níveis de Atendimento</h2>
+
+  <h3>1. Quantos níveis de atendimento um Grupo de Serviço suporta e o que acontece se eu desativar um nível intermediário?</h3>
+  <p>O sistema permite configurar até <strong>6 níveis de atendimento</strong> por Grupo de Serviço. Pela hierarquia estrita do sistema, ao desativar um nível intermediário (como o N2), <strong>todos os níveis subsequentes (N3, N4, etc.) são desativados automaticamente</strong>.</p>
+  <div class="callout tip">
+    <strong>Na prática:</strong> planeje a estrutura de níveis antes de cadastrar. Se precisar reorganizar, ative/desative os níveis de trás para frente para não perder a configuração dos níveis finais.
+  </div>
+
+  <h3>2. Quais campos do Motivo não podem mais ser alterados depois de salvar?</h3>
+  <p>Após a confirmação inicial do Motivo, o sistema <strong>bloqueia a alteração da Classificação e do Grupo de Atendimento</strong>. Os demais campos (nome, prioridade padrão, SLAs, horário comercial e submotivos) continuam editáveis.</p>
+  <div class="callout warn">
+    <strong>Atenção:</strong> confira Classificação e Grupo de Atendimento antes de salvar o motivo — esses vínculos ficam travados e exigiriam recriar o motivo para mudar.
+  </div>
+
+  <h2>Templates de E-mail e SLA</h2>
+
+  <h3>3. Qual a ordem de prioridade dos templates de e-mail enviados ao cliente?</h3>
+  <p>O sistema usa uma estrutura em cascata que avalia do <strong>mais específico ao mais geral</strong>: 1º <strong>Motivo</strong> → 2º <strong>Classificação</strong> → 3º <strong>Configuração Geral</strong>. O template do nível mais específico configurado é o que dispara.</p>
+  <div class="callout tip">
+    <strong>Dica:</strong> se o e-mail enviado não é o que você esperava, verifique se há um template definido em um nível superior da cascata (Motivo e Classificação têm precedência sobre a Configuração Geral).
+  </div>
+
+  <h3>4. Quais são os modos de transição de nível ("Regras de Passagem de Nível") na distribuição de SLA?</h3>
+  <p>Existem três modos disponíveis:</p>
+  <ul>
+    <li><strong>SLA Breach</strong> — escala automaticamente o ticket quando o SLA do nível atual é violado;</li>
+    <li><strong>Tempo Fixo</strong> — escala automaticamente após um tempo fixo (em minutos/horas) no nível atual, independente do SLA;</li>
+    <li><strong>Manual</strong> — agentes e supervisores escalam o ticket manualmente para o próximo nível.</li>
+  </ul>
+
+  <h2>Esteira de Estágios</h2>
+
+  <h3>5. O que acontece com um ticket que está em um Estágio Final?</h3>
+  <p>Estágios marcados como <strong>finais não podem avançar</strong> para novas etapas do fluxo, contudo é <strong>permitido retornar para etapas anteriores</strong> para correções. Além disso, chegar a um estágio final dispara a automação <em>"Ao chegar em estágio final"</em>.</p>
+  <div class="callout tip">
+    <strong>Na prática:</strong> um ticket "Concluído" (final) não segue adiante, mas pode voltar para uma etapa anterior (ex.: "Em Manutenção") se precisar de correção.
+  </div>
+
+  <h2>Visualização e Autoatribuição</h2>
+
+  <h3>6. Com a autoatribuição ("Puxar para mim") habilitada, o que um agente consegue visualizar?</h3>
+  <p>A visualização livre é <strong>exclusiva para chamados sem dono nas filas em que o agente está cadastrado</strong>. Um agente comum <strong>nunca terá permissão para enxergar tickets que já estejam sob a responsabilidade de outro operador</strong>.</p>
+  <div class="callout warn">
+    <strong>Atenção:</strong> a chave "Permitir agentes visualizar e se auto distribuir tickets sem agentes em suas filas" (Configurações Gerais do módulo) libera a autoatribuição, mas não abre a visualização de chamados de outros operadores.
+  </div>
+
+  <h2>Automações: Eventos e Blocos</h2>
+
+  <h3>7. Quais são os gatilhos válidos da lista de "Eventos de Automação" de tickets?</h3>
+  <p>Os eventos nativos do sistema incluem:</p>
+  <ul>
+    <li>Ao criar ticket</li>
+    <li>Ao distribuir</li>
+    <li>Na primeira resposta</li>
+    <li>Ao mudar status</li>
+    <li>Ao mudar prioridade</li>
+    <li>Ao mudar estágio</li>
+    <li>Ao reatribuir</li>
+    <li>Ao escalar</li>
+    <li>Ao violar SLA</li>
+    <li>Ao comentar</li>
+    <li>Ao resolver</li>
+    <li>Ao fechar</li>
+    <li>Ao reabrir</li>
+    <li>Inatividade do cliente</li>
+    <li>Ao chegar em estágio final</li>
+  </ul>
+
+  <h3>8. Quais blocos de ação o construtor drag-and-drop oferece para tickets?</h3>
+  <p>O editor conta com blocos nativos para manipular o ciclo de vida e as propriedades dos tickets:</p>
+  <ul>
+    <li><strong>Criar ticket</strong> (111)</li>
+    <li><strong>Editar ticket</strong> (112)</li>
+    <li><strong>Buscar ticket</strong> (113)</li>
+    <li><strong>Adicionar comentário</strong> (114)</li>
+    <li><strong>Resolver ticket</strong> (115)</li>
+    <li><strong>Atribuir ticket</strong> (116)</li>
+    <li><strong>Escalar ticket</strong> (117)</li>
+    <li><strong>Reabrir ticket</strong> (118)</li>
+    <li><strong>Aguardar cliente (ticket)</strong> (119)</li>
+    <li><strong>Vincular / Desvincular contato</strong> (120/121)</li>
+    <li><strong>Alterar status</strong> (122)</li>
+    <li><strong>Adicionar tag</strong> (123)</li>
+    <li><strong>Alterar estágio</strong> (124)</li>
+  </ul>
+
+  <h2>Variáveis e Templates Dinâmicos</h2>
+
+  <h3>9. Qual variável injeta a URL de acompanhamento e como capturo o nome do primeiro contato?</h3>
+  <p>Use a variável <code>{{ ticket_tracking_url }}</code> para obter a URL pública (sem login) de acompanhamento do chamado. O nome do primeiro contato vinculado é capturado pelo array indexado: <code>{{ ticket_contacts[0].name }}</code>.</p>
+  <div class="callout tip">
+    <strong>Lembre-se:</strong> <code>ticket_contacts</code> é uma lista de objetos (<code>id</code>, <code>name</code>, <code>email</code>, <code>number</code>, <code>document</code>, <code>city</code>, <code>state</code>, <code>country</code>) — o primeiro elemento é sempre o índice <code>[0]</code>.
+  </div>
+
+  <h3>10. Para que serve a tela "Tickets Empresa"?</h3>
+  <p>É o relatório de <strong>gestão B2B</strong>: permite realizar a análise isolada de contas corporativas, consolidando a linha do tempo de demandas ao filtrar um parceiro/empresa específico. Ideal para acompanhar todo o histórico de chamados de uma conta corporativa em um só lugar.</p>
+
+  <h3>11. Quando as variáveis ticket_created_by_id e ticket_created_by_name estão disponíveis?</h3>
+  <p>Ambas ficam disponíveis <strong>exclusivamente na automação de criação</strong> (evento "Ao criar ticket"). Quando o ticket é gerado automaticamente por uma <strong>URA/IVR</strong>, o ID retornado é <code>0</code> e o nome retornado é o da <strong>árvore/URA executada</strong>.</p>
+  <div class="callout warn">
+    <strong>Atenção:</strong> não use essas variáveis em outros eventos do ciclo de vida — fora do evento de criação elas não carregam valor confiável.
+  </div>
+
+  <h3>12. Qual o mapeamento dos enums da variável ticket_status?</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Valor</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Aberto</td></tr>
+        <tr><td>2</td><td>Em atendimento</td></tr>
+        <tr><td>3</td><td>Aguardando cliente</td></tr>
+        <tr><td>4</td><td>Resolvido</td></tr>
+        <tr><td>5</td><td>Fechado</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Esse mapeamento é usado nos blocos lógicos (condições) do construtor de automações para comparar o status atual do ticket.</p>
+
+  <h3>13. Quais opções de configuração o elemento "Buscar ticket" disponibiliza?</h3>
+  <p>O nó permite:</p>
+  <ul>
+    <li><strong>Busca por chaves</strong>: ID, número, telefone ou e-mail do ticket;</li>
+    <li><strong>Filtro opcional por Classificação</strong> — se preenchido, retorna somente tickets daquela classificação;</li>
+    <li><strong>Chave seletora para associar</strong> os tickets encontrados ao atendimento (chat) atual;</li>
+    <li><strong>Armazenamento do retorno em variável customizada</strong> — cria <code>&lt;nome&gt;_list</code> (lista de tickets) e <code>&lt;nome&gt;_count</code> (quantidade).</li>
+  </ul>
+
+  <h3>14. Como funciona o gatilho "Inatividade do cliente"?</h3>
+  <p>O gatilho monitora a <strong>ausência de interação do solicitante</strong> a partir de um <strong>tempo limite definido em minutos</strong> (ex.: 5 minutos), disparando fluxos automáticos como avisos preventivos ou cobrança de retorno. É configurado informando o tempo limite e o escopo (ex.: considerar a última mensagem enviada pelo cliente).</p>
+
+  <h3>15. Como o sistema resolve conflitos entre automações de Motivo e Classificação?</h3>
+  <p>A configuração definida no <strong>Motivo anula e substitui a da Classificação</strong>; se o Motivo estiver em branco, o fluxo <strong>herda da Classificação</strong>; se ambos estiverem vazios, <strong>nenhuma automação é disparada</strong>.</p>
+  <div class="callout tip">
+    <strong>Regra de ouro:</strong> o nível mais específico sempre vence. Configure automações no Motivo apenas quando a regra for exclusiva daquele motivo; caso contrário, mantenha na Classificação para reuso.
+  </div>
+
+  <div class="pagenav">
+    <a href="tickets.html"><span>← Voltar</span> Guia de Tickets (Kanban e Configurações)</a>
+    <a class="next" href="configuracoes.html"><span>Próximo →</span> Configurações</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
+  <p>FAQ elaborado a partir das dúvidas reais dos usuários sobre o módulo de Tickets.</p>
+</footer>
+
+</body>
+</html>
