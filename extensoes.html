@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extensões (Micro-Frontends & SDK) — Manual Omnichannel</title>
+  <meta name="description" content="Guia técnico avançado do módulo de Extensões do AtenderBem: gerenciamento administrativo, SDK omni, eventos em tempo real, sandbox de Ensaio e caso prático.">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* Ajustes específicos para exibição de tabelas e códigos complexos */
+    pre {
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 14px;
+      border-radius: 6px;
+      font-size: 11px;
+      overflow-x: auto;
+      margin: 12px 0;
+      border: 1px solid #1e293b;
+    }
+    code {
+      font-family: Consolas, "Liberation Mono", Courier, monospace;
+    }
+    .badge-doc {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-left: 6px;
+    }
+    .badge-doc-read { background-color: #d1fae5; color: #065f46; }
+    .badge-doc-write { background-color: #fee2e2; color: #991b1b; }
+    .badge-doc-ui { background-color: #e0f2fe; color: #0369a1; }
+    .badge-doc-local { background-color: #f3f4f6; color: #374151; }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="crm.html">CRM</a>
+    <a href="tickets.html">Tickets</a>
+    <a href="pabx.html">PABX & Telefonia</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="relatorios.html">Relatórios</a>
+    <a href="configuracoes.html">Configurações</a>
+    <a href="extensoes.html" class="active">Extensões</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › <a href="configuracoes.html">Configurações</a> › Extensões</div>
+
+  <h1>Extensões (Micro-Frontends &amp; SDK)</h1>
+  <p class="subtitle">Integração avançada, barramento de eventos em tempo real e SDK de desenvolvimento para acoplar aplicativos externos ao AtenderBem.</p>
+
+  <div class="callout info">
+    <strong>Arquitetura de Micro-Frontends:</strong> O AtenderBem implementa uma arquitetura baseada em sandboxing (via iframes isolados e Web Workers em segundo plano) que permite a incorporação de aplicativos web de terceiros. Essas aplicações se integram perfeitamente às telas de chat, CRM e cadastros usando o barramento de comunicação do SDK <code>omni</code>.
+  </div>
+
+  <h2>1. Visão Geral e Conceitos Básicos</h2>
+  <p>A funcionalidade de <strong>Extensões</strong> (localizada administrativamente no path <code>/base/config/extensioninstalls</code>) resolve o clássico problema de silos de software em centrais de atendimento. Em vez de forçar o agente de suporte ou vendas a alternar entre o AtenderBem e um ERP/CRM corporativo externo (gerando cliques repetitivos e lentidão), a plataforma permite embutir telas e automações personalizadas no fluxo de trabalho.</p>
+  
+  <p>A comunicação ocorre através de um protocolo bidirecional seguro, em que o AtenderBem (o "Host") expõe APIs de leitura e escrita e envia notificações de eventos do sistema, e a extensão (o "Guest") responde e executa ações de interface.</p>
+
+  <figure class="figure">
+    <div style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 8px; padding: 20px; text-align: center; font-weight: bold; color: #1e293b;">
+      <div style="margin-bottom: 12px; font-size: 14px;">ESTRUTURA DE EXECUÇÃO DAS EXTENSÕES</div>
+      <div style="display: flex; justify-content: space-around; align-items: center; gap: 10px;">
+        <div style="background: #dbeafe; border: 2px solid #2563eb; border-radius: 6px; padding: 10px; width: 45%;">
+          <strong>Interface do AtenderBem (Host)</strong><br>
+          <span style="font-size: 11px; color: #475569;">Gera Iframe · Injeta window.omni</span>
+        </div>
+        <div style="font-size: 20px;">⇆</div>
+        <div style="background: #ecfdf5; border: 2px solid #059669; border-radius: 6px; padding: 10px; width: 45%;">
+          <strong>Iframe Isolado (Extension Guest)</strong><br>
+          <span style="font-size: 11px; color: #475569;">Código HTML/JS · Chamadas omni.*</span>
+        </div>
+      </div>
+      <div style="margin-top: 12px; background: #fff; padding: 6px; border-radius: 4px; font-size: 11px; font-family: monospace;">
+        Segurança: Sandbox + CSP + Proxy de Rede HTTP (omni.http.request)
+      </div>
+    </div>
+    <figcaption>Fluxo de encapsulamento e integração segura por trás das extensões de tela.</figcaption>
+  </figure>
+
+  <hr>
+
+  <h2>2. Central de Gerenciamento (/base/config/extensioninstalls)</h2>
+  <p>É a tela destinada aos administradores da instância para homologar e parametrizar as extensões de produção. A grade de controle reúne as seguintes colunas:</p>
+  <ul>
+    <li><strong>Instalação:</strong> O rótulo amigável (label) atribuído à extensão.</li>
+    <li><strong>Extensão:</strong> O identificador exclusivo textual (extid) que mapeia o aplicativo.</li>
+    <li><strong>Estado:</strong> Status ativo ou inativo da extensão ("Habilitada" ou "Desabilitada").</li>
+    <li><strong>Avisos:</strong> Erros de manifesto ou dependências ausentes na instância.</li>
+    <li><strong>Entrega:</strong> Critérios de público-alvo (audiência) e permissões de quem poderá visualizar o recurso.</li>
+    <li><strong>Canal:</strong> Estado do barramento de comunicação e segurança da extensão.</li>
+    <li><strong>Verificado em:</strong> Data e hora da última validação e atualização do manifest.</li>
+  </ul>
+
+  <h3>Ações Administrativas Disponíveis</h3>
+  <table class="doc">
+    <thead>
+      <tr>
+        <th>Operação</th>
+        <th>Descrição Técnica</th>
+        <th>Efeito Prático</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Add (Adicionar)</strong></td>
+        <td>Dispara o diálogo de instalação exigindo a URL pública do <code>manifest.json</code>.</td>
+        <td>Realiza a leitura remota via fetch, valida o JSON, mapeia as contribuições e inclui a extensão na grade como ativa.</td>
+      </tr>
+      <tr>
+        <td><strong>Edit (Configurar)</strong></td>
+        <td>Abre o formulário de edição de variáveis de ambiente.</td>
+        <td>Permite que o administrador preencha segredos, chaves de API externas e tokens exigidos por aquela extensão específica.</td>
+      </tr>
+      <tr>
+        <td><strong>Toggle (Habilitar/Desabilitar)</strong></td>
+        <td>Chama o serviço interno <code>admin.setEnabled(id, boolean)</code>.</td>
+        <td>Garante o desligamento de segurança imediato de qualquer script ou iframe da extensão em todas as sessões ativas de agentes.</td>
+      </tr>
+      <tr>
+        <td><strong>Refresh Manifest (Sincronizar)</strong></td>
+        <td>Executa <code>admin.refreshManifest(id)</code>.</td>
+        <td>Força uma requisição de bypass de cache para ler novamente o <code>manifest.json</code> hospedado no servidor do fornecedor, atualizando versões e caminhos de tela.</td>
+      </tr>
+      <tr>
+        <td><strong>Rotate Token (Rotacionar)</strong></td>
+        <td>Executa <code>admin.rotateToken(id)</code>.</td>
+        <td>Rotaciona a chave de criptografia exclusiva usada pelo Webhook e barramentos da extensão. Alerta: o token anterior para de funcionar de imediato.</td>
+      </tr>
+      <tr>
+        <td><strong>Reset Breaker (Rearmar Disjuntor)</strong></td>
+        <td>Chama <code>admin.resetChannelBreaker(id)</code>.</td>
+        <td>Rearma o fusível de segurança contra abuso de chamadas. Se uma extensão gerar requisições descontroladas ou loops, o AtenderBem desliga o barramento daquele canal. Esta ação o reativa.</td>
+      </tr>
+      <tr>
+        <td><strong>Remove (Remover)</strong></td>
+        <td>Exclui o registro e desinstala o plugin.</td>
+        <td>Elimina permanentemente a extensão da instância do cliente, limpando seus dados associados e retirando seus botões das telas.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <h2>3. O SDK Global: Objeto `omni`</h2>
+  <p>Quando o AtenderBem cria o iframe de uma extensão, ele injeta automaticamente na janela global um SDK sob a variável <code>window.omni</code>. Todas as APIs retornam <strong>Promises</strong>, facilitando o encadeamento via <code>async/await</code>.</p>
+  
+  <p>Abaixo está a documentação profunda de todas as APIs disponíveis no SDK, separadas por namespace operacional:</p>
+
+  <h3>3.1. Sessão &amp; Metadados (`omni.session`)</h3>
+  <p>Permite à extensão mapear onde está executando e quem a está operando.</p>
+  <ul>
+    <li>
+      <code>omni.session.getUser()</code> <span class="badge-doc badge-doc-read">Leitura</span><br>
+      Retorna dados do agente logado na sessão ativa.<br>
+      <strong>Retorno:</strong> <code>Promise&lt;{ id: number, name: string, type: string, email: string, queues: number[], groups: number[] }&gt;</code>
+    </li>
+    <li>
+      <code>omni.session.getPermissions()</code> <span class="badge-doc badge-doc-read">Leitura</span><br>
+      Retorna os privilégios administrativos e operacionais do usuário.<br>
+      <strong>Retorno:</strong> <code>Promise&lt;{ isAdmin: boolean, isSupervisor: boolean, isSuperAdmin: boolean, flags: object }&gt;</code>
+    </li>
+    <li>
+      <code>omni.session.getLocale()</code> <span class="badge-doc badge-doc-read">Leitura</span><br>
+      Devolve o idioma e a formatação regional ativa na conta do agente (padrão BCP 47).<br>
+      <strong>Exemplo:</strong>
+      <pre>const locale = await omni.session.getLocale(); // Retorna "pt-BR"</pre>
+    </li>
+    <li>
+      <code>omni.session.getTheme()</code> <span class="badge-doc badge-doc-read">Leitura</span><br>
+      Informa se o sistema está em modo claro ou escuro e fornece os tokens de cor da marca corporativa (primária, secundária, fundos).<br>
+      <strong>Retorno:</strong> <code>Promise&lt;{ mode: "light" | "dark", tokens: Record&lt;string, string&gt; }&gt;</code>
+    </li>
+    <li>
+      <code>omni.session.getInstance()</code> <span class="badge-doc badge-doc-read">Leitura</span><br>
+      Informa o nome e domínio do cliente, permitindo segmentar comportamentos no ERP.<br>
+      <strong>Retorno:</strong> <code>Promise&lt;{ name: string, domain: string, hostVersion: string, viewVersion: string }&gt;</code>
+    </li>
+  </ul>
+
+  <h3>3.2. Navegação (`omni.nav`)</h3>
+  <p>Permite navegar e ler parâmetros da URL do sistema sem forçar um recarregamento (SPA).</p>
+  <ul>
+    <li>
+      <code>omni.nav.getRoute()</code> <span class="badge-doc badge-doc-read">Leitura</span><br>
+      Lê o path e os parâmetros da rota principal em que o agente se encontra.<br>
+      <strong>Retorno:</strong> <code>Promise&lt;{ path: string, params: object, query: object }&gt;</code>
+    </li>
+    <li>
+      <code>omni.nav.navigate(rota)</code> <span class="badge-doc badge-doc-ui">UI</span><br>
+      Redireciona o AtenderBem para outra rota interna (ex: abrir o Kanban de Tickets).<br>
+      <strong>Argumentos:</strong> <code>rota: string | string[]</code> (ex: <code>["/base", "ticketspanel"]</code>)
+    </li>
+    <li>
+      <code>omni.nav.openFullscreen(contributionId)</code> <span class="badge-doc badge-doc-ui">UI</span><br>
+      Abre uma contribuição de tela cheia declarada no manifest da própria extensão.
+    </li>
+  </ul>
+
+  <h3>3.3. Gestão de Chats (`omni.chats`)</h3>
+  <p>Este é o núcleo das integrações de atendimento, fornecendo acesso direto aos chats.</p>
+  <ul>
+    <li>
+      <code>omni.chats.getSelected()</code> <span class="badge-doc badge-doc-read">Leitura</span><br>
+      Obtém detalhes do atendimento que está atualmente aberto e focado na tela do atendente.<br>
+      <strong>Retorno:</strong> <code>Promise&lt;ChatObject&gt;</code> contendo ID, fila, usuário, canal de origem, protocolo e o objeto completo de contato (nome, telefone).
+    </li>
+    <li>
+      <code>omni.chats.select(chatId)</code> <span class="badge-doc badge-doc-ui">UI</span><br>
+      Força o AtenderBem a focar e abrir a janela de chat do ID especificado.
+    </li>
+    <li>
+      <code>omni.chats.get(chatId)</code> <span class="badge-doc badge-doc-read">Leitura</span><br>
+      Lê dados completos de um chat específico (mesmo que não esteja aberto na tela).
+    </li>
+    <li>
+      <code>omni.chats.listMine()</code> <span class="badge-doc badge-doc-read">Leitura</span><br>
+      Lista todos os chats ativos sob custódia do próprio agente.
+    </li>
+    <li>
+      <code>omni.chats.getMessages(chatId)</code> <span class="badge-doc badge-doc-read">Leitura</span><br>
+      Retorna o histórico de mensagens trocadas no chat especificado.
+    </li>
+    <li>
+      <code>omni.chats.sendMessage(chatId, opts)</code> <span class="badge-doc badge-doc-write">Escrita</span><br>
+      Envia uma mensagem (texto ou mídia) em nome do agente no chat.<br>
+      <strong>Argumentos:</strong> <code>chatId: number</code>, <code>opts: { text: string, fileId?: number }</code>
+    </li>
+    <li>
+      <code>omni.chats.transfer(chatId, opts)</code> <span class="badge-doc badge-doc-write">Escrita</span><br>
+      Transfere o atendimento ativo para outro atendente ou fila de espera.<br>
+      <strong>Argumentos:</strong> <code>opts: { queueId?: number, userId?: number }</code>
+    </li>
+  </ul>
+
+  <h3>3.4. Catálogo &amp; Carrinho de Compras (`omni.cart`)</h3>
+  <p>API extremamente robusta para e-commerce integrado e envio de links de catálogo do WhatsApp.</p>
+  <ul>
+    <li>
+      <code>omni.cart.get(opts?)</code> <span class="badge-doc badge-doc-read">Leitura</span><br>
+      Lê os itens presentes no carrinho de compras do chat ativo ou de outro chat visível.<br>
+      <strong>Retorno:</strong> <code>Promise&lt;{ total: number, items: Array&lt;{ productId: number, name: string, price: number, qty: number, discount?: number }&gt; }&gt;</code>
+    </li>
+    <li>
+      <code>omni.cart.mutate(opts)</code> <span class="badge-doc badge-doc-write">Escrita</span><br>
+      Aplica mutações atômicas estruturadas (adicionar, alterar quantidade, remover e dar descontos) de uma só vez.<br>
+      <strong>Argumentos:</strong> <code>opts: { ops: Array&lt;{ op: "add" | "qty" | "remove" | "discount", productId: number, qty?: number, discount?: number }&gt; }</code>
+    </li>
+    <li>
+      <code>omni.cart.sendCartMessage(opts)</code> <span class="badge-doc badge-doc-write">Escrita</span><br>
+      Dispara um link direto do carrinho interativo no WhatsApp do cliente com um botão "Ver Meu Carrinho".<br>
+      <strong>Argumentos:</strong> <code>opts: { bodyText?: string, buttonText?: string }</code>
+    </li>
+    <li>
+      <code>omni.cart.setFreight(valor)</code> <span class="badge-doc badge-doc-write">Escrita</span><br>
+      Seta o valor de frete na unidade da moeda da transação.
+    </li>
+    <li>
+      <code>omni.cart.convert()</code> <span class="badge-doc badge-doc-write">Escrita</span><br>
+      Fecha o carrinho e gera um pedido formal ou oportunidade vitoriosa.
+    </li>
+  </ul>
+
+  <h3>3.5. Formulários Dinâmicos (`omni.forms`)</h3>
+  <p>Permite acionar interfaces nativas de captura de dados sem precisar desenhar o HTML.</p>
+  <ul>
+    <li>
+      <code>omni.forms.openDynamic(opts)</code> <span class="badge-doc badge-doc-ui">UI</span><br>
+      Abre um modal nativo e desenha um formulário interativo completo na hora, baseado na definição do JSON fornecido. O AtenderBem gerencia a validação de obrigatoriedade e devolve as respostas estruturadas ao fechar.<br>
+      <strong>Tipos de campos suportados:</strong>
+      <table class="doc" style="font-size: 11px;">
+        <thead><tr><th>Código</th><th>Tipo</th><th>Descrição</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Texto simples</td><td>Input de texto padrão.</td></tr>
+          <tr><td>2</td><td>Área de texto</td><td>Textarea para parágrafos.</td></tr>
+          <tr><td>3</td><td>Inteiro</td><td>Input numérico de inteiros.</td></tr>
+          <tr><td>4</td><td>Decimal</td><td>Input de ponto flutuante/dinheiro.</td></tr>
+          <tr><td>20</td><td>Título</td><td>Elemento visual para organizar seções.</td></tr>
+          <tr><td>22</td><td>Imagem</td><td>Exibe uma imagem a partir de uma URL ou URI Base64.</td></tr>
+        </tbody>
+      </table>
+      <strong>Exemplo de chamada estruturada:</strong>
+      <pre>
+const formData = await omni.forms.openDynamic({
+  formulario: {
+    name: "Cadastro de Faturamento",
+    fields: [
+      { id: "lbl_header", label: "Dados Fiscais", type: 20 },
+      { id: "cnpj", label: "CNPJ da Empresa", type: 1, required: true, width: 6 },
+      { id: "ie", label: "Inscrição Estadual", type: 1, required: false, width: 6 }
+    ]
+  }
+});
+if (formData) {
+  console.log("CNPJ:", formData.cnpj);
+}</pre>
+    </li>
+  </ul>
+
+  <h3>3.6. CRM &amp; Oportunidades (`omni.crm`)</h3>
+  <p>Fornece integração profunda com o módulo de vendas.</p>
+  <ul>
+    <li>
+      <code>omni.crm.create(dados)</code> <span class="badge-doc badge-doc-write">Escrita</span><br>
+      Cria uma oportunidade de venda no funil do CRM.<br>
+      <strong>Campos obrigatórios:</strong> <code>pipelineId</code> e <code>title</code>.<br>
+      <strong>Campos aceitos:</strong> <code>stageId, description, value, recurrentvalue, freight, expectedclosedate, contacts, products, formsdata</code>.
+    </li>
+    <li>
+      <code>omni.crm.changeStage(id, stageId)</code> <span class="badge-doc badge-doc-write">Escrita</span><br>
+      Move a oportunidade para outra etapa do funil.
+    </li>
+    <li>
+      <code>omni.crm.win(id)</code> / <code>omni.crm.lose(id)</code> <span class="badge-doc badge-doc-write">Escrita</span><br>
+      Fecha a oportunidade marcando-a como Ganha ou Perdida.
+    </li>
+  </ul>
+
+  <h3>3.7. Interface com o Usuário (`omni.ui`)</h3>
+  <p>Permite emitir alertas, toasts e controlar modais do Host.</p>
+  <ul>
+    <li>
+      <code>omni.ui.toast(opts)</code> <span class="badge-doc badge-doc-ui">UI</span><br>
+      Exibe uma pequena notificação flutuante de sucesso/erro no canto da tela do atendente.<br>
+      <strong>Argumentos:</strong> <code>opts: { msg: string }</code>
+    </li>
+    <li>
+      <code>omni.ui.confirm(opts)</code> <span class="badge-doc badge-doc-ui">UI</span><br>
+      Abre um diálogo nativo de pergunta com botões configuráveis (ex: "Faturar" e "Cancelar").<br>
+      <strong>Retorno:</strong> <code>Promise&lt;boolean&gt;</code> (true se o usuário clicar no botão OK).
+    </li>
+    <li>
+      <code>omni.ui.alert(opts)</code> <span class="badge-doc badge-doc-ui">UI</span><br>
+      Abre uma caixa de diálogo nativa com mensagem de aviso e botão de fechar.
+    </li>
+    <li>
+      <code>omni.ui.loading(boolean)</code> <span class="badge-doc badge-doc-ui">UI</span><br>
+      Ativa ou desativa o indicador global de carregamento do AtenderBem, bloqueando a tela contra cliques duplicados enquanto processa a chamada no ERP.
+    </li>
+  </ul>
+
+  <h3>3.8. Recursos Adicionais de Integração</h3>
+  <ul>
+    <li>
+      <code>omni.http.request(opts)</code> <span class="badge-doc badge-doc-write">Escrita</span><br>
+      Realiza uma requisição HTTP externa através do proxy do Host, eliminando erros de CORS no navegador.<br>
+      <strong>Limitações e Segurança:</strong>
+      <ul style="margin-top: 4px;">
+        <li>Bloqueia IPs privados (10.x, 172.x, 192.168.x) e loopback (127.x) para segurança interna.</li>
+        <li>Tamanho máximo da resposta: 5 MB.</li>
+        <li>Limite de taxa (Rate Limit): 30 requisições por minuto por instalação de extensão e usuário.</li>
+      </ul>
+    </li>
+    <li>
+      <code>omni.storage.get(key)</code> / <code>omni.storage.set(key, val)</code> <span class="badge-doc badge-doc-local">Local</span><br>
+      Salva dados persistentes (Key-Value) no navegador de forma totalmente isolada (namespaceada automaticamente por extensão e usuário).
+    </li>
+    <li>
+      <code>omni.channel.publish(topic, data)</code> / <code>omni.channel.subscribe(topic)</code> <span class="badge-doc badge-doc-local">Local</span><br>
+      Barramento de publicação e subscrição de tópicos em tempo real para sincronização instantânea.
+    </li>
+  </ul>
+
+  <hr>
+
+  <h2>4. Catálogo de Eventos em Tempo Real</h2>
+  <p>O Host dispara eventos para os iframes e Workers sempre que há uma mudança de estado no sistema. Para se registrar, o aplicativo usa <code>omni.on("nomeDoEvento", (dados) => { ... })</code>. O catálogo completo de eventos homologados é composto por:</p>
+
+  <table class="doc">
+    <thead>
+      <tr>
+        <th>Área</th>
+        <th>Eventos Disponíveis</th>
+        <th>Dados Enviados no Callback</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Sessão &amp; UI</strong></td>
+        <td><code>localeChanged</code>, <code>themeChanged</code></td>
+        <td>O novo locale ativo (ex: "pt-BR") ou o tema de cores atualizado.</td>
+      </tr>
+      <tr>
+        <td><strong>Painel de Atendimento</strong></td>
+        <td><code>chatPanelOpened</code>, <code>chatPanelClosed</code>, <code>chatListChanged</code></td>
+        <td>Sinalizações de abertura/fechamento do painel do agente e atualizações de novas mensagens na fila.</td>
+      </tr>
+      <tr>
+        <td><strong>Conversas</strong></td>
+        <td><code>messageSent</code></td>
+        <td>Objeto contendo ID do chat, remetente, mensagem e carimbo de data/hora.</td>
+      </tr>
+      <tr>
+        <td><strong>CRM Oportunidades</strong></td>
+        <td><code>opportunityOpened</code>, <code>opportunityCreated</code>, <code>opportunityUpdated</code>, <code>opportunityStageChanged</code>, <code>opportunityWon</code>, <code>opportunityLost</code></td>
+        <td>Informações completas do lead alterado, incluindo ID, valor, etapa de destino e canal vinculado.</td>
+      </tr>
+      <tr>
+        <td><strong>Tickets (Help Desk)</strong></td>
+        <td><code>ticketOpened</code>, <code>ticketCreated</code>, <code>ticketUpdated</code>, <code>ticketStatusChanged</code></td>
+        <td>Metadados do ticket, equipe designada, prioridade, SLA e estágio.</td>
+      </tr>
+      <tr>
+        <td><strong>Tarefas de Equipe</strong></td>
+        <td><code>taskCreated</code>, <code>taskUpdated</code>, <code>taskDone</code></td>
+        <td>Status da tarefa do agente, prazo de entrega e responsável.</td>
+      </tr>
+      <tr>
+        <td><strong>Base de Contatos</strong></td>
+        <td><code>contactOpened</code>, <code>contactCreated</code>, <code>contactUpdated</code></td>
+        <td>ID do contato alterado, nome, telefone e campos extras de faturamento vinculados.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <h2>5. Ambiente de Desenvolvimento e Testes: O "Ensaio"</h2>
+  <p>Desenvolver extensões diretamente no ambiente de produção de uma central de atendimento é perigoso. Para mitigar esse risco, o AtenderBem traz um módulo inovador no path <strong><code>/base/extensions-editor</code></strong> chamado <strong>Ensaio (Trial Run)</strong>:</p>
+
+  <ol>
+    <li><strong>Rascunho de Desenvolvimento:</strong> O programador cria seu manifest e arquivos de tela localmente ou em uma CDN de desenvolvimento.</li>
+    <li><strong>Emissão do Link de Ensaio:</strong> No editor, ele fornece a URL de teste e gera um link temporário exclusivo de Ensaio, válido por algumas horas.</li>
+    <li><strong>Teste em Sessão Real:</strong> Quem abrir este link especial passa a carregar o rascunho da extensão no lugar da versão homologada de produção.</li>
+    <li><strong>Ambiente Real:</strong> Ao contrário de um ambiente simulado estático, o Ensaio roda sob sessões reais do agente, visualizando atendimentos reais, CRM real e permissões reais, garantindo fidelidade de 100% nos testes.</li>
+    <li><strong>Indicador de Segurança:</strong> Durante toda a execução do Ensaio, uma faixa de alerta amarela proeminente é renderizada no topo do painel do agente com a mensagem de que um teste real de extensão está em curso naquela aba. Ela some instantaneamente ao expirar ou revogar o token de preview.</li>
+  </ol>
+
+  <hr>
+
+  <h2>6. Estudo de Caso Prático: Assistente de Vendas &amp; ERP FastCorte</h2>
+  <p>Para guiar a implementação na prática, criamos e disponibilizamos uma extensão real e funcional hospedada e homologada diretamente no CDN do GitHub Pages para a instância <strong>fastcorte.atenderbem.com</strong>.</p>
+
+  <h3>6.1. Dados da Extensão de Exemplo</h3>
+  <ul>
+    <li><strong>Nome:</strong> Assistente de Vendas &amp; ERP FastCorte</li>
+    <li><strong>Manifesto Oficial:</strong> <code>https://raw.githack.com/ivannhabilis/manual_atenderbem/main/ext/demo-vendas/manifest.json</code></li>
+    <li><strong>Código-Fonte (HTML/JS):</strong> <code>https://raw.githack.com/ivannhabilis/manual_atenderbem/main/ext/demo-vendas/index.html</code></li>
+  </ul>
+
+  <h3>6.2. Estrutura do Manifesto de Instalação (manifest.json)</h3>
+  <pre>
+{
+  "manifestVersion": 1,
+  "id": "demo-vendas",
+  "version": "1.0.0",
+  "name": "Assistente de Vendas & ERP FastCorte",
+  "description": "Extensão homologada para automação de vendas, gerenciamento de carrinhos e sincronização de pedidos com o ERP corporativo.",
+  "contact": "suporte@fastcorte.com.br",
+  "contributions": [
+    {
+      "id": "sales-panel",
+      "type": "chatPanel",
+      "title": {
+        "pt-BR": "Assistente de Vendas ERP",
+        "en": "Sales ERP Assistant"
+      },
+      "icon": "fal/shopping-cart",
+      "url": "index.html"
+    }
+  ]
+}</pre>
+
+  <h3>6.3. Passo a Passo para Instalação Prática no AtenderBem</h3>
+  <ol>
+    <li>Acesse o painel com perfil de administrador.</li>
+    <li>Navegue até o menu de <strong>Configurações › Extensões</strong> (ou digite diretamente a URL: <code>https://fastcorte.atenderbem.com/base/config/extensioninstalls</code>).</li>
+    <li>Clique no botão <strong>Add</strong> (Adicionar).</li>
+    <li>No formulário de inclusão, preencha a URL do manifesto oficial da FastCorte:
+      <br><code>https://raw.githack.com/ivannhabilis/manual_atenderbem/main/ext/demo-vendas/manifest.json</code>
+    </li>
+    <li>Clique em Salvar. O sistema irá consultar a URL, validar as permissões de barramento, carregar o ícone de carrinho e exibir a extensão na grade como <strong>Habilitada</strong>.</li>
+    <li>Abra a tela de atendimentos do agente em <code>/base/agentchat</code>. Selecione qualquer chat ativo.</li>
+    <li>No painel lateral direito, selecione a nova aba <strong>Assistente de Vendas ERP</strong>. A interface desenhada pelo nosso arquivo HTML/JS será renderizada perfeitamente, isolada de forma segura e se conectando instantaneamente ao atendimento em curso.</li>
+  </ol>
+
+  <hr>
+
+  <h2>7. FAQ — Perguntas Frequentes (Módulo de Extensões)</h2>
+  
+  <div class="faq">
+    <h3>Q1. Qual é a tecnologia por trás do isolamento das extensões?</h3>
+    <p>As extensões de tela rodam dentro de um elemento <code>&lt;iframe&gt;</code> seguro com políticas de <code>sandbox</code> estritas e Content Security Policy (CSP) injetadas de forma dinâmica. Os scripts de background opcionais são executados em <code>Web Workers</code> isolados da thread principal do DOM do AtenderBem, impedindo que falhas de script travem o fluxo do atendente.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q2. Como as extensões superam os problemas de segurança de requisições externas (CORS)?</h3>
+    <p>Requisitar dados de um ERP externo diretamente pelo JavaScript do navegador costuma ser bloqueado por políticas de segurança de CORS. O AtenderBem resolve isso oferecendo o método <code>omni.http.request</code>, que atua como um proxy reverso seguro. O navegador fala com o servidor do AtenderBem, e o servidor faz a requisição final para a API do ERP, permitindo uma comunicação limpa livre de CORS.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q3. O que é o "disjuntor" (Circuit Breaker) e como rearmá-lo se a extensão cair?</h3>
+    <p>O AtenderBem implementa uma proteção de sistema contra loops de código ineficientes. Se uma extensão instalada exceder 30 requisições por minuto por usuário, ou devolver uma quantidade massiva de erros de rede consecutivos, o barramento de comunicação é cortado preventivamente ("Desligado pelo disjuntor"). Para reativá-lo após correções no código, o administrador deve acessar <code>/base/config/extensioninstalls</code> e clicar em <strong>Reset Breaker (Rearmar Canal)</strong>.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q4. Onde os dados gravados por `omni.storage` ficam armazenados fisicamente?</h3>
+    <p>Os dados persistidos via <code>omni.storage.set()</code> são salvos localmente na base do navegador do agente de suporte. Os registros são totalmente isolados e criptografados sob uma chave contendo o prefixo da extensão, impedindo de forma absoluta que uma extensão de terceiros acesse dados armazenados por outra.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q5. Qual é a diferença entre um teste de "Ensaio" e a ativação direta de produção?</h3>
+    <p>A ativação de produção (Add) habilita o módulo de forma definitiva para todos os agentes selecionados no filtro de visibilidade da empresa. O "Ensaio" (Trial Run) gera uma credencial de bypass temporária. Apenas as pessoas que clicarem no link de Ensaio verão a versão experimental da extensão, permitindo homologação em tempo real sem expor o restante da equipe.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q6. Como funcionam as permissões de público-alvo (Audience) em uma extensão?</h3>
+    <p>Durante a instalação ou edição da extensão no AtenderBem, o administrador pode amarrar a visibilidade da extensão a grupos visuais ou perfis de usuários específicos. Por exemplo, o "Assistente de Faturamento ERP" pode ser exposto exclusivamente para agentes do setor "Financeiro", enquanto o "Assistente de Logística" fica visível apenas para a equipe de "Expedição".</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q7. Uma extensão pode atuar de forma invisível/plano de fundo?</h3>
+    <p>Sim. O manifesto aceita a contribuição do tipo <code>backgroundWorker</code>. Esse recurso não exibe nenhum iframe na tela do atendente; em vez disso, executa um worker silencioso que fica monitorando barramentos de eventos (como <code>messageSent</code> ou <code>ticketStatusChanged</code>) para registrar logs em bancos externos ou acionar webhooks em tempo real de forma invisível.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q8. O AtenderBem aceita arquivos locais ou a extensão precisa ser hospedada externamente?</h3>
+    <p>O manifesto deve residir em uma URL acessível pela plataforma, mas os arquivos de interface (como HTML, CSS e JavaScript) podem ser servidos a partir de qualquer servidor web seguro do cliente ou CDN (como o GitHub Pages, servidores VPS locais, ou CDN Cloudflare). Toda a renderização final ocorre de forma segura no lado do cliente.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q9. O que são os "warnings" de dependência (missingrequireslabels) exibidos no AtenderBem?</h3>
+    <p>Se a extensão necessitar de recursos exclusivos do sistema para rodar (por exemplo, acesso ao módulo de CRM ou ao catálogo integrado de produtos do WhatsApp) e esses recursos estiverem desativados na licença corrente da empresa no AtenderBem, a plataforma listará avisos preventivos na grade de configurações para sinalizar o bloqueio dessas APIs.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q10. Como o tema escuro do AtenderBem é repassado para a extensão?</h3>
+    <p>Ao mudar de modo (claro/escuro) no menu do AtenderBem, o Host dispara imediatamente o evento de sistema <code>themeChanged</code> para todos os iframes ativos de extensões. O SDK capta e repassa esses dados para o callback registrado no JavaScript da extensão, permitindo ao desenvolvedor alterar as variáveis de estilos CSS na hora.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q11. É seguro trafegar chaves e segredos de API nas URLs das extensões?</h3>
+    <p>Não. Nenhuma chave secreta ou token de banco de dados do ERP deve ser gravado diretamente no código JavaScript do iframe. Em vez disso, o desenvolvedor declara as credenciais necessárias no manifesto e o administrador preenche essas variáveis na tela de configurações da extensão (Config). Essas variáveis de configuração do AtenderBem são trafegadas de forma segura por canais criptografados no handshake (<code>omni.ready</code>).</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q12. Qual é a versão mínima exigida do Host para usar Extensões?</h3>
+    <p>A funcionalidade requer o AtenderBem Host na versão <code>1.40.0</code> ou superior. Caso a extensão declare a tag <code>minHostVersion</code> no arquivo de manifesto e a versão da central de atendimento seja anterior, a plataforma registrará um alerta de incompatibilidade e poderá impedir a execução dos barramentos.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q13. Como fechar ou redimensionar um painel de extensão de forma programática?</h3>
+    <p>Para fechar um modal ou um painel aberto pela extensão, chame o método <code>omni.ui.close()</code>. Para ajustar a altura do iframe de forma responsiva baseado em transições visuais internas do seu HTML, use o método <code>omni.ui.resize(alturaEmPixels)</code>.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q14. O que acontece com a extensão se a internet do agente de atendimento cair?</h3>
+    <p>O AtenderBem detecta a perda de conectividade e entra em modo offline. O iframe da extensão permanece na tela, mas chamadas de API como <code>omni.http.request</code> ou mutações do carrinho falharão de forma imediata. O barramento de eventos é re-estabelecido automaticamente assim que a conexão de rede do agente for restaurada.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q15. Onde encontrar suporte e atualizações técnicas do SDK de extensões?</h3>
+    <p>Dúvidas adicionais e homologações de segurança de novos plugins de canais podem ser esclarecidas diretamente com a equipe corporativa de engenharia de software e canais no e-mail <code>suporte@atenderbem.com.br</code>.</p>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — Elaborado a partir da interface real da plataforma <strong>AtenderBem / Habilis</strong>.</p>
+  <p>Este material é de uso interno e educativo. Não foram inventadas funcionalidades além das observadas na plataforma.</p>
+</footer>
+
+</body>
+</html>
