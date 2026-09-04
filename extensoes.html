@@ -445,8 +445,8 @@ if (formData) {
   <h3>6.1. Dados da Extensão de Exemplo</h3>
   <ul>
     <li><strong>Nome:</strong> Assistente de Vendas &amp; ERP FastCorte</li>
-    <li><strong>Manifesto Oficial:</strong> <code>https://raw.githack.com/ivannhabilis/manual_atenderbem/main/ext/demo-vendas/manifest.json</code></li>
-    <li><strong>Código-Fonte (HTML/JS):</strong> <code>https://raw.githack.com/ivannhabilis/manual_atenderbem/main/ext/demo-vendas/index.html</code></li>
+    <li><strong>Manifesto Oficial:</strong> <code>https://raw.githack.com/ivannhabilis/manual_atenderbem/main/ext/fastcorte-vendas/manifest.json</code></li>
+    <li><strong>Código-Fonte (HTML/JS):</strong> <code>https://raw.githack.com/ivannhabilis/manual_atenderbem/main/ext/fastcorte-vendas/index.html</code></li>
   </ul>
 
   <h3>6.2. Estrutura do Manifesto de Instalação (manifest.json)</h3>
@@ -454,13 +454,13 @@ if (formData) {
 {
   "manifestVersion": 1,
   "id": "fastcorte.vendas",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Assistente de Vendas & ERP FastCorte",
   "description": "Extensão homologada para automação de vendas, gerenciamento de carrinhos e sincronização de pedidos com o ERP corporativo.",
   "contact": "suporte@fastcorte.com.br",
   "contributions": [
     {
-      "id": "sales-panel",
+      "id": "sales_panel",
       "type": "chatPanel",
       "title": {
         "pt-BR": "Assistente de Vendas ERP",
@@ -478,7 +478,7 @@ if (formData) {
     <li>Navegue até o menu de <strong>Configurações › Extensões</strong> (ou digite diretamente a URL: <code>https://fastcorte.atenderbem.com/base/config/extensioninstalls</code>).</li>
     <li>Clique no botão <strong>Add</strong> (Adicionar).</li>
     <li>No formulário de inclusão, preencha a URL do manifesto oficial da FastCorte:
-      <br><code>https://raw.githack.com/ivannhabilis/manual_atenderbem/main/ext/demo-vendas/manifest.json</code>
+      <br><code>https://raw.githack.com/ivannhabilis/manual_atenderbem/main/ext/fastcorte-vendas/manifest.json</code>
     </li>
     <li>Clique em Salvar. O sistema irá consultar a URL, validar as permissões de barramento, carregar o ícone de carrinho e exibir a extensão na grade como <strong>Habilitada</strong>.</li>
     <li>Abra a tela de atendimentos do agente em <code>/base/agentchat</code>. Selecione qualquer chat ativo.</li>
