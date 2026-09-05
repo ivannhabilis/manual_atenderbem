@@ -496,6 +496,19 @@ if (formData) {
     <li><strong>Funil demo:</strong> a extensão carrega os funis disponíveis por <code>omni.crm.listPipelines()</code>, prioriza nomes contendo “demo”, “extensão” ou “trein”, e usa o primeiro funil acessível como fallback. Se não houver nenhum funil com nome de treinamento, o administrador deve criar um funil real no CRM com esse nome para padronizar a capacitação.</li>
   </ul>
 
+  <h3>6.5. Resultado Validado em Produção (Teste Real)</h3>
+  <p>Em <strong>04/09/2026</strong> a demo v1.1.0 foi homologada em atendimento real na instância FastCorte, com chat aberto e agente <strong>#500</strong>. Resultado reportado pelo operador: <em>“ficou FANTASTICO”</em>. Os seguintes comportamentos foram confirmados em ambiente real:</p>
+  <ul>
+    <li>Handshake do SDK <code>omni</code> concluído com sucesso e identificação da instância <code>fastcorte</code>.</li>
+    <li>Leitura do chat ativo selecionado (ID real) e exibição no painel “Cliente ativo”.</li>
+    <li>Orçamento local com múltiplos produtos sem perda de estado, com incremento/decremento e remoção.</li>
+    <li>Formulário dinâmico fiscal aberto com <code>fields</code> na raiz, sem o erro de “fields vazio”.</li>
+    <li>Seletor de funil CRM carregando os funis acessíveis da instância.</li>
+    <li>Criação de oportunidade demo sem quebra por <code>contactId</code> inválido (só envia quando numérico).</li>
+    <li>Painel ocupando a área reservada de forma adequada, com redimensionamento automático do iframe.</li>
+  </ul>
+  <p>Estado operacional da demo para treinamento: <strong>APROVADA PARA USO</strong>. A extensão é a base oficial de capacitação da equipe no módulo de Extensões.</p>
+
   <hr>
 
   <h2>7. FAQ — Perguntas Frequentes (Módulo de Extensões)</h2>
