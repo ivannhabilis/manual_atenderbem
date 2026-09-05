@@ -1,9 +1,9 @@
 {
   "manifestVersion": 1,
   "id": "fastcorte.vendas",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "name": "Assistente de Vendas ERP FastCorte",
-  "description": "Extensão homologada para automação de vendas, gerenciamento de carrinhos e sincronização de pedidos com o ERP corporativo.",
+  "description": "Extensão demo aprimorada para treinamento: painel de vendas, orçamento local, tentativa segura de carrinho nativo, seleção de funil CRM e formulário dinâmico fiscal.",
   "contact": "suporte@fastcorte.com.br",
   "contributions": [
     {

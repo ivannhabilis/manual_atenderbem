@@ -2,603 +2,547 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Assistente de Vendas ERP — AtenderBem Extension</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistente de Vendas ERP FastCorte</title>
   <style>
-    /* Reset & Tipografia */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
     body {
-      background-color: var(--ext-color-bg, #f8fafc);
-      color: var(--ext-color-text, #334155);
-      padding: 12px;
+      background: var(--ext-color-bg, #f8fafc);
+      color: var(--ext-color-text, #172033);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.45;
+      padding: 12px;
+      overflow-x: hidden;
     }
-
-    /* Utilitários de Cores (usando as variáveis injetadas pelo AtenderBem) */
     :root {
       --primary: var(--ext-color-primary, #1458ea);
-      --primary-light: var(--ext-color-primary-light, #e0f2fe);
+      --primary-light: var(--ext-color-primary-light, #e8f0ff);
       --success: #10b981;
       --warning: #f59e0b;
       --danger: #ef4444;
-      --border: #e2e8f0;
-      --card-bg: #ffffff;
+      --muted: #64748b;
+      --border: #dbe3ef;
+      --card: #ffffff;
+      --soft: #f1f5f9;
+      --dark: #0f172a;
     }
-
-    /* Estrutura de Cards */
-    .card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 12px;
+    .app { width: 100%; max-width: 100%; }
+    .hero {
+      background: linear-gradient(135deg, var(--primary), #29bdff);
+      color: white;
+      padding: 14px;
+      border-radius: 12px;
       margin-bottom: 12px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 8px 18px rgba(20, 88, 234, .18);
     }
-
-    .card-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    /* Campos de dados */
-    .data-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 4px 0;
-      border-bottom: 1px dashed var(--border);
-    }
-    .data-row:last-child {
-      border-bottom: none;
-    }
-    .data-label {
-      font-weight: 500;
-      color: #64748b;
-    }
-    .data-value {
-      font-weight: 600;
-      color: #1e293b;
-    }
-
-    /* Formulários e Botões */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      padding: 8px 12px;
-      background-color: var(--primary);
-      color: #ffffff;
-      border: none;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.2s;
-      gap: 6px;
-      margin-top: 8px;
-    }
-    .btn:hover {
-      opacity: 0.9;
-    }
-    .btn-secondary {
-      background-color: #64748b;
-    }
-    .btn-success {
-      background-color: var(--success);
-    }
-    .btn-outline {
-      background-color: transparent;
-      color: var(--primary);
-      border: 1px solid var(--primary);
-    }
-    .btn-outline:hover {
-      background-color: var(--primary-light);
-    }
-
-    /* Lista de produtos no carrinho */
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 6px 0;
-      border-bottom: 1px solid #f1f5f9;
-    }
-    .cart-item-info {
-      display: flex;
-      flex-direction: column;
-    }
-    .cart-item-name {
-      font-weight: 600;
-    }
-    .cart-item-qty {
-      font-size: 11px;
-      color: #64748b;
-    }
-    .cart-item-price {
-      font-weight: bold;
-      color: #0f172a;
-    }
-
-    /* Alerta de Status */
-    .badge {
-      display: inline-block;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-    .badge-success { background-color: #d1fae5; color: #065f46; }
-    .badge-warning { background-color: #fef3c7; color: #92400e; }
-    .badge-danger { background-color: #fee2e2; color: #991b1b; }
-
-    /* Estilização para o header de integração */
-    .header-extension {
-      text-align: center;
-      padding: 8px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 12px;
-    }
-    .header-extension h1 {
-      font-size: 15px;
-      color: var(--primary);
-      font-weight: 700;
-    }
-    .header-extension p {
-      font-size: 11px;
-      color: #64748b;
-    }
-
-    /* Área de logs de depuração local */
-    #debug-console {
-      font-family: monospace;
-      font-size: 10px;
-      background: #1e293b;
-      color: #38bdf8;
-      padding: 8px;
-      border-radius: 6px;
-      max-height: 100px;
-      overflow-y: auto;
-      margin-top: 12px;
-    }
+    .hero h1 { font-size: 16px; margin: 0 0 4px; }
+    .hero p { margin: 0; opacity: .92; font-size: 11px; }
+    .status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+    .status-chip { background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.28); border-radius: 8px; padding: 7px; }
+    .status-chip b { display: block; font-size: 10px; opacity: .8; text-transform: uppercase; }
+    .status-chip span { display: block; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(15,23,42,.06); }
+    .card-title { display: flex; justify-content: space-between; gap: 8px; align-items: center; color: var(--primary); font-weight: 800; margin-bottom: 9px; font-size: 14px; }
+    .small { color: var(--muted); font-size: 11px; }
+    .row { display: flex; justify-content: space-between; gap: 8px; padding: 6px 0; border-bottom: 1px dashed var(--border); }
+    .row:last-child { border-bottom: 0; }
+    .label { color: var(--muted); font-weight: 600; }
+    .value { color: #0f172a; font-weight: 800; text-align: right; overflow-wrap: anywhere; }
+    .notice { border-radius: 8px; padding: 9px; margin: 8px 0; font-size: 11px; }
+    .notice.info { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+    .notice.warn { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+    .notice.ok { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+    .btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+    button, select, input { font-family: inherit; }
+    .btn { width: 100%; min-height: 36px; border: 0; border-radius: 8px; color: white; background: var(--primary); font-weight: 800; font-size: 12px; cursor: pointer; padding: 8px 9px; }
+    .btn:hover { filter: brightness(.96); }
+    .btn:disabled { opacity: .45; cursor: not-allowed; }
+    .btn.secondary { background: #475569; }
+    .btn.success { background: var(--success); }
+    .btn.warn { background: var(--warning); }
+    .btn.danger { background: var(--danger); }
+    .btn.outline { color: var(--primary); background: white; border: 1px solid var(--primary); }
+    .select { width: 100%; border: 1px solid var(--border); border-radius: 8px; min-height: 34px; padding: 6px; background: white; color: #0f172a; font-size: 12px; }
+    .product { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 8px; padding: 9px 0; border-bottom: 1px solid #edf2f7; }
+    .product:last-child { border-bottom: 0; }
+    .product-name { font-weight: 800; color: #0f172a; }
+    .product-meta { color: var(--muted); font-size: 11px; }
+    .qty { display: grid; grid-template-columns: 28px 34px 28px; align-items: center; gap: 4px; }
+    .qty button { width: 28px; height: 28px; border: 1px solid var(--border); background: var(--soft); border-radius: 6px; font-weight: 900; cursor: pointer; }
+    .qty span { text-align: center; font-weight: 900; }
+    .totals { background: var(--soft); border-radius: 8px; padding: 8px; margin-top: 9px; }
+    .pill { display: inline-flex; align-items: center; gap: 5px; padding: 3px 7px; border-radius: 999px; font-size: 10px; font-weight: 900; text-transform: uppercase; }
+    .pill.ok { background: #d1fae5; color: #065f46; }
+    .pill.warn { background: #fef3c7; color: #92400e; }
+    .pill.err { background: #fee2e2; color: #991b1b; }
+    .log { background: var(--dark); color: #67e8f9; border-radius: 8px; padding: 9px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; max-height: 160px; overflow-y: auto; white-space: normal; }
+    .log .err { color: #fca5a5; }
+    .log .ok { color: #86efac; }
+    .log .warn { color: #fde68a; }
+    .footer-space { height: 28px; }
   </style>
 </head>
 <body>
-
-  <div class="header-extension">
-    <h1>Assistente de Vendas &amp; ERP</h1>
-    <p>FastCorte Corporate Integration</p>
-  </div>
-
-  <!-- Card 1: Cliente & Atendimento Atual -->
-  <div class="card">
-    <div class="card-title">
-      <span>👤</span> Cliente Ativo
+<div class="app" id="app">
+  <section class="hero">
+    <h1>Assistente de Vendas ERP</h1>
+    <p>Demo oficial FastCorte para treinamento: atendimento + orçamento + CRM + formulário fiscal.</p>
+    <div class="status-grid">
+      <div class="status-chip"><b>SDK</b><span id="sdk-state">Inicializando</span></div>
+      <div class="status-chip"><b>Chat</b><span id="chat-state">Aguardando</span></div>
+      <div class="status-chip"><b>Carrinho nativo</b><span id="native-cart-state">Verificando</span></div>
+      <div class="status-chip"><b>Funil CRM</b><span id="crm-state">Verificando</span></div>
     </div>
-    <div id="customer-card">
-      <div class="data-row">
-        <span class="data-label">Nome:</span>
-        <span class="data-value" id="cust-name">Carregando...</span>
-      </div>
-      <div class="data-row">
-        <span class="data-label">Telefone:</span>
-        <span class="data-value" id="cust-phone">-</span>
-      </div>
-      <div class="data-row">
-        <span class="data-label">Fila:</span>
-        <span class="data-value" id="cust-queue">-</span>
-      </div>
+  </section>
+
+  <section class="card">
+    <div class="card-title"><span>👤 Cliente ativo</span><button class="btn outline" style="width:auto;min-height:28px;padding:4px 8px" id="btn-refresh">Atualizar</button></div>
+    <div class="row"><span class="label">Nome</span><span class="value" id="cust-name">-</span></div>
+    <div class="row"><span class="label">Telefone</span><span class="value" id="cust-phone">-</span></div>
+    <div class="row"><span class="label">Contato ID</span><span class="value" id="cust-id">-</span></div>
+    <div class="row"><span class="label">Chat ID</span><span class="value" id="chat-id">-</span></div>
+    <div class="row"><span class="label">Fila</span><span class="value" id="queue-id">-</span></div>
+  </section>
+
+  <section class="card">
+    <div class="card-title"><span>🛒 Orçamento demo</span><span class="pill warn" id="cart-mode">LOCAL</span></div>
+    <div class="notice info" id="cart-help">Este bloco sempre funciona para treinamento. Quando o atendimento tiver carrinho sincronizado, ele também tenta gravar no carrinho nativo do AtenderBem.</div>
+    <div id="products"></div>
+    <div class="totals">
+      <div class="row"><span class="label">Itens</span><span class="value" id="total-items">0</span></div>
+      <div class="row"><span class="label">Total</span><span class="value" id="total-money">R$ 0,00</span></div>
     </div>
-  </div>
-
-  <!-- Card 2: Carrinho do WhatsApp & Catálogo -->
-  <div class="card">
-    <div class="card-title">
-      <span>🛒</span> Carrinho de Compras
+    <div class="btn-row">
+      <button class="btn outline" id="btn-pick-product">Escolher produto real</button>
+      <button class="btn danger" id="btn-clear">Limpar orçamento</button>
     </div>
-    <div id="cart-container">
-      <div id="cart-items-list" style="margin-bottom: 8px;">
-        <p style="color: #64748b; text-align: center; padding: 10px 0;">Nenhum item no carrinho.</p>
-      </div>
-      <div class="data-row" style="border-top: 1px solid var(--border); padding-top: 8px;">
-        <span class="data-label">Total do Carrinho:</span>
-        <span class="data-value" id="cart-total">R$ 0,00</span>
-      </div>
+    <button class="btn success" id="btn-send-cart">Enviar carrinho/orçamento no WhatsApp</button>
+  </section>
+
+  <section class="card">
+    <div class="card-title"><span>🤝 CRM e funil demo</span></div>
+    <div class="notice ok" id="funnel-help">Modo treinamento: a extensão detecta funis acessíveis, prioriza um funil com nome contendo “demo” ou “extensão” e usa o primeiro funil disponível como fallback seguro.</div>
+    <label class="small" for="pipeline-select">Funil para criar oportunidade</label>
+    <select class="select" id="pipeline-select"><option value="">Carregando funis...</option></select>
+    <div class="btn-row">
+      <button class="btn secondary" id="btn-load-pipelines">Recarregar funis</button>
+      <button class="btn" id="btn-create-opp">Criar oportunidade demo</button>
     </div>
+    <button class="btn outline" id="btn-open-opp-form">Abrir formulário nativo de oportunidade</button>
+  </section>
 
-    <!-- Ações de Catalogo e Carrinho -->
-    <button class="btn btn-outline" id="btn-add-product">
-      <span>➕</span> Adicionar Whey Protein Isolado
-    </button>
-    <button class="btn btn-outline" id="btn-add-shaker">
-      <span>➕</span> Adicionar Coqueteleira Premium
-    </button>
-    <button class="btn btn-success" id="btn-send-cart" style="display: none;">
-      <span>💬</span> Enviar Carrinho via WhatsApp
-    </button>
-  </div>
+  <section class="card">
+    <div class="card-title"><span>🧾 Cadastro fiscal dinâmico</span></div>
+    <p class="small">Abre um formulário nativo montado por JSON. Corrigido: agora o objeto enviado ao SDK possui <strong>fields</strong> na raiz, como o AtenderBem exige.</p>
+    <button class="btn secondary" id="btn-billing-form">Abrir formulário fiscal demo</button>
+  </section>
 
-  <!-- Card 3: Sincronização com ERP ERPFácil -->
-  <div class="card">
-    <div class="card-title">
-      <span>⚡</span> Sincronização de Pedidos (ERP)
-    </div>
-    <div class="data-row">
-      <span class="data-label">Status ERP:</span>
-      <span class="badge badge-success" id="erp-status">Online</span>
-    </div>
-    <div class="data-row">
-      <span class="data-label">Último ID ERP:</span>
-      <span class="data-value" id="erp-last-sync">Nenhum</span>
-    </div>
-    
-    <button class="btn" id="btn-sync-erp">
-      <span>🔄</span> Faturar &amp; Sincronizar Pedido
-    </button>
-    <button class="btn btn-secondary" id="btn-quick-lead">
-      <span>🤝</span> Criar Oportunidade no CRM
-    </button>
-  </div>
+  <section class="card">
+    <div class="card-title"><span>⚙️ ERP simulado</span></div>
+    <div class="row"><span class="label">Último pedido</span><span class="value" id="erp-last">Nenhum</span></div>
+    <button class="btn warn" id="btn-erp">Simular faturamento ERP</button>
+  </section>
 
-  <!-- Card 4: Formulário Dinâmico -->
-  <div class="card">
-    <div class="card-title">
-      <span>📝</span> Cadastro Rápido de Faturamento
-    </div>
-    <p style="color: #64748b; font-size: 11px; margin-bottom: 8px;">
-      Gere um formulário dinâmico nativo do AtenderBem para validar o CNPJ e Inscrição Estadual do cliente.
-    </p>
-    <button class="btn btn-secondary" id="btn-billing-form">
-      <span>📋</span> Abrir Formulário de Cadastro
-    </button>
-  </div>
+  <section class="card">
+    <div class="card-title"><span>🧪 Diagnóstico</span><span class="pill ok" id="demo-version">v1.1.0</span></div>
+    <div class="log" id="log">[sistema] Aguardando handshake...</div>
+  </section>
+  <div class="footer-space"></div>
+</div>
 
-  <!-- Console de Debug -->
-  <div style="font-size: 11px; font-weight: 600; color: #475569; margin-top: 12px;">Logs do Terminal:</div>
-  <div id="debug-console">
-    [sistema] Aguardando handshake...
-  </div>
+<script>
+  const demoProducts = [
+    { id: 1201, name: 'Whey Protein Isolado 900g', price: 189.90, sku: 'DEMO-WHEY-ISO' },
+    { id: 1202, name: 'Coqueteleira Premium 700ml', price: 29.90, sku: 'DEMO-SHAKER' },
+    { id: 1203, name: 'Creatina Monohidratada 300g', price: 79.90, sku: 'DEMO-CREATINA' }
+  ];
 
-  <script>
-    // Referências do DOM
-    const consoleEl = document.getElementById('debug-console');
-    const custNameEl = document.getElementById('cust-name');
-    const custPhoneEl = document.getElementById('cust-phone');
-    const custQueueEl = document.getElementById('cust-queue');
-    const cartItemsListEl = document.getElementById('cart-items-list');
-    const cartTotalEl = document.getElementById('cart-total');
-    const btnSendCartEl = document.getElementById('btn-send-cart');
-    const erpLastSyncEl = document.getElementById('erp-last-sync');
+  const state = {
+    hasOmni: typeof window.omni !== 'undefined',
+    ready: false,
+    context: null,
+    chat: null,
+    nativeCartAvailable: false,
+    products: [],
+    pipelines: [],
+    selectedPipelineId: null
+  };
 
-    let currentChat = null;
-    let extensionContext = null;
+  const $ = (id) => document.getElementById(id);
+  const money = (value) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(value) || 0);
+  const asNumber = (value) => Number(value) || 0;
+  const log = (message, kind = '') => {
+    const line = document.createElement('div');
+    line.className = kind;
+    line.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+    $('log').appendChild(line);
+    $('log').scrollTop = $('log').scrollHeight;
+    resizeHost();
+  };
 
-    // Helper para logar
-    function log(message) {
-      const time = new Date().toLocaleTimeString();
-      consoleEl.innerHTML += `<br>[${time}] ${message}`;
-      consoleEl.scrollTop = consoleEl.scrollHeight;
-    }
+  function safeContactId() {
+    return asNumber(state.chat?.contactId || state.chat?.contact?.id || state.chat?.fk_contact || state.chat?.fkContact);
+  }
 
-    // Inicializar SDK
-    if (typeof omni !== 'undefined') {
-      log('SDK omni detectado. Enviando sinal de pronto...');
-      
-      omni.ready(async (context) => {
-        extensionContext = context;
-        log('Handshake bem-sucedido!');
-        log(`Instância: ${context.instance?.name || 'AtenderBem'}`);
-        log(`Usuário logado: ${context.user?.name} (${context.user?.email})`);
+  function safePhone() {
+    return state.chat?.contact?.phone || state.chat?.contact?.number || state.chat?.phone || state.chat?.clientNumber || '-';
+  }
 
-        // Registrar eventos em tempo real
-        omni.on('chatListChanged', () => {
-          log('Evento: Lista de chats alterada.');
-          loadActiveChat();
-        });
+  function resizeHost() {
+    if (!state.hasOmni || !omni.ui || !omni.ui.resize) return;
+    requestAnimationFrame(() => {
+      const height = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        $('app')?.scrollHeight || 0,
+        720
+      );
+      omni.ui.resize(height + 24).catch(() => {});
+    });
+  }
 
-        omni.on('messageSent', (msg) => {
-          log(`Evento: Mensagem enviada no chat ${msg.chatId}`);
-        });
+  function scheduleResize() {
+    resizeHost();
+    setTimeout(resizeHost, 250);
+    setTimeout(resizeHost, 1000);
+  }
 
-        // Carregar dados iniciais
-        await loadActiveChat();
-        await updateCartUI();
-      });
+  function setPill(id, text, cls) {
+    const el = $(id);
+    el.textContent = text;
+    el.className = `pill ${cls}`;
+  }
+
+  function renderCustomer() {
+    const chat = state.chat;
+    $('chat-state').textContent = chat?.id ? `#${chat.id}` : 'Sem chat';
+    $('cust-name').textContent = chat?.contact?.name || chat?.clientName || chat?.name || 'Não identificado';
+    $('cust-phone').textContent = safePhone();
+    $('cust-id').textContent = safeContactId() || 'Não numérico';
+    $('chat-id').textContent = chat?.id || '-';
+    $('queue-id').textContent = chat?.queueId || chat?.fk_queue || '-';
+  }
+
+  function upsertLocalProduct(product, qty = 1) {
+    const existing = state.products.find(p => Number(p.id) === Number(product.id));
+    if (existing) existing.qty += qty;
+    else state.products.push({ ...product, qty });
+    renderProducts();
+  }
+
+  function renderProducts() {
+    const container = $('products');
+    container.innerHTML = '';
+    if (!state.products.length) {
+      container.innerHTML = '<div class="notice warn">Nenhum item no orçamento. Use os botões abaixo para adicionar/remover sem perder estado.</div>';
     } else {
-      log('ALERTA: SDK omni não detectado externamente. Rodando em modo de demonstração isolado.');
-      // Preenche com dados fakes para demonstração visual estática se aberto fora do AtenderBem
-      custNameEl.innerText = "Ivann (Cliente de Teste)";
-      custPhoneEl.innerText = "+55 (11) 99999-9999";
-      custQueueEl.innerText = "Suporte FastCorte";
-    }
-
-    // Função para carregar o chat ativo selecionado na tela do atendente
-    async function loadActiveChat() {
-      try {
-        const chat = await omni.chats.getSelected();
-        currentChat = chat;
-        if (chat) {
-          custNameEl.innerText = chat.contact?.name || 'Cliente Sem Nome';
-          custPhoneEl.innerText = chat.contact?.phone || '-';
-          custQueueEl.innerText = `Fila #${chat.queueId}`;
-          log(`Chat selecionado carregado: ID ${chat.id}`);
-          
-          // Exibe botão de WhatsApp apenas se houver chat aberto
-          btnSendCartEl.style.display = 'inline-flex';
-          await updateCartUI();
-        } else {
-          custNameEl.innerText = "Nenhum chat selecionado";
-          custPhoneEl.innerText = "-";
-          custQueueEl.innerText = "-";
-          btnSendCartEl.style.display = 'none';
-        }
-      } catch (err) {
-        log(`Erro ao ler chat ativo: ${err.message || err}`);
-      }
-    }
-
-    // Função para atualizar a visualização do carrinho de compras
-    async function updateCartUI() {
-      try {
-        const cart = await omni.cart.get();
-        if (cart && cart.items && cart.items.length > 0) {
-          cartItemsListEl.innerHTML = '';
-          cart.items.forEach(item => {
-            const row = document.createElement('div');
-            row.className = 'cart-item';
-            row.innerHTML = `
-              <div class="cart-item-info">
-                <span class="cart-item-name">${item.name || ('Produto #' + item.productId)}</span>
-                <span class="cart-item-qty">Qtd: ${item.qty} | Desc: R$ ${item.discount || '0,00'}</span>
-              </div>
-              <span class="cart-item-price">R$ ${(item.price * item.qty - (item.discount || 0)).toFixed(2)}</span>
-            `;
-            cartItemsListEl.appendChild(row);
-          });
-          cartTotalEl.innerText = `R$ ${cart.total.toFixed(2)}`;
-          btnSendCartEl.style.display = 'inline-flex';
-        } else {
-          cartItemsListEl.innerHTML = '<p style="color: #64748b; text-align: center; padding: 10px 0;">Nenhum item no carrinho.</p>';
-          cartTotalEl.innerText = "R$ 0,00";
-        }
-      } catch (err) {
-        // Fallback local se não estiver conectado ao barramento nativo do carrinho
-        log(`Leitura do carrinho indisponível: ${err.message || err}`);
-      }
-    }
-
-    // Evento de adicionar produto 1 (Simula Whey Protein, ID 1201)
-    document.getElementById('btn-add-product').addEventListener('click', async () => {
-      if (!currentChat) {
-        if (typeof omni !== 'undefined') {
-          await omni.ui.toast({ msg: 'Selecione um chat ativo primeiro!' });
-        } else {
-          alert('Selecione um chat ativo primeiro!');
-        }
-        return;
-      }
-      log('Adicionando Whey Protein Isolado (ID 1201) ao carrinho...');
-      try {
-        // Envia mutação para o AtenderBem
-        await omni.cart.mutate({
-          ops: [
-            { op: 'add', productId: 1201, qty: 1 }
-          ]
-        });
-        await omni.ui.toast({ msg: 'Whey Protein adicionado ao carrinho!' });
-        await updateCartUI();
-      } catch (err) {
-        log(`Erro ao modificar carrinho: ${err.message || err}`);
-        // Fallback visual
+      for (const item of state.products) {
         const row = document.createElement('div');
-        row.className = 'cart-item';
+        row.className = 'product';
         row.innerHTML = `
-          <div class="cart-item-info">
-            <span class="cart-item-name">Whey Protein Isolado 900g</span>
-            <span class="cart-item-qty">Qtd: 1</span>
+          <div>
+            <div class="product-name"></div>
+            <div class="product-meta"></div>
           </div>
-          <span class="cart-item-price">R$ 189,90</span>
-        `;
-        cartItemsListEl.innerHTML = '';
-        cartItemsListEl.appendChild(row);
-        cartTotalEl.innerText = "R$ 189,90";
-        btnSendCartEl.style.display = 'inline-flex';
+          <div class="qty">
+            <button type="button" data-act="dec" data-id="${item.id}">−</button>
+            <span>${item.qty}</span>
+            <button type="button" data-act="inc" data-id="${item.id}">+</button>
+          </div>`;
+        row.querySelector('.product-name').textContent = item.name || `Produto #${item.id}`;
+        row.querySelector('.product-meta').textContent = `${item.sku || 'SKU nativo'} · ${money(item.price)} · subtotal ${money(item.price * item.qty)}`;
+        container.appendChild(row);
       }
-    });
+    }
+    const items = state.products.reduce((s, p) => s + p.qty, 0);
+    const total = state.products.reduce((s, p) => s + (Number(p.price) || 0) * p.qty, 0);
+    $('total-items').textContent = String(items);
+    $('total-money').textContent = money(total);
+    scheduleResize();
+  }
 
-    // Evento de adicionar produto 2 (Simula Coqueteleira, ID 1202)
-    document.getElementById('btn-add-shaker').addEventListener('click', async () => {
-      if (!currentChat) {
-        if (typeof omni !== 'undefined') {
-          await omni.ui.toast({ msg: 'Selecione um chat ativo primeiro!' });
-        } else {
-          alert('Selecione um chat ativo primeiro!');
-        }
+  async function refreshChat() {
+    if (!state.hasOmni) {
+      state.chat = { id: 15416, queueId: 'DEMO', contact: { name: 'Cliente de Treinamento', phone: '+55 11 99999-9999', id: 1 } };
+      renderCustomer();
+      return;
+    }
+    try {
+      const chat = await omni.chats.getSelected();
+      state.chat = chat || null;
+      renderCustomer();
+      log(chat?.id ? `Chat selecionado carregado: ID ${chat.id}` : 'Nenhum chat selecionado.', chat?.id ? 'ok' : 'warn');
+      await refreshNativeCartState();
+    } catch (err) {
+      log(`Erro ao ler chat ativo: ${err.message || err}`, 'err');
+    }
+  }
+
+  async function refreshNativeCartState() {
+    if (!state.hasOmni || !omni.cart?.get) return;
+    try {
+      const cart = await omni.cart.get();
+      state.nativeCartAvailable = !!(cart && cart.available !== false);
+      if (state.nativeCartAvailable) {
+        $('native-cart-state').textContent = 'Disponível';
+        setPill('cart-mode', 'LOCAL + NATIVO', 'ok');
+        $('cart-help').className = 'notice ok';
+        $('cart-help').textContent = 'Carrinho sincronizado disponível. A demo mantém orçamento local e também tenta gravar no carrinho real.';
+      } else {
+        $('native-cart-state').textContent = 'Indisponível';
+        setPill('cart-mode', 'LOCAL', 'warn');
+        $('cart-help').className = 'notice warn';
+        $('cart-help').textContent = 'Este atendimento não tem carrinho sincronizado. A demo continuará funcionando em orçamento local e pode enviar um texto de orçamento no chat.';
+      }
+    } catch (err) {
+      state.nativeCartAvailable = false;
+      $('native-cart-state').textContent = 'Erro/sem carrinho';
+      setPill('cart-mode', 'LOCAL', 'warn');
+      log(`Carrinho nativo indisponível: ${err.message || err}`, 'warn');
+    }
+  }
+
+  async function addProduct(product, qty = 1) {
+    upsertLocalProduct(product, qty);
+    log(`Produto adicionado ao orçamento local: ${product.name}`, 'ok');
+    if (!state.hasOmni || !state.nativeCartAvailable) return;
+    try {
+      await omni.cart.add(Number(product.id), { qty });
+      log(`Produto também enviado ao carrinho nativo: ${product.id}`, 'ok');
+    } catch (err) {
+      log(`Carrinho nativo recusou produto ${product.id}: ${err.message || err}. Orçamento local preservado.`, 'warn');
+    }
+  }
+
+  async function removeOrDecrement(productId) {
+    const idx = state.products.findIndex(p => Number(p.id) === Number(productId));
+    if (idx < 0) return;
+    const item = state.products[idx];
+    item.qty -= 1;
+    if (item.qty <= 0) state.products.splice(idx, 1);
+    renderProducts();
+    log(`Quantidade reduzida/removida: ${item.name}`, 'ok');
+    if (!state.hasOmni || !state.nativeCartAvailable) return;
+    try {
+      if (item.qty <= 0) await omni.cart.remove(Number(productId));
+      else await omni.cart.setQuantity(Number(productId), item.qty);
+      log(`Carrinho nativo atualizado para produto ${productId}`, 'ok');
+    } catch (err) {
+      log(`Não foi possível atualizar carrinho nativo: ${err.message || err}`, 'warn');
+    }
+  }
+
+  function quoteText() {
+    const lines = state.products.map(p => `• ${p.qty}x ${p.name} — ${money(p.price * p.qty)}`);
+    const total = state.products.reduce((s, p) => s + p.price * p.qty, 0);
+    return `Orçamento FastCorte\n${lines.join('\n')}\nTotal: ${money(total)}`;
+  }
+
+  async function sendCartOrQuote() {
+    if (!state.products.length) {
+      log('Nenhum item no orçamento para enviar.', 'warn');
+      if (state.hasOmni) await omni.ui.toast('Adicione pelo menos um produto antes de enviar.', 'warn');
+      return;
+    }
+    if (state.hasOmni && state.nativeCartAvailable) {
+      try {
+        await omni.cart.sendCartMessage({ bodyText: 'Olá! Montei seu carrinho com os itens combinados. Clique abaixo para revisar e finalizar.', buttonText: 'Ver carrinho' });
+        log('Carrinho nativo enviado via WhatsApp.', 'ok');
+        await omni.ui.toast('Carrinho enviado no atendimento.', 'success');
+        return;
+      } catch (err) {
+        log(`Envio do carrinho nativo falhou: ${err.message || err}. Tentando enviar orçamento textual.`, 'warn');
+      }
+    }
+    try {
+      if (state.hasOmni && state.chat?.id) {
+        await omni.chats.sendMessage(Number(state.chat.id), { text: quoteText() });
+        log('Orçamento textual enviado no chat.', 'ok');
+        await omni.ui.toast('Orçamento textual enviado.', 'success');
+      } else {
+        log('Modo isolado: orçamento textual gerado, mas não enviado.', 'warn');
+      }
+    } catch (err) {
+      log(`Falha ao enviar orçamento textual: ${err.message || err}`, 'err');
+    }
+  }
+
+  async function loadPipelines() {
+    const select = $('pipeline-select');
+    select.innerHTML = '<option value="">Carregando funis...</option>';
+    if (!state.hasOmni || !omni.crm?.listPipelines) {
+      state.pipelines = [{ id: 1, name: 'Demo Extensões FastCorte (virtual)' }];
+    } else {
+      try {
+        state.pipelines = await omni.crm.listPipelines();
+        log(`${state.pipelines.length} funil(is) CRM carregado(s).`, 'ok');
+      } catch (err) {
+        state.pipelines = [];
+        log(`Não foi possível carregar funis CRM: ${err.message || err}`, 'err');
+      }
+    }
+    if (!state.pipelines.length) {
+      $('crm-state').textContent = 'Sem funil acessível';
+      select.innerHTML = '<option value="">Nenhum funil acessível</option>';
+      return;
+    }
+    const preferred = state.pipelines.find(p => /demo|extens|trein/i.test(p.name || '')) || state.pipelines[0];
+    state.selectedPipelineId = Number(preferred.id);
+    select.innerHTML = state.pipelines.map(p => `<option value="${p.id}">${String(p.name || ('Funil #' + p.id)).replace(/</g, '&lt;')}</option>`).join('');
+    select.value = String(state.selectedPipelineId);
+    $('crm-state').textContent = preferred.name || `#${preferred.id}`;
+    scheduleResize();
+  }
+
+  async function createOpportunity() {
+    if (!state.selectedPipelineId) {
+      log('Selecione um funil antes de criar a oportunidade.', 'warn');
+      return;
+    }
+    const total = state.products.reduce((s, p) => s + p.price * p.qty, 0) || 100;
+    const payload = {
+      pipelineId: state.selectedPipelineId,
+      title: `DEMO Extensão - ${$('cust-name').textContent || 'Cliente'}`,
+      value: total,
+      probability: 50,
+      description: `${quoteText()}\n\nCriado pela extensão fastcorte.vendas v1.1.0.`
+    };
+    const contactId = safeContactId();
+    if (contactId) payload.contactId = contactId;
+    const phone = safePhone();
+    if (phone && phone !== '-') payload.mainphone = phone;
+    try {
+      const res = await omni.crm.create(payload, { toast: true });
+      log(`Oportunidade demo criada com sucesso. ID: ${res?.id || 'retornado pelo servidor'}`, 'ok');
+      await omni.ui.toast('Oportunidade demo criada no CRM.', 'success');
+    } catch (err) {
+      log(`Falha ao criar oportunidade: ${err.message || err}`, 'err');
+      log('Correção aplicada: contactId só é enviado quando for numérico. Se ainda falhar, selecione outro funil acessível.', 'warn');
+    }
+  }
+
+  async function openDynamicBillingForm() {
+    const form = {
+      name: 'Cadastro Fiscal Demo FastCorte',
+      description: 'Formulário dinâmico gerado pela extensão fastcorte.vendas para treinamento.',
+      fields: [
+        { id: 'sec_empresa', label: 'Dados da empresa', type: 20 },
+        { id: 'razao_social', label: 'Razão Social', type: 1, required: true, width: 12 },
+        { id: 'cnpj', label: 'CNPJ', type: 1, required: true, width: 6 },
+        { id: 'ie', label: 'Inscrição Estadual', type: 1, required: false, width: 6 },
+        { id: 'sec_entrega', label: 'Endereço de entrega', type: 20 },
+        { id: 'cep', label: 'CEP', type: 1, required: true, width: 4 },
+        { id: 'logradouro', label: 'Logradouro', type: 1, required: true, width: 8 },
+        { id: 'numero', label: 'Número', type: 3, required: true, width: 4 },
+        { id: 'complemento', label: 'Complemento', type: 1, required: false, width: 8 },
+        { id: 'observacoes', label: 'Observações de faturamento', type: 2, required: false, width: 12 }
+      ]
+    };
+    log('Abrindo formulário dinâmico com fields na raiz do objeto...', 'ok');
+    try {
+      const res = await omni.forms.openDynamic(form);
+      log(res ? 'Formulário fiscal preenchido e retornado ao iframe.' : 'Formulário fiscal cancelado pelo usuário.', res ? 'ok' : 'warn');
+    } catch (err) {
+      log(`Erro ao abrir formulário dinâmico: ${err.message || err}`, 'err');
+    }
+  }
+
+  async function simulateERP() {
+    const confirmed = state.hasOmni ? await omni.ui.confirm({ title: 'Simular ERP', message: 'Gerar pedido demo em contingência para treinamento?', okLabel: 'Gerar demo', cancelLabel: 'Cancelar' }) : { confirmed: confirm('Gerar pedido demo?') };
+    if (!confirmed?.confirmed && confirmed !== true) {
+      log('Faturamento ERP demo cancelado.', 'warn');
+      return;
+    }
+    const id = 'PED-DEMO-' + Math.floor(10000 + Math.random() * 89999);
+    $('erp-last').textContent = id;
+    log(`Pedido ERP simulado criado: ${id}`, 'ok');
+    if (state.hasOmni) await omni.ui.toast(`Pedido demo ${id} criado.`, 'success');
+  }
+
+  function bindEvents() {
+    $('btn-refresh').onclick = refreshChat;
+    $('btn-load-pipelines').onclick = loadPipelines;
+    $('btn-send-cart').onclick = sendCartOrQuote;
+    $('btn-clear').onclick = async () => {
+      state.products = [];
+      renderProducts();
+      log('Orçamento local limpo.', 'ok');
+      if (state.hasOmni && state.nativeCartAvailable) {
+        try { await omni.cart.clear(); log('Carrinho nativo limpo.', 'ok'); } catch (err) { log(`Carrinho nativo não foi limpo: ${err.message || err}`, 'warn'); }
+      }
+    };
+    $('btn-pick-product').onclick = async () => {
+      if (!state.hasOmni || !omni.products?.select) {
+        await addProduct(demoProducts[0], 1);
         return;
       }
-      log('Adicionando Coqueteleira Premium (ID 1202) ao carrinho...');
       try {
-        await omni.cart.mutate({
-          ops: [
-            { op: 'add', productId: 1202, qty: 1 }
-          ]
-        });
-        await omni.ui.toast({ msg: 'Coqueteleira adicionada!' });
-        await updateCartUI();
+        const res = await omni.products.select({ caption: 'Selecionar produto real do catálogo', selected: state.products.map(p => p.id), single: false });
+        if (!res?.selected) return log('Seleção de produtos cancelada.', 'warn');
+        for (const p of res.products || []) await addProduct({ id: p.id, name: p.name || `Produto #${p.id}`, price: Number(p.price || p.value || 0), sku: p.sku || p.code || 'CATÁLOGO' }, 1);
       } catch (err) {
-        log(`Erro ao modificar carrinho: ${err.message || err}`);
-        // Fallback visual
-        const row = document.createElement('div');
-        row.className = 'cart-item';
-        row.innerHTML = `
-          <div class="cart-item-info">
-            <span class="cart-item-name">Coqueteleira Premium 700ml</span>
-            <span class="cart-item-qty">Qtd: 1</span>
-          </div>
-          <span class="cart-item-price">R$ 29,90</span>
-        `;
-        const existing = cartItemsListEl.innerHTML;
-        if (existing.includes('Nenhum')) {
-          cartItemsListEl.innerHTML = '';
-        }
-        cartItemsListEl.appendChild(row);
-        cartTotalEl.innerText = "R$ 219,80";
-        btnSendCartEl.style.display = 'inline-flex';
+        log(`Seleção nativa de produtos falhou: ${err.message || err}. Usando produto demo.`, 'warn');
+        await addProduct(demoProducts[0], 1);
       }
-    });
-
-    // Enviar carrinho pelo WhatsApp (omni.cart.sendCartMessage)
-    btnSendCartEl.addEventListener('click', async () => {
-      log('Enviando carrinho interativo de produtos via WhatsApp...');
+    };
+    $('products').onclick = (event) => {
+      const btn = event.target.closest('button[data-act]');
+      if (!btn) return;
+      const id = Number(btn.dataset.id);
+      const item = state.products.find(p => Number(p.id) === id);
+      if (!item) return;
+      if (btn.dataset.act === 'inc') addProduct(item, 1);
+      if (btn.dataset.act === 'dec') removeOrDecrement(id);
+    };
+    $('pipeline-select').onchange = (event) => {
+      state.selectedPipelineId = Number(event.target.value) || null;
+      const p = state.pipelines.find(x => Number(x.id) === state.selectedPipelineId);
+      $('crm-state').textContent = p?.name || 'Selecionado';
+    };
+    $('btn-create-opp').onclick = createOpportunity;
+    $('btn-open-opp-form').onclick = async () => {
       try {
-        await omni.cart.sendCartMessage({
-          bodyText: "Olá! Montei seu carrinho de suplementos com descontos especiais. Clique abaixo para finalizar o pedido!",
-          buttonText: "Ver Meu Carrinho"
-        });
-        await omni.ui.toast({ msg: 'Link do carrinho enviado com sucesso via WhatsApp!' });
-      } catch (err) {
-        log(`Erro ao enviar mensagem de carrinho: ${err.message || err}`);
-      }
+        await omni.crm.openForm({ prefill: { title: `DEMO Extensão - ${$('cust-name').textContent}`, value: state.products.reduce((s, p) => s + p.price * p.qty, 0) || 100 } });
+        log('Formulário nativo de oportunidade solicitado.', 'ok');
+      } catch (err) { log(`Falha ao abrir formulário nativo: ${err.message || err}`, 'warn'); }
+    };
+    $('btn-billing-form').onclick = openDynamicBillingForm;
+    $('btn-erp').onclick = simulateERP;
+  }
+
+  async function boot() {
+    bindEvents();
+    renderProducts();
+    if (!state.hasOmni) {
+      $('sdk-state').textContent = 'Modo isolado';
+      log('SDK omni não detectado. Demo visual rodando fora do AtenderBem.', 'warn');
+      await refreshChat();
+      await loadPipelines();
+      scheduleResize();
+      return;
+    }
+    $('sdk-state').textContent = 'Detectado';
+    log('SDK omni detectado. Enviando sinal de pronto...', 'ok');
+    omni.ready(async (context) => {
+      state.ready = true;
+      state.context = context;
+      $('sdk-state').textContent = 'Conectado';
+      log('Handshake bem-sucedido.', 'ok');
+      log(`Instância: ${context?.instance?.name || context?.instance?.domain || 'AtenderBem'}`, 'ok');
+      log(`Usuário: ${context?.user?.name || '(sem nome no handshake)'}`, 'warn');
+      omni.on('chatListChanged', refreshChat);
+      omni.on('messageSent', () => log('Evento recebido: messageSent', 'ok'));
+      await refreshChat();
+      await loadPipelines();
+      scheduleResize();
     });
+  }
 
-    // Sincronizar Pedido com ERP corporativo (omni.http.request + omni.ui.confirm/alert)
-    document.getElementById('btn-sync-erp').addEventListener('click', async () => {
-      if (typeof omni === 'undefined') {
-        alert('Este recurso exige o SDK omni integrado.');
-        return;
-      }
-
-      const confirm = await omni.ui.confirm({
-        title: "Sincronizar com ERP FastCorte",
-        message: "Deseja emitir a Nota Fiscal e faturar o carrinho atual no ERP corporativo?",
-        okLabel: "Faturar Pedido",
-        cancelLabel: "Cancelar"
-      });
-
-      if (!confirm) {
-        log('Ação de faturamento cancelada pelo agente.');
-        return;
-      }
-
-      log('Enviando dados de faturamento para o gateway de integração ERP corporativo...');
-      await omni.ui.loading(true);
-
-      try {
-        // Exemplo real de chamada HTTP segura pelo SDK (sem CORS)
-        const response = await omni.http.request({
-          url: 'https://api.fastcorte.com.br/v1/erp/sync-order',
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Integration-Source': 'AtenderBem-Extension'
-          },
-          body: JSON.stringify({
-            chatId: currentChat?.id,
-            contact: currentChat?.contact,
-            timestamp: new Date().toISOString()
-          }),
-          timeout: 10000
-        });
-
-        await omni.ui.loading(false);
-        log('ERP respondeu com sucesso!');
-        
-        erpLastSyncEl.innerText = "PED-98124";
-        await omni.ui.alert({
-          title: "Pedido Faturado!",
-          message: "O pedido foi transmitido com sucesso. Nota Fiscal nº 009.812 gerada e enviada por e-mail para o cliente.",
-          okLabel: "Entendido"
-        });
-      } catch (err) {
-        await omni.ui.loading(false);
-        log(`Integração ERP Simulada: Gateway offline. Ativando faturamento em contingência...`);
-        
-        // Simulação de fallback bem-sucedido
-        setTimeout(async () => {
-          erpLastSyncEl.innerText = "PED-CONT-4481";
-          await omni.ui.alert({
-            title: "Pedido Registrado (Contingência)!",
-            message: "O pedido foi gravado localmente na fila de faturamento. A nota fiscal será emitida automaticamente assim que o ERP sincronizar.",
-            okLabel: "Prosseguir"
-          });
-        }, 1000);
-      }
-    });
-
-    // Criar Oportunidade no CRM
-    document.getElementById('btn-quick-lead').addEventListener('click', async () => {
-      if (typeof omni === 'undefined') {
-        alert('Este recurso exige o SDK omni integrado.');
-        return;
-      }
-
-      log('Criando oportunidade no Funil de Vendas do CRM...');
-      try {
-        const response = await omni.crm.create({
-          pipelineId: 1, // ID do Funil de Vendas Corporativo
-          title: `Oportunidade - ${custNameEl.innerText}`,
-          value: parseFloat(cartTotalEl.innerText.replace('R$ ', '').replace(',', '.')) || 150.00,
-          description: "Oportunidade criada de forma automatizada pelo Assistente de Vendas ERP AtenderBem.",
-          contactId: currentChat?.contact?.id
-        });
-
-        log(`Oportunidade criada com sucesso no CRM! ID: ${response?.id || 'Gerado'}`);
-        await omni.ui.toast({ msg: 'Oportunidade cadastrada no CRM!' });
-      } catch (err) {
-        log(`Falha ao criar lead no CRM: ${err.message || err}`);
-      }
-    });
-
-    // Abrir formulário dinâmico nativo (omni.forms.openDynamic)
-    document.getElementById('btn-billing-form').addEventListener('click', async () => {
-      if (typeof omni === 'undefined') {
-        alert('Este recurso exige o SDK omni integrado.');
-        return;
-      }
-
-      log('Montando estrutura de formulário dinâmico responsivo...');
-      try {
-        const formData = await omni.forms.openDynamic({
-          formulario: {
-            name: "Faturamento Corporativo",
-            description: "Preencha os dados cadastrais para faturamento de Nota Fiscal de Produto (NF-e).",
-            fields: [
-              { id: "lbl_header", label: "Dados da Empresa", type: 20 }, // 20 = Titulo
-              { id: "company_name", label: "Razão Social", type: 1, required: true, width: 12 }, // 1 = Texto
-              { id: "cnpj", label: "CNPJ", type: 1, required: true, width: 6 },
-              { id: "ie", label: "Inscrição Estadual", type: 1, required: false, width: 6 },
-              { id: "lbl_address", label: "Endereço de Entrega", type: 20 },
-              { id: "cep", label: "CEP", type: 1, required: true, width: 4 },
-              { id: "address", label: "Logradouro (Rua/Av.)", type: 1, required: true, width: 8 },
-              { id: "address_num", label: "Número", type: 3, required: true, width: 3 }, // 3 = Inteiro
-              { id: "address_comp", label: "Complemento", type: 1, required: false, width: 9 }
-            ]
-          }
-        });
-
-        if (formData) {
-          log('Formulário preenchido pelo agente!');
-          log(`CNPJ Capturado: ${formData.cnpj}`);
-          log(`Razão Social: ${formData.company_name}`);
-          await omni.ui.toast({ msg: 'Dados de faturamento salvos localmente!' });
-        } else {
-          log('Preenchimento do formulário cancelado pelo agente.');
-        }
-      } catch (err) {
-        log(`Erro ao processar formulário dinâmico: ${err.message || err}`);
-      }
-    });
-  </script>
+  if ('ResizeObserver' in window) new ResizeObserver(scheduleResize).observe(document.body);
+  setInterval(resizeHost, 2500);
+  boot();
+</script>
 </body>
 </html>

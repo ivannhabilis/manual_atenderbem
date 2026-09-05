@@ -253,9 +253,9 @@
       <strong>Retorno:</strong> <code>Promise&lt;{ total: number, items: Array&lt;{ productId: number, name: string, price: number, qty: number, discount?: number }&gt; }&gt;</code>
     </li>
     <li>
-      <code>omni.cart.mutate(opts)</code> <span class="badge-doc badge-doc-write">Escrita</span><br>
-      Aplica mutações atômicas estruturadas (adicionar, alterar quantidade, remover e dar descontos) de uma só vez.<br>
-      <strong>Argumentos:</strong> <code>opts: { ops: Array&lt;{ op: "add" | "qty" | "remove" | "discount", productId: number, qty?: number, discount?: number }&gt; }</code>
+      <code>omni.cart.add(productId, opts)</code>, <code>omni.cart.setQuantity(productId, qty, opts)</code>, <code>omni.cart.remove(productId, opts)</code> e <code>omni.cart.mutate(ops, opts)</code> <span class="badge-doc badge-doc-write">Escrita</span><br>
+      Corrigido na versão 1.1.0 da demo: <code>mutate</code> não recebe <code>{ ops: [...] }</code>; ela recebe a lista de operações como primeiro argumento. Para evitar erro de assinatura, a demo passou a usar <code>cart.add</code>, <code>cart.setQuantity</code> e <code>cart.remove</code> diretamente, mantendo também um orçamento local independente quando o atendimento não possui carrinho sincronizado.<br>
+      <strong>Exemplo correto:</strong> <code>await omni.cart.add(1201, { qty: 1 })</code> ou <code>await omni.cart.mutate([{ op: "add", productId: 1201, qty: 1 }])</code>.
     </li>
     <li>
       <code>omni.cart.sendCartMessage(opts)</code> <span class="badge-doc badge-doc-write">Escrita</span><br>
@@ -293,14 +293,12 @@
       <strong>Exemplo de chamada estruturada:</strong>
       <pre>
 const formData = await omni.forms.openDynamic({
-  formulario: {
-    name: "Cadastro de Faturamento",
-    fields: [
-      { id: "lbl_header", label: "Dados Fiscais", type: 20 },
-      { id: "cnpj", label: "CNPJ da Empresa", type: 1, required: true, width: 6 },
-      { id: "ie", label: "Inscrição Estadual", type: 1, required: false, width: 6 }
-    ]
-  }
+  name: "Cadastro de Faturamento",
+  fields: [
+    { id: "lbl_header", label: "Dados Fiscais", type: 20 },
+    { id: "cnpj", label: "CNPJ da Empresa", type: 1, required: true, width: 6 },
+    { id: "ie", label: "Inscrição Estadual", type: 1, required: false, width: 6 }
+  ]
 });
 if (formData) {
   console.log("CNPJ:", formData.cnpj);
@@ -315,7 +313,8 @@ if (formData) {
       <code>omni.crm.create(dados)</code> <span class="badge-doc badge-doc-write">Escrita</span><br>
       Cria uma oportunidade de venda no funil do CRM.<br>
       <strong>Campos obrigatórios:</strong> <code>pipelineId</code> e <code>title</code>.<br>
-      <strong>Campos aceitos:</strong> <code>stageId, description, value, recurrentvalue, freight, expectedclosedate, contacts, products, formsdata</code>.
+      <strong>Campos aceitos:</strong> <code>stageId, description, value, recurrentvalue, freight, expectedclosedate, contacts, products, formsdata</code>.<br>
+      <strong>Regra crítica:</strong> <code>contactId</code> só pode ser enviado quando for um número real. A versão 1.1.0 da demo agora testa <code>chat.contactId</code>, <code>chat.contact.id</code> e campos equivalentes antes de incluir esse campo no payload. Se o contato não tiver ID numérico, a oportunidade é criada sem vínculo rígido de contato, mas com telefone e descrição preenchidos.
     </li>
     <li>
       <code>omni.crm.changeStage(id, stageId)</code> <span class="badge-doc badge-doc-write">Escrita</span><br>
@@ -454,7 +453,7 @@ if (formData) {
 {
   "manifestVersion": 1,
   "id": "fastcorte.vendas",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "name": "Assistente de Vendas & ERP FastCorte",
   "description": "Extensão homologada para automação de vendas, gerenciamento de carrinhos e sincronização de pedidos com o ERP corporativo.",
   "contact": "suporte@fastcorte.com.br",
@@ -484,6 +483,17 @@ if (formData) {
     <li>Abra a tela de atendimentos do agente em <code>/base/agentchat</code>. Selecione qualquer chat ativo.</li>
     <li>No painel lateral direito, selecione a nova aba <strong>Assistente de Vendas ERP</strong>. A interface desenhada pelo nosso arquivo HTML/JS será renderizada perfeitamente, isolada de forma segura e se conectando instantaneamente ao atendimento em curso.</li>
   </ol>
+
+  <h3>6.4. Revisão de Qualidade da Demo v1.1.0</h3>
+  <p>A primeira versão da demo serviu para validar instalação, mas revelou detalhes críticos do SDK em ambiente real. A versão <strong>1.1.0</strong> corrigiu esses pontos para uso em treinamento:</p>
+  <ul>
+    <li><strong>Altura do painel:</strong> foi adicionado <code>omni.ui.resize()</code> com <code>ResizeObserver</code>, chamadas atrasadas e polling leve. Isso reduz o espaço em branco porque o iframe informa ao Host a altura real do conteúdo após cada renderização, clique, log e mudança de lista.</li>
+    <li><strong>Carrinho:</strong> a demo agora mantém um <strong>orçamento local persistente</strong> dentro do painel. O usuário pode adicionar, incrementar, decrementar e remover produtos sem que um produto apague o outro. Quando o atendimento possui carrinho sincronizado, a extensão também tenta espelhar as ações no carrinho nativo.</li>
+    <li><strong>Assinatura correta do SDK:</strong> <code>omni.cart.mutate</code> espera <code>mutate(ops, opts)</code>, não <code>mutate({ ops })</code>. A demo passou a preferir <code>cart.add</code>, <code>cart.setQuantity</code> e <code>cart.remove</code>.</li>
+    <li><strong>Formulário dinâmico:</strong> <code>omni.forms.openDynamic</code> espera o formulário diretamente, com <code>fields</code> na raiz. A versão anterior enviava <code>{ formulario: {...} }</code>, por isso o Host retornava “O formulário precisa de fields”.</li>
+    <li><strong>CRM/contactId:</strong> a demo só envia <code>contactId</code> se o contato possuir ID numérico real. Quando o atendimento vem apenas com dados parciais, a oportunidade é criada com telefone e descrição, sem quebrar o fluxo.</li>
+    <li><strong>Funil demo:</strong> a extensão carrega os funis disponíveis por <code>omni.crm.listPipelines()</code>, prioriza nomes contendo “demo”, “extensão” ou “trein”, e usa o primeiro funil acessível como fallback. Se não houver nenhum funil com nome de treinamento, o administrador deve criar um funil real no CRM com esse nome para padronizar a capacitação.</li>
+  </ul>
 
   <hr>
 
