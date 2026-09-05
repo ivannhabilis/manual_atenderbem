@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho Sincronizado com CRM — Manual Omnichannel</title>
+  <meta name="description" content="Guia completo do Carrinho Sincronizado com o CRM do AtenderBem: conceito, canais compatíveis, ciclo de vida, campos de configuração na fila, catálogo, anexos, automação de mudança e passo a passo.">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    pre {
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 14px;
+      border-radius: 6px;
+      font-size: 11px;
+      overflow-x: auto;
+      margin: 12px 0;
+      border: 1px solid #1e293b;
+    }
+    code {
+      font-family: Consolas, "Liberation Mono", Courier, monospace;
+    }
+    .badge-doc {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-left: 6px;
+    }
+    .badge-doc-on { background-color: #d1fae5; color: #065f46; }
+    .badge-doc-off { background-color: #fee2e2; color: #991b1b; }
+    .badge-doc-field { background-color: #e0f2fe; color: #0369a1; }
+    .badge-doc-warn { background-color: #fef3c7; color: #92400e; }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="crm.html">CRM</a>
+    <a href="carrinho-sincronizado.html" class="active">Carrinho Sync</a>
+    <a href="tickets.html">Tickets</a>
+    <a href="pabx.html">PABX & Telefonia</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="relatorios.html">Relatórios</a>
+    <a href="configuracoes.html">Configurações</a>
+    <a href="extensoes.html">Extensões</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › <a href="configuracoes.html">Configurações</a> › Carrinho Sincronizado com CRM</div>
+
+  <h1>Carrinho Sincronizado com CRM</h1>
+  <p class="subtitle">O carrinho de produtos do cliente deixa de viver no navegador (ou só na ligação) e passa a ser a aba de produtos de uma oportunidade de CRM, sincronizada ao vivo nos dois sentidos.</p>
+
+  <div class="callout info">
+    <strong>O que muda na prática:</strong> com o Carrinho Sincronizado ligado numa fila, o carrinho do visitante deixa de ser um estado local e passa a ser uma <strong>oportunidade de CRM</strong> viva. O que o agente altera no painel aparece na tela do cliente na hora, e o que o cliente adiciona na tela dele aparece no painel do agente — nos dois sentidos, em tempo real. Em telefonia, onde não existe tela do cliente, o carrinho pertence à <strong>ligação inteira</strong> e é montado pelo agente (num painel ao lado do telefone) e, quando a fila tem URA, também pelo fluxo da URA e pelo assistente de voz.
+  </div>
+
+  <h2>1. Conceito e por que ele existe</h2>
+  <p>Antes do Carrinho Sincronizado, cada atendimento mantinha o carrinho de forma isolada: no WebChat, o estado ficava no navegador do visitante; na telefonia, não havia um carrinho persistente ligado ao CRM. Isso impedia enxergar, no funil de vendas, o que estava sendo negociado em tempo real, e dificultava aplicar automações de preço ou conferir estoque no momento certo.</p>
+  <p>Com o recurso ligado, o carrinho passa a ser um registro de CRM com identidade própria. Ele:</p>
+  <ul>
+    <li>Nasce na <strong>primeira interação com produto</strong> do atendimento (o primeiro item colocado pelo cliente, pelo agente, por uma automação ou pelo assistente de IA).</li>
+    <li>É sincronizado <strong>ao vivo nos dois sentidos</strong> (agente ⇄ cliente).</li>
+    <li>Segue o mesmo <strong>ciclo de vida</strong> de uma oportunidade: adota o carrinho aberto do cliente, cria na primeira interação, move para a etapa de pedido ao converter, e perde ou exclui no encerramento.</li>
+    <li>É "dono" dos itens e do frete: quem aplica é o serviço de carrinho, que respeita o catálogo da fila, recusa produto arquivado ou indisponível, obedece o teto de desconto do produto e propaga a mudança para as duas telas na hora.</li>
+  </ul>
+
+  <figure class="figure">
+    <div style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 8px; padding: 20px; text-align: center; font-weight: bold; color: #1e293b;">
+      <div style="margin-bottom: 12px; font-size: 14px;">FLUXO DO CARRINHO SINCRONIZADO</div>
+      <div style="display: flex; justify-content: space-around; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <div style="background: #dbeafe; border: 2px solid #2563eb; border-radius: 6px; padding: 10px; min-width: 130px;">
+          <strong>Cliente</strong><br><span style="font-size: 11px; color: #475569;">tela do visitante / ligação</span>
+        </div>
+        <div style="font-size: 20px;">⇆</div>
+        <div style="background: #ecfdf5; border: 2px solid #059669; border-radius: 6px; padding: 10px; min-width: 160px;">
+          <strong>Oportunidade-Carrinho</strong><br><span style="font-size: 11px; color: #475569;">aba de produtos no CRM</span>
+        </div>
+        <div style="font-size: 20px;">⇆</div>
+        <div style="background: #fef3c7; border: 2px solid #d97706; border-radius: 6px; padding: 10px; min-width: 130px;">
+          <strong>Agente / URA / IA</strong><br><span style="font-size: 11px; color: #475569;">painel, fluxo e assistente</span>
+        </div>
+      </div>
+      <div style="margin-top: 12px; background: #fff; padding: 6px; border-radius: 4px; font-size: 11px; font-family: monospace;">
+        Etapa "carrinho aberto" → (conversão) → Etapa "pedido" · automações de entrada/saída executam na conversão
+      </div>
+    </div>
+    <figcaption>O carrinho vira uma oportunidade de CRM sincronizada em tempo real entre as três pontas (cliente, CRM e agente).</figcaption>
+  </figure>
+
+  <hr>
+
+  <h2>2. Onde é habilitado</h2>
+  <p>A configuração é feita <strong>na fila de atendimento</strong>, no path <code>/base/config/queueslist</code> (Configurações › Filas). Cada fila compatível expõe um bloco de campos <code>syncedcart*</code>, além de <code>catalogenabled</code>, <code>localcatalogenabled</code> e <code>productgroups</code>.</p>
+  <p>Também é possível gerenciar via MCP com <code>queues_get</code> (ler) e <code>queues_update</code> (editar). O campo <code>type</code> da fila é <strong>imutável</strong> após a criação — você só ativa o carrinho em filas cujo canal já é compatível.</p>
+
+  <div class="callout tip">
+    <strong>Pré-requisitos mínimos para ligar o recurso:</strong>
+    <ul>
+      <li>Uma fila de tipo compatível (ver seção 3).</li>
+      <li>Um <strong>funil</strong> (<code>syncedcartpipeline</code>) escolhido.</li>
+      <li><strong>Duas etapas</strong> desse funil: a do "carrinho aberto" (<code>syncedcartstage</code>) e a do "pedido fechado" (<code>syncedcartorderstage</code>), diferentes entre si.</li>
+      <li>Nas filas de <strong>telefonia</strong> e nas de <strong>catálogo sincronizado local</strong>, também ao menos um grupo em <code>productgroups</code>.</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <h2>3. Canais (filas) compatíveis</h2>
+  <p>O Carrinho Sincronizado vale em três famílias de fila. Fora delas, o recurso não se aplica e os campos são ignorados.</p>
+
+  <table class="doc">
+    <thead>
+      <tr>
+        <th>Família</th>
+        <th>Tipos (type)</th>
+        <th>Onde o cliente monta o carrinho</th>
+        <th>Exigências específicas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>WebChat V2</strong></td>
+        <td><code>26</code></td>
+        <td>Tela do visitante (App Web moderno)</td>
+        <td>Exige <code>catalogenabled=1</code> (sem ele o cliente não tem por onde abrir o carrinho).</td>
+      </tr>
+      <tr>
+        <td><strong>Catálogo sincronizado local</strong></td>
+        <td>Facebook <code>2</code> · Telegram <code>3</code>/<code>11</code> · WhatsApp MD <code>5</code> · WhatsApp Cloud API <code>10</code>/<code>21</code> · Instagram <code>12</code> · Genérica 2 <code>24</code></td>
+        <td>Catálogo da empresa aberto por botão de URL</td>
+        <td>Exige <code>localcatalogenabled=1</code> e ao menos um grupo em <code>productgroups</code>.</td>
+      </tr>
+      <tr>
+        <td><strong>Telefonia</strong></td>
+        <td>Convencional <code>0</code> · Com URA <code>22</code></td>
+        <td>Não há tela do cliente — o carrinho pertence à ligação</td>
+        <td><code>productgroups</code> é <strong>obrigatório</strong> (única fonte do catálogo). <code>localcatalogenabled</code> não se aplica.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <strong>Atenção na telefonia:</strong> as chaves que descrevem o que o <em>cliente</em> faz — <code>syncedcartclientconvert</code> e <code>syncedcartclientattach</code> — ficam <strong>sem efeito</strong>, assim como <code>syncedcartautoorder</code> (não há canal de texto para a mensagem de pedido). O carrinho é montado pelo agente no painel do telefone (que cresce para exibi-lo) e, com URA, também pelo fluxo e pelo assistente de voz.
+  </div>
+
+  <hr>
+
+  <h2>4. Ciclo de vida da oportunidade-carrinho</h2>
+  <p>Quando o carrinho está sincronizado, uma oportunidade de CRM passa a servir de <strong>carrinho ao vivo</strong> do atendimento. Ela carrega três marcadores no retorno de <code>opportunities_get</code>:</p>
+  <table class="doc">
+    <thead>
+      <tr><th>Campo</th><th>Significado</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>cartsynced</code></td><td><code>true</code> = esta oportunidade é o carrinho vivo de um atendimento/camada em curso.</td></tr>
+      <tr><td><code>cartsession</code></td><td>Token não vazio que identifica a sessão do carrinho.</td></tr>
+      <tr><td><code>cartdirty</code></td><td>Marca se algum item já entrou alguma vez (mesmo que removido depois).</td></tr>
+      <tr><td><code>cartlocked</code> (0/1)</td><td>Com <code>1</code>, <code>products</code> e <code>freight</code> são <strong>ignorados</strong> por <code>opportunities_update</code> — só os elementos de URA/automação de produto conseguem alterá-los.</td></tr>
+    </tbody>
+  </table>
+
+  <p>O ciclo de vida completo:</p>
+  <ol>
+    <li><strong>Adoção:</strong> o serviço adota o carrinho aberto do cliente, se houver.</li>
+    <li><strong>Criação:</strong> a oportunidade nasce na primeira interação com produto (cliente, agente, automação ou IA).</li>
+    <li><strong>Montagem:</strong> itens e frete passam a pertencer ao atendimento; o serviço respeita o catálogo da fila, recusa produto arquivado/indisponível e obedece o teto de desconto.</li>
+    <li><strong>Conversão:</strong> ao fechar o pedido, a oportunidade é movida da etapa "carrinho aberto" para a etapa "pedido". Essa conversão executa as automações de <strong>saída</strong> da etapa de origem e de <strong>entrada</strong> da etapa de destino.</li>
+    <li><strong>Encerramento:</strong> ao terminar o atendimento, a oportunidade é perdida ou excluída conforme a política (<code>syncedcartpristineaction</code>/<code>syncedcartdirtyaction</code>).</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>O sistema é dono do ciclo de vida:</strong> numa oportunidade com <code>cartsynced=true</code>, <code>opportunities_update</code> <strong>ignora</strong> os campos <code>products</code> e <code>freight</code> (a resposta retorna <code>cartSynced:true</code> e <code>ignoredFields</code>). Mexer nos itens por fora não é permitido — quem aplica é o serviço de carrinho, para manter as duas telas coerentes.
+  </div>
+
+  <div class="callout warn">
+    <strong>Fila "dona" do carrinho (telefonia):</strong> numa ligação que atravessa mais de uma fila (ex.: uma URA e depois uma fila convencional), a fila dona do carrinho é a <strong>primeira</strong> por onde a chamada passou com a função ativa e configuração válida — e não é substituída depois. Valem o funil, as etapas, os grupos e a política daquela primeira fila. Editar os campos <code>syncedcart*</code> numa fila <strong>não</strong> altera o carrinho de uma ligação já em curso cuja dona seja outra.
+  </div>
+
+  <hr>
+
+  <h2>5. Campos de configuração (referência completa)</h2>
+  <p>Todos os campos abaixo são editáveis em <code>queues_update</code> (MCP) ou na tela de Filas. Onde há "padrão", é o valor assumido quando o campo não é informado.</p>
+
+  <h3>5.1. Ligação e destino no funil</h3>
+  <table class="doc">
+    <thead>
+      <tr><th>Campo</th><th>Tipo</th><th>Descrição</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>syncedcartenabled</code> <span class="badge-doc badge-doc-field">chave</span></td>
+        <td>0/1 · padrão 0</td>
+        <td>Liga o Carrinho Sincronizado. Exige fila de tipo compatível, funil e as duas etapas — e, em telefonia/catálogo local, ao menos um grupo em <code>productgroups</code>.</td>
+      </tr>
+      <tr>
+        <td><code>syncedcartpipeline</code></td>
+        <td>integer</td>
+        <td>ID do funil do carrinho. Use <code>pipelines_list</code> para descobrir.</td>
+      </tr>
+      <tr>
+        <td><code>syncedcartstage</code></td>
+        <td>integer</td>
+        <td>ID da etapa que guarda o <strong>carrinho aberto</strong>. Deve pertencer ao funil e ser diferente de <code>syncedcartorderstage</code>.</td>
+      </tr>
+      <tr>
+        <td><code>syncedcartorderstage</code></td>
+        <td>integer</td>
+        <td>ID da etapa para onde o <strong>pedido fechado</strong> é movido. Deve pertencer ao funil e ser diferente de <code>syncedcartstage</code>. A conversão executa as automações de saída/entrada dessas etapas.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>5.2. Conversão do pedido</h3>
+  <table class="doc">
+    <thead>
+      <tr><th>Campo</th><th>Tipo</th><th>Descrição</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>syncedcartautolock</code></td>
+        <td>0/1</td>
+        <td>Travar o carrinho automaticamente ao fechar o pedido. Travar <strong>congela os preços</strong> dos itens.</td>
+      </tr>
+      <tr>
+        <td><code>syncedcartautoorder</code></td>
+        <td>0/1</td>
+        <td>Enviar a mensagem de pedido ao cliente automaticamente na conversão. Sem efeito em telefonia.</td>
+      </tr>
+      <tr>
+        <td><code>syncedcartclientconvert</code></td>
+        <td>0/1 · padrão 1</td>
+        <td>O visitante pode fechar o pedido sozinho. Com <code>0</code>, o botão de enviar pedido some da tela do cliente e o servidor recusa a conversão vinda dele — o carrinho segue utilizável para montar itens, e agente, IA e automações continuam fechando. Sem efeito em telefonia.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>5.3. Painel do agente</h3>
+  <table class="doc">
+    <thead>
+      <tr><th>Campo</th><th>Tipo</th><th>Descrição</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>syncedcartpanel</code></td>
+        <td>0/1 · padrão 1</td>
+        <td>Exibir a seção Carrinho no painel do agente. Com <code>0</code>, tudo funciona igual — só a seção não é criada.</td>
+      </tr>
+      <tr>
+        <td><code>syncedcartpanelopen</code></td>
+        <td>0/1</td>
+        <td>Abrir a seção Carrinho por padrão. Só tem efeito com <code>syncedcartpanel=1</code>.</td>
+      </tr>
+      <tr>
+        <td><code>syncedcartpanelconvert</code></td>
+        <td>0/1 · padrão 1</td>
+        <td>Exibir o botão "Converter em pedido" no rodapé do painel. Com <code>0</code>, só o botão sai da tela — a seção segue inteira e a conversão continua possível por IA e automações.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>5.4. Encerramento (destino da oportunidade-carrinho)</h3>
+  <table class="doc">
+    <thead>
+      <tr><th>Campo</th><th>Tipo</th><th>Descrição</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>syncedcartpristineaction</code></td>
+        <td>0/1 · padrão 0</td>
+        <td>Destino da oportunidade que <strong>nunca</strong> recebeu item, ao encerrar: <code>0</code> = excluir, <code>1</code> = marcar como perdida.</td>
+      </tr>
+      <tr>
+        <td><code>syncedcartdirtyaction</code></td>
+        <td>0/1 · padrão 1</td>
+        <td>Destino da oportunidade que <strong>já</strong> recebeu algum item (ainda que removido depois), ao encerrar: <code>0</code> = excluir, <code>1</code> = marcar como perdida.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>5.5. Automação de mudança do carrinho</h3>
+  <table class="doc">
+    <thead>
+      <tr><th>Campo</th><th>Tipo</th><th>Descrição</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>syncedcartchangeautomation</code></td>
+        <td>integer · 0 = nenhuma</td>
+        <td>ID da automação executada sobre a oportunidade-carrinho a cada alteração feita por quem monta o pedido (agente no painel, assistente de IA ou cliente na tela). Alterações vindas de automação, API pública ou MCP <strong>não</strong> disparam (evita laço). A execução é coalescida (uma rajada de cliques vira uma execução) e nunca concorrente. Veja a seção 8.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>5.6. Anexos e receita médica</h3>
+  <table class="doc">
+    <thead>
+      <tr><th>Campo</th><th>Tipo</th><th>Descrição</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>syncedcartattachproduct</code></td>
+        <td>0/1/2 · padrão 0</td>
+        <td>Anexos vinculados a um <strong>produto</strong> do carrinho: <code>0</code> = desabilitado, <code>1</code> = todos os produtos aceitam anexo, <code>2</code> = somente os produtos marcados com "exige receita" no cadastro. É o vínculo que diz a qual item o arquivo se refere — pré-requisito de <code>syncedcartrequireprescription</code>.</td>
+      </tr>
+      <tr>
+        <td><code>syncedcartattachcart</code></td>
+        <td>0/1 · padrão 0</td>
+        <td>Anexos soltos, do <strong>pedido inteiro</strong> (comprovante de pagamento, documento). Independente de <code>syncedcartattachproduct</code>.</td>
+      </tr>
+      <tr>
+        <td><code>syncedcartclientattach</code></td>
+        <td>0/1 · padrão 0</td>
+        <td>O cliente pode anexar arquivos pela tela do carrinho dele. Aceita só imagem e PDF, com limite de tamanho/quantidade no servidor. Com <code>0</code>, o cliente manda o documento na conversa e quem anexa é o atendente ou a IA. Só tem efeito com algum tipo de anexo habilitado.</td>
+      </tr>
+      <tr>
+        <td><code>syncedcartrequireprescription</code></td>
+        <td>0/1 · padrão 0</td>
+        <td>Impedir o fechamento do pedido enquanto houver produto que exige receita sem arquivo anexado a ele. Vale para o painel, o carrinho do cliente e a IA; automações, extensões, API pública e MCP continuam fechando. <strong>Exige <code>syncedcartattachproduct</code> &gt; 0</strong> — sem o vínculo por produto, a chave é ignorada.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <h2>6. Catálogo de produtos</h2>
+  <p>O carrinho sincronizado se alimenta do catálogo de produtos da fila. Três campos controlam isso:</p>
+
+  <table class="doc">
+    <thead>
+      <tr><th>Campo</th><th>Tipo</th><th>Descrição</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>productgroups</code></td>
+        <td>array de IDs</td>
+        <td>Grupos de produtos que formam o catálogo da fila. <strong>Substitui</strong> a lista atual. Pré-requisito do carrinho: sem nenhum grupo, o carrinho <strong>recusa todos os produtos</strong>.</td>
+      </tr>
+      <tr>
+        <td><code>catalogenabled</code></td>
+        <td>0/1</td>
+        <td>Exibir o catálogo no App Web. <strong>Só</strong> para WebChat V2 (<code>type=26</code>): em WhatsApp Cloud API a coluna é sobrescrita pela sincronização de comércio da Meta. Pré-requisito do carrinho no WebChat V2.</td>
+      </tr>
+      <tr>
+        <td><code>localcatalogenabled</code></td>
+        <td>0/1</td>
+        <td>Catálogo sincronizado <strong>local</strong>: publica o catálogo da fila e faz as mensagens de produto, lista, carrossel e "ver carrinho" saírem com botão de URL que abre o catálogo da empresa. Disponível nos canais com botão de URL (Facebook, Telegram, WhatsApp MD/Cloud API, Instagram, Genérica 2). Exige ao menos um grupo. <strong>Incompatível</strong> com o catálogo nativo da Meta: enquanto ligado, as mensagens de produto da fila deixam de usar o catálogo da Meta. Pré-requisito do carrinho nessas filas.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>6.1. Campos de produto que o carrinho respeita</h3>
+  <p>Ao aplicar itens, o serviço de carrinho consulta o cadastro do produto e aplica as seguintes regras:</p>
+  <ul>
+    <li><strong>Disponibilidade</strong> (<code>available</code>: 0/1) e <strong>status</strong> (Meta: <code>active</code>/<code>archived</code>): produto indisponível ou arquivado é <strong>recusado</strong>.</li>
+    <li><strong>Teto de desconto</strong> (<code>maxdiscount</code> / <code>maxrecurrentdiscount</code>, percentuais 0–100): o carrinho obedece o desconto máximo do produto.</li>
+    <li><strong>Receita médica</strong> (<code>requiresprescription</code> / <code>prescriptiononly</code> / <code>ismedicine</code>): produto com exigência de receita é tratado conforme <code>syncedcartattachproduct</code> e <code>syncedcartrequireprescription</code>.</li>
+    <li><strong>Oculto para clientes</strong> (<code>hiddenfromclients</code>: 0/1): controla se o item aparece no catálogo do cliente.</li>
+  </ul>
+
+  <div class="callout warn">
+    <strong>Operações destrutivas no catálogo:</strong>
+    <ul>
+      <li>Tirar o <strong>último grupo</strong> de produtos, ou desligar <code>localcatalogenabled</code>, <strong>derruba o catálogo publicado</strong> e <strong>invalida os links de catálogo já enviados</strong> aos clientes.</li>
+      <li>Numa fila de URA, tirar o último grupo deixa o carrinho <strong>ligado e sem nada</strong> que possa entrar nele.</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <h2>7. Pré-requisitos de CRM: funil e etapas</h2>
+  <p>O carrinho exige um funil (<code>pipelines</code>) com pelo menos duas etapas (<code>pipeline_stages</code>): uma para o carrinho aberto e outra para o pedido fechado. Pontos importantes:</p>
+  <ul>
+    <li>As duas etapas devem <strong>pertencer ao mesmo funil</strong> (<code>syncedcartpipeline</code>) e ser <strong>diferentes</strong> entre si.</li>
+    <li>A conversão (carrinho aberto → pedido) executa as automações de <strong>saída</strong> da etapa de origem e de <strong>entrada</strong> da etapa de destino.</li>
+    <li>Etapas têm <code>cancreate</code> (se novas oportunidades podem ser criadas ali) e <code>canwin</code> (se podem ser marcadas como ganhas) — verifique esses valores ao escolher as etapas.</li>
+    <li>O funil também tem um campo <code>lockoncartvalue</code> (0/1) que trava a edição de valor baseada no carrinho de produtos, e <code>monitordelta</code> (0/1) que registra a variação de valor por etapa.</li>
+  </ul>
+
+  <hr>
+
+  <h2>8. Automação de mudança do carrinho (conferência de preço no ERP)</h2>
+  <p>O campo <code>syncedcartchangeautomation</code> aponta uma automação que roda sobre a oportunidade-carrinho a cada alteração feita por quem monta o pedido. O uso típico é <strong>conferir o preço num ERP externo</strong> e devolver o resultado como <strong>desconto do sistema</strong> nas linhas.</p>
+
+  <p>Três consequências que você precisa conhecer antes de mexer nela:</p>
+  <ol>
+    <li><strong>Desligar em silêncio:</strong> excluir essa automação, desativá-la ou tirar dela a permissão de receber oportunidade desliga a conferência <strong>sem aviso</strong> — o carrinho continua funcionando, com o preço errado. Antes de mexer numa automação, confira se alguma fila aponta para ela.</li>
+    <li><strong>Alterações que não disparam:</strong> mudanças feitas por este servidor MCP, pela API pública e pelas próprias automações <strong>não</strong> disparam a conferência (é o que evita laço). Um carrinho editado por aqui pode ficar com preço não conferido.</li>
+    <li><strong>Duas metades do desconto:</strong> o desconto de cada linha tem duas metades que se <strong>somam</strong> — a do usuário e a do sistema. A metade do usuário pode estar bloqueada por política: um desconto que "sumiu" na tela do atendente pode ser bloqueio de política, não defeito.</li>
+  </ol>
+
+  <hr>
+
+  <h2>9. Passo a passo para habilitar</h2>
+  <p>Fluxo recomendado para ligar o Carrinho Sincronizado numa fila, na ordem:</p>
+
+  <h3>9.1. Preparar o funil e as etapas (CRM)</h3>
+  <ol>
+    <li>Crie (ou escolha) um funil dedicado — ex.: "Pedidos FastCorte" — em <code>/base/config/crm</code> ou via MCP <code>pipelines_create</code> (só o <code>name</code> é obrigatório; uma etapa inicial "Entrada" com <code>cancreate=1</code> é criada automaticamente).</li>
+    <li>Acrescente/renomeie as etapas. Recomendado: uma etapa "Carrinho aberto" (criação permitida) e uma etapa "Pedido" (destino da conversão).</li>
+    <li>Anote os IDs do funil e das duas etapas (<code>pipelines_list</code> e <code>pipeline_stages_list</code>).</li>
+  </ol>
+
+  <h3>9.2. Preparar o catálogo (produtos)</h3>
+  <ol>
+    <li>Garanta que existem <strong>grupos de produtos</strong> (<code>product_groups_list</code>) e que os produtos certos pertencem a eles (<code>product_groups_set_products</code>).</li>
+    <li>Confirme que os produtos estão <strong>disponíveis</strong> (<code>available=1</code>) e não arquivados.</li>
+  </ol>
+
+  <h3>9.3. Ligar na fila</h3>
+  <p>Via UI (Configurações › Filas › editar a fila) ou via MCP:</p>
+  <pre>{
+  "id": &lt;id_da_fila&gt;,
+  "syncedcartenabled": 1,
+  "syncedcartpipeline": &lt;id_funil&gt;,
+  "syncedcartstage": &lt;id_etapa_aberto&gt;,
+  "syncedcartorderstage": &lt;id_etapa_pedido&gt;,
+  "productgroups": [&lt;id_grupo_1&gt;, &lt;id_grupo_2&gt;],
+  "localcatalogenabled": 1,   // só filas de catálogo local
+  "catalogenabled": 1         // só WebChat V2
+}</pre>
+
+  <h3>9.4. Validar</h3>
+  <ol>
+    <li>Leia a fila de volta com <code>queues_get</code> e confirme os campos <code>syncedcart*</code>, <code>productgroups</code> e o catálogo.</li>
+    <li>Abra um atendimento real no canal e adicione um produto: a oportunidade-carrinho deve nascer no funil escolhido, na etapa "carrinho aberto", com <code>cartsynced=true</code>.</li>
+    <li>Feche o pedido e confirme a movimentação para a etapa "pedido" e a execução das automações de entrada/saída.</li>
+  </ol>
+
+  <div class="callout tip">
+    <strong>Ordem importa:</strong> o Carrinho Sincronizado <strong>não</strong> é configurado em <code>queues_create</code> — ele exige um funil e duas etapas que costumam ser escolhidos depois. Crie a fila, prepare funil/etapas/catálogo e então ligue com <code>queues_update</code>.
+  </div>
+
+  <hr>
+
+  <h2>10. Estado atual da instância FastCorte (dados reais)</h2>
+  <p>Levantamento feito via MCP <code>omni-config</code> nesta instância (<code>fastcorte.atenderbem.com</code>):</p>
+  <ul>
+    <li><strong>Filas:</strong> 221 cadastradas (88 ativas).</li>
+    <li><strong>Carrinho Sincronizado ligado:</strong> 1 fila — <code>id=227</code> "Ivann → WebChatV2" (<code>type=26</code>), porém com configuração <strong>incompleta</strong> (<code>syncedcartpipeline=0</code>, etapas <code>=0</code>, <code>productgroups=[]</code>) — ligado, mas ainda sem funil/etapas/catálogo.</li>
+    <li><strong>Catálogo local ligado:</strong> 1 fila — <code>id=26</code> "Ivann → Corporativo" (<code>type=23</code>), com <code>localcatalogenabled=1</code> mas <code>productgroups=[]</code> (catálogo publicado sem grupos).</li>
+    <li><strong>Fila de produção FastCorte:</strong> <code>id=126</code> "fastcorte" (<code>type=22</code> = Telefonia com URA, <code>ivrid=344</code>), habilitada (<code>enabled=1</code>) e com o Carrinho Sincronizado <strong>desligado</strong> (<code>syncedcartenabled=0</code>).</li>
+    <li><strong>Funis:</strong> 39 (<code>pipelines_list</code>). <strong>Etapas:</strong> 86 (<code>pipeline_stages_list</code>).</li>
+    <li><strong>Grupos de produtos:</strong> 3 — <code>periféricos</code> (id 1), <code>Medicamentos</code> (id 2), <code>Estoque</code> (id 3).</li>
+    <li><strong>Produtos no catálogo:</strong> 16.</li>
+    <li><strong>Automações:</strong> 419.</li>
+  </ul>
+
+  <div class="callout warn">
+    <strong>Leitura para o administrador:</strong> o recurso existe e está exposto nas filas, mas <strong>nenhuma fila da instância tem uma configuração completa e funcional</strong> hoje. Para colocar em produção (ex.: na fila "fastcorte"), siga o passo a passo da seção 9 — escolha um funil dedicado, crie as duas etapas e aponte um grupo de produtos real (ex.: "Estoque" ou "Medicamentos").
+  </div>
+
+  <hr>
+
+  <h2>11. Referência MCP</h2>
+  <p>Ferramentas do servidor MCP <code>omni-config</code> relevantes ao carrinho:</p>
+  <table class="doc">
+    <thead>
+      <tr><th>Ferramenta</th><th>Uso</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>queues_list</code> / <code>queues_get</code></td><td>Listar filas e ler a configuração completa (campos <code>syncedcart*</code>, <code>localcatalogenabled</code>, <code>productgroups</code>).</td></tr>
+      <tr><td><code>queues_update</code></td><td>Ligar/configurar o Carrinho Sincronizado e o catálogo da fila.</td></tr>
+      <tr><td><code>pipelines_list</code> / <code>pipelines_get</code> / <code>pipelines_create</code></td><td>Descobrir, inspecionar e criar funis.</td></tr>
+      <tr><td><code>pipeline_stages_list</code> / <code>pipeline_stages_get</code> / <code>pipeline_stages_create</code></td><td>Descobrir e criar as etapas de "carrinho aberto" e "pedido".</td></tr>
+      <tr><td><code>product_groups_list</code> / <code>product_groups_set_products</code></td><td>Listar grupos e definir os produtos que formam o catálogo.</td></tr>
+      <tr><td><code>products_list</code> / <code>products_get</code></td><td>Conferir disponibilidade, teto de desconto e flags de receita dos produtos.</td></tr>
+      <tr><td><code>opportunities_get</code></td><td>Inspecionar a oportunidade-carrinho (<code>cartsynced</code>, <code>cartsession</code>, <code>cartdirty</code>, <code>cartlocked</code>).</td></tr>
+      <tr><td><code>automations_list</code> / <code>automations_get</code></td><td>Identificar/inspecionar a automação de <code>syncedcartchangeautomation</code>.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout tip">
+    <strong>Regra de ouro antes de mexer:</strong> antes de excluir uma etapa ou funil, de trocar os grupos de produtos de uma fila ou de mexer numa oportunidade, verifique em <code>queues_get</code> os campos <code>syncedcart*</code> e <code>localcatalogenabled</code> da fila e em <code>opportunities_get</code> o campo <code>cartsynced</code>. Uma oportunidade com <code>cartsynced</code> é o carrinho <strong>vivo</strong> de um atendimento em curso.
+  </div>
+
+  <hr>
+
+  <h2>12. FAQ — Perguntas frequentes</h2>
+
+  <div class="faq">
+    <h3>Q1. Em quais filas o Carrinho Sincronizado funciona?</h3>
+    <p>Em três famílias: WebChat V2 (<code>type=26</code>), catálogo sincronizado local (Facebook <code>2</code>, Telegram <code>3/11</code>, WhatsApp MD <code>5</code>, WhatsApp Cloud API <code>10/21</code>, Instagram <code>12</code>, Genérica 2 <code>24</code>) e telefonia (convencional <code>0</code> ou com URA <code>22</code>). Fora dessas, os campos são ignorados.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q2. Por que o carrinho não aparece na fila de telefonia?</h3>
+    <p>Porque em telefonia não há tela do cliente. O carrinho pertence à ligação e é montado pelo agente no painel do telefone (e, com URA, pelo fluxo e pelo assistente de voz). Nesse caso <code>productgroups</code> é obrigatório, e <code>localcatalogenabled</code>, <code>syncedcartclientconvert</code>, <code>syncedcartclientattach</code> e <code>syncedcartautoorder</code> não se aplicam.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q3. Liguei o carrinho mas nenhum produto entra. O que verificar?</h3>
+    <p>Três coisas: (1) <code>productgroups</code> vazio — sem grupo, o carrinho recusa todos os produtos; (2) funil e etapas zerados — <code>syncedcartpipeline</code>/<code>syncedcartstage</code>/<code>syncedcartorderstage</code> precisam apontar IDs válidos e diferentes; (3) no WebChat V2, <code>catalogenabled=0</code> deixa o cliente sem por onde abrir o carrinho.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q4. Posso editar os itens de um carrinho sincronizado pela API/MCP?</h3>
+    <p>Não. Numa oportunidade com <code>cartsynced=true</code>, <code>opportunities_update</code> ignora <code>products</code> e <code>freight</code>. O sistema é o dono do ciclo de vida e propaga as mudanças para as duas telas.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q5. O que acontece se eu desligar o catálogo local ou tirar o último grupo?</h3>
+    <p>O catálogo publicado <strong>derruba</strong> e os links de catálogo já enviados aos clientes ficam <strong>inválidos</strong>. Numa fila de URA, tirar o último grupo deixa o carrinho ligado e sem nada que possa entrar nele.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q6. O que significa <code>cartlocked=1</code> numa oportunidade?</h3>
+    <p>Que o carrinho (produtos + frete) está bloqueado: <code>products</code> e <code>freight</code> são ignorados por <code>opportunities_update</code>, e só os elementos de URA/automação de produto conseguem alterá-los.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q7. Por que o desconto "sumiu" na tela do atendente?</h3>
+    <p>O desconto de cada linha tem duas metades que se somam (usuário + sistema). A metade do usuário pode estar bloqueada por política — isso é bloqueio, não defeito. Verifique também se a automação de mudança (<code>syncedcartchangeautomation</code>) não foi desligada, o que desativa a conferência de preço em silêncio.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q8. A fila dona do carrinho numa ligação pode mudar?</h3>
+    <p>Não. Numa chamada que atravessa URA e depois fila convencional, a dona é a <strong>primeira</strong> por onde passou com a função ativa e configuração válida, e não é substituída. Editar os campos noutra fila não altera o carrinho de uma ligação em curso.</p>
+  </div>
+
+  <hr>
+
+  <h2>13. Glossário de códigos de tipo de fila</h2>
+  <table class="doc">
+    <thead>
+      <tr><th>type</th><th>Canal</th><th>Carrinho Sincronizado</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>0</code></td><td>Telefonia / voz convencional</td><td>Sim (exige <code>productgroups</code>)</td></tr>
+      <tr><td><code>2</code></td><td>Facebook</td><td>Sim (catálogo local)</td></tr>
+      <tr><td><code>3</code> / <code>11</code></td><td>Telegram</td><td>Sim (catálogo local)</td></tr>
+      <tr><td><code>5</code></td><td>WhatsApp MD</td><td>Sim (catálogo local)</td></tr>
+      <tr><td><code>10</code> / <code>21</code></td><td>WhatsApp Cloud API</td><td>Sim (catálogo local)</td></tr>
+      <tr><td><code>12</code></td><td>Instagram</td><td>Sim (catálogo local)</td></tr>
+      <tr><td><code>22</code></td><td>Telefonia com URA</td><td>Sim (exige <code>productgroups</code>)</td></tr>
+      <tr><td><code>24</code></td><td>Genérica 2</td><td>Sim (catálogo local)</td></tr>
+      <tr><td><code>26</code></td><td>WebChat V2</td><td>Sim (exige <code>catalogenabled</code>)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="pagenav">
+    <a href="crm.html"><span>← Anterior</span> CRM e Funil de Vendas</a>
+    <a class="next" href="configuracoes.html"><span>Próximo →</span> Configurações (Filas)</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
+  <p>Elaborado a partir da documentação oficial exposta pelo servidor MCP <code>omni-config</code> e do estado real da instância FastCorte.</p>
+</footer>
+
+</body>
+</html>

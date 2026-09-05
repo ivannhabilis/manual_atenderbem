@@ -7,3 +7,6 @@ node_modules/
 *.zip
 # Cookies de sessão (não versionar em repo público)
 cataloglist/
+# Arquivos de trabalho MCP (schemas e dados brutos da instância — não versionar)
+_mcp_data/
+_mcp_schemas/
