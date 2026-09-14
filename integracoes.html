@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integrações e Automações Externas — Manual Omnichannel</title>
+  <meta name="description" content="Guia de integrações externas do AtenderBem: Generic Queue 2, HTTP, webhooks, Google Forms e Sheets, BigQuery, variáveis de template, segurança e diagnóstico.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="crm.html">CRM</a>
+    <a href="carrinho-sincronizado.html">Carrinho Sync</a>
+    <a href="tickets.html">Tickets</a>
+    <a href="pabx.html">PABX &amp; Telefonia</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="relatorios.html">Relatórios</a>
+    <a href="configuracoes.html">Configurações</a>
+    <a href="extensoes.html">Extensões</a>
+    <a href="integracoes.html" class="active">Integrações</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › Integrações e Automações Externas</div>
+
+  <h1>Integrações e Automações Externas</h1>
+  <p class="subtitle">Referência operacional para conectar canais, ERPs, formulários, planilhas e bases analíticas sem perder segurança, rastreabilidade e consistência dos dados.</p>
+
+  <div class="callout warn">
+    <strong>Valide na sua instância antes de implantar:</strong> a documentação de <em>Generic Queue 2</em> descreve um recurso técnico que pode ser legado, experimental ou não estar habilitado em todas as versões. Confirme com o administrador ou suporte a disponibilidade, os campos exibidos, a URL de webhook gerada e o contrato vigente. Não presuma que exemplos deste capítulo representam o estado atual da sua instalação.
+  </div>
+
+  <div class="callout info">
+    <strong>Exemplos seguros:</strong> todos os domínios, identificadores, números e chaves abaixo são fictícios. Nunca copie uma URL real de webhook, token, chave JSON, telefone de cliente ou credencial para documentação, chamados, capturas de tela ou repositórios.
+  </div>
+
+  <h2 id="visao-geral">1. Arquitetura e escolha da integração</h2>
+  <p>Uma integração liga a plataforma a outro sistema para que dados e ações circulem sem digitação repetida. O mecanismo correto depende de quem inicia a comunicação, da urgência e do volume.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Mecanismo</th><th>Direção típica</th><th>Use quando</th><th>Ponto de atenção</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Requisição HTTP</strong></td><td>Automação → sistema externo</td><td>É preciso consultar ou alterar um ERP, CRM ou serviço durante o fluxo.</td><td>Timeout, autenticação, contrato do payload e tratamento de falhas.</td></tr>
+        <tr><td><strong>Captura de Webhook</strong></td><td>Sistema externo → plataforma</td><td>O sistema de origem deve notificar um evento em tempo real.</td><td>URL exclusiva, autenticação, repetição de eventos e validação de origem.</td></tr>
+        <tr><td><strong>API nativa</strong></td><td>Bidirecional</td><td>O integrador precisa criar, consultar ou atualizar registros de forma controlada.</td><td>Use a documentação disponível em <strong>Filas › Documentação da API</strong> da própria instância.</td></tr>
+        <tr><td><strong>Generic Queue 2</strong></td><td>Canal externo ⇄ fila</td><td>Um sistema de mensagens externo precisa operar como canal de atendimento.</td><td>Recurso técnico/possivelmente legado; valide disponibilidade e contrato na instância.</td></tr>
+        <tr><td><strong>Sincronização BigQuery</strong></td><td>Plataforma → Google Cloud</td><td>O objetivo é análise histórica, BI e processamento de grande volume.</td><td>Custo de streaming/consulta, permissões da conta de serviço e política de retenção.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Padrão recomendado para CRM e ERP</h3>
+  <ol class="steps">
+    <li><strong>Defina uma chave de associação única:</strong> grave, nos dois sistemas, um identificador estável, como o <code>ID da Oportunidade</code>. Não use nome ou telefone como única chave de vínculo.</li>
+    <li><strong>Envie mudanças em tempo real:</strong> em eventos de ganho, perda, entrada, saída ou estagnação, uma automação pode chamar a API do ERP.</li>
+    <li><strong>Faça reconciliação periódica:</strong> consulte o registro externo, compare os dados com Código JS e atualize apenas campos divergentes.</li>
+    <li><strong>Receba mudanças externas:</strong> o ERP pode chamar a API nativa ou uma Captura de Webhook vinculada a um fluxo.</li>
+    <li><strong>Registre correlação:</strong> salve IDs dos dois lados, horário, operação e resultado para permitir auditoria e reprocessamento.</li>
+  </ol>
+
+  <div class="callout tip">
+    <strong>Anexos em oportunidades:</strong> a sequência indicada no material técnico é enviar o arquivo por <code>uploadFile</code>, consultar a oportunidade com <code>getOpportunity</code>, acrescentar o novo ID à lista existente e atualizar a lista completa com <code>updateOpportunity</code>. Confirme nomes, autenticação e schemas na documentação da API da sua instância antes de usar.
+  </div>
+
+  <h2 id="generic-queue-2">2. Generic Queue 2</h2>
+  <p>A Generic Queue 2 é descrita no material técnico como uma interface REST para transformar um sistema de mensagens externo em uma fila bidirecional. O contrato contempla texto, mídia, localização, interações, citações, leitura e estados de entrega.</p>
+
+  <h3>2.1. Parâmetros documentados</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo</th><th>Obrigatório</th><th>Finalidade</th></tr></thead>
+      <tbody>
+        <tr><td><code>serverurl</code></td><td>Sim</td><td>URL base do servidor do integrador, para onde a fila envia mensagens e eventos.</td></tr>
+        <tr><td><code>apikey</code></td><td>Sim</td><td>Chave usada no esquema documentado de autenticação nas duas direções.</td></tr>
+        <tr><td><code>source</code></td><td>Sim</td><td>Identificador único do canal externo, como número ou ID de conta.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Depois da criação, o material informa que a plataforma fornece uma URL única de webhook. O integrador envia para essa URL os eventos de mensagem recebida e de alteração de status. A URL exata deve ser copiada da própria instância e tratada como informação sensível.</p>
+
+  <h3>2.2. Fluxo bidirecional</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Origem</th><th>Destino</th><th>Operação documentada</th><th>Uso</th></tr></thead>
+      <tbody>
+        <tr><td>Plataforma</td><td>Servidor do integrador</td><td><code>POST /messages</code></td><td>Solicita o envio de uma mensagem ao destinatário externo.</td></tr>
+        <tr><td>Plataforma</td><td>Servidor do integrador</td><td><code>POST /messages/read</code></td><td>Informa que uma mensagem foi marcada como lida.</td></tr>
+        <tr><td>Servidor do integrador</td><td>Webhook da fila</td><td><code>message.received</code></td><td>Entrega à plataforma uma mensagem recebida no canal externo.</td></tr>
+        <tr><td>Servidor do integrador</td><td>Webhook da fila</td><td><code>message.status</code></td><td>Atualiza o estado de uma mensagem para <code>sent</code>, <code>delivered</code>, <code>read</code> ou <code>failed</code>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2.3. Autenticação e respostas</h3>
+  <p>O contrato fornecido usa o header <code>Authorization</code> em todas as requisições. Armazene a chave em cofre ou variável de ambiente, nunca no código-fonte.</p>
+  <pre><code>Authorization: Bearer &lt;CHAVE_ARMAZENADA_EM_SEGREDO&gt;
+Content-Type: application/json</code></pre>
+
+  <p>Em caso de sucesso no envio, o servidor pode conservar o <code>messageId</code> recebido ou retornar o ID gerado pelo canal externo:</p>
+  <pre><code>{
+  "success": true,
+  "messageId": "canal_msg_01JEXEMPLO"
+}</code></pre>
+
+  <p>Para falhas permanentes de negócio, o material descreve uma resposta estruturada. O código abaixo é ilustrativo e não contém dados reais:</p>
+  <pre><code>{
+  "success": false,
+  "error": {
+    "code": "INVALID_RECIPIENT",
+    "message": "Destinatário inválido para este canal"
+  }
+}</code></pre>
+
+  <h3>2.4. Payloads mínimos seguros</h3>
+  <p>Mensagem de saída recebida pelo servidor do integrador em <code>POST /messages</code>:</p>
+  <pre><code>{
+  "event": "message.send",
+  "messageId": "msg_01JEXEMPLO",
+  "from": "canal_exemplo_001",
+  "to": "contato_exemplo_042",
+  "timestamp": 1735603200,
+  "type": "text",
+  "content": {
+    "text": "Olá, como posso ajudar?"
+  }
+}</code></pre>
+
+  <p>Mensagem de entrada enviada pelo integrador para a URL de webhook fornecida pela instância:</p>
+  <pre><code>{
+  "event": "message.received",
+  "messageId": "externo_01JEXEMPLO",
+  "from": "contato_exemplo_042",
+  "to": "canal_exemplo_001",
+  "timestamp": 1735603200,
+  "type": "text",
+  "content": {
+    "text": "Preciso consultar meu pedido."
+  }
+}</code></pre>
+
+  <p>Atualização de falha:</p>
+  <pre><code>{
+  "event": "message.status",
+  "messageId": "canal_msg_01JEXEMPLO",
+  "from": "contato_exemplo_042",
+  "status": "failed",
+  "timestamp": 1735603260,
+  "error": {
+    "code": "RECIPIENT_UNAVAILABLE",
+    "message": "Destinatário indisponível"
+  }
+}</code></pre>
+
+  <h3>2.5. Tipos documentados</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Tipo</th><th>Campos relevantes de <code>content</code></th><th>Observação</th></tr></thead>
+      <tbody>
+        <tr><td><code>text</code></td><td><code>text</code>, <code>preview</code>, <code>quotedMessageId</code></td><td>A prévia pode incluir URL, título, descrição e miniatura.</td></tr>
+        <tr><td><code>image</code>, <code>video</code>, <code>audio</code>, <code>document</code></td><td><code>url</code>, <code>mimeType</code>, <code>size</code>, <code>sha256</code>, além de campos específicos</td><td><code>mimeType</code> e <code>size</code> são documentados como obrigatórios; <code>sha256</code> é recomendado.</td></tr>
+        <tr><td><code>location</code></td><td><code>latitude</code>, <code>longitude</code>, opcionalmente <code>name</code> e <code>address</code></td><td>Trate coordenadas como dado pessoal quando puderem identificar alguém.</td></tr>
+        <tr><td><code>interactive</code> (saída)</td><td><code>interactiveType</code>, <code>buttons</code>, <code>button</code> ou <code>items</code></td><td>O contrato cita <code>button</code>, <code>cta_url</code> e <code>list</code>.</td></tr>
+        <tr><td><code>button</code> / <code>list</code> (entrada)</td><td><code>buttonId</code> ou <code>listItemId</code>, mais <code>text</code></td><td>Use os IDs, e não apenas o texto, para decidir o próximo passo.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>Mídia:</strong> embora o material original mencione token na query string, prefira URLs assinadas, de curta duração e com escopo somente de leitura. Parâmetros de URL podem aparecer em logs, histórico e ferramentas de monitoramento. Não exponha credenciais permanentes nem permita que a URL acesse outros arquivos.
+  </div>
+
+  <h2 id="http-webhooks">3. Requisições HTTP, webhooks e automações</h2>
+  <p>Os fluxos de automação podem combinar <strong>Requisição HTTP</strong> para enviar ou buscar dados, <strong>Código JS</strong> para transformar variáveis e <strong>Captura de Webhook</strong> para receber eventos externos. Automações podem ser acionadas por eventos de oportunidade — ganho, perda, atraso, entrada, saída e estagnação — ou executadas periodicamente.</p>
+
+  <h3>3.1. Publicar um endpoint receptor</h3>
+  <ol class="steps">
+    <li><strong>Defina o contrato:</strong> método, caminho, headers, schema, códigos HTTP e limite de tamanho.</li>
+    <li><strong>Proteja o endpoint:</strong> aceite somente HTTPS, valide autenticação antes do corpo e aplique limite de requisições.</li>
+    <li><strong>Valide a entrada:</strong> rejeite campos ausentes, tipos inválidos, eventos desconhecidos e identificadores fora do escopo.</li>
+    <li><strong>Garanta idempotência:</strong> registre <code>messageId</code> ou outro ID do evento; repetição deve devolver sucesso sem repetir o efeito.</li>
+    <li><strong>Responda rápido:</strong> confirme o recebimento e processe tarefas longas em fila interna, quando a arquitetura permitir.</li>
+    <li><strong>Registre com segurança:</strong> use ID de correlação, código HTTP, duração e resultado; mascare tokens, telefones, conteúdo e dados pessoais.</li>
+  </ol>
+
+  <h3>3.2. Enviar dados por uma automação</h3>
+  <p>Monte o payload apenas com os campos necessários e utilize um domínio fictício durante a especificação:</p>
+  <pre><code>POST https://api.exemplo.invalid/v1/oportunidades/sincronizar
+Authorization: Bearer &lt;SEGREDO_FORA_DO_FLUXO_E_DOS_LOGS&gt;
+Content-Type: application/json
+Idempotency-Key: oportunidade-9001-versao-7
+
+{
+  "opportunityId": 9001,
+  "externalId": "erp-negocio-2042",
+  "status": "ganha",
+  "updatedAt": "2026-09-14T15:00:00Z"
+}</code></pre>
+
+  <div class="callout info">
+    O domínio especial <code>.invalid</code> é usado aqui para impedir chamadas acidentais. Substitua-o somente em ambiente controlado, depois da homologação do contrato e da autorização do proprietário do sistema externo.
+  </div>
+
+  <h3>3.3. Semântica de erro e repetição</h3>
+  <p>No contrato documentado da Generic Queue 2, falhas de rede, timeout de 30 segundos e respostas <code>5xx</code> acionam repetição com backoff exponencial, chegando a até 15 tentativas ao longo de aproximadamente três horas. Respostas <code>4xx</code> não são repetidas; inclusive <code>429</code> é listado como falha sem retry nesse contrato específico.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Situação</th><th>Resposta recomendada no contrato GQ2</th><th>Ação operacional</th></tr></thead>
+      <tbody>
+        <tr><td>Payload inválido ou campo ausente</td><td><code>400</code></td><td>Corrigir o emissor; repetição automática não resolve.</td></tr>
+        <tr><td>Chave ausente ou inválida</td><td><code>401</code></td><td>Conferir segredo e prefixo <code>Bearer</code>; rotacionar se houver suspeita.</td></tr>
+        <tr><td>Ação fora do escopo</td><td><code>403</code></td><td>Revisar permissões sem ampliar acesso desnecessariamente.</td></tr>
+        <tr><td>Limite excedido</td><td><code>429</code></td><td>Reduzir a taxa no emissor; não contar com retry automático da GQ2.</td></tr>
+        <tr><td>Falha transitória do receptor</td><td><code>503</code></td><td>Permitir a repetição automática e monitorar recuperação.</td></tr>
+        <tr><td>Erro permanente de negócio</td><td><code>200</code> com <code>success: false</code>, conforme material GQ2</td><td>Registrar código de aplicação e não processar novamente.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>Não generalize:</strong> a semântica acima é do contrato fornecido para Generic Queue 2. Outras APIs podem exigir códigos e políticas diferentes. Leia sempre a documentação da integração alvo.
+  </div>
+
+  <h2 id="google-forms">4. Google Forms para Captura de Webhook</h2>
+  <p>O fluxo documentado envia as respostas de um Google Form para uma Captura de Webhook da instância por meio do Google Apps Script.</p>
+
+  <ol class="steps">
+    <li><strong>Na plataforma:</strong> crie uma Captura de Webhook em <strong>Configurações › Automação › Captura de Webhook</strong>; copie a URL e a chave para um cofre temporário.</li>
+    <li><strong>No Google Forms:</strong> abra o formulário com a conta proprietária e acesse <strong>Apps Script</strong>.</li>
+    <li><strong>No script:</strong> configure a URL e a autenticação usando propriedades protegidas do projeto, sem gravar segredos diretamente no código.</li>
+    <li><strong>Nos acionadores:</strong> adicione um acionador para a função <code>onSubmit</code> com o tipo de evento <strong>Ao enviar formulário</strong> e conceda apenas as permissões necessárias.</li>
+    <li><strong>Homologue:</strong> envie uma resposta fictícia, confirme o recebimento na captura e valide os nomes e tipos das perguntas.</li>
+  </ol>
+
+  <h3>Exemplo adaptado sem segredo embutido</h3>
+  <pre><code>function onSubmit(e) {
+  const props = PropertiesService.getScriptProperties();
+  const postUrl = props.getProperty('WEBHOOK_URL');
+  const apiKey = props.getProperty('WEBHOOK_API_KEY');
+  const forms = {};
+
+  e.response.getItemResponses().forEach(function (itemResponse) {
+    const question = itemResponse.getItem().getTitle();
+    forms[question] = itemResponse.getResponse();
+  });
+
+  UrlFetchApp.fetch(postUrl, {
+    method: 'post',
+    contentType: 'application/json',
+    headers: { Authorization: 'Bearer ' + apiKey },
+    payload: JSON.stringify(forms),
+    muteHttpExceptions: true
+  });
+}</code></pre>
+
+  <div class="callout tip">
+    <strong>Por que usar o evento <code>e</code>?</strong> o material-base consulta todas as respostas e escolhe a última. Em submissões próximas, isso pode associar o evento à resposta errada. Usar <code>e.response</code> vincula o processamento à resposta que acionou a função. Valide essa abordagem no Apps Script do formulário antes de publicar.
+  </div>
+
+  <div class="callout warn">
+    Os títulos das perguntas viram chaves JSON. Renomear uma pergunta altera o contrato. Para integrações duráveis, mapeie cada título para um nome técnico estável e não envie respostas sensíveis sem base legal, finalidade e retenção definidas.
+  </div>
+
+  <h2 id="google-sheets">5. Consulta ao Google Sheets</h2>
+  <p>O material de apoio apresenta a API Google Sheets v4 para consultar um intervalo de células. O formato documentado é:</p>
+  <pre><code>GET https://sheets.googleapis.com/v4/spreadsheets/&lt;ID_DA_PLANILHA&gt;/values/&lt;ABA&gt;!&lt;INICIO&gt;:&lt;FIM&gt;?key=&lt;CHAVE&gt;</code></pre>
+
+  <p>Exemplo fictício, deliberadamente não funcional:</p>
+  <pre><code>GET https://sheets.googleapis.com/v4/spreadsheets/ID_PLANILHA_EXEMPLO/values/Clientes!A2:F200?key=CHAVE_RESTRITA</code></pre>
+
+  <h3>5.1. Configuração orientada pelo material</h3>
+  <ol class="steps">
+    <li>No Google Cloud, selecione o projeto responsável pela integração.</li>
+    <li>Em <strong>APIs e serviços</strong>, habilite a Google Sheets API.</li>
+    <li>Crie a credencial adequada e aplique restrições de API, origem e uso sempre que disponíveis.</li>
+    <li>Obtenha o ID da planilha, o nome exato da aba e o intervalo necessário.</li>
+    <li>Configure a Requisição HTTP no fluxo e trate a matriz <code>values</code> retornada.</li>
+  </ol>
+
+  <h3>5.2. Compartilhamento e segurança</h3>
+  <div class="callout warn">
+    O tutorial de apoio sugere liberar a planilha para “qualquer pessoa com o link” em modo leitura. Isso torna o conteúdo acessível a quem obtiver o link e não deve ser o padrão para dados de clientes, atendimentos ou operação. Em produção, prefira identidade autenticada, conta de serviço ou OAuth com menor privilégio e compartilhe a planilha somente com essa identidade. Se a integração disponível na instância aceitar apenas chave de API e conteúdo público, use uma planilha exclusiva, sanitizada e sem dados pessoais; valide o risco com segurança e privacidade.
+  </div>
+
+  <ul>
+    <li>Limite o intervalo: consultar <code>A2:F200</code> é mais previsível que linhas ou colunas inteiras.</li>
+    <li>Não coloque chaves em mensagens, prints, parâmetros registrados em logs ou código público.</li>
+    <li>Restrinja a chave à Sheets API e às origens permitidas quando o Google Cloud oferecer essa opção.</li>
+    <li>Defina cabeçalhos estáveis e trate linha vazia, coluna ausente e alteração de ordem.</li>
+    <li>Use cache e periodicidade razoável para evitar cota excedida e latência no atendimento.</li>
+  </ul>
+
+  <h2 id="bigquery">6. Google Cloud e BigQuery</h2>
+  <p>O BigQuery recebe dados da plataforma para análise em SQL, BI e processamento em escala. O material informa que a sincronização cria um <em>dataset</em> com tabelas do sistema e ocorre diariamente de madrugada.</p>
+
+  <h3>6.1. Preparação do projeto</h3>
+  <ol class="steps">
+    <li><strong>Crie ou selecione o projeto:</strong> copie o ID do projeto; ele será usado no campo <code>ProjectID do BigQuery</code>.</li>
+    <li><strong>Prepare uma conta de serviço:</strong> conceda somente as permissões necessárias para criar/escrever no dataset previsto. O material cita <em>Proprietário de Dados BigQuery</em>, mas esse papel é amplo; valide um conjunto de menor privilégio com a equipe Google Cloud.</li>
+    <li><strong>Crie uma chave JSON apenas se exigida:</strong> baixe-a em estação segura, limite o acesso e defina rotação. Prefira credenciais de curta duração quando a arquitetura da instância oferecer essa alternativa.</li>
+    <li><strong>Habilite faturamento e orçamento:</strong> o material alerta que inserções de streaming geram custo e não são compatíveis com uma operação estritamente gratuita. Configure alertas de orçamento antes da sincronização.</li>
+    <li><strong>Na plataforma:</strong> acesse <strong>Configurações › Geral</strong>, preencha <code>ProjectID do BigQuery</code> e <code>Auth Key</code>, e salve.</li>
+    <li><strong>Valide a primeira carga:</strong> confira dataset, tabelas, datas, quantidade aproximada de registros e política de localização/retenção.</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong><code>Auth Key</code> é segredo:</strong> o JSON pode conter uma chave privada. Cole-o somente no campo oficial da instância; nunca o anexe a chamado, e-mail, documento ou repositório. Se houver exposição, revogue a chave no Google Cloud, crie outra e atualize a integração.
+  </div>
+
+  <h3>6.2. Registros atualizados e histórico</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Opção “Excluir registros atualizados”</th><th>Comportamento descrito</th><th>Indicação</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Marcada</strong></td><td>Ao sincronizar a versão nova de um atendimento, o registro antigo é removido e permanece o estado mais recente.</td><td>Visão operacional atual, menor duplicidade aparente.</td></tr>
+        <tr><td><strong>Desmarcada</strong></td><td>As versões são acumuladas; um atendimento aberto hoje e fechado amanhã pode aparecer em dois registros.</td><td>Análise histórica, desde que as consultas saibam escolher a versão correta.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Ao trocar o projeto de uma instância já sincronizada, o material orienta substituir os dados, acionar <strong>Limpar sincronização</strong> e reiniciar a instância. Essa é uma operação administrativa com impacto; agende janela, registre o projeto anterior e confirme com suporte o procedimento vigente antes de executar.</p>
+
+  <h3>6.3. Usos e controles</h3>
+  <ul>
+    <li>Conectar Looker Studio, Tableau, Power BI ou Google Sheets para visualização, respeitando os controles de acesso.</li>
+    <li>Executar SQL e rotinas de ETL; evitar <code>SELECT *</code> em tabelas grandes para reduzir custo.</li>
+    <li>Particionar e filtrar por data quando a estrutura das tabelas permitir.</li>
+    <li>Monitorar custo de armazenamento, streaming e bytes processados por consulta.</li>
+    <li>Separar ambientes e projetos de homologação e produção.</li>
+    <li>Documentar quais tabelas contêm dados pessoais e quem pode consultá-las.</li>
+  </ul>
+
+  <h2 id="variaveis-template">7. Variáveis em templates</h2>
+  <p>Para templates da Meta usados pela fila WhatsApp Cloud API, o material específico informa suporte, no sistema, a variáveis posicionais numéricas — <code>{{1}}</code>, <code>{{2}}</code> e assim por diante — e alerta que variáveis do tipo nome não são suportadas nesse fluxo documentado.</p>
+
+  <ol class="steps">
+    <li><strong>Na Meta:</strong> crie o template usando placeholders numéricos sequenciais e informe valores de exemplo durante a submissão.</li>
+    <li><strong>No sistema:</strong> no campo <strong>Corpo</strong> do template, use o mesmo nome posicional definido na Meta, como <code>{{1}}</code>.</li>
+    <li><strong>No valor do parâmetro:</strong> associe a variável interna que fornecerá o conteúdo em tempo de envio.</li>
+    <li><strong>Teste:</strong> confira ordem, conteúdo ausente, tamanho e formatação com dados fictícios antes do disparo real.</li>
+  </ol>
+
+  <h3>Exemplo conceitual</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Camada</th><th>Configuração fictícia</th></tr></thead>
+      <tbody>
+        <tr><td>Corpo aprovado na Meta</td><td><code>Olá! O pedido {{1}} está com o status {{2}}. Consulte os detalhes no portal.</code></td></tr>
+        <tr><td>Nome do parâmetro 1 no sistema</td><td><code>{{1}}</code></td></tr>
+        <tr><td>Valor do parâmetro 1</td><td>Variável interna que contém o identificador do pedido.</td></tr>
+        <tr><td>Nome do parâmetro 2 no sistema</td><td><code>{{2}}</code></td></tr>
+        <tr><td>Valor do parâmetro 2</td><td>Variável interna que contém o status do pedido.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>Não misture contratos:</strong> a Meta pode oferecer outros formatos na interface, mas o material do sistema registra suporte apenas a placeholders numéricos para esse fluxo. Valide isso na fila e na versão atuais. Nunca use variável para inserir senha, token, cartão completo, documento ou outro dado sensível em mensagem.
+  </div>
+
+  <h2 id="seguranca">8. Segurança, privacidade e governança</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Controle</th><th>Aplicação prática</th></tr></thead>
+      <tbody>
+        <tr><td><strong>HTTPS</strong></td><td>Exija TLS válido em endpoints, webhooks e mídias; não use HTTP ou localhost fora de laboratório isolado.</td></tr>
+        <tr><td><strong>Menor privilégio</strong></td><td>Uma chave por fila/integração, conta de serviço dedicada e permissões somente nos recursos necessários.</td></tr>
+        <tr><td><strong>Gestão de segredos</strong></td><td>Cofre ou variável de ambiente; rotação periódica e imediata após suspeita de exposição.</td></tr>
+        <tr><td><strong>Validação</strong></td><td>Confira autenticação, evento, schema, tamanho, <code>source</code>/<code>to</code>, tipo de mídia e domínio de URL.</td></tr>
+        <tr><td><strong>Idempotência</strong></td><td>Armazene o ID do evento com expiração adequada e impeça efeitos duplicados.</td></tr>
+        <tr><td><strong>Proteção contra SSRF</strong></td><td>Se o sistema baixa URLs de mídia ou consulta URLs recebidas, use allowlist de hosts, bloqueie redes privadas/loopback e limite redirecionamentos.</td></tr>
+        <tr><td><strong>Logs mínimos</strong></td><td>Registre metadados operacionais, não corpos completos; mascare <code>Authorization</code>, query strings e dados pessoais.</td></tr>
+        <tr><td><strong>LGPD e retenção</strong></td><td>Defina finalidade, base legal, acesso, prazo de retenção, descarte e resposta a solicitações do titular.</td></tr>
+        <tr><td><strong>Separação de ambientes</strong></td><td>Filas, endpoints, projetos, chaves e dados distintos para homologação e produção.</td></tr>
+        <tr><td><strong>Plano de revogação</strong></td><td>Mantenha procedimento para desativar captura, revogar chave, interromper automação e reprocessar eventos.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Checklist antes de liberar produção</h3>
+  <ol class="steps">
+    <li>Responsável técnico e proprietário dos dados identificados.</li>
+    <li>Contrato de campos, tipos, códigos HTTP e versionamento aprovado.</li>
+    <li>Segredos exclusivos, armazenados corretamente e testados sem aparecer em logs.</li>
+    <li>Teste de evento duplicado, ordem invertida, timeout, <code>4xx</code>, <code>5xx</code> e mídia indisponível.</li>
+    <li>Alertas para aumento de falhas, latência, fila acumulada, cota e custo.</li>
+    <li>Plano de rollback e janela de mudança definidos.</li>
+    <li>Dados fictícios usados na homologação; qualquer dado real autorizado e minimizado.</li>
+  </ol>
+
+  <h2 id="diagnostico">9. Diagnóstico e solução de problemas</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Sintoma</th><th>Verificações</th><th>Correção provável</th></tr></thead>
+      <tbody>
+        <tr><td><code>401 Unauthorized</code></td><td>Header presente, prefixo <code>Bearer</code>, chave da fila correta, espaços e rotação recente.</td><td>Atualizar o segredo nos dois lados; não imprimir seu valor durante o teste.</td></tr>
+        <tr><td><code>403 Forbidden</code></td><td>Identidade autenticada, mas sem permissão para a fila, planilha, dataset ou ação.</td><td>Conceder somente a permissão específica necessária.</td></tr>
+        <tr><td><code>400</code> ou <code>422</code></td><td>JSON válido; <code>event</code>, <code>messageId</code>, <code>from</code>, <code>to</code>, <code>timestamp</code>, <code>type</code> e <code>content</code>.</td><td>Comparar o payload ao schema vigente e corrigir tipos/campos.</td></tr>
+        <tr><td>Webhook recebido duas vezes</td><td>Mesmo <code>messageId</code>, retry após timeout ou resposta tardia.</td><td>Aplicar idempotência e devolver o mesmo resultado sem repetir o efeito.</td></tr>
+        <tr><td>Status fora de ordem</td><td><code>read</code> antes de <code>delivered</code>, atrasos de rede, duplicatas.</td><td>Tornar atualização monotônica e ignorar regressões já processadas.</td></tr>
+        <tr><td>Mídia não abre</td><td>HTTPS, expiração, acesso público/assinado, <code>Content-Type</code>, <code>mimeType</code>, <code>size</code> e hash.</td><td>Renovar URL assinada, corrigir metadados e garantir validade suficiente.</td></tr>
+        <tr><td>Apps Script não envia</td><td>Acionador instalado, permissões, função correta, propriedades do script e histórico de execuções.</td><td>Reautorizar o acionador e corrigir URL/chave sem expô-las.</td></tr>
+        <tr><td>Sheets retorna vazio ou erro</td><td>ID, nome da aba, intervalo, API habilitada, identidade e compartilhamento.</td><td>Corrigir o intervalo e conceder acesso explícito à identidade da integração.</td></tr>
+        <tr><td>BigQuery não atualiza</td><td>Projeto, conta de serviço, faturamento, dataset, última sincronização e logs.</td><td>Corrigir acesso/cobrança; ao trocar projeto, validar com suporte a limpeza e reinício.</td></tr>
+        <tr><td>Variável aparece como <code>{{1}}</code></td><td>Template aprovado, placeholder numérico, associação e valor disponível.</td><td>Alinhar posição na Meta e no sistema; tratar valor vazio antes do envio.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Sequência de diagnóstico</h3>
+  <ol class="steps">
+    <li><strong>Correlacione:</strong> localize um único evento pelo <code>messageId</code>, ID da oportunidade ou ID de execução.</li>
+    <li><strong>Confirme a direção:</strong> determine se a falha está na saída da plataforma, no receptor externo ou no retorno por webhook.</li>
+    <li><strong>Cheque transporte:</strong> DNS, certificado TLS, método, caminho, timeout e código HTTP.</li>
+    <li><strong>Cheque autenticação:</strong> identidade, escopo e validade sem revelar o segredo.</li>
+    <li><strong>Cheque contrato:</strong> evento, campos, tipos, encoding, tamanho e versão.</li>
+    <li><strong>Cheque efeito:</strong> confirme no sistema de destino se a operação ocorreu antes de reprocessar.</li>
+    <li><strong>Documente:</strong> registre causa, impacto, IDs de correlação, correção e prevenção; remova qualquer dado sensível.</li>
+  </ol>
+
+  <h2 id="boas-praticas">10. Boas práticas de implementação</h2>
+  <ul>
+    <li><strong>Comece pequeno:</strong> na Generic Queue 2, homologue texto e status antes de mídia, botões, listas e citações.</li>
+    <li><strong>Versione o contrato:</strong> mudanças de campo não devem quebrar consumidores existentes.</li>
+    <li><strong>Use IDs globais e imutáveis:</strong> nunca reutilize <code>messageId</code>; mantenha o mapeamento com o ID externo.</li>
+    <li><strong>Projete para repetição:</strong> webhooks e automações distribuídas podem ser entregues mais de uma vez.</li>
+    <li><strong>Não confunda aceite com conclusão:</strong> resposta HTTP de sucesso confirma o recebimento; use estados e reconciliação para confirmar o efeito final.</li>
+    <li><strong>Respeite a ordem de status:</strong> <code>sent → delivered → read</code>; <code>failed</code> deve conter código e mensagem úteis, sem dados sensíveis.</li>
+    <li><strong>Defina timeouts:</strong> o material GQ2 cita 30 segundos para requisições e 60 segundos para downloads de mídia; valide os limites reais da versão em uso.</li>
+    <li><strong>Evite dependência de texto visível:</strong> use IDs técnicos de botão, lista, oportunidade, usuário e arquivo.</li>
+    <li><strong>Reconcilie:</strong> uma rotina periódica detecta eventos perdidos e divergências entre CRM, ERP e base analítica.</li>
+    <li><strong>Monitore custo e capacidade:</strong> cotas do Google, volume de BigQuery, armazenamento de mídia e acúmulo de retries.</li>
+    <li><strong>Mantenha runbook:</strong> inclua contatos, dashboards, como pausar, como rotacionar segredo e como reprocessar com segurança.</li>
+  </ul>
+
+  <div class="callout tip">
+    <strong>Critério de aceite:</strong> considere a integração pronta somente quando um caso completo tiver sido comprovado nos dois sentidos, com autenticação, idempotência, falha controlada, auditoria e leitura do estado final no sistema de destino.
+  </div>
+
+  <div class="pagenav">
+    <a href="extensoes.html"><span>← Anterior</span> Extensões</a>
+    <a href="configuracoes.html"><span>Próximo →</span> Configurações</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
+  <p>Contratos técnicos e recursos podem variar por versão e instância; valide antes de implantar.</p>
+</footer>
+
+</body>
+</html>

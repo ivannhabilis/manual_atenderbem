@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suporte Operacional — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="crm.html">CRM</a>
+    <a href="tickets.html">Tickets</a>
+    <a href="pabx.html">PABX &amp; Telefonia</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="relatorios.html">Relatórios</a>
+    <a href="relatorios-personalizados.html">Personalizados</a>
+    <a href="configuracoes.html">Configurações</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › Suporte Operacional</div>
+
+  <h1>Suporte Operacional</h1>
+  <p class="subtitle">Playbook prático para conduzir o atendimento do primeiro contato ao encerramento, com investigação objetiva, comunicação clara e equilíbrio emocional.</p>
+
+  <div class="callout info">
+    <strong>Como usar:</strong> as seções 1 a 7 são procedimentos operacionais. As seções 8 e 9 tratam de habilidades humanas. Empatia não substitui diagnóstico; diagnóstico não substitui cuidado na comunicação.
+  </div>
+
+  <h2>1. Fluxo geral do atendimento</h2>
+  <ol class="steps">
+    <li><strong>Acolha e leia tudo.</strong> Confirme que recebeu a solicitação e identifique o resultado que o cliente esperava.</li>
+    <li><strong>Faça a triagem.</strong> Determine escopo, impacto, abrangência, urgência e possibilidade de contorno.</li>
+    <li><strong>Colete evidências.</strong> Registre horários, identificadores, telas, mensagens de erro, sequência de ações e testes já feitos.</li>
+    <li><strong>Reproduza ou delimite.</strong> Diferencie fato observado, hipótese e informação ainda não confirmada.</li>
+    <li><strong>Resolva ou escale.</strong> Se estiver dentro da sua autonomia, oriente e valide. Se depender de outro time, encaminhe com contexto completo.</li>
+    <li><strong>Mantenha o cliente informado.</strong> Diga o que está sendo feito e qual é o próximo ponto de atualização possível, sem inventar prazo.</li>
+    <li><strong>Registre e encerre.</strong> Documente causa ou conclusão, solução, evidências, impacto, responsáveis e pendências.</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>Sem promessas improvisadas:</strong> prazos de retorno, resolução ou disponibilidade só devem ser informados quando confirmados pelos canais e políticas vigentes. Os tempos internos citados neste playbook não criam SLA para o cliente.
+  </div>
+
+  <h2>2. Triagem: entender antes de agir</h2>
+  <h3>2.1 Perguntas mínimas</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Dimensão</th><th>O que descobrir</th><th>Pergunta útil</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Resultado esperado</td><td>O que o cliente tentava fazer</td><td>“Qual resultado você esperava obter?”</td></tr>
+        <tr><td>Comportamento observado</td><td>O que aconteceu de fato, sem interpretação</td><td>“O que aparece na tela ou no status?”</td></tr>
+        <tr><td>Início e frequência</td><td>Quando começou e se é contínuo ou intermitente</td><td>“Quando ocorreu pela primeira vez? Acontece sempre?”</td></tr>
+        <tr><td>Abrangência</td><td>Uma pessoa, canal, instância, operação ou vários clientes</td><td>“Quem mais está afetado?”</td></tr>
+        <tr><td>Impacto</td><td>Processo parado, degradado ou com alternativa</td><td>“Qual etapa da operação ficou impedida?”</td></tr>
+        <tr><td>Mudança recente</td><td>Configuração, versão, integração, credencial ou rotina alterada</td><td>“Algo mudou antes do problema começar?”</td></tr>
+        <tr><td>Contorno</td><td>Se existe caminho alternativo seguro</td><td>“Há outra forma de concluir essa operação agora?”</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2.2 Classificação prática</h3>
+  <ul>
+    <li><strong>Incidente amplo:</strong> sinais semelhantes em vários clientes, instâncias, servidores ou canais.</li>
+    <li><strong>Falha pontual:</strong> problema restrito a um contexto identificável, sem evidência de abrangência maior.</li>
+    <li><strong>Dúvida de uso:</strong> comportamento compatível com configuração ou funcionamento esperado, ainda que cause confusão.</li>
+    <li><strong>Solicitação de alteração:</strong> exige mudança de configuração, produto, banco de dados, servidor ou processo.</li>
+  </ul>
+
+  <div class="callout tip">
+    <strong>Alta demanda:</strong> não classifique apenas pela quantidade de chats. Considere complexidade, impacto, tempo de investigação e idade dos atendimentos. Mantenha interação com todos e priorize o que realmente bloqueia a operação.
+  </div>
+
+  <h2>3. Coleta de evidências</h2>
+  <h3>3.1 Pacote mínimo de diagnóstico</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Evidência</th><th>Como registrar</th><th>Cuidado</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Data e hora</td><td>Momento do erro e fuso, quando relevante</td><td>Evite “agora há pouco” ou “ontem”</td></tr>
+        <tr><td>Identificadores</td><td>ID do ticket, instância, atendimento, mensagem ou operação</td><td>Inclua somente o necessário</td></tr>
+        <tr><td>Passo a passo</td><td>Ação, tela, campo, comando e resultado de cada etapa</td><td>Não pule o passo que dispara o erro</td></tr>
+        <tr><td>Mensagem de erro</td><td>Texto integral, código e status</td><td>Não parafraseie se puder copiar exatamente</td></tr>
+        <tr><td>Captura de tela</td><td>Tela inteira ou recorte com contexto suficiente</td><td>Oculte dados pessoais e segredos</td></tr>
+        <tr><td>Vídeo curto</td><td>Fluxo completo até o comportamento inesperado</td><td>Evite expor conversas, credenciais ou terceiros</td></tr>
+        <tr><td>Logs e URLs</td><td>Trecho relevante, horário, origem e endereço afetado</td><td>Não compartilhe tokens, senhas ou chaves</td></tr>
+        <tr><td>Testes realizados</td><td>Teste, resultado e ambiente utilizado</td><td>Separe o que foi testado do que é hipótese</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>3.2 Sequência de coleta</h3>
+  <ol class="steps">
+    <li>Peça uma descrição objetiva do que deveria acontecer e do que aconteceu.</li>
+    <li>Confirme ambiente, canal, usuário ou instância afetada sem solicitar credenciais.</li>
+    <li>Registre data, hora, abrangência e frequência.</li>
+    <li>Solicite a evidência menos invasiva capaz de confirmar o comportamento.</li>
+    <li>Faça testes seguros e anote cada resultado.</li>
+    <li>Antes de anexar ou encaminhar, revise se há dados pessoais, conversas privadas, tokens ou senhas expostos.</li>
+  </ol>
+
+  <h2>4. Comunicação de incidente: 4Q + 1S</h2>
+  <p>Estruture o relato interno antes de envolver liderança ou outro time. Seja direto, completo e analítico: descreva fatos, impacto e providências sem alarmismo.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Bloco</th><th>Conteúdo</th><th>Exemplo genérico</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>O quê?</strong></td><td>Descrição clara do comportamento</td><td>“Mensagens permanecem com status pendente.”</td></tr>
+        <tr><td><strong>Como?</strong></td><td>Contexto, fluxo, sistemas e evidências</td><td>“Ocorre em envios agendados; há registros entre 09:00 e 10:00.”</td></tr>
+        <tr><td><strong>Por quê?</strong></td><td>Impacto, risco ou causa provável, identificada como hipótese</td><td>“A operação de cobrança está atrasada; a causa ainda está em análise.”</td></tr>
+        <tr><td><strong>Quem?</strong></td><td>Clientes, parceiros, instâncias ou regiões afetadas</td><td>“Três instâncias confirmadas; abrangência total ainda não determinada.”</td></tr>
+        <tr><td><strong>Sugestão</strong></td><td>Próximo passo ou contorno sujeito a validação</td><td>“Validar a fila de processamento e avaliar um canal alternativo.”</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>4.1 Modelo para canal interno ou CRM</h3>
+  <div class="callout info">
+    <strong>Identificação:</strong> ticket, data/hora, responsável pelo registro, canal afetado e status.<br>
+    <strong>O que aconteceu:</strong> fato observado.<br>
+    <strong>Como aconteceu:</strong> fluxo, ambiente e evidências.<br>
+    <strong>Por que importa:</strong> impacto e risco, sem exagero.<br>
+    <strong>Quem foi afetado:</strong> abrangência confirmada e ainda desconhecida.<br>
+    <strong>O que já foi feito:</strong> testes, contornos e resultados.<br>
+    <strong>Próximos passos sugeridos:</strong> ação, time adequado e validação necessária.<br>
+    <strong>Anexos:</strong> logs, imagens, vídeo, URLs e IDs sanitizados.<br>
+    <strong>Acompanhamento:</strong> para quem foi escalado, cliente informado, recorrência e tarefa relacionada.
+  </div>
+
+  <h3>4.2 Atualização ao cliente</h3>
+  <ol class="steps">
+    <li>Reconheça o impacto confirmado: “Entendi que esta etapa da operação ficou bloqueada.”</li>
+    <li>Informe o estado real: “Estamos verificando os registros e a abrangência.”</li>
+    <li>Diga o próximo passo: “O próximo passo é validar o processamento com a equipe responsável.”</li>
+    <li>Se houver um horário de atualização realmente confirmado, informe-o. Caso contrário, diga por qual canal haverá novidade, sem criar prazo.</li>
+    <li>Quando houver mudança de status, comunique-a mesmo que a solução final ainda não esteja disponível.</li>
+  </ol>
+
+  <h2>5. Suporte visual remoto</h2>
+  <p>Use suporte visual quando a descrição verbal não basta, sobretudo para camada física, LEDs, cabos, periféricos, peças, montagem ou inspeção visual. O recurso pode abrir por link, sem instalação, e oferece desenho, setas, apontador, congelamento da imagem e registro vinculado ao atendimento.</p>
+
+  <h3>5.1 Quando usar — e quando parar</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Use para</th><th>Não prossiga quando</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Confirmar cabo, porta, LED, código de erro ou dano visível</td><td>A imagem puder expor senha, documento, conversa privada ou pessoa sem necessidade</td></tr>
+        <tr><td>Guiar uma ação simples com seta, desenho ou laser</td><td>A ação oferecer risco físico, elétrico, mecânico ou operacional</td></tr>
+        <tr><td>Congelar o vídeo para analisar um detalhe</td><td>O cliente não estiver confortável ou autorizado a mostrar o ambiente</td></tr>
+        <tr><td>Preparar visita ou separar peça correta</td><td>For necessária decisão especializada fora da competência do agente</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>5.2 Roteiro seguro</h3>
+  <ol class="steps">
+    <li>Explique por que a visualização ajudará e confirme que o cliente concorda em iniciar.</li>
+    <li>Oriente a não mostrar documentos, telas privadas, credenciais ou pessoas.</li>
+    <li>Peça que enquadre primeiro o equipamento e o entorno, sem tocar em nada.</li>
+    <li>Use setas, desenho ou apontador para uma instrução por vez; confirme antes de avançar.</li>
+    <li>Use o congelamento para ler detalhes sem exigir que o cliente mantenha o aparelho imóvel.</li>
+    <li>Interrompa diante de risco ou incerteza e escale para o profissional adequado.</li>
+    <li>Registre o que foi observado, a orientação dada e o resultado; trate gravações conforme a política vigente.</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>Limite:</strong> suporte visual é ferramenta de triagem e orientação, não autorização automática para procedimentos de risco. Não presuma consentimento, retenção ou finalidade de uma gravação; confirme as regras vigentes.
+  </div>
+
+  <h2>6. Escalonamento e transferência</h2>
+  <h3>6.1 Quando escalar</h3>
+  <ul>
+    <li>Há impacto amplo, crítico ou crescente.</li>
+    <li>O caso é recorrente ou a solução aplicada não se sustenta.</li>
+    <li>A ação necessária está fora da autonomia, acesso ou competência do agente.</li>
+    <li>Há dependência de produto, engenharia, contrato, financeiro, segurança ou outra área.</li>
+    <li>O cliente menciona cancelamento, medida jurídica ou exposição pública.</li>
+    <li>O tom permanece em escalada mesmo após reconhecimento, clareza e tentativa adequada de encaminhamento.</li>
+  </ul>
+
+  <h3>6.2 Passagem sem perda de contexto</h3>
+  <ol class="steps">
+    <li>Preencha o relato 4Q + 1S e anexe evidências sanitizadas.</li>
+    <li>Indique impacto, abrangência, status e o que já foi testado.</li>
+    <li>Registre explicitamente o responsável ou time que recebeu o caso.</li>
+    <li>Informe ao cliente que o caso foi encaminhado, quem dará continuidade quando isso estiver definido e como será a comunicação.</li>
+    <li>Ao transferir o chat, use o resumo automático se o recurso estiver disponível e revise o texto; acrescente informações relevantes que tenham faltado.</li>
+    <li>Ao receber uma transferência, apresente-se, confirme que leu o contexto e evite fazer o cliente repetir tudo.</li>
+  </ol>
+
+  <div class="callout tip">
+    <strong>Escalar não é “passar o problema”.</strong> O agente mantém a responsabilidade pelo registro e pela comunicação até existir uma transferência de responsabilidade claramente confirmada.
+  </div>
+
+  <h2>7. Registro, acompanhamento e encerramento</h2>
+  <h3>7.1 Estado do atendimento</h3>
+  <p>Se as etiquetas abaixo estiverem ativas no ambiente, use-as de modo coerente com o estágio real do caso:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Situação</th><th>Registro sugerido na fonte</th><th>Quando aplicar</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Investigação em curso</td><td>Em análise</td><td>Após o atendimento inicial, enquanto ocorre verificação</td></tr>
+        <tr><td>Dependência do cliente</td><td>Informação Solicitada</td><td>Quando uma informação necessária já foi pedida</td></tr>
+        <tr><td>Dependência de alteração</td><td>Aguardando Alteração</td><td>Quando outra pessoa ou equipe precisa executar uma mudança</td></tr>
+        <tr><td>Conclusão apresentada</td><td>Análise Concluída</td><td>Quando a análise terminou e o resultado foi informado</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>7.2 Inatividade e continuidade</h3>
+  <p>O material de práticas internas registra contatos após 30 minutos, uso de mensagem padrão após 1 hora e encerramento após 2 horas de inatividade em determinados chats. Também descreve regras específicas para Webchat e reabertura de conversas da API oficial.</p>
+  <div class="callout warn">
+    <strong>Referência operacional sujeita a atualização:</strong> confirme automações, janela do canal, mensagens cadastradas e política atual antes de aplicar esses tempos. Eles são controles internos e não devem ser apresentados como SLA ao cliente.
+  </div>
+
+  <h3>7.3 Checklist de encerramento</h3>
+  <ol class="steps">
+    <li>Confirme se todas as perguntas do cliente foram respondidas.</li>
+    <li>Registre diagnóstico ou conclusão; se a causa não foi confirmada, declare isso sem transformar hipótese em fato.</li>
+    <li>Documente solução, contorno, testes finais e resultado observado.</li>
+    <li>Informe ao cliente o que foi feito e, quando aplicável, como evitar ou identificar nova ocorrência.</li>
+    <li>Revise anexos e remova dados sensíveis desnecessários.</li>
+    <li>Atualize etiqueta, status, responsável, recorrência e vínculos com tarefa ou backlog.</li>
+    <li>Execute a automação de encerramento adequada e preencha o formulário, se esse fluxo estiver ativo no ambiente.</li>
+    <li>Se houver pendência real, não marque como concluído: registre dono, próximo passo e forma de acompanhamento.</li>
+    <li>Antes de encerrar, verifique se uma transferência por novo assunto exige registrar primeiro a demanda já concluída.</li>
+  </ol>
+
+  <h2>8. Cliente nervoso: desescalar antes de resolver</h2>
+  <p>Raiva, ansiedade e impaciência costumam sinalizar perda de controle, pressão de prazo ou histórico ruim. Isso ajuda a escolher a resposta, mas não justifica agressão. Reconheça a experiência sem assumir culpa técnica ainda não apurada.</p>
+
+  <h3>8.1 Sequência humana</h3>
+  <ol class="steps">
+    <li><strong>Ouça.</strong> Leia a mensagem inteira e confirme o problema com suas palavras.</li>
+    <li><strong>Reconheça.</strong> Nomeie o impacto concreto: atraso, operação parada, repetição ou incerteza.</li>
+    <li><strong>Lamente o transtorno.</strong> Um pedido de desculpas pela experiência não equivale a admitir uma causa não investigada.</li>
+    <li><strong>Resolva.</strong> Faça a pergunta ou ação que realmente destrava o caso.</li>
+    <li><strong>Avise.</strong> Se depender de acompanhamento, explique o próximo passo e como virá a atualização.</li>
+    <li><strong>Diagnostique.</strong> Em casos graves ou recorrentes, registre a causa e a prevenção depois de estabilizar a conversa.</li>
+  </ol>
+
+  <h3>8.2 Linguagem que reduz tensão</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Evite</th><th>Prefira</th><th>Por quê</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>“Você precisa se acalmar.”</td><td>“Entendo a frustração. Vou organizar os próximos passos com você.”</td><td>Reconhece sem confrontar</td></tr>
+        <tr><td>“Isso não é bug.”</td><td>“Entendo que o comportamento causou confusão. Vou explicar o que ocorre e as opções.”</td><td>Informa sem invalidar</td></tr>
+        <tr><td>“Aguarde.”</td><td>“Estou verificando os registros. O próximo passo é validar a origem do erro.”</td><td>Dá contexto em vez de silêncio</td></tr>
+        <tr><td>“Isso não é com o suporte.”</td><td>“Esse ponto depende de outra equipe; vou encaminhar o contexto completo.”</td><td>Preserva continuidade</td></tr>
+        <tr><td>“Isso é simples.”</td><td>“Vou te guiar uma etapa por vez.”</td><td>Não minimiza a ansiedade</td></tr>
+        <tr><td>“Como assim não funcionou?”</td><td>“Me descreva o que ocorreu depois desse passo.”</td><td>Investiga sem culpar</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <strong>Em texto:</strong> escreva a empatia de forma explícita, use mensagens curtas e separe reconhecimento, ação e próximo passo. A ausência de resposta pode parecer desinteresse; mantenha presença sem inventar novidade.
+  </div>
+
+  <h2>9. Inteligência emocional do agente</h2>
+  <h3>9.1 Pausa antes de enviar</h3>
+  <p>Quando uma mensagem acionar irritação, defesa ou pressa, pare por alguns segundos. Reconhecer a própria emoção evita transferi-la ao cliente.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Habilidade</th><th>Aplicação no suporte</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Autoconsciência</td><td>Perceber impaciência, tensão e respostas secas antes do envio</td></tr>
+        <tr><td>Autorregulação</td><td>Pausar, reler e escolher uma resposta calma em vez de reagir</td></tr>
+        <tr><td>Motivação</td><td>Manter qualidade mesmo em demandas repetitivas ou de alto volume</td></tr>
+        <tr><td>Empatia</td><td>Considerar contexto e impacto sem presumir nem concordar com agressões</td></tr>
+        <tr><td>Habilidade social</td><td>Comunicar com clareza, presença, respeito e próximos passos</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>9.2 Revisão de 30 segundos</h3>
+  <ul>
+    <li>Minha resposta está clara para quem lê pela primeira vez?</li>
+    <li>Respondi todas as perguntas feitas?</li>
+    <li>Há alguma frase ríspida, defensiva ou condescendente?</li>
+    <li>Estou afirmando algo que ainda é apenas hipótese?</li>
+    <li>Reconheci a situação antes de apresentar a solução?</li>
+    <li>O cliente sabe o que acontece a seguir?</li>
+    <li>Se citei horário ou prazo, ele está realmente confirmado?</li>
+    <li>Como eu receberia esta mensagem no lugar do cliente?</li>
+  </ul>
+
+  <div class="callout tip">
+    <strong>Regra de equilíbrio:</strong> valide a emoção, não a agressividade. Não personalize a raiva do cliente, não responda na mesma intensidade e peça apoio quando perceber que perdeu a neutralidade necessária para conduzir o caso.
+  </div>
+
+  <h3>9.3 Fontes internas consultadas</h3>
+  <ul>
+    <li>Práticas Suporte.</li>
+    <li>Política de comunicação de problemas — modelo 4Q + 1S.</li>
+    <li>Playbook de Inteligência Emocional no Suporte.</li>
+    <li>Framework de suporte a cliente nervoso.</li>
+    <li>Workshop de Inteligência Emocional no Suporte Técnico.</li>
+    <li>Suporte Visual Remoto.</li>
+  </ul>
+
+  <div class="pagenav">
+    <a href="chat-interno.html"><span>← Anterior</span> Chat Interno</a>
+    <a class="next" href="tarefas.html"><span>Próximo →</span> Tarefas (My tasks)</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
+</footer>
+
+</body>
+</html>

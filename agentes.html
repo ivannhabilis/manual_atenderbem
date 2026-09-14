@@ -77,6 +77,70 @@
     <li>Para identificar agentes sem atividade ou sobrecarregados.</li>
   </ul>
 
+  <h2>6. Diferença entre “Agora” e “Hoje”</h2>
+  <table class="doc">
+    <thead><tr><th>Métrica</th><th>Leitura correta</th></tr></thead>
+    <tbody>
+      <tr><td>Chats agora</td><td>Quantidade de chats abertos e em andamento sob responsabilidade do agente no momento da consulta.</td></tr>
+      <tr><td>Chats atendidos hoje</td><td>Total de chats que o agente encerrou no dia, mesmo quando o atendimento havia sido aberto em data anterior.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout info">
+    <strong>Conciliação:</strong> o total diário do Painel de Agentes mede encerramentos feitos pelo agente. Por isso, pode ser diferente do Dashboard inicial, que usa a data de abertura do atendimento.
+  </div>
+
+  <h2>7. Capacidade e regras de distribuição</h2>
+  <p>O campo <strong>Número Máximo de Atendimentos</strong> controla o recebimento de novos chats automáticos da fila. A verificação soma todos os atendimentos abertos do agente, sem distinguir origem.</p>
+  <table class="doc">
+    <thead><tr><th>Situação</th><th>Comportamento da distribuição</th></tr></thead>
+    <tbody>
+      <tr><td>Limite atingido</td><td>Se o total de chats abertos for igual ou maior que o limite individual, o agente não recebe novos chamados automáticos da fila.</td></tr>
+      <tr><td>Origens contabilizadas</td><td>Entram na conta atendimentos vindos da fila, reaberturas, transferências e preferências.</td></tr>
+      <tr><td>Agendamento reaberto com agente original disponível</td><td>O atendimento volta prioritariamente ao agente que fez o fechamento inicial, mesmo que ele já tenha atingido ou ultrapassado o limite.</td></tr>
+      <tr><td>Agendamento reaberto com agente original indisponível</td><td>O chat entra na espera comum e respeita as regras e os limites padrão ao ser distribuído a outro agente.</td></tr>
+      <tr><td>Captura manual com “Limitar atendimentos puxados” habilitado</td><td>O sistema bloqueia a captura quando o agente já atingiu o teto individual.</td></tr>
+      <tr><td>Captura manual com a opção desabilitada</td><td>O limite individual não é aplicado à captura manual.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Atendimentos travados</h3>
+  <table class="doc">
+    <thead><tr><th>Permissão</th><th>Efeito</th></tr></thead>
+    <tbody>
+      <tr><td>“Ignorar limites para atendimentos travados” ativada</td><td>O atendimento travado é entregue prioritariamente, ignorando o limite da fila e o limite individual.</td></tr>
+      <tr><td>Permissão desativada</td><td>O atendimento travado respeita os dois limites e aguarda a liberação de capacidade quando agente ou fila estiverem saturados.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn">
+    <strong>Capacidade aparente acima do limite:</strong> antes de tratar como falha, verifique se houve reabertura agendada para o agente original, atendimento travado com permissão para ignorar limites ou captura manual sem limitação.
+  </div>
+
+  <h2>8. Estados de produtividade</h2>
+  <p>Quando o módulo de monitoramento de produtividade está habilitado e configurado, a aba <strong>Productivity</strong> classifica a atividade em tempo real com base no perfil de scoring, nos sites e aplicativos abertos e na interação com o computador.</p>
+  <table class="doc">
+    <thead><tr><th>Estado</th><th>Critério documentado</th></tr></thead>
+    <tbody>
+      <tr><td>Produtivo</td><td>Score entre 71 e 100.</td></tr>
+      <tr><td>Atenção</td><td>Score entre 51 e 70.</td></tr>
+      <tr><td>Improdutivo</td><td>Score entre 0 e 50.</td></tr>
+      <tr><td>Ocioso / Ausente</td><td>Cerca de dois minutos sem movimento do mouse ou digitação.</td></tr>
+      <tr><td>Mídia</td><td>Reprodução de mídia na tela principal; é uma exceção à classificação automática de ociosidade.</td></tr>
+    </tbody>
+  </table>
+  <p>Quando há múltiplas penalidades ao mesmo tempo, elas não são somadas: o sistema aplica somente a regra de maior impacto. O perfil de scoring deve ser compatível com as ferramentas usadas por cada equipe.</p>
+  <div class="callout tip">
+    <strong>Não confunda estados:</strong> disponibilidade operacional (online, em pausa, ocupado) e classificação de produtividade (produtivo, atenção, improdutivo, ausente ou mídia) respondem a perguntas diferentes e devem ser analisadas em conjunto.
+  </div>
+
+  <h2>9. Rotina de supervisão</h2>
+  <ol class="steps">
+    <li>Filtre o estado operacional para localizar agentes disponíveis, ocupados, em pausa ou offline.</li>
+    <li>Compare <strong>Chats agora</strong> com o limite individual antes de concluir que há sobrecarga.</li>
+    <li>Confira as exceções de distribuição quando a carga estiver acima do teto configurado.</li>
+    <li>Use <strong>Chats atendidos hoje</strong> para acompanhar encerramentos e o Dashboard inicial para medir novas demandas.</li>
+    <li>Se o monitoramento estiver habilitado, interprete o estado de produtividade conforme o perfil de scoring da equipe, não de forma isolada.</li>
+  </ol>
+
   <div class="pagenav">
     <a href="dashboard.html"><span>← Anterior</span> Dashboard e KPIs</a>
     <a class="next" href="crm.html"><span>Próximo →</span> CRM e Funil de Vendas</a>

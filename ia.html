@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inteligência Artificial — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="crm.html">CRM</a>
+    <a href="carrinho-sincronizado.html">Carrinho Sync</a>
+    <a href="tickets.html">Tickets</a>
+    <a href="pabx.html">PABX &amp; Telefonia</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="relatorios.html">Relatórios</a>
+    <a href="configuracoes.html">Configurações</a>
+    <a href="ia.html" class="active">IA</a>
+    <a href="extensoes.html">Extensões</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › <a href="configuracoes.html">Configurações</a> › Inteligência Artificial</div>
+
+  <h1>Inteligência Artificial: IA Básica e IA Avançada</h1>
+  <p class="subtitle">Configuração, operação, assistentes, conhecimento, funções, URAs, voz, consumo, segurança e diagnóstico no AtenderBem.</p>
+
+  <div class="callout warn">
+    <strong>Escopo e atualidade:</strong> este capítulo consolida os módulos “IA Básica”, “IA Avançada/Premium”, o webinar de IA e o Manual de Uso oficial fornecidos com o projeto. O acervo é histórico. Nomes de planos, preços, modelos, limites e disponibilidade devem ser confirmados na instância e com o provedor antes de uma implantação. Modelos citados abaixo são os exemplos registrados no material de origem, não uma promessa de compatibilidade atual.
+  </div>
+
+  <h2>1. Arquitetura dos recursos de IA</h2>
+  <p>Os materiais separam a inteligência artificial em dois níveis. A <strong>IA Básica</strong> assiste o trabalho do agente e executa análises operacionais por fila. A <strong>IA Avançada (Premium)</strong> acrescenta assistentes conversacionais, ferramentas, conectores, procedimentos, processamento em fluxos e participação em URAs.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Aspecto</th><th>IA Básica</th><th>IA Avançada / Premium</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Finalidade</strong></td><td>Apoio ao agente, transcrição, OCR, reescrita, sugestões, resumo, moderação e análise de qualidade.</td><td>Assistentes autônomos ou copilotos, conhecimento, procedimentos, funções, conectores e ações em automações/URAs.</td></tr>
+        <tr><td><strong>Configuração principal</strong></td><td>Por fila, na aba <strong>Configurações de IA</strong>; consumo acompanhado em <strong>Configurações &gt; Geral &gt; IA</strong>.</td><td>Chaves gerais em <strong>Configurações &gt; Geral &gt; IA</strong> e comportamento no editor de <strong>Assistentes</strong>.</td></tr>
+        <tr><td><strong>Credenciais e consumo</strong></td><td>O material descreve tokens fornecidos pelo sistema e continuidade opcional com chave própria após o fim da cota.</td><td>BYOK: chaves, tokens, saldo e cobrança pertencem à conta do cliente no provedor.</td></tr>
+        <tr><td><strong>Plano Lite</strong></td><td>No material de origem, aparece como contratação à parte. Funções diretas podem operar, mas gatilhos de automação não executam por falta do motor de automações.</td><td>No material de origem, indisponível; menus eventualmente visíveis não tornam o serviço operacional.</td></tr>
+        <tr><td><strong>Plano Padrão / Completo</strong></td><td>No material de origem, incluída no plano.</td><td>No material de origem, módulo adicional mensal proporcional ao número de agentes contratados.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <strong>Token:</strong> o webinar define token como uma fração de palavra e usa a aproximação de <strong>0,75 palavra por token</strong>. Essa relação é apenas estimativa operacional; contexto, histórico, arquivos recuperados e tamanho da resposta também afetam o consumo.
+  </div>
+
+  <h2>2. IA Básica: recursos por fila</h2>
+  <p>As opções são habilitadas individualmente em cada fila, permitindo políticas distintas para setores como Vendas, Suporte ou Financeiro.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Recurso</th><th>Comportamento documentado</th><th>Uso operacional</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Extrair informações relevantes</strong></td><td>Identifica documentos, e-mails, códigos e dúvidas principais nas mensagens recebidas, exibindo ações de cópia rápida.</td><td>Reduzir digitação e localizar dados essenciais da solicitação.</td></tr>
+        <tr><td><strong>Reescrita inteligente</strong></td><td>Revê ortografia, gramática e pontuação do texto antes do envio.</td><td>Padronizar a comunicação sem substituir a conferência do agente.</td></tr>
+        <tr><td><strong>Processamento de áudio</strong></td><td>Transcreve áudios recebidos e gravações enviadas pelo atendente.</td><td>Ler, pesquisar e reaproveitar o conteúdo falado.</td></tr>
+        <tr><td><strong>OCR de imagens</strong></td><td>Converte em texto pesquisável/copíavel o conteúdo de fotos, comprovantes e capturas de tela recebidos.</td><td>Extrair texto sem transcrição manual.</td></tr>
+        <tr><td><strong>Sugestão e melhoria de resposta</strong></td><td>O ícone de assistente sugere uma resposta completa ou reescreve o rascunho, inclusive com ajuste de tom.</td><td>Acelerar respostas e torná-las mais profissionais ou amigáveis.</td></tr>
+        <tr><td><strong>Resumo manual</strong></td><td>Gera, sob solicitação do agente, uma síntese da conversa até aquele momento e a inclui como informação interna no histórico.</td><td>Transferências, retomada do caso e passagem de contexto.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <strong>Condição registrada no Manual de Uso:</strong> o resumo é disponibilizado depois de mais de quatro mensagens, com pelo menos uma mensagem do atendente e uma do cliente/lead. Como os módulos mais recentes não repetem essa condição, trate-a como comportamento descrito no material de origem e valide na instância.
+  </div>
+
+  <h3>2.1 Análise automática no encerramento</h3>
+  <p>Com <strong>Analisar atendimentos no encerramento</strong> ativo, o sistema processa a conversa concluída e produz:</p>
+  <ul>
+    <li>resumo do atendimento;</li>
+    <li>tema central;</li>
+    <li>score quantitativo;</li>
+    <li>justificativa da nota;</li>
+    <li>sugestões de melhoria para o agente.</li>
+  </ul>
+  <p>Uma automação pode ser executada depois da análise. O módulo de origem exemplifica a variável <code>ai_result_score</code>: uma nota baixa pode abrir um atendimento prioritário para retenção, alertar a supervisão ou orientar outra ação; a mesma lógica pode reconhecer avaliações positivas.</p>
+
+  <h3>2.2 Humor e risco de insatisfação</h3>
+  <p>A avaliação de humor acompanha a escrita recebida e pode disparar automações separadas para um cliente <strong>levemente insatisfeito</strong> ou <strong>muito insatisfeito/nervoso</strong>. Os exemplos do material incluem prevenção, aviso à supervisão e intervenção.</p>
+
+  <h3>2.3 Insultos e ofensas enviados pela equipe</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Modo</th><th>Efeito</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Apenas executar automação</strong></td><td>Detecta e registra a infração, executa o fluxo de gestão e mantém o envio ao cliente.</td></tr>
+        <tr><td><strong>Impedir envio e executar automação</strong></td><td>Inspeciona texto e/ou áudio, bloqueia a entrega e aciona a automação definida.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn">
+    <strong>Latência:</strong> o bloqueio preventivo precisa verificar cada mensagem antes da transmissão e pode introduzir um pequeno atraso no envio. Meça esse efeito na fila antes de expandir a política.
+  </div>
+
+  <h2>3. Configuração da IA Básica</h2>
+  <ol class="steps">
+    <li><strong>Abra a fila:</strong> acesse <strong>Configurações &gt; Filas</strong>, localize a fila, abra sua edição e entre em <strong>Configurações de IA</strong>.</li>
+    <li><strong>Ative somente o necessário:</strong> selecione extração, reescrita, áudio, OCR, sugestões e resumo conforme o processo da fila.</li>
+    <li><strong>Defina análise e moderação:</strong> habilite análise no encerramento, avaliação de humor e detecção de ofensas; vincule as automações correspondentes.</li>
+    <li><strong>Salve a fila:</strong> a gravação é necessária para que as alterações sejam mantidas.</li>
+    <li><strong>Confira os agentes:</strong> em <strong>Configurações &gt; Usuários</strong>, edite cada agente, vincule a fila configurada e habilite as funções aplicáveis; salve novamente.</li>
+    <li><strong>Monitore a cota:</strong> em <strong>Configurações &gt; Geral &gt; IA</strong>, confira limite, tokens usados, percentual e data do próximo reinício.</li>
+    <li><strong>Planeje contingência:</strong> se desejado, cadastre uma chave própria e ative <strong>Manter as funções de IA básica ativas com a chave do usuário após o fim dos créditos</strong>.</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>Plano Lite:</strong> transcrição, reescrita e resumos manuais são citados como funções diretas que permanecem ativas. Fluxos pós-análise, alertas de humor e demais gatilhos dependem do motor de automações e, conforme o material, não executam em instâncias Lite.
+  </div>
+
+  <h2>4. Provedores, chaves e modelos na IA Avançada</h2>
+  <p>A IA Avançada conecta a instância às contas do próprio cliente. Os provedores explicitamente citados são <strong>OpenAI</strong>, <strong>Google AI / Gemini</strong> e <strong>Groq</strong>. O cadastro geral documentado é:</p>
+  <ol class="steps">
+    <li>No painel do provedor, crie a conta/projeto, habilite faturamento quando necessário e gere a chave de API.</li>
+    <li>No AtenderBem, acesse <strong>Configurações &gt; Geral &gt; IA</strong>.</li>
+    <li>Cole a chave no campo correspondente ao provedor.</li>
+    <li>Clique em <strong>Salvar</strong> no rodapé. Fechar a tela sem salvar faz as chamadas falharem.</li>
+    <li>Use <strong>Testar Chave</strong> para validar a credencial e verificar se há saldo/crédito disponível.</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>Não copie catálogos antigos como configuração atual:</strong> o Manual de Uso cita Gemini 1.5 Pro, Gemini 1.5 Flash e Gemini 1.5 Flash 8B; o módulo avançado usa como exemplos Gemini 2.5 Flash, GPT-4o-mini e uma voz chamada Puck. Todos são registros do material de origem. A oferta do provedor e as opções exibidas pela instância podem ter mudado.
+  </div>
+
+  <h3>4.1 Capacidades atribuídas aos modelos no material</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Família / exemplo</th><th>Uso descrito</th><th>Ressalva</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Gemini (Google)</strong></td><td>Suporte multimodal a texto, imagem, áudio e vídeo; Gemini 2.5 Flash aparece no exemplo de pré-processamento de mídia.</td><td>A capacidade depende do modelo efetivamente selecionado e disponível.</td></tr>
+        <tr><td><strong>GPT (OpenAI)</strong></td><td>Interações de texto e análise de imagens; GPT-4o-mini aparece como exemplo de modelo principal de menor custo.</td><td>“Principalmente” é a caracterização do módulo, não uma matriz completa de recursos atuais.</td></tr>
+        <tr><td><strong>OpenAI para áudio gerado</strong></td><td>O elemento <strong>Gerar áudio com IA</strong> exige chave OpenAI configurada.</td><td>Formato deve ser escolhido conforme o canal.</td></tr>
+        <tr><td><strong>Groq</strong></td><td>É listado como provedor; penalidade de frequência é indicada como suportada por OpenAI e Groq.</td><td>O material não fornece uma lista de modelos Groq compatíveis.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>5. Tipos de assistente e ciclo operacional</h2>
+  <p>Com o módulo avançado habilitado, o menu <strong>Assistentes</strong> fica disponível. O material descreve três papéis:</p>
+  <ul>
+    <li><strong>Atendimento reativo:</strong> conversa com o cliente por texto e, quando habilitado, processa imagens, PDFs e áudios; pode ser acionado em uma fila ou por URA.</li>
+    <li><strong>Assistente de voz:</strong> usa configuração Realtime/PABX para atender ou realizar chamadas em tempo real.</li>
+    <li><strong>Copiloto de usuário:</strong> fica associado ao operador e atua como consultor interno para pesquisar vendas, procedimentos e políticas durante o atendimento humano.</li>
+  </ul>
+
+  <h3>5.1 Geral: identidade, modelo e comportamento</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo</th><th>Função e orientação documentada</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Nome</strong></td><td>Identificador interno; use um nome que indique função e escopo.</td></tr>
+        <tr><td><strong>Assinatura</strong></td><td>Nome público mostrado no cabeçalho das mensagens ao cliente.</td></tr>
+        <tr><td><strong>Modelo de IA</strong></td><td>Seleciona a tecnologia usada no processamento; escolha conforme mídia, custo e previsibilidade necessários.</td></tr>
+        <tr><td><strong>Perfil público</strong></td><td>Exclusivo do WebChat V2 no material: foto JPG, PNG, WEBP ou GIF de até 128 KB e descrição de apresentação.</td></tr>
+        <tr><td><strong>Contexto inicial</strong></td><td>Define papel, personalidade, tom e limites. Deve ser enxuto; catálogos, manuais e rotinas detalhadas pertencem a Conhecimento e Procedimentos.</td></tr>
+        <tr><td><strong>Marcadores de saída</strong></td><td>Tags/motivos usados para classificar encerramento ou transferência.</td></tr>
+        <tr><td><strong>Mídia</strong></td><td>Opções para processar automaticamente PDF, áudio, vídeo e imagem recebidos.</td></tr>
+        <tr><td><strong>Espera por novas mensagens</strong></td><td>Agrupa mensagens consecutivas durante o intervalo configurado antes de produzir uma única resposta.</td></tr>
+        <tr><td><strong>Limite de mensagens</strong></td><td>Ao atingir o teto do atendimento, interrompe a IA e transfere para fila/humano com a marcação <code>limit_reached</code>.</td></tr>
+        <tr><td><strong>Mapeamento de resultado</strong></td><td>Traduz encerramento e transferência em sucesso, falha ou neutro conforme o objetivo: transferir pode ser falha no Suporte e sucesso na triagem de Vendas.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>5.2 Pré-processamento e pós-processamento</h3>
+  <ul>
+    <li><strong>Pré-processamento:</strong> roda para cada entrada antes que ela chegue ao assistente. O exemplo principal transforma áudio em texto e injeta a transcrição no contexto.</li>
+    <li><strong>Pós-processamento:</strong> intercepta cada saída antes do cliente. Pode filtrar, formatar, auditar, chamar integrações ou converter texto em áudio. Com resposta fracionada, é executado para cada bloco.</li>
+  </ul>
+
+  <h2>6. Base de conhecimento e procedimentos</h2>
+  <h3>6.1 Conhecimento recuperável</h3>
+  <p>A aba <strong>Conhecimento</strong> separa material factual do contexto comportamental. Sua descrição informa ao modelo o que existe na base. As fontes documentadas são <strong>FAQs individuais</strong>, <strong>grupos de FAQs</strong>, <strong>grupos de produtos</strong> e anexos <strong>PDF, DOCX e TXT</strong>.</p>
+  <ol class="steps">
+    <li>Escreva uma descrição curta e fiel do conteúdo disponível.</li>
+    <li>Associe FAQs, produtos ou arquivos adequados ao escopo do assistente.</li>
+    <li>Aguarde o status de <strong>Indexação Pendente</strong> terminar. A criação do índice é assíncrona e pode levar de minutos a horas, conforme o tamanho do documento.</li>
+    <li>Defina quantos resultados de busca serão recuperados. O material recomenda <strong>6</strong> como padrão: aumentar o número traz mais contexto, mas consome mais tokens.</li>
+    <li>Teste perguntas conhecidas e acompanhe as dúvidas não respondidas para corrigir lacunas.</li>
+  </ol>
+
+  <h3>6.2 Procedimentos</h3>
+  <p>Procedimentos são roteiros sequenciais para operações como emitir segunda via ou agendar visita. Cada um contém <strong>nome</strong>, <strong>descrição de quando usar</strong>, <strong>introdução</strong> e <strong>passos</strong>. A condição de uso deve deixar claro o momento de iniciar o roteiro.</p>
+  <div class="callout tip">
+    <strong>Chamada de função:</strong> um passo pode invocar uma função com <code>@</code> seguido do nome cadastrado, por exemplo <code>@enviar_pedido</code>. O nome precisa corresponder à função definida na aba própria.
+  </div>
+
+  <h2>7. Funções, conectores e MCP</h2>
+  <h3>7.1 Funções do assistente</h3>
+  <p>Uma função permite sair da conversa puramente textual para executar uma automação ou integrar uma API. Cadastre um nome interno inequívoco, explique seu objetivo, associe o fluxo e declare as entradas obrigatórias. O assistente coleta os dados antes da chamada e reaproveita informações que já estejam na conversa.</p>
+  <p>No fluxo associado, os valores coletados ficam disponíveis com prefixo <code>assistant_</code>; para uma entrada chamada <code>cpf</code>, o exemplo documentado é <code>{{assistant_cpf}}</code>.</p>
+
+  <h3>7.2 Conectores nativos citados</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Categoria</th><th>Conectores registrados no material de origem</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Colaboração</strong></td><td>Google Workspace (Docs, Sheets, Drive, Gmail e Agenda), Calendly, Notion e Slack.</td></tr>
+        <tr><td><strong>Pagamentos e ERP</strong></td><td>Asaas, PagSeguro/PagBank, Pagar.me, Iugu, Cielo, Omie ERP e Tiny ERP.</td></tr>
+        <tr><td><strong>Dados e utilidades</strong></td><td>Google Maps Platform, BrasilAPI, Supabase e busca web com Brave Search.</td></tr>
+        <tr><td><strong>CRM interno</strong></td><td>Buscar contatos (<code>crm_search_contacts</code>), criar oportunidades (<code>crm_create_opportunity</code>), atualizar valores, vincular produtos e mover negócios.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn">
+    <strong>Dependências externas:</strong> conectores podem exigir API key válida e faturamento ativo. O Google Maps é o exemplo do material: uma consulta eficiente requer endereço completo ou nome do local; somente o CEP pode ser insuficiente.
+  </div>
+
+  <h3>7.3 MCP (Model Context Protocol)</h3>
+  <p>A aba <strong>MCP</strong> conecta servidores MCP externos para expor ferramentas já existentes — por exemplo, consultas a planilhas, gateways de pagamento e CRMs próprios — ao raciocínio do assistente. O material não define protocolo de autenticação, esquema de servidor ou lista de implementações homologadas; esses detalhes precisam ser validados para o servidor escolhido.</p>
+
+  <h2>8. IA em automações e URAs</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Elemento</th><th>Função</th><th>Limite ou comportamento importante</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Adicionar contexto ao assistente</strong></td><td>Injeta dados obtidos no fluxo na memória do assistente ativo.</td><td>Sem assistente associado, é ignorado. Só deve ser usado uma vez no fluxo; se executado várias vezes, somente o último contexto é considerado.</td></tr>
+        <tr><td><strong>Provocar assistente</strong></td><td>Adiciona contexto e força reação como se houvesse nova mensagem do cliente.</td><td>Útil após evento externo, como confirmação de pagamento. Sem assistente ativo, é ignorado.</td></tr>
+        <tr><td><strong>Interromper assistente</strong></td><td>Encerra imediatamente a atuação da IA no atendimento.</td><td>Use em transferência, contenção ou fim de escopo.</td></tr>
+        <tr><td><strong>Interromper envio da mensagem</strong></td><td>Cancela o texto original gerado pela IA.</td><td>Necessário para evitar texto duplicado quando a resposta final será áudio.</td></tr>
+        <tr><td><strong>Definir resultado do assistente</strong></td><td>Registra sucesso ou falha para relatório e dashboard.</td><td>Sem atendimento/assistente, é ignorado. Somente o primeiro resultado aplicado é registrado.</td></tr>
+        <tr><td><strong>Gerar áudio com IA</strong></td><td>Converte texto em arquivo de áudio.</td><td>Exige chave OpenAI. O material indica Opus para WAMD, WA Cloud API, WA Smarte, WA Dialog e Telegram; MP3 para Facebook, Instagram e Web Chat.</td></tr>
+        <tr><td><strong>Processar com IA</strong></td><td>Executa um prompt pontual para resumo, extração, multimídia ou formatação em JSON.</td><td>Escolha modelo e saída de acordo com o tipo de entrada.</td></tr>
+        <tr><td><strong>Processar com Assistente</strong></td><td>Delega uma tarefa a um assistente especialista e devolve o resultado ao fluxo principal.</td><td>Exemplo do material: leitura especializada de receita médica.</td></tr>
+        <tr><td><strong>Assistente na URA</strong></td><td>Entrega a gestão do atendimento à IA e expõe saídas <strong>Encerrado</strong> e <strong>Transferido</strong>.</td><td>Se não houver assistente selecionado ou disponível, segue pelo nó de transferência e define <code>assistant_transfer_reason</code> como <code>assistant_not_available</code>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>8.1 Publicação de um assistente em URA</h3>
+  <ol class="steps">
+    <li>Crie e teste o assistente, o conhecimento, os procedimentos e as funções.</li>
+    <li>Abra a fila e edite a URA desejada.</li>
+    <li>Adicione o elemento <strong>Assistente na URA</strong> e selecione o assistente.</li>
+    <li>Ligue explicitamente os ramos <strong>Encerrado</strong> e <strong>Transferido</strong>.</li>
+    <li>No ramo de transferência, trate <code>assistant_not_available</code> e encaminhe para humano ou contingência.</li>
+    <li>Salve e faça testes controlados, incluindo indisponibilidade, limite de mensagens e chamadas de função.</li>
+  </ol>
+
+  <h3>8.2 Estratégia híbrida para mídia</h3>
+  <ol class="steps">
+    <li>Use como principal um modelo de menor custo adequado ao tráfego predominantemente textual; o módulo cita GPT-4o-mini apenas como exemplo.</li>
+    <li>No pré-processamento, condicione pelo MIME type de <code>message_file.file_mimetype</code>.</li>
+    <li>Para áudio ou imagem, use <strong>Processar com IA</strong> com um modelo multimodal; Gemini 2.5 Flash é o exemplo do material.</li>
+    <li>Grave a transcrição ou leitura com <strong>Adicionar contexto ao assistente</strong> antes da resposta principal.</li>
+  </ol>
+
+  <h3>8.3 Resposta em áudio no chat</h3>
+  <ol class="steps">
+    <li>No pós-processamento, use <strong>Gerar áudio com IA</strong> e passe o texto da resposta em <code>{{message_text}}</code>.</li>
+    <li>Envie o arquivo resultante no formato compatível com o canal.</li>
+    <li>Execute <strong>Interromper envio da mensagem</strong> para impedir que o texto original também seja entregue.</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>Assistente de Programação por IA:</strong> no construtor de automações, essa ferramenta <strong>limpa e substitui todos os blocos existentes na tela</strong> ao montar um fluxo por instrução textual. Use somente em fluxo novo ou vazio.
+  </div>
+
+  <h2>9. Voz e Realtime</h2>
+  <p>O módulo avançado documenta assistentes telefônicos com modelos de voz e integração Realtime/PABX para receber e realizar chamadas em tempo real. Na aba Geral do assistente, as opções citadas são:</p>
+  <ul>
+    <li>modelo de voz;</li>
+    <li>voz utilizada — <strong>Puck</strong> é apenas o exemplo do material;</li>
+    <li>duração máxima da chamada;</li>
+    <li><strong>Iniciar conversa proativamente</strong>: ativo, a IA inicia; desativado, aguarda o cliente falar.</li>
+  </ul>
+  <div class="callout info">
+    <strong>Limite da evidência:</strong> as fontes confirmam a existência do modo de voz/Realtime e das opções acima, mas não fornecem matriz de modelos/operadoras, requisitos de tronco, codecs de telefonia, tarifação ou procedimento completo de vinculação ao PABX. Valide esses pontos na instância antes de produção.
+  </div>
+
+  <h2>10. Ajustes avançados do modelo</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Parâmetro</th><th>Faixa no material</th><th>Efeito documentado</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Limite de tokens por resposta</strong></td><td>0 a 4096+</td><td>Controla o tamanho máximo. O valor 0 mantém o padrão do provedor. O material aproxima 4096 tokens de 3.000 palavras.</td></tr>
+        <tr><td><strong>Temperatura</strong></td><td>0,0 a 1,2</td><td>0,0–0,3 favorece respostas objetivas e previsíveis; 0,8–1,2 aumenta criatividade e risco de alucinação.</td></tr>
+        <tr><td><strong>Penalidade de frequência</strong></td><td>-2,0 a 2,0</td><td>Valores positivos, como 0,2–1,0, reduzem repetição. O material indica suporte em OpenAI e Groq.</td></tr>
+        <tr><td><strong>Penalidade de presença</strong></td><td>-2,0 a 2,0</td><td>Valores positivos incentivam a introdução de novos tópicos.</td></tr>
+        <tr><td><strong>Filtros de segurança</strong></td><td>Sem Bloqueio, Permissivo, Equilibrado ou Rigoroso</td><td>Controlam a retenção de conteúdo potencialmente sensível ou ofensivo.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn">
+    <strong>Responsabilidade:</strong> o material recomenda manter o padrão de segurança do provedor. Selecionar <strong>Sem Bloqueio</strong> transfere a responsabilidade operacional pelo comportamento da IA à empresa administradora.
+  </div>
+
+  <h2>11. Observabilidade, testes e qualidade</h2>
+  <h3>11.1 Langfuse</h3>
+  <p>As fontes registram suporte nativo ao <strong>Langfuse</strong>. Com endpoint e chaves configurados, ele permite rastrear chamadas, medir latência, auditar prompts, observar custos por requisição e avaliar ajustes no contexto e no conhecimento. A aba <strong>Debug</strong> concentra essa integração.</p>
+
+  <h3>11.2 Indicadores do assistente</h3>
+  <ul>
+    <li><strong>Perguntas não respondidas:</strong> pergunta, frequência e link para o chat de origem; use a lista para priorizar lacunas na base.</li>
+    <li><strong>Últimos atendimentos:</strong> data/hora, duração e desfecho.</li>
+    <li><strong>Dashboard:</strong> sucesso/falha, mensagens enviadas e recebidas, horários de pico e quantidade de consultas à base.</li>
+  </ul>
+
+  <h3>11.3 Simulador</h3>
+  <div class="callout warn">
+    <strong>A aba Testar atua em produção:</strong> não é sandbox. Uma simulação pode criar oportunidades reais, alterar cadastros, chamar conectores e disparar webhooks. Use registros controlados, confirme o escopo das ferramentas e reverta os efeitos depois do teste.
+  </div>
+
+  <h2>12. Limites, segurança e controle de custos</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Risco</th><th>Controle comprovado nas fontes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Esgotamento da cota básica</strong></td><td>Acompanhar limite, uso, percentual e renovação; opcionalmente ativar continuidade com chave própria.</td></tr>
+        <tr><td><strong>Conta excessiva no provedor</strong></td><td>O webinar recomenda limites de cobrança/uso para reduzir impacto de ataque ou consumo anormal.</td></tr>
+        <tr><td><strong>Loop ou abuso por conversa</strong></td><td>Definir limite de mensagens, que transfere com <code>limit_reached</code>.</td></tr>
+        <tr><td><strong>Prompt extenso e caro</strong></td><td>Manter contexto inicial curto e mover fatos para Conhecimento e processos para Procedimentos.</td></tr>
+        <tr><td><strong>Recuperação excessiva</strong></td><td>Começar com 6 resultados de busca e aumentar apenas quando os testes justificarem.</td></tr>
+        <tr><td><strong>Alucinação</strong></td><td>Usar baixa temperatura em suporte e rotinas rígidas, base bem descrita, procedimentos explícitos e filtros do provedor.</td></tr>
+        <tr><td><strong>Ação real indesejada</strong></td><td>Tratar o simulador como produção; testar conectores e webhooks com escopo controlado.</td></tr>
+        <tr><td><strong>Conteúdo ofensivo</strong></td><td>Manter filtros de segurança e, na IA Básica, escolher entre alertar ou impedir o envio feito pelo agente.</td></tr>
+        <tr><td><strong>Fluxo destruído</strong></td><td>Usar o Assistente de Programação somente em automação nova ou vazia.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>13. Troubleshooting</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Sintoma</th><th>Verificação</th><th>Ação indicada pelas fontes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Chamadas de IA falham</strong></td><td>A chave foi salva? O teste confirma credencial ativa e saldo?</td><td>Volte a <strong>Configurações &gt; Geral &gt; IA</strong>, salve, execute <strong>Testar Chave</strong> e confira crédito no provedor.</td></tr>
+        <tr><td><strong>Teste de chave parece falhar de modo intermitente</strong></td><td>O webinar registra ocorrência em que a chave voltava após recarregar a página.</td><td>Atualize a tela e teste novamente; se persistir, trate como falha real de chave, saldo ou provedor.</td></tr>
+        <tr><td><strong>Automação de IA não dispara no Lite</strong></td><td>A instância tem motor de automações?</td><td>Não confunda menu visível com recurso operacional. Conforme o material, Lite não executa os gatilhos e não suporta IA Avançada.</td></tr>
+        <tr><td><strong>Agente não vê recursos básicos</strong></td><td>A fila foi configurada e salva? O usuário está vinculado à fila e com as funções habilitadas?</td><td>Refaça as etapas da fila e do usuário e salve ambas.</td></tr>
+        <tr><td><strong>Assistente responde sem o documento novo</strong></td><td>O arquivo ainda mostra <strong>Indexação Pendente</strong>?</td><td>Aguarde o processamento assíncrono; só valide o conteúdo depois de concluído.</td></tr>
+        <tr><td><strong>URA transfere imediatamente</strong></td><td>Leia <code>assistant_transfer_reason</code>.</td><td>Se for <code>assistant_not_available</code>, confirme se um assistente foi selecionado e está disponível; mantenha rota de contingência.</td></tr>
+        <tr><td><strong>Assistente para após várias entradas</strong></td><td>O limite de mensagens foi atingido?</td><td>Procure a marcação <code>limit_reached</code>; ajuste o teto apenas depois de avaliar custo e risco.</td></tr>
+        <tr><td><strong>Contexto injetado está incompleto</strong></td><td>Há mais de um <strong>Adicionar contexto</strong> no mesmo fluxo?</td><td>Consolide o conteúdo em uma única execução; somente a última é considerada.</td></tr>
+        <tr><td><strong>Resultado do dashboard não muda</strong></td><td>Mais de um resultado foi definido no atendimento?</td><td>Somente o primeiro é registrado; corrija a ordem e as condições dos ramos.</td></tr>
+        <tr><td><strong>Resposta em áudio chega também como texto</strong></td><td>O pós-processamento contém <strong>Interromper envio da mensagem</strong>?</td><td>Inclua o elemento após gerar/enviar o áudio.</td></tr>
+        <tr><td><strong>Respostas lentas</strong></td><td>Há moderação preventiva, contexto extenso, muitos resultados de busca, mídia ou chamadas externas?</td><td>Use Langfuse para medir latência e simplifique prompt, recuperação e cadeia de ferramentas conforme o ponto observado.</td></tr>
+        <tr><td><strong>Google Maps retorna pouco</strong></td><td>A consulta envia apenas CEP?</td><td>Forneça endereço completo ou nome do local e confirme API key/faturamento.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>14. Checklist de implantação e boas práticas</h2>
+  <ol class="steps">
+    <li><strong>Confirme o plano:</strong> valide se a instância tem o motor necessário e se o módulo avançado está contratado.</li>
+    <li><strong>Separe os papéis:</strong> prompt base para identidade e limites; Conhecimento para fatos; Procedimentos para sequências; Funções para ações.</li>
+    <li><strong>Escolha o modelo pelo trabalho:</strong> considere mídia, previsibilidade e custo; não assuma que exemplos históricos continuam disponíveis.</li>
+    <li><strong>Valide credenciais:</strong> salve e teste cada chave, confira saldo e estabeleça limites no provedor.</li>
+    <li><strong>Restrinja o comportamento:</strong> use baixa temperatura em operações rígidas, filtro de segurança e limite de mensagens.</li>
+    <li><strong>Aguarde a indexação:</strong> não aprove respostas sobre documentos ainda pendentes.</li>
+    <li><strong>Teste o caminho completo:</strong> sucesso, falha, transferência, indisponibilidade, mídia, função, conector e limite.</li>
+    <li><strong>Proteja produção:</strong> o simulador executa ações reais; use dados controlados e confira cada efeito externo.</li>
+    <li><strong>Meça:</strong> acompanhe perguntas não respondidas, resultados, volume, consultas à base, latência e custo.</li>
+    <li><strong>Melhore por evidência:</strong> corrija primeiro as lacunas recorrentes da base, as descrições ambíguas de função e os procedimentos incompletos.</li>
+  </ol>
+
+  <div class="pagenav">
+    <a href="configuracoes.html"><span>← Anterior</span> Configurações</a>
+    <a class="next" href="pesquisas.html"><span>Próximo →</span> Pesquisas</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
+</footer>
+
+</body>
+</html>

@@ -135,6 +135,55 @@
   <h3>Tabela de integrações</h3>
   <p>Colunas: <strong>Integration</strong>, <strong>Queue</strong>, <strong>Sends</strong>, <strong>Failures</strong>, <strong>Responses</strong>. Abaixo, um gráfico de "Submissions by integration" / "Replies by integration".</p>
 
+  <h2>8. Opções de filtro e recortes comparáveis</h2>
+  <p>O filtro de <strong>Fila</strong> aceita todas as filas, uma fila específica ou múltiplas filas ao mesmo tempo. O filtro de <strong>Período</strong> oferece os recortes abaixo:</p>
+  <table class="doc">
+    <thead><tr><th>Recorte</th><th>Uso operacional</th></tr></thead>
+    <tbody>
+      <tr><td>Hoje / Ontem</td><td>Acompanhamento diário e comparação imediata.</td></tr>
+      <tr><td>Esta semana / Semana anterior</td><td>Comparação entre ciclos semanais completos ou em andamento.</td></tr>
+      <tr><td>Este mês / Mês anterior</td><td>Acompanhamento de volume e desempenho mensal.</td></tr>
+      <tr><td>Últimos 30 dias / Últimos 365 dias</td><td>Análise de tendência em janelas móveis.</td></tr>
+      <tr><td>Personalizado</td><td>Conciliação de um intervalo definido pela operação.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout tip">
+    <strong>Boa prática de comparação:</strong> mantenha o mesmo conjunto de filas e o mesmo critério de período ao comparar resultados. Depois de alterar qualquer recorte, use <strong>Atualizar</strong> antes de registrar os números.
+  </div>
+
+  <h2>9. Regras de contabilização dos indicadores</h2>
+  <p>O Dashboard inicial tem como referência a <strong>data de abertura</strong> do atendimento. Essa regra explica diferenças legítimas entre esta tela, o Painel de Agentes e o Histórico de Chats.</p>
+  <table class="doc">
+    <thead><tr><th>Dado</th><th>Como é contabilizado</th></tr></thead>
+    <tbody>
+      <tr><td>Atendimentos</td><td>Atendimentos abertos dentro do período selecionado, inclusive os que permaneceram na espera ou foram encerrados automaticamente.</td></tr>
+      <tr><td>Clientes únicos</td><td>Cada cliente é contado uma vez, mesmo que tenha interagido mais de uma vez no recorte.</td></tr>
+      <tr><td>Mensagens enviadas</td><td>Inclui mensagens manuais e respostas automáticas enviadas pelo sistema.</td></tr>
+      <tr><td>TMA</td><td>Considera atendimentos abertos e encerrados integralmente dentro do período filtrado.</td></tr>
+      <tr><td>Atendimentos por canal</td><td>Filas do mesmo tipo de canal são agrupadas em um único elemento do gráfico.</td></tr>
+      <tr><td>Linha sem agente</td><td>Pode reunir atendimentos que ficaram somente na espera ou foram encerrados por robô, regra do sistema ou timeout da URA.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>10. Como conciliar Dashboard, Agentes e Histórico</h2>
+  <table class="doc">
+    <thead><tr><th>Tela</th><th>Critério principal</th><th>Use para</th></tr></thead>
+    <tbody>
+      <tr><td>Dashboard inicial</td><td>Data de abertura</td><td>Medir novas demandas geradas no período.</td></tr>
+      <tr><td>Painel de Agentes</td><td>Encerramentos realizados pelo agente no dia, independentemente da data de abertura</td><td>Avaliar o ritmo e a produtividade atual da equipe.</td></tr>
+      <tr><td>Histórico de Chats</td><td>Permite alternar o filtro entre data de abertura e data de fechamento</td><td>Auditar e conciliar os totais.</td></tr>
+    </tbody>
+  </table>
+  <ol class="steps">
+    <li>Para validar o total do Dashboard, filtre o Histórico de Chats pela <strong>data de abertura</strong> e use o mesmo período.</li>
+    <li>Para validar chats encerrados pelos agentes, filtre o Histórico pela <strong>data de fechamento</strong>.</li>
+    <li>Separe encerramentos humanos de encerramentos automáticos antes de comparar com a soma dos agentes.</li>
+    <li>Não espere que um chat aberto antes do período, mas fechado hoje, apareça no Dashboard de “Hoje”; ele aparece na produtividade diária do agente.</li>
+  </ol>
+  <div class="callout warn">
+    <strong>Totais diferentes não indicam necessariamente erro:</strong> primeiro confira data de abertura versus data de fechamento, filas selecionadas e forma de encerramento.
+  </div>
+
   <div class="pagenav">
     <a href="index.html"><span>← Voltar</span> Índice do manual</a>
     <a class="next" href="agentes.html"><span>Próximo →</span> Agent Dashboard (Agentes)</a>

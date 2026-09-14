@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesquisas — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="crm.html">CRM</a>
+    <a href="tickets.html">Tickets</a>
+    <a href="pabx.html">PABX &amp; Telefonia</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="relatorios.html">Relatórios</a>
+    <a href="relatorios-personalizados.html">Personalizados</a>
+    <a href="configuracoes.html">Configurações</a>
+    <a href="pesquisas.html" class="active">Pesquisas</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › Pesquisas</div>
+
+  <h1>Pesquisas</h1>
+  <p class="subtitle">Criação, publicação, distribuição, coleta e análise de pesquisas de satisfação e formulários customizados.</p>
+
+  <div class="callout info">
+    <strong>Escopo e versionamento:</strong> no material de origem, o módulo descrito foi introduzido na <strong>versão 13</strong>. Rótulos, disponibilidade e comportamento podem variar em outras versões; este capítulo registra somente funções comprovadas na documentação fornecida.
+  </div>
+
+  <h2>1. Visão geral e pontos de acesso</h2>
+  <p>O módulo permite criar e administrar questionários como <strong>NPS</strong>, <strong>CSAT</strong>, <strong>CES</strong> e formulários customizados. A coleta pode ocorrer de modo síncrono, dentro de uma URA ou fluxo de automação, ou de modo assíncrono, por um link externo enviado ao respondente.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Área</th><th>Finalidade comprovada</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Configurações › Pesquisas</strong></td><td>Cadastrar, parametrizar, publicar e gerenciar as pesquisas.</td></tr>
+        <tr><td><strong>Configurações › Automação › Fluxo de Automação e URA</strong></td><td>Usar os elementos de pesquisa em URAs e fluxos de automação.</td></tr>
+        <tr><td><strong>Painel e Indicadores › Pesquisas</strong></td><td>Acompanhar respostas, indicadores, gráficos e relatórios.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>1.1. O que pode ser associado à pesquisa</h3>
+  <p>As associações dão contexto, rastreabilidade e capacidade de segmentação às respostas. No cadastro, o material de origem apresenta os seguintes vínculos disponíveis:</p>
+  <ul>
+    <li>Chat e Chamada;</li>
+    <li>Fila de Chat e Fila de Tickets;</li>
+    <li>Ticket e Oportunidade;</li>
+    <li>Funil e Empresa;</li>
+    <li>Contato e Atendente.</li>
+  </ul>
+
+  <h2>2. Criar e estruturar uma pesquisa</h2>
+  <ol class="steps">
+    <li><strong>Acesse Configurações › Pesquisas.</strong> Entre na seção destinada ao cadastro das pesquisas da empresa.</li>
+    <li><strong>Inicie uma nova pesquisa.</strong> Informe um <em>Nome</em> interno, descritivo e fácil de localizar.</li>
+    <li><strong>Defina as associações.</strong> Marque somente os contextos que serão usados para rastrear e segmentar a coleta.</li>
+    <li><strong>Adicione as perguntas.</strong> Escolha o tipo adequado, escreva o enunciado e configure opções, limites, obrigatoriedade, ocultação ou lógica condicional quando aplicável.</li>
+    <li><strong>Organize o formulário.</strong> Use quebras de seção e os comandos <em>Mover para cima</em>/<em>Mover para baixo</em> para ajustar a ordem.</li>
+    <li><strong>Pré-visualize.</strong> Use <em>Pré-Visualizar Formulário</em> para interagir com o questionário e validar a experiência antes da publicação.</li>
+    <li><strong>Publique para iniciar a coleta.</strong> A publicação bloqueia a estrutura para edição e, no material de origem, é uma transição não reversível.</li>
+  </ol>
+
+  <div class="callout warning">
+    <strong>Antes de publicar:</strong> revise título, descrição, perguntas, opções, seções e condições. Depois que a pesquisa passa a <strong>Publicada</strong>, toda essa estrutura fica bloqueada para edição.
+  </div>
+
+  <h2>3. Tipos de perguntas e respectivas regras</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Tipo</th><th>Uso e parametrização comprovados</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Texto Curto</strong></td><td>Resposta dissertativa breve.</td></tr>
+        <tr><td><strong>Texto Longo</strong></td><td>Texto livre para observações ou comentários detalhados.</td></tr>
+        <tr><td><strong>Única Escolha</strong></td><td>Seleção de uma opção entre rótulos configurados.</td></tr>
+        <tr><td><strong>Múltipla Escolha</strong></td><td>Seleção de várias opções; aceita limites numéricos mínimo e máximo de itens.</td></tr>
+        <tr><td><strong>Lista Suspensa</strong></td><td>Seleção a partir de opções configuráveis exibidas em lista.</td></tr>
+        <tr><td><strong>Escala</strong></td><td>Modelos NPS, CSAT, CES, Concordância e Nota de 0 a 10. Permite configurar mínimo, máximo, rótulos das extremidades e faixas numéricas com cores.</td></tr>
+        <tr><td><strong>Data</strong></td><td>Escolha de uma data, com possibilidade de delimitar data mínima e máxima.</td></tr>
+        <tr><td><strong>Data e Hora</strong></td><td>Escolha de data e horário, também sujeita à restrição de período configurada.</td></tr>
+        <tr><td><strong>Quebra de Seção</strong></td><td>Separador visual com cabeçalho para agrupar perguntas em blocos temáticos ou etapas.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>3.1. Escalas</h3>
+  <p>A escala pode representar modelos matemáticos prontos e também receber parametrização visual. Os limites mínimo e máximo determinam o intervalo aceito; os rótulos das extremidades podem explicar a leitura, como “Péssimo” e “Excelente”; e as faixas numéricas podem ser associadas a cores, formando um semáforo visual para o respondente.</p>
+
+  <h3>3.2. Regras transversais às perguntas</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Regra</th><th>Comportamento</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Obrigatória</strong></td><td>Impede a submissão do formulário enquanto a pergunta não estiver respondida.</td></tr>
+        <tr><td><strong>Oculta do formulário</strong></td><td>A pergunta não é renderizada para o cliente e pode guardar metadados preenchidos internamente por automações.</td></tr>
+        <tr><td><strong>Lógica condicional</strong></td><td>Mantém a pergunta oculta e só a exibe quando condições baseadas em respostas anteriores são atendidas.</td></tr>
+        <tr><td><strong>Limites de múltipla escolha</strong></td><td>Define a quantidade mínima e máxima de opções que podem ser selecionadas.</td></tr>
+        <tr><td><strong>Restrição de período</strong></td><td>Limita o intervalo permitido em perguntas de data ou data e hora.</td></tr>
+        <tr><td><strong>Ordenação</strong></td><td>Move perguntas verticalmente para cima ou para baixo.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <strong>Validação no formulário:</strong> a interface web impede o envio quando uma pergunta obrigatória está vazia ou quando a quantidade escolhida não respeita os limites configurados para múltipla escolha.
+  </div>
+
+  <h2>4. Ciclo de vida, respostas e ações de gerenciamento</h2>
+  <p>A listagem central mostra o resumo e o status de cada pesquisa. O status controla tanto a edição quanto a aceitação de novas respostas.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Status</th><th>Edição e coleta</th><th>Ações relacionadas</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Rascunho</strong></td><td>Permite edição total e ainda não recebe respostas.</td><td><em>Editar</em> e <em>Publicar</em>.</td></tr>
+        <tr><td><strong>Publicada</strong></td><td>Está ativa e pronta para receber respostas; a estrutura fica bloqueada.</td><td><em>Visualizar Configurações</em> e <em>Fechar</em>.</td></tr>
+        <tr><td><strong>Fechada</strong></td><td>Não aceita novas respostas e invalida links ainda não usados.</td><td><em>Visualizar Configurações</em> e <em>Arquivar</em>.</td></tr>
+        <tr><td><strong>Arquivada</strong></td><td>Vai para o histórico e deixa a listagem ativa; formulário definitivamente inativo.</td><td><em>Visualizar Configurações</em>; dados preservados para consulta.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>4.1. Ações disponíveis na listagem</h3>
+  <ul>
+    <li><strong>Visualizar Configurações:</strong> consulta em modo leitura das perguntas, opções e lógicas de pesquisas publicadas, fechadas ou arquivadas.</li>
+    <li><strong>Transformar em WhatsApp Flow:</strong> exporta a estrutura em JSON compatível com o WhatsApp Flow para reproduzir a pesquisa na plataforma da Meta.</li>
+    <li><strong>Pré-Visualizar Formulário:</strong> simula a interface e permite testar as perguntas.</li>
+    <li><strong>Resumo:</strong> apresenta um panorama estatístico, incluindo taxa de resposta por vínculo.</li>
+    <li><strong>Relatório Consolidado:</strong> exibe, em tabela, as respostas individuais recebidas.</li>
+    <li><strong>Duplicar:</strong> copia a estrutura e salva a cópia como rascunho.</li>
+    <li><strong>Excluir:</strong> remove a pesquisa e, se houver respostas, apaga definitivamente o formulário e todos os dados coletados.</li>
+  </ul>
+
+  <div class="callout warning">
+    <strong>Ações críticas:</strong> mudanças no ciclo de vida exigem, no material de origem, a digitação exata de palavras de segurança com diferenciação entre maiúsculas e minúsculas (<em>case-sensitive</em>). A exclusão é irreversível.
+  </div>
+
+  <h2>5. Gerar e distribuir links externos</h2>
+  <p>O elemento <strong>Gerar Link de Pesquisa</strong> cria uma URL única para preenchimento externo. O fluxo armazena essa URL em uma variável de saída; depois, é necessário usar essa variável na mensagem enviada ao cliente.</p>
+
+  <ol class="steps">
+    <li><strong>Adicione o elemento Gerar Link de Pesquisa</strong> à URA ou ao fluxo de automação.</li>
+    <li><strong>Selecione a pesquisa publicada</strong> que deverá receber a resposta.</li>
+    <li><strong>Configure a validade em dias.</strong> O prazo mínimo comprovado no material é de <strong>1 dia</strong>.</li>
+    <li><strong>Defina o nome da variável de saída.</strong> Ela receberá a URL única gerada.</li>
+    <li><strong>Envie a variável ao cliente</strong> em uma etapa posterior do fluxo, por exemplo em uma mensagem do canal disponível.</li>
+    <li><strong>Opcionalmente, selecione uma automação pós-resposta</strong> para iniciar outra tratativa quando o formulário web for submetido.</li>
+  </ol>
+
+  <h3>5.1. Limites e expiração do link</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Regra</th><th>Efeito</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Uso único</strong></td><td>Cada link aceita uma única submissão. Novo acesso depois do envio retorna “Link já utilizado”.</td></tr>
+        <tr><td><strong>Validade configurável</strong></td><td>Links não respondidos expiram automaticamente ao ultrapassar o prazo definido.</td></tr>
+        <tr><td><strong>Prazo mínimo</strong></td><td>A validade configurada deve ser de pelo menos 1 dia.</td></tr>
+        <tr><td><strong>Pesquisa fechada</strong></td><td>Links pendentes são invalidados e novos links não podem ser gerados.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <strong>Limite documentado:</strong> as fontes informam limites de seleção em múltipla escolha e as regras de validade e uso único dos links. Elas <strong>não informam</strong> um teto global de perguntas, respostas ou links emitidos; por isso, este guia não estabelece esses números.
+  </div>
+
+  <h2>6. Uso em URAs e fluxos de automação</h2>
+  <p>Além da coleta externa por link, os blocos do módulo registram respostas obtidas no atendimento, preenchidas por agentes ou produzidas por processamento de Inteligência Artificial.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Elemento</th><th>Finalidade comprovada</th><th>Entrada ou resultado relevante</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Gerar Link de Pesquisa</strong></td><td>Cria a URL externa, única e temporária.</td><td>Grava o link em uma variável de saída e pode vincular uma automação pós-resposta.</td></tr>
+        <tr><td><strong>Submeter Resposta de Pesquisa</strong></td><td>Registra respostas coletadas por outros canais.</td><td>Mapeia variáveis do fluxo para as perguntas da pesquisa.</td></tr>
+        <tr><td><strong>Completar Resposta de Pesquisa</strong></td><td>Complementa perguntas ocultas de uma resposta.</td><td>Recebe a referência da resposta e valores, literais ou variáveis, para os campos ocultos.</td></tr>
+        <tr><td><strong>Processar com IA</strong></td><td>Analisa um contexto conforme instruções baseadas nas perguntas da pesquisa.</td><td>Pode estruturar a saída em JSON, para posterior extração, armazenamento em variáveis e mapeamento na submissão.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>6.1. Padrão assíncrono: enviar link e tratar a resposta</h3>
+  <ol class="steps">
+    <li>Gere o link e armazene a URL na variável de saída configurada.</li>
+    <li>Envie a URL ao cliente pelo canal escolhido.</li>
+    <li>Aguarde a submissão no formulário web; não mantenha a execução original bloqueada.</li>
+    <li>Na pesquisa, configure uma <strong>Automação Pós-Resposta</strong>.</li>
+    <li>Use, no novo fluxo, as variáveis de contexto e de respostas para decidir e executar as tratativas seguintes.</li>
+  </ol>
+
+  <h3>6.2. Padrão síncrono: coletar e submeter no próprio fluxo</h3>
+  <ol class="steps">
+    <li>Faça as perguntas durante a URA, atendimento ou automação e guarde cada valor em uma variável.</li>
+    <li>Adicione <strong>Submeter Resposta de Pesquisa</strong>.</li>
+    <li>Selecione a pesquisa e mapeie cada pergunta para a variável correspondente.</li>
+    <li>Submeta o conjunto; a resposta passa a compor os relatórios independentemente de ter vindo de link ou submissão direta.</li>
+  </ol>
+
+  <h3>6.3. Padrão com IA comprovado no material</h3>
+  <ol class="steps">
+    <li>Adicione <strong>Processar com IA</strong> e forneça o contexto aplicável, como o histórico do atendimento.</li>
+    <li>Instrua a IA com base nas perguntas configuradas na pesquisa.</li>
+    <li>Estruture o resultado, por exemplo como JSON de chave e valor.</li>
+    <li>Extraia e armazene os dados em variáveis do fluxo.</li>
+    <li>Mapeie as variáveis em <strong>Submeter Resposta de Pesquisa</strong>.</li>
+  </ol>
+
+  <div class="callout warning">
+    <strong>Dados gerados por IA:</strong> o material comprova a possibilidade técnica de análise e submissão, mas não declara que o resultado seja infalível. Trate o mapeamento como dado processado, valide o JSON esperado e não o apresente como resposta direta do cliente quando não foi o cliente quem respondeu.
+  </div>
+
+  <h2>7. Variáveis e contexto pós-resposta</h2>
+  <p>Quando uma pesquisa enviada por link é respondida, a automação configurada é executada de forma assíncrona. O contexto do link — como chat, contato, ticket ou fila — é injetado no novo fluxo como variáveis.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Variável ou padrão</th><th>Conteúdo comprovado</th></tr></thead>
+      <tbody>
+        <tr><td><code>survey_form_response_id</code></td><td>Identificador da resposta submetida; a captura do material orienta usar essa variável para acessar a resposta.</td></tr>
+        <tr><td><code>survey_q_&lt;id&gt;</code></td><td>Valor bruto da resposta da pergunta cujo ID numérico incremental ocupa <code>&lt;id&gt;</code>.</td></tr>
+        <tr><td><code>survey_q_&lt;id&gt;_label</code></td><td>Rótulo amigável correspondente à resposta da pergunta.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout tip">
+    <strong>Uso recomendado:</strong> use o valor bruto para condições e integrações; use o sufixo <code>_label</code> quando a saída precisar ser legível por pessoas. O ID pertence à pergunta gerada, portanto confirme o mapeamento após duplicar ou reconstruir uma pesquisa.
+  </div>
+
+  <h3>7.1. Completar perguntas ocultas</h3>
+  <p>O bloco <strong>Completar Resposta de Pesquisa</strong> foi projetado para enriquecer uma resposta com dados que não aparecem no formulário. O material mostra o mapeamento de um valor literal ou variável para cada pergunta oculta e informa que vínculos com valor vazio são ignorados em tempo de execução.</p>
+
+  <ol class="steps">
+    <li>Identifique a resposta que será complementada, usando a referência disponível no fluxo.</li>
+    <li>Selecione a pesquisa ou resposta correspondente no elemento.</li>
+    <li>Mapeie somente as perguntas ocultas necessárias para os valores do contexto.</li>
+    <li>Aplique o elemento antes de depender desses metadados em relatórios ou passos posteriores.</li>
+  </ol>
+
+  <h2>8. Automação pós-resposta</h2>
+  <p>A automação pós-resposta é opcional e executada imediatamente depois que o cliente envia o formulário web. Como é assíncrona, ela constitui um fluxo separado da automação que gerou e enviou o link.</p>
+
+  <h3>8.1. Exemplos de tratativas suportadas pela arquitetura documentada</h3>
+  <ul>
+    <li>ramificar o processo conforme uma resposta bruta;</li>
+    <li>usar o rótulo amigável em uma mensagem ou registro;</li>
+    <li>recuperar o contexto injetado do vínculo da pesquisa;</li>
+    <li>complementar campos ocultos com dados disponíveis no novo fluxo;</li>
+    <li>encaminhar os dados estruturados para passos subsequentes da automação.</li>
+  </ul>
+
+  <div class="callout info">
+    <strong>Separação importante:</strong> responder ao formulário não retoma a execução original que enviou o link; a fonte descreve o disparo de uma automação assíncrona específica. Modele a continuação do processo nesse fluxo pós-resposta.
+  </div>
+
+  <h2>9. Resumo, relatório consolidado e dashboard</h2>
+  <p>Em <strong>Painel e Indicadores › Pesquisas</strong>, respostas recebidas por link externo e por submissão direta podem ser acompanhadas em tempo real.</p>
+
+  <h3>9.1. Indicadores gerenciais</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>KPI</th><th>Leitura</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Total de respostas recebidas</strong></td><td>Volume de submissões registradas.</td></tr>
+        <tr><td><strong>Taxa de resposta (%)</strong></td><td>Relação entre emissão e retorno apresentada pelo dashboard.</td></tr>
+        <tr><td><strong>Volume de links emitidos</strong></td><td>Quantidade de links gerados para a pesquisa.</td></tr>
+        <tr><td><strong>Tempo médio de preenchimento</strong></td><td>Duração média do preenchimento informada pelo painel.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>9.2. Filtros e visualizações</h3>
+  <ul>
+    <li><strong>Filtros:</strong> Fila, Atendente, Contato e Período, conforme as associações estabelecidas na criação.</li>
+    <li><strong>Visões gráficas:</strong> Barras, Medidor, Faixas, Rosca, Tabelas e Rankings de Opções.</li>
+    <li><strong>Resumo:</strong> panorama estatístico, incluindo taxa de resposta por vínculo.</li>
+    <li><strong>Relatório Consolidado:</strong> tabela com as respostas individuais recebidas até o momento.</li>
+  </ul>
+
+  <div class="callout tip">
+    <strong>Leitura consistente:</strong> defina as associações antes de publicar. Os filtros do dashboard dependem do contexto vinculado à pesquisa; sem esse desenho, a segmentação gerencial fica limitada ao que foi efetivamente registrado.
+  </div>
+
+  <h2>10. Boas práticas operacionais</h2>
+  <h3>10.1. Antes da publicação</h3>
+  <ul>
+    <li>Use um nome interno que identifique objetivo, público ou momento da jornada.</li>
+    <li>Escolha as associações que serão necessárias nos filtros e nas automações posteriores.</li>
+    <li>Use quebra de seção para questionários com blocos temáticos.</li>
+    <li>Marque como obrigatórias somente as perguntas realmente necessárias; a obrigatoriedade bloqueia o envio.</li>
+    <li>Teste limites de múltipla escolha, intervalos de data, rótulos, cores e lógica condicional na pré-visualização.</li>
+    <li>Revise tudo antes de publicar, porque a estrutura publicada não pode ser alterada no ciclo documentado.</li>
+  </ul>
+
+  <h3>10.2. Na distribuição e nas automações</h3>
+  <ul>
+    <li>Informe claramente o objetivo da pesquisa ao enviar o link.</li>
+    <li>Configure uma validade compatível com o tempo esperado de resposta e lembre que cada link só aceita uma submissão.</li>
+    <li>Não reutilize a mesma URL para mais de uma pessoa ou tentativa.</li>
+    <li>Diferencie variáveis brutas de rótulos amigáveis ao construir condições e mensagens.</li>
+    <li>Use perguntas ocultas apenas para metadados necessários e mantenha o mapeamento auditável.</li>
+    <li>Ao usar IA, valide o formato de saída antes do bloco de submissão.</li>
+  </ul>
+
+  <h3>10.3. Ao enviar pelo WhatsApp</h3>
+  <p>No <strong>Manual de Uso fornecido</strong>, pesquisas de feedback vinculadas a uma transação ou interação específica aparecem como caso de uso de template de utilidade. O mesmo material alerta que pesquisas sem contexto de uma interação recente podem ser tratadas como spam, recomenda opt-in explícito e orienta usar URL completa do domínio do negócio, sem encurtadores. Essas regras pertencem ao material de origem e devem ser reconfirmadas com as políticas vigentes da Meta antes de novos disparos.</p>
+
+  <h3>10.4. Encerramento e retenção</h3>
+  <ul>
+    <li>Use <strong>Fechar</strong> quando a coleta tiver terminado; respostas existentes permanecem disponíveis.</li>
+    <li>Arquive somente depois do fechamento, quando a pesquisa precisar sair da lista ativa.</li>
+    <li>Prefira <strong>Duplicar</strong> para criar uma nova edição sem alterar a pesquisa publicada.</li>
+    <li>Reserve <strong>Excluir</strong> para casos em que a remoção definitiva do formulário e das respostas seja intencional.</li>
+  </ul>
+
+  <h2>11. Checklist de implantação</h2>
+  <ol class="steps">
+    <li><strong>Objetivo definido:</strong> determine se a coleta será NPS, CSAT, CES ou formulário customizado.</li>
+    <li><strong>Contexto definido:</strong> selecione as associações necessárias para rastreabilidade e filtros.</li>
+    <li><strong>Formulário validado:</strong> teste tipos, obrigatoriedade, limites, condições e perguntas ocultas.</li>
+    <li><strong>Distribuição escolhida:</strong> decida entre link externo, coleta no fluxo ou processamento com IA.</li>
+    <li><strong>Variáveis mapeadas:</strong> registre a variável do link e os IDs das perguntas usados no pós-resposta.</li>
+    <li><strong>Pós-resposta configurada:</strong> se necessário, selecione o fluxo assíncrono e valide o contexto recebido.</li>
+    <li><strong>Publicação consciente:</strong> publique somente depois da pré-visualização e da revisão final.</li>
+    <li><strong>Relatórios conferidos:</strong> valide KPIs, filtros por associação e respostas no consolidado.</li>
+    <li><strong>Encerramento planejado:</strong> defina quando fechar, arquivar ou duplicar a pesquisa.</li>
+  </ol>
+
+  <div class="callout info">
+    <strong>Fontes deste capítulo:</strong> “Módulo de Pesquisas” — inclusive páginas de interface recuperadas por OCR — e “Manual de Uso [Parceiro Habilis]”, ambos do acervo fornecido. Afirmações de versão e políticas externas foram mantidas explicitamente no contexto do material de origem.
+  </div>
+
+  <div class="pagenav">
+    <a href="ia.html"><span>← Anterior</span> Inteligência Artificial</a>
+    <a class="next" href="tickets.html"><span>Próximo →</span> Tickets</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canais WhatsApp e Meta — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="crm.html">CRM</a>
+    <a href="tickets.html">Tickets</a>
+    <a href="pabx.html">PABX &amp; Telefonia</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="canais-whatsapp-meta.html" class="active">WhatsApp / Meta</a>
+    <a href="relatorios.html">Relatórios</a>
+    <a href="configuracoes.html">Configurações</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › Canais WhatsApp e Meta</div>
+
+  <h1>Canais WhatsApp e Meta</h1>
+  <p class="subtitle">Escolha a modalidade correta, prepare o portfólio empresarial, conecte a Cloud API e diagnostique templates, Flows, grupos e pendências da Meta sem expor credenciais.</p>
+
+  <div class="callout info">
+    <strong>Contexto de atualização:</strong> este capítulo prioriza o <em>Guia Demandas Meta — Cloud API e Business Manager, Guia do parceiro 2026</em> e as orientações da versão 9.2 sobre Tech Provider. Telas, preços, limites, elegibilidade e políticas são controlados pela Meta e podem mudar. Confirme sempre a regra vigente na documentação oficial antes de prometer prazo, custo ou disponibilidade.
+  </div>
+
+  <h2>1. Como o WhatsApp entra na plataforma</h2>
+  <p>Cada número ou integração de WhatsApp é cadastrado como uma <strong>fila de atendimento</strong>. Depois da conexão, a fila recebe as mensagens e as distribui aos agentes autorizados. A escolha da modalidade determina como o número é autenticado, quais recursos ficam disponíveis e quem administra os ativos no ecossistema Meta.</p>
+
+  <table class="doc">
+    <thead><tr><th>Modalidade documentada</th><th>Natureza</th><th>Quando considerar</th><th>Pontos de atenção</th></tr></thead>
+    <tbody>
+      <tr><td><strong>WA Cloud API</strong></td><td>Oficial, via Habilis como Tech Provider</td><td>Implantação oficial com cadastro integrado e menor esforço de configuração.</td><td>Exige conta Meta com acesso administrativo, portfólio consistente e meio de pagamento válido. É a única modalidade documentada que permite Coexistence.</td></tr>
+      <tr><td><strong>WA Cloud API (Dev App)</strong></td><td>Oficial, com aplicativo criado para o cliente</td><td>Quando o parceiro decide administrar seu próprio app, webhooks, usuário do sistema e permissões.</td><td>A Meta pode exigir verificação da empresa, análise do app, vídeos e documentação. O parceiro assume esse processo.</td></tr>
+      <tr><td><strong>Cloud API com Coexistence</strong></td><td>Oficial + app WhatsApp Business no celular</td><td>Quando é indispensável manter o mesmo número no aplicativo e na API.</td><td>Tem limitações adicionais de compatibilidade e sincronização; não equivale à Cloud API convencional.</td></tr>
+      <tr><td><strong>WAMD2 / WAMD3</strong></td><td>Não oficial, baseada em bibliotecas comunitárias</td><td>Somente quando a operação ainda não puder migrar para a API oficial e aceitar risco operacional.</td><td>Sem garantia de estabilidade; mudanças do WhatsApp podem interromper a conexão. WAMD original está documentada como sem manutenção.</td></tr>
+      <tr><td><strong>Gupshup</strong></td><td>Integração histórica por provedor externo</td><td>Apenas para ambientes legados já contratados e validados.</td><td>Depende de app, credencial, webhook e saldo no provedor. Não usar como padrão de nova implantação sem confirmação atual.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout tip">
+    <strong>Diretriz:</strong> para novas operações, prefira a Cloud API oficial. Use a modalidade convencional quando máxima compatibilidade for prioritária; avalie Coexistence somente quando manter o aplicativo no celular for requisito real.
+  </div>
+
+  <h2>2. Pré-onboarding: Business Manager e portfólio empresarial</h2>
+  <p>A maioria das desativações descritas no acervo está associada à dificuldade da Meta em confirmar a existência ou a atividade da empresa, e não a uma falha da fila. Faça a preparação antes de iniciar o cadastro integrado ou criar o app.</p>
+
+  <ol class="steps">
+    <li><strong>Valide a empresa:</strong> obtenha o comprovante oficial de registro e confira razão social, endereço, telefone e atividade.</li>
+    <li><strong>Revise o site institucional:</strong> mantenha-o disponível, explique claramente a atividade e apresente dados empresariais consistentes com o portfólio Meta.</li>
+    <li><strong>Disponibilize política de privacidade:</strong> publique-a em nome da empresa e em domínio coerente com o negócio.</li>
+    <li><strong>Revise o portfólio empresarial:</strong> use dados reais, e-mail comercial válido e pessoas administradoras legítimas; habilite autenticação de dois fatores quando exigida.</li>
+    <li><strong>Cheque o setor:</strong> confronte produtos, serviços, categoria e conteúdo do site com a Política de Negócios e de Mensagens do WhatsApp, especialmente em setores regulados.</li>
+    <li><strong>Solicite a verificação:</strong> conclua a verificação empresarial antes da ativação sempre que disponível.</li>
+    <li><strong>Cadastre a cobrança:</strong> adicione um meio de pagamento válido diretamente na conta do cliente; o cadastro integrado não elimina esse requisito da Meta.</li>
+    <li><strong>Defina o responsável:</strong> registre quem administrará o Business Manager, o WhatsApp Manager, as revisões e a cobrança.</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>Setores regulados:</strong> não reutilize listas históricas de segmentos “permitidos” ou “proibidos” como regra definitiva. As políticas mudam. Consulte a <a href="https://business.whatsapp.com/policy?lang=pt_BR" target="_blank" rel="noopener noreferrer">Política de Negócios do WhatsApp</a>, documente a análise e alinhe limitações antes do onboarding.
+  </div>
+
+  <h3>Business Manager, WABA e número: não confunda</h3>
+  <table class="doc">
+    <thead><tr><th>Componente</th><th>Função no diagnóstico</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Portfólio empresarial / Business Manager</strong></td><td>Reúne empresa, pessoas, permissões, ativos, cobrança e verificação.</td></tr>
+      <tr><td><strong>WABA</strong></td><td>Conta do WhatsApp Business que agrupa números e configurações do canal.</td></tr>
+      <tr><td><strong>Número comercial</strong></td><td>Ativo que envia e recebe mensagens; pode ter qualidade, status e restrições próprios.</td></tr>
+      <tr><td><strong>App Meta</strong></td><td>Necessário na modalidade Dev App para permissões, token e webhook.</td></tr>
+      <tr><td><strong>Fila na plataforma</strong></td><td>Configuração operacional que vincula o canal aos agentes, automações e recursos internos.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>3. Onboarding pela fila WA Cloud API (Tech Provider)</h2>
+  <p>Na documentação da versão 9.2, <strong>WA Cloud API</strong> identifica a modalidade Tech Provider. Ela substitui a criação manual do app por um fluxo de cadastro integrado da Meta.</p>
+
+  <ol class="steps">
+    <li>Acesse <strong>Configurações › Filas</strong> e selecione <strong>+ Adicionar</strong>.</li>
+    <li>Informe um nome operacional e escolha o tipo <strong>WA Cloud API</strong>.</li>
+    <li>Salve, expanda a fila e, na aba <strong>Conexão</strong>, clique em <strong>Entrar com o Facebook</strong>.</li>
+    <li>Mantenha abertas as duas janelas: a janela de acompanhamento da plataforma e o cadastro integrado da Meta. Se apenas uma abrir, libere pop-ups para o domínio e reinicie o fluxo.</li>
+    <li>Na Meta, autentique uma pessoa com acesso administrativo, selecione ou crie o portfólio e a WABA e escolha o número correto.</li>
+    <li>Escolha entre número exclusivo na Cloud API ou, quando elegível e necessário, <strong>Conectar uma conta WhatsApp Business existente</strong> para Coexistence.</li>
+    <li>Se usar Coexistence, leia o QR Code pelo botão recebido na conversa do Facebook Business dentro do aplicativo. Não use <strong>Aparelhos conectados</strong>.</li>
+    <li>Clique em <strong>Concluir</strong> na Meta, aguarde o fechamento automático dessa janela e não feche a janela da plataforma.</li>
+    <li>Finalize somente quando a plataforma indicar sucesso e o estado da fila mudar para <strong>Autenticado</strong>.</li>
+    <li>No painel Meta do cliente, confirme cobrança, número, nome de exibição, qualidade e ausência de pendências.</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>Não interrompa o cadastro:</strong> fechar uma das janelas antes do estado “Autenticado” pode deixar o fluxo incompleto. Não compartilhe no chamado capturas contendo token, códigos de verificação, telefones completos ou dados pessoais desnecessários.
+  </div>
+
+  <h3>Coexistence: decisão e limitações</h3>
+  <table class="doc">
+    <thead><tr><th>Escolha</th><th>Vantagem</th><th>Limitação documentada</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Cloud API convencional</strong></td><td>Maior compatibilidade e operação sem depender do uso do celular.</td><td>O número deixa de operar diretamente no app WhatsApp Business.</td></tr>
+      <tr><td><strong>Coexistence</strong></td><td>Mantém API oficial e aplicativo WhatsApp Business no mesmo número.</td><td>Mensagens de versões antigas, Windows ou Wear OS podem não sincronizar; edição, visualização única, temporárias e outros tipos podem não chegar à plataforma.</td></tr>
+    </tbody>
+  </table>
+  <ul>
+    <li>Grupos e listas de transmissão do aplicativo não devem ser tratados como recursos sincronizados da API.</li>
+    <li>Não conecte simultaneamente o mesmo número em Coexistence e em uma fila não oficial.</li>
+    <li>A importação de histórico é descrita como beta no acervo: deve ser selecionada e autorizada durante a conexão e pode ser incompleta.</li>
+    <li>Elegibilidade de país, versão do aplicativo, tipos de mensagem e periodicidade de abertura do celular mudam; valide na <a href="https://developers.facebook.com/docs/whatsapp/embedded-signup/custom-flows/onboarding-business-app-users/" target="_blank" rel="noopener noreferrer">documentação atual de Coexistence</a>.</li>
+  </ul>
+
+  <h2>4. WA Cloud API (Dev App)</h2>
+  <p>A fila <strong>WA Cloud API (Dev App)</strong> preserva a modalidade em que o aplicativo é criado e administrado em nome do cliente. O acervo confirma equivalência de capacidades técnicas com a conexão convencional via Tech Provider, exceto que <strong>Coexistence não está disponível pelo app próprio</strong>.</p>
+
+  <h3>Componentes que precisam estar concluídos</h3>
+  <ul>
+    <li>App empresarial criado em <code>developers.facebook.com</code> e associado ao portfólio correto.</li>
+    <li>Produto WhatsApp configurado, WABA e número verificado.</li>
+    <li>Meio de pagamento cadastrado no ativo correto.</li>
+    <li>Usuário do sistema com permissões de gerenciamento e mensageria do WhatsApp e ativos atribuídos.</li>
+    <li>Token de acesso tratado como segredo, armazenado apenas no campo apropriado da fila.</li>
+    <li>URL de retorno e token de verificação do webhook obtidos na própria fila; assinatura do evento de mensagens ativada no app.</li>
+  </ul>
+
+  <pre><code>Checklist técnico — nunca cole valores reais na documentação
+[ ] Portfólio empresarial verificado
+[ ] App associado ao portfólio correto
+[ ] WABA e número comercial confirmados
+[ ] Usuário do sistema e ativos atribuídos
+[ ] Permissões de mensageria e gerenciamento concedidas
+[ ] Token armazenado somente no campo seguro da fila
+[ ] Webhook validado e evento de mensagens assinado
+[ ] Cobrança válida e fila habilitada</code></pre>
+
+  <div class="callout warn">
+    <strong>Fluxo antigo:</strong> o Manual de Uso descreve cliques detalhados no Facebook Developers e no Business Manager. Esses menus são voláteis e podem não corresponder à interface atual. A Meta também pode exigir análise do app, vídeo e documentação. Use o roteiro acima como checklist, siga a interface vigente e não prometa suporte da Habilis para exigências de publicação de um app próprio.
+  </div>
+
+  <h2>5. Templates da Cloud API</h2>
+  <p>Templates são mensagens pré-aprovadas pela Meta para comunicações iniciadas pela empresa fora das condições de mensagem livre. A classificação, a cobrança e os critérios de aprovação pertencem à Meta.</p>
+
+  <h3>Criar pela plataforma</h3>
+  <ol class="steps">
+    <li>Acesse <strong>Templates › Templates WA Cloud</strong>.</li>
+    <li>Clique em <strong>+ Adicionar</strong> e escolha <strong>Cloud API</strong>.</li>
+    <li>Selecione a categoria vigente apresentada pela interface — como Marketing, Utilidade ou Autenticação — e avance.</li>
+    <li>Configure idioma, corpo e, quando aplicável, cabeçalho, rodapé, botões e exemplos das variáveis.</li>
+    <li>Clique em <strong>Publicar template</strong> e acompanhe o estado de análise da Meta.</li>
+  </ol>
+
+  <div class="callout info">
+    <strong>Escopo confirmado:</strong> na versão 9.2, a criação de templates básicos está disponível tanto para WA Cloud API (Tech Provider) quanto para WA Cloud API (Dev App). Edição e exclusão continuam no painel da Meta.
+  </div>
+
+  <h3>Checklist para aprovação e qualidade</h3>
+  <table class="doc">
+    <thead><tr><th>Verificação</th><th>Boa prática</th></tr></thead>
+    <tbody>
+      <tr><td>Categoria</td><td>Classifique pelo objetivo real; conteúdo promocional não deve ser disfarçado como utilidade.</td></tr>
+      <tr><td>Consentimento</td><td>Mantenha evidência de opt-in e uma saída clara para interromper mensagens.</td></tr>
+      <tr><td>Variáveis</td><td>Na integração documentada, use variáveis numéricas, sequenciais e com exemplos coerentes; não deixe uma variável isolada como todo o texto.</td></tr>
+      <tr><td>Conteúdo</td><td>Use linguagem clara, contexto suficiente, ortografia revisada e sem solicitação de credenciais ou dados financeiros completos.</td></tr>
+      <tr><td>Idioma</td><td>Faça o conteúdo corresponder ao idioma selecionado.</td></tr>
+      <tr><td>Links</td><td>Use destino legítimo e identificável; valide as regras atuais da Meta para URL e botões.</td></tr>
+      <tr><td>Mídia</td><td>Inclua amostra quando a Meta solicitar e respeite formato e tamanho aceitos.</td></tr>
+      <tr><td>Qualidade</td><td>Monitore bloqueios, denúncias, leitura e pausas; reduza volume e corrija segmentação ao primeiro sinal de queda.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <strong>Valores e janelas de cobrança:</strong> materiais anteriores descrevem modelos de preço e franquias que podem estar desatualizados. Consulte a documentação oficial de precificação no momento da proposta e do envio. Não use números históricos deste acervo em orçamento.
+  </div>
+
+  <h2>6. WhatsApp Flows em URA e automações</h2>
+  <p>O WhatsApp Flows permite formulários, menus e tarefas interativas dentro da conversa, como cadastro, cotação e agendamento. O recurso documentado funciona <strong>somente em filas oficiais</strong>.</p>
+
+  <ol class="steps">
+    <li>No WhatsApp Manager da empresa, crie o Flow e valide sua estrutura.</li>
+    <li>Publique o Flow na Meta.</li>
+    <li>Na URA ou no Fluxo de Automação da plataforma, adicione o elemento <strong>Enviar Flow</strong>.</li>
+    <li>Selecione o Flow publicado e informe os dados exigidos pelo JSON no recurso <strong>Adicionar Dado</strong>.</li>
+    <li>Crie um Gatilho de Mensagem do tipo <strong>Resposta Flow</strong> para processar o retorno e encaminhar a próxima ação.</li>
+    <li>Teste a experiência em aparelho celular antes de liberar para produção.</li>
+  </ol>
+
+  <h3>Conferência do JSON</h3>
+  <pre><code>{
+  "version": "&lt;versão suportada pela Meta&gt;",
+  "screens": [
+    {
+      "id": "ETAPA_EXEMPLO",
+      "data": {
+        "chave_exemplo": { "type": "string" }
+      }
+    }
+  ]
+}</code></pre>
+  <p>Se uma tela declarar <code>data</code>, cada chave necessária deve ser enviada no elemento da automação. O material de apoio registra que <strong>dados do tipo array/lista não eram suportados pela plataforma na data do documento</strong>.</p>
+
+  <div class="callout warn">
+    <strong>Compatibilidade:</strong> trate a ausência de suporte a array/lista como restrição da versão documentada, não como regra permanente. Confirme na versão instalada. O acervo também registra que Flows devem ser testados em celular, pois a experiência pode não estar disponível em todos os clientes do WhatsApp.
+  </div>
+
+  <h2>7. Grupos, comunidades, canais e listas</h2>
+  <p>Grupos do WhatsApp não se confundem com <strong>Grupos de Acesso</strong> internos da plataforma. Esta seção trata das conversas coletivas no aplicativo e se aplica principalmente às conexões não oficiais WAMD2/WAMD3.</p>
+
+  <table class="doc">
+    <thead><tr><th>Cenário</th><th>Orientação operacional</th></tr></thead>
+    <tbody>
+      <tr><td>Comunidades e canais no número WAMD</td><td>Saia deles. O guia os registra como não suportados e geradores de alto volume de eventos.</td></tr>
+      <tr><td>Grupos em WAMD2/WAMD3</td><td>Evite; mantenha somente os estritamente necessários à operação.</td></tr>
+      <tr><td>Dois números do sistema no mesmo grupo</td><td>Remova um deles para evitar duplicação de eventos, gargalo e instabilidade.</td></tr>
+      <tr><td>Sessões paralelas</td><td>Mantenha somente a sessão do sistema e encerre outros dispositivos conectados quando a operação depender de WAMD2/WAMD3.</td></tr>
+      <tr><td>Aparelho</td><td>Prefira Android recente, WhatsApp atualizado, internet estável, notificações desativadas e download automático de mídia desabilitado.</td></tr>
+      <tr><td>Coexistence</td><td>Não conte com sincronização de grupos ou listas de transmissão para a API.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <strong>Legado sem garantia:</strong> WAMD2 e WAMD3 dependem de bibliotecas comunitárias e engenharia reversa. Não há garantia de estabilidade, continuidade ou compatibilidade. WAMD original está documentada como descontinuada para melhorias; planeje migração gradual para a Cloud API oficial.
+  </div>
+
+  <h2>8. Gupshup — integração legada</h2>
+  <p>O acervo registra uma integração histórica com a Gupshup. Ela não deve ser adotada em uma nova implantação sem confirmação comercial e técnica de que a fila continua disponível na versão atual.</p>
+
+  <ol class="steps">
+    <li>Confirme que existe contrato ativo, saldo disponível e app aprovado no provedor.</li>
+    <li>Na fila, informe a credencial da <strong>conta</strong>, o número de origem e o nome do app — nunca registre esses valores em chamados ou manuais.</li>
+    <li>No provedor, configure o webhook no formato Gupshup usando a URL exibida pela própria fila.</li>
+    <li>Faça um teste controlado de entrada e saída e valide os eventos no histórico da fila.</li>
+  </ol>
+
+  <pre><code>https://&lt;dominio-da-instancia&gt;/webhook/process?id=&lt;id-da-fila&gt;</code></pre>
+
+  <div class="callout warn">
+    <strong>Segredo operacional:</strong> a API Key é obtida no nível da conta Gupshup, não no app. Trate-a como credencial. Ao migrar um número de provedor externo para Cloud API, coordene a liberação do ativo e a confirmação em duas etapas com o provedor anterior; não exclua ativos sem plano de retorno e backup quando aplicável.
+  </div>
+
+  <h2>9. Diagnóstico de demandas Meta</h2>
+  <p>Antes de alterar a fila, determine em qual camada está a falha. A API pode estar saudável enquanto o portfólio, o número, o template, a mídia ou a autorização estão pendentes.</p>
+
+  <table class="doc">
+    <thead><tr><th>Sintoma</th><th>Verificação inicial</th><th>Encaminhamento</th></tr></thead>
+    <tbody>
+      <tr><td>Mensagem não envia</td><td>Registre horário, fila, direção, tipo de mensagem, código e texto do erro; teste um único contato autorizado.</td><td>Consulte o código na documentação da Meta; valide janela, template, qualidade, limite e destinatário.</td></tr>
+      <tr><td>Mensagem não chega à plataforma</td><td>Compare envio e recebimento, confirme status da fila e verifique incidente público.</td><td>Em Coexistence, identifique dispositivo e tipo de mensagem; em Dev App, valide assinatura do webhook e permissões sem expor token.</td></tr>
+      <tr><td>“Conteúdo não suportado”</td><td>Identifique o tipo de mensagem e o dispositivo de origem.</td><td>Trate como limitação da Cloud API/Coexistence quando confirmado; não tente corrigir com limites internos.</td></tr>
+      <tr><td>Template rejeitado ou pausado</td><td>Leia o motivo e o status no WhatsApp Manager.</td><td>Corrija categoria, conteúdo, variáveis, idioma, mídia ou opt-in; reenvie ou solicite revisão conforme a opção oferecida pela Meta.</td></tr>
+      <tr><td>Mídia falha</td><td>Confira tipo, extensão, tamanho e acesso ao arquivo.</td><td>Use os limites atuais da documentação de mídia da Meta; alterar limite geral da plataforma não amplia a Cloud API.</td></tr>
+      <tr><td>Conta/portfólio desativado</td><td>Todos os números da WABA/conta pararam?</td><td>Revise empresa, site, categoria, documentos, política e cobrança antes da apelação.</td></tr>
+      <tr><td>Número banido</td><td>Somente um número parou e há aviso de política/qualidade?</td><td>Revise atividade, opt-in, denúncias e produtos; use a revisão oficial com argumentação documentada.</td></tr>
+      <tr><td>Conexão oficial instável em massa</td><td>Compare filas, horários e regiões.</td><td>Consulte <a href="https://metastatus.com/whatsapp-business-api" target="_blank" rel="noopener noreferrer">Meta Status</a>; o incidente pode levar algum tempo para aparecer.</td></tr>
+      <tr><td>Pop-up ou cadastro integrado não conclui</td><td>Confira bloqueador de pop-up, pessoa administradora, portfólio selecionado e pendências.</td><td>Reabra o fluxo e mantenha as duas janelas até “Autenticado”.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Coleta mínima para suporte</h3>
+  <pre><code>Instância: &lt;nome lógico, sem credenciais&gt;
+Fila: &lt;identificador interno&gt;
+Data/hora e fuso: &lt;momento exato&gt;
+Direção: entrada | saída
+Modalidade: Tech Provider | Dev App | Coexistence | WAMD2 | WAMD3 | legado
+Tipo: texto | template | mídia | Flow | outro
+Erro: &lt;código e mensagem literal&gt;
+Reprodução: &lt;passos objetivos&gt;
+Escopo: &lt;um contato, uma fila ou várias filas&gt;
+Evidência sanitizada: &lt;sem token, código, telefone completo ou PII&gt;</code></pre>
+
+  <div class="callout tip">
+    <strong>Relato útil:</strong> escolha uma ocorrência reproduzível e forneça horário e erro exatos. “Vários clientes com problema” não permite correlacionar webhook, evento, fila ou incidente da Meta.
+  </div>
+
+  <h2>10. Desativação, banimento e apelação</h2>
+  <p><strong>Desativação da conta</strong> afeta os números associados à conta; <strong>banimento do número</strong> afeta o número específico. A distinção define o diagnóstico e evita uma apelação prematura.</p>
+
+  <ol class="steps">
+    <li>Não recorra imediatamente. Primeiro identifique se a restrição está no portfólio, WABA, número, template ou cobrança.</li>
+    <li>Revise integralmente o checklist de onboarding, a atividade, os produtos oferecidos, o opt-in e a qualidade.</li>
+    <li>Corrija inconsistências entre registro empresarial, site e Meta; mantenha evidências das correções.</li>
+    <li>Na conta do cliente, use o canal de revisão disponibilizado pela Meta e descreva fatos, histórico da empresa, conformidade e por que a decisão parece um falso positivo.</li>
+    <li>Acompanhe o protocolo e não crie recursos duplicados sem nova evidência.</li>
+    <li>Se a revisão for negada e a conexão for Tech Provider, encaminhe ao suporte Habilis para avaliar a possibilidade de uma segunda camada de apelação; isso não garante reativação nem detalhamento do motivo.</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>Privacidade no escalonamento:</strong> envie dados empresariais e estatísticas somente pelo canal seguro indicado pelo suporte. O identificador da WABA, documentos e capturas do cliente não devem ser publicados em grupos, páginas do manual ou conversas sem controle de acesso.
+  </div>
+
+  <h2>11. Boas práticas contínuas</h2>
+  <ul>
+    <li>Mantenha site, domínio, política de privacidade, cadastro empresarial e categoria sempre coerentes e disponíveis.</li>
+    <li>Use opt-in explícito, segmentação e opt-out simples; não compre listas de contatos.</li>
+    <li>Aqueça o volume de envio de forma gradual e monitore qualidade, denúncias, bloqueios e pausas de template.</li>
+    <li>Use templates somente para a finalidade aprovada e nunca solicite senha, código de autenticação, cartão completo ou credenciais.</li>
+    <li>Revise periodicamente administradores, autenticação de dois fatores, usuários do sistema, apps e ativos atribuídos.</li>
+    <li>Guarde tokens e chaves apenas nos campos seguros. Ao suspeitar de exposição, revogue e gere novos segredos no provedor.</li>
+    <li>Valide alterações primeiro em cenário controlado e registre data, versão da plataforma e resultado.</li>
+    <li>Para WAMD2/WAMD3, reduza grupos e eventos, mantenha sessão exclusiva e tenha plano de migração; não prometa disponibilidade equivalente à oficial.</li>
+    <li>Para Coexistence, alinhe previamente as limitações de dispositivos, tipos de mensagem, histórico e grupos.</li>
+  </ul>
+
+  <h2>12. Referências oficiais e hierarquia de decisão</h2>
+  <ol class="steps">
+    <li><strong>Primeiro:</strong> mensagem, status e motivo exibidos no Business Manager, WhatsApp Manager ou cadastro integrado da conta afetada.</li>
+    <li><strong>Depois:</strong> <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/overview" target="_blank" rel="noopener noreferrer">visão geral da plataforma</a>, <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/support/error-codes" target="_blank" rel="noopener noreferrer">códigos de erro</a>, <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/business-phone-numbers/media/" target="_blank" rel="noopener noreferrer">mídias</a> e política vigente da Meta.</li>
+    <li><strong>Em incidentes:</strong> Meta Status e comparação entre filas/contas.</li>
+    <li><strong>Por fim:</strong> suporte da plataforma, com evidência sanitizada e uma ocorrência reproduzível.</li>
+  </ol>
+
+  <div class="callout info">
+    <strong>Fontes internas consolidadas:</strong> Manual de Uso oficial; Guia Demandas Meta — Cloud API e Business Manager (2026); Meta WAMD e Cloud API (Dev App e Tech Provider); WhatsApp Flow; Gupshup; Guia de Boas Práticas — Grupos WA. Em conflito, este capítulo prioriza o guia de 2026 e a documentação atual da Meta; instruções históricas permanecem identificadas como legado.
+  </div>
+
+  <div class="pagenav">
+    <a href="contatos.html"><span>← Anterior</span> Contatos</a>
+    <a class="next" href="configuracoes.html"><span>Próximo →</span> Configurações</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
+</footer>
+
+</body>
+</html>

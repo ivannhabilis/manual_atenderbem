@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitoramento de Produtividade — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="crm.html">CRM</a>
+    <a href="tickets.html">Tickets</a>
+    <a href="pabx.html">PABX &amp; Telefonia</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="relatorios.html" class="active">Relatórios</a>
+    <a href="relatorios-personalizados.html">Personalizados</a>
+    <a href="configuracoes.html">Configurações</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › Monitoramento de Produtividade</div>
+
+  <h1>Monitoramento de Produtividade</h1>
+  <p class="subtitle">Configure os critérios de atividade, acompanhe equipe e agentes e relacione os sinais do Desktop ao tempo apontado em Tarefas.</p>
+
+  <div class="callout warn">
+    <strong>Escopo e versão da fonte:</strong> o módulo é documentado a partir da versão <strong>12.0.1</strong> e é exclusivo da <strong>versão Desktop</strong>. A interface e a disponibilidade podem variar em versões posteriores ou conforme as permissões da instância. Confirme os nomes exibidos no seu ambiente antes de publicar uma política operacional.
+  </div>
+
+  <h2>1. O que o módulo mede — e o que não mede</h2>
+  <p>O Monitoramento de Produtividade coleta, na máquina em que o aplicativo Desktop está em execução, sinais sobre aplicações e janelas, estado de uso e interação com o computador. Esses sinais são comparados com regras e perfis de scoring definidos pela organização, gerando um score e estados operacionais.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Componente</th><th>Função</th><th>Leitura correta</th></tr></thead>
+      <tbody>
+        <tr><td>Aplicações</td><td>Relaciona executáveis detectados nas máquinas monitoradas.</td><td>Mostra qual software foi identificado; sua relevância depende do cargo e do contexto.</td></tr>
+        <tr><td>Regras de Matching</td><td>Compara título de janela, nome do processo ou ambos com padrões configurados.</td><td>Permite diferenciar usos dentro de uma mesma aplicação, como sites abertos no navegador.</td></tr>
+        <tr><td>Perfis de Scoring</td><td>Agrupa aplicações e regras com pontuações, penalidades e automações.</td><td>Representa o conjunto de critérios aplicável a uma função ou equipe.</td></tr>
+        <tr><td>Painel de Produtividade</td><td>Exibe o estado atual da equipe no Painel de Agentes.</td><td>É uma leitura em tempo real baseada na configuração vigente.</td></tr>
+        <tr><td>Relatórios</td><td>Consolidam score, tempo, aplicativos, streaks e trocas de contexto.</td><td>Servem para analisar tendências no período, não para concluir intenção individual.</td></tr>
+        <tr><td>Tarefas</td><td>Registra atividades, responsáveis, prazos, progresso e tempo apontado no cronômetro.</td><td>É evidência de execução declarada em um processo; complementa, mas não substitui, o monitoramento.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <strong>Limite de interpretação:</strong> score, tempo em aplicativo, ociosidade e trocas de contexto são sinais técnicos. Isoladamente, eles não medem qualidade, complexidade, criatividade, atendimento fora do computador nem o resultado entregue.
+  </div>
+
+  <h2>2. Requisitos e ativação no Desktop</h2>
+
+  <h3>2.1 Preparar a máquina monitorada</h3>
+  <p>Segundo o manual do módulo, o aplicativo é distribuído como um pacote portátil: não há um instalador tradicional, mas é necessário baixar, descompactar e executar o programa em cada máquina que será monitorada.</p>
+  <ol class="steps">
+    <li><strong>Confirme a versão e o escopo.</strong> Verifique se a instância oferece o módulo a partir da versão documentada (12.0.1) e se o colaborador utilizará a versão Desktop.</li>
+    <li><strong>Baixe o aplicativo.</strong> Use o endereço indicado no acervo oficial: <a href="https://files.atenderbem.com/omni-app-final.zip">files.atenderbem.com/omni-app-final.zip</a>. Como links de distribuição podem mudar, valide a origem com o suporte antes de implantar em massa.</li>
+    <li><strong>Descompacte o arquivo.</strong> Extraia o conteúdo para uma pasta permitida na máquina.</li>
+    <li><strong>Execute o aplicativo.</strong> Inicie o programa extraído para ativar a coleta.</li>
+    <li><strong>Autorize no firewall.</strong> Confirme a permissão solicitada pelo sistema operacional, de acordo com a política de segurança da empresa.</li>
+    <li><strong>Informe a instância.</strong> Preencha a identificação/endereço da instância solicitado pelo aplicativo, sem registrar credenciais em documentação ou chamados.</li>
+    <li><strong>Autentique o usuário.</strong> Entre no aplicativo com o usuário e a senha correspondentes. Não compartilhe contas entre colaboradores.</li>
+  </ol>
+
+  <h3>2.2 Habilitar e vincular o usuário</h3>
+  <ol class="steps">
+    <li><strong>Prepare as regras.</strong> Cadastre ou revise Aplicações, Regras de Matching e o Perfil de Scoring adequado à função.</li>
+    <li><strong>Abra o cadastro.</strong> Acesse as configurações individuais do Agente ou Supervisor.</li>
+    <li><strong>Ative a permissão.</strong> Na aba <strong>Permissões</strong>, habilite a opção <strong>Habilitar monitoramento de produtividade</strong>.</li>
+    <li><strong>Escolha o perfil.</strong> Na aba <strong>Monitoramento</strong>, vincule o Perfil de Scoring que representa o trabalho desse usuário.</li>
+    <li><strong>Defina automações de estado.</strong> Se necessário, associe fluxos aos estados Improdutivo, Atenção, Ausente, Ausente (Reproduzindo Mídia) e ao Relatório Diário.</li>
+    <li><strong>Valide a coleta.</strong> Com o Desktop aberto e autenticado, confirme no Painel de Agentes se o usuário e seu estado aparecem; depois use <strong>Atualizar</strong> nos relatórios para sincronizar os dados mais recentes.</li>
+  </ol>
+
+  <div class="callout tip">
+    <strong>Ordem recomendada:</strong> configure primeiro os critérios, depois vincule o perfil ao usuário. Ativar a coleta sem um perfil coerente pode produzir uma leitura tecnicamente válida, porém inadequada à função exercida.
+  </div>
+
+  <h2>3. Configuração de Aplicações</h2>
+  <p>A seção <strong>Aplicações</strong> lista executáveis identificados pelo monitoramento. O manual informa que uma Inteligência Artificial atribui inicialmente uma pré-definição de score e penalidades; todos esses valores são editáveis e devem ser revisados conforme as diretrizes da operação.</p>
+
+  <h3>3.1 Identificação e classificação</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo</th><th>Significado</th><th>Cuidados</th></tr></thead>
+      <tbody>
+        <tr><td>Nome</td><td>Nome do executável detectado no Desktop do agente.</td><td>Confirme se o processo corresponde de fato ao aplicativo esperado.</td></tr>
+        <tr><td>Publisher</td><td>Empresa responsável pela publicação do aplicativo.</td><td>Use como apoio de identificação, não como prova isolada de finalidade.</td></tr>
+        <tr><td>Classificação</td><td>Categoria geral: Produtivo, Neutro ou Improdutivo.</td><td>A mesma ferramenta pode ter usos diferentes por equipe.</td></tr>
+        <tr><td>Title Matching</td><td>Habilita regras de matching por título de janela para a aplicação.</td><td>Ative quando for necessário distinguir páginas, sistemas ou contextos no mesmo programa.</td></tr>
+        <tr><td>Marcar como suspeito</td><td>Sinaliza a aplicação para revisão e monitoramento.</td><td>Trate o marcador como triagem; ele não comprova uso indevido.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>3.2 Scores e estados da janela</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Configuração</th><th>Quando é aplicada</th><th>Exemplo de leitura</th></tr></thead>
+      <tbody>
+        <tr><td>Score em Foco</td><td>Quando o aplicativo ou site está aberto e sendo usado ativamente.</td><td>Valoriza a ferramenta principal da atividade.</td></tr>
+        <tr><td>Penalidade Visível</td><td>Quando está visível na tela, mas sem uso ativo.</td><td>Diferencia uma janela exposta de uma janela em foco.</td></tr>
+        <tr><td>Penalidade Minimizado</td><td>Quando permanece minimizado na barra de tarefas.</td><td>Registra o estado sem presumir interação ativa.</td></tr>
+        <tr><td>Penalidade Reproduzindo Mídia</td><td>Quando reproduz áudio ou vídeo, visível ou minimizado.</td><td>Permite tratar mídia conforme a finalidade definida no perfil.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Aplicações também podem disparar fluxos diferentes para os estados <strong>Em Foco</strong>, <strong>Visível</strong>, <strong>Minimizado</strong> e <strong>Reproduzindo Mídia</strong>. O <strong>Cooldown</strong>, em segundos, determina quanto o sistema aguardará antes de disparar novamente o mesmo fluxo.</p>
+
+  <h2>4. Regras de Matching</h2>
+  <p>As Regras de Matching definem quais sites ou contextos serão reconhecidos e como serão pontuados. Elas são especialmente úteis quando vários trabalhos acontecem dentro de um navegador ou de uma aplicação compartilhada.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo</th><th>Como configurar</th></tr></thead>
+      <tbody>
+        <tr><td>Nome</td><td>Use um nome claro que identifique o site, sistema ou finalidade da regra.</td></tr>
+        <tr><td>Tipo de Match</td><td>Escolha como o sistema comparará a aplicação ou o site com a regra.</td></tr>
+        <tr><td>Padrão</td><td>Informe os termos ou links considerados. Para vários valores, separe-os com barra vertical (<code>|</code>).</td></tr>
+        <tr><td>Alvo</td><td>Defina se a busca ocorrerá no título da aba/janela, no nome do processo ou em ambos.</td></tr>
+        <tr><td>Case Sensitive</td><td>Ative somente quando maiúsculas e minúsculas precisarem ser diferenciadas.</td></tr>
+        <tr><td>Prioridade</td><td>Controle a ordem de avaliação: regras de maior prioridade são verificadas primeiro.</td></tr>
+        <tr><td>Scores e automações</td><td>Defina score em foco, penalidades por estado, fluxos correspondentes e cooldown, com a mesma lógica usada em Aplicações.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>Evite regras amplas:</strong> um padrão genérico pode classificar contextos diferentes como se fossem iguais. Valide título, processo, diferenciação de maiúsculas/minúsculas e prioridade com cenários reais antes de usar os resultados na gestão.
+  </div>
+
+  <h2>5. Perfis de Scoring</h2>
+  <p>Um perfil reúne critérios adequados a um escopo de trabalho. O próprio manual sugere perfis distintos para áreas como Vendas, Suporte e Marketing, pois as ferramentas necessárias variam por função.</p>
+
+  <ol class="steps">
+    <li><strong>Crie um Novo Perfil.</strong> Informe um nome descritivo e, opcionalmente, uma descrição que explique o público e o objetivo.</li>
+    <li><strong>Abra Ver Scores.</strong> Use essa opção para escolher as regras que integrarão o perfil.</li>
+    <li><strong>Use Adicionar Score.</strong> Vincule uma Aplicação ou Regra de Matching já cadastrada.</li>
+    <li><strong>Defina o comportamento.</strong> Ajuste pontuações, penalidades e fluxos de automação para cada cenário de uso daquela ferramenta.</li>
+    <li><strong>Vincule aos usuários.</strong> Aplique o perfil na aba Monitoramento de cada Agente ou Supervisor correspondente.</li>
+    <li><strong>Faça uma calibração.</strong> Compare o resultado com tarefas, escala e contexto operacional; corrija classificações ou regras antes de ampliar o uso.</li>
+  </ol>
+
+  <h3>5.1 Checklist de desenho do perfil</h3>
+  <ul>
+    <li>O perfil corresponde à função real e não apenas ao departamento nominal?</li>
+    <li>Ferramentas de apoio, treinamento, comunicação e pesquisa foram classificadas com contexto?</li>
+    <li>Aplicações compartilhadas possuem matching suficiente para separar finalidades?</li>
+    <li>Prioridades resolvem sobreposições entre regras mais gerais e mais específicas?</li>
+    <li>Penalidades e automações foram testadas sem gerar alertas repetitivos?</li>
+    <li>Exceções previstas, como reuniões, mídia de treinamento e trabalho fora do Desktop, foram documentadas?</li>
+  </ul>
+
+  <h2>6. Score, faixas, ociosidade e mídia</h2>
+  <p>O sistema avalia a aplicação em foco em relação às aplicações em segundo plano. Quando mais de uma penalidade é detectada, elas <strong>não são cumulativas</strong>: somente a regra de maior impacto, isto é, a maior penalidade, é aplicada.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Faixa ou estado</th><th>Classificação</th><th>Interpretação operacional</th></tr></thead>
+      <tbody>
+        <tr><td>0 a 50</td><td>🔴 Improdutivo</td><td>O conjunto de regras vigente resultou em baixa pontuação. Revise aplicação, contexto e tarefa antes de concluir a causa.</td></tr>
+        <tr><td>51 a 70</td><td>🟡 Atenção</td><td>Faixa intermediária, associada no relatório a aplicações secundárias ou neutras.</td></tr>
+        <tr><td>71 a 100</td><td>🟢 Produtivo</td><td>Uso classificado como aderente às aplicações e atividades de alta relevância do perfil.</td></tr>
+        <tr><td>Cerca de 2 minutos sem mouse ou teclado</td><td>⚪ Ocioso / Ausente</td><td>Ausência de interação detectada; não significa necessariamente ausência de trabalho.</td></tr>
+        <tr><td>Mídia na tela principal sem interação</td><td>🔵 Mídia</td><td>Exceção à ociosidade quando há reprodução de áudio ou vídeo.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <strong>Duas divisões diferentes:</strong> a classificação operacional usa as faixas <strong>0–50</strong>, <strong>51–70</strong> e <strong>71–100</strong>. Já o gráfico <strong>Distribuição de Scores</strong> do relatório de equipe agrupa agentes em intervalos analíticos <strong>0–20, 20–40, 40–60, 60–80 e 80–100</strong>. Não trate os intervalos do gráfico como novos estados.
+  </div>
+
+  <p>No relatório de equipe, <strong>Agentes em Risco</strong> é a quantidade de membros com score médio <strong>abaixo de 40</strong> no período selecionado. Esse limiar é um indicador específico do painel e não altera a faixa geral “Improdutivo”, que vai de 0 a 50.</p>
+
+  <h2>7. Painel em tempo real e relatório da equipe</h2>
+
+  <h3>7.1 Painel de Produtividade no Painel de Agentes</h3>
+  <p>O Painel de Produtividade fica dentro do <strong>Painel de Agentes</strong> e mostra informações da equipe em tempo real. O estado de cada agente é calculado com as regras e o Perfil de Scoring previamente vinculados. Use-o para acompanhamento do momento atual; para tendências e comparação por período, consulte os relatórios.</p>
+
+  <h3>7.2 Produtividade - Equipe</h3>
+  <p>A visão consolidada permite comparar colaboradores, observar a distribuição de tempo e identificar os softwares mais usados. Há filtros de <strong>Período</strong>, como Este mês, Últimos 7 dias e personalizado, além do botão <strong>Atualizar</strong>.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Bloco</th><th>Conteúdo</th><th>Como usar</th></tr></thead>
+      <tbody>
+        <tr><td>KPIs gerais</td><td>Score Médio (0–100), Horas Produtivas, Tempo Logado, Agentes em Risco e Total de Agentes.</td><td>Faça a leitura inicial do período e valide se o universo de agentes está correto.</td></tr>
+        <tr><td>Composição de tempo</td><td>Percentuais em Produtivo, Atenção, Improdutivo, Ausente e Mídia.</td><td>Observe mudanças de composição entre períodos equivalentes.</td></tr>
+        <tr><td>Tendência diária</td><td>Evolução da média diária do score.</td><td>Localize quedas e picos para investigar contexto, escala, incidentes ou mudanças de perfil.</td></tr>
+        <tr><td>Distribuição de scores</td><td>Quantidade de agentes nas faixas 0–20, 20–40, 40–60, 60–80 e 80–100.</td><td>Avalie dispersão e consistência; não confunda com as três classificações operacionais.</td></tr>
+        <tr><td>Calendário de produtividade</td><td>Mapa de calor mensal com o score médio do time por dia.</td><td>Compare dias equivalentes e considere feriados, treinamentos e escalas.</td></tr>
+        <tr><td>Ranking de agentes</td><td>Agente, Score, percentuais por estado, Tempo Logado, Melhor Streak e Trocas Ctx.</td><td>Use como ponto de investigação, nunca como diagnóstico automático de desempenho.</td></tr>
+        <tr><td>Aplicativos mais utilizados</td><td>Aplicativo/Processo, Tempo Total, divisão por estado e Score Médio da Aplicação.</td><td>Encontre classificações incoerentes e necessidades de ajuste no perfil.</td></tr>
+        <tr><td>Tempo por agente</td><td>Barras horizontais 100% empilhadas com os cinco estados.</td><td>Compare proporções sem ignorar diferenças de jornada ou função.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>8. Relatório individual do agente</h2>
+  <p><strong>Produtividade - Agente</strong> detalha um colaborador por dia e permite investigar hábitos de foco, trocas de contexto e uso de ferramentas. Use o mesmo período e a mesma versão de perfil quando for comparar resultados.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Bloco</th><th>O que apresenta</th></tr></thead>
+      <tbody>
+        <tr><td>KPIs</td><td>Score Médio, percentuais em Produtivo/Atenção/Improdutivo/Ausente/Mídia, Tempo Logado, Melhor Streak e Trocas de Contexto.</td></tr>
+        <tr><td>Tendência e distribuição diária</td><td>Flutuação do score e colunas empilhadas com a proporção de tempo por data.</td></tr>
+        <tr><td>Calendário</td><td>Score diário mensal, com identificação automática do Melhor Dia e Pior Dia do período.</td></tr>
+        <tr><td>Métricas detalhadas</td><td>Streak Produtivo, Streak Improdutivo, Automações, Capturas, App Mais Produtivo e App Mais Improdutivo.</td></tr>
+        <tr><td>Aplicativos mais utilizados</td><td>Tempo total, horas por classificação, média diária de uso e score atribuído a cada aplicativo.</td></tr>
+        <tr><td>Detalhamento diário</td><td>Data, Score do Dia, tempos por estado, Total Logado, Streak Prod., Trocas Ctx., Mídia e Automações.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>8.1 Como interpretar streaks e trocas de contexto</h3>
+  <ul>
+    <li><strong>Melhor Streak:</strong> maior sequência ininterrupta classificada como trabalho produtivo.</li>
+    <li><strong>Streak Produtivo:</strong> recorde de minutos em foco contínuo, acompanhado da data de ocorrência.</li>
+    <li><strong>Streak Improdutivo:</strong> maior período contínuo classificado em atividades improdutivas, também com a data.</li>
+    <li><strong>Trocas de Contexto:</strong> quantidade ou média de alternâncias entre janelas e aplicações; pode indicar multitarefa, mas também um fluxo legítimo que exige consultar vários sistemas.</li>
+  </ul>
+
+  <div class="callout tip">
+    <strong>Leitura conjunta:</strong> um streak longo pode refletir concentração, mas não garante qualidade. Muitas trocas podem refletir dispersão ou simplesmente o processo normal de atender, consultar CRM, registrar uma tarefa e responder ao cliente. Cruze a métrica com o trabalho realizado.
+  </div>
+
+  <h2>9. Aplicativos, automações e capturas</h2>
+
+  <h3>9.1 Aplicativos nos relatórios</h3>
+  <p>A visão de equipe consolida o uso de cada aplicativo por todos os agentes; a visão individual mostra o uso pelo agente selecionado e sua média diária. O score exibido para uma aplicação depende das regras configuradas. Se uma ferramenta aparece no extremo produtivo ou improdutivo sem representar o trabalho real, revise Aplicações, Matching, prioridade e Perfil de Scoring.</p>
+
+  <h3>9.2 Automações vinculadas ao monitoramento</h3>
+  <p>Os fluxos podem ser associados tanto ao estado de uma aplicação/regra quanto ao estado geral do usuário. O módulo fornece variáveis exclusivas na aba <strong>Monitoramento</strong>:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Variável</th><th>Conteúdo documentado</th><th>Uso recomendado</th></tr></thead>
+      <tbody>
+        <tr><td><code>pm_trigger_reason</code></td><td>Motivo que disparou a automação.</td><td>Crie condições e caminhos diferentes em um único fluxo conforme a origem do gatilho.</td></tr>
+        <tr><td><code>pm_current_score</code></td><td>Score atual de produtividade do usuário.</td><td>Ramifique o fluxo por pontuação, preservando contexto e limites de repetição.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ol class="steps">
+    <li><strong>Defina o objetivo.</strong> Escolha uma ação útil e proporcional, como registrar um evento ou orientar revisão da configuração.</li>
+    <li><strong>Selecione o gatilho.</strong> Associe o fluxo a Em Foco, Visível, Minimizado ou Reproduzindo Mídia; ou aos estados gerais disponíveis no cadastro do usuário.</li>
+    <li><strong>Use variáveis de monitoramento.</strong> Avalie <code>pm_trigger_reason</code> e/ou <code>pm_current_score</code> em condições para evitar duplicar fluxos.</li>
+    <li><strong>Configure o Cooldown.</strong> Determine em segundos o intervalo até uma nova execução do mesmo fluxo.</li>
+    <li><strong>Teste cenários.</strong> Verifique foco, segundo plano, minimização, mídia, ausência e retomada antes de aplicar a toda a equipe.</li>
+    <li><strong>Acompanhe o resultado.</strong> Consulte os contadores de Automações nos relatórios e ajuste regras que estejam disparando em excesso.</li>
+  </ol>
+
+  <h3>9.3 Capturas de tela e gravação de vídeo</h3>
+  <p>O editor de automações do módulo inclui elementos de <strong>captura de tela</strong> e <strong>gravação de vídeo</strong>, capazes de registrar visualmente a atividade no momento da execução do fluxo. O relatório individual apresenta o total de <strong>Capturas</strong> no período.</p>
+
+  <div class="callout warn">
+    <strong>Privacidade e segurança:</strong> capture apenas quando houver finalidade definida, base organizacional apropriada, comunicação transparente e controle de acesso. Limite retenção e consulta, evite registrar dados pessoais ou credenciais e nunca compartilhe imagens do colaborador em canais abertos. O contador de capturas não informa, sozinho, conteúdo, motivo ou legitimidade.
+  </div>
+
+  <h2>10. Relação entre Produtividade e Tarefas</h2>
+  <p>Os dois módulos observam dimensões diferentes. O monitoramento classifica sinais do uso do Desktop; Tarefas registra o compromisso operacional e o tempo apontado pelo agente. Uma análise responsável cruza essas dimensões sem esperar igualdade entre elas.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Dimensão</th><th>Monitoramento de Produtividade</th><th>Tarefas</th></tr></thead>
+      <tbody>
+        <tr><td>Origem</td><td>Sinais coletados automaticamente no aplicativo Desktop.</td><td>Cadastro manual, CRM ou automação.</td></tr>
+        <tr><td>Unidade principal</td><td>Score, estado, duração em aplicativos, streaks e trocas de contexto.</td><td>Tarefa, responsável, prazo, progresso, checklist e tempo de execução.</td></tr>
+        <tr><td>Tempo</td><td>Tempo logado e tempo distribuído por estado conforme as regras.</td><td>Tempo apontado no cronômetro após o agente iniciar a tarefa.</td></tr>
+        <tr><td>Contexto</td><td>Inferido por aplicação/processo/título e pelo perfil associado.</td><td>Declarado no título, descrição, contato, CRM, etiquetas e checklist.</td></tr>
+        <tr><td>Automação</td><td>Gatilhos por estado, aplicação/regra, score e relatório diário.</td><td>Criação, conclusão, exclusão de pendências, vencimento e ação personalizada.</td></tr>
+        <tr><td>Uso gerencial</td><td>Identificar padrões e calibrar critérios de uso do Desktop.</td><td>Acompanhar demanda, prazos, execução, capacidade e conclusão.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>10.1 Rotina de apontamento em Tarefas</h3>
+  <ol class="steps">
+    <li><strong>Abra a tarefa correta.</strong> Confirme título, responsável, prazo e vínculo com contato ou oportunidade.</li>
+    <li><strong>Inicie no Play / Iniciar Tarefa.</strong> O cronômetro passa a registrar o tempo dedicado à atividade.</li>
+    <li><strong>Mantenha uma tarefa por vez.</strong> Ao iniciar outra, a anterior é interrompida automaticamente.</li>
+    <li><strong>Pause ou interrompa quando necessário.</strong> Nesse momento, atualize manualmente o percentual de progresso se for pertinente.</li>
+    <li><strong>Finalize.</strong> Use Concluir para encerrar ou Concluir e Criar Nova para registrar o próximo passo.</li>
+  </ol>
+
+  <h3>10.2 Como conciliar os dados</h3>
+  <ol class="steps">
+    <li><strong>Alinhe o período.</strong> Compare o mesmo intervalo no relatório de produtividade e em Painel e Indicadores › Tarefas.</li>
+    <li><strong>Valide a jornada.</strong> Confira Tempo Logado e o tempo total apontado; eles podem divergir porque nem todo tempo logado pertence a uma tarefa cronometrada.</li>
+    <li><strong>Leia o contexto.</strong> Use títulos, etiquetas, CRM e checklist para explicar quais aplicações eram necessárias à execução.</li>
+    <li><strong>Revise divergências.</strong> Se uma tarefa legítima coincide com score baixo, investigue perfil, matching, aplicação e prioridade antes de avaliar o agente.</li>
+    <li><strong>Compare resultado e processo.</strong> Observe tarefas criadas, concluídas, pendentes, tempo médio e conclusão no prazo junto com score e composição de tempo.</li>
+    <li><strong>Corrija a causa certa.</strong> Ajuste regra quando a classificação estiver errada; oriente o uso do cronômetro quando faltar apontamento; trate impedimentos de processo quando ambos estiverem corretos.</li>
+  </ol>
+
+  <div class="callout info">
+    <strong>Não há equivalência automática:</strong> “Horas Produtivas” e “Tempo Total de Execução” das tarefas usam fontes e lógicas diferentes. Uma tarefa pode exigir reunião, leitura, telefonia ou espera; e o Desktop pode classificar atividade produtiva sem que uma tarefa esteja com o cronômetro iniciado.
+  </div>
+
+  <p>Para detalhes de criação, delegação, CRM, vencimento, ações personalizadas e indicadores, consulte o <a href="tarefas.html">guia de Tarefas</a>.</p>
+
+  <h2>11. Interpretação ética e governança</h2>
+  <p>O monitoramento deve apoiar melhoria de processo, dimensionamento e diagnóstico de ferramentas — não vigilância indiscriminada. Uma política clara reduz falsos diagnósticos e protege colaboradores, clientes e a própria organização.</p>
+
+  <h3>11.1 Princípios mínimos</h3>
+  <ul>
+    <li><strong>Finalidade:</strong> declare por que os dados são coletados e quais decisões podem apoiar.</li>
+    <li><strong>Transparência:</strong> informe sinais coletados, estados, critérios, automações, capturas, retenção e responsáveis pelo acesso.</li>
+    <li><strong>Proporcionalidade:</strong> colete e retenha apenas o necessário; reserve captura e vídeo para situações justificadas.</li>
+    <li><strong>Contexto:</strong> compare funções, jornadas e períodos equivalentes; considere reuniões, treinamento, acessibilidade, trabalho offline e incidentes.</li>
+    <li><strong>Contestação:</strong> ofereça um processo para o colaborador explicar contexto e solicitar revisão de classificação ou dado.</li>
+    <li><strong>Segurança:</strong> restrinja acesso aos relatórios e registros visuais, audite consultas e descarte dados conforme a política definida.</li>
+    <li><strong>Revisão humana:</strong> não aplique medida disciplinar ou avaliação de desempenho somente com score, ranking, ociosidade ou captura.</li>
+  </ul>
+
+  <h3>11.2 Perguntas antes de agir sobre um indicador</h3>
+  <ol class="steps">
+    <li>O Desktop estava aberto, autenticado e coletando durante todo o período?</li>
+    <li>O Perfil de Scoring era o correto para a função e estava atualizado?</li>
+    <li>A aplicação ou regra foi classificada de forma coerente com a tarefa executada?</li>
+    <li>Havia reunião, mídia de treinamento, atendimento por telefone, trabalho offline ou pausa legítima?</li>
+    <li>O cronômetro da tarefa foi usado de forma consistente?</li>
+    <li>O padrão se repete em períodos comparáveis ou é um evento isolado?</li>
+    <li>O colaborador teve oportunidade de contextualizar o dado?</li>
+  </ol>
+
+  <h2>12. Troubleshooting</h2>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Sintoma</th><th>Verificações</th><th>Ação segura</th></tr></thead>
+      <tbody>
+        <tr><td>Usuário não aparece no painel</td><td>Versão Desktop; aplicativo executado; firewall autorizado; instância correta; login individual; permissão “Habilitar monitoramento de produtividade”.</td><td>Corrija o requisito ausente, reautentique e valide novamente no Painel de Agentes.</td></tr>
+        <tr><td>Usuário aparece, mas sem classificação coerente</td><td>Perfil vinculado; regras adicionadas em Ver Scores; aplicações detectadas; matching e prioridade.</td><td>Teste uma aplicação conhecida e revise o perfil antes de usar os dados.</td></tr>
+        <tr><td>Site dentro do navegador recebe score inesperado</td><td>Title Matching ativado; padrão; alvo; Case Sensitive; regras sobrepostas.</td><td>Torne o padrão mais específico e posicione a regra correta com prioridade maior.</td></tr>
+        <tr><td>Aplicativo desconhecido ou marcado como suspeito</td><td>Nome do executável, Publisher, usuário afetado e finalidade operacional.</td><td>Faça triagem com TI e com o usuário; não conclua uso indevido apenas pelo rótulo.</td></tr>
+        <tr><td>Estado Ocioso/Ausente inesperado</td><td>Houve cerca de 2 minutos sem mouse/teclado? A atividade ocorria fora do computador? Havia mídia na tela principal?</td><td>Registre o contexto e avalie tendências; não “corrija” a regra de ociosidade sem evidência na fonte.</td></tr>
+        <tr><td>Mídia não aparece como esperado</td><td>Reprodução efetiva de áudio/vídeo, tela principal e configuração da aplicação/regra.</td><td>Repita um teste controlado e revise a penalidade e o gatilho de mídia.</td></tr>
+        <tr><td>Score cai mais do que o esperado</td><td>Qual regra de maior penalidade foi aplicada; aplicação em foco e aplicações em segundo plano.</td><td>Lembre que penalidades não se somam; identifique a regra de maior impacto e ajuste-a se estiver incorreta.</td></tr>
+        <tr><td>Automação dispara repetidamente</td><td>Cooldown, gatilho, condições com <code>pm_trigger_reason</code> e <code>pm_current_score</code>.</td><td>Aumente o intervalo quando apropriado e restrinja as condições; teste antes de republicar.</td></tr>
+        <tr><td>Automação não dispara</td><td>Fluxo associado ao estado correto, regra/perfil aplicado, condição satisfeita e Desktop coletando.</td><td>Teste cada gatilho separadamente e confirme o registro em Automações no relatório.</td></tr>
+        <tr><td>Capturas não aparecem no total</td><td>Elemento de captura presente no fluxo e fluxo efetivamente executado no período filtrado.</td><td>Valide primeiro a execução da automação; mantenha requisitos de privacidade e acesso.</td></tr>
+        <tr><td>Relatório parece desatualizado</td><td>Período selecionado, agente/equipe correta e coleta ativa.</td><td>Clique em Atualizar e revalide os filtros.</td></tr>
+        <tr><td>Horas Produtivas diferem do cronômetro de Tarefas</td><td>Fonte de cada métrica, tarefa iniciada no Play, interrupções automáticas ao começar outra tarefa e tempo logado sem tarefa.</td><td>Não force conciliação 1:1; corrija apontamentos ausentes ou classificações equivocadas conforme a causa.</td></tr>
+        <tr><td>Resultados mudaram após ajuste de perfil</td><td>Regras, scores, penalidades, prioridades e usuários vinculados.</td><td>Documente a data da mudança e evite comparar períodos com critérios diferentes sem ressalva.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>Ao abrir um chamado:</strong> informe versão, tela, período, perfil, regra/aplicação e comportamento observado. Remova dados pessoais e não envie senhas, tokens, conteúdo de captura ou gravações sem necessidade e autorização.
+  </div>
+
+  <h2>13. Checklist de implantação e revisão</h2>
+  <ol class="steps">
+    <li>Confirmar versão compatível, uso do Desktop e política de monitoramento aprovada.</li>
+    <li>Instalar o pacote portátil em ambiente controlado, autorizar firewall e autenticar uma conta de teste.</li>
+    <li>Revisar Aplicações detectadas e não aceitar automaticamente as pré-definições de IA.</li>
+    <li>Criar Regras de Matching específicas e validar prioridade, alvo e Case Sensitive.</li>
+    <li>Criar perfis por função e vincular somente aos usuários correspondentes.</li>
+    <li>Testar foco, visível, minimizado, mídia, ausência, retomada e penalidade de maior impacto.</li>
+    <li>Testar automações e cooldown; validar as variáveis e o registro de execuções.</li>
+    <li>Se usar captura ou vídeo, aprovar finalidade, acesso, retenção e comunicação antes de ativar.</li>
+    <li>Comparar o painel em tempo real com os relatórios de equipe e agente usando o mesmo período.</li>
+    <li>Cruzar produtividade com Tarefas, resultados e contexto; corrigir regra, apontamento ou processo conforme a causa.</li>
+    <li>Registrar mudanças de perfil e revisar periodicamente ferramentas, exceções e falsos positivos.</li>
+  </ol>
+
+  <div class="pagenav">
+    <a href="tarefas.html"><span>← Anterior</span> Tarefas (My tasks)</a>
+    <a class="next" href="relatorios.html"><span>Próximo →</span> Relatórios</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
+</footer>
+
+</body>
+</html>

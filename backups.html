@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backups — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="crm.html">CRM</a>
+    <a href="tickets.html">Tickets</a>
+    <a href="pabx.html">PABX &amp; Telefonia</a>
+    <a href="contatos.html">Contatos</a>
+    <a href="relatorios.html">Relatórios</a>
+    <a href="configuracoes.html">Configurações</a>
+    <a href="backups.html" class="active">Backups</a>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › Backups</div>
+
+  <h1>Gerenciador e Automatizador de Backups</h1>
+  <p class="subtitle">Guia operacional para proteger, consultar, validar e, quando suportado, restaurar históricos de atendimento.</p>
+
+  <div class="callout warn">
+    <strong>Antes de começar:</strong> o acervo descreve duas experiências com nomes próximos, mas recursos e fluxos diferentes. Este capítulo as mantém separadas. Confirme com o suporte qual aplicativo e versão estão homologados para a sua instância; não presuma que arquivos, configurações ou funções sejam intercambiáveis.
+  </div>
+
+  <h2>1. Escopo e diferenças entre as soluções</h2>
+  <p>Os dois aplicativos salvam localmente dados de atendimentos da plataforma, porém os manuais atribuem objetivos e operações diferentes a cada um.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Aspecto</th><th>Automatizador / Backup Manager</th><th>Gerenciador de Backup</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Fonte documental</strong></td>
+          <td>“Manual Automatizador de backups”, identificado internamente como Backup Manager e atualizado em 27/01/2025.</td>
+          <td>“Manual de Uso. Gerenciador de Backups”, sem data de revisão informada no texto extraído.</td>
+        </tr>
+        <tr>
+          <td><strong>Finalidade descrita</strong></td>
+          <td>Antecipar ou acompanhar a proteção de atendimentos sujeitos à limpeza automática por limite da instância.</td>
+          <td>Baixar o histórico disponível para consulta local e permitir a restauração de conversas para a plataforma.</td>
+        </tr>
+        <tr>
+          <td><strong>Escopo de captura</strong></td>
+          <td>Atendimentos encerrados no dia anterior e/ou atendimentos que serão excluídos durante a limpeza automática.</td>
+          <td>Backup completo, backup por período ou backup recorrente agendado.</td>
+        </tr>
+        <tr>
+          <td><strong>Armazenamento</strong></td>
+          <td>Pasta escolhida pelo usuário; sem escolha, o manual informa que é usada a pasta do programa.</td>
+          <td>Pasta de download escolhida pelo usuário, em formato SQLite ou JSON.</td>
+        </tr>
+        <tr>
+          <td><strong>Consulta e exportação</strong></td>
+          <td>Lista dos atendimentos baixados, visualização da conversa, CSV da lista e download de cópia com chat, imagens, documentos e PDF da conversa.</td>
+          <td>Dashboard, alternância entre SQLite e JSON, busca por ID/nome/telefone, filtro por data e visualização offline do transcript.</td>
+        </tr>
+        <tr>
+          <td><strong>Restauração</strong></td>
+          <td>Não é descrita no manual de 2025.</td>
+          <td>Restaura atendimentos selecionados como novos registros na plataforma, com novos IDs.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <strong>Limite de escopo:</strong> estes backups tratam do histórico de atendimentos descrito nos manuais. As fontes não afirmam que eles sejam uma cópia integral da instância, de usuários, filas, automações, CRM, configurações ou bancos de telefonia. Não os trate como recuperação completa de desastre sem confirmação formal do fornecedor.
+  </div>
+
+  <h3>O que a limpeza automática significa neste contexto</h3>
+  <p>O manual do Automatizador informa que a plataforma pode executar uma limpeza técnica quando a instância excede seu limite. O aplicativo pode guardar os atendimentos encerrados no dia anterior de forma antecipada e/ou capturar os atendimentos associados à limpeza. O manual não documenta o cálculo do limite, o prazo de exclusão nem uma garantia de recuperação de itens já removidos.</p>
+
+  <h2>2. Pré-requisitos, instalação e acesso</h2>
+
+  <h3>2.1 Pré-requisitos operacionais</h3>
+  <ul>
+    <li>Computador Windows autorizado para executar o aplicativo e permanecer ativo nos horários necessários.</li>
+    <li>Link da instância e chave global de API válidos.</li>
+    <li>Pasta local com espaço suficiente e permissão de leitura e gravação para o usuário do aplicativo.</li>
+    <li>Conexão estável com a plataforma durante download ou restauração.</li>
+    <li>Responsável autorizado para custodiar a API, os arquivos e eventuais restaurações.</li>
+  </ul>
+
+  <div class="callout warn">
+    <strong>Chave global de API:</strong> ela autoriza operações sobre dados da instância; no Gerenciador, o manual declara que permite leitura e gravação. Trate-a como segredo. Não a inclua em chamados, capturas, scripts, nomes de arquivo ou neste manual. Se houver suspeita de exposição, revogue ou substitua a chave na plataforma e atualize a configuração do aplicativo.
+  </div>
+
+  <h3>2.2 Instalação do Automatizador / Backup Manager</h3>
+  <ol class="steps">
+    <li>Obtenha o instalador somente pelo canal oficial ou pelo suporte responsável. O link aparece como marcador no documento de origem e, por isso, não é reproduzido aqui.</li>
+    <li>Valide a procedência do arquivo e a identidade do publicador antes de executar. Se o Windows exibir um alerta, não o ignore automaticamente.</li>
+    <li>Execute o instalador e siga o fluxo padrão até <strong>Instalar</strong>; aguarde a conclusão.</li>
+    <li>Abra o aplicativo e faça a configuração inicial antes de deixá-lo operando em segundo plano.</li>
+  </ol>
+
+  <div class="callout info">
+    <strong>Atualizações:</strong> o manual informa que o Backup Manager verifica atualizações ao iniciar. Quando houver uma, use <strong>Atualizar</strong>. Para o instalador prosseguir, encerre primeiro o aplicativo pelo ícone na bandeja do Windows e siga as instruções exibidas.
+  </div>
+
+  <h3>2.3 Dados de conexão</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Aplicativo</th><th>Campo</th><th>Como preencher com segurança</th></tr></thead>
+      <tbody>
+        <tr><td>Automatizador</td><td>Nome da instância</td><td>Use o identificador da sua instância conforme o endereço de acesso. O manual antigo solicita o nome, não necessariamente a URL completa.</td></tr>
+        <tr><td>Automatizador</td><td>Chave de acesso API</td><td>O manual orienta obtê-la em <strong>Configurações › Geral</strong>, pela ação de copiar a chave global de API.</td></tr>
+        <tr><td>Gerenciador</td><td>Link da Instância</td><td>Informe a URL completa da plataforma de atendimento, usando exclusivamente o endereço oficial da organização.</td></tr>
+        <tr><td>Gerenciador</td><td>API Key Global</td><td>Cole a chave fornecida pela administração da plataforma.</td></tr>
+        <tr><td>Gerenciador</td><td>Dados de contato</td><td>E-mail e telefone são opcionais segundo o manual; preencha apenas se houver finalidade e política de privacidade definidas.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>3. Configuração do Automatizador / Backup Manager</h2>
+  <p>Após autenticar, o Automatizador apresenta uma tela de preferências. As duas opções de escopo podem ser usadas conforme a necessidade documentada:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Preferência</th><th>Quando usar</th><th>Efeito descrito</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Atendimentos encerrados no dia anterior</strong></td><td>Rotina preventiva diária.</td><td>Guarda localmente os atendimentos antes do backup associado à limpeza automática.</td></tr>
+        <tr><td><strong>Atendimentos que serão excluídos na limpeza</strong></td><td>Proteção vinculada ao mecanismo de limpeza técnica.</td><td>Realiza o backup quando o limite da instância é excedido e a limpeza começa.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ol class="steps">
+    <li>Autentique com o nome da instância e a chave global de API.</li>
+    <li>Selecione uma ou as duas preferências de escopo, conforme a política da operação.</li>
+    <li>Escolha explicitamente uma pasta segura para os arquivos.</li>
+    <li>Salve a configuração e mantenha o aplicativo em execução em segundo plano.</li>
+    <li>Abra a tela de atendimentos após a primeira execução e confirme que a lista recebeu registros.</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>Evite o destino padrão:</strong> embora o manual permita usar a pasta do programa quando nenhum destino é definido, uma pasta dedicada facilita controle de acesso, monitoramento de espaço, cópia externa e retenção. A documentação não garante que arquivos na pasta do programa sobrevivam a desinstalações, limpezas ou reinstalações.
+  </div>
+
+  <h3>Alterar preferências</h3>
+  <p>Use a <strong>engrenagem</strong> no canto superior direito do Backup Manager para retornar às configurações. Registre a alteração em seu controle operacional e valide a próxima execução; o manual não descreve versionamento nem histórico de mudanças da configuração.</p>
+
+  <h2>4. Configuração do Gerenciador de Backup</h2>
+
+  <h3>4.1 Formato e pasta de download</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Escolha</th><th>Indicação do manual</th><th>Ponto de atenção</th></tr></thead>
+      <tbody>
+        <tr><td><strong>SQLite</strong></td><td>Recomendado para grandes volumes e consultas rápidas dentro do aplicativo.</td><td>Preserve o arquivo como unidade; cópias incompletas ou concorrentes podem comprometer a consulta. O manual não descreve reparo do banco.</td></tr>
+        <tr><td><strong>JSON</strong></td><td>Formato estruturado para importação em outros sistemas.</td><td>Valide o consumidor externo antes de depender da integração; a fonte não publica um esquema de campos ou garantia de compatibilidade.</td></tr>
+        <tr><td><strong>Pasta de Download</strong></td><td>Destino de todos os backups; selecionado por <strong>Escolher</strong>.</td><td>Use pasta dedicada, protegida e com capacidade monitorada.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ol class="steps">
+    <li>Na primeira abertura, informe o <strong>Link da Instância</strong> e a <strong>API Key Global</strong>.</li>
+    <li>Preencha os dados de contato somente se aplicáveis.</li>
+    <li>Escolha <strong>SQLite</strong> ou <strong>JSON</strong> conforme o uso pretendido.</li>
+    <li>Clique em <strong>Escolher</strong> e defina a pasta de download.</li>
+    <li>Clique em <strong>Salvar</strong>.</li>
+  </ol>
+
+  <h3>4.2 Backup completo</h3>
+  <ol class="steps">
+    <li>Na tela inicial, clique no botão laranja <strong>Backup Completo</strong>.</li>
+    <li>Leia o aviso de confirmação.</li>
+    <li>Clique em <strong>Continuar Backup</strong>.</li>
+    <li>Mantenha o computador ligado e o aplicativo aberto até a conclusão.</li>
+  </ol>
+  <p>A primeira carga pode ser demorada porque percorre todo o histórico disponível, do atendimento mais antigo ao mais recente. “Todo” significa o conteúdo ainda disponível à aplicação na instância; a fonte não promete recuperar dados anteriormente excluídos.</p>
+
+  <h3>4.3 Backup por período</h3>
+  <ol class="steps">
+    <li>Na tela inicial, clique em <strong>Backup por Período</strong>.</li>
+    <li>Selecione a <strong>Data Inicial</strong> e a <strong>Data Final</strong>.</li>
+    <li>Clique em <strong>Iniciar Backup</strong>.</li>
+    <li>Ao concluir, filtre o mesmo intervalo no Dashboard e valide os resultados.</li>
+  </ol>
+  <div class="callout tip">
+    <strong>Faixa documentada:</strong> o período mínimo é de 1 dia. Para desempenho e prevenção de travamentos, o manual recomenda processar no máximo 90 dias por vez. Divida intervalos maiores em lotes consecutivos e registre quais lotes já foram concluídos.
+  </div>
+
+  <h2>5. Agenda e execução recorrente</h2>
+  <p>O agendamento explícito pertence ao <strong>Gerenciador de Backup</strong>. No Automatizador, a documentação apenas informa que o aplicativo permanece em segundo plano e executa as preferências configuradas; ela não apresenta dias, horários ou uma tela de agenda.</p>
+
+  <h3>5.1 Configurar o agendamento no Gerenciador</h3>
+  <ol class="steps">
+    <li>Acesse <strong>Configurações</strong>.</li>
+    <li>Localize <strong>Agendamento de Backup</strong>.</li>
+    <li>Marque os dias da semana desejados.</li>
+    <li>Defina um horário para cada dia.</li>
+    <li>Clique em <strong>Salvar</strong>.</li>
+    <li>Após o primeiro horário programado, confirme a data do último backup e consulte registros no Dashboard.</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>Condição obrigatória:</strong> no horário agendado, o computador deve estar ligado, sem suspensão ou hibernação, e o Gerenciador deve permanecer aberto, ainda que minimizado. Um agendamento salvo não é prova de execução.
+  </div>
+
+  <h3>5.2 Plano de agenda sugerido para a operação</h3>
+  <p>As frequências abaixo são um modelo de governança, não opções automáticas prometidas pelos manuais. Ajuste-as ao volume, à criticidade e às regras internas.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Rotina</th><th>Objetivo</th><th>Evidência a registrar</th></tr></thead>
+      <tbody>
+        <tr><td>Recorrente</td><td>Capturar novos atendimentos em dias e horários previsíveis.</td><td>Data/hora da última execução, intervalo coberto e quantidade apresentada.</td></tr>
+        <tr><td>Periódica de conferência</td><td>Reprocessar um período curto quando houver lacuna ou falha.</td><td>Datas inicial/final e resultado da validação.</td></tr>
+        <tr><td>Completa inicial ou controlada</td><td>Formar uma linha de base do histórico disponível.</td><td>Data, duração, formato, destino e totais observados.</td></tr>
+        <tr><td>Teste de restauração</td><td>Demonstrar que o conteúdo pode voltar à plataforma.</td><td>ID local, novo ID criado, aprovação e resultado funcional.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>6. Destino, capacidade e retenção</h2>
+
+  <div class="callout info">
+    <strong>O que não está nas fontes:</strong> os manuais não documentam exclusão automática, rotação, compressão, criptografia, cópia para nuvem, replicação, prazo de retenção nem limite de tamanho. Portanto, configure esses controles fora do aplicativo somente sob uma política aprovada e sem alterar arquivos em uso.
+  </div>
+
+  <h3>6.1 Seleção do destino</h3>
+  <ul>
+    <li>Prefira uma pasta exclusiva para backup, fora de diretórios temporários e fora da pasta do programa.</li>
+    <li>Restrinja o acesso à conta operacional e aos responsáveis autorizados.</li>
+    <li>Monitore o espaço livre e considere o crescimento de conversas, imagens e documentos.</li>
+    <li>Se houver cópia secundária, valide que ela inclui todos os arquivos necessários e que respeita a legislação e a política de dados da organização.</li>
+    <li>Não use uma sincronização externa como substituto da validação do backup local.</li>
+  </ul>
+
+  <h3>6.2 Matriz de retenção a ser definida pela organização</h3>
+  <p>Registre a decisão em formato semelhante ao modelo abaixo. Os valores são marcadores e devem ser aprovados pelo responsável jurídico, de segurança e pelo dono do processo.</p>
+  <pre><code>Conjunto: histórico de atendimentos
+Responsável: [função autorizada]
+Formato: [SQLite ou JSON / exportação do Automatizador]
+Destino primário: [pasta corporativa aprovada]
+Cópia secundária: [local aprovado ou não aplicável]
+Retenção: [prazo aprovado]
+Base legal/finalidade: [referência interna]
+Revisão de acesso: [periodicidade]
+Teste de restauração: [periodicidade]
+Descarte: [método aprovado e evidência]</code></pre>
+
+  <h3>6.3 Antes de mover, arquivar ou excluir</h3>
+  <ol class="steps">
+    <li>Encerre ou pause o aplicativo para evitar copiar um arquivo ainda em gravação.</li>
+    <li>Registre o período e o formato do conjunto.</li>
+    <li>Crie a cópia no destino aprovado.</li>
+    <li>Valide a abertura e uma amostra de atendimentos na cópia.</li>
+    <li>Somente descarte a origem se a política autorizar e se a cópia estiver validada.</li>
+  </ol>
+  <div class="callout warn">
+    <strong>Não deduza compatibilidade:</strong> não converta SQLite em JSON, não edite IDs e não reorganize internamente os arquivos esperando que o aplicativo os reconheça. Os manuais não documentam migração entre formatos nem importação de conjuntos alterados.
+  </div>
+
+  <h2>7. Consulta, exportação e validação</h2>
+
+  <h3>7.1 No Automatizador</h3>
+  <ul>
+    <li><strong>Baixar CSV:</strong> gera uma lista de atendimentos para uso em planilhas.</li>
+    <li><strong>Download do arquivo:</strong> salva uma cópia com arquivos do atendimento — chat, imagens e documentos — e gera um PDF da conversa.</li>
+    <li><strong>Visualizar atendimento:</strong> abre a conversa para consulta.</li>
+  </ul>
+
+  <h3>7.2 No Gerenciador</h3>
+  <ul>
+    <li>Alterne a <strong>Fonte de Dados</strong> entre SQLite e JSON, quando houver dados nesses formatos.</li>
+    <li>Pesquise por ID do atendimento, nome do cliente ou número de telefone.</li>
+    <li>Use o filtro de data para isolar o intervalo desejado.</li>
+    <li>Consulte os cards de total de downloads, resultados encontrados e data do último backup.</li>
+    <li>Na coluna de ação, clique em <strong>Ver</strong> para ler offline datas, mensagens e a informação de quem encerrou o chat.</li>
+  </ul>
+
+  <h3>7.3 Checklist de validação</h3>
+  <ol class="steps">
+    <li><strong>Execução:</strong> confirme se a aplicação indicou conclusão sem erro e registre data/hora.</li>
+    <li><strong>Atualidade:</strong> confira o card ou indicador de último backup; compare com a agenda prevista.</li>
+    <li><strong>Cobertura:</strong> filtre o período processado e verifique se existem registros nas datas inicial e final esperadas.</li>
+    <li><strong>Conteúdo:</strong> abra uma amostra de conversas antigas e recentes; confira mensagens, datas e encerramento.</li>
+    <li><strong>Anexos:</strong> quando usar a exportação do Automatizador, abra amostras de imagens e documentos e confira o PDF gerado.</li>
+    <li><strong>Pesquisa:</strong> localize ao menos um atendimento conhecido por ID e, quando aplicável, nome ou telefone.</li>
+    <li><strong>Recuperação:</strong> em ambiente e janela aprovados, execute um teste controlado de restauração pelo Gerenciador e registre o novo ID.</li>
+  </ol>
+
+  <div class="callout tip">
+    <strong>Validação não é só contagem:</strong> um total preenchido prova que houve registros, mas não confirma legibilidade, anexos, intervalo completo ou possibilidade de restauração. Mantenha evidências de amostragem sem expor dados pessoais desnecessários.
+  </div>
+
+  <h2>8. Restauração pelo Gerenciador</h2>
+  <p>A restauração descrita nas fontes existe no <strong>Gerenciador de Backup</strong>. Ela envia uma cópia da conversa local para a plataforma online. O manual do Automatizador não documenta essa função.</p>
+
+  <div class="callout warn">
+    <strong>Ação com escrita na plataforma:</strong> restaure somente com autorização, janela de mudança e escopo conhecido. Uma restauração cria dados na instância e pode afetar relatórios, auditorias, integrações ou pesquisas por atendimento. Se possível, valide primeiro em ambiente de teste homologado.
+  </div>
+
+  <h3>8.1 Procedimento</h3>
+  <ol class="steps">
+    <li>Na lista do Gerenciador, pesquise e visualize offline cada conversa a recuperar.</li>
+    <li>Confirme que o atendimento, o conteúdo e o período correspondem à solicitação aprovada.</li>
+    <li>Marque o <em>checkbox</em> ao lado de cada chat autorizado.</li>
+    <li>Clique no botão roxo <strong>Restaurar Selecionados</strong>.</li>
+    <li>Revise o conjunto apresentado e confirme na janela de aviso.</li>
+    <li>Aguarde a mensagem de <strong>Sucesso</strong>; não repita a operação enquanto o resultado estiver indefinido.</li>
+    <li>Na plataforma online, localize o novo registro, valide o conteúdo e registre a relação entre o ID original e o novo ID.</li>
+  </ol>
+
+  <h3>8.2 Regra crítica dos IDs</h3>
+  <p>O atendimento restaurado recebe um <strong>novo ID</strong> na plataforma. O ID original permanece inalterado no backup local. Portanto, a restauração não “ressuscita” o mesmo registro: ela cria uma nova cópia online com o conteúdo preservado.</p>
+  <pre><code>ID no backup local: [ID_ORIGINAL]  →  ID após restauração: [NOVO_ID]
+Solicitação/aprovação: [REFERÊNCIA_INTERNA]
+Data e responsável: [REGISTRO_DE_AUDITORIA]
+Resultado da conferência: [VALIDADO / REQUER ANÁLISE]</code></pre>
+
+  <div class="callout info">
+    <strong>Evite duplicidade:</strong> antes de repetir uma restauração após demora ou erro visual, procure o atendimento na plataforma e consulte o registro operacional. A fonte não descreve deduplicação nem reversão automática de restaurações repetidas.
+  </div>
+
+  <h2>9. Segurança e governança</h2>
+
+  <h3>9.1 Princípios mínimos</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Controle</th><th>Aplicação prática</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Menor privilégio</strong></td><td>Limite o acesso ao computador, aplicativo, pasta e API às funções autorizadas. Como a fonte exige chave global, compense o privilégio elevado com custódia, rotação e auditoria.</td></tr>
+        <tr><td><strong>Confidencialidade</strong></td><td>Backups podem conter mensagens, nomes, telefones, imagens e documentos. Use armazenamento corporativo aprovado, controle de acesso e proteção do dispositivo.</td></tr>
+        <tr><td><strong>Integridade</strong></td><td>Não edite arquivos de backup manualmente. Faça cópias somente com o aplicativo parado e valide a abertura depois.</td></tr>
+        <tr><td><strong>Disponibilidade</strong></td><td>Monitore espaço, energia, suspensão do Windows, conectividade e execução do aplicativo.</td></tr>
+        <tr><td><strong>Rastreabilidade</strong></td><td>Registre configurações, execuções, falhas, exportações, acessos e restaurações, incluindo a relação entre IDs.</td></tr>
+        <tr><td><strong>Retenção e descarte</strong></td><td>Defina prazo e descarte conforme finalidade, contratos e requisitos legais; os aplicativos não fornecem essa política no material consultado.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>9.2 Cuidados com instalação, atualização e desinstalação</h3>
+  <ul>
+    <li>Baixe instaladores apenas de canal oficial; valide procedência antes de usar a opção de execução quando o Windows alertar.</li>
+    <li>Antes de atualizar ou desinstalar, confirme que não há backup nem restauração em andamento.</li>
+    <li>O manual do Automatizador orienta fechar o aplicativo pela bandeja antes de atualizar ou remover.</li>
+    <li>Na remoção completa do Automatizador, o manual cita apagar a pasta de cache do aplicativo no perfil do usuário. <strong>Antes disso, preserve e valide os backups</strong>; não confunda cache com acervo.</li>
+    <li>Não copie para documentação nomes reais de instância, URLs privadas, chaves ou caminhos internos.</li>
+  </ul>
+
+  <h2>10. Troubleshooting</h2>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Sintoma</th><th>Verificações</th><th>Ação segura</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Agendamento não executou</strong></td>
+          <td>Computador estava ligado? Aplicativo aberto? Windows suspendeu ou hibernou? Dia e horário foram salvos?</td>
+          <td>Corrija energia/suspensão, abra o aplicativo e reprocesse o intervalo perdido por <strong>Backup por Período</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>Erro de API ou conexão</strong></td>
+          <td>URL/nome da instância está correto? A chave global foi alterada ou revogada? Há conectividade?</td>
+          <td>Revise em Configurações, obtenha uma chave válida com a administração e teste novamente sem registrar o segredo em texto aberto.</td>
+        </tr>
+        <tr>
+          <td><strong>Backup completo muito lento</strong></td>
+          <td>É a primeira execução? O histórico é volumoso? O computador permanece ativo?</td>
+          <td>Aguarde sem desligar. Nas execuções seguintes, prefira períodos novos e, para intervalos amplos, lotes de até 90 dias.</td>
+        </tr>
+        <tr>
+          <td><strong>Travamento em backup por período</strong></td>
+          <td>O intervalo ultrapassa 90 dias? Há espaço e conexão estável?</td>
+          <td>Divida em lotes menores e consecutivos; valide cada lote antes de avançar.</td>
+        </tr>
+        <tr>
+          <td><strong>Sem espaço em disco</strong></td>
+          <td>Capacidade da pasta de download, crescimento de anexos e existência de cópias antigas.</td>
+          <td>Libere ou amplie espaço conforme a política. Não apague o único conjunto válido nem mova arquivos durante execução.</td>
+        </tr>
+        <tr>
+          <td><strong>Atendimentos não aparecem</strong></td>
+          <td>Fonte SQLite/JSON correta? Filtro de data ou pesquisa restringe a lista? O período foi processado?</td>
+          <td>Limpe filtros, selecione a fonte correta, consulte a data do último backup e reprocesse apenas a lacuna confirmada.</td>
+        </tr>
+        <tr>
+          <td><strong>Atualização não avança</strong></td>
+          <td>O Backup Manager continua aberto na bandeja?</td>
+          <td>Confirme que nenhuma operação está ativa, feche pelo ícone da bandeja e retome o instalador.</td>
+        </tr>
+        <tr>
+          <td><strong>Restauração sem resultado claro</strong></td>
+          <td>Houve mensagem de Sucesso? Um novo registro já apareceu? A API ainda tem autorização de gravação?</td>
+          <td>Não repita às cegas. Pesquise na plataforma, registre a evidência e acione o suporte se o estado permanecer indefinido.</td>
+        </tr>
+        <tr>
+          <td><strong>ID restaurado é diferente</strong></td>
+          <td>Comportamento esperado do Gerenciador.</td>
+          <td>Associe o ID original local ao novo ID online em seu registro de auditoria.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Coleta mínima para suporte</h3>
+  <p>Antes de abrir um chamado, registre versão do aplicativo, tipo de operação, intervalo, data/hora, formato, espaço livre aproximado, mensagem de erro e resultado da última execução válida. Remova ou masque dados pessoais, URLs privadas, caminhos sensíveis e a chave de API.</p>
+
+  <div class="callout warn">
+    <strong>Não tente “corrigir” o acervo diretamente:</strong> se SQLite, JSON, PDF ou anexos parecerem corrompidos, preserve uma cópia do conjunto, interrompa gravações e acione o suporte. As fontes não fornecem comandos de reparo, esquema de banco nem procedimento manual de reimportação.
+  </div>
+
+  <h2>11. Runbook resumido</h2>
+  <ol class="steps">
+    <li><strong>Identifique a solução:</strong> Automatizador ou Gerenciador; registre a versão.</li>
+    <li><strong>Proteja o acesso:</strong> valide origem do instalador, dispositivo, pasta e custódia da API.</li>
+    <li><strong>Defina o escopo:</strong> dia anterior/limpeza no Automatizador; completo/período/agendado no Gerenciador.</li>
+    <li><strong>Escolha o destino:</strong> pasta dedicada e, no Gerenciador, SQLite ou JSON.</li>
+    <li><strong>Execute:</strong> mantenha computador e aplicativo ativos até o fim.</li>
+    <li><strong>Valide:</strong> atualidade, cobertura, conversa, anexos, pesquisa e evidências.</li>
+    <li><strong>Retenha:</strong> copie, restrinja e descarte conforme política aprovada — não conforme suposição sobre o aplicativo.</li>
+    <li><strong>Restaure com controle:</strong> somente no Gerenciador e com autorização; valide o novo ID na plataforma.</li>
+  </ol>
+
+  <h2>12. Fontes, lacunas e controle de versão</h2>
+  <ul>
+    <li><strong>Manual Automatizador de backups / Backup Manager</strong> — atualizado em 27/01/2025; base para instalação, atualização, autenticação, dois escopos automáticos, consulta/exportação e desinstalação.</li>
+    <li><strong>Manual de Uso. Gerenciador de Backups</strong> — base para URL e API global, SQLite/JSON, backup completo/por período/agendado, dashboard, consulta offline, restauração e troubleshooting.</li>
+    <li><strong>Manual de Uso oficial da plataforma</strong> — consultado integralmente; contextualiza API, administração e a necessidade genérica de backup antes de operações com risco de perda, mas não acrescenta um fluxo específico desses aplicativos.</li>
+  </ul>
+  <div class="callout info">
+    <strong>Lacunas documentais:</strong> não foram especificados política de retenção, criptografia nativa, rotação, logs técnicos, checksum, garantia de consistência, compatibilidade entre versões/formatos, RPO/RTO, deduplicação, reversão da restauração ou backup completo da configuração da instância. Confirme esses pontos com o fornecedor antes de assumir compromissos de continuidade ou compliance.
+  </div>
+
+  <div class="pagenav">
+    <a href="configuracoes.html"><span>← Anterior</span> Configurações</a>
+    <a class="next" href="relatorios.html"><span>Próximo →</span> Relatórios</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
+</footer>
+
+</body>
+</html>
