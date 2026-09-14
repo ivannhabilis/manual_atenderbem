@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portal PABX Fácil e Telefonia VoIP — Manual Omnichannel</title>
 <link rel="stylesheet" href="assets/style.css">
+<style>
+  /* Bloco de FAQ desta página (seção interna) */
+  .faq {
+    background: var(--branco);
+    border: 1px solid var(--cinza-100);
+    border-left: 4px solid var(--roxo);
+    border-radius: 10px;
+    padding: 14px 18px 6px;
+    margin: 18px 0;
+    box-shadow: var(--sombra);
+  }
+  .faq h3 { margin: 8px 0 8px; }
+  .faq p  { margin: 0 0 14px; }
+</style>
 </head>
 <body>
 
@@ -39,6 +53,10 @@
 
   <div class="callout tip">
     <strong>Regra de Ouro do FreePBX:</strong> Toda alteração feita em qualquer menu exige clicar em <strong>Submit</strong> (no rodapé) e em seguida na barra <strong>Apply Config</strong> (no topo) para recarregar o dialplan no Asterisk em tempo real.
+  </div>
+
+  <div class="callout info">
+    <strong>Dúvidas frequentes?</strong> Consulte a <a href="#faq">seção FAQ ao final desta página</a>, com as respostas às dúvidas mais comuns sobre troncos, ramais, filas, URAs, horários, CDR e diagnóstico.
   </div>
 
   <h2>2. Capítulos da Documentação de Telefonia</h2>
@@ -162,6 +180,118 @@
                  └───────────────►│ Webphone no AtenderBem  │<br>
                                   │ (Atendente Conectado)   │<br>
                                   └─────────────────────────┘
+  </div>
+
+  <h2 id="faq">4. FAQ — Perguntas Frequentes (Telefonia e PABX Fácil)</h2>
+  <p>As dúvidas mais recorrentes sobre operação e parametrização do PABX Fácil, organizadas a partir do conteúdo dos 9 capítulos desta documentação.</p>
+
+  <div class="callout info">
+    <strong>Sobre este FAQ:</strong> cada resposta reflete o comportamento documentado nos capítulos 1 a 9 deste manual (troncos, rotas, ramais, filas, URAs, horários, Custom Destinations/ARI, CDR e CLI). Sempre que houver dúvida, o capítulo de origem traz o passo a passo completo.
+  </div>
+
+  <div class="faq">
+    <h3>Q1. Por que o Tronco WhatsApp Cloud API (Meta) exige TLS e SRTP, enquanto um tronco de operadora VoIP usa UDP comum?</h3>
+    <p>Porque o tronco Meta trafega pela infraestrutura da própria Meta (<code>wa.meta.vc</code>) e opera criptografado de ponta a ponta: transporte <code>0.0.0.0-tls</code> (TLSv1.2), mídia com <strong>SRTP</strong> e codec <strong>Opus</strong>. Já o tronco de operadora tradicional (Vivo, Embratel, TotalVoice, provedores SIP locais) usa UDP/TCP com codecs da rede pública (<code>alaw</code>, <code>ulaw</code>, <code>g729</code>). Regra prática: Meta → Transport <code>0.0.0.0-tls</code> + Media Encryption <code>srtp</code> + Opus; operadora → UDP + codecs padrão.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q2. Para que serve o sufixo <code>-direct</code> no hostname SIP que o AtenderBem fornece, e por que ele exige certificado Let's Encrypt?</h3>
+    <p>O hostname com sufixo <code>-direct</code> é o endereço do servidor SIP gerado pelo AtenderBem ao clicar em <strong>"Configurar telefonia"</strong> (Configurações › Filas). Como o tronco Meta só aceita transporte TLS, o FreePBX precisa de um certificado válido para <strong>esse hostname exato</strong>. Gere-o em <code>Admin › Certificate Management › Generate Let's Encrypt Certificate</code> informando exatamente o hostname com <code>-direct</code>, e selecione-o em <code>Settings › Asterisk SIP Settings › TLS/SSL</code> com <strong>SSL Method = tlsv1_2</strong>. Hostname incorreto = handshake falha e o canal não sobe (Problema 2 do capítulo 9).</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q3. Definir Authentication = None no tronco Meta não deixa a conexão insegura?</h3>
+    <p>Negativo. <code>Authentication = None</code> e <code>Registration = None</code> são corretos porque a Meta <strong>não usa REGISTER/SIP auth tradicional</strong> — o canal opera por roteamento direto IP/TLS. A identificação da chamada de entrada é feita por <code>Match Inbound Auth = Auth username</code>, e a segurança vem da camada <strong>TLS + SRTP</strong>. Não confundir com tronco de operadora, onde <code>Authentication = Outbound</code> e <code>Registration = Send</code> com usuário/senha são obrigatórios.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q4. O que significam <code>X</code>, <code>Z</code>, <code>N</code> e <code>.</code> nos Dial Patterns de uma rota de saída?</h3>
+    <p>São máscaras do Asterisk: <code>X</code> = qualquer dígito 0-9; <code>Z</code> = qualquer 1-9; <code>N</code> = qualquer 2-9; <code>.</code> = um ou mais dígitos até o fim do número. Exemplos práticos: celular local = Match Pattern <code>9XXXXXXXX</code> com Prepend <code>5511</code> (o DDD é adicionado automaticamente); fixo local = <code>[2-5]XXXXXXX</code> com Prepend <code>5511</code>; DDD nacional = <code>[1-9][1-9]XXXXXXXX</code> com Prefix <code>0</code> (o zero é removido) e Prepend <code>55</code>.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q5. Como garantir que as chamadas não parem se o tronco principal cair?</h3>
+    <p>Configure a <strong>Trunk Sequence</strong> da rota de saída com dois troncos em ordem de prioridade: <strong>Tronco 1 (prioritário)</strong> — VoIP de menor custo / WhatsApp Cloud API — e <strong>Tronco 2 (contingência)</strong> — operadora secundária, que assume quando o Tronco 1 está ocupado, offline ou sem saldo.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q6. Qual tipo de ramal devo usar: Webphone, Softphone ou Telefone IP?</h3>
+    <p><strong>Webphone (PJSIP/WebRTC):</strong> roda dentro do painel do AtenderBem, sem instalar nada — recomendado para agentes de atendimento. <strong>Softphone (MicroSIP/Zoiper/Linphone, PJSIP/SIP UDP/TCP):</strong> aplicativo de desktop — recomendado para estações administrativas. <strong>Telefone IP físico / ATA (Yealink, Grandstream, Intelbras):</strong> aparelhos de mesa, com registro no IP público do PABX.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q7. O ícone do telefone do atendente está cinza/vermelho e ele não recebe ligações. O que verificar?</h3>
+    <p>É falha de registro SIP. Confira, no AtenderBem, se a chave <strong>"Habilitar softphone"</strong> está ativa em <code>Configurações › Usuários</code>, se o campo <strong>Ramal</strong> contém o número exato da extension e se a <strong>Senha</strong> é o <code>secret</code> copiado do PABX. No PABX, valide com <code>asterisk -rx "pjsip show endpoints"</code> — o ramal deve aparecer <em>Available / Reachable</em>. Ícone <strong>verde</strong> no cabeçalho = registro OK (Problema 3 do capítulo 9).</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q8. Como gravar 100% das chamadas de um ramal ou de uma fila?</h3>
+    <p>No <strong>ramal:</strong> <code>Applications › Extensions › Recording Options</code>, definindo <em>Inbound External Calls</em> e <em>Outbound External Calls</em> como <code>Force</code>. Na <strong>fila:</strong> <code>Applications › Queues</code>, campo <strong>Call Recording = Force</strong>. O arquivo gerado aparece na coluna <code>recordingfile</code> do CDR.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q9. Qual estratégia de distribuição escolher numa fila?</h3>
+    <p><code>ringall</code> — toca em todos os ramais livres ao mesmo tempo; ideal para equipes pequenas, suporte emergencial ou vendas de alta velocidade. <code>rrmemory</code> (round-robin com memória) — <strong>padrão da indústria</strong>, distribui de forma justa lembrando quem atendeu por último. <code>leastrecent</code> — atendente há mais tempo ocioso, para nivelar a ociosidade. <code>fewestcalls</code> — quem recebeu menos chamadas completadas, para metas diárias. <code>random</code> — aleatório, quando não há ordem necessária. Na dúvida, use <code>rrmemory</code>.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q10. Qual a diferença entre agente estático e dinâmico, e como pausar um atendente?</h3>
+    <p><strong>Estáticos:</strong> ramais fixos na fila (ex.: <code>PJSIP/1001,0</code>), sempre conectados. <strong>Dinâmicos:</strong> o atendente entra na fila discando <code>*45</code> no softphone ou pelo sistema web do AtenderBem, podendo pausar/despausar na jornada. Pausa por CLI: <code>asterisk -rx "queue pause member PJSIP/1001 from 100"</code>; despausa com <code>queue unpause member ...</code>; status completo com <code>queue show 100</code>.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q11. O que acontece com a chamada quando o tempo máximo de espera na fila estoura?</h3>
+    <p>Ela é enviada ao <strong>Fail Over Destination</strong> configurado (outra fila, URA ou caixa postal). O <strong>Max Wait Time</strong> (ex.: 300s) e o Fail Over formam a regra de transbordo — que também dispara se não houver agentes logados. Complementam a experiência o <strong>Agent Timeout</strong> (ex.: 15s, quanto toca no ramal antes de passar ao próximo) e o <strong>Retry</strong> (ex.: 2s, intervalo entre tentativas).</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q12. Qual o formato de áudio correto para o Asterisk? Posso subir MP3?</h3>
+    <p>Use <strong>WAV PCM, 16-bit, mono, 8000 Hz ou 16000 Hz</strong>. Arquivos em MP3 ou estéreo passam por conversão e podem gerar ruído. O cadastro é em <code>Admin › System Recordings › + Add Recording › Upload Recording</code>, com nome descritivo, seguido de <strong>Apply Config</strong>.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q13. Qual a diferença entre um Announcement e uma URA (IVR)?</h3>
+    <p>O <strong>Announcement</strong> reproduz uma mensagem gravada e transfere automaticamente para o destino ao fim da fala, <em>sem esperar tecla</em> (ex.: aviso "ligação gravada" → fila). A <strong>URA/IVR</strong> é um menu interativo por DTMF: toca o áudio de opções e aguarda o dígito do cliente (com <em>Timeout</em>, <em>Invalid Retries</em> e <em>Timeout Destination</em>) para rotear. Resumindo: Announcement informa e segue; IVR pergunta e decide.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q14. Como fechar a central em feriados e como forçar abertura fora do horário?</h3>
+    <p><strong>Feriados:</strong> no Time Group, cadastre a data exata (ex.: 25 de dezembro) com horário vazio, fechando o dia inteiro. <strong>Abertura/fechamento manual:</strong> use o <strong>Override Code</strong> da Time Condition (ex.: <code>*271</code>) — discando esse código no ramal, o gestor força a abertura ou o fechamento em emergências.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q15. Qual a relação entre Time Group e Time Condition?</h3>
+    <p>São duas etapas complementares. O <strong>Time Group</strong> define o calendário (quais dias e horários a empresa funciona). A <strong>Time Condition</strong> testa se a chamada está dentro desse grupo e envia para <em>Destination if time matches</em> (aberto, ex.: URA) ou <em>Destination if time does not match</em> (fechado, ex.: anúncio). Depois, a Inbound Route deve apontar seu <em>Set Destination</em> para a Time Condition.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q16. O nome usado no target <code>ari-bridge,NOME_FILA,1</code> precisa ser igual no PABX e no AtenderBem?</h3>
+    <p>Afirmativo, <strong>rigorosamente o mesmo</strong>. No <code>Admin › Custom Destinations</code> do PABX, o Target é <code>ari-bridge,NOME_FILA,1</code> (ex.: <code>ari-bridge,apptest,1</code>) com <em>Return = No</em>. No AtenderBem, crie em <code>Configurações › Filas</code> uma fila com nome exatamente igual (<code>apptest</code>), tipo <strong>"Telefonia (URA)"</strong>, apontada para a URA Avançada. Nomes divergentes quebram o vínculo e a chamada não chega ao fluxo.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q17. Como descobrir, pelo CDR, um atendente que recusa chamadas?</h3>
+    <p>Três padrões: (1) <code>disposition = 'NO ANSWER'</code> com <code>dstchannel</code> preenchido pelo ramal — a chamada tocou e não foi atendida; (2) <code>disposition = 'ANSWERED'</code> com <code>billsec &lt; 10</code>s em chamadas de fila — atendimento e desligamento imediato; (3) <code>disposition = 'BUSY'</code> sem outra chamada ativa — rejeição manual no softphone. A Query 1 do capítulo 8 calcula a taxa de recusa por atendente ((NO ANSWER + BUSY) ÷ total).</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q18. Por que minhas alterações no FreePBX não surtem efeito?</h3>
+    <p>Porque toda alteração exige o duplo passo: clicar em <strong>Submit</strong> (rodapé da página) e depois em <strong>Apply Config</strong> (barra superior), que recarrega o dialplan no Asterisk. Sem o Apply Config, o que está no banco de dados do FreePBX não chega ao motor de voz. É a Regra de Ouro repetida em todos os capítulos.</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q19. O som funciona de um lado só (áudio mudo de uma via). Qual a causa e a solução?</h3>
+    <p>Causa: o PABX está atrás de NAT e não envia o IP público correto no cabeçalho SDP dos pacotes de voz (RTP). Solução: em <code>Settings › Asterisk SIP Settings › General SIP Settings</code>, clique em <strong>Detect Network Settings</strong> (preenche o <em>External Address</em>) e confirme se as portas UDP <strong>10000 a 20000</strong> estão liberadas no firewall (Problema 1 do capítulo 9).</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q20. O cliente digita os números na URA e o PABX não reconhece. O que fazer?</h3>
+    <p>É incompatibilidade no envio de tons <strong>DTMF</strong> entre a operadora e o Asterisk. No tronco SIP da operadora, ajuste o parâmetro <strong>DTMF Mode</strong> para <code>rfc4733</code> ou <code>rfc2833</code> (Problema 4 do capítulo 9).</p>
+  </div>
+
+  <div class="faq">
+    <h3>Q21. A chamada cai imediatamente após ser atendida. Por quê?</h3>
+    <p>Incompatibilidade de codecs de áudio entre as duas pontas. No FreePBX, em <code>Settings › Asterisk SIP Settings</code>, habilite <code>ulaw</code>, <code>alaw</code>, <code>g729</code> e <code>opus</code> para garantir compatibilidade universal (Problema 5 do capítulo 9).</p>
   </div>
 
   <div class="pagenav">
