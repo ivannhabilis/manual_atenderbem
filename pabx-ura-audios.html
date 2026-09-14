@@ -66,18 +66,49 @@
   <p>A <strong>URA (IVR)</strong> é o menu eletrônico que orienta o cliente: <em>"Olá, bem-vindo à Central de Atendimento! Digite 1 para Suporte Técnico, 2 para Financeiro, ou 3 para Vendas."</em></p>
 
   <figure class="figure">
-    <div style="background: #1f2430; color: #fff; padding: 24px; text-align: center; border-radius: 8px; font-family: monospace;">
-      ┌──────────────────────────────────────────────┐<br>
-      │           URA PRINCIPAL (IVR)                │<br>
-      │  Áudio: "Digite 1 Suporte / 2 Financeiro"    │<br>
-      └──────────────────────┬───────────────────────┘<br>
-             ┌───────────────┼───────────────┐        <br>
-             ▼ [Dígito 1]    ▼ [Dígito 2]    ▼ [Timeout/Inválido]<br>
-      ┌──────────────┐ ┌──────────────┐ ┌──────────────┐<br>
-      │ Fila Suporte │ │Fila Financeir│ │ Repete Áudio │<br>
-      └──────────────┘ └──────────────┘ └──────────────┘
-    </div>
-    <figcaption>Fluxo lógico de decisão por DTMF na URA do PABX.</figcaption>
+    <svg viewBox="0 0 900 340" role="img" aria-labelledby="ivrTitle ivrDesc" style="width:100%;height:auto;display:block;padding:10px;">
+      <title id="ivrTitle">Fluxo de decisão por DTMF na URA principal</title>
+      <desc id="ivrDesc">A URA principal toca o áudio "Digite 1 Suporte / 2 Financeiro". O Dígito 1 encaminha para a Fila Suporte, o Dígito 2 para a Fila Financeiro, e Timeout ou opção inválida repete o áudio.</desc>
+      <defs>
+        <marker id="seta" markerWidth="10" markerHeight="10" refX="8.5" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L8.5,3 L0,6 z" fill="#6b7280"/>
+        </marker>
+        <style>
+          .bx{fill:#ffffff;stroke:#6c3fb5;stroke-width:1.6}
+          .bx-plataforma{fill:#f1ebfa;stroke:#6c3fb5;stroke-width:1.8}
+          .t{fill:#1f2430;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;text-anchor:middle}
+          .s{fill:#6b7280;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:11.5px;text-anchor:middle}
+          .lb{fill:#4a2a82;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:700}
+          .ar{fill:none;stroke:#6b7280;stroke-width:1.8;marker-end:url(#seta)}
+        </style>
+      </defs>
+
+      <!-- URA principal -->
+      <rect class="bx-plataforma" x="250" y="20" width="400" height="88" rx="8"/>
+      <text class="t" x="450" y="56">URA PRINCIPAL (IVR)</text>
+      <text class="s" x="450" y="80">Áudio: "Digite 1 Suporte / 2 Financeiro"</text>
+
+      <!-- Destinos -->
+      <rect class="bx" x="30" y="240" width="240" height="52" rx="8"/>
+      <text class="t" x="150" y="271">Fila Suporte</text>
+
+      <rect class="bx" x="330" y="240" width="240" height="52" rx="8"/>
+      <text class="t" x="450" y="271">Fila Financeiro</text>
+
+      <rect class="bx" x="630" y="240" width="240" height="52" rx="8"/>
+      <text class="t" x="750" y="271">Repete Áudio</text>
+
+      <!-- Setas de ramificação -->
+      <path class="ar" d="M450,108 V170 H150 V240"/>
+      <path class="ar" d="M450,108 V240"/>
+      <path class="ar" d="M450,108 V170 H750 V240"/>
+
+      <!-- Rótulos das setas (deslocados para não cruzar as linhas) -->
+      <text class="lb" x="158" y="205" text-anchor="start">[Dígito 1]</text>
+      <text class="lb" x="458" y="205" text-anchor="start">[Dígito 2]</text>
+      <text class="lb" x="742" y="205" text-anchor="end">[Timeout/Inválido]</text>
+    </svg>
+    <figcaption>Fluxo lógico de decisão por DTMF na URA do PABX: Dígito 1 encaminha para a Fila Suporte, Dígito 2 para a Fila Financeiro e Timeout ou opção inválida repete o áudio do menu.</figcaption>
   </figure>
 
   <h3>Passo a passo no FreePBX (`Applications › IVR`):</h3>
