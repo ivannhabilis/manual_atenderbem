@@ -189,6 +189,20 @@ a:hover { text-decoration: underline; }
 .callout.warn { border-color: var(--amarelo); background: #fef3e2; }
 .callout.tip  { border-color: var(--verde); background: #e9f8ee; }
 
+/* ---------- Blocos de FAQ (seções internas e páginas de FAQ) ---------- */
+.faq {
+  background: var(--branco);
+  border: 1px solid var(--cinza-100);
+  border-left: 4px solid var(--roxo);
+  border-radius: 10px;
+  padding: 16px 18px 4px;
+  margin: 18px 0;
+  box-shadow: var(--sombra);
+}
+.faq h3 { margin: 6px 0 8px; }
+.faq p  { margin: 0 0 14px; }
+.faq p:last-child { margin-bottom: 14px; }
+
 .figure {
   margin: 26px 0;
   background: var(--branco);
