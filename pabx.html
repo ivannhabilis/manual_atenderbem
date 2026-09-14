@@ -143,30 +143,72 @@
   </div>
 
   <h2>3. Topologia de Fluxo de Voz</h2>
-  <div style="background: #1f2430; color: #fff; padding: 22px; border-radius: 12px; font-family: monospace; line-height: 1.5; overflow-x: auto;">
-    ┌─────────────────────────┐<br>
-    │   CLIENTE LIGA (PSTN /  │<br>
-    │   WhatsApp Cloud API)   │<br>
-    └────────────┬────────────┘<br>
-                 ▼<br>
-    ┌─────────────────────────┐     [Fora do Horário]<br>
-    │ Inbound Route / DID     ├──────────────────────► [ Anúncio / Caixa Postal ]<br>
-    └────────────┬────────────┘<br>
-                 │ [Horário Comercial]<br>
-                 ▼<br>
-    ┌─────────────────────────┐<br>
-    │ URA / IVR Interativa    ├──────────┐ [Opção 2]<br>
-    └────────────┬────────────┘          ▼<br>
-                 │ [Opção 1]      ┌─────────────────────────┐<br>
-                 ▼                │ Fila Financeiro (Queue) │<br>
-    ┌─────────────────────────┐   └──────────┬──────────────┘<br>
-    │ Fila Suporte N1 (Queue) │              │<br>
-    └────────────┬────────────┘              ▼<br>
-                 │                ┌─────────────────────────┐<br>
-                 └───────────────►│ Webphone no AtenderBem  │<br>
-                                  │ (Atendente Conectado)   │<br>
-                                  └─────────────────────────┘
-  </div>
+  <figure class="figure">
+    <svg viewBox="0 0 900 600" role="img" aria-labelledby="fluxoTitle fluxoDesc" style="width:100%;height:auto;display:block;padding:10px;">
+      <title id="fluxoTitle">Topologia de fluxo de voz do PABX Fácil</title>
+      <desc id="fluxoDesc">O cliente liga por PSTN ou WhatsApp Cloud API. A Inbound Route/DID decide pelo horário: dentro do horário comercial segue para a URA/IVR, que distribui por opção para a Fila Suporte N1 ou a Fila Financeiro, ambas terminando no Webphone no AtenderBem; fora do horário, toca um anúncio ou cai na caixa postal.</desc>
+      <defs>
+        <marker id="seta" markerWidth="10" markerHeight="10" refX="8.5" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L8.5,3 L0,6 z" fill="#6b7280"/>
+        </marker>
+        <style>
+          .bx{fill:#ffffff;stroke:#6c3fb5;stroke-width:1.6}
+          .bx-plataforma{fill:#f1ebfa;stroke:#6c3fb5;stroke-width:1.8}
+          .bx-excecao{fill:#f3f4f6;stroke:#9ca3af;stroke-width:1.6}
+          .t{fill:#1f2430;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;text-anchor:middle}
+          .s{fill:#6b7280;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:11.5px;text-anchor:middle}
+          .lb{fill:#4a2a82;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:700}
+          .ar{fill:none;stroke:#6b7280;stroke-width:1.8;marker-end:url(#seta)}
+        </style>
+      </defs>
+
+      <!-- Cliente -->
+      <rect class="bx" x="140" y="20" width="240" height="52" rx="8"/>
+      <text class="t" x="260" y="42">CLIENTE LIGA</text>
+      <text class="s" x="260" y="60">(PSTN / WhatsApp Cloud API)</text>
+
+      <!-- Inbound Route / DID -->
+      <rect class="bx" x="140" y="150" width="240" height="52" rx="8"/>
+      <text class="t" x="260" y="181">Inbound Route / DID</text>
+
+      <!-- Anúncio / Caixa Postal (fora do horário) -->
+      <rect class="bx-excecao" x="560" y="150" width="280" height="52" rx="8"/>
+      <text class="t" x="700" y="181">Anúncio / Caixa Postal</text>
+
+      <!-- URA / IVR -->
+      <rect class="bx" x="140" y="280" width="240" height="52" rx="8"/>
+      <text class="t" x="260" y="311">URA / IVR Interativa</text>
+
+      <!-- Fila Suporte N1 -->
+      <rect class="bx" x="140" y="410" width="240" height="52" rx="8"/>
+      <text class="t" x="260" y="441">Fila Suporte N1 (Queue)</text>
+
+      <!-- Fila Financeiro -->
+      <rect class="bx" x="560" y="410" width="280" height="52" rx="8"/>
+      <text class="t" x="700" y="441">Fila Financeiro (Queue)</text>
+
+      <!-- Webphone no AtenderBem (plataforma) -->
+      <rect class="bx-plataforma" x="330" y="520" width="280" height="56" rx="8"/>
+      <text class="t" x="470" y="544">Webphone no AtenderBem</text>
+      <text class="s" x="470" y="564">(Atendente Conectado)</text>
+
+      <!-- Setas -->
+      <path class="ar" d="M260,72 V150"/>
+      <path class="ar" d="M380,176 H560"/>
+      <path class="ar" d="M260,202 V280"/>
+      <path class="ar" d="M260,332 V410"/>
+      <path class="ar" d="M380,306 H700 V410"/>
+      <path class="ar" d="M260,462 V546 H330"/>
+      <path class="ar" d="M700,462 V546 H610"/>
+
+      <!-- Rótulos das setas -->
+      <text class="lb" x="470" y="168" text-anchor="middle">[Fora do Horário]</text>
+      <text class="lb" x="268" y="245" text-anchor="start">[Horário Comercial]</text>
+      <text class="lb" x="268" y="375" text-anchor="start">[Opção 1]</text>
+      <text class="lb" x="470" y="298" text-anchor="middle">[Opção 2]</text>
+    </svg>
+    <figcaption>Fluxo de uma chamada de voz no PABX Fácil: do cliente (PSTN / WhatsApp Cloud API) até o Webphone do atendente no AtenderBem, passando por rota de entrada, URA e filas. Fora do horário, o caminho é o anúncio / caixa postal.</figcaption>
+  </figure>
 
   <h2 id="faq">4. FAQ — Perguntas Frequentes (Telefonia e PABX Fácil)</h2>
   <p>As dúvidas mais recorrentes sobre operação e parametrização do PABX Fácil, organizadas a partir do conteúdo dos 9 capítulos desta documentação.</p>
