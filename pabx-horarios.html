@@ -78,6 +78,99 @@
     <strong>Como conectar à rota:</strong> Após criar a Time Condition, vá em <code>Connectivity › Inbound Routes</code> na rota do seu número de telefone e altere o <em>Set Destination</em> para apontar para a <strong>Time Condition: Horario_Comercial_Geral</strong>.
   </div>
 
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>4. Módulo de Horário de Atendimento da Plataforma (v13+)</h2>
+  <p>Além das <strong>Time Conditions</strong> do FreePBX (tratadas nos passos 1 a 3), o Sistema de Atendimento conta, desde a <strong>versão 13</strong>, com um <strong>módulo nativo de Horário de Atendimento</strong>. Ele é integrado ao resto do sistema e dispensa as antigas "Tabelas de Horário" espalhadas em cada fluxo. A parametrização fica em <code>Cadastros › Horários</code>.</p>
+
+  <div class="callout info">
+    <strong>Os dois mecanismos convivem.</strong> As Time Conditions do FreePBX controlam o roteamento das <em>rotas de entrada</em> (telefonia). O módulo nativo da plataforma controla o expediente de <strong>filas, usuários e fluxos de URA/automação</strong>. Use cada um na camada correspondente.
+  </div>
+
+  <h3>4.1 Feriados</h3>
+  <p>Em <code>Cadastros › Horários › Feriados</code> são registrados todos os feriados considerados pela empresa. Após cadastrados, ficam em uma lista com resumo das informações e a chave <strong>Ativo</strong>.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Nome</strong></td><td>Nome do feriado que está sendo cadastrado.</td></tr>
+        <tr><td><strong>Data</strong></td><td>Dia do feriado. O sistema não permite mais de um feriado para a mesma data.</td></tr>
+        <tr><td><strong>Tipo</strong></td><td>Nível do feriado: <em>Municipal</em>, <em>Estadual</em>, <em>Nacional</em> ou outro.</td></tr>
+        <tr><td><strong>Recorrente</strong></td><td>Se ativado, determina a repetição anual do feriado a partir do momento em que foi cadastrado.</td></tr>
+        <tr><td><strong>Ativo</strong> (na lista)</td><td>Define se aquele feriado deve ou não ser considerado pelo sistema.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>4.2 Horário de Atendimento</h3>
+  <p>Em <code>Cadastros › Horários › Horário de Atendimento</code> são criados os expedientes, com comportamento próprio para feriados e datas especiais. É possível ter vários expedientes (por exemplo, um por setor).</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo / Aba</th><th>Descrição</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Nome</strong></td><td>Nome do expediente criado (pode ser definido por setor).</td></tr>
+        <tr><td><strong>Descrição</strong> (opcional)</td><td>Para que serve o horário que está sendo criado.</td></tr>
+        <tr><td><strong>Mensagem para clientes</strong> (opcional)</td><td>Mensagem padrão para quando o cliente entrar em contato fora do expediente.</td></tr>
+        <tr><td><strong>Aba Semanal</strong></td><td>Definição dos horários por dia da semana, em período único ou dividido. Permite reaplicar o(s) período(s) definido(s) em outros dias, agilizando dias semelhantes.</td></tr>
+        <tr><td><strong>Aba Feriado</strong></td><td>Configuração usada caso o dia atual seja feriado, por meio da chave <strong>"Aberto em feriados"</strong>: desativada, não há expediente (permite configurar apenas a mensagem fora do horário); ativada, há expediente e permite definir o horário padrão a ser seguido nos feriados.</td></tr>
+        <tr><td><strong>Datas Especiais</strong></td><td>Exceções de expediente que não são feriados (ex.: Dia da Mulher, aniversário da empresa). Ao adicionar uma data, o sistema exibe as mesmas opções de configuração dos feriados.</td></tr>
+        <tr><td><strong>Visualizar Calendário</strong></td><td>Análise visual, por mês, dos dias de expediente, com cores diferentes para cada tipo de data.</td></tr>
+        <tr><td><strong>Testar Configuração</strong></td><td>Testa, com base no dia e horário, se o sistema considerará o expediente aberto ou fechado.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout tip">
+    <strong>Regras de preenchimento da aba Semanal:</strong> os períodos <strong>não podem se sobrepor</strong> e os horários devem seguir ordem <strong>cronológica</strong>.
+  </div>
+
+  <h3>4.3 Prioridade do Sistema para o Expediente</h3>
+  <p>Quando existem várias configurações aplicáveis ao mesmo dia, o sistema decide nesta ordem:</p>
+  <ol>
+    <li><strong>Data Especial:</strong> tem a maior prioridade. Se existir uma data especial para o dia atual, ela é considerada acima de qualquer outra configuração.</li>
+    <li><strong>Feriado:</strong> se não houver data especial, mas o dia atual for feriado, aplica-se a configuração determinada para feriados.</li>
+    <li><strong>Horários de Atendimento:</strong> se não houver feriado nem data especial, valem os horários diários padrão.</li>
+  </ol>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>5. Aplicação do Horário em Filas, Usuários e URAs</h2>
+  <p>O Horário de Atendimento é vinculado por campo próprio em cada contexto. Em todos eles, o critério do módulo tem <strong>prioridade sobre as tabelas de horário antigas</strong>, que só são avaliadas quando não há horário definido (ou quando o item já está dentro dos conformes).</p>
+
+  <h3>Filas</h3>
+  <p>Na aba <strong>Configurações</strong> de cada fila há o campo <strong>Horário de Atendimento</strong> — o horário selecionado é aplicado aos chats vindos por aquela fila. A ordem de avaliação é:</p>
+  <ol>
+    <li><strong>Horário de Atendimento da fila:</strong> primeiro critério, se definido nas configurações da fila.</li>
+    <li><strong>Tabela de Horário da Fila:</strong> avaliada se não houver horário de atendimento, ou se o item estiver dentro dos conformes.</li>
+    <li><strong>Tabela de Horários da URA:</strong> considerada se não houver horário de atendimento nem tabela configurada diretamente na fila, ou se estiverem dentro dos conformes.</li>
+  </ol>
+
+  <h3>Usuários (Agentes e Supervisores)</h3>
+  <p>Nas configurações gerais do usuário há o campo <strong>Horário de Atendimento</strong>, que define o expediente considerado para o login. A ordem de avaliação é:</p>
+  <ol>
+    <li><strong>Horário de Atendimento do usuário:</strong> primeiro critério, se definido nas configurações do usuário.</li>
+    <li><strong>Tabela de Horário do Usuário:</strong> avaliada se não houver horário de atendimento, ou se o item estiver dentro dos conformes, para determinar o expediente em que o usuário é autorizado a logar.</li>
+  </ol>
+
+  <h3>URAs e Fluxos de Automação</h3>
+  <p>Durante a criação de URAs ou fluxos, o expediente é aplicado por um elemento nativo do módulo, configurado com o <strong>ID do Horário de Atendimento</strong> desejado. O sistema valida automaticamente todas as definições de dias e datas para o momento atual e direciona para o fluxo <strong>"Aberto"</strong> ou <strong>"Fechado"</strong>.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Variável</th><th>Uso</th></tr></thead>
+      <tbody>
+        <tr><td><code>bh_reason</code></td><td>Informa o motivo do fechamento em formato de código (ex.: feriado, data especial).</td></tr>
+        <tr><td><code>bh_reason_label</code></td><td>Informa o motivo do fechamento em rótulo legível, pronto para exibição ao cliente.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout tip">
+    <strong>Fluxo único para todos os casos fora de horário:</strong> com <code>bh_reason</code> / <code>bh_reason_label</code> em uma condição, é possível ramificar dentro do mesmo fluxo e dar respostas diferentes para data especial, feriado ou simplesmente fora do expediente — sem duplicar blocos.
+  </div>
+
   <div class="pagenav">
     <a href="pabx-ura-audios.html"><span>← Anterior</span> URAs & Áudios</a>
     <a class="next" href="pabx-custom.html"><span>Próximo Capítulo →</span> Custom Destinations & ARI Bridge</a>

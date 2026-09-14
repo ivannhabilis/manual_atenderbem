@@ -10,3 +10,6 @@ cataloglist/
 # Arquivos de trabalho MCP (schemas e dados brutos da instância — não versionar)
 _mcp_data/
 _mcp_schemas/
+
+# Acervo de enriquecimento (pesado — nao versionar)
+enriquecer_dados/

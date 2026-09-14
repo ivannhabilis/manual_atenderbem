@@ -95,6 +95,66 @@ asterisk -rx "queue unpause member PJSIP/1001 from 100"
 # Resetar estatísticas de atendimento da fila:
 asterisk -rx "queue reset stats 100"</code></pre>
 
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>6. Fila de Telefonia (URA): Integrando o PABX ao Omnichannel</h2>
+  <p>Além das filas internas do FreePBX (Queues), é possível receber chamadas do PABX em uma <strong>Fila de Telefonia (URA)</strong> do Omnichannel. O vínculo é feito por um <em>Custom Destination</em> que aponta para a ponte ARI (<code>ari-bridge</code>) consumida pelo sistema de atendimento.</p>
+
+  <h3>6.1 Criar o Custom Destination no PABX</h3>
+  <ol class="steps">
+    <li>No PABX, acesse <code>Admin › Custom Destinations</code>.</li>
+    <li>Clique no botão <strong>Add Destination</strong>.</li>
+    <li>Preencha os campos:
+      <ul>
+        <li><strong>Target:</strong> <code>ari-bridge,apptest,1</code> (o nome <code>apptest</code> pode ser alterado).</li>
+        <li><strong>Destination Quick Pick:</strong> <code>(pick destination)</code>.</li>
+        <li><strong>Description:</strong> descrição do destino (ex.: <em>Enviar para a fila apptest</em>).</li>
+        <li><strong>Notes:</strong> informações adicionais (opcional).</li>
+        <li><strong>Return:</strong> <code>No</code>.</li>
+      </ul>
+    </li>
+    <li>Clique em <strong>Submit</strong> e depois em <strong>Apply</strong>.</li>
+  </ol>
+
+  <h3>6.2 Criar a Fila de Telefonia (URA) no Omnichannel</h3>
+  <ol class="steps">
+    <li>No sistema de atendimento, acesse <code>Configurações › Filas</code> e clique em <strong>+ Adicionar</strong>.</li>
+    <li>No campo <strong>Nome da fila</strong>, informe exatamente o <strong>mesmo nome</strong> criado no <em>custom-destination</em> do PABX (no exemplo, <code>apptest</code>).</li>
+    <li>No campo <strong>Tipo</strong>, selecione <strong>Telefonia (URA)</strong>.</li>
+    <li>Em <strong>Configurações</strong> da fila, na opção <strong>Enviar para a URA</strong>, crie uma nova URA do tipo <em>URA Avançada (telefonia)</em> ou atribua uma já existente do mesmo tipo.</li>
+  </ol>
+
+  <div class="callout warn">
+    O nome informado após <code>ari-bridge,</code> no PABX precisa ser <strong>idêntico</strong> ao nome da fila no Omnichannel. Divergência de nome impede que a chamada seja entregue ao atendimento.
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>7. Comandos Adicionais de Filas via CLI</h2>
+  <p>Complementando os comandos da seção 5, estes comandos gerenciam membros, prioridade e recarga das filas:</p>
+
+  <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code># Adiciona o ramal 2000 como membro da fila 100:
+asterisk -rx "queue add member PJSIP/2000 to 100"
+
+# Adiciona agente estático usando interface Local:
+asterisk -rx "queue add member Local/7078@from-queue/n to 200"
+
+# Remove o ramal 2000 da fila 100:
+asterisk -rx "queue remove member PJSIP/2000 from 100"
+
+# Define a penalidade (prioridade) do membro 2000 na fila 100:
+asterisk -rx "queue set penalty PJSIP/2000 5 from 100"
+
+# Recarrega todas as filas sem reiniciar o Asterisk:
+asterisk -rx "queue reload all"
+
+# Exibe as regras definidas no queuerules.conf:
+asterisk -rx "queue show rules"</code></pre>
+
+  <div class="callout info">
+    Na penalidade, <strong>valor menor = prioridade maior</strong>: membros com penalidade baixa são chamados antes dos demais quando a fila distribui uma chamada.
+  </div>
+
   <div class="pagenav">
     <a href="pabx-ramais.html"><span>← Anterior</span> Gestão de Ramais & Softphones</a>
     <a class="next" href="pabx-ura-audios.html"><span>Próximo Capítulo →</span> URAs, Áudios & Anúncios</a>

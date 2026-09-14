@@ -80,6 +80,208 @@
     </table>
   </div>
 
+  <h3>D. Comandos de Debug e Log</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>core set debug 5</code></td><td>Define o nível de debug (0 a 10).</td><td>Ativa debug nível 5 para ver mais detalhes.</td></tr>
+        <tr><td><code>core set verbose 5</code></td><td>Define o nível de verbose (0 a 10).</td><td>Mostra mais informações no console.</td></tr>
+        <tr><td><code>core set debug channel PJSIP/2000</code></td><td>Ativa o debug em um canal específico.</td><td>Debug apenas do ramal 2000.</td></tr>
+        <tr><td><code>no debug channel PJSIP/2000</code></td><td>Desativa o debug de um canal.</td><td>Para de mostrar o debug do ramal 2000.</td></tr>
+        <tr><td><code>logger show channels</code></td><td>Lista os canais de log configurados.</td><td>Mostra <code>/var/log/asterisk/full</code>, <code>security</code> etc.</td></tr>
+        <tr><td><code>logger mute</code></td><td>Liga/desliga a saída de log no console.</td><td>Silencia os logs no terminal.</td></tr>
+        <tr><td><code>logger set level DEBUG on</code></td><td>Ativa logs de DEBUG no console.</td><td>Passa a mostrar somente mensagens de DEBUG.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>E. Comandos de Filas (Queues)</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>queue show 100</code></td><td>Mostra o status de uma fila específica.</td><td>Exibe membros, chamadas na fila e estratégia.</td></tr>
+        <tr><td><code>queue show</code></td><td>Lista todas as filas configuradas.</td><td>Visão geral de todas as filas do PABX.</td></tr>
+        <tr><td><code>queue add member PJSIP/2000 to 100</code></td><td>Adiciona um membro à fila.</td><td>Coloca o ramal 2000 na fila 100.</td></tr>
+        <tr><td><code>queue add member Local/7078@from-queue/n to 200</code></td><td>Adiciona um membro com interface Local.</td><td>Adiciona agente estático à fila 200.</td></tr>
+        <tr><td><code>queue remove member PJSIP/2000 from 100</code></td><td>Remove um membro da fila.</td><td>Tira o ramal 2000 da fila 100.</td></tr>
+        <tr><td><code>queue remove member Local/7078@from-queue/n from 200</code></td><td>Remove um membro com interface Local.</td><td>Remove agente estático da fila 200.</td></tr>
+        <tr><td><code>queue pause member PJSIP/2000 from 100</code></td><td>Pausa um membro da fila.</td><td>O membro 2000 deixa de receber chamadas.</td></tr>
+        <tr><td><code>queue unpause member PJSIP/2000 from 100</code></td><td>Despausa um membro da fila.</td><td>O membro 2000 volta a receber chamadas.</td></tr>
+        <tr><td><code>queue set penalty PJSIP/2000 5 from 100</code></td><td>Define a penalidade de um membro.</td><td>Penalidade maior = prioridade menor na distribuição.</td></tr>
+        <tr><td><code>queue reset stats 100</code></td><td>Reseta as estatísticas da fila.</td><td>Zera os contadores de chamadas da fila 100.</td></tr>
+        <tr><td><code>queue reload all</code></td><td>Recarrega todas as filas.</td><td>Aplica mudanças sem reiniciar o Asterisk.</td></tr>
+        <tr><td><code>queue show rules</code></td><td>Mostra as regras do <code>queuerules.conf</code>.</td><td>Exibe regras de horário/penalidade das filas.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>F. Comandos de Dialplan</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>dialplan show</code></td><td>Mostra todo o dialplan.</td><td>Lista todos os contextos e extensões.</td></tr>
+        <tr><td><code>dialplan show 100</code></td><td>Mostra os detalhes de uma extensão.</td><td>Ver como a extensão 100 está configurada.</td></tr>
+        <tr><td><code>dialplan show globals</code></td><td>Mostra as variáveis globais.</td><td>Exibe todas as variáveis globais do dialplan.</td></tr>
+        <tr><td><code>dialplan reload</code></td><td>Recarrega apenas o dialplan.</td><td>Aplica mudanças no <code>extensions.conf</code>.</td></tr>
+        <tr><td><code>dialplan set global CALLERID=1000</code></td><td>Define uma variável global.</td><td>Define a variável global CALLERID como 1000.</td></tr>
+        <tr><td><code>dialplan show hints</code></td><td>Mostra os hints (presença) do dialplan.</td><td>Exibe devices e estados de presença.</td></tr>
+        <tr><td><code>core show applications</code></td><td>Lista todas as aplicações do dialplan.</td><td>Lista apps como Playback, Dial e Queue.</td></tr>
+        <tr><td><code>core show application Playback</code></td><td>Mostra os detalhes de uma aplicação.</td><td>Exibe a sintaxe do comando Playback.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>G. Comandos de Banco de Dados (ASTDB)</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>database show</code></td><td>Mostra todo o conteúdo do banco.</td><td>Exibe toda a base de dados do Asterisk.</td></tr>
+        <tr><td><code>database showkey queue/100</code></td><td>Mostra uma chave específica.</td><td>Ver os dados da fila 100.</td></tr>
+        <tr><td><code>database get queue/100/calls</code></td><td>Obtém o valor de uma chave.</td><td>Ver o número de chamadas atendidas.</td></tr>
+        <tr><td><code>database put queue/100/status active</code></td><td>Insere/atualiza um valor.</td><td>Define o status da fila como ativo.</td></tr>
+        <tr><td><code>database del queue/100/status</code></td><td>Remove uma chave.</td><td>Remove a chave <code>status</code>.</td></tr>
+        <tr><td><code>database deltree queue</code></td><td>Remove toda uma família de chaves.</td><td>Remove todos os dados de filas.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>H. Comandos de Módulos</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>module show</code></td><td>Lista todos os módulos carregados.</td><td>Exibe todos os módulos em execução.</td></tr>
+        <tr><td><code>module show like app_</code></td><td>Lista módulos que começam com <code>app_</code>.</td><td>Mostra <code>app_queue</code>, <code>app_dial</code> etc.</td></tr>
+        <tr><td><code>module load app_queue.so</code></td><td>Carrega um módulo.</td><td>Carrega o módulo de filas.</td></tr>
+        <tr><td><code>module unload app_queue.so</code></td><td>Descarrega um módulo.</td><td>Descarrega o módulo de filas.</td></tr>
+        <tr><td><code>module reload app_queue.so</code></td><td>Recarrega um módulo.</td><td>Recarrega a configuração das filas.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>I. Comandos de Agentes e de Presença (Device State)</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>agent show all</code></td><td>Mostra todos os agentes cadastrados.</td><td>Lista todos os agentes do sistema.</td></tr>
+        <tr><td><code>agent show online</code></td><td>Mostra os agentes online.</td><td>Exibe apenas os agentes disponíveis.</td></tr>
+        <tr><td><code>agent show 2000</code></td><td>Mostra os detalhes de um agente.</td><td>Ver o status do agente 2000.</td></tr>
+        <tr><td><code>agent logoff 2000</code></td><td>Coloca um agente offline.</td><td>Desloga o agente 2000 da fila.</td></tr>
+        <tr><td><code>devstate list</code></td><td>Lista estados de dispositivos customizados.</td><td>Lista todos os estados customizados.</td></tr>
+        <tr><td><code>devstate change 2000 NOT_INUSE</code></td><td>Altera o estado de um dispositivo.</td><td>Define o ramal 2000 como disponível.</td></tr>
+        <tr><td><code>core show hints</code></td><td>Mostra os hints de presença.</td><td>Exibe o estado de todos os ramais.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>J. Comandos de Música em Espera (MOH) e Voicemail</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>moh show classes</code></td><td>Lista as classes de música em espera.</td><td>Mostra <code>default</code>, <code>jazz</code>, <code>classical</code> etc.</td></tr>
+        <tr><td><code>moh show files</code></td><td>Lista os arquivos de música em espera.</td><td>Exibe os arquivos de áudio disponíveis.</td></tr>
+        <tr><td><code>moh reload</code></td><td>Recarrega as configurações de MOH.</td><td>Aplica mudanças no <code>musiconhold.conf</code>.</td></tr>
+        <tr><td><code>voicemail show users</code></td><td>Lista as caixas de correio configuradas.</td><td>Lista todos os usuários com voicemail.</td></tr>
+        <tr><td><code>voicemail show mailbox 1000</code></td><td>Mostra os detalhes de uma caixa postal.</td><td>Ver as mensagens da caixa 1000.</td></tr>
+        <tr><td><code>voicemail reload</code></td><td>Recarrega as configurações de voicemail.</td><td>Aplica mudanças no <code>voicemail.conf</code>.</td></tr>
+        <tr><td><code>voicemail remove 1000 1</code></td><td>Remove a mensagem 1 da caixa 1000.</td><td>Apaga uma mensagem específica.</td></tr>
+        <tr><td><code>voicemail forward 1000 1 2000</code></td><td>Encaminha uma mensagem para outra caixa.</td><td>Encaminha a mensagem para o ramal 2000.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>K. Comandos de CDR (Registro de Chamadas) via CLI</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>cdr show active</code></td><td>Mostra os CDRs ativos.</td><td>Exibe as chamadas em andamento.</td></tr>
+        <tr><td><code>cdr show status</code></td><td>Mostra o status do CDR.</td><td>Verificar se o CDR está funcionando.</td></tr>
+        <tr><td><code>cdr submit</code></td><td>Envia os CDRs pendentes para o banco.</td><td>Força o envio dos registros pendentes.</td></tr>
+        <tr><td><code>cdr set debug on</code></td><td>Ativa o debug de CDR.</td><td>Ver detalhes do registro de chamadas.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>L. Comandos de RTP e RTCP</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>rtp set debug on</code></td><td>Ativa o debug de RTP.</td><td>Mostra os pacotes de áudio no console.</td></tr>
+        <tr><td><code>rtp set debug off</code></td><td>Desativa o debug de RTP.</td><td>Para de mostrar os pacotes RTP.</td></tr>
+        <tr><td><code>rtp set debug ip 192.168.1.100</code></td><td>Faz debug de RTP para um IP específico.</td><td>Debug apenas de um IP.</td></tr>
+        <tr><td><code>rtcp set debug on</code></td><td>Ativa o debug de RTCP.</td><td>Mostra estatísticas de qualidade.</td></tr>
+        <tr><td><code>rtp show settings</code></td><td>Mostra as configurações de RTP.</td><td>Exibe as portas e codecs configurados.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>M. Comandos de Gerenciamento (Manager/AMI)</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>manager show users</code></td><td>Lista os usuários do manager.</td><td>Mostra os usuários AMI configurados.</td></tr>
+        <tr><td><code>manager show connected</code></td><td>Mostra as conexões ativas do manager.</td><td>Exibe as sessões AMI ativas.</td></tr>
+        <tr><td><code>manager kick session abc123</code></td><td>Desconecta uma sessão do manager.</td><td>Força o logout de uma sessão.</td></tr>
+        <tr><td><code>manager reload</code></td><td>Recarrega as configurações do manager.</td><td>Aplica mudanças no <code>manager.conf</code>.</td></tr>
+        <tr><td><code>manager show commands</code></td><td>Lista os comandos disponíveis no manager.</td><td>Mostra todos os comandos AMI.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>N. Comandos Úteis para Administração</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>!</code></td><td>Executa um comando do shell.</td><td><code>!ls -la</code> lista os arquivos do diretório.</td></tr>
+        <tr><td><code>ulimit -n</code></td><td>Mostra o limite de arquivos abertos.</td><td>Exibe, por exemplo, <code>1024</code>.</td></tr>
+        <tr><td><code>ulimit -n 4096</code></td><td>Altera o limite de arquivos abertos.</td><td>Aumenta o limite para 4096.</td></tr>
+        <tr><td><code>realtime load</code></td><td>Exibe as variáveis do RealTime.</td><td>Mostra as configurações de banco de dados.</td></tr>
+        <tr><td><code>config list</code></td><td>Lista os arquivos de configuração carregados.</td><td>Exibe todos os <code>.conf</code> carregados.</td></tr>
+        <tr><td><code>config reload extensions.conf</code></td><td>Recarrega um arquivo de configuração.</td><td>Recarrega apenas o dialplan.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>O. Comandos PJSIP Complementares</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>pjsip show endpoint 2000</code></td><td>Mostra os detalhes de um endpoint.</td><td>Ver a configuração do ramal 2000.</td></tr>
+        <tr><td><code>pjsip show contacts</code></td><td>Lista os contatos registrados.</td><td>Mostra os ramais registrados no momento.</td></tr>
+        <tr><td><code>pjsip show transports</code></td><td>Lista os transportes configurados.</td><td>Mostra UDP/TCP/TLS configurados.</td></tr>
+        <tr><td><code>pjsip qualify endpoint 2000</code></td><td>Envia OPTIONS para verificar se está online.</td><td>Testa se o ramal 2000 está acessível.</td></tr>
+        <tr><td><code>pjsip send notify 2000</code></td><td>Envia uma notificação SIP para um endpoint.</td><td>Atualiza a presença do ramal.</td></tr>
+        <tr><td><code>pjsip show channelstats</code></td><td>Mostra estatísticas de canais PJSIP.</td><td>Exibe MOS, jitter e perda de pacotes.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>P. Canais, Pontes e Originação</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>core show channels concise</code></td><td>Lista os canais em formato compacto.</td><td>Formato mais limpo, ideal para scripts.</td></tr>
+        <tr><td><code>core show calls</code></td><td>Mostra informações sobre as chamadas.</td><td>Exibe, por exemplo, <code>2 active calls</code>.</td></tr>
+        <tr><td><code>channel originate PJSIP/2000 application Playback hello-world</code></td><td>Origina uma chamada para um ramal.</td><td>Liga para o 2000 e toca a saudação.</td></tr>
+        <tr><td><code>channel redirect PJSIP/2000 to 100</code></td><td>Redireciona uma chamada para outro destino.</td><td>Transfere a chamada para a fila 100.</td></tr>
+        <tr><td><code>bridge show all</code></td><td>Lista todas as pontes (bridges) ativas.</td><td>Mostra conferências e bridges em andamento.</td></tr>
+        <tr><td><code>bridge kick PJSIP/2000</code></td><td>Remove um canal de uma ponte.</td><td>Remove o ramal de uma conferência.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
   <h2>3. Guia de Resolução dos 5 Maiores Problemas (Troubleshooting)</h2>
@@ -113,6 +315,81 @@
     <li><strong>Causa Raiz:</strong> Incompatibilidade de codecs de áudio entre as duas pontas.</li>
     <li><strong>Solução:</strong> No FreePBX, em <code>Settings › Asterisk SIP Settings</code>, ative os codecs <code>ulaw</code>, <code>alaw</code>, <code>g729</code> e <code>opus</code> para garantir compatibilidade universal.</li>
   </ul>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>4. Fluxo de Diagnóstico de uma Chamada em Tempo Real</h2>
+  <p>Quando o parceiro relata uma falha genérica (&ldquo;não completa&rdquo;, &ldquo;sem áudio&rdquo;, &ldquo;cai sozinho&rdquo;), siga esta sequência para isolar a causa antes de alterar qualquer configuração:</p>
+  <ol class="steps">
+    <li>Confirme o estado geral do servidor: versão, tempo de atividade e recursos.</li>
+    <li>Suba temporariamente o nível de detalhe do console para enxergar o que o Asterisk está fazendo.</li>
+    <li>Ative o log específico do sintoma: pacotes SIP para falhas de registro/autenticação, pacotes RTP para problemas de áudio.</li>
+    <li>Peça ao parceiro para reproduzir a chamada e observe a saída no console/SSH em tempo real.</li>
+    <li>Isole a ponta com falha: verifique se o ramal/tronco está registrado, se o canal subiu e como está a fila.</li>
+    <li>Encerre o diagnóstico desativando os logs para não sobrecarregar o servidor e os arquivos de log.</li>
+  </ol>
+
+  <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code># 1. Estado geral
+asterisk -rx &quot;core show version&quot;
+asterisk -rx &quot;core show uptime&quot;
+asterisk -rx &quot;core show sysinfo&quot;
+
+# 2. Nível de detalhe
+asterisk -rx &quot;core set verbose 5&quot;
+asterisk -rx &quot;core set debug 5&quot;
+
+# 3. Logs específicos
+asterisk -rx &quot;pjsip set logger on&quot;     (falhas de SIP: 401, 404, 486)
+asterisk -rx &quot;rtp set debug on&quot;        (problemas de áudio)
+
+# 5. Isolamento da ponta
+asterisk -rx &quot;pjsip show endpoints&quot;
+asterisk -rx &quot;pjsip show registrations&quot;
+asterisk -rx &quot;core show channels&quot;
+asterisk -rx &quot;queue show 100&quot;
+
+# 6. Encerramento
+asterisk -rx &quot;pjsip set logger off&quot;
+asterisk -rx &quot;rtp set debug off&quot;
+asterisk -rx &quot;core set verbose 0&quot;
+asterisk -rx &quot;core set debug 0&quot;</code></pre>
+
+  <div class="callout tip">
+    <strong>Exemplo de retorno de status:</strong> <code>core show version</code> retorna algo como <code>Asterisk 18.12.0</code>; <code>core show uptime</code> retorna algo como <code>System uptime: 5 days, 3 hours</code>; e <code>core show calls</code> retorna, por exemplo, <code>2 active calls</code>. Um uptime menor do que o esperado indica reinício inesperado do Asterisk.
+  </div>
+
+  <div class="callout info">
+    <strong>Atenção com os logs:</strong> <code>pjsip set logger on</code> e <code>rtp set debug on</code> geram muita saída. Mantenha-os ativos apenas durante a reprodução do problema e desative-os em seguida. Os logs também ficam gravados em <code>/var/log/asterisk/full</code> (verificável com <code>logger show channels</code>).
+  </div>
+
+  <h3>Derrubar uma Chamada Travada</h3>
+  <p>Se um canal ficar preso (ramal ocupado mesmo sem ligação ativa), identifique o canal exato e solicite o desligamento:</p>
+  <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code>asterisk -rx &quot;core show channels&quot;
+asterisk -rx &quot;channel request hangup PJSIP/1001-00000042&quot;</code></pre>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>5. Referência Rápida: Comandos Essenciais para Filas</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>O que você quer fazer</th><th>Comando prático</th></tr></thead>
+      <tbody>
+        <tr><td>Ver o status de uma fila</td><td><code>queue show 100</code></td></tr>
+        <tr><td>Ver todas as filas</td><td><code>queue show</code></td></tr>
+        <tr><td>Adicionar ramal à fila</td><td><code>queue add member PJSIP/2000 to 100</code></td></tr>
+        <tr><td>Remover ramal da fila</td><td><code>queue remove member PJSIP/2000 from 100</code></td></tr>
+        <tr><td>Remover ramal Local da fila</td><td><code>queue remove member Local/7078@from-queue/n from 200</code></td></tr>
+        <tr><td>Pausar ramal na fila</td><td><code>queue pause member PJSIP/2000 from 100</code></td></tr>
+        <tr><td>Despausar ramal</td><td><code>queue unpause member PJSIP/2000 from 100</code></td></tr>
+        <tr><td>Resetar estatísticas</td><td><code>queue reset stats 100</code></td></tr>
+        <tr><td>Recarregar filas</td><td><code>queue reload all</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout tip">
+    <strong>Dica de uso combinado:</strong> comandos <code>set</code> (logger, debug, verbose) alteram o comportamento <em>da sessão atual</em> do console. Prefira sempre a forma <code>asterisk -rx &quot;COMANDO&quot;</code> via SSH para execuções pontuais, pois ela não trava a sessão e devolve apenas o resultado do comando.
+  </div>
 
   <div class="pagenav">
     <a href="pabx-cdr-auditoria.html"><span>← Anterior</span> Auditoria de Chamadas & CDR</a>

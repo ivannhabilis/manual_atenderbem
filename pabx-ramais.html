@@ -115,6 +115,89 @@
     <li><strong>Media Encryption:</strong> Desativado para conexões locais padrão ou <em>Mandatory SRTP</em> se configurado com TLS.</li>
   </ul>
 
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>5. Tipo do Ramal no PABX Fácil: Softphone vs Webphone</h2>
+  <p>Além do cadastro do protocolo (PJSIP), o PABX Fácil permite classificar o ramal pelo seu <strong>tipo de uso</strong>, determinando em qual interface ele será consumido:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Tipo do Ramal</th><th>Para que Serve</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Tipo Softphone</strong></td><td>Usado por softwares de desktop (MicroSIP e similares) e por telefones IP físicos.</td></tr>
+        <tr><td><strong>Tipo Webphone</strong></td><td>Usado dentro do sistema de atendimento (navegador), sem instalação de software no posto de trabalho.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    A definição do <strong>tipo</strong> é feita no PABX. O vínculo do ramal com o atendente continua sendo feito em <code>Configurações › Usuários</code>, conforme a seção 3.
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>6. Aba Advanced do Ramal PJSIP (WebRTC e Mídia)</h2>
+  <p>Para que o ramal opere como <strong>webphone</strong> no navegador, é preciso habilitar os parâmetros de conectividade de mídia na aba <code>Advanced</code> do formulário <em>Add PJSIP Extension</em>. Conforme o guia do parceiro, estes campos devem estar definidos como <code>Yes</code>:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Parâmetro (aba Advanced)</th><th>Valor Recomendado</th><th>Finalidade</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Enable AVPF</strong></td><td><code>Yes</code></td><td>Habilita o perfil de feedback de áudio/vídeo (RTCP) usado pelo WebRTC.</td></tr>
+        <tr><td><strong>Enable ICE Support</strong></td><td><code>Yes</code></td><td>Permite a descoberta de caminho de mídia (ICE/STUN) para conexões atrás de NAT.</td></tr>
+        <tr><td><strong>Enable WebRTC</strong></td><td><code>Yes</code></td><td>Habilita o endpoint para chamadas WebRTC (webphone no navegador).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ol class="steps">
+    <li>Acesse <code>Applications › Extensions</code> e clique no ícone de editar o ramal desejado.</li>
+    <li>Abra a aba <strong>Advanced</strong> (role a página, os parâmetros ficam mais abaixo).</li>
+    <li>Ajuste <strong>Enable AVPF</strong>, <strong>Enable ICE Support</strong> e <strong>Enable WebRTC</strong> para <code>Yes</code>.</li>
+    <li>Clique em <strong>Submit</strong> e depois em <strong>Apply Config</strong>.</li>
+  </ol>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>7. Atualizar o NAT e Obter o IP Externo do PABX</h2>
+  <p>O <strong>IP externo</strong> é o endereço usado para configurar telefones IP e aplicativos VoIP (tipo MicroSIP) que se conectam de fora da rede local. Sem o IP externo correto no NAT, ramais externos não conseguem registrar.</p>
+
+  <ol class="steps">
+    <li>No PABX, acesse <code>Settings › Asterisk SIP Settings</code>.</li>
+    <li>Abra a aba <strong>General SIP Settings</strong>.</li>
+    <li>Em <strong>NAT Settings</strong>, no campo <strong>External Address</strong>, clique no botão <strong>Detect Network Settings</strong>.</li>
+    <li>O IP será atualizado automaticamente — utilize-o para configurar os acessos externos (softphones e telefones IP).</li>
+  </ol>
+
+  <div class="callout tip">
+    O mesmo IP externo detectado aqui é o valor a informar no campo <strong>SIP Server</strong> dos aplicativos softphone (veja a seção 4).
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>8. Diagnóstico de Ramais via CLI</h2>
+  <p>Comandos Asterisk úteis para conferir o cadastro e o registro dos ramais:</p>
+
+  <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code># Lista todos os ramais (endpoints PJSIP) cadastrados:
+asterisk -rx "pjsip show endpoints"
+
+# Exibe a configuração detalhada do ramal 2000:
+asterisk -rx "pjsip show endpoint 2000"
+
+# Ramais registrados no momento:
+asterisk -rx "pjsip show contacts"
+asterisk -rx "pjsip show registrations"
+
+# Transportes configurados (UDP / TCP / TLS):
+asterisk -rx "pjsip show transports"
+
+# Testa se o ramal responde (envia OPTIONS ao endpoint):
+asterisk -rx "pjsip qualify endpoint 2000"</code></pre>
+
+  <div class="callout info">
+    Para depurar o registro SIP em detalhe, ative <code>asterisk -rx "pjsip set logger on"</code> (e desative depois com <code>pjsip set logger off</code>) para visualizar os pacotes SIP no console.
+  </div>
+
   <div class="pagenav">
     <a href="pabx-rotas.html"><span>← Anterior</span> Rotas de Entrada e Saída</a>
     <a class="next" href="pabx-filas.html"><span>Próximo Capítulo →</span> Filas de Atendimento (Queues)</a>

@@ -74,6 +74,52 @@
     <strong>Vínculo Estabelecido:</strong> A partir deste momento, qualquer rota de entrada no PABX que tiver como destino este <em>Custom Destination</em> entregará a chamada diretamente para o fluxo de URA inteligente do AtenderBem.
   </div>
 
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>4. Referência dos Campos do Custom Destination</h2>
+  <p>Os campos do formulário de Custom Destination no FreePBX e o que preencher em cada um:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo</th><th>O que preencher</th><th>Observação</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Target</strong></td><td><code>ari-bridge,NOME_FILA,1</code></td><td>Aponta para o destino ARI e para o nome da fila (ex.: <code>apptest</code>). O nome <code>apptest</code> pode ser alterado.</td></tr>
+        <tr><td><strong>Destination Quick Pick</strong></td><td>Seleção de destino existente</td><td>Atalho <em>(pick destination)</em> para reaproveitar um destino já cadastrado no PABX como ponto de partida.</td></tr>
+        <tr><td><strong>Description</strong></td><td>Texto descritivo</td><td>Descrição do destino (ex.: <code>Ponte ARI - URA Telefonia AtenderBem</code>).</td></tr>
+        <tr><td><strong>Notes</strong></td><td>Notas / informações adicionais</td><td>Campo livre para documentar a finalidade do destino.</td></tr>
+        <tr><td><strong>Return</strong></td><td><code>No</code></td><td>Indica que a chamada não retorna ao ponto de origem após executar o destino.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <strong>Nome da fila:</strong> o identificador usado no <em>Target</em> (no exemplo, <code>apptest</code>) deve ser exatamente o mesmo cadastrado como nome da fila no AtenderBem — é essa correspondência que faz a ponte ARI encontrar a fila correta.
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>5. Parâmetros de Integração do Módulo de Telefonia</h2>
+  <p>A comunicação entre o AtenderBem e o Asterisk é definida por um objeto de configuração do módulo de telefonia. Os parâmetros documentados no acervo são:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Chave</th><th>Descrição</th></tr></thead>
+      <tbody>
+        <tr><td><code>enableTelephony</code></td><td>Habilita (<code>true</code>) ou desabilita o módulo de telefonia na instância.</td></tr>
+        <tr><td><code>asteriskHost</code></td><td>Endereço do servidor Asterisk que hospeda o PABX.</td></tr>
+        <tr><td><code>amiUser</code> / <code>amiPort</code></td><td>Credenciais e porta do Asterisk Manager Interface — AMI (<code>5038</code> por padrão), usado para controlar e monitorar chamadas.</td></tr>
+        <tr><td><code>asteriskWssHost</code> / <code>asteriskWssPort</code></td><td>Host e porta do WebSocket seguro (<code>2087</code>) usado pelo webphone no navegador.</td></tr>
+        <tr><td><code>pjsip</code></td><td>Indica que o driver de canais é o <code>chan_pjsip</code> (<code>true</code>).</td></tr>
+        <tr><td><code>asteriskCDREnabled</code> / <code>asteriskCDRDBHost</code> / <code>asteriskCDRDBName</code> / <code>asteriskCDRDBPort</code></td><td>Habilitação e conexão com o banco de CDR (<code>asteriskcdrdb</code>, porta <code>3306</code>) usado pela auditoria de chamadas.</td></tr>
+        <tr><td><code>audioMode</code> / <code>audioServer</code> / <code>audioPath</code></td><td>Modo de áudio (<code>remote</code>) e servidor/caminho onde ficam armazenados os áudios das URAs.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>Segurança:</strong> campos de credencial (<code>amiPass</code>, <code>asteriskCDRDBPass</code>, <code>audioServerToken</code>) são segredos da instalação. Nunca os exponha em documentação compartilhada — trate-os como dados sensíveis do cliente.
+  </div>
+
   <div class="pagenav">
     <a href="pabx-horarios.html"><span>← Anterior</span> Condições de Horário</a>
     <a class="next" href="pabx-cdr-auditoria.html"><span>Próximo Capítulo →</span> Auditoria de Chamadas & CDR</a>

@@ -113,6 +113,240 @@ WHERE dcontext = 'ext-queues'
   AND billsec < 10
 ORDER BY calldate DESC;</code></pre>
 
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>5. Dicionário Complementar: Colunas Avançadas do CDR</h2>
+  <p>Além das colunas essenciais, o arquivo exportado pelo FreePBX/Asterisk (formato padrão com 25 colunas) traz campos adicionais valiosos para auditoria, bilhetagem e rastreamento da jornada:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Coluna</th><th>Nome Técnico</th><th>Significado</th></tr></thead>
+      <tbody>
+        <tr><td><code>lastdata</code></td><td>Parâmetros da Última Aplicação</td><td>Argumentos passados para o comando registrado em <code>lastapp</code> (ex.: <code>"102,t,,,,,,,,"</code> para <code>Queue</code>; <code>custom/downloadMedia__1_</code> para <code>BackGround</code>).</td></tr>
+        <tr><td><code>amaflags</code></td><td>Flags de Documentação</td><td>Valor comum <code>3</code> = <strong>DOCUMENTATION</strong>, indicando que a chamada deve ser gravada e documentada.</td></tr>
+        <tr><td><code>accountcode</code></td><td>Código de Conta</td><td>Campo para separação por departamento ou cliente (frequentemente vazio).</td></tr>
+        <tr><td><code>uniqueid</code></td><td>Identificador Único</td><td>Formato <code>timestamp.ID</code> (ex.: <code>1770657875.7080</code>). É a chave primária para relacionar os registros de uma mesma chamada.</td></tr>
+        <tr><td><code>userfield</code></td><td>Campo do Usuário</td><td>Campo personalizável — pode armazenar ID do cliente, código de campanha ou etiqueta de negócio.</td></tr>
+        <tr><td><code>did</code></td><td>Direct Inward Dialing</td><td>Número discado pelo cliente externo que chegou ao PABX (ex.: <code>551130902755</code>).</td></tr>
+        <tr><td><code>cnum</code></td><td>Caller Number</td><td>Número do chamador (equivalente ao <code>src</code>).</td></tr>
+        <tr><td><code>cnam</code></td><td>Caller Name</td><td>Nome do chamador quando disponível; sem nome, repete o número.</td></tr>
+        <tr><td><code>outbound_cnum</code></td><td>Número de Saída</td><td>Número apresentado em chamadas externas originadas (geralmente vazio).</td></tr>
+        <tr><td><code>outbound_cnam</code></td><td>Nome de Saída</td><td>Nome apresentado em chamadas externas originadas.</td></tr>
+        <tr><td><code>dst_cnam</code></td><td>Nome do Destino</td><td>Nome do destino/ponta atendida, quando o sistema o conhece.</td></tr>
+        <tr><td><code>peeraccount</code></td><td>Conta do Par</td><td>Conta da outra ponta da chamada, usada para bilhetagem cruzada.</td></tr>
+        <tr><td><code>sequence</code></td><td>Sequência</td><td>Número sequencial do registro no sistema (ex.: <code>7554</code>), útil para ordenação e identificação.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <strong>Valor adicional de <code>disposition</code>:</strong> além de <code>ANSWERED</code>, <code>NO ANSWER</code>, <code>BUSY</code> e <code>FAILED</code>, o Asterisk pode registrar <code>CONGESTION</code> — congestionamento na operadora, ou seja, sem rotas/canais disponíveis no momento. Trata-se de um problema de infraestrutura/tronco, não de comportamento do atendente.
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>6. Padrão de Nomes do Arquivo de Gravação (<code>recordingfile</code>)</h2>
+  <p>O próprio nome do arquivo WAV revela a direção da chamada, o número envolvido, o ramal e o instante exato da gravação:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Direção</th><th>Formato do Nome</th></tr></thead>
+      <tbody>
+        <tr><td>Chamada recebida</td><td><code>in-s-NUMERO-YYYYMMDD-HHMMSS-UNIQUEID.wav</code><br>Exemplo real: <code>in-s-11982076263-20260209-142435-1770657875.7080.wav</code></td></tr>
+        <tr><td>Chamada originada</td><td><code>out-NUMERO-RAMAL-YYYYMMDD-HHMMSS-UNIQUEID.wav</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout tip">
+    <strong>Dica de auditoria:</strong> use <code>recordingfile</code> para validar os casos suspeitos apontados pelo relatório (recusas, desligamentos em poucos segundos e transferências). A gravação é a evidência final antes de levar o caso ao parceiro.
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>7. Interpretação de Cenários Comuns</h2>
+
+  <h3>Cenário 1: Chamada recebida em URA (menu interativo)</h3>
+  <ul>
+    <li><strong>Como aparece:</strong> <code>dst = 's'</code>, <code>dcontext = 'ivr-9'</code> e <code>lastapp = 'BackGround'</code> com <code>lastdata = 'custom/downloadMedia__1_'</code>.</li>
+    <li><strong>Leitura:</strong> a chamada entrou no menu de voz, tocou o áudio configurado e aguardou a digitação do cliente. <code>duration</code> reflete o tempo total ouvindo o menu; <code>disposition = 'ANSWERED'</code> indica que a URA atendeu automaticamente.</li>
+  </ul>
+
+  <h3>Cenário 2: Chamada recebida em Fila e atendida com sucesso</h3>
+  <ul>
+    <li><strong>Como aparece:</strong> <code>dst</code> = número da fila (ex.: <code>102</code>), <code>dcontext = 'ext-queues'</code>, <code>dstchannel</code> preenchido com o ramal (ex.: <code>PJSIP/1003-00001ba7</code>) e <code>disposition = 'ANSWERED'</code>.</li>
+    <li><strong>Leitura:</strong> a chamada ficou 42 segundos na fila e foi entregue ao ramal 1003, que a atendeu. <code>dstchannel</code> preenchido é a prova de que a chamada tocou em um dispositivo final.</li>
+  </ul>
+
+  <h3>Cenário 3: Chamada abandonada na fila</h3>
+  <ul>
+    <li><strong>Como aparece:</strong> <code>dst = '102'</code> (número da fila), <code>dcontext = 'ext-queues'</code>, <code>dstchannel</code> <strong>vazio</strong> e <code>disposition = 'ANSWERED'</code>.</li>
+    <li><strong>Leitura:</strong> a fila &ldquo;atende&rdquo; a chamada para tocar a música de espera, então o registro aparece como <code>ANSWERED</code>; porém, como o <code>dstchannel</code> está vazio, nenhum atendente foi conectado. Olhe o <code>billsec</code>: se for baixo (ex.: 15s) e o <code>dstchannel</code> estiver vazio, o cliente desistiu enquanto ouvia a música.</li>
+  </ul>
+
+  <h3>Cenário 4: Chamada externa originada e não atendida</h3>
+  <ul>
+    <li><strong>Como aparece:</strong> <code>dcontext = 'from-internal'</code>, <code>lastapp = 'Dial'</code>, <code>dst</code> = número externo discado, <code>disposition = 'NO ANSWER'</code> e gravação salva como arquivo <code>out-...</code>.</li>
+    <li><strong>Leitura:</strong> o ramal discou para um destino externo, ouviu até o tempo limite e o outro lado não atendeu (ex.: 7 segundos de espera).</li>
+  </ul>
+
+  <h3>Cenário 5: Reprodução de gravação do sistema</h3>
+  <ul>
+    <li><strong>Como aparece:</strong> <code>dcontext = 'play-system-recording'</code> e <code>lastapp = 'Playback'</code>.</li>
+    <li><strong>Leitura:</strong> a chamada reproduziu um áudio do sistema (ex.: <code>custom/downloadMedia__2_</code>) por 21 segundos, sendo atendida automaticamente pelo próprio sistema.</li>
+  </ul>
+
+  <h3>Cenário 6: Transferência entre atendentes</h3>
+  <ul>
+    <li><strong>Como aparece:</strong> <code>dcontext = 'from-internal-xfer'</code>, <code>lastapp = 'Queue'</code>, com o mesmo <code>linkedid</code> em mais de uma linha do relatório.</li>
+    <li><strong>Leitura:</strong> o <code>linkedid</code> compartilhado permite rastrear a chamada original através da transferência. Transferências legítimas para o setor correto também aparecem assim — avalie o contexto antes de classificar como recusa.</li>
+  </ul>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>8. Análise pela Interface Web do FreePBX (Reports › CDR Report)</h2>
+  <p>Você não precisa de SQL para as auditorias do dia a dia. A tela nativa de relatórios do FreePBX resolve a maioria dos casos:</p>
+  <ol class="steps">
+    <li>Acesse <code>Reports › CDR Report</code> no menu do PABX.</li>
+    <li>Clique em <strong>Pesquisar / Search</strong> para abrir os filtros.</li>
+    <li>Para encontrar <strong>chamadas recusadas</strong> de um atendente: no campo <strong>Destination</strong> digite o número do ramal (ex.: <code>1003</code>) e no campo <strong>Disposition</strong> selecione <code>BUSY</code> ou <code>NO ANSWER</code>. Clique em Pesquisar.</li>
+    <li>Para encontrar chamadas <strong>desligadas após o atendimento</strong>: no campo <strong>Destination</strong> informe o ramal, em <strong>Disposition</strong> selecione <code>ANSWERED</code> e, no campo <strong>Duration</strong>, filtre por chamadas muito curtas (ex.: menores que 5 segundos).</li>
+    <li>Como filtro avançado, use <strong>Destination Channel</strong> contendo o número do ramal — assim você isola todas as chamadas em que aquele ramal foi a ponta final.</li>
+    <li>Exporte o resultado com o botão <strong>CSV</strong> ao final da página para análises mais profundas em Excel, Google Sheets ou LibreOffice Calc (médias por ramal, taxas de recusa, tempos de espera).</li>
+  </ol>
+
+  <div class="callout tip">
+    <strong>Atalho em planilhas:</strong> após exportar o CSV, use a busca (Ctrl+F) por <code>/1003-</code>, <code>/1004-</code> etc. para localizar rapidamente todas as ocorrências de cada atendente na coluna <code>dstchannel</code>.
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>9. Consultas SQL Complementares</h2>
+
+  <h3>Query 3: Volume de Chamadas por Hora</h3>
+  <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code>SELECT HOUR(calldate) AS hora, COUNT(*) AS total
+FROM cdr
+GROUP BY HOUR(calldate)
+ORDER BY hora;</code></pre>
+
+  <h3>Query 4: Top 10 Números que Mais Ligam</h3>
+  <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code>SELECT src, COUNT(*) AS total
+FROM cdr
+GROUP BY src
+ORDER BY total DESC
+LIMIT 10;</code></pre>
+
+  <h3>Query 5: Eficiência e Tempo Médio por Fila</h3>
+  <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code>SELECT dst AS fila,
+       COUNT(*) AS total,
+       SUM(CASE WHEN disposition = 'ANSWERED' THEN 1 ELSE 0 END) AS atendidas,
+       ROUND(AVG(duration), 1) AS tempo_medio
+FROM cdr
+WHERE dcontext = 'ext-queues'
+GROUP BY dst
+ORDER BY total DESC;</code></pre>
+
+  <h3>Query 6: Chamadas com Espera Excessiva na Fila (acima de 300s)</h3>
+  <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code>SELECT calldate, src, dst, duration, dstchannel
+FROM cdr
+WHERE lastapp = 'Queue'
+  AND duration > 300
+ORDER BY duration DESC;</code></pre>
+
+  <h3>Query 7: Chamadas Perdidas (Não Atendidas ou Ocupadas)</h3>
+  <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code>SELECT calldate, src, dst, disposition
+FROM cdr
+WHERE disposition IN ('NO ANSWER', 'BUSY')
+ORDER BY calldate DESC;</code></pre>
+
+  <h3>Filtros SQL Mais Usados</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Objetivo</th><th>Filtro</th></tr></thead>
+      <tbody>
+        <tr><td>Chamadas perdidas</td><td><code>disposition IN ('NO ANSWER', 'BUSY')</code></td></tr>
+        <tr><td>Tempos longos de espera</td><td><code>lastapp = 'Queue' AND duration &gt; 300</code></td></tr>
+        <tr><td>Chamadas externas originadas</td><td><code>dcontext = 'from-internal'</code></td></tr>
+        <tr><td>Reproduções de gravação do sistema</td><td><code>dcontext = 'play-system-recording'</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>10. Métricas de Gestão do Call Center</h2>
+  <p>Traduza o CDR em indicadores de gestão para acompanhar a operação e embasar decisões:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Métrica</th><th>Como Calcular</th><th>Fórmula</th></tr></thead>
+      <tbody>
+        <tr><td><strong>TASA</strong> (Taxa de Abandono)</td><td>Percentual de chamadas não completadas</td><td><code>(NO ANSWER + BUSY) / TOTAL</code></td></tr>
+        <tr><td><strong>TMA</strong> (Tempo Médio de Atendimento)</td><td>Média do tempo efetivo de conversa</td><td>Média de <code>billsec</code> para <code>disposition = 'ANSWERED'</code></td></tr>
+        <tr><td><strong>Volume por Hora</strong></td><td>Contagem de chamadas agrupada por faixa horária</td><td><code>COUNT(*) GROUP BY HOUR(calldate)</code></td></tr>
+        <tr><td><strong>Eficiência por Ramal</strong></td><td>Proporção de chamadas atendidas por atendente</td><td><code>ANSWERED / TOTAL</code> agrupado por <code>dstchannel</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>11. Cuidados na Análise: Falsos Positivos x Indicadores Reais</h2>
+  <p>Uma taxa de recusa alta só tem valor probatório quando interpretada com contexto. Separe o que pode ser comportamento evasivo do que é apenas operação normal:</p>
+
+  <h3>Falsos Positivos (não caracterizam recusa)</h3>
+  <ul>
+    <li>Atendente realmente ocupado com outra chamada ativa no momento.</li>
+    <li>Problemas técnicos: fone desconectado, queda de internet ou instabilidade do ramal.</li>
+    <li>Chamada recebida fora do horário de trabalho do atendente.</li>
+    <li>Chamadas de teste ou engano (número errado).</li>
+    <li>Transferências legítimas para o setor correto.</li>
+  </ul>
+
+  <h3>Indicadores Reais de Recusa</h3>
+  <ul>
+    <li>Padrão <strong>repetitivo</strong> do mesmo atendente ao longo do período.</li>
+    <li>Chamadas de clientes conhecidos não atendidas de forma recorrente.</li>
+    <li>Tempos de conversa consistentemente curtos (ex.: <code>billsec &lt; 10</code> segundos).</li>
+    <li>Muitas transferências para a mesma fila/ramal, sugerindo repasse sistemático.</li>
+  </ul>
+
+  <h3>Sinais de Problema no Arquivo</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Sinal no CDR</th><th>Possível Causa</th></tr></thead>
+      <tbody>
+        <tr><td>Muitos registros <code>NO ANSWER</code></td><td>Problemas no tronco de entrada ou nos ramais.</td></tr>
+        <tr><td><code>duration</code> diferente de <code>billsec</code></td><td>Problemas na cobrança/bilhetagem.</td></tr>
+        <tr><td><code>linkedid</code> sem correspondência</td><td>Falhas no rastreamento de chamadas transferidas.</td></tr>
+        <tr><td><code>recordingfile</code> vazio</td><td>Problemas na gravação das chamadas.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>12. Modelo de Relatório de Recusas/Desligues por Atendente</h2>
+  <p>Consolide as queries em um relatório pronto para entregar ao parceiro. Exemplo de saída do período de um dia de operação:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Atendente</th><th>Total</th><th>Não Atendeu (<code>NO ANSWER</code>)</th><th>Ocupado (<code>BUSY</code>)</th><th>&lt; 15s</th><th>Taxa de Recusa</th></tr></thead>
+      <tbody>
+        <tr><td><code>1003</code></td><td>8</td><td>2</td><td>1</td><td>0</td><td>37,5%</td></tr>
+        <tr><td><code>1004</code></td><td>5</td><td>1</td><td>0</td><td>1</td><td>20,0%</td></tr>
+        <tr><td><code>1005</code></td><td>6</td><td>0</td><td>0</td><td>0</td><td>0,0%</td></tr>
+        <tr><td><code>1007</code></td><td>10</td><td>3</td><td>2</td><td>2</td><td>50,0%</td></tr>
+        <tr><td><code>1009</code></td><td>7</td><td>1</td><td>1</td><td>0</td><td>28,6%</td></tr>
+        <tr><td><code>1013</code></td><td>12</td><td>0</td><td>0</td><td>0</td><td>0,0%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Legenda:</strong> <em>Não Atendeu</em> = disposition <code>NO ANSWER</code>; <em>Ocupado</em> = disposition <code>BUSY</code>; <em>&lt; 15s</em> = atendeu e desligou em menos de 15 segundos; <em>Taxa de Recusa</em> = (Não Atendeu + Ocupado + &lt;15s) / Total.</p>
+
+  <div class="callout tip">
+    <strong>Recomendações ao parceiro:</strong> (1) defina critérios claros do que é considerado "recusa" (apenas <code>NO ANSWER</code>? <code>BUSY</code> conta? qual tempo mínimo de conversa?); (2) analise o contexto (horário, tipo de cliente, carga de trabalho); (3) implemente treinamento sobre como lidar com chamadas difíceis e quando é aceitável transferir; (4) ajuste o sistema (tempo máximo de ring antes do voicemail, regras de roteamento e alertas em tempo real).
+  </div>
+
+  <div class="callout info">
+    <strong>Monitoramento em tempo real (opcional):</strong> com o módulo <em>Call Center Reports</em> instalado, é possível configurar limites por atendente (máximo de <code>NO ANSWER</code> por hora, tempo mínimo de conversa) e disparar notificações por e-mail quando os limites forem atingidos.
+  </div>
+
   <div class="pagenav">
     <a href="pabx-custom.html"><span>← Anterior</span> Custom Destinations & ARI</a>
     <a class="next" href="pabx-cli-troubleshooting.html"><span>Próximo Capítulo →</span> CLI do Asterisk & Diagnóstico</a>

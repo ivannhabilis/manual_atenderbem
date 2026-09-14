@@ -136,6 +136,85 @@
     <li>Clique em <strong>Submit</strong> e em <strong>Apply Config</strong>.</li>
   </ol>
 
+  <div class="callout tip">
+    <strong>URA = Unidade de Resposta Audível.</strong> É o recurso de autoatendimento que resolve demandas simples sem intervenção humana — por exemplo: consulta de 2ª via de fatura, atualização de dados de contato, confirmação de pagamento, verificação de faturas em atraso, agendamento/cancelamento de visita técnica. Cada um desses serviços pode virar um dígito do menu ou um bloco do fluxo.
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>4. Vinculação da URA de Telefonia ao Sistema Omnichannel</h2>
+  <p>Nem toda URA precisa viver dentro do FreePBX. Em vez de montar a árvore toda no PABX, é possível entregar a chamada para o <strong>Sistema de Atendimento (Omnichannel)</strong> por meio de uma fila do tipo <strong>Telefonia (URA)</strong>. Neste modelo, o PABX faz apenas o "handoff" da ligação via <em>Custom Destination</em> e o fluxo de decisão é construído no construtor visual de URAs da plataforma.</p>
+
+  <div class="callout tip">
+    <strong>Quando usar este modelo:</strong> quando o menu precisa continuar dentro do sistema de atendimento — para reaproveitar blocos modernos (Pesquisas, Horário de Atendimento, IA) e centralizar relatórios. A URA tradicional do FreePBX continua válida para árvores simples que não dependem de dados da plataforma.
+  </div>
+
+  <h3>Passo a passo da vinculação:</h3>
+  <ol class="steps">
+    <li>No PABX, acesse <code>Admin › Custom Destinations › + Add Destination</code>.</li>
+    <li>
+      No campo <strong>Target</strong>, informe o destino no formato <code>ari-bridge,&lt;nome_da_fila&gt;,1</code> — por exemplo, <code>ari-bridge,apptest,1</code> (o nome <code>apptest</code> é livre e deve ser reaproveitado no próximo passo).
+    </li>
+    <li>Preencha <strong>Description</strong> e <strong>Notes</strong> de forma descritiva (ex.: <em>"Enviar para a fila apptest"</em>) e mantenha <strong>Return</strong> em <code>No</code>.</li>
+    <li>Clique em <strong>Submit</strong> e depois em <strong>Apply Config</strong> para publicar o destino no PABX.</li>
+    <li>No sistema de atendimento, vá em <code>Configurações › Filas › + Adicionar</code> e crie uma fila com o <strong>MESMO NOME</strong> usado no Custom Destination (no exemplo, <code>apptest</code>). O <strong>Tipo</strong> da fila deve ser <code>Telefonia (URA)</code>.</li>
+    <li>Na aba <strong>Conexão</strong> da fila, ative a chave <strong>Habilitar Servidor</strong> e clique em <strong>Salvar</strong>.</li>
+    <li>Em <code>Configurações</code> da fila, na opção <strong>Enviar para a URA</strong>, crie uma nova URA do tipo <code>URA Avançada (telefonia)</code> ou atribua uma já existente do mesmo tipo.</li>
+  </ol>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo (Custom Destination)</th><th>Valor de Exemplo</th><th>Observação</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Target</strong></td><td><code>ari-bridge,apptest,1</code></td><td>Formato <code>ari-bridge,&lt;nome&gt;,1</code>. O nome precisa bater com o nome da fila criada na plataforma.</td></tr>
+        <tr><td><strong>Destination Quick Pick</strong></td><td><code>(pick destination)</code></td><td>Seleção rápida opcional do destino.</td></tr>
+        <tr><td><strong>Description</strong></td><td><code>Enviar para a fila apptest</code></td><td>Texto livre para identificar o destino na lista.</td></tr>
+        <tr><td><strong>Notes</strong></td><td>Informações adicionais</td><td>Campo opcional de anotação interna.</td></tr>
+        <tr><td><strong>Return</strong></td><td><code>No</code></td><td>Define se o destino retorna ao fluxo anterior (manter <code>No</code>).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>Atenção ao nome da fila:</strong> o vínculo depende do nome idêntico nos dois lados (PABX e plataforma). Um destino <code>ari-bridge</code> apontando para uma fila inexistente resulta em chamada sem tratamento — confira o nome antes de aplicar as mudanças.
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>5. Pesquisas de Satisfação em URAs (v13+)</h2>
+  <p>A partir da versão 13, o <strong>Módulo de Pesquisas</strong> substitui os fluxos longos e repetitivos de perguntas dentro da URA. Em vez de encadear dezenas de blocos de "digite 1 a 5", a pesquisa é montada uma única vez em <code>Configurações › Pesquisas</code> e reaproveitada no fluxo por blocos dedicados.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Elemento de URA / Fluxo</th><th>Função</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Gerar Link de Pesquisa</strong></td><td>Cria uma URL única de acesso externo à pesquisa, com validade configurável em dias (mínimo de 1 dia). A URL é gravada em uma variável e deve ser enviada ao cliente (ex.: por WhatsApp).</td></tr>
+        <tr><td><strong>Submeter Resposta de Pesquisa</strong></td><td>Registra respostas vindas de outros canais: interação direta no atendimento, preenchimento por agentes ou processamento via IA (<em>Processar com IA</em>), mapeando variáveis de fluxo para os campos da pesquisa.</td></tr>
+        <tr><td><strong>Completar Resposta de Pesquisa</strong></td><td>Complementa perguntas ocultas do formulário, preenchendo metadados por automação.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Variáveis e regras de negócio:</h3>
+  <ul>
+    <li>Cada pergunta expõe duas chaves em tempo de execução: <code>survey_q_&lt;id&gt;</code> (valor bruto) e <code>survey_q_&lt;id&gt;_label</code> (rótulo amigável).</li>
+    <li>O <strong>id</strong> é numérico e incremental, gerado no cadastro da pergunta.</li>
+    <li>Links gerados dinamicamente aceitam <strong>uma única submissão</strong>: uma segunda tentativa retorna "Link já utilizado".</li>
+    <li>Links não respondidos dentro do prazo de validade expiram automaticamente por timeout.</li>
+    <li>É possível configurar uma <strong>Automação Pós-Resposta</strong>, disparada assim que o cliente envia o formulário, para tratar as respostas em um fluxo assíncrono.</li>
+  </ul>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>6. Horário de Atendimento Dentro do Fluxo da URA</h2>
+  <p>Nos fluxos de URA e automação, o expediente pode ser validado por um elemento nativo de <strong>Horário de Atendimento</strong>, configurado com o ID do horário desejado. O sistema avalia automaticamente dias, feriados e datas especiais no momento da chamada e direciona o cliente para a saída <strong>Aberto</strong> ou <strong>Fechado</strong>.</p>
+
+  <div class="callout tip">
+    <strong>Fluxo único para todos os casos fora de horário:</strong> usando as variáveis <code>bh_reason_label</code> e <code>bh_reason</code>, é possível saber <em>por que</em> o horário está fechado (data especial, feriado, fora do expediente) e ramificar dentro do mesmo fluxo com mensagens diferentes para cada situação.
+  </div>
+
+  <p class="subtitle">O cadastro dos expedientes, feriados e datas especiais é detalhado no capítulo <a href="pabx-horarios.html">Condições de Horário</a>.</p>
+
   <div class="pagenav">
     <a href="pabx-filas.html"><span>← Anterior</span> Filas de Atendimento</a>
     <a class="next" href="pabx-horarios.html"><span>Próximo Capítulo →</span> Condições de Horário (Time Conditions)</a>

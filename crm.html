@@ -5,6 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CRM e Funil de Vendas — Manual Omnichannel</title>
 <link rel="stylesheet" href="assets/style.css">
+<style>
+  pre {
+    background: #0f172a;
+    color: #38bdf8;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 11px;
+    overflow-x: auto;
+    margin: 12px 0;
+    border: 1px solid #1e293b;
+  }
+  code {
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+    background: #f1f5f9;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: .88em;
+  }
+  pre code {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+  }
+  h4 { margin: 20px 0 8px; color: #4c1d95; font-size: 1rem; }
+</style>
 </head>
 <body>
 
@@ -39,7 +64,7 @@
   <p>O módulo <strong>CRM</strong> (Customer Relationship Management) concentra o acompanhamento de oportunidades comerciais. Ele é indicado para equipes de vendas que usam a plataforma também para fechar negócios, além do atendimento.</p>
 
   <h2>2. Seletor de funil (Sales funnel)</h2>
-  <p>No topo, um menu <strong>Sales funnel</strong> permite escolher qual funil de vendas você quer visualizar. Ao lado, há ícones de engrenagem (configuração) e de adição (+), usados para ajustar etapas ou incluir novas oportunidades.</p>
+  <p>No topo, o seletor <strong>Sales funnel</strong> permite escolher o funil exibido. Ao lado foram observados um ícone de engrenagem e um botão circular <strong>+</strong>. A captura não permitiu confirmar os fluxos acionados por esses controles.</p>
 
   <h2>3. Cartões de métricas</h2>
   <p>Cinco indicadores resumem a saúde do funil selecionado:</p>
@@ -64,6 +89,255 @@
   <div class="callout tip">
     <strong>Relacionado:</strong> o <a href="carrinho-sincronizado.html">Carrinho Sincronizado</a> transforma o carrinho de produtos de um atendimento em uma oportunidade de CRM sincronizada ao vivo. Quando uma fila está configurada para isso, cada carrinho ativo vira uma oportunidade no funil escolhido, na etapa "carrinho aberto".
   </div>
+
+  <h2>5. Integração do CRM com sistemas externos (ERP)</h2>
+  <p>O CRM pode ser integrado a sistemas externos — tipicamente um ERP — para que as duas plataformas trabalhem com o mesmo dado. A base tecnológica da integração é formada por <strong>automações</strong>, <strong>Requisição HTTP</strong>, <strong>Código JS</strong>, <strong>Capturas de Webhook</strong> e a <strong>API nativa</strong>. O objetivo é manter consistência das informações, rastreabilidade das oportunidades e autonomia para construir integrações sob medida.</p>
+
+  <h3>5.1. Automações: por evento e periódicas</h3>
+  <ul>
+    <li><strong>Baseadas em eventos:</strong> fluxos de automação acionados instantaneamente por eventos da oportunidade — <em>Ganho</em>, <em>Perda</em>, <em>Atraso</em>, <em>Entrada ou Saída de Etapa</em> e <em>Estagnação</em>.</li>
+    <li><strong>Periódicas:</strong> execuções recorrentes sobre as oportunidades de um funil específico. Ficam em <strong>Configurações › Automação › Automação com Contatos e Oportunidades</strong>, onde se agenda o fluxo para rodar em intervalos predefinidos.</li>
+  </ul>
+
+  <h3>5.2. Ferramentas de transferência de dados</h3>
+  <p>Dentro dos fluxos de automação, quatro recursos se combinam para mover dados entre o CRM e o sistema externo:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Ferramenta</th><th>O que faz</th><th>Onde fica</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Requisição HTTP</strong></td>
+          <td>Envia ou busca informações de forma dinâmica em sistemas externos, dentro do fluxo.</td>
+          <td>Elemento do fluxo de automação.</td>
+        </tr>
+        <tr>
+          <td><strong>Código JS (JavaScript)</strong></td>
+          <td>Cria, manipula e reestrutura variáveis do sistema ou dados recebidos nas requisições.</td>
+          <td>Elemento do fluxo de automação.</td>
+        </tr>
+        <tr>
+          <td><strong>Captura de Webhook</strong></td>
+          <td>Gera uma URL exclusiva que o sistema externo chama para enviar dados em tempo real; o CRM processa e executa o fluxo vinculado à captura.</td>
+          <td>Configurações › Automação › Captura de Webhook.</td>
+        </tr>
+        <tr>
+          <td><strong>API nativa</strong></td>
+          <td>Endpoints dedicados às operações do CRM (criar, editar, atualizar status, anexos, entre outras).</td>
+          <td>Filas › Documentação da API.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>5.3. Exemplo prático: sincronização CRM ⇄ ERP</h3>
+  <p>Arquitetura sugerida para manter o CRM e o ERP do cliente atualizados simultaneamente.</p>
+
+  <div class="callout info">
+    <strong>Chave de associação única (o passo fundamental):</strong> antes de tudo, os dois sistemas precisam saber que tratam da <em>mesma</em> informação. É indispensável ter um dado único registrado nas duas plataformas para o cruzamento. A prática mais comum é criar um campo no ERP para guardar o <strong>ID da Oportunidade</strong> gerado no CRM — e vice-versa.
+  </div>
+
+  <h4>Fluxo 1 — Do CRM para o ERP</h4>
+  <ul>
+    <li><strong>Atualizações por evento (tempo real):</strong> nos fluxos de <em>Ganho</em> ou <em>Perda</em>, configurar uma <strong>Requisição HTTP</strong> para o endpoint correspondente na API do ERP. Ao ganhar uma oportunidade no CRM, o sistema envia o ID e o novo status, atualizando ou fechando o negócio no ERP automaticamente.</li>
+    <li><strong>Sincronização periódica (varredura inteligente):</strong> um fluxo diário garante a consistência. Para não atualizar dados desnecessariamente, a automação usa uma <strong>Requisição HTTP</strong> para buscar o registro no ERP e, em seguida, <strong>Código JS</strong> para comparar as informações entre os sistemas. Se o script identificar divergências, monta o payload no formato que o ERP exige e dispara a atualização <strong>apenas</strong> para os dados que realmente mudaram.</li>
+  </ul>
+
+  <h4>Fluxo 2 — Do ERP para o CRM</h4>
+  <p>O caminho inverso depende das tecnologias de saída (API ou webhook) disponíveis no ERP. Se o ERP tiver automações acionadas por eventos, ele pode enviar os dados de duas formas:</p>
+  <ol class="steps">
+    <li><strong>Via API:</strong> realizando operações (criar, editar ou atualizar status) diretamente nos endpoints da API do CRM.</li>
+    <li><strong>Via Webhook:</strong> disparando a atualização para a URL da <strong>Captura de Webhook</strong>. Ao receber a notificação, o CRM processa as informações e executa as ações definidas no fluxo de automação vinculado àquela captura.</li>
+  </ol>
+
+  <h3>5.4. Atribuição de responsáveis</h3>
+  <p>Para oportunidades que já têm um responsável definido no ERP, é possível espelhar essa associação no momento em que a oportunidade é criada ou atualizada no CRM: basta preencher o campo de <strong>responsável</strong> com o ID do usuário correspondente na plataforma — seja via endpoint da API ou por inserção manual.</p>
+
+  <h3>5.5. Envio de arquivos (anexos)</h3>
+  <p>Quando o ERP precisa enviar documentos que serão associados a uma oportunidade, a sequência de integração via API recomendada é:</p>
+  <ol class="steps">
+    <li>Usar o endpoint <code>uploadFile</code> para subir o documento e gerar o <strong>ID único</strong> do arquivo no CRM.</li>
+    <li>Chamar o endpoint <code>getOpportunity</code> para recuperar a lista atual de arquivos já associados àquela oportunidade.</li>
+    <li>Acrescentar o novo ID de arquivo à lista recuperada.</li>
+    <li>Enviar a lista de IDs atualizada pelo endpoint <code>updateOpportunity</code>, consolidando o novo anexo na oportunidade.</li>
+  </ol>
+
+  <div class="callout tip">
+    <strong>Em resumo:</strong> Requisições HTTP, Código JS, Capturas de Webhook e a API nativa formam a base que permite integrar o CRM a qualquer sistema externo compatível com APIs — com o parceiro no controle da lógica de sincronização.
+  </div>
+
+  <h2>6. Cartões de Informação no painel do agente</h2>
+  <p>Os <strong>Cartões de Informação</strong> são estruturas visuais que enriquecem o painel de atendimento do agente. Com eles é possível trazer dados detalhados e dinâmicos — informações financeiras, dados de contato, status de oportunidades do CRM — diretamente para a tela do agente, vinculados a um <strong>atendimento inteiro</strong> ou a uma <strong>mensagem específica</strong>.</p>
+
+  <h3>6.1. Acesso e criação</h3>
+  <ol class="steps">
+    <li>Acesse <strong>Configurações › Cadastros › Cartões de Informação</strong>.</li>
+    <li>Clique em <strong>+ Adicionar</strong>, no canto superior direito.</li>
+    <li>O sistema cria um cartão padrão chamado "Novo cartão de informação".</li>
+    <li><strong>Boa prática:</strong> edite e renomeie o cartão imediatamente com um título claro e descritivo (ex.: "Cartão — Resumo Financeiro") — isso evita confusão na listagem quando houver dezenas de cartões.</li>
+  </ol>
+
+  <h3>6.2. Segurança e grupos de visualização</h3>
+  <p>É possível restringir quem vê as informações de um cartão, protegendo dados sensíveis (faturas, cobranças) de agentes não autorizados:</p>
+  <ul>
+    <li>Na tela de configuração do cartão, localize o campo <strong>Grupo de visualização</strong> e selecione um grupo específico (ex.: "Equipe Financeira").</li>
+    <li>Somente os agentes que tiverem esse mesmo grupo atrelado ao próprio perfil (<strong>Configurações › Usuários</strong>) enxergarão o cartão durante o atendimento.</li>
+  </ul>
+
+  <h3>6.3. Gerenciamento na listagem principal</h3>
+  <p>Na listagem dos cartões, a coluna de funções traz atalhos práticos:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Ação</th><th>O que faz</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Editar</strong></td><td>Abre o construtor visual do cartão.</td></tr>
+        <tr><td><strong>Copiar Estrutura</strong></td><td>Copia o código JSON do cartão para a área de transferência.</td></tr>
+        <tr><td><strong>Clonar Cartão</strong></td><td>Cria uma cópia exata do cartão dentro do próprio painel.</td></tr>
+        <tr><td><strong>Exportar</strong></td><td>Exporta a estrutura do cartão para importá-la em outros clientes/instâncias, economizando tempo e evitando recadastros manuais.</td></tr>
+        <tr><td><strong>Excluir</strong></td><td>Remove o cartão permanentemente.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>6.4. Construindo o layout (o editor visual)</h3>
+  <p>No modo de edição, os componentes ficam disponíveis como elementos arrastáveis no painel lateral esquerdo. Ao clicar em um elemento inserido, o painel de configurações abre à direita, dividido entre <strong>propriedades comuns</strong> e <strong>parâmetros específicos</strong>.</p>
+
+  <h4>Propriedades comuns (globais)</h4>
+  <p>Praticamente todos os elementos de conteúdo e blocos de estrutura compartilham as mesmas configurações, para garantir harmonia visual:</p>
+  <ul>
+    <li><strong>Alinhamento:</strong> posicionamento horizontal no grid (Esquerda, Centro ou Direita).</li>
+    <li><strong>Margens (espaçamento interno/externo):</strong> recuos em pixels (px) para que as informações não fiquem coladas umas nas outras nem nas bordas do cartão.</li>
+    <li><strong>Visibilidade condicional / variáveis de renderização:</strong> campo que aceita condicionais — o elemento só é exibido se a variável mapeada possuir dados ou corresponder ao critério definido.</li>
+  </ul>
+
+  <h4>Elementos de conteúdo</h4>
+  <p>Os elementos disponíveis no construtor e o tipo de propriedades de cada um:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Elemento</th><th>Para que serve</th><th>Propriedades principais</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Texto</strong></td>
+          <td>Títulos, parágrafos ou rótulos, com dados fixos ou dinâmicos.</td>
+          <td>Conteúdo/Valor (aceita chaves duplas, ex. <code>{{cards_nome}}</code>); ajustes da fonte (escala em px, peso, cor); cor de fundo (ex.: vermelho para alertas).</td>
+        </tr>
+        <tr>
+          <td><strong>Etiqueta (Label)</strong></td>
+          <td>Exibir status ou categorias com destaque (ex.: "Inadimplente").</td>
+          <td>Texto da etiqueta (rótulo ou variável); ícone (ex.: <code>icon-far-star</code>).</td>
+        </tr>
+        <tr>
+          <td><strong>Botão</strong></td>
+          <td>Interatividade na tela do atendimento, disparando ações externas ou internas.</td>
+          <td>Título/Label; <strong>Tipo de ação</strong>; estilo do botão. Ver tipos de ação abaixo.</td>
+        </tr>
+        <tr>
+          <td><strong>Link</strong></td>
+          <td>Aplicar hiperlink em uma linha de texto, para redirecionamentos discretos (ex.: "Acesse os termos de uso").</td>
+          <td>Texto (fixo ou variável, ex. <code>Visualizar Fatura #{{cards_id_fatura}}</code>); URL (fixa ou dinâmica, ex. <code>{{cards_link_boleto}}</code>); ajustes da fonte.</td>
+        </tr>
+        <tr>
+          <td><strong>Ícone</strong></td>
+          <td>Sinalizações visuais rápidas ao lado de textos ou em seções isoladas.</td>
+          <td>Ícone (biblioteca Font Awesome, ex. <code>icon-far-home</code>, ou emoji); ajustes do ícone (escala em px, cor aplicada às linhas do vetor).</td>
+        </tr>
+        <tr>
+          <td><strong>Rótulo: Valor (KeyValue)</strong></td>
+          <td>Par título fixo à esquerda e valor à direita — ideal para fichas cadastrais (ex.: "CPF: 123.456...").</td>
+          <td>Título (rótulo, ex. "RG:"); Valor (recomendado usar variável dinâmica, ex. <code>MG {{cards_documento}}</code>); ajustes do rótulo (tamanho, espaçamento, cores).</td>
+        </tr>
+        <tr>
+          <td><strong>Avatar</strong></td>
+          <td>Renderizar fotos de perfil, logotipos ou ícones informativos.</td>
+          <td>URL da imagem (ou variável, ex. <code>{{cards_foto_cliente}}</code>); tamanho (largura e altura); formato de exibição (ex.: Quadrada); fallback (iniciais, cor da fonte e fundo sem imagem).</td>
+        </tr>
+        <tr>
+          <td><strong>Lista</strong></td>
+          <td>Dados sequenciais (ex.: histórico de últimas faturas).</td>
+          <td>Itens (ex.: "Instalação da Internet" ou <code>{{cards_item}}</code>); ajustes da fonte.</td>
+        </tr>
+        <tr>
+          <td><strong>Progresso (Progress Bar)</strong></td>
+          <td>Barra horizontal para metas, limites de crédito consumidos ou andamento de etapas de um projeto/ticket.</td>
+          <td>Valor (preenchimento atual, ex. <code>{{cards_porcentagem}}</code>); ajustes da barra (cor de preenchimento ativo, cor da trilha restante).</td>
+        </tr>
+        <tr>
+          <td><strong>Avaliação (Estrelas)</strong></td>
+          <td>Transformar uma nota em sequência de estrelas — satisfação ou classificação do cliente.</td>
+          <td>Valor (fixo ou variável, ex. <code>{{cards_nota_nps}}</code>); quantidade de estrelas (escala máxima, geralmente 5 ou 10); ajustes da avaliação (cor das ativas, contorno das restantes, meia estrela).</td>
+        </tr>
+        <tr>
+          <td><strong>Imagem</strong></td>
+          <td>Qualquer elemento visual estático ou dinâmico (banners, logotipos detalhados, comprovantes, gráficos informativos). Diferente do Avatar, não aplica máscara de foto de perfil.</td>
+          <td>URL da imagem (link hospedado ou variável do sistema/ERP, ex. <code>{{cards_link_comprovante}}</code>); ajustes da imagem (altura, largura, borda, comportamento de ajuste).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <strong>Tipos de ação do elemento Botão:</strong>
+    <ul>
+      <li><strong>Abrir URL:</strong> redireciona para link externo (aceita variáveis, ex. <code>{{cards_link}}</code>).</li>
+      <li><strong>Copiar conteúdo:</strong> copia uma informação para a área de transferência do agente, útil para colar no chat.</li>
+      <li><strong>Fazer ligação:</strong> se a instância tiver integração com PABX, inicia uma chamada passando a variável do número (<code>{{cards_telefone}}</code>).</li>
+      <li><strong>Atalhos:</strong> abrir contato, abrir oportunidade, abrir tarefa, abrir empresa.</li>
+      <li><strong>Executar automação:</strong> aciona um fluxo de automação específico.</li>
+    </ul>
+  </div>
+
+  <div class="callout warn">
+    <strong>Atenção ao botão "Executar automação":</strong> para que essa ação funcione, é preciso ir até o <strong>Fluxo de Automação</strong> correspondente e marcar a opção <strong>"Permitir uso pelos agentes ativa"</strong>. Sem essa marcação, o botão não fará nada ao ser clicado.
+  </div>
+
+  <h4>Elementos de organização</h4>
+  <ul>
+    <li><strong>Divisor:</strong> uma linha horizontal simples para separar seções.</li>
+    <li><strong>Espaçador:</strong> adiciona um espaço em branco (respiro) entre elementos.</li>
+    <li><strong>Nova linha:</strong> essencial para criar colunas — coloque uma Imagem/Avatar de um lado e um Texto do outro arrastando os componentes para dentro dela.</li>
+  </ul>
+
+  <div class="callout tip">
+    <strong>Dica de design:</strong> combine o elemento <em>Nova linha</em> com <em>Avatar</em> e <em>Texto</em> lado a lado para criar cabeçalhos estruturados, simulando a ficha cadastral do cliente.
+  </div>
+
+  <h3>6.5. Variáveis dinâmicas</h3>
+  <p>Para que o cartão exiba dados reais do cliente em atendimento (nome, telefone, notas), utilize variáveis:</p>
+  <ul>
+    <li>A regra é usar <strong>chaves duplas</strong> e o prefixo <code>cards_</code> — ex.: <code>{{cards_nome}}</code>, <code>{{cards_telefone}}</code>, <code>{{cards_nota}}</code>.</li>
+    <li><strong>Dados Demo:</strong> no canto inferior direito do editor há a seção "Variáveis de demonstração". Insira valores fictícios (ex.: digitar "João" na variável <code>cards_nome</code>) para visualizar como o cartão ficará renderizado.</li>
+  </ul>
+
+  <h3>6.6. Chamando o cartão na URA / fluxo de automação</h3>
+  <p>Depois de pronto, o cartão precisa ser chamado dentro do fluxo de automação ou da URA para aparecer no painel. Há duas formas de aplicação:</p>
+
+  <h4>A. Cartão no atendimento (múltiplos cartões)</h4>
+  <p>É possível empilhar vários cartões em um mesmo atendimento, organizando-os por <strong>Sessões</strong> (ex.: uma aba "Financeiro", outra "Suporte").</p>
+  <ol class="steps">
+    <li>No fluxo, insira a caixinha <strong>Adicionar cartão de informação</strong>.</li>
+    <li>Em <em>Tipo</em>, selecione <strong>"Pré-cadastrado"</strong> (o recomendado).</li>
+    <li>Informe o <strong>ID do Cartão</strong> (o número que aparece na listagem principal).</li>
+    <li>Informe o <strong>ID da Sessão</strong> e um <strong>Nome da Sessão</strong> — use nomes fixos nas sessões e evite variáveis no nome, para não desconfigurar a exibição.</li>
+    <li>Se o cartão usar variáveis dinâmicas (ex.: <code>{{cards_nome}}</code>), utilize um elemento de <strong>Código JavaScript</strong> ou <strong>Salvar Variável</strong> imediatamente antes da caixa do cartão para declarar as variáveis e atribuir valores a elas.</li>
+  </ol>
+
+  <div class="callout tip">
+    <strong>Dica de ouro (boas práticas de implantação):</strong> em fluxos complexos, evite poluir a tela com dezenas de caixinhas de "Nova Variável". Use um elemento de <strong>Código JavaScript</strong> para montar e organizar todas as variáveis antes de chamar os elementos de exibição do cartão — isso mantém o fluxo enxuto, padronizado e fácil de dar manutenção.
+  </div>
+  <pre><code>vars['cards_nome'] = "Maria";
+vars['cards_nota'] = 5;</code></pre>
+
+  <h4>B. Cartão na mensagem (cartão único)</h4>
+  <p>Usado para atrelar um cartão a uma mensagem de chat específica (ex.: um comprovante de fatura junto ao balão de texto).</p>
+  <ol class="steps">
+    <li>No fluxo, insira a caixinha <strong>Adicionar cartão de informação a mensagem</strong>.</li>
+    <li>Esse modo funciona de forma <strong>estritamente dinâmica</strong>.</li>
+    <li>É preciso passar o <strong>ID da Mensagem</strong> e a <strong>variável</strong> que contém toda a estrutura JSON do cartão.</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>Limite:</strong> diferente do atendimento, no modo mensagem só é permitido exibir <strong>1 (um) cartão por mensagem</strong>.
+  </div>
+
 
   <div class="pagenav">
     <a href="agentes.html"><span>← Anterior</span> Agent Dashboard</a>

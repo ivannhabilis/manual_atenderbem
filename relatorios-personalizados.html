@@ -72,6 +72,195 @@
     <li>Exporte para Excel quando precisar de análise fora da plataforma.</li>
   </ul>
 
+  <h2>4. Ativação do módulo</h2>
+  <p>Antes de criar o primeiro relatório, é necessário <strong>habilitar o recurso na instância</strong>. O módulo é vendido como extra, com custo fixo mensal e um custo adicional por agente contratado.</p>
+  <ol class="steps">
+    <li>Acesse o <strong>Painel de Instâncias</strong>.</li>
+    <li>Vá até as opções da instância do cliente e clique em <strong>Alterar plano e extras</strong>.</li>
+    <li>Marque a opção <strong>Habilitar Relatórios Personalizados</strong>.</li>
+  </ol>
+  <div class="callout info">
+    <strong>Nota:</strong> o painel exibe o custo fixo mensal e o custo adicional por agente contratado antes de você confirmar a alteração.
+  </div>
+
+  <h2>5. Criando um relatório personalizado</h2>
+  <p>Com o recurso ativo, você já pode estruturar os dados:</p>
+  <ol class="steps">
+    <li>Navegue até <strong>Configurações &gt; Relatórios Personalizados</strong>.</li>
+    <li>Clique no botão <strong>+ Adicionar</strong> no canto superior direito.</li>
+    <li>Defina um <strong>nome intuitivo</strong> (ex.: “Performance de Suporte - Nível 1”) para facilitar a identificação futura.</li>
+    <li>Selecione os <strong>Grupos de Acesso</strong> que terão permissão para visualizar o relatório específico no painel principal.</li>
+  </ol>
+  <div class="callout warn">
+    <strong>Segurança da informação:</strong> o vínculo ao Grupo de Acesso é essencial — o relatório só aparecerá para os usuários que pertencem aos grupos selecionados. Revise essa lista antes de salvar.
+  </div>
+
+  <h2>6. O editor de relatórios (montando o dashboard)</h2>
+  <p>Ao clicar no ícone de edição do relatório recém-criado, você entra no <strong>Editor de Relatório Personalizado</strong>. O sistema funciona no formato <strong>arrastar e soltar</strong> (<em>drag and drop</em>):</p>
+  <ul>
+    <li><strong>Componentes disponíveis:</strong> no menu esquerdo há categorias como Gráficos (Pizza, Linha, Funil), Tabelas e Métricas numéricas.</li>
+    <li><strong>Organização:</strong> arraste o componente para a tela central, redimensione os quadros e posicione-os lado a lado para montar o layout ideal.</li>
+    <li><strong>Ações rápidas do componente:</strong> na base do painel lateral, use <strong>Duplicar</strong> (clona o componente com todas as configurações de dados, filtros e visual já feitas) e <strong>Excluir</strong> (remove o elemento da tela).</li>
+  </ul>
+
+  <h3>6.1 Configurações do relatório (menu superior)</h3>
+  <p>O botão <strong>Configurações</strong> abre um painel centralizado com <strong>4 abas</strong> que personalizam a estrutura de grade, a identidade visual, o comportamento dos filtros e a exportação. O botão <strong>Visualizar</strong> alterna para o Modo de Visualização, simulando a experiência do usuário final sem risco de alterar configurações.</p>
+  <div class="table-wrap">
+  <table class="doc">
+    <thead><tr><th>Aba</th><th>O que controla</th></tr></thead>
+    <tbody>
+      <tr><td>Layout</td><td>Estrutura geométrica da tela e comportamento dos elementos na página.</td></tr>
+      <tr><td>Tema</td><td>Identidade visual e padrão de cores aplicado aos componentes de dados.</td></tr>
+      <tr><td>Filtros (Aparência)</td><td>Design e estética da seção superior onde ficam os Filtros Globais.</td></tr>
+      <tr><td>Avançado (Exportação)</td><td>Poder de extração de dados que o usuário final terá ao visualizar o painel pronto.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>6.2 Aba Layout — grade e comportamento</h3>
+  <ul>
+    <li><strong>Número de Colunas:</strong> define a largura do grid para o alinhamento dos componentes.</li>
+    <li><strong>Altura das Linhas (px):</strong> define a altura vertical de cada linha do grid.</li>
+    <li><strong>Margem Entre Elementos (px):</strong> controla o espaçamento interno (espaço em branco) entre os cards.</li>
+    <li><strong>Layout Responsivo:</strong> quando ativo, adapta os gráficos automaticamente a diferentes tamanhos de tela (computadores, tablets etc.).</li>
+    <li><strong>Altura Automática:</strong> ajusta a altura da grade dinamicamente com base no volume de conteúdo.</li>
+    <li><strong>Flutuação de Elementos:</strong> permite que os gráficos se reorganizem para preencher espaços vazios automaticamente.</li>
+    <li><strong>Animações:</strong> ativa transições visuais suaves ao mover ou redimensionar qualquer elemento.</li>
+  </ul>
+
+  <h3>6.3 Aba Tema — identidade visual e cores</h3>
+  <p>Determina o padrão de cores aplicado aos componentes de dados, em dois caminhos:</p>
+  <ul>
+    <li><strong>Padrão do Sistema:</strong> aplica as cores globais predefinidas da plataforma para a paleta primária, secundária e cores de estado (Sucesso, Erro, Aviso e Info).</li>
+    <li><strong>Personalizado:</strong> permite customizar individualmente os códigos hexadecimais de cada cor. Além das cores principais e de estado (em variações base, clara e escura), é possível configurar cores adicionais personalizadas (como Rosa, Amarelo e Roxo).</li>
+  </ul>
+
+  <h3>6.4 Aba Filtros (Aparência)</h3>
+  <p>Foca exclusivamente no design da seção superior onde ficam os Filtros Globais:</p>
+  <div class="table-wrap">
+  <table class="doc">
+    <thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+    <tbody>
+      <tr><td>Cor de Fundo</td><td>Define o estilo do bloco de filtros (ex.: estilo Surface).</td></tr>
+      <tr><td>Espaçamento Interno (px)</td><td>Define o padding interno da área de filtros, ajustável de <strong>0 a 100 px</strong>.</td></tr>
+      <tr><td>Arredondamento das Bordas (px)</td><td>Ajusta o quão arredondados serão os cantos da caixa de filtros, de <strong>0 a 50 px</strong>.</td></tr>
+      <tr><td>Sombra</td><td>Ativa ou desativa uma sombra sutil ao redor do bloco para dar profundidade ao layout.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>6.5 Aba Avançado — exportação</h3>
+  <p>Controla o poder de extração de dados do usuário final ao visualizar o painel pronto:</p>
+  <ul>
+    <li><strong>Permitir Exportação:</strong> chave geral que habilita ou desabilita a extração do relatório.</li>
+    <li><strong>Formatos Disponíveis</strong> (marque quais ficarão liberados para download nativo):
+      <ul>
+        <li><strong>PDF:</strong> ideal para apresentações e relatórios executivos.</li>
+        <li><strong>Excel:</strong> ideal para manipulação de dados em planilhas.</li>
+        <li><strong>Imagem (PNG):</strong> ideal para compartilhamento rápido em apresentações ou chats.</li>
+        <li><strong>CSV:</strong> formato leve para integração com outros sistemas.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>6.6 Filtros Globais</h3>
+  <p>Os Filtros Globais são seletores inteligentes posicionados no topo do relatório que afetam <strong>todos os componentes da página de uma só vez</strong> (ex.: mudar o período de análise de todos os gráficos com um clique).</p>
+  <ol class="steps">
+    <li><strong>Identifique e customize:</strong> dê um <em>Nome</em> ao filtro (rótulo exibido ao usuário, como “Período” ou “Setor”), adicione um texto de ajuda e um placeholder opcional.</li>
+    <li><strong>Escolha o tipo de filtro:</strong> Intervalo de Datas ou Data Única; Lista Suspensa ou Intervalo Numérico; Seletor de Filas, Seletor de Usuários ou Seletor de Funil.</li>
+    <li><strong>Configurações dinâmicas:</strong> cada tipo altera a seção inferior do formulário — no Seletor de Filas é possível habilitar <em>Permitir Seleção Múltipla</em>; no Intervalo de Datas define-se o formato de exibição (ex.: DD/MM/YYYY) e um valor padrão (ex.: <em>last 30 days</em>, <em>last 7 days</em> ou <em>today</em>).</li>
+  </ol>
+  <div class="callout tip">
+    <strong>Vinculando o filtro aos gráficos:</strong> para que o filtro global controle os gráficos, a vinculação é <em>manual</em> em cada elemento: selecione o Gráfico/Tabela → painel da direita (aba <strong>Dados</strong>) → <strong>Dimensões Temporais</strong> → altere o Tipo para <strong>“Filtro Global”</strong> → associe ao filtro criado.
+  </div>
+
+  <h2>7. Configuração de dados dos componentes</h2>
+  <p>Ao clicar sobre um gráfico ou tabela inserido na tela, um painel de configuração se abre à direita. A aba <strong>Dados</strong> é o coração do relatório e reúne as opções disponíveis para aquele tipo de elemento:</p>
+  <div class="table-wrap">
+  <table class="doc">
+    <thead><tr><th>Seção</th><th>O que é (o “como”)</th><th>Exemplo</th></tr></thead>
+    <tbody>
+      <tr><td>Medidas</td><td>Os dados numéricos e quantificáveis — definem o que será contado, somado ou extraído em média. Em gráficos, determinam a intensidade (Eixo Y); em tabelas, aparecem como colunas numéricas com os totais.</td><td>Histórico de Atendimentos Totais, Fechados ou Abertos.</td></tr>
+      <tr><td>Dimensões</td><td>Atributos categóricos e textuais que dão contexto às medidas — definem como os números serão divididos. Em gráficos, viram categorias do Eixo X e séries; em tabelas, colunas de agrupamento.</td><td>Por Atendente, Fila ou Status.</td></tr>
+      <tr><td>Dimensões Temporais</td><td>Campos de data/hora com inteligência de agrupamento de períodos — determinam a janela de tempo e como os dados serão fatiados (dia, mês, ano). O intervalo pode ser fixo ou dinâmico, atrelado aos filtros globais.</td><td>Janeiro de 2026; séries de evolução e tendência.</td></tr>
+      <tr><td>Filtros</td><td>Restringem a massa de dados exibindo apenas o que for relevante; usam um construtor lógico com condições simples, combinação por <strong>E</strong> (todas verdadeiras) ou <strong>OU</strong> (qualquer uma), e agrupamento de blocos.</td><td>Status igual a “Ativo”.</td></tr>
+      <tr><td>Ordenação</td><td>Define como os dados são organizados na tela: Crescente (↑) ou Decrescente (↓). Em gráficos, ordena as barras; em tabelas, define a linha que aparece primeiro.</td><td>Maiores faturamentos no topo.</td></tr>
+      <tr><td>Limite de Resultados</td><td>Restringe a quantidade máxima de registros que a consulta retorna. Em gráficos, ideal para Top N; em tabelas, controla a paginação e o volume de linhas.</td><td>Top 10 produtos mais vendidos.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout tip">
+    <strong>Mapa de Valores (humanização dos dados):</strong> quando o banco retorna códigos (ex.: “ID 551” ou “F” e “W”), use <em>Dimensões → Configurar Mapa de Valores</em> e associe o “Valor Original” ao “Valor Exibido” — onde lê “551”, exiba “Joana”; onde lê “W”, exiba “WhatsApp”.
+  </div>
+  <div class="callout info">
+    <strong>Múltiplos cubos:</strong> o sistema permite selecionar medidas, dimensões e dimensões temporais de múltiplos cubos de dados, desde que haja correlação entre as bases — possibilitando visões combinadas e cruzamentos avançados no mesmo elemento. A quantidade permitida varia conforme o tipo de gráfico, e o próprio painel exibe um aviso sobre o limite.
+  </div>
+
+  <h2>8. Personalização visual e tipos de componente</h2>
+  <p>Ao selecionar um componente e acessar a aba <strong>Visual</strong>, alguns blocos de customização aparecem. Os padrões de tipografia e aparência geral permanecem consistentes; o que muda é o conteúdo conforme o elemento.</p>
+
+  <h3>8.1 Tipografia, aparência geral e estilo do widget</h3>
+  <ul>
+    <li><strong>Título:</strong> tamanho da fonte em pixels (ex.: 16px), peso (ex.: Semi-Negrito, Negrito) e paleta de cores.</li>
+    <li><strong>Subtítulo:</strong> descrições complementares — tamanho em pixels (ex.: 12px) e cor do texto (ex.: Text Secondary).</li>
+    <li><strong>Estilo do Widget:</strong> cor de fundo do card (ex.: Background), arredondamento das bordas (px) e espaçamento interno (px).</li>
+    <li><strong>Cabeçalho:</strong> marcar/desmarcar “Exibir Cabeçalho” e definir uma cor de fundo exclusiva para a linha do título.</li>
+  </ul>
+
+  <h3>8.2 Configurações de gráficos</h3>
+  <p>Independentemente do modelo, os blocos de <strong>Esquema de Cores</strong> (Sistema ou Personalizada) e os <strong>Elementos de Exibição</strong> básicos — Mostrar Legenda (com posição: Rodapé, Topo etc.), Mostrar Valores nos Pontos e Animação — permanecem disponíveis. Especificidades:</p>
+  <div class="table-wrap">
+  <table class="doc">
+    <thead><tr><th>Gráfico</th><th>Recursos específicos</th></tr></thead>
+    <tbody>
+      <tr><td>Pizza / Donut</td><td><strong>Tipo de Gráfico:</strong> alterna entre Pizza (preenchimento circular completo) e Donut (anel com centro vazado, ideal para focar na proporção das partes em relação ao todo).</td></tr>
+      <tr><td>Funil</td><td><strong>Orientação</strong> (sentido do afunilamento), <strong>Posição dos Labels</strong> e <strong>Ajustes de Gargalo</strong> (Largura e Altura do Gargalo, com valores decimais estritos entre 0 e 1).</td></tr>
+      <tr><td>Linha / Barra</td><td><strong>Mostrar Grade</strong> (linhas horizontais/verticais ao fundo), <strong>Orientação</strong> (eixos na Vertical ou Horizontal) e <strong>Linha de Meta</strong> — traça uma linha horizontal de corte para acompanhar se o volume ou o tempo de resposta está dentro da meta.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout tip">
+    <strong>Gráficos combinados:</strong> dentro do bloco <em>Configuração de Séries</em>, clicar sobre uma medida específica abre duas abas — <strong>Visualização</strong> (muda individualmente a forma de exibição de cada métrica, permitindo combinar uma linha cruzando por cima de barras) e <strong>Formatação</strong> (máscaras de valores: porcentagem, moeda ou duração).
+  </div>
+
+  <h3>8.3 Configurações de tabelas</h3>
+  <ul>
+    <li><strong>Estilo de Visualização:</strong> Listras Alternadas (Zebra), exibição de Bordas, modo Compacto (densidade menor) e Destacar Linha ao Passar o Mouse.</li>
+    <li><strong>Navegação:</strong> quantidade de Linhas por Página (ex.: 20) e Colunas Fixas (congeladas).</li>
+    <li><strong>Configuração de Colunas:</strong> clicar sobre o nome de uma coluna abre os ajustes individuais de totalizadores e máscaras de dados.</li>
+  </ul>
+
+  <h3>8.4 Configurações de métricas</h3>
+  <p><strong>Número Único (KPI):</strong></p>
+  <ul>
+    <li><strong>KPIs e tendências:</strong> Mostrar Ícone, Mostrar Comparação e Mini Gráfico de evolução dentro do card; Cores de Tendência semânticas (Positivo 🟢, Negativo 🔴, Neutro ⚪).</li>
+    <li><strong>Formatação do valor:</strong> tipo de formatação no menu suspenso e tipografia do valor (tamanho ajustável entre <strong>12 e 200 px</strong>, peso e cor).</li>
+    <li><strong>Formatação Condicional (alertas visuais):</strong> crie regras com o botão “+”, defina a condição (ex.: <em>Maior que</em>) e o valor limite, escolha a nova cor/tamanho/peso, e marque “Piscar quando a regra for atingida” para chamar a atenção em métricas urgentes (filas transbordando, SLAs estourados).</li>
+  </ul>
+  <p><strong>Velocímetro (Gauge):</strong></p>
+  <ul>
+    <li><strong>Escala:</strong> Valor Mínimo e Máximo e Ângulo Inicial/Final em graus (ex.: de 180° a 0° renderiza um semicírculo inferior).</li>
+    <li><strong>Exibição:</strong> Mostrar Valor Central e Tipo de Formatação (porcentagem, moeda ou tempo).</li>
+    <li><strong>Cores estéticas:</strong> Cor da Agulha e Cor de Fundo da Escala.</li>
+    <li><strong>Zonas de Cor:</strong> com “+ Adicionar Zona”, fatie o arco em faixas coloridas para diagnóstico instantâneo (verde = OK, amarelo = Atenção, vermelho = Crítico).</li>
+  </ul>
+
+  <h3>8.5 Configuração Geral do componente</h3>
+  <p>A aba <strong>Geral</strong> reúne as propriedades estruturais e de identificação:</p>
+  <ul>
+    <li><strong>Título:</strong> nome identificador do componente (ex.: “Gráfico”).</li>
+    <li><strong>Descrição:</strong> campo livre para documentar a finalidade do indicador, regras de negócio ou instruções de leitura.</li>
+    <li><strong>Posição e Tamanho (Dimensões no Grid):</strong> <em>Largura</em> em colunas de grade (ex.: 12 colunas) e <em>Altura</em> em linhas de grade (ex.: 5 linhas).</li>
+  </ul>
+
+  <h2>9. Uso diário, portabilidade e boas práticas</h2>
+  <ul>
+    <li><strong>Visualização da equipe:</strong> uma vez salvo, o relatório aparece automaticamente no final da seção de <em>Painel e Indicadores</em> para todos os usuários que pertencem ao Grupo de Acesso configurado.</li>
+    <li><strong>Portabilidade entre instâncias:</strong> na listagem em <em>Configurações &gt; Relatórios Personalizados</em>, use <strong>Exportar</strong> e, na nova instância, <strong>Importar</strong> — sem precisar reconstruir o dashboard.</li>
+    <li><strong>Revisão de layout:</strong> após salvar, utilize o botão <strong>“Visualizar”</strong> no topo do editor para conferir a disposição final dos painéis.</li>
+    <li>Aproveite o módulo para <strong>mapear gargalos</strong>, medir volumes de demanda e garantir que a operação esteja fluindo com excelência.</li>
+  </ul>
+
   <div class="pagenav">
     <a href="relatorios.html"><span>← Anterior</span> Relatórios (menu principal)</a>
     <a class="next" href="configuracoes.html"><span>Próximo →</span> Configurações</a>

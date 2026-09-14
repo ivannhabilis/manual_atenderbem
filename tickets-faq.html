@@ -27,7 +27,7 @@
   <div class="breadcrumb"><a href="index.html">Início</a> › <a href="tickets.html">Tickets</a> › FAQ</div>
 
   <h1>FAQ — Módulo de Tickets e Automações</h1>
-  <p class="subtitle">As 15 dúvidas mais frequentes dos usuários sobre o módulo de Tickets, respondidas de forma objetiva com base no comportamento real do sistema.</p>
+  <p class="subtitle">As 32 dúvidas mais frequentes dos usuários sobre o módulo de Tickets, respondidas de forma objetiva com base no comportamento real do sistema.</p>
 
   <div class="callout info">
     <strong>Sobre este FAQ:</strong> este material foi elaborado a partir das dúvidas reais levantadas pelos usuários durante o uso da função de Tickets. Cada resposta reflete o comportamento oficial da plataforma AtenderBem (configurações em <code>/base/config/tickets-*</code>).
@@ -199,6 +199,180 @@
     </div>
 
   </div>
+  <h2>Novo Módulo (versão 13)</h2>
+
+  <div class="faq">
+    <h3>16. Qual é a mudança principal trazida pela versão 13 do Módulo de Tickets?</h3>
+    <p>A partir da <strong>versão 13</strong>, o fluxo de trabalho mudou: antes, cada atendimento gerava um <strong>único protocolo</strong>, limitando o histórico a um único canal; agora, <strong>um mesmo atendimento pode conter múltiplos tickets</strong>, permitindo isolar, categorizar e tratar demandas diferentes dentro de uma única conversa, de forma individual e organizada.</p>
+    <div class="callout tip">
+      <strong>Na prática:</strong> um cliente que relata dois problemas na mesma conversa pode ter dois tickets com SLAs, responsáveis, estágios e históricos independentes, sem misturar os assuntos.
+    </div>
+  </div>
+
+  <div class="faq">
+    <h3>17. Como criar ou associar um ticket dentro de uma conversa em andamento?</h3>
+    <p>Selecione uma mensagem da conversa: o menu de contexto oferece <em>Criar Ticket</em>, <em>Associar ticket</em> e <em>Meus assuntos</em>. Use <em>Criar Ticket</em> para um registro novo, <em>Associar ticket</em> para vincular a conversa a um chamado já existente e <em>Meus assuntos</em> para escolher o assunto (classificação/motivo) já configurado. Alternativamente, o botão <code>+</code> do painel cria o ticket manualmente na mesa de ajuda.</p>
+  </div>
+
+  <h2>Níveis, Capacidade e Distribuição</h2>
+
+  <div class="faq">
+    <h3>18. Como a prioridade numérica dos agentes influencia a distribuição dos tickets?</h3>
+    <p>Ao vincular agentes a um nível do Grupo de Serviço, define-se uma <strong>prioridade numérica</strong> por atendente. A distribuição prioriza os <strong>menores valores</strong>: um agente com prioridade <strong>1 recebe antes</strong> de um agente com prioridade 2.</p>
+  </div>
+
+  <div class="faq">
+    <h3>19. O que é a "Capacidade máxima de tickets" de um agente?</h3>
+    <p>É o número limite de <strong>atendimentos simultâneos</strong> que o agente pode receber, configurado na aba Tickets do cadastro do usuário (ex.: 10). Quando o agente atinge essa quantidade de tickets abertos, o sistema deixa de direcionar novas demandas para ele e passa para o próximo agente da fila de prioridade.</p>
+    <div class="callout tip">
+      <strong>Boa prática:</strong> ajuste a capacidade individual conforme a complexidade dos motivos que o agente atende — capacidades altas em demandas longas geram fila e risco de estouro de SLA.
+    </div>
+  </div>
+
+  <div class="faq">
+    <h3>20. Como funciona a Distribuição do SLA (%) por nível?</h3>
+    <p>Ela define a porcentagem de tempo que o ticket pode permanecer em cada nível do Grupo de Serviço. A soma de todos os níveis ativos deve totalizar <strong>obrigatoriamente 100%</strong>, e o ajuste pode ser manual ou pelos botões <em>Distribuir SLA igualmente</em> e <em>Auto-distribuir SLA</em>. O tempo total (horas/minutos) associado a essas porcentagens é posteriormente puxado na configuração de <strong>Motivos</strong>.</p>
+    <div class="callout warn">
+      <strong>Atenção:</strong> como o tempo por nível do Motivo é proporcional a essas porcentagens, alterar a distribuição aqui afeta o fatiamento de SLA de todos os motivos vinculados ao grupo.
+    </div>
+  </div>
+
+  <div class="faq">
+    <h3>21. Quais modelos de distribuição de fila podem ser definidos na aba Filas do Motivo?</h3>
+    <p>Cada nível técnico pode ter seu próprio comportamento de fila, entre:</p>
+    <ul>
+      <li><strong>Manual</strong> — distribuição por ação dos agentes/supervisores;</li>
+      <li><strong>Circular (Round Robin)</strong> — revezamento sequencial entre os agentes;</li>
+      <li><strong>Menos Ocupado</strong> — prioriza quem tem menos carga no momento;</li>
+      <li><strong>Mais Ocioso</strong> — prioriza quem está há mais tempo sem atendimento;</li>
+      <li><strong>Por Capacidade</strong> — respeita o limite de capacidade máxima de cada agente.</li>
+    </ul>
+  </div>
+
+  <h2>Motivos: cadastro e abas de refinamento</h2>
+
+  <div class="faq">
+    <h3>22. Quais são os campos do cadastro de um Motivo e quais são obrigatórios?</h3>
+    <div class="table-wrap">
+      <table class="doc">
+        <thead><tr><th>Campo</th><th>Obrigatório</th></tr></thead>
+        <tbody>
+          <tr><td>Nome do Motivo</td><td>Sim</td></tr>
+          <tr><td>Grupo de Atendimento</td><td>Sim</td></tr>
+          <tr><td>Classificação</td><td>Sim</td></tr>
+          <tr><td>Prioridade (Baixa, Média, Alta, Urgente)</td><td>Não</td></tr>
+          <tr><td>Horário Comercial (calendário de expediente)</td><td>Não</td></tr>
+          <tr><td>SLA 1ª Resposta (min)</td><td>Não</td></tr>
+          <tr><td>SLA Resolução (horas)</td><td>Não</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout warn">
+      <strong>Atenção:</strong> o cadastro separa o prazo de <strong>primeira resposta</strong> (em minutos) do prazo de <strong>resolução</strong> (em horas). Exemplo: dúvidas sobre parcerias podem ter meta de 1ª resposta de até 3 minutos e teto de resolução de 2 horas.
+    </div>
+  </div>
+
+  <div class="faq">
+    <h3>23. Para que serve a aba Alertas de um Motivo?</h3>
+    <p>Ela parametriza gatilhos e avisos baseados no <strong>consumo do SLA</strong> do chamado. Exemplo prático: programar para que, assim que o tempo consumido atingir <strong>50% da meta do Nível 1</strong>, o sistema dispare uma automação de aviso preventiva para a supervisão.</p>
+    <div class="callout tip">
+      <strong>Uso recomendado:</strong> alertas em 50% permitem agir antes da violação de SLA; alertas em 80%/100% servem como registro de incidente e acionamento de escalonamento.
+    </div>
+  </div>
+
+  <div class="faq">
+    <h3>24. O que a aba Filas do Motivo permite configurar?</h3>
+    <p>Ela gerencia a distribuição técnica com base nos níveis herdados do Grupo de Serviço:</p>
+    <ul>
+      <li><strong>Cálculo de Resolução:</strong> o tempo por nível é sugerido automaticamente, de forma proporcional, cruzando o tempo total do motivo com as porcentagens do Grupo de Serviço (ex.: SLA total de 8 horas fatiado em minutos por nível);</li>
+      <li><strong>Ajuste Manual:</strong> o gestor altera o tempo de um nível e o sistema recalcula o saldo do SLA imediatamente;</li>
+      <li><strong>Aplicar Resolução Sugerida pelo Grupo:</strong> restaura o cálculo proporcional automatizado;</li>
+      <li><strong>Modelos de Distribuição:</strong> comportamento de fila por nível (ver pergunta 21).</li>
+    </ul>
+  </div>
+
+  <div class="faq">
+    <h3>25. É possível incluir uma equipe extra apenas para um motivo específico?</h3>
+    <p>Sim. Além dos agentes fixados no Grupo de Serviço, a aba <strong>Filas</strong> do Motivo permite adicionar usuários diretamente em cada nível técnico. Esses agentes <strong>não fazem parte do grupo base</strong>, mas são considerados pelo motor de distribuição <strong>exclusivamente quando o ticket der entrada com aquele motivo</strong>.</p>
+  </div>
+
+  <h2>Configurações Gerais e Portal Público</h2>
+
+  <div class="faq">
+    <h3>26. O que define a configuração "Horas para auto-fechamento"?</h3>
+    <p>Define o prazo que o cliente possui para validar a resposta do ticket. Ao alterar o status para <strong>"Resolvido"</strong>, o cronômetro inicia; se o cliente não interagir, contestar ou solicitar reabertura dentro do prazo, o sistema encerra o chamado de forma automatizada com status <strong>"Fechado"</strong>.</p>
+  </div>
+
+  <div class="faq">
+    <h3>27. Quais informações posso ocultar do cliente no portal público do ticket?</h3>
+    <p>A configuração <strong>Portal público</strong> (Configurações &gt; Tickets &gt; Configurações Gerais) gerencia quais informações são exibidas ao cliente final na URL externa de acompanhamento, como <strong>ocultar ou exibir o nome do agente responsável, a prioridade do chamado e classificações internas</strong>.</p>
+    <div class="callout tip">
+      <strong>Transparência x ruído:</strong> mostrar status, motivo e comentários costuma reduzir contatos repetidos; ocultar agente e prioridade evita cobranças indevidas sobre a fila interna.
+    </div>
+  </div>
+
+  <div class="faq">
+    <h3>28. Qual a diferença entre o relatório "Histórico" e o painel de "Auditoria"?</h3>
+    <p>O <strong>Histórico</strong> é uma listagem bruta de todos os chamados da plataforma, com metadados de filtro (ID do Ticket, Contato, Assunto, Agente Responsável, Canal de Entrada, Prioridade, Status Atual, Data de Criação, Tempo exato de Resposta e Porcentagem de SLA atingida). A <strong>Auditoria</strong> é uma linha do tempo imutável que registra <strong>Data/Hora, Usuário logado, Ação realizada e Ticket afetado</strong> — ou seja, quem fez o quê dentro da plataforma.</p>
+  </div>
+
+  <h2>Automações: payloads e variáveis</h2>
+
+  <div class="faq">
+    <h3>29. Quais campos cada bloco de ação de ticket exige na configuração?</h3>
+    <div class="table-wrap">
+      <table class="doc">
+        <thead><tr><th>Bloco</th><th>Campos principais</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Criar ticket</strong></td><td>Assunto (obrigatório), Descrição (obrigatória), Motivo, chaves "Vincular ao contato do chat atual" e "Associar ao chat atual", Nome da variável de resultado.</td></tr>
+          <tr><td><strong>Editar ticket</strong></td><td>ID do ticket, Prioridade, Sub-motivo e Tags (campos vazios são ignorados).</td></tr>
+          <tr><td><strong>Buscar ticket</strong></td><td>Chaves de busca, filtro por Classificação (opcional), associar ao chat atual e variável de resultado.</td></tr>
+          <tr><td><strong>Adicionar comentário</strong></td><td>ID do ticket, Conteúdo do comentário e Tipo de comentário (ex.: Externo).</td></tr>
+          <tr><td><strong>Resolver ticket</strong></td><td>ID do ticket, Comentário de resolução (obrigatório) e Tipo de mensagem.</td></tr>
+          <tr><td><strong>Atribuir ticket</strong></td><td>ID do ticket, Tipo de atribuição (ex.: Agente específico) e ID do agente.</td></tr>
+          <tr><td><strong>Escalar ticket</strong></td><td>ID do ticket e Descrição/mensagem de escalação.</td></tr>
+          <tr><td><strong>Reabrir ticket</strong></td><td>ID do ticket e Mensagem de reabertura (opcional).</td></tr>
+          <tr><td><strong>Aguardar cliente</strong></td><td>ID do ticket e Mensagem de retorno.</td></tr>
+          <tr><td><strong>Vincular / Desvincular contato</strong></td><td>ID do ticket, chave "Usar contato do chat atual" e ID do contato.</td></tr>
+          <tr><td><strong>Alterar status</strong></td><td>ID do ticket e Novo status.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="faq">
+    <h3>30. Como capturar o canal de WhatsApp de um supervisor do grupo?</h3>
+    <p>O array <code>ticket_supervisors</code> lista os supervisores do grupo e expõe o identificador de WhatsApp de cada um. Use a notação de índice, por exemplo <code>{{ ticket_supervisors[0].waid }}</code> para o primeiro supervisor, e <code>ticket_supervisors_count</code> para saber quantos supervisores estão mapeados no grupo de serviço.</p>
+    <div class="callout tip">
+      <strong>Uso típico:</strong> notificar automaticamente a supervisão em canal de WhatsApp quando um ticket violar o SLA ou quando 50% da meta do nível for consumida.
+    </div>
+  </div>
+
+  <div class="faq">
+    <h3>31. Quando as variáveis ticket_agent_id e ticket_agent_name ficam vazias?</h3>
+    <p>No evento <strong>"ao criar"</strong>, ambas iniciam <strong>vazias</strong>: o valor só é preenchido depois que a <strong>distribuição</strong> do ticket é executada e um analista é atribuído. Por isso, não use essas variáveis em automações disparadas na criação esperando um responsável definido.</p>
+    <div class="callout warn">
+      <strong>Dica de fluxo:</strong> para notificar o responsável, prefira um bloco de automação no evento "Ao distribuir" (ou "Ao reatribuir"), quando <code>ticket_agent_id</code> e <code>ticket_agent_name</code> já estão preenchidos.
+    </div>
+  </div>
+
+  <div class="faq">
+    <h3>32. Qual o mapeamento de ticket_channel e de ticket_is_sla_met?</h3>
+    <p><code>ticket_channel</code> traz o canal de entrada do ticket:</p>
+    <div class="table-wrap">
+      <table class="doc">
+        <thead><tr><th>Valor</th><th>Canal de entrada</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>API</td></tr>
+          <tr><td>2</td><td>Chat de atendimento</td></tr>
+          <tr><td>3</td><td>URA/IVR</td></tr>
+          <tr><td>4</td><td>Painel Manual</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Já <code>ticket_is_sla_met</code> é um booleano de avaliação de SLA: <strong>1</strong> (Cumprido), <strong>0</strong> (Estourado) e <strong>vazio</strong> (ainda não processado).</p>
+  </div>
+
   <div class="pagenav">
     <a href="tickets.html"><span>← Voltar</span> Guia de Tickets (Kanban e Configurações)</a>
     <a class="next" href="configuracoes.html"><span>Próximo →</span> Configurações</a>

@@ -155,6 +155,373 @@
     <li>Abas <strong>Início</strong>, <strong>Ajuda</strong> e <strong>Chat</strong> na parte inferior.</li>
   </ul>
 
+  <h2>7. Grupos de Acesso (permissões por perfil)</h2>
+  <p>O <strong>Grupo de Acesso</strong> é um recurso transversal do sistema: conecta usuários a funcionalidades de forma controlada, garantindo que cada colaborador visualize e interaja apenas com as informações pertinentes à sua função. Pode ser configurado em diversas funções do sistema.</p>
+
+  <div class="callout info">
+    <strong>Nota para administradores:</strong> as restrições <em>não</em> afetam a visão do administrador. Administradores são membros automáticos de todos os grupos e possuem acesso a todas as funcionalidades.
+  </div>
+
+  <h3>Configuração</h3>
+  <p>Além de definir os membros no momento da criação do grupo, é possível gerenciá-los posteriormente pelo campo <strong>“Grupos de acesso”</strong> nas configurações individuais de cada usuário (ver a seção <em>Usuários</em>, acima).</p>
+
+  <h3>Onde os Grupos de Acesso são aplicados</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Área</th><th>Como funciona</th><th>Observações e exceções</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Etiquetas de Chat (Tags)</strong></td>
+          <td>Define quem pode <em>aplicar</em> a etiqueta.</td>
+          <td>Impede apenas a aplicação por quem não é membro — <strong>não</strong> impede a visualização. Se o usuário receber um atendimento com etiqueta de um grupo ao qual não pertence, a etiqueta continuará visível para ele.</td>
+        </tr>
+        <tr>
+          <td><strong>Funil no CRM</strong></td>
+          <td>Determina quais usuários podem utilizar um funil específico.</td>
+          <td>Se nenhum grupo for selecionado, o funil fica <strong>invisível para todos os usuários comuns</strong> — acessível apenas para administradores.</td>
+        </tr>
+        <tr>
+          <td><strong>Mensagens Pré-Definidas</strong></td>
+          <td>Com grupo definido, apenas membros veem a resposta rápida na lista de envio.</td>
+          <td>Ideal para organizar a comunicação por equipes (ex.: Suporte, Vendas), evitando poluição visual. Se nenhum grupo for selecionado, a mensagem fica visível para todos.</td>
+        </tr>
+        <tr>
+          <td><strong>Agenda de Contatos</strong></td>
+          <td>Aqui o recurso é chamado de <strong>“Grupo de Contatos”</strong> e segmenta a base de clientes, definindo quais usuários acessam determinados contatos.</td>
+          <td><strong>Exceção:</strong> se o usuário tiver a permissão <em>“Acesso a todos os contatos”</em> ativa, verá a agenda completa independentemente do grupo configurado.</td>
+        </tr>
+        <tr>
+          <td><strong>Relatórios Personalizados</strong></td>
+          <td>Define quem pode visualizar e consumir os dados de um relatório.</td>
+          <td><strong>Segurança:</strong> se nenhum grupo for selecionado, o acesso é exclusivo para Superadmins.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>8. Horário de Atendimento</h2>
+  <p>A partir da <strong>versão 13</strong>, o sistema conta com um módulo próprio de <strong>Horário de Atendimento</strong>. Ele substitui a montagem de expediente dentro da URA/fluxos (“Tabela de Horário”) por um cadastro centralizado, que considera datas especiais e feriados.</p>
+
+  <div class="callout tip">
+    <strong>Integração com o resto do sistema:</strong> o módulo é aplicado em <em>Configurações</em> (nova seção <strong>“Horários”</strong> dentro de “Cadastros” para a parametrização geral), no cadastro de <em>usuários</em> (Agentes e Supervisores) e nas <em>configurações das filas</em>. Nos <em>Fluxos de Automação</em>, ganha variáveis e um elemento específico.
+  </div>
+
+  <h3>Os dois pilares</h3>
+  <ul>
+    <li><strong>Feriados</strong> — determina os feriados únicos ou anuais considerados pelo sistema.</li>
+    <li><strong>Horário de Atendimento</strong> — define o expediente padrão e o comportamento esperado em datas especiais e feriados.</li>
+  </ul>
+  <p>Ao vincular um Horário de Atendimento condizente com a atividade de um colaborador ou de uma fila, o sistema passa a aplicar automaticamente o expediente definido.</p>
+
+  <h3>Cadastro de Feriado</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo</th><th>Descrição</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Nome</strong></td><td>Nome do feriado que está sendo cadastrado.</td></tr>
+        <tr><td><strong>Data</strong></td><td>Dia do feriado. <em>O sistema não permite mais de um feriado para o mesmo dia.</em></td></tr>
+        <tr><td><strong>Tipo</strong></td><td>Nível do feriado: Municipal, Estadual, Nacional ou outro.</td></tr>
+        <tr><td><strong>Recorrente (repete todo ano)</strong></td><td>Se ativado, determina a repetição anual a partir do momento em que foi cadastrado.</td></tr>
+        <tr><td><strong>Ativo</strong></td><td>Disponível na lista: indica se aquele feriado deve ou não ser considerado pelo sistema.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Cadastro de Horário</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo / aba</th><th>Descrição</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Nome</strong></td><td>Nome do expediente criado (pode ser definido por setor, por exemplo).</td></tr>
+        <tr><td><strong>Descrição</strong> (opcional)</td><td>Explicação de para que serve o horário criado.</td></tr>
+        <tr><td><strong>Mensagem para clientes</strong> (opcional)</td><td>Mensagem padrão exibida quando o cliente entra em contato fora do expediente.</td></tr>
+        <tr><td><strong>Aba “Semanal”</strong></td><td>Define os horários por dia da semana para o expediente padrão, em período único ou dividido. Após definir o horário de um dia, o sistema oferece a opção de <em>reaplicar</em> os períodos em outros dias. <br><em>Observações:</em> os períodos não podem se sobrepor e os horários devem seguir ordem cronológica.</td></tr>
+        <tr><td><strong>Aba “Feriado”</strong></td><td>Determina a configuração usada caso o dia atual seja feriado. Chave <strong>“Aberto em feriados”</strong>: se desativada, não há expediente no dia e só se configura a mensagem fora do horário; se ativa, além da mensagem é possível configurar o horário de funcionamento a ser seguido nos feriados.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Lista e funções do horário</h3>
+  <ul>
+    <li><strong>Ativo</strong> — indica se o Horário de Atendimento está ativo. Desativado, ele não é exibido para seleção nas configurações das filas e dos usuários.</li>
+    <li><strong>Datas Especiais</strong> — acrescenta datas com exceção no expediente que não são feriados (ex.: Dia da Mulher ou aniversário da empresa). Ao definir a data, o sistema exibe as mesmas opções de configuração dos feriados.</li>
+    <li><strong>Visualizar Calendário</strong> — análise visual, por mês, de como os dias de expediente estão definidos, com cores diferentes por tipo de data.</li>
+    <li><strong>Testar Configuração</strong> — testa, com base no dia e horário informados, se o sistema considerará o expediente aberto ou fechado.</li>
+  </ul>
+
+  <h3>Prioridade do sistema (expediente)</h3>
+  <ol class="steps">
+    <li><strong>Data Especial</strong> — se houver data especial criada para o dia atual, ela é considerada acima de qualquer outra configuração.</li>
+    <li><strong>Feriado</strong> — se não houver data especial e o dia for feriado, aplica-se a configuração definida para feriados.</li>
+    <li><strong>Horários de Atendimento</strong> — se não houver feriado nem data especial, consideram-se os horários diários padrão.</li>
+  </ol>
+
+  <h3>Vínculo em filas e usuários</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Onde</th><th>Como definir</th><th>Prioridade</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Filas</strong></td>
+          <td>Na aba “Configurações” da fila, selecione o horário desejado no campo <strong>“Horário de Atendimento”</strong> e salve.</td>
+          <td>1. Horário de Atendimento definido na fila; 2. Tabela de Horário da Fila; 3. Tabela de Horários da URA.</td>
+        </tr>
+        <tr>
+          <td><strong>Usuários (Agentes e Supervisores)</strong></td>
+          <td>Nas configurações gerais do usuário, selecione e salve o Horário de Atendimento que o sistema deve considerar para o seu login.</td>
+          <td>1. Horário de Atendimento definido no usuário; 2. Tabela de Horário do Usuário (determina o expediente em que o usuário é autorizado a logar).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Horário de Atendimento nas automações</h3>
+  <p>Na criação de URAs e fluxos de automação é possível aplicar o Horário de Atendimento com um elemento próprio — sem a complexidade do antigo elemento “Tabela de Horário”. Basta configurar o elemento com o <strong>ID do Horário de Atendimento</strong> desejado: o sistema valida automaticamente dias e datas para o momento atual e direciona o fluxo para <strong>“Aberto”</strong> ou <strong>“Fechado”</strong>.</p>
+  <p>Para montar um fluxo único que atenda a todos os casos fora de horário, use as variáveis exclusivas da aba “Horário de Atendimento”. Com <code>bh_reason_label</code> ou <code>bh_reason</code> é possível obter o motivo do fechamento (data especial, feriado etc.) e ramificar caminhos diferentes dentro do mesmo fluxo.</p>
+
+  <h2>9. Fila Webchat v2</h2>
+  <p>A versão 2 reformula a infraestrutura do canal Webchat da plataforma, com maior controle de comportamento, ferramentas de integração para dados autenticados e integração nativa com fluxos e URA.</p>
+
+  <h3>Principais inovações</h3>
+  <ul>
+    <li><strong>Identificação direta de clientes</strong> — transmissão de parâmetros (ID, Nome e atributos customizados) direto pelo script do site, eliminando atendimentos anônimos para usuários logados.</li>
+    <li><strong>Migração transparente entre canais</strong> — links seguros que transferem atendimentos do WhatsApp ou de outros canais para o Webchat, mantendo o vínculo do contato.</li>
+    <li><strong>Cartões dinâmicos com auto-atualização (WebCards)</strong> — atualização em tempo real de Cartões de Informação já enviados na tela do cliente, sem reenviar mensagens.</li>
+    <li><strong>Recursos avançados na URA</strong> — botões de resposta rápida, questionários em formulário único e fluxos encadeados (Flows) com captura de variáveis.</li>
+    <li><strong>Suporte a PWA</strong> — transforma o chat em aplicativo web progressivo instalável no dispositivo do usuário.</li>
+  </ul>
+
+  <h3>Criando uma nova fila Web Chat</h3>
+  <ol class="steps">
+    <li>No menu principal do sistema, acesse <strong>Filas</strong>.</li>
+    <li>Clique no botão <strong>+ Adicionar</strong>.</li>
+    <li>No campo <strong>Tipo</strong>, selecione <strong>Web Chat</strong>. Todas as novas filas já são criadas nativamente na arquitetura da Versão 2.</li>
+    <li>Defina o nome da fila e confirme a criação.</li>
+  </ol>
+
+  <div class="callout info">
+    A maioria das abas da fila Webchat compartilha a mesma lógica de configuração dos demais canais, com pequenas variações de disponibilidade: <strong>Configurações Gerais e SLAs</strong> (distribuição, limites e prazos), <strong>Mensagens</strong> (modelos e avisos, exceto pesquisa de qualidade) e <strong>Recursos Adicionais</strong> (Catálogo e Produtos, API e Webhooks, Configurações de IA e Assistência/Suporte Remoto).
+  </div>
+
+  <h3>Parâmetro crítico: “Abrir atendimento automaticamente”</h3>
+  <p>Localizado na aba <strong>Configurações</strong>, define o momento exato em que um atendimento de Webchat é iniciado e influencia diretamente o volume de atendimentos gerados.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Opção</th><th>Comportamento no sistema</th><th>Cenário de uso</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Sim</strong></td>
+          <td>Abre a sessão e o protocolo no painel assim que o visitante acessa e carrega a página web. Eventos de navegação e mudança de URL geram registros no histórico.</td>
+          <td>Monitoramento ativo de visitantes e abordagem proativa imediata.</td>
+        </tr>
+        <tr>
+          <td><strong>Não</strong> (recomendado)</td>
+          <td>O atendimento só é criado no sistema quando o visitante efetivamente envia uma mensagem.</td>
+          <td>Evita sobrecarga na fila e geração de atendimentos “fantasmas” por simples navegação.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Personalização do App Web</h3>
+  <p>A aba <strong>Configurações do App Web</strong> concentra as definições visuais, interativas e de marca do widget de chat:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Módulo</th><th>Propriedades configuráveis</th><th>Detalhamento e boas práticas</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Aparência</strong></td>
+          <td>Inicialização automática (On/Off); enviar eventos de navegação; exibir balão de abertura; iniciar atendimento na abertura; título do cabeçalho e subtítulo; temas e cores (cor primária e fundo do chat).</td>
+          <td>Define a identidade visual da janela de conversa. <strong>Atenção:</strong> se for injetar dados personalizados do cliente via JavaScript, mantenha a Inicialização automática <em>desativada</em>.</td>
+        </tr>
+        <tr>
+          <td><strong>Botão de Acesso</strong></td>
+          <td>Tipo de ícone (ícones prontos, até 2 letras ou emoji); formato (redondo, quadrado com bordas retas ou arredondadas); tamanho do botão e intensidade de sombra; animação de atenção (pulsar); mensagem de convite (CTA).</td>
+          <td>Personaliza o botão flutuante. A Mensagem de Convite permite balões chamativos (ex.: “Precisa de ajuda com seu pedido?”) com tempo de exibição, atraso e opção de dispensa manual (x).</td>
+        </tr>
+        <tr>
+          <td><strong>App (PWA)</strong></td>
+          <td>Habilitar instalação como aplicativo; nome do app, descrição e cores do tema; ícones, favicons e splash screens.</td>
+          <td>Permite instalar o Webchat como Progressive Web App independente no celular ou computador.</td>
+        </tr>
+        <tr>
+          <td><strong>Perfil da Empresa</strong></td>
+          <td>Logotipo (formato quadrado/JPG recomendado); descrição do perfil; telefone de contato e website; links de redes sociais.</td>
+          <td>Informações exibidas no modal institucional quando o usuário clica no ícone de informação no cabeçalho do chat.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Integração via SDK</h3>
+  <p>Na aba <strong>Integração (SDK)</strong> fica a biblioteca JavaScript para inserir no site e controlar o chat programaticamente. O script básico vai antes do fechamento da tag <code>&lt;/body&gt;</code>:</p>
+  <pre><code>&lt;script type="module"&gt;
+  (function (d) {
+    window.omniChatQueueId = 155; // Substitua pelo ID da sua fila
+    var s = d.createElement('script'); s.async = true;
+    s.src = 'https://w-a-tend.online/webchat.min.js';
+    (d.head || d.body).appendChild(s);
+  })(document);
+&lt;/script&gt;</code></pre>
+
+  <p>Para identificar usuários logados e evitar cadastros anônimos, desligue a <strong>Inicialização automática</strong> no painel e injete os dados antes de inicializar:</p>
+  <pre><code>&lt;script&gt;
+  (function boot() {
+    if (!window.omniChat || !window.omniChat.configLoaded) return setTimeout(boot, 50);
+
+    // Identificação do usuário logado
+    window.omniChat.clientId = "cliente-42";
+    window.omniChat.clientName = "João da Silva";
+
+    // Metadados adicionais em formato JSON (disponíveis para URA e variáveis)
+    window.omniChat.clientData = JSON.stringify({ plano: 'ouro', pedido: 12345 });
+
+    // Inicia e renderiza o chat na página
+    window.omniChat.initialize();
+  })();
+&lt;/script&gt;</code></pre>
+
+  <h3>Métodos principais do SDK</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Método / propriedade</th><th>Ação executada</th></tr></thead>
+      <tbody>
+        <tr><td><code>window.omniChat.show()</code></td><td>Abre e exibe a janela do chat na tela.</td></tr>
+        <tr><td><code>window.omniChat.hide()</code></td><td>Oculta ou fecha a janela do chat.</td></tr>
+        <tr><td><code>window.omniChat.viewState</code></td><td>Retorna o estado da janela (<code>'opened'</code> ou <code>'closed'</code>).</td></tr>
+        <tr><td><code>window.omniChat.initialize()</code></td><td>Monta e conecta o chat. Necessário apenas quando a Inicialização automática está desligada.</td></tr>
+        <tr><td><code>window.omniChat.destroy()</code></td><td>Remove o elemento de chat da página.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Elementos específicos para URA e automações</h3>
+  <ul>
+    <li><strong>Enviar Mensagem com Botões</strong> — botões de resposta rápida no corpo do chat, com tratamento estruturado da resposta para ramificação de menus.</li>
+    <li><strong>Solicitar Permissão de Notificações</strong> — card que pede permissão para alertas no navegador, avisando o cliente sobre atualizações mesmo com o site em segundo plano. <em>Em iOS (iPhone), as notificações dependem da instalação do Webchat via PWA.</em></li>
+    <li><strong>Enviar Formulário</strong> — dispara um formulário cadastrado no sistema, com suporte a valores pré-preenchidos como sugestão.</li>
+    <li><strong>Enviar Fluxo de Formulário</strong> — envia etapas/questionário sequencial; o Fluxo de Formulário deve ser criado antes em <code>Configurações › Cadastros › Fluxos de Formulário</code>.</li>
+    <li><strong>Enviar Cartões de Informação (WebCard)</strong> — ao usar o prefixo <code>webcard_</code> nas variáveis do modelo (ex.: <code>{{webcard_nome}}</code>), qualquer alteração posterior dessa variável na URA atualiza o card já exibido, sem gerar novas mensagens.</li>
+    <li><strong>Gerar Link de Migração para Webchat</strong> — cria uma URL única salva em <code>{{webchat_migration_link}}</code>; ao abrir o link, o sistema associa o contato existente ao novo canal.</li>
+    <li><strong>Enviar Mensagem com Produtos</strong> — catálogo de produtos para o cliente; a apresentação de mais de um produto no modo <em>Carrossel</em> é exclusiva do WebChat V2.</li>
+    <li><strong>Enviar Pedido (Order)</strong> — ordem de compra detalhada com itens, subtotal, descontos, frete e link de pagamento, criando um painel de resumo no topo do chat.</li>
+    <li><strong>Atualizar Status do Pedido</strong> — muda a etapa do pedido em tempo real (ex.: “Recebemos seu pagamento”, “Preparando pedido”, “Concluído”).</li>
+  </ul>
+
+  <div class="callout tip">
+    <strong>Tratamento assíncrono de formulários:</strong> o formulário é enviado e a URA prossegue; as respostas são capturadas pelo Gatilho de Mensagem configurado com o tipo <em>Resposta de flow</em>. Os valores preenchidos ficam disponíveis no padrão <code>{{message_flow_&lt;ID_DO_CAMPO&gt;}}</code> (ex.: <code>{{message_flow_90bd3ec03}}</code>).
+  </div>
+
+  <h3>Guia rápido de implementação</h3>
+  <ol class="steps">
+    <li><strong>Criar a fila:</strong> em Filas › + Adicionar, selecione <strong>Web Chat</strong> e defina “Abrir atendimento automaticamente” = <strong>Não</strong>.</li>
+    <li><strong>Customizar o layout:</strong> em Configurações do App Web, personalize cores, ícone do botão, CTA e perfil institucional.</li>
+    <li><strong>Integrar no site:</strong> insira o script na página HTML e, se houver autenticação, injete <code>clientId</code>, <code>clientName</code> e <code>clientData</code> antes de chamar <code>initialize()</code>.</li>
+    <li><strong>Construir a URA/fluxos:</strong> configure blocos de mensagens, botões, formulários com gatilho <em>Resposta de flow</em> e cartões dinâmicos com prefixo <code>webcard_</code>.</li>
+  </ol>
+
+  <h2>10. Painel de Instâncias (parceiros e revenda)</h2>
+  <p>Quando um novo parceiro é configurado, é definido um <strong>arquivo de configuração base</strong> com as informações dele e um <strong>ID</strong>. Esse ID é usado como referência nas instâncias dos clientes, definindo a relação entre eles e reunindo-as no <strong>Painel de Instâncias</strong>.</p>
+  <p>A cada instância criada, o sistema usa a referência do ID e repassa para a instância cliente as configurações associadas ao parceiro — ou seja, o painel é o ponto único de gestão das instâncias de uma mesma base de configuração.</p>
+
+  <h3>Exclusão da instância do parceiro</h3>
+  <ul>
+    <li>As instâncias dos clientes <strong>continuam existindo e recebendo atualizações</strong>, mas deixam de estar disponíveis em um painel para serem configuradas e alteradas.</li>
+    <li>A solução é <strong>migrá-las</strong> para outro painel existente ou criar um novo painel em uma nova instância para gerenciá-las.</li>
+    <li>Ao colocá-las em um painel já existente, elas passarão a receber a configuração do respectivo parceiro dono daquele painel.</li>
+  </ul>
+
+  <div class="callout warn">
+    <strong>Atenção:</strong> migrar instâncias para outro painel implica herdar a configuração do parceiro daquele painel. Planeje a migração antes de excluir a instância do parceiro.
+  </div>
+
+  <h2>11. Pacote de Customização (marca e identidade visual)</h2>
+  <p>O pacote de customização permite aplicar a identidade visual do parceiro/cliente ao sistema: logos e paleta de cores.</p>
+
+  <h3>Logos</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Posição</th><th>Formato</th><th>Observações</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Logo Header (Dashboard)</strong></td><td><code>.SVG</code></td><td>Localizado no canto superior esquerdo, sobre a barra de header no topo da tela de Dashboard. O logo fica sobre um fundo branco.</td></tr>
+        <tr><td><strong>Logo Página Login</strong></td><td><code>.SVG</code></td><td>Fica na tela de login, acima dos campos de Usuário e Senha. O logo fica sobre fundo com a cor principal — se a cor for escura, recomenda-se gerá-lo em branco.</td></tr>
+        <tr><td><strong>Ícone / Favicons</strong></td><td><code>.ICO</code> e <code>.PNG</code></td><td>Conjunto de tamanhos para favicon e ícones do app. <strong>Atenção:</strong> o logo não pode infringir direitos de terceiros.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Formatos <code>.PNG</code> gabaritados para ícone: 16×16, 32×32, 64×64, 72×72, 96×96, 128×128, 144×144, 152×152, 192×192, 384×384 e 512×512 px.</p>
+
+  <h3>Configuração de cores</h3>
+  <p>Sete variáveis controlam o tema da interface:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Variável</th><th>Aplicação</th></tr></thead>
+      <tbody>
+        <tr><td><code>headerColor</code></td><td>A cor de fundo do cabeçalho.</td></tr>
+        <tr><td><code>headerFgColor</code></td><td>A cor da fonte dos ícones do cabeçalho.</td></tr>
+        <tr><td><code>headerSelectedColor</code></td><td>A cor de fundo do ícone selecionado no cabeçalho.</td></tr>
+        <tr><td><code>primaryColor</code></td><td>A cor de fundo da aba/botão selecionado.</td></tr>
+        <tr><td><code>primaryFgColor</code></td><td>A cor da fonte de alguns botões de ação, como o atualizar em relatórios e o adicionar na agenda de contatos.</td></tr>
+        <tr><td><code>primaryBgColor</code></td><td>A cor de fundo clara da aba não selecionada.</td></tr>
+        <tr><td><code>headerAlertColor</code></td><td>A cor da bolinha de alerta quando há notificação ou novo atendimento.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul>
+    <li><code>primaryColor</code> costuma receber a cor principal do parceiro.</li>
+    <li>Se a cor do parceiro for escura, recomenda-se fonte clara no header — e vice-versa, sempre preservando o contraste entre <code>headerColor</code> e <code>headerFgColor</code>.</li>
+    <li><code>headerSelectedColor</code> é normalmente um tom mais claro que o header; <code>headerAlertColor</code> costuma ser uma cor de destaque em relação ao header.</li>
+  </ul>
+
+  <div class="callout info">
+    <strong>Exemplos do pacote:</strong> os valores vistos no material de customização (<code>headerColor #3D1B6F</code>, <code>primaryBgColor rgba 127, 9, 182 / 1</code>, <code>headerAlertColor #FF3C78</code>, entre outros) são <em>amostras de demonstração do parceiro</em>, não padrões obrigatórios do sistema.
+  </div>
+
+  <h2>12. Suporte Visual Remoto</h2>
+  <p>O <strong>Suporte Visual Remoto</strong> é um recurso de apoio ao atendimento com inteligência visual e realidade aumentada — “muito mais que uma videochamada”. O cliente clica em um link (por exemplo, no WhatsApp) e a câmera abre, <strong>sem instalar aplicativos</strong>.</p>
+
+  <h3>Recursos</h3>
+  <ul>
+    <li><strong>Zero instalação</strong> — o acesso se dá por link único, sem login e sem app.</li>
+    <li><strong>Realidade aumentada</strong> — o agente desenha na tela do cliente e usa setas e apontador laser para guiar.</li>
+    <li><strong>Congelamento (Freeze)</strong> — pausa o vídeo para analisar detalhes em alta definição.</li>
+    <li><strong>Auditoria e compliance</strong> — tudo gravado e atrelado ao atendimento e ao CRM, com relatórios de gestão.</li>
+  </ul>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Recurso</th><th>Habilis Suporte</th><th>WhatsApp / Meet</th></tr></thead>
+      <tbody>
+        <tr><td>Acesso</td><td>Link único (sem login)</td><td>Requer app/conta</td></tr>
+        <tr><td>Apontador laser / desenho</td><td>Sim (nativo)</td><td>Não</td></tr>
+        <tr><td>Congelar vídeo (HD)</td><td>Sim</td><td>Não</td></tr>
+        <tr><td>Gravação integrada</td><td>Sim (automática)</td><td>Manual</td></tr>
+        <tr><td>Relatórios de gestão</td><td>Sim</td><td>Não</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Casos de uso por segmento</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Segmento</th><th>Casos de uso típicos</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Provedores de Internet (ISP)</strong></td><td>Diagnóstico físico de cabos de fibra; leitura do status dos LEDs; pré-instalação da infraestrutura interna para definir o material a levar.</td></tr>
+        <tr><td><strong>Seguradoras e proteção veicular</strong></td><td>Vistoria prévia virtual; sinistro de pequena monta avaliado e fotografado na hora; avaliação residencial de vazamentos ou danos elétricos.</td></tr>
+        <tr><td><strong>Varejo de móveis e e-commerce</strong></td><td>Montagem assistida (indicação exata de peças com laser); validação de avarias para evitar logística reversa.</td></tr>
+        <tr><td><strong>Indústria e fabricantes de máquinas</strong></td><td>Suporte nível 2 com engenheiro sênior guiando o operador; treinamento on-the-job em painéis complexos; validação visual de peças.</td></tr>
+        <tr><td><strong>Assistência técnica e climatização</strong></td><td>Triagem do código de erro no display antes da visita; configuração remota (limpeza de filtro, modo de operação); mentoria de técnico júnior em campo.</td></tr>
+        <tr><td><strong>Saúde, farmacêuticas e home care</strong></td><td>Configuração de dispositivos médicos (CPAP, glicose, bombas de infusão); orientação visual para preparo de medicamentos; triagem remota de feridas.</td></tr>
+        <tr><td><strong>Suporte de TI e helpdesk</strong></td><td>Camada física (cabos desconectados ou em portas erradas); diagnóstico de periféricos (docking stations, monitores, impressoras); mãos remotas no data center.</td></tr>
+        <tr><td><strong>Varejo, franquias e visual merchandising</strong></td><td>Validação remota de vitrine e disposição de produtos; manutenção predial; suporte ao PDV com visualização do erro na hora.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout tip">
+    <strong>Veja também:</strong> nas filas (incluindo a do Webchat v2), o recurso aparece na aba de <strong>Recursos Adicionais</strong> como <em>Assistência/Suporte Remoto</em>.
+  </div>
+
   <div class="pagenav">
     <a href="relatorios.html"><span>← Anterior</span> Relatórios</a>
     <a href="index.html"><span>Voltar ao início</span> Índice do manual</a>

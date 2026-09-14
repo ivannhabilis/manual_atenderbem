@@ -126,6 +126,65 @@ asterisk -rx "pjsip show endpoints"
 # Testar se a porta TLS 5061 está escutando:
 netstat -tulpn | grep 5061</code></pre>
 
+  <h3>Comandos PJSIP complementares</h3>
+  <p>Comandos adicionais do acervo para inspeção fina de troncos e ramais no mesmo terminal SSH:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Comando</th><th>O que faz</th><th>Uso prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>pjsip show contacts</code></td><td>Lista todos os contatos registrados.</td><td>Mostra quais endpoints estão registrados no momento.</td></tr>
+        <tr><td><code>pjsip show endpoint &lt;nome&gt;</code></td><td>Mostra os detalhes de um endpoint específico.</td><td>Confere a configuração de um tronco ou ramal (ex.: <code>pjsip show endpoint 2000</code>).</td></tr>
+        <tr><td><code>pjsip show transports</code></td><td>Lista os transportes configurados.</td><td>Mostra os transportes UDP/TCP/TLS ativos (ex.: o transporte <code>0.0.0.0-tls</code> do tronco Meta).</td></tr>
+        <tr><td><code>pjsip qualify endpoint &lt;nome&gt;</code></td><td>Envia um OPTIONS para verificar se o endpoint está online.</td><td>Testa se o tronco/ramal está acessível antes de abrir chamado.</td></tr>
+        <tr><td><code>pjsip show channelstats</code></td><td>Mostra estatísticas de canais PJSIP.</td><td>Exibe métricas de qualidade como MOS, jitter e perda de pacotes de uma chamada em curso.</td></tr>
+        <tr><td><code>pjsip set logger on</code> / <code>pjsip set logger off</code></td><td>Ativa/desativa o log de mensagens SIP no console.</td><td>Útil para depurar o handshake TLS/SRTP de um tronco (ativar, reproduzir a falha e desativar).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>6. Conceitos de SIP Trunking: SIP x VoIP, DDR e Canais SIP</h2>
+  <p>Além da configuração prática, vale fixar os conceitos que explicam por que o Tronco SIP é a base da telefonia em nuvem usada pelo PABX Fácil.</p>
+
+  <h3>SIP e VoIP não são a mesma coisa</h3>
+  <p><strong>VoIP</strong> (Voice over Internet Protocol) refere-se a qualquer chamada de voz feita pela internet. <strong>SIP</strong> (Session Initiation Protocol) é uma das tecnologias de protocolo que tornam o VoIP possível — é ele que cria as conexões em tempo real entre dois telefones. Ou seja, todo tronco SIP é VoIP, mas nem toda implantação de VoIP usa SIP.</p>
+
+  <h3>Discagem Direta ao Ramal (DDR)</h3>
+  <p>Com um serviço <strong>DDR</strong>, o provedor conecta o PABX da empresa a um bloco de números de telefone. Esses números virtuais ignoram a linha de recepção principal e vão diretamente para um ramal ou grupo de ramais. O número DDR identifica o telefone e o tronco SIP é o elo entre o telefone identificado e a internet, permitindo que a chamada seja encaminhada ao telefone correto. No PABX, esse número é o <strong>DID Number</strong> preenchido nas Rotas de Entrada.</p>
+
+  <h3>Canais SIP e dimensionamento</h3>
+  <p>Cada tronco contém vários <strong>canais SIP</strong> independentes. Um canal SIP equivale a uma linha telefônica — só que digital. Se a empresa costuma fazer 20 chamadas simultâneas, serão necessários 20 canais SIP. Dimensione a quantidade de canais do tronco conforme o volume de ligações simultâneas esperado.</p>
+
+  <h3>Por que usar SIP Trunking</h3>
+  <ul>
+    <li><strong>Redução de custo:</strong> usa a conexão de internet ou rede IP em vez de linhas analógicas caras; ligações de longa distância tornam-se locais por trafegarem pela internet. Segundo o Gartner, a adoção pode reduzir os custos de telefonia em até 50%.</li>
+    <li><strong>Escalabilidade:</strong> adicionar ou remover usuários e largura de banda conforme o crescimento da empresa.</li>
+    <li><strong>Flexibilidade e mobilidade:</strong> as chamadas podem ser direcionadas ao celular ou a qualquer dispositivo com conexão à internet.</li>
+    <li><strong>Produtividade e comunicações unificadas:</strong> consolida voz e dados em uma única rede, caminho natural para uma plataforma de comunicação unificada (UCaaS).</li>
+  </ul>
+
+  <div class="callout info">
+    <strong>Desvantagem relatada:</strong> a única desvantagem citada é o custo inicial de configuração. Em cenários de grande volume de chamadas, o SIP Trunking garante o retorno do investimento inicial.
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>7. NAT e Obtenção do IP Externo do PABX</h2>
+  <p>O <strong>IP externo</strong> do PABX é o endereço usado para configurar telefones IP e aplicativos VoIP (como o MicroSIP) que acessam a central pela internet.</p>
+
+  <ol class="steps">
+    <li>Acesse o PABX e vá em <code>Settings › Asterisk SIP Settings</code>.</li>
+    <li>Abra a aba <strong>General SIP Settings</strong>.</li>
+    <li>Em <strong>NAT Settings</strong>, no campo <strong>External Address</strong>, clique no botão <strong>Detect Network Settings</strong>.</li>
+    <li>O IP será atualizado automaticamente. Utilize o endereço obtido para configurar os acessos externos ao PABX.</li>
+  </ol>
+
+  <div class="callout tip">
+    <strong>Quando usar:</strong> mantenha o <em>External Address</em> atualizado sempre que o PABX estiver atrás de NAT — é ele que garante que ramais remotos e softphones externos consigam localizar a central.
+  </div>
+
   <div class="pagenav">
     <a href="pabx.html"><span>← Voltar</span> Portal PABX</a>
     <a class="next" href="pabx-rotas.html"><span>Próximo Capítulo →</span> Rotas de Entrada e Saída</a>

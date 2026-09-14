@@ -83,6 +83,155 @@
     <strong>Exportação:</strong> relatórios com grade costumam oferecer botões para exportar para Excel e escolher colunas (Column Chooser).
   </div>
 
+  <h2>3. Conciliação de relatórios: por que os números divergem</h2>
+  <p>É comum que Dashboard, Painel de Agentes, Relatório de Agentes e Histórico de Chats apresentem totais diferentes para o mesmo período. <strong>Não há erro nos dados:</strong> cada tela possui uma regra de filtragem própria. Enquanto uma foca no momento em que o atendimento foi <em>aberto</em>, outra foca no momento em que foi <em>encerrado</em>, e uma terceira lista tudo o que aconteceu no período.</p>
+
+  <h3>3.1 A regra de ouro de cada tela</h3>
+  <div class="table-wrap">
+  <table class="doc">
+    <thead><tr><th>Tela / Relatório</th><th>O que mede por padrão</th><th>Principal benefício</th></tr></thead>
+    <tbody>
+      <tr><td>Dashboard Inicial</td><td>Apenas os atendimentos <strong>abertos</strong> dentro do período do filtro.</td><td>Analisar o volume de novas demandas geradas na data.</td></tr>
+      <tr><td>Painel de Agentes</td><td>A produtividade real do agente no dia (atendimentos <strong>fechados hoje</strong>).</td><td>Avaliar o desempenho e o ritmo atual da equipe.</td></tr>
+      <tr><td>Relatório de Agentes</td><td>Ações de encerramento do agente no momento em que acontecem (independe de quando o chat abriu).</td><td>Medir a produtividade individual pelo encerramento.</td></tr>
+      <tr><td>Histórico de Chats</td><td>Auditoria geral — permite alternar o filtro entre <em>Data de Abertura</em> e <em>Data de Fechamento</em>.</td><td>Realizar checagens detalhadas e a conciliação com os demais relatórios.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout info">
+    <strong>Impacto no TMA:</strong> no Dashboard Inicial o TMA (Tempo Médio de Atendimento) considera apenas a média dos atendimentos <strong>abertos e encerrados integralmente dentro do período</strong>. Um chat aberto ontem e fechado hoje <em>não</em> entra nessa média — e também não aparece para o agente no Dashboard filtrado como “Hoje”.
+  </div>
+
+  <h3>3.2 Métricas do Relatório e do Painel de Agentes</h3>
+  <p>Além de “Chats agora” e “Chats atendidos hoje”, o Relatório de Agentes expõe indicadores calculados a partir de eventos do atendimento. Entenda o que cada um considera:</p>
+  <div class="table-wrap">
+  <table class="doc">
+    <thead><tr><th>Indicador</th><th>Quando é calculado</th><th>O que considera</th></tr></thead>
+    <tbody>
+      <tr><td>Total de chats encerrados pelo agente</td><td>Ao finalizar o atendimento (botão encerrar).</td><td>Atendimentos efetivamente encerrados pelo agente no período.</td></tr>
+      <tr><td>Total de chats atribuídos ao agente</td><td>No período.</td><td>Atendimentos atribuídos ao agente, mesmo que não tenham sido encerrados por ele.</td></tr>
+      <tr><td>Total de clientes únicos atribuídos</td><td>No período.</td><td>Clientes distintos — se o mesmo cliente foi atendido 3 vezes, conta apenas 1.</td></tr>
+      <tr><td>Total de atendimentos respondidos</td><td>No período.</td><td>Atendimentos que receberam resposta enquanto estavam com o agente.</td></tr>
+      <tr><td>TMA</td><td>Quando o atendimento é encerrado pelo agente.</td><td>Tempo médio da abertura até o fechamento, independente de quanto tempo ficou com aquele agente específico.</td></tr>
+      <tr><td>TMA-A</td><td>Quando o atendimento é removido do agente (fechamento, transferência ou outro motivo).</td><td>Tempo médio a partir do momento em que foi atribuído ao agente; se voltou mais de uma vez para o mesmo agente, soma todas as passagens.</td></tr>
+      <tr><td>TMPR</td><td>Na primeira resposta enviada pelo agente.</td><td>Tempo médio de primeira resposta desde a abertura; conta uma resposta por dia para cada ID de atendimento.</td></tr>
+      <tr><td>TMPR-A</td><td>Na resposta do agente.</td><td>Tempo médio de primeira resposta desde o momento em que foi atribuído ao agente; conta uma resposta por dia para cada ID de atendimento.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>3.3 Exemplo prático de conciliação (cruzando os dados)</h3>
+  <p>Exemplo real extraído de uma mesma instância, no período de um dia:</p>
+  <ol class="steps">
+    <li><strong>Dashboard Inicial aponta 57 atendimentos abertos no dia.</strong> Desse total, <strong>27</strong> estão na linha inicial “Sem Agente associado” (ficaram apenas na fila de espera ou foram encerrados automaticamente por robôs, regras de sistema ou timeout na URA) e <strong>30</strong> estão nas linhas dos agentes. Cálculo: 27 + 30 = <strong>57</strong>.</li>
+    <li><strong>Histórico de Chats filtrado por “Data de Abertura”</strong> retorna os mesmos 57 atendimentos: <strong>14</strong> com status “Aberto” e <strong>43</strong> com status “Fechado” (sendo 30 encerrados por agentes e 13 encerrados de forma automática por outros meios).</li>
+    <li><strong>Histórico de Chats filtrado por “Data de Fechamento”</strong> passa a mostrar <strong>56</strong> atendimentos fechados no dia — e, desse grupo, <strong>43</strong> foram finalizados efetivamente por agentes.</li>
+    <li><strong>Validando com o Relatório/Painel de Agentes:</strong> ao somar a coluna “Total de Chats encerrados pelo agente” de toda a equipe, o resultado também é <strong>43</strong> — batendo exatamente com a Visão por “Data de Fechamento” do Histórico.</li>
+  </ol>
+  <div class="callout tip">
+    <strong>Conclusão:</strong> a diferença entre 57 e 56 existe simplesmente porque alguns atendimentos fechados hoje haviam sido <strong>abertos em dias anteriores</strong>. Cada tela cumpre seu papel e os dados se complementam — para conciliar qualquer divergência, use o Histórico de Chats com o filtro de data correto (Abertura ou Fechamento) e compare com o Relatório de Agentes.
+  </div>
+
+  <h2>4. Monitoramento de produtividade</h2>
+  <p>Desde a versão <strong>12.0.1</strong> o sistema conta com um módulo dedicado de monitoramento de produtividade, exclusivo para a <strong>versão Desktop</strong>. O objetivo é acompanhar e analisar a atuação da equipe com dados coletados em tempo real na máquina do colaborador.</p>
+
+  <h3>4.1 Como o módulo se integra ao sistema</h3>
+  <ul>
+    <li><strong>Painel e Indicadores:</strong> dois novos relatórios analíticos — <strong>Produtividade - Equipe</strong> e <strong>Produtividade - Agente</strong>.</li>
+    <li><strong>Configurações:</strong> nova seção “Monitoramento de Produtividade” (parametrização geral) e nova aba “Monitoramento” no cadastro de usuários (Agentes e Supervisores), onde se define o perfil de scoring e as automações por status de atividade.</li>
+    <li><strong>Fluxos de Automação:</strong> novas variáveis e elementos específicos do monitoramento.</li>
+    <li><strong>Painel de Agentes:</strong> nova interface de acompanhamento de produtividade com dados em tempo real.</li>
+  </ul>
+
+  <h3>4.2 Como o sistema classifica o estado do usuário</h3>
+  <p>A classificação avalia os sites e aplicativos abertos e a interação da pessoa com o computador, cruzando a aplicação <em>em foco</em> com as aplicações <em>em segundo plano</em>:</p>
+  <div class="table-wrap">
+  <table class="doc">
+    <thead><tr><th>Faixa de Score</th><th>Classificação</th><th>Leitura</th></tr></thead>
+    <tbody>
+      <tr><td>0 a 50</td><td>🔴 Improdutivo</td><td>Uso predominante de plataformas não relacionadas ao trabalho.</td></tr>
+      <tr><td>51 a 70</td><td>🟡 Atenção</td><td>Uso de aplicações secundárias ou neutras.</td></tr>
+      <tr><td>71 a 100</td><td>🟢 Produtivo</td><td>Foco em aplicações e tarefas de alta relevância.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <ul>
+    <li><strong>Estado Ocioso (Ausente):</strong> após cerca de <strong>2 minutos</strong> sem interação (sem mover o mouse ou digitar), o sistema classifica automaticamente o usuário como “Ocioso”.</li>
+    <li><strong>Estado de Mídia:</strong> exceção à regra de ociosidade — se o usuário estiver reproduzindo áudio/vídeo na tela principal, o estado é classificado como “Mídia”, mesmo sem interação.</li>
+    <li><strong>Penalidades não cumulativas:</strong> havendo múltiplas infrações, elas <em>não</em> são somadas — o sistema aplica apenas a regra de maior impacto (a de maior penalidade).</li>
+  </ul>
+
+  <h3>4.3 Relatório Produtividade - Equipe (visão consolidada)</h3>
+  <p>Panorama macro da equipe, com comparativos diretos entre colaboradores, distribuição global de tempo e softwares mais utilizados:</p>
+  <div class="table-wrap">
+  <table class="doc">
+    <thead><tr><th>Bloco</th><th>O que mostra</th></tr></thead>
+    <tbody>
+      <tr><td>Indicadores-chave</td><td>Score Médio (0–100), Horas Produtivas, Tempo Logado, <strong>Agentes em Risco</strong> (score médio abaixo de 40 no período) e Total de Agentes.</td></tr>
+      <tr><td>Composição de Tempo</td><td>Divisão percentual do tempo em Produtivo, Atenção, Improdutivo, Ausente e Mídia.</td></tr>
+      <tr><td>Tendência Diária do Score</td><td>Gráfico de linha com a evolução da média diária do score da equipe (identifica quedas atípicas e picos de rendimento).</td></tr>
+      <tr><td>Distribuição de Scores</td><td>Barras agrupadas por faixa de pontuação (0–20, 20–40, 40–60, 60–80, 80–100).</td></tr>
+      <tr><td>Calendário de Produtividade</td><td>Mapa de calor mensal com a pontuação média do time por dia (verde = alto desempenho, amarelo = moderado).</td></tr>
+      <tr><td>Ranking de Agentes</td><td>Tabela com Agente, Score, % Produtivo/Atenção/Improdutivo/Ausente, Tempo Logado, Melhor Streak e Trocas de Contexto (Trocas Ctx.).</td></tr>
+      <tr><td>Aplicativos Mais Utilizados</td><td>Aplicativo/Processo (ex.: nwjs, Microsoft Edge, Teams, WhatsApp), Tempo Total, Divisão de Tempo e Score Médio da Aplicação.</td></tr>
+      <tr><td>Distribuição de Tempo por Agente</td><td>Barras horizontais 100% empilhadas comparando a proporção de cada estado por colaborador.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>4.4 Relatório Produtividade - Agente (visão individual)</h3>
+  <p>Auditoria granular da rotina de um colaborador específico:</p>
+  <ul>
+    <li><strong>KPIs:</strong> Score Médio, Distribuição Percentual de Tempo (Produtivo/Atenção/Improdutivo/Ausente/Mídia), Tempo Logado, Melhor Streak e Trocas de Contexto.</li>
+    <li><strong>Tendência de Score e Distribuição Diária:</strong> gráfico contínuo da pontuação diária e colunas empilhadas por data; o <strong>Calendário de Produtividade</strong> mensal identifica automaticamente o <em>Melhor Dia</em> e o <em>Pior Dia</em> do período.</li>
+    <li><strong>Métricas detalhadas:</strong> Streak Produtivo e Streak Improdutivo (recordes com data de ocorrência), Automações, Capturas, App Mais Produtivo e App Mais Improdutivo.</li>
+    <li><strong>Aplicativos Mais Utilizados:</strong> tempo total, horas produtivas/de atenção/improdutivas, média diária de uso e score por aplicativo.</li>
+    <li><strong>Detalhamento Diário:</strong> tabela dia a dia com Score do Dia, Produtivo/Atenção/Improd./Ausente, Total Logado, Streak Prod., Trocas Ctx., Mídia e Automações.</li>
+  </ul>
+  <div class="callout tip">
+    <strong>Filtros e atualização:</strong> ambos os relatórios contam com filtros de <strong>Período</strong> (ex.: Este mês, Últimos 7 dias, personalizado) e o botão <strong>Atualizar</strong> para sincronizar os dados mais recentes coletados pelos agentes.
+  </div>
+
+  <h2>5. Integrações de dados: Google Sheets e BigQuery</h2>
+  <p>Além da exportação nativa (Excel/PDF/CSV), os dados da operação podem ser enviados e consultados fora da plataforma. As duas integrações documentadas são a <strong>consulta de planilhas do Google Sheets</strong> (via API) e a <strong>sincronização com o Google BigQuery</strong> (para análise em escala).</p>
+
+  <h3>5.1 Consulta de planilha do Google Sheets via API</h3>
+  <p>Permite que fluxos de automação leiam dados de uma planilha publicada no Google Sheets. A configuração tem três partes:</p>
+  <ol class="steps">
+    <li><strong>Google Console:</strong> logue com a conta Google proprietária da planilha e acesse “API e Serviços”. Em “APIs e serviços ativados”, clique em <em>Ativar APIs e serviços</em>, pesquise por “Sheets” e ative a API.</li>
+    <li><strong>Credenciais:</strong> ainda em “API e Serviços” → “Credenciais”, clique em <em>Criar credenciais</em>, escolha o tipo <strong>Chave de API</strong>, dê um nome identificador e copie a chave gerada.</li>
+    <li><strong>Permissão da planilha:</strong> defina o compartilhamento como “qualquer pessoa com o link” (acesso de <strong>leitura</strong>).</li>
+  </ol>
+  <p>A URL de consulta segue esta estrutura — a chave vem do Google Console; o restante dos dados é obtido direto na planilha:</p>
+  <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px; overflow-x: auto;"><code>https://sheets.googleapis.com/v4/spreadsheets/ID_DA_PLANILHA/values/NOME_DA_PAGINA!RANGE_INICIO:RANGE_FIM?key=CHAVE_DE_ACESSO_DO_GOOGLE_CONSOLE</code></pre>
+  <div class="callout info">
+    <strong>Exemplo:</strong> para a planilha “ClientesCadastradosSAG”, a página <code>Clientes</code> e o intervalo de linhas 4 a 1381, a URL fica:<br>
+    <code>https://sheets.googleapis.com/v4/spreadsheets/1iPGdOiqjmuC538fx5gfzDO-BJLeqQxfnT1AJSXO6ZmU/values/Clientes!4:1381?key=CHAVE_DE_ACESSO_DO_GOOGLE_CONSOLE</code>
+  </div>
+
+  <h3>5.2 Sincronização com o Google BigQuery</h3>
+  <p>O BigQuery é o serviço de análise de dados na nuvem do Google, <em>serverless</em>, que processa grandes volumes com SQL. A plataforma passa a enviar os atendimentos para um <strong>Dataset</strong> criado no seu projeto, com várias tabelas do sistema e seus respectivos dados.</p>
+  <ol class="steps">
+    <li><strong>Google Cloud:</strong> crie/logue na conta, crie ou selecione um projeto e <strong>copie e salve o ID do projeto</strong> (será usado no sistema).</li>
+    <li><strong>Conta de Serviço:</strong> em “APIs e Serviços” → “Credenciais”, crie uma <strong>Conta de Serviço</strong> e, nas permissões, adicione o papel de <strong>“Proprietário de Dados BigQuery”</strong>.</li>
+    <li><strong>Chave JSON:</strong> edite a conta de serviço, acesse a aba “Chaves”, use <em>Adicionar chave → Criar nova chave</em>, marque a opção <strong>Json</strong> e confirme. O arquivo será baixado.</li>
+    <li><strong>Faturamento:</strong> habilite o faturamento do projeto com um método de pagamento válido — o envio usa <em>inserções de streaming</em>, recurso que gera custos e não é compatível com o nível gratuito.</li>
+    <li><strong>Na instância:</strong> acesse <strong>Configurações → Geral</strong>, preencha o campo <strong>ProjectID do BigQuery</strong> com o ID do projeto, cole a chave JSON no campo <strong>Auth Key</strong> e clique em <strong>Salvar</strong>.</li>
+    <li><strong>Troca de projeto:</strong> se já havia outro projeto sincronizado, após substituir os dados clique em <strong>“Limpar sincronização”</strong> e reinicie a instância para a nova sincronização funcionar.</li>
+  </ol>
+  <div class="callout warn">
+    <strong>Sobre a sincronização:</strong> ela ocorre <strong>de madrugada</strong>. Como um atendimento pode estar aberto na sincronização de hoje e fechado na de amanhã, o comportamento depende da opção <strong>“Excluir registros atualizados”</strong>: se <em>marcada</em>, os registros antigos do atendimento são excluídos; se <em>desmarcada</em>, eles se acumulam (o registro de “aberto” é mantido junto com o de “fechado”).
+  </div>
+
+  <h3>5.3 Ecossistema de análise</h3>
+  <p>Com os dados no BigQuery, é possível conectar ferramentas externas para relatórios avançados:</p>
+  <ul>
+    <li><strong>Business Intelligence:</strong> Looker Studio ou Tableau para visualizações avançadas.</li>
+    <li><strong>Agilidade:</strong> Google Sheets para relatórios rápidos e colaborativos.</li>
+    <li><strong>Automação e IA:</strong> fluxos de ETL e inteligência artificial com Airbyte e Vertex AI; modelos nativos com <strong>BQML</strong>.</li>
+  </ul>
+
   <div class="pagenav">
     <a href="contatos.html"><span>← Anterior</span> Contatos e Empresas</a>
     <a class="next" href="relatorios-personalizados.html"><span>Próximo →</span> Relatórios Personalizados</a>

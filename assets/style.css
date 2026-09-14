@@ -211,6 +211,11 @@ a:hover { text-decoration: underline; }
   overflow: hidden;
   box-shadow: var(--sombra);
 }
+
+/* Blocos de código: rolagem horizontal própria (evita estourar o layout da página) */
+.article pre { overflow-x: auto; max-width: 100%; }
+.article pre code { font-family: Consolas, "Liberation Mono", Courier, monospace; }
+.article p code, .article li code, .article td code { overflow-wrap: anywhere; }
 .figure img { width: 100%; display: block; }
 .figure figcaption {
   padding: 10px 14px; font-size: .85rem; color: var(--cinza-500);

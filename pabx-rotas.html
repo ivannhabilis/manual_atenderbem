@@ -97,6 +97,42 @@
     <li><strong>Tronco 2 (Contingência / Backup):</strong> Tronco de operadora secundária caso o Tronco 1 esteja ocupado, offline ou sem saldo.</li>
   </ol>
 
+  <h2>4. Demais Campos da Rota de Saída no FreePBX</h2>
+  <p>Além dos padrões de discagem e da sequência de troncos, a tela de Rota de Saída do FreePBX possui outros campos e abas que controlam o comportamento da chamada:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Aba / Campo</th><th>O que preencher</th><th>Finalidade</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Route Settings › Route Name</strong></td><td>Texto de identificação</td><td>Nome interno da rota (ex.: <code>outbound</code>).</td></tr>
+        <tr><td><strong>Route Settings › Route CID</strong></td><td>Número do CallerID ou vazio</td><td>Força um identificador de origem específico para as chamadas desta rota. Deixe em branco para herdar o CallerID do tronco.</td></tr>
+        <tr><td><strong>Route Settings › Route Password</strong></td><td>Senha ou vazio</td><td>Quando preenchida, exige senha para usar a rota — útil para restringir chamadas de longa distância.</td></tr>
+        <tr><td><strong>Route Settings › Route Type</strong></td><td><code>Emergency</code> ou <code>Intra-Company</code></td><td>Classifica a rota (emergência ou intra-empresa), afetando como o FreePBX a prioriza no plano de discagem.</td></tr>
+        <tr><td><strong>Route Settings › Music On Hold</strong></td><td>Classe de música (ex.: <code>default</code>)</td><td>Música de espera reproduzida enquanto a chamada é estabelecida.</td></tr>
+        <tr><td><strong>Route Settings › Time Match</strong></td><td>Time Group ou vazio</td><td>Restringe a rota a um grupo de horário. Fora da janela definida, a rota não é utilizada.</td></tr>
+        <tr><td><strong>Trunk Sequence for Matched Routes</strong></td><td>Lista ordenada de troncos</td><td>Define quais troncos atenderão a chamada e em que ordem de prioridade.</td></tr>
+        <tr><td><strong>Dial Patterns</strong></td><td>Prefix / Prepend / Match Pattern</td><td>Regras de transformação e casamento dos dígitos discados (detalhado na seção 3).</td></tr>
+        <tr><td><strong>Optional Destinations</strong></td><td>Destino do PABX</td><td>Para onde enviar a chamada quando o tronco estiver congestionado ou indisponível (fallback).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <strong>Fallback recomendado:</strong> configure o campo <em>Optional Destinations</em> para encaminhar a chamada a um destino interno (ramal, fila ou anúncio) caso todos os troncos da sequência estejam ocupados. Assim o cliente nunca fica sem resposta.
+  </div>
+
+  <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
+
+  <h2>5. DDR e o Roteamento por DID nas Rotas de Entrada</h2>
+  <p>A <strong>Discagem Direta ao Ramal (DDR)</strong> é o serviço em que o provedor conecta um bloco de números de telefone ao PABX. Cada número virtual ignora a linha de recepção principal e vai diretamente para um ramal ou grupo de ramais. Internamente, esse número chega ao PABX como um <strong>DID</strong> e é casado pelo campo <em>DID Number</em> da Rota de Entrada.</p>
+
+  <ol class="steps">
+    <li>O provedor entrega o bloco de números e o tronco SIP associado a ele.</li>
+    <li>Cada número do bloco deve ter uma Inbound Route com o seu <em>DID Number</em> preenchido (ou uma rota Catch-All para os não mapeados).</li>
+    <li>O <em>Set Destination</em> define o destino final: ramal, fila, URA ou validador de horário.</li>
+    <li>O tronco SIP serve de elo entre o número identificado e a internet, encaminhando a chamada ao destino certo.</li>
+  </ol>
+
   <div class="pagenav">
     <a href="pabx-troncos.html"><span>← Anterior</span> Troncos SIP & WhatsApp</a>
     <a class="next" href="pabx-ramais.html"><span>Próximo Capítulo →</span> Gestão de Ramais & Softphones</a>
