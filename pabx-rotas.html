@@ -9,19 +9,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="pabx.html">Portal PABX</a>
-    <a href="pabx-troncos.html">Troncos SIP</a>
-    <a href="pabx-rotas.html" class="active">Rotas</a>
-    <a href="pabx-ramais.html">Ramais</a>
-    <a href="pabx-filas.html">Filas</a>
-    <a href="pabx-ura-audios.html">URAs & Áudios</a>
-    <a href="pabx-horarios.html">Horários</a>
-    <a href="pabx-custom.html">Custom & ARI</a>
-    <a href="pabx-cdr-auditoria.html">CDR</a>
-    <a href="pabx-cli-troubleshooting.html">CLI & Debug</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a class="active" href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -31,7 +93,25 @@
   <h1>Rotas de Entrada (Inbound) e Saída (Outbound)</h1>
   <p class="subtitle">Aprenda a controlar o tráfego de chamadas: para onde as ligações recebidas devem ir e como direcionar as ligações originadas pelos atendentes com o menor custo.</p>
 
-  <h2>1. Visão Geral do Roteamento Telefônico</h2>
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-visao-geral-do-roteamento-telefonico">1. Visão Geral do Roteamento Telefônico</a></li>
+      <li><a href="#2-rotas-de-entrada-inbound-routes">2. Rotas de Entrada (Inbound Routes)</a></li>
+      <li class="toc-h3"><a href="#exemplo-pratico-de-rota-de-entrada-inteligente">Exemplo Prático de Rota de Entrada Inteligente</a></li>
+      <li><a href="#3-rotas-de-saida-outbound-routes-e-padroes-de-discagem">3. Rotas de Saída (Outbound Routes) e Padrões de Discagem</a></li>
+      <li class="toc-h3"><a href="#padroes-de-discagem-dial-patterns">Padrões de Discagem (Dial Patterns)</a></li>
+      <li class="toc-h3"><a href="#sequencia-de-troncos-de-contingencia-trunk-sequence">Sequência de Troncos de Contingência (Trunk Sequence)</a></li>
+      <li><a href="#4-demais-campos-da-rota-de-saida-no-freepbx">4. Demais Campos da Rota de Saída no FreePBX</a></li>
+      <li><a href="#5-ddr-e-o-roteamento-por-did-nas-rotas-de-entrada">5. DDR e o Roteamento por DID nas Rotas de Entrada</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
+  <h2 id="1-visao-geral-do-roteamento-telefonico">1. Visão Geral do Roteamento Telefônico</h2>
   <p>O roteamento é o coração operacional do PABX. Ele é dividido em duas direções opostas:</p>
   <ul>
     <li><strong>Rotas de Entrada (Inbound Routes):</strong> Quando um cliente liga para a empresa através de um tronco (seja PSTN, 0800 ou WhatsApp), a rota de entrada decide o destino: URA, Fila de Espera, Ramal Direto ou Validador de Horário.</li>
@@ -40,7 +120,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>2. Rotas de Entrada (Inbound Routes)</h2>
+  <h2 id="2-rotas-de-entrada-inbound-routes">2. Rotas de Entrada (Inbound Routes)</h2>
   <p>Para criar ou editar rotas de entrada, acesse <code>Connectivity › Inbound Routes</code> no menu do FreePBX.</p>
 
   <div class="table-wrap">
@@ -55,7 +135,7 @@
     </table>
   </div>
 
-  <h3>Exemplo Prático de Rota de Entrada Inteligente</h3>
+  <h3 id="exemplo-pratico-de-rota-de-entrada-inteligente">Exemplo Prático de Rota de Entrada Inteligente</h3>
   <ol class="steps">
     <li>O cliente liga para o número do WhatsApp <code>5511987654321</code>.</li>
     <li>A Inbound Route intercepta o DID correspondente.</li>
@@ -66,10 +146,10 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>3. Rotas de Saída (Outbound Routes) e Padrões de Discagem</h2>
+  <h2 id="3-rotas-de-saida-outbound-routes-e-padroes-de-discagem">3. Rotas de Saída (Outbound Routes) e Padrões de Discagem</h2>
   <p>Acesse <code>Connectivity › Outbound Routes</code> para gerenciar como os atendentes realizam chamadas externas.</p>
 
-  <h3>Padrões de Discagem (Dial Patterns)</h3>
+  <h3 id="padroes-de-discagem-dial-patterns">Padrões de Discagem (Dial Patterns)</h3>
   <p>Os padrões utilizam uma sintaxe especial do Asterisk para interpretar números digitados:</p>
   <ul>
     <li><code>X</code> — Representa qualquer dígito de 0 a 9.</li>
@@ -90,14 +170,14 @@
     </table>
   </div>
 
-  <h3>Sequência de Troncos de Contingência (Trunk Sequence)</h3>
+  <h3 id="sequencia-de-troncos-de-contingencia-trunk-sequence">Sequência de Troncos de Contingência (Trunk Sequence)</h3>
   <p>No final da configuração da Rota de Saída, defina a lista de troncos em ordem de prioridade:</p>
   <ol>
     <li><strong>Tronco 1 (Prioritário):</strong> Tronco VoIP de menor custo / WhatsApp Cloud API.</li>
     <li><strong>Tronco 2 (Contingência / Backup):</strong> Tronco de operadora secundária caso o Tronco 1 esteja ocupado, offline ou sem saldo.</li>
   </ol>
 
-  <h2>4. Demais Campos da Rota de Saída no FreePBX</h2>
+  <h2 id="4-demais-campos-da-rota-de-saida-no-freepbx">4. Demais Campos da Rota de Saída no FreePBX</h2>
   <p>Além dos padrões de discagem e da sequência de troncos, a tela de Rota de Saída do FreePBX possui outros campos e abas que controlam o comportamento da chamada:</p>
 
   <div class="table-wrap">
@@ -123,7 +203,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>5. DDR e o Roteamento por DID nas Rotas de Entrada</h2>
+  <h2 id="5-ddr-e-o-roteamento-por-did-nas-rotas-de-entrada">5. DDR e o Roteamento por DID nas Rotas de Entrada</h2>
   <p>A <strong>Discagem Direta ao Ramal (DDR)</strong> é o serviço em que o provedor conecta um bloco de números de telefone ao PABX. Cada número virtual ignora a linha de recepção principal e vai diretamente para um ramal ou grupo de ramais. Internamente, esse número chega ao PABX como um <strong>DID</strong> e é casado pelo campo <em>DID Number</em> da Rota de Entrada.</p>
 
   <ol class="steps">
@@ -142,6 +222,7 @@
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Módulo de Telefonia e PABX.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

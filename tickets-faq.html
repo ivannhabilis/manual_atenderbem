@@ -10,16 +10,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="crm.html">CRM</a>
-    <a href="tickets.html" class="active">Tickets</a>
-    <a href="pabx.html">PABX & Telefonia</a>
-    <a href="contatos.html">Contatos</a>
-    <a href="relatorios.html">Relatórios</a>
-    <a href="configuracoes.html">Configurações</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a class="active" href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -29,14 +94,67 @@
   <h1>FAQ — Módulo de Tickets e Automações</h1>
   <p class="subtitle">As 32 dúvidas mais frequentes dos usuários sobre o módulo de Tickets, respondidas de forma objetiva com base no comportamento real do sistema.</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#grupos-de-servico-e-niveis-de-atendimento">Grupos de Serviço e Níveis de Atendimento</a></li>
+      <li class="toc-h3"><a href="#1-quantos-niveis-de-atendimento-um-grupo-de-servico-suporta-e-o-que-acontece-se-eu-desativar-um-nivel-intermediario">1. Quantos níveis de atendimento um Grupo de Serviço suporta e o que acontece se eu desativar um nível intermediário?</a></li>
+      <li class="toc-h3"><a href="#2-quais-campos-do-motivo-nao-podem-mais-ser-alterados-depois-de-salvar">2. Quais campos do Motivo não podem mais ser alterados depois de salvar?</a></li>
+      <li><a href="#templates-de-e-mail-e-sla">Templates de E-mail e SLA</a></li>
+      <li class="toc-h3"><a href="#3-qual-a-ordem-de-prioridade-dos-templates-de-e-mail-enviados-ao-cliente">3. Qual a ordem de prioridade dos templates de e-mail enviados ao cliente?</a></li>
+      <li class="toc-h3"><a href="#4-quais-sao-os-modos-de-transicao-de-nivel-regras-de-passagem-de-nivel-na-distribuicao-de-sla">4. Quais são os modos de transição de nível ("Regras de Passagem de Nível") na distribuição de SLA?</a></li>
+      <li><a href="#esteira-de-estagios">Esteira de Estágios</a></li>
+      <li class="toc-h3"><a href="#5-o-que-acontece-com-um-ticket-que-esta-em-um-estagio-final">5. O que acontece com um ticket que está em um Estágio Final?</a></li>
+      <li><a href="#visualizacao-e-autoatribuicao">Visualização e Autoatribuição</a></li>
+      <li class="toc-h3"><a href="#6-com-a-autoatribuicao-puxar-para-mim-habilitada-o-que-um-agente-consegue-visualizar">6. Com a autoatribuição ("Puxar para mim") habilitada, o que um agente consegue visualizar?</a></li>
+      <li><a href="#automacoes-eventos-e-blocos">Automações: Eventos e Blocos</a></li>
+      <li class="toc-h3"><a href="#7-quais-sao-os-gatilhos-validos-da-lista-de-eventos-de-automacao-de-tickets">7. Quais são os gatilhos válidos da lista de "Eventos de Automação" de tickets?</a></li>
+      <li class="toc-h3"><a href="#8-quais-blocos-de-acao-o-construtor-drag-and-drop-oferece-para-tickets">8. Quais blocos de ação o construtor drag-and-drop oferece para tickets?</a></li>
+      <li><a href="#variaveis-e-templates-dinamicos">Variáveis e Templates Dinâmicos</a></li>
+      <li class="toc-h3"><a href="#9-qual-variavel-injeta-a-url-de-acompanhamento-e-como-capturo-o-nome-do-primeiro-contato">9. Qual variável injeta a URL de acompanhamento e como capturo o nome do primeiro contato?</a></li>
+      <li class="toc-h3"><a href="#10-para-que-serve-a-tela-tickets-empresa">10. Para que serve a tela "Tickets Empresa"?</a></li>
+      <li class="toc-h3"><a href="#11-quando-as-variaveis-ticket-created-by-id-e-ticket-created-by-name-estao-disponiveis">11. Quando as variáveis ticket_created_by_id e ticket_created_by_name estão disponíveis?</a></li>
+      <li class="toc-h3"><a href="#12-qual-o-mapeamento-dos-enums-da-variavel-ticket-status">12. Qual o mapeamento dos enums da variável ticket_status?</a></li>
+      <li class="toc-h3"><a href="#13-quais-opcoes-de-configuracao-o-elemento-buscar-ticket-disponibiliza">13. Quais opções de configuração o elemento "Buscar ticket" disponibiliza?</a></li>
+      <li class="toc-h3"><a href="#14-como-funciona-o-gatilho-inatividade-do-cliente">14. Como funciona o gatilho "Inatividade do cliente"?</a></li>
+      <li class="toc-h3"><a href="#15-como-o-sistema-resolve-conflitos-entre-automacoes-de-motivo-e-classificacao">15. Como o sistema resolve conflitos entre automações de Motivo e Classificação?</a></li>
+      <li><a href="#novo-modulo-versao-13">Novo Módulo (versão 13)</a></li>
+      <li class="toc-h3"><a href="#16-qual-e-a-mudanca-principal-trazida-pela-versao-13-do-modulo-de-tickets">16. Qual é a mudança principal trazida pela versão 13 do Módulo de Tickets?</a></li>
+      <li class="toc-h3"><a href="#17-como-criar-ou-associar-um-ticket-dentro-de-uma-conversa-em-andamento">17. Como criar ou associar um ticket dentro de uma conversa em andamento?</a></li>
+      <li><a href="#niveis-capacidade-e-distribuicao">Níveis, Capacidade e Distribuição</a></li>
+      <li class="toc-h3"><a href="#18-como-a-prioridade-numerica-dos-agentes-influencia-a-distribuicao-dos-tickets">18. Como a prioridade numérica dos agentes influencia a distribuição dos tickets?</a></li>
+      <li class="toc-h3"><a href="#19-o-que-e-a-capacidade-maxima-de-tickets-de-um-agente">19. O que é a "Capacidade máxima de tickets" de um agente?</a></li>
+      <li class="toc-h3"><a href="#20-como-funciona-a-distribuicao-do-sla-por-nivel">20. Como funciona a Distribuição do SLA (%) por nível?</a></li>
+      <li class="toc-h3"><a href="#21-quais-modelos-de-distribuicao-de-fila-podem-ser-definidos-na-aba-filas-do-motivo">21. Quais modelos de distribuição de fila podem ser definidos na aba Filas do Motivo?</a></li>
+      <li><a href="#motivos-cadastro-e-abas-de-refinamento">Motivos: cadastro e abas de refinamento</a></li>
+      <li class="toc-h3"><a href="#22-quais-sao-os-campos-do-cadastro-de-um-motivo-e-quais-sao-obrigatorios">22. Quais são os campos do cadastro de um Motivo e quais são obrigatórios?</a></li>
+      <li class="toc-h3"><a href="#23-para-que-serve-a-aba-alertas-de-um-motivo">23. Para que serve a aba Alertas de um Motivo?</a></li>
+      <li class="toc-h3"><a href="#24-o-que-a-aba-filas-do-motivo-permite-configurar">24. O que a aba Filas do Motivo permite configurar?</a></li>
+      <li class="toc-h3"><a href="#25-e-possivel-incluir-uma-equipe-extra-apenas-para-um-motivo-especifico">25. É possível incluir uma equipe extra apenas para um motivo específico?</a></li>
+      <li><a href="#configuracoes-gerais-e-portal-publico">Configurações Gerais e Portal Público</a></li>
+      <li class="toc-h3"><a href="#26-o-que-define-a-configuracao-horas-para-auto-fechamento">26. O que define a configuração "Horas para auto-fechamento"?</a></li>
+      <li class="toc-h3"><a href="#27-quais-informacoes-posso-ocultar-do-cliente-no-portal-publico-do-ticket">27. Quais informações posso ocultar do cliente no portal público do ticket?</a></li>
+      <li class="toc-h3"><a href="#28-qual-a-diferenca-entre-o-relatorio-historico-e-o-painel-de-auditoria">28. Qual a diferença entre o relatório "Histórico" e o painel de "Auditoria"?</a></li>
+      <li><a href="#automacoes-payloads-e-variaveis">Automações: payloads e variáveis</a></li>
+      <li class="toc-h3"><a href="#29-quais-campos-cada-bloco-de-acao-de-ticket-exige-na-configuracao">29. Quais campos cada bloco de ação de ticket exige na configuração?</a></li>
+      <li class="toc-h3"><a href="#30-como-capturar-o-canal-de-whatsapp-de-um-supervisor-do-grupo">30. Como capturar o canal de WhatsApp de um supervisor do grupo?</a></li>
+      <li class="toc-h3"><a href="#31-quando-as-variaveis-ticket-agent-id-e-ticket-agent-name-ficam-vazias">31. Quando as variáveis ticket_agent_id e ticket_agent_name ficam vazias?</a></li>
+      <li class="toc-h3"><a href="#32-qual-o-mapeamento-de-ticket-channel-e-de-ticket-is-sla-met">32. Qual o mapeamento de ticket_channel e de ticket_is_sla_met?</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <div class="callout info">
     <strong>Sobre este FAQ:</strong> este material foi elaborado a partir das dúvidas reais levantadas pelos usuários durante o uso da função de Tickets. Cada resposta reflete o comportamento oficial da plataforma AtenderBem (configurações em <code>/base/config/tickets-*</code>).
   </div>
 
-  <h2>Grupos de Serviço e Níveis de Atendimento</h2>
+  <h2 id="grupos-de-servico-e-niveis-de-atendimento">Grupos de Serviço e Níveis de Atendimento</h2>
 
   <div class="faq">
-    <h3>1. Quantos níveis de atendimento um Grupo de Serviço suporta e o que acontece se eu desativar um nível intermediário?</h3>
+    <h3 id="1-quantos-niveis-de-atendimento-um-grupo-de-servico-suporta-e-o-que-acontece-se-eu-desativar-um-nivel-intermediario">1. Quantos níveis de atendimento um Grupo de Serviço suporta e o que acontece se eu desativar um nível intermediário?</h3>
     <p>O sistema permite configurar até <strong>6 níveis de atendimento</strong> por Grupo de Serviço. Pela hierarquia estrita do sistema, ao desativar um nível intermediário (como o N2), <strong>todos os níveis subsequentes (N3, N4, etc.) são desativados automaticamente</strong>.</p>
     <div class="callout tip">
       <strong>Na prática:</strong> planeje a estrutura de níveis antes de cadastrar. Se precisar reorganizar, ative/desative os níveis de trás para frente para não perder a configuração dos níveis finais.
@@ -44,17 +162,17 @@
 
   </div>
   <div class="faq">
-    <h3>2. Quais campos do Motivo não podem mais ser alterados depois de salvar?</h3>
+    <h3 id="2-quais-campos-do-motivo-nao-podem-mais-ser-alterados-depois-de-salvar">2. Quais campos do Motivo não podem mais ser alterados depois de salvar?</h3>
     <p>Após a confirmação inicial do Motivo, o sistema <strong>bloqueia a alteração da Classificação e do Grupo de Atendimento</strong>. Os demais campos (nome, prioridade padrão, SLAs, horário comercial e submotivos) continuam editáveis.</p>
     <div class="callout warn">
       <strong>Atenção:</strong> confira Classificação e Grupo de Atendimento antes de salvar o motivo — esses vínculos ficam travados e exigiriam recriar o motivo para mudar.
     </div>
 
   </div>
-  <h2>Templates de E-mail e SLA</h2>
+  <h2 id="templates-de-e-mail-e-sla">Templates de E-mail e SLA</h2>
 
   <div class="faq">
-    <h3>3. Qual a ordem de prioridade dos templates de e-mail enviados ao cliente?</h3>
+    <h3 id="3-qual-a-ordem-de-prioridade-dos-templates-de-e-mail-enviados-ao-cliente">3. Qual a ordem de prioridade dos templates de e-mail enviados ao cliente?</h3>
     <p>O sistema usa uma estrutura em cascata que avalia do <strong>mais específico ao mais geral</strong>: 1º <strong>Motivo</strong> → 2º <strong>Classificação</strong> → 3º <strong>Configuração Geral</strong>. O template do nível mais específico configurado é o que dispara.</p>
     <div class="callout tip">
       <strong>Dica:</strong> se o e-mail enviado não é o que você esperava, verifique se há um template definido em um nível superior da cascata (Motivo e Classificação têm precedência sobre a Configuração Geral).
@@ -62,7 +180,7 @@
 
   </div>
   <div class="faq">
-    <h3>4. Quais são os modos de transição de nível ("Regras de Passagem de Nível") na distribuição de SLA?</h3>
+    <h3 id="4-quais-sao-os-modos-de-transicao-de-nivel-regras-de-passagem-de-nivel-na-distribuicao-de-sla">4. Quais são os modos de transição de nível ("Regras de Passagem de Nível") na distribuição de SLA?</h3>
     <p>Existem três modos disponíveis:</p>
     <ul>
       <li><strong>SLA Breach</strong> — escala automaticamente o ticket quando o SLA do nível atual é violado;</li>
@@ -71,30 +189,30 @@
     </ul>
 
   </div>
-  <h2>Esteira de Estágios</h2>
+  <h2 id="esteira-de-estagios">Esteira de Estágios</h2>
 
   <div class="faq">
-    <h3>5. O que acontece com um ticket que está em um Estágio Final?</h3>
+    <h3 id="5-o-que-acontece-com-um-ticket-que-esta-em-um-estagio-final">5. O que acontece com um ticket que está em um Estágio Final?</h3>
     <p>Estágios marcados como <strong>finais não podem avançar</strong> para novas etapas do fluxo, contudo é <strong>permitido retornar para etapas anteriores</strong> para correções. Além disso, chegar a um estágio final dispara a automação <em>"Ao chegar em estágio final"</em>.</p>
     <div class="callout tip">
       <strong>Na prática:</strong> um ticket "Concluído" (final) não segue adiante, mas pode voltar para uma etapa anterior (ex.: "Em Manutenção") se precisar de correção.
     </div>
 
   </div>
-  <h2>Visualização e Autoatribuição</h2>
+  <h2 id="visualizacao-e-autoatribuicao">Visualização e Autoatribuição</h2>
 
   <div class="faq">
-    <h3>6. Com a autoatribuição ("Puxar para mim") habilitada, o que um agente consegue visualizar?</h3>
+    <h3 id="6-com-a-autoatribuicao-puxar-para-mim-habilitada-o-que-um-agente-consegue-visualizar">6. Com a autoatribuição ("Puxar para mim") habilitada, o que um agente consegue visualizar?</h3>
     <p>A visualização livre é <strong>exclusiva para chamados sem dono nas filas em que o agente está cadastrado</strong>. Um agente comum <strong>nunca terá permissão para enxergar tickets que já estejam sob a responsabilidade de outro operador</strong>.</p>
     <div class="callout warn">
       <strong>Atenção:</strong> a chave "Permitir agentes visualizar e se auto distribuir tickets sem agentes em suas filas" (Configurações Gerais do módulo) libera a autoatribuição, mas não abre a visualização de chamados de outros operadores.
     </div>
 
   </div>
-  <h2>Automações: Eventos e Blocos</h2>
+  <h2 id="automacoes-eventos-e-blocos">Automações: Eventos e Blocos</h2>
 
   <div class="faq">
-    <h3>7. Quais são os gatilhos válidos da lista de "Eventos de Automação" de tickets?</h3>
+    <h3 id="7-quais-sao-os-gatilhos-validos-da-lista-de-eventos-de-automacao-de-tickets">7. Quais são os gatilhos válidos da lista de "Eventos de Automação" de tickets?</h3>
     <p>Os eventos nativos do sistema incluem:</p>
     <ul>
       <li>Ao criar ticket</li>
@@ -116,7 +234,7 @@
 
   </div>
   <div class="faq">
-    <h3>8. Quais blocos de ação o construtor drag-and-drop oferece para tickets?</h3>
+    <h3 id="8-quais-blocos-de-acao-o-construtor-drag-and-drop-oferece-para-tickets">8. Quais blocos de ação o construtor drag-and-drop oferece para tickets?</h3>
     <p>O editor conta com blocos nativos para manipular o ciclo de vida e as propriedades dos tickets:</p>
     <ul>
       <li><strong>Criar ticket</strong> (111)</li>
@@ -135,10 +253,10 @@
     </ul>
 
   </div>
-  <h2>Variáveis e Templates Dinâmicos</h2>
+  <h2 id="variaveis-e-templates-dinamicos">Variáveis e Templates Dinâmicos</h2>
 
   <div class="faq">
-    <h3>9. Qual variável injeta a URL de acompanhamento e como capturo o nome do primeiro contato?</h3>
+    <h3 id="9-qual-variavel-injeta-a-url-de-acompanhamento-e-como-capturo-o-nome-do-primeiro-contato">9. Qual variável injeta a URL de acompanhamento e como capturo o nome do primeiro contato?</h3>
     <p>Use a variável <code>{{ ticket_tracking_url }}</code> para obter a URL pública (sem login) de acompanhamento do chamado. O nome do primeiro contato vinculado é capturado pelo array indexado: <code>{{ ticket_contacts[0].name }}</code>.</p>
     <div class="callout tip">
       <strong>Lembre-se:</strong> <code>ticket_contacts</code> é uma lista de objetos (<code>id</code>, <code>name</code>, <code>email</code>, <code>number</code>, <code>document</code>, <code>city</code>, <code>state</code>, <code>country</code>) — o primeiro elemento é sempre o índice <code>[0]</code>.
@@ -146,12 +264,12 @@
 
   </div>
   <div class="faq">
-    <h3>10. Para que serve a tela "Tickets Empresa"?</h3>
+    <h3 id="10-para-que-serve-a-tela-tickets-empresa">10. Para que serve a tela "Tickets Empresa"?</h3>
     <p>É o relatório de <strong>gestão B2B</strong>: permite realizar a análise isolada de contas corporativas, consolidando a linha do tempo de demandas ao filtrar um parceiro/empresa específico. Ideal para acompanhar todo o histórico de chamados de uma conta corporativa em um só lugar.</p>
 
   </div>
   <div class="faq">
-    <h3>11. Quando as variáveis ticket_created_by_id e ticket_created_by_name estão disponíveis?</h3>
+    <h3 id="11-quando-as-variaveis-ticket-created-by-id-e-ticket-created-by-name-estao-disponiveis">11. Quando as variáveis ticket_created_by_id e ticket_created_by_name estão disponíveis?</h3>
     <p>Ambas ficam disponíveis <strong>exclusivamente na automação de criação</strong> (evento "Ao criar ticket"). Quando o ticket é gerado automaticamente por uma <strong>URA/IVR</strong>, o ID retornado é <code>0</code> e o nome retornado é o da <strong>árvore/URA executada</strong>.</p>
     <div class="callout warn">
       <strong>Atenção:</strong> não use essas variáveis em outros eventos do ciclo de vida — fora do evento de criação elas não carregam valor confiável.
@@ -159,7 +277,7 @@
 
   </div>
   <div class="faq">
-    <h3>12. Qual o mapeamento dos enums da variável ticket_status?</h3>
+    <h3 id="12-qual-o-mapeamento-dos-enums-da-variavel-ticket-status">12. Qual o mapeamento dos enums da variável ticket_status?</h3>
     <div class="table-wrap">
       <table class="doc">
         <thead><tr><th>Valor</th><th>Status</th></tr></thead>
@@ -176,7 +294,7 @@
 
   </div>
   <div class="faq">
-    <h3>13. Quais opções de configuração o elemento "Buscar ticket" disponibiliza?</h3>
+    <h3 id="13-quais-opcoes-de-configuracao-o-elemento-buscar-ticket-disponibiliza">13. Quais opções de configuração o elemento "Buscar ticket" disponibiliza?</h3>
     <p>O nó permite:</p>
     <ul>
       <li><strong>Busca por chaves</strong>: ID, número, telefone ou e-mail do ticket;</li>
@@ -187,22 +305,22 @@
 
   </div>
   <div class="faq">
-    <h3>14. Como funciona o gatilho "Inatividade do cliente"?</h3>
+    <h3 id="14-como-funciona-o-gatilho-inatividade-do-cliente">14. Como funciona o gatilho "Inatividade do cliente"?</h3>
     <p>O gatilho monitora a <strong>ausência de interação do solicitante</strong> a partir de um <strong>tempo limite definido em minutos</strong> (ex.: 5 minutos), disparando fluxos automáticos como avisos preventivos ou cobrança de retorno. É configurado informando o tempo limite e o escopo (ex.: considerar a última mensagem enviada pelo cliente).</p>
 
   </div>
   <div class="faq">
-    <h3>15. Como o sistema resolve conflitos entre automações de Motivo e Classificação?</h3>
+    <h3 id="15-como-o-sistema-resolve-conflitos-entre-automacoes-de-motivo-e-classificacao">15. Como o sistema resolve conflitos entre automações de Motivo e Classificação?</h3>
     <p>A configuração definida no <strong>Motivo anula e substitui a da Classificação</strong>; se o Motivo estiver em branco, o fluxo <strong>herda da Classificação</strong>; se ambos estiverem vazios, <strong>nenhuma automação é disparada</strong>.</p>
     <div class="callout tip">
       <strong>Regra de ouro:</strong> o nível mais específico sempre vence. Configure automações no Motivo apenas quando a regra for exclusiva daquele motivo; caso contrário, mantenha na Classificação para reuso.
     </div>
 
   </div>
-  <h2>Novo Módulo (versão 13)</h2>
+  <h2 id="novo-modulo-versao-13">Novo Módulo (versão 13)</h2>
 
   <div class="faq">
-    <h3>16. Qual é a mudança principal trazida pela versão 13 do Módulo de Tickets?</h3>
+    <h3 id="16-qual-e-a-mudanca-principal-trazida-pela-versao-13-do-modulo-de-tickets">16. Qual é a mudança principal trazida pela versão 13 do Módulo de Tickets?</h3>
     <p>A partir da <strong>versão 13</strong>, o fluxo de trabalho mudou: antes, cada atendimento gerava um <strong>único protocolo</strong>, limitando o histórico a um único canal; agora, <strong>um mesmo atendimento pode conter múltiplos tickets</strong>, permitindo isolar, categorizar e tratar demandas diferentes dentro de uma única conversa, de forma individual e organizada.</p>
     <div class="callout tip">
       <strong>Na prática:</strong> um cliente que relata dois problemas na mesma conversa pode ter dois tickets com SLAs, responsáveis, estágios e históricos independentes, sem misturar os assuntos.
@@ -210,19 +328,19 @@
   </div>
 
   <div class="faq">
-    <h3>17. Como criar ou associar um ticket dentro de uma conversa em andamento?</h3>
+    <h3 id="17-como-criar-ou-associar-um-ticket-dentro-de-uma-conversa-em-andamento">17. Como criar ou associar um ticket dentro de uma conversa em andamento?</h3>
     <p>Selecione uma mensagem da conversa: o menu de contexto oferece <em>Criar Ticket</em>, <em>Associar ticket</em> e <em>Meus assuntos</em>. Use <em>Criar Ticket</em> para um registro novo, <em>Associar ticket</em> para vincular a conversa a um chamado já existente e <em>Meus assuntos</em> para escolher o assunto (classificação/motivo) já configurado. Alternativamente, o botão <code>+</code> do painel cria o ticket manualmente na mesa de ajuda.</p>
   </div>
 
-  <h2>Níveis, Capacidade e Distribuição</h2>
+  <h2 id="niveis-capacidade-e-distribuicao">Níveis, Capacidade e Distribuição</h2>
 
   <div class="faq">
-    <h3>18. Como a prioridade numérica dos agentes influencia a distribuição dos tickets?</h3>
+    <h3 id="18-como-a-prioridade-numerica-dos-agentes-influencia-a-distribuicao-dos-tickets">18. Como a prioridade numérica dos agentes influencia a distribuição dos tickets?</h3>
     <p>Ao vincular agentes a um nível do Grupo de Serviço, define-se uma <strong>prioridade numérica</strong> por atendente. A distribuição prioriza os <strong>menores valores</strong>: um agente com prioridade <strong>1 recebe antes</strong> de um agente com prioridade 2.</p>
   </div>
 
   <div class="faq">
-    <h3>19. O que é a "Capacidade máxima de tickets" de um agente?</h3>
+    <h3 id="19-o-que-e-a-capacidade-maxima-de-tickets-de-um-agente">19. O que é a "Capacidade máxima de tickets" de um agente?</h3>
     <p>É o número limite de <strong>atendimentos simultâneos</strong> que o agente pode receber, configurado na aba Tickets do cadastro do usuário (ex.: 10). Quando o agente atinge essa quantidade de tickets abertos, o sistema deixa de direcionar novas demandas para ele e passa para o próximo agente da fila de prioridade.</p>
     <div class="callout tip">
       <strong>Boa prática:</strong> ajuste a capacidade individual conforme a complexidade dos motivos que o agente atende — capacidades altas em demandas longas geram fila e risco de estouro de SLA.
@@ -230,7 +348,7 @@
   </div>
 
   <div class="faq">
-    <h3>20. Como funciona a Distribuição do SLA (%) por nível?</h3>
+    <h3 id="20-como-funciona-a-distribuicao-do-sla-por-nivel">20. Como funciona a Distribuição do SLA (%) por nível?</h3>
     <p>Ela define a porcentagem de tempo que o ticket pode permanecer em cada nível do Grupo de Serviço. A soma de todos os níveis ativos deve totalizar <strong>obrigatoriamente 100%</strong>, e o ajuste pode ser manual ou pelos botões <em>Distribuir SLA igualmente</em> e <em>Auto-distribuir SLA</em>. O tempo total (horas/minutos) associado a essas porcentagens é posteriormente puxado na configuração de <strong>Motivos</strong>.</p>
     <div class="callout warn">
       <strong>Atenção:</strong> como o tempo por nível do Motivo é proporcional a essas porcentagens, alterar a distribuição aqui afeta o fatiamento de SLA de todos os motivos vinculados ao grupo.
@@ -238,7 +356,7 @@
   </div>
 
   <div class="faq">
-    <h3>21. Quais modelos de distribuição de fila podem ser definidos na aba Filas do Motivo?</h3>
+    <h3 id="21-quais-modelos-de-distribuicao-de-fila-podem-ser-definidos-na-aba-filas-do-motivo">21. Quais modelos de distribuição de fila podem ser definidos na aba Filas do Motivo?</h3>
     <p>Cada nível técnico pode ter seu próprio comportamento de fila, entre:</p>
     <ul>
       <li><strong>Manual</strong> — distribuição por ação dos agentes/supervisores;</li>
@@ -249,10 +367,10 @@
     </ul>
   </div>
 
-  <h2>Motivos: cadastro e abas de refinamento</h2>
+  <h2 id="motivos-cadastro-e-abas-de-refinamento">Motivos: cadastro e abas de refinamento</h2>
 
   <div class="faq">
-    <h3>22. Quais são os campos do cadastro de um Motivo e quais são obrigatórios?</h3>
+    <h3 id="22-quais-sao-os-campos-do-cadastro-de-um-motivo-e-quais-sao-obrigatorios">22. Quais são os campos do cadastro de um Motivo e quais são obrigatórios?</h3>
     <div class="table-wrap">
       <table class="doc">
         <thead><tr><th>Campo</th><th>Obrigatório</th></tr></thead>
@@ -273,7 +391,7 @@
   </div>
 
   <div class="faq">
-    <h3>23. Para que serve a aba Alertas de um Motivo?</h3>
+    <h3 id="23-para-que-serve-a-aba-alertas-de-um-motivo">23. Para que serve a aba Alertas de um Motivo?</h3>
     <p>Ela parametriza gatilhos e avisos baseados no <strong>consumo do SLA</strong> do chamado. Exemplo prático: programar para que, assim que o tempo consumido atingir <strong>50% da meta do Nível 1</strong>, o sistema dispare uma automação de aviso preventiva para a supervisão.</p>
     <div class="callout tip">
       <strong>Uso recomendado:</strong> alertas em 50% permitem agir antes da violação de SLA; alertas em 80%/100% servem como registro de incidente e acionamento de escalonamento.
@@ -281,7 +399,7 @@
   </div>
 
   <div class="faq">
-    <h3>24. O que a aba Filas do Motivo permite configurar?</h3>
+    <h3 id="24-o-que-a-aba-filas-do-motivo-permite-configurar">24. O que a aba Filas do Motivo permite configurar?</h3>
     <p>Ela gerencia a distribuição técnica com base nos níveis herdados do Grupo de Serviço:</p>
     <ul>
       <li><strong>Cálculo de Resolução:</strong> o tempo por nível é sugerido automaticamente, de forma proporcional, cruzando o tempo total do motivo com as porcentagens do Grupo de Serviço (ex.: SLA total de 8 horas fatiado em minutos por nível);</li>
@@ -292,19 +410,19 @@
   </div>
 
   <div class="faq">
-    <h3>25. É possível incluir uma equipe extra apenas para um motivo específico?</h3>
+    <h3 id="25-e-possivel-incluir-uma-equipe-extra-apenas-para-um-motivo-especifico">25. É possível incluir uma equipe extra apenas para um motivo específico?</h3>
     <p>Sim. Além dos agentes fixados no Grupo de Serviço, a aba <strong>Filas</strong> do Motivo permite adicionar usuários diretamente em cada nível técnico. Esses agentes <strong>não fazem parte do grupo base</strong>, mas são considerados pelo motor de distribuição <strong>exclusivamente quando o ticket der entrada com aquele motivo</strong>.</p>
   </div>
 
-  <h2>Configurações Gerais e Portal Público</h2>
+  <h2 id="configuracoes-gerais-e-portal-publico">Configurações Gerais e Portal Público</h2>
 
   <div class="faq">
-    <h3>26. O que define a configuração "Horas para auto-fechamento"?</h3>
+    <h3 id="26-o-que-define-a-configuracao-horas-para-auto-fechamento">26. O que define a configuração "Horas para auto-fechamento"?</h3>
     <p>Define o prazo que o cliente possui para validar a resposta do ticket. Ao alterar o status para <strong>"Resolvido"</strong>, o cronômetro inicia; se o cliente não interagir, contestar ou solicitar reabertura dentro do prazo, o sistema encerra o chamado de forma automatizada com status <strong>"Fechado"</strong>.</p>
   </div>
 
   <div class="faq">
-    <h3>27. Quais informações posso ocultar do cliente no portal público do ticket?</h3>
+    <h3 id="27-quais-informacoes-posso-ocultar-do-cliente-no-portal-publico-do-ticket">27. Quais informações posso ocultar do cliente no portal público do ticket?</h3>
     <p>A configuração <strong>Portal público</strong> (Configurações &gt; Tickets &gt; Configurações Gerais) gerencia quais informações são exibidas ao cliente final na URL externa de acompanhamento, como <strong>ocultar ou exibir o nome do agente responsável, a prioridade do chamado e classificações internas</strong>.</p>
     <div class="callout tip">
       <strong>Transparência x ruído:</strong> mostrar status, motivo e comentários costuma reduzir contatos repetidos; ocultar agente e prioridade evita cobranças indevidas sobre a fila interna.
@@ -312,14 +430,14 @@
   </div>
 
   <div class="faq">
-    <h3>28. Qual a diferença entre o relatório "Histórico" e o painel de "Auditoria"?</h3>
+    <h3 id="28-qual-a-diferenca-entre-o-relatorio-historico-e-o-painel-de-auditoria">28. Qual a diferença entre o relatório "Histórico" e o painel de "Auditoria"?</h3>
     <p>O <strong>Histórico</strong> é uma listagem bruta de todos os chamados da plataforma, com metadados de filtro (ID do Ticket, Contato, Assunto, Agente Responsável, Canal de Entrada, Prioridade, Status Atual, Data de Criação, Tempo exato de Resposta e Porcentagem de SLA atingida). A <strong>Auditoria</strong> é uma linha do tempo imutável que registra <strong>Data/Hora, Usuário logado, Ação realizada e Ticket afetado</strong> — ou seja, quem fez o quê dentro da plataforma.</p>
   </div>
 
-  <h2>Automações: payloads e variáveis</h2>
+  <h2 id="automacoes-payloads-e-variaveis">Automações: payloads e variáveis</h2>
 
   <div class="faq">
-    <h3>29. Quais campos cada bloco de ação de ticket exige na configuração?</h3>
+    <h3 id="29-quais-campos-cada-bloco-de-acao-de-ticket-exige-na-configuracao">29. Quais campos cada bloco de ação de ticket exige na configuração?</h3>
     <div class="table-wrap">
       <table class="doc">
         <thead><tr><th>Bloco</th><th>Campos principais</th></tr></thead>
@@ -341,7 +459,7 @@
   </div>
 
   <div class="faq">
-    <h3>30. Como capturar o canal de WhatsApp de um supervisor do grupo?</h3>
+    <h3 id="30-como-capturar-o-canal-de-whatsapp-de-um-supervisor-do-grupo">30. Como capturar o canal de WhatsApp de um supervisor do grupo?</h3>
     <p>O array <code>ticket_supervisors</code> lista os supervisores do grupo e expõe o identificador de WhatsApp de cada um. Use a notação de índice, por exemplo <code>{{ ticket_supervisors[0].waid }}</code> para o primeiro supervisor, e <code>ticket_supervisors_count</code> para saber quantos supervisores estão mapeados no grupo de serviço.</p>
     <div class="callout tip">
       <strong>Uso típico:</strong> notificar automaticamente a supervisão em canal de WhatsApp quando um ticket violar o SLA ou quando 50% da meta do nível for consumida.
@@ -349,7 +467,7 @@
   </div>
 
   <div class="faq">
-    <h3>31. Quando as variáveis ticket_agent_id e ticket_agent_name ficam vazias?</h3>
+    <h3 id="31-quando-as-variaveis-ticket-agent-id-e-ticket-agent-name-ficam-vazias">31. Quando as variáveis ticket_agent_id e ticket_agent_name ficam vazias?</h3>
     <p>No evento <strong>"ao criar"</strong>, ambas iniciam <strong>vazias</strong>: o valor só é preenchido depois que a <strong>distribuição</strong> do ticket é executada e um analista é atribuído. Por isso, não use essas variáveis em automações disparadas na criação esperando um responsável definido.</p>
     <div class="callout warn">
       <strong>Dica de fluxo:</strong> para notificar o responsável, prefira um bloco de automação no evento "Ao distribuir" (ou "Ao reatribuir"), quando <code>ticket_agent_id</code> e <code>ticket_agent_name</code> já estão preenchidos.
@@ -357,7 +475,7 @@
   </div>
 
   <div class="faq">
-    <h3>32. Qual o mapeamento de ticket_channel e de ticket_is_sla_met?</h3>
+    <h3 id="32-qual-o-mapeamento-de-ticket-channel-e-de-ticket-is-sla-met">32. Qual o mapeamento de ticket_channel e de ticket_is_sla_met?</h3>
     <p><code>ticket_channel</code> traz o canal de entrada do ticket:</p>
     <div class="table-wrap">
       <table class="doc">
@@ -383,6 +501,7 @@
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
   <p>FAQ elaborado a partir das dúvidas reais dos usuários sobre o módulo de Tickets.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

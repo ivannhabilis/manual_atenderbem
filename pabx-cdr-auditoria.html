@@ -9,19 +9,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="pabx.html">Portal PABX</a>
-    <a href="pabx-troncos.html">Troncos SIP</a>
-    <a href="pabx-rotas.html">Rotas</a>
-    <a href="pabx-ramais.html">Ramais</a>
-    <a href="pabx-filas.html">Filas</a>
-    <a href="pabx-ura-audios.html">URAs & Áudios</a>
-    <a href="pabx-horarios.html">Horários</a>
-    <a href="pabx-custom.html">Custom & ARI</a>
-    <a href="pabx-cdr-auditoria.html" class="active">CDR</a>
-    <a href="pabx-cli-troubleshooting.html">CLI & Debug</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a class="active" href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -31,12 +93,54 @@
   <h1>Auditoria de Chamadas e Análise Profunda de CDR</h1>
   <p class="subtitle">Guia completo para decifrar os registros de CDR (Call Detail Record), identificar atendentes que recusam chamadas e executar consultas analíticas em SQL.</p>
 
-  <h2>1. O que é o CDR (Call Detail Record)?</h2>
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-o-que-e-o-cdr-call-detail-record">1. O que é o CDR (Call Detail Record)?</a></li>
+      <li><a href="#2-dicionario-completo-das-colunas-do-cdr">2. Dicionário Completo das Colunas do CDR</a></li>
+      <li><a href="#3-como-identificar-chamadas-recusadas-por-atendentes">3. Como Identificar Chamadas Recusadas por Atendentes</a></li>
+      <li class="toc-h3"><a href="#padrao-1-nao-atendimento-proposital-no-answer-no-ramal">Padrão 1: Não Atendimento Proposital (NO ANSWER no Ramal)</a></li>
+      <li class="toc-h3"><a href="#padrao-2-desligamento-imediato-descarte-rapido">Padrão 2: Desligamento Imediato / Descarte Rápido</a></li>
+      <li class="toc-h3"><a href="#padrao-3-rejeicao-manual-busy-falso">Padrão 3: Rejeição Manual (BUSY Falso)</a></li>
+      <li><a href="#4-consultas-sql-avancadas-para-auditoria-asteriskcdrdb">4. Consultas SQL Avançadas para Auditoria (`asteriskcdrdb`)</a></li>
+      <li class="toc-h3"><a href="#query-1-relatorio-de-taxa-de-recusa-por-atendente">Query 1: Relatório de Taxa de Recusa por Atendente</a></li>
+      <li class="toc-h3"><a href="#query-2-localizar-chamadas-desligadas-em-menos-de-10-segundos">Query 2: Localizar Chamadas Desligadas em Menos de 10 Segundos</a></li>
+      <li><a href="#5-dicionario-complementar-colunas-avancadas-do-cdr">5. Dicionário Complementar: Colunas Avançadas do CDR</a></li>
+      <li><a href="#6-padrao-de-nomes-do-arquivo-de-gravacao-recordingfile">6. Padrão de Nomes do Arquivo de Gravação (recordingfile)</a></li>
+      <li><a href="#7-interpretacao-de-cenarios-comuns">7. Interpretação de Cenários Comuns</a></li>
+      <li class="toc-h3"><a href="#cenario-1-chamada-recebida-em-ura-menu-interativo">Cenário 1: Chamada recebida em URA (menu interativo)</a></li>
+      <li class="toc-h3"><a href="#cenario-2-chamada-recebida-em-fila-e-atendida-com-sucesso">Cenário 2: Chamada recebida em Fila e atendida com sucesso</a></li>
+      <li class="toc-h3"><a href="#cenario-3-chamada-abandonada-na-fila">Cenário 3: Chamada abandonada na fila</a></li>
+      <li class="toc-h3"><a href="#cenario-4-chamada-externa-originada-e-nao-atendida">Cenário 4: Chamada externa originada e não atendida</a></li>
+      <li class="toc-h3"><a href="#cenario-5-reproducao-de-gravacao-do-sistema">Cenário 5: Reprodução de gravação do sistema</a></li>
+      <li class="toc-h3"><a href="#cenario-6-transferencia-entre-atendentes">Cenário 6: Transferência entre atendentes</a></li>
+      <li><a href="#8-analise-pela-interface-web-do-freepbx-reports-cdr-report">8. Análise pela Interface Web do FreePBX (Reports › CDR Report)</a></li>
+      <li><a href="#9-consultas-sql-complementares">9. Consultas SQL Complementares</a></li>
+      <li class="toc-h3"><a href="#query-3-volume-de-chamadas-por-hora">Query 3: Volume de Chamadas por Hora</a></li>
+      <li class="toc-h3"><a href="#query-4-top-10-numeros-que-mais-ligam">Query 4: Top 10 Números que Mais Ligam</a></li>
+      <li class="toc-h3"><a href="#query-5-eficiencia-e-tempo-medio-por-fila">Query 5: Eficiência e Tempo Médio por Fila</a></li>
+      <li class="toc-h3"><a href="#query-6-chamadas-com-espera-excessiva-na-fila-acima-de-300s">Query 6: Chamadas com Espera Excessiva na Fila (acima de 300s)</a></li>
+      <li class="toc-h3"><a href="#query-7-chamadas-perdidas-nao-atendidas-ou-ocupadas">Query 7: Chamadas Perdidas (Não Atendidas ou Ocupadas)</a></li>
+      <li class="toc-h3"><a href="#filtros-sql-mais-usados">Filtros SQL Mais Usados</a></li>
+      <li><a href="#10-metricas-de-gestao-do-call-center">10. Métricas de Gestão do Call Center</a></li>
+      <li><a href="#11-cuidados-na-analise-falsos-positivos-x-indicadores-reais">11. Cuidados na Análise: Falsos Positivos x Indicadores Reais</a></li>
+      <li class="toc-h3"><a href="#falsos-positivos-nao-caracterizam-recusa">Falsos Positivos (não caracterizam recusa)</a></li>
+      <li class="toc-h3"><a href="#indicadores-reais-de-recusa">Indicadores Reais de Recusa</a></li>
+      <li class="toc-h3"><a href="#sinais-de-problema-no-arquivo">Sinais de Problema no Arquivo</a></li>
+      <li><a href="#12-modelo-de-relatorio-de-recusas-desligues-por-atendente">12. Modelo de Relatório de Recusas/Desligues por Atendente</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
+  <h2 id="1-o-que-e-o-cdr-call-detail-record">1. O que é o CDR (Call Detail Record)?</h2>
   <p>O <strong>CDR</strong> é o log pericial e financeiro gerado pelo Asterisk para cada tentativa ou conclusão de chamada telefônica. Ele registra exatamente quem ligou, para quem, por quanto tempo, qual atendente recebeu, se houve transferência e o nome do arquivo de áudio gravado.</p>
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>2. Dicionário Completo das Colunas do CDR</h2>
+  <h2 id="2-dicionario-completo-das-colunas-do-cdr">2. Dicionário Completo das Colunas do CDR</h2>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Coluna</th><th>Nome Técnico</th><th>Significado e Exemplo Real</th></tr></thead>
@@ -60,22 +164,22 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>3. Como Identificar Chamadas Recusadas por Atendentes</h2>
+  <h2 id="3-como-identificar-chamadas-recusadas-por-atendentes">3. Como Identificar Chamadas Recusadas por Atendentes</h2>
   <p>Na gestão de contact centers, alguns operadores desenvolvem comportamentos evasivos para evitar o atendimento. O CDR permite auditar esses padrões com 100% de precisão matemática:</p>
 
-  <h3>Padrão 1: Não Atendimento Proposital (NO ANSWER no Ramal)</h3>
+  <h3 id="padrao-1-nao-atendimento-proposital-no-answer-no-ramal">Padrão 1: Não Atendimento Proposital (NO ANSWER no Ramal)</h3>
   <ul>
     <li><strong>Sintoma no CDR:</strong> <code>disposition = 'NO ANSWER'</code> com o campo <code>dstchannel</code> preenchido com o ramal do atendente (ex.: <code>PJSIP/1003-xxxx</code>).</li>
     <li><strong>Significado:</strong> A chamada foi entregue com sucesso pela fila até a mesa do atendente, tocou por 15 segundos e o atendente deliberadamente não atendeu.</li>
   </ul>
 
-  <h3>Padrão 2: Desligamento Imediato / Descarte Rápido</h3>
+  <h3 id="padrao-2-desligamento-imediato-descarte-rapido">Padrão 2: Desligamento Imediato / Descarte Rápido</h3>
   <ul>
     <li><strong>Sintoma no CDR:</strong> <code>disposition = 'ANSWERED'</code> e <code>billsec &lt; 10</code> segundos em chamadas originadas de filas de suporte.</li>
     <li><strong>Significado:</strong> O atendente aperta para atender e imediatamente desliga na cara do cliente para ficar livre ou constar como produtivo.</li>
   </ul>
 
-  <h3>Padrão 3: Rejeição Manual (BUSY Falso)</h3>
+  <h3 id="padrao-3-rejeicao-manual-busy-falso">Padrão 3: Rejeição Manual (BUSY Falso)</h3>
   <ul>
     <li><strong>Sintoma no CDR:</strong> <code>disposition = 'BUSY'</code> quando o atendente não estava em nenhuma outra chamada ativa.</li>
     <li><strong>Significado:</strong> O atendente apertou o botão "Rejeitar / Ocupado" no softphone para derrubar a chamada.</li>
@@ -83,10 +187,10 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>4. Consultas SQL Avançadas para Auditoria (`asteriskcdrdb`)</h2>
+  <h2 id="4-consultas-sql-avancadas-para-auditoria-asteriskcdrdb">4. Consultas SQL Avançadas para Auditoria (`asteriskcdrdb`)</h2>
   <p>Conecte-se ao banco de dados MySQL/MariaDB do servidor para gerar relatórios periciais instantâneos:</p>
 
-  <h3>Query 1: Relatório de Taxa de Recusa por Atendente</h3>
+  <h3 id="query-1-relatorio-de-taxa-de-recusa-por-atendente">Query 1: Relatório de Taxa de Recusa por Atendente</h3>
   <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code>SELECT 
     CASE 
         WHEN dstchannel LIKE '%/1001-%' THEN '1001 - Carlos'
@@ -105,7 +209,7 @@ WHERE dstchannel IS NOT NULL AND dstchannel != ''
 GROUP BY atendente
 ORDER BY taxa_recusa_percent DESC;</code></pre>
 
-  <h3>Query 2: Localizar Chamadas Desligadas em Menos de 10 Segundos</h3>
+  <h3 id="query-2-localizar-chamadas-desligadas-em-menos-de-10-segundos">Query 2: Localizar Chamadas Desligadas em Menos de 10 Segundos</h3>
   <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code>SELECT calldate, src, dstchannel, billsec, recordingfile
 FROM cdr
 WHERE dcontext = 'ext-queues'
@@ -115,7 +219,7 @@ ORDER BY calldate DESC;</code></pre>
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>5. Dicionário Complementar: Colunas Avançadas do CDR</h2>
+  <h2 id="5-dicionario-complementar-colunas-avancadas-do-cdr">5. Dicionário Complementar: Colunas Avançadas do CDR</h2>
   <p>Além das colunas essenciais, o arquivo exportado pelo FreePBX/Asterisk (formato padrão com 25 colunas) traz campos adicionais valiosos para auditoria, bilhetagem e rastreamento da jornada:</p>
   <div class="table-wrap">
     <table class="doc">
@@ -144,7 +248,7 @@ ORDER BY calldate DESC;</code></pre>
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>6. Padrão de Nomes do Arquivo de Gravação (<code>recordingfile</code>)</h2>
+  <h2 id="6-padrao-de-nomes-do-arquivo-de-gravacao-recordingfile">6. Padrão de Nomes do Arquivo de Gravação (<code>recordingfile</code>)</h2>
   <p>O próprio nome do arquivo WAV revela a direção da chamada, o número envolvido, o ramal e o instante exato da gravação:</p>
   <div class="table-wrap">
     <table class="doc">
@@ -161,39 +265,39 @@ ORDER BY calldate DESC;</code></pre>
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>7. Interpretação de Cenários Comuns</h2>
+  <h2 id="7-interpretacao-de-cenarios-comuns">7. Interpretação de Cenários Comuns</h2>
 
-  <h3>Cenário 1: Chamada recebida em URA (menu interativo)</h3>
+  <h3 id="cenario-1-chamada-recebida-em-ura-menu-interativo">Cenário 1: Chamada recebida em URA (menu interativo)</h3>
   <ul>
     <li><strong>Como aparece:</strong> <code>dst = 's'</code>, <code>dcontext = 'ivr-9'</code> e <code>lastapp = 'BackGround'</code> com <code>lastdata = 'custom/downloadMedia__1_'</code>.</li>
     <li><strong>Leitura:</strong> a chamada entrou no menu de voz, tocou o áudio configurado e aguardou a digitação do cliente. <code>duration</code> reflete o tempo total ouvindo o menu; <code>disposition = 'ANSWERED'</code> indica que a URA atendeu automaticamente.</li>
   </ul>
 
-  <h3>Cenário 2: Chamada recebida em Fila e atendida com sucesso</h3>
+  <h3 id="cenario-2-chamada-recebida-em-fila-e-atendida-com-sucesso">Cenário 2: Chamada recebida em Fila e atendida com sucesso</h3>
   <ul>
     <li><strong>Como aparece:</strong> <code>dst</code> = número da fila (ex.: <code>102</code>), <code>dcontext = 'ext-queues'</code>, <code>dstchannel</code> preenchido com o ramal (ex.: <code>PJSIP/1003-00001ba7</code>) e <code>disposition = 'ANSWERED'</code>.</li>
     <li><strong>Leitura:</strong> a chamada ficou 42 segundos na fila e foi entregue ao ramal 1003, que a atendeu. <code>dstchannel</code> preenchido é a prova de que a chamada tocou em um dispositivo final.</li>
   </ul>
 
-  <h3>Cenário 3: Chamada abandonada na fila</h3>
+  <h3 id="cenario-3-chamada-abandonada-na-fila">Cenário 3: Chamada abandonada na fila</h3>
   <ul>
     <li><strong>Como aparece:</strong> <code>dst = '102'</code> (número da fila), <code>dcontext = 'ext-queues'</code>, <code>dstchannel</code> <strong>vazio</strong> e <code>disposition = 'ANSWERED'</code>.</li>
     <li><strong>Leitura:</strong> a fila &ldquo;atende&rdquo; a chamada para tocar a música de espera, então o registro aparece como <code>ANSWERED</code>; porém, como o <code>dstchannel</code> está vazio, nenhum atendente foi conectado. Olhe o <code>billsec</code>: se for baixo (ex.: 15s) e o <code>dstchannel</code> estiver vazio, o cliente desistiu enquanto ouvia a música.</li>
   </ul>
 
-  <h3>Cenário 4: Chamada externa originada e não atendida</h3>
+  <h3 id="cenario-4-chamada-externa-originada-e-nao-atendida">Cenário 4: Chamada externa originada e não atendida</h3>
   <ul>
     <li><strong>Como aparece:</strong> <code>dcontext = 'from-internal'</code>, <code>lastapp = 'Dial'</code>, <code>dst</code> = número externo discado, <code>disposition = 'NO ANSWER'</code> e gravação salva como arquivo <code>out-...</code>.</li>
     <li><strong>Leitura:</strong> o ramal discou para um destino externo, ouviu até o tempo limite e o outro lado não atendeu (ex.: 7 segundos de espera).</li>
   </ul>
 
-  <h3>Cenário 5: Reprodução de gravação do sistema</h3>
+  <h3 id="cenario-5-reproducao-de-gravacao-do-sistema">Cenário 5: Reprodução de gravação do sistema</h3>
   <ul>
     <li><strong>Como aparece:</strong> <code>dcontext = 'play-system-recording'</code> e <code>lastapp = 'Playback'</code>.</li>
     <li><strong>Leitura:</strong> a chamada reproduziu um áudio do sistema (ex.: <code>custom/downloadMedia__2_</code>) por 21 segundos, sendo atendida automaticamente pelo próprio sistema.</li>
   </ul>
 
-  <h3>Cenário 6: Transferência entre atendentes</h3>
+  <h3 id="cenario-6-transferencia-entre-atendentes">Cenário 6: Transferência entre atendentes</h3>
   <ul>
     <li><strong>Como aparece:</strong> <code>dcontext = 'from-internal-xfer'</code>, <code>lastapp = 'Queue'</code>, com o mesmo <code>linkedid</code> em mais de uma linha do relatório.</li>
     <li><strong>Leitura:</strong> o <code>linkedid</code> compartilhado permite rastrear a chamada original através da transferência. Transferências legítimas para o setor correto também aparecem assim — avalie o contexto antes de classificar como recusa.</li>
@@ -201,7 +305,7 @@ ORDER BY calldate DESC;</code></pre>
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>8. Análise pela Interface Web do FreePBX (Reports › CDR Report)</h2>
+  <h2 id="8-analise-pela-interface-web-do-freepbx-reports-cdr-report">8. Análise pela Interface Web do FreePBX (Reports › CDR Report)</h2>
   <p>Você não precisa de SQL para as auditorias do dia a dia. A tela nativa de relatórios do FreePBX resolve a maioria dos casos:</p>
   <ol class="steps">
     <li>Acesse <code>Reports › CDR Report</code> no menu do PABX.</li>
@@ -218,22 +322,22 @@ ORDER BY calldate DESC;</code></pre>
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>9. Consultas SQL Complementares</h2>
+  <h2 id="9-consultas-sql-complementares">9. Consultas SQL Complementares</h2>
 
-  <h3>Query 3: Volume de Chamadas por Hora</h3>
+  <h3 id="query-3-volume-de-chamadas-por-hora">Query 3: Volume de Chamadas por Hora</h3>
   <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code>SELECT HOUR(calldate) AS hora, COUNT(*) AS total
 FROM cdr
 GROUP BY HOUR(calldate)
 ORDER BY hora;</code></pre>
 
-  <h3>Query 4: Top 10 Números que Mais Ligam</h3>
+  <h3 id="query-4-top-10-numeros-que-mais-ligam">Query 4: Top 10 Números que Mais Ligam</h3>
   <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code>SELECT src, COUNT(*) AS total
 FROM cdr
 GROUP BY src
 ORDER BY total DESC
 LIMIT 10;</code></pre>
 
-  <h3>Query 5: Eficiência e Tempo Médio por Fila</h3>
+  <h3 id="query-5-eficiencia-e-tempo-medio-por-fila">Query 5: Eficiência e Tempo Médio por Fila</h3>
   <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code>SELECT dst AS fila,
        COUNT(*) AS total,
        SUM(CASE WHEN disposition = 'ANSWERED' THEN 1 ELSE 0 END) AS atendidas,
@@ -243,20 +347,20 @@ WHERE dcontext = 'ext-queues'
 GROUP BY dst
 ORDER BY total DESC;</code></pre>
 
-  <h3>Query 6: Chamadas com Espera Excessiva na Fila (acima de 300s)</h3>
+  <h3 id="query-6-chamadas-com-espera-excessiva-na-fila-acima-de-300s">Query 6: Chamadas com Espera Excessiva na Fila (acima de 300s)</h3>
   <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code>SELECT calldate, src, dst, duration, dstchannel
 FROM cdr
 WHERE lastapp = 'Queue'
   AND duration > 300
 ORDER BY duration DESC;</code></pre>
 
-  <h3>Query 7: Chamadas Perdidas (Não Atendidas ou Ocupadas)</h3>
+  <h3 id="query-7-chamadas-perdidas-nao-atendidas-ou-ocupadas">Query 7: Chamadas Perdidas (Não Atendidas ou Ocupadas)</h3>
   <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code>SELECT calldate, src, dst, disposition
 FROM cdr
 WHERE disposition IN ('NO ANSWER', 'BUSY')
 ORDER BY calldate DESC;</code></pre>
 
-  <h3>Filtros SQL Mais Usados</h3>
+  <h3 id="filtros-sql-mais-usados">Filtros SQL Mais Usados</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Objetivo</th><th>Filtro</th></tr></thead>
@@ -271,7 +375,7 @@ ORDER BY calldate DESC;</code></pre>
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>10. Métricas de Gestão do Call Center</h2>
+  <h2 id="10-metricas-de-gestao-do-call-center">10. Métricas de Gestão do Call Center</h2>
   <p>Traduza o CDR em indicadores de gestão para acompanhar a operação e embasar decisões:</p>
   <div class="table-wrap">
     <table class="doc">
@@ -287,10 +391,10 @@ ORDER BY calldate DESC;</code></pre>
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>11. Cuidados na Análise: Falsos Positivos x Indicadores Reais</h2>
+  <h2 id="11-cuidados-na-analise-falsos-positivos-x-indicadores-reais">11. Cuidados na Análise: Falsos Positivos x Indicadores Reais</h2>
   <p>Uma taxa de recusa alta só tem valor probatório quando interpretada com contexto. Separe o que pode ser comportamento evasivo do que é apenas operação normal:</p>
 
-  <h3>Falsos Positivos (não caracterizam recusa)</h3>
+  <h3 id="falsos-positivos-nao-caracterizam-recusa">Falsos Positivos (não caracterizam recusa)</h3>
   <ul>
     <li>Atendente realmente ocupado com outra chamada ativa no momento.</li>
     <li>Problemas técnicos: fone desconectado, queda de internet ou instabilidade do ramal.</li>
@@ -299,7 +403,7 @@ ORDER BY calldate DESC;</code></pre>
     <li>Transferências legítimas para o setor correto.</li>
   </ul>
 
-  <h3>Indicadores Reais de Recusa</h3>
+  <h3 id="indicadores-reais-de-recusa">Indicadores Reais de Recusa</h3>
   <ul>
     <li>Padrão <strong>repetitivo</strong> do mesmo atendente ao longo do período.</li>
     <li>Chamadas de clientes conhecidos não atendidas de forma recorrente.</li>
@@ -307,7 +411,7 @@ ORDER BY calldate DESC;</code></pre>
     <li>Muitas transferências para a mesma fila/ramal, sugerindo repasse sistemático.</li>
   </ul>
 
-  <h3>Sinais de Problema no Arquivo</h3>
+  <h3 id="sinais-de-problema-no-arquivo">Sinais de Problema no Arquivo</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Sinal no CDR</th><th>Possível Causa</th></tr></thead>
@@ -322,7 +426,7 @@ ORDER BY calldate DESC;</code></pre>
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>12. Modelo de Relatório de Recusas/Desligues por Atendente</h2>
+  <h2 id="12-modelo-de-relatorio-de-recusas-desligues-por-atendente">12. Modelo de Relatório de Recusas/Desligues por Atendente</h2>
   <p>Consolide as queries em um relatório pronto para entregar ao parceiro. Exemplo de saída do período de um dia de operação:</p>
   <div class="table-wrap">
     <table class="doc">
@@ -356,6 +460,7 @@ ORDER BY calldate DESC;</code></pre>
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Módulo de Telefonia e PABX.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

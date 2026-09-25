@@ -9,19 +9,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="pabx.html">Portal PABX</a>
-    <a href="pabx-troncos.html">Troncos SIP</a>
-    <a href="pabx-rotas.html">Rotas</a>
-    <a href="pabx-ramais.html">Ramais</a>
-    <a href="pabx-filas.html" class="active">Filas</a>
-    <a href="pabx-ura-audios.html">URAs & Áudios</a>
-    <a href="pabx-horarios.html">Horários</a>
-    <a href="pabx-custom.html">Custom & ARI</a>
-    <a href="pabx-cdr-auditoria.html">CDR</a>
-    <a href="pabx-cli-troubleshooting.html">CLI & Debug</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a class="active" href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -31,12 +93,31 @@
   <h1>Filas de Atendimento (Queues)</h1>
   <p class="subtitle">Como criar e gerenciar filas de espera no FreePBX, configurar estratégias de distribuição entre atendentes, tempos de transbordo e música de espera.</p>
 
-  <h2>1. O que é uma Fila de Atendimento?</h2>
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-o-que-e-uma-fila-de-atendimento">1. O que é uma Fila de Atendimento?</a></li>
+      <li><a href="#2-estrategias-de-distribuicao-ring-strategies">2. Estratégias de Distribuição (Ring Strategies)</a></li>
+      <li><a href="#3-configuracoes-criticas-de-uma-fila-no-freepbx">3. Configurações Críticas de uma Fila no FreePBX</a></li>
+      <li><a href="#4-membros-estaticos-vs-dinamicos">4. Membros Estáticos vs Dinâmicos</a></li>
+      <li><a href="#5-comandos-de-gerenciamento-de-filas-via-cli">5. Comandos de Gerenciamento de Filas via CLI</a></li>
+      <li><a href="#6-fila-de-telefonia-ura-integrando-o-pabx-ao-omnichannel">6. Fila de Telefonia (URA): Integrando o PABX ao Omnichannel</a></li>
+      <li class="toc-h3"><a href="#6-1-criar-o-custom-destination-no-pabx">6.1 Criar o Custom Destination no PABX</a></li>
+      <li class="toc-h3"><a href="#6-2-criar-a-fila-de-telefonia-ura-no-omnichannel">6.2 Criar a Fila de Telefonia (URA) no Omnichannel</a></li>
+      <li><a href="#7-comandos-adicionais-de-filas-via-cli">7. Comandos Adicionais de Filas via CLI</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
+  <h2 id="1-o-que-e-uma-fila-de-atendimento">1. O que é uma Fila de Atendimento?</h2>
   <p>Uma <strong>Fila (Queue)</strong> organiza o fluxo de ligações quando há mais clientes ligando do que atendentes disponíveis. O cliente permanece ouvindo uma música de espera e mensagens periódicas (ex.: <em>"Sua posição na fila é 2..."</em>) enquanto o sistema busca o próximo operador de acordo com a regra de distribuição configurada.</p>
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>2. Estratégias de Distribuição (Ring Strategies)</h2>
+  <h2 id="2-estrategias-de-distribuicao-ring-strategies">2. Estratégias de Distribuição (Ring Strategies)</h2>
   <p>Ao criar uma fila em <code>Applications › Queues</code>, a escolha da estratégia determina a experiência de atendimento e a divisão da carga de trabalho:</p>
 
   <div class="table-wrap">
@@ -54,7 +135,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>3. Configurações Críticas de uma Fila no FreePBX</h2>
+  <h2 id="3-configuracoes-criticas-de-uma-fila-no-freepbx">3. Configurações Críticas de uma Fila no FreePBX</h2>
   <p>Acesse <code>Applications › Queues › + Add Queue</code> para parametrizar os seguintes itens:</p>
 
   <div class="table-wrap">
@@ -74,7 +155,7 @@
     </table>
   </div>
 
-  <h2>4. Membros Estáticos vs Dinâmicos</h2>
+  <h2 id="4-membros-estaticos-vs-dinamicos">4. Membros Estáticos vs Dinâmicos</h2>
   <ul>
     <li><strong>Static Agents (Agentes Estáticos):</strong> Ramais adicionados no campo <em>Static Agents</em> da fila (ex.: <code>PJSIP/1001,0</code>). Permanecem sempre conectados na fila.</li>
     <li><strong>Dynamic Agents (Agentes Dinâmicos):</strong> O atendente entra na fila discando <code>*45</code> no teclado do softphone ou através do sistema web do AtenderBem, podendo pausar e despausar conforme sua jornada.</li>
@@ -82,7 +163,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>5. Comandos de Gerenciamento de Filas via CLI</h2>
+  <h2 id="5-comandos-de-gerenciamento-de-filas-via-cli">5. Comandos de Gerenciamento de Filas via CLI</h2>
   <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code># Exibir status completo da fila 100 (membros, tempo de espera e chamadas):
 asterisk -rx "queue show 100"
 
@@ -97,10 +178,10 @@ asterisk -rx "queue reset stats 100"</code></pre>
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>6. Fila de Telefonia (URA): Integrando o PABX ao Omnichannel</h2>
+  <h2 id="6-fila-de-telefonia-ura-integrando-o-pabx-ao-omnichannel">6. Fila de Telefonia (URA): Integrando o PABX ao Omnichannel</h2>
   <p>Além das filas internas do FreePBX (Queues), é possível receber chamadas do PABX em uma <strong>Fila de Telefonia (URA)</strong> do Omnichannel. O vínculo é feito por um <em>Custom Destination</em> que aponta para a ponte ARI (<code>ari-bridge</code>) consumida pelo sistema de atendimento.</p>
 
-  <h3>6.1 Criar o Custom Destination no PABX</h3>
+  <h3 id="6-1-criar-o-custom-destination-no-pabx">6.1 Criar o Custom Destination no PABX</h3>
   <ol class="steps">
     <li>No PABX, acesse <code>Admin › Custom Destinations</code>.</li>
     <li>Clique no botão <strong>Add Destination</strong>.</li>
@@ -116,7 +197,7 @@ asterisk -rx "queue reset stats 100"</code></pre>
     <li>Clique em <strong>Submit</strong> e depois em <strong>Apply</strong>.</li>
   </ol>
 
-  <h3>6.2 Criar a Fila de Telefonia (URA) no Omnichannel</h3>
+  <h3 id="6-2-criar-a-fila-de-telefonia-ura-no-omnichannel">6.2 Criar a Fila de Telefonia (URA) no Omnichannel</h3>
   <ol class="steps">
     <li>No sistema de atendimento, acesse <code>Configurações › Filas</code> e clique em <strong>+ Adicionar</strong>.</li>
     <li>No campo <strong>Nome da fila</strong>, informe exatamente o <strong>mesmo nome</strong> criado no <em>custom-destination</em> do PABX (no exemplo, <code>apptest</code>).</li>
@@ -130,7 +211,7 @@ asterisk -rx "queue reset stats 100"</code></pre>
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>7. Comandos Adicionais de Filas via CLI</h2>
+  <h2 id="7-comandos-adicionais-de-filas-via-cli">7. Comandos Adicionais de Filas via CLI</h2>
   <p>Complementando os comandos da seção 5, estes comandos gerenciam membros, prioridade e recarga das filas:</p>
 
   <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code># Adiciona o ramal 2000 como membro da fila 100:
@@ -164,6 +245,7 @@ asterisk -rx "queue show rules"</code></pre>
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Módulo de Telefonia e PABX.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

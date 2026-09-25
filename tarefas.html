@@ -4,22 +4,87 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tarefas (My tasks) — Manual Omnichannel</title>
+<meta name="description" content="Módulo de Tarefas do AtenderBem: criação avulsa e vinculada ao CRM, campos de configuração, ações personalizadas, cronômetro de apontamento de horas, automações e relatórios de produtividade.">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="crm.html">CRM</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="pabx.html">PABX & Telefonia</a>
-    <a href="contatos.html">Contatos</a>
-    <a href="relatorios.html">Relatórios</a>
-    <a href="relatorios-personalizados.html">Personalizados</a>
-    <a href="configuracoes.html">Configurações</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a class="active" href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -29,28 +94,177 @@
   <h1>Tarefas (My tasks)</h1>
   <p class="subtitle">Crie e acompanhe suas tarefas pendentes e concluídas sem sair do painel de trabalho.</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-visao-geral-do-modulo">1. Visão geral do módulo</a></li>
+      <li class="toc-h3"><a href="#exemplos-de-casos-de-uso">Exemplos de casos de uso</a></li>
+      <li><a href="#2-onde-o-painel-aparece">2. Onde o painel aparece</a></li>
+      <li><a href="#3-criacao-manual-de-tarefas-avulsas-e-crm">3. Criação manual de tarefas (avulsas e CRM)</a></li>
+      <li><a href="#4-campos-de-configuracao-da-tarefa">4. Campos de configuração da tarefa</a></li>
+      <li><a href="#5-acoes-personalizadas">5. Ações personalizadas</a></li>
+      <li><a href="#6-gestao-e-visualizacao-da-equipe">6. Gestão e visualização da equipe</a></li>
+      <li><a href="#7-rotina-operacional-do-agente-e-apontamento-de-horas">7. Rotina operacional do agente e apontamento de horas</a></li>
+      <li><a href="#8-automacoes-e-integracao-com-o-crm">8. Automações e integração com o CRM</a></li>
+      <li><a href="#9-relatorios-e-metricas">9. Relatórios e métricas</a></li>
+      <li><a href="#10-boas-praticas">10. Boas práticas</a></li>
+      <li><a href="#11-perguntas-frequentes">11. Perguntas frequentes</a></li>
+      <li class="toc-h3"><a href="#posso-ter-mais-de-uma-tarefa-em-execucao-ao-mesmo-tempo">Posso ter mais de uma tarefa em execução ao mesmo tempo?</a></li>
+      <li class="toc-h3"><a href="#toda-tarefa-criada-no-crm-ja-vem-vinculada-a-um-contato">Toda tarefa criada no CRM já vem vinculada a um contato?</a></li>
+      <li class="toc-h3"><a href="#quem-pode-ver-e-editar-tarefas-de-outros-usuarios">Quem pode ver e editar tarefas de outros usuários?</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
+  <div class="callout info">
+    <strong>Fonte deste capítulo:</strong> <em>Guia Prático do Módulo de Tarefas</em> (material de apoio ao suporte), complementado pela observação da interface <strong>My tasks</strong>. Os campos, regras e indicadores descritos abaixo constam do material de origem.
+  </div>
+
   <figure class="figure">
     <img src="assets/tasks.png" alt="Painel de Tarefas sobreposto ao dashboard">
     <figcaption>Painel “My tasks” com abas “To do” e “Completed” e botão de adicionar.</figcaption>
   </figure>
 
-  <h2>1. Onde aparece</h2>
-  <p>O painel de tarefas (<strong>My tasks</strong>) aparece como um painel lateral sobreposto em várias telas da plataforma (inclusive sobre o dashboard de KPIs). Assim, você acompanha pendências enquanto opera o restante do sistema.</p>
+  <h2 id="1-visao-geral-do-modulo">1. Visão geral do módulo</h2>
+  <p>O módulo de <strong>Tarefas</strong> organiza rotinas operacionais, fluxos de suporte e processos de vendas. Ele permite criar atividades <strong>avulsas</strong> (para organização individual da rotina) ou <strong>associadas ao CRM</strong> (vinculadas a oportunidades de negócio).</p>
 
-  <h2>2. Abas</h2>
+  <h3 id="exemplos-de-casos-de-uso">Exemplos de casos de uso</h3>
+  <ul class="menulist">
+    <li><span class="ico">🗂️</span><div><b>Organização pessoal e operacional</b> — registro de lembretes e acompanhamento das rotinas diárias.</div></li>
+    <li><span class="ico">🔁</span><div><b>Follow-up e acompanhamento de bugs</b> — controle de pendências com clientes, garantindo o retorno assim que uma demanda ou correção for concluída.</div></li>
+    <li><span class="ico">📈</span><div><b>Esteira de vendas no CRM</b> — padronização dos passos de qualificação, prospecção e atendimento vinculados a uma oportunidade.</div></li>
+  </ul>
+
+  <h2 id="2-onde-o-painel-aparece">2. Onde o painel aparece</h2>
+  <p>O painel de tarefas (<strong>My tasks</strong>) foi observado como um painel lateral sobreposto a outras telas da plataforma. Na captura, ele estava aberto sobre uma tela de relatório; portanto, funciona como um <em>drawer</em> sem rota própria observada.</p>
+  <p>Recursos visíveis na interface observada:</p>
   <ul>
     <li><strong>To do - All</strong> — tarefas pendentes (todas).</li>
     <li><strong>Completed</strong> — tarefas já concluídas.</li>
-  </ul>
-
-  <h2>3. Ferramentas do painel</h2>
-  <ul>
     <li>Ícones de <strong>busca</strong>, <strong>filtro</strong> e <strong>ordenação</strong> no topo do painel.</li>
     <li>Botão flutuante <strong>+</strong> (roxo) no canto inferior para adicionar uma nova tarefa.</li>
   </ul>
-
   <div class="callout tip">
     <strong>Dica:</strong> mantenha o painel “My tasks” aberto para visualizar compromissos enquanto atende — ele não interfere nas outras telas.
+  </div>
+
+  <h2 id="3-criacao-manual-de-tarefas-avulsas-e-crm">3. Criação manual de tarefas (avulsas e CRM)</h2>
+  <p>As tarefas podem ser criadas manualmente pelo <strong>menu geral</strong> ou diretamente <strong>dentro do card de uma oportunidade no CRM</strong>. Ao criar dentro de uma oportunidade, o contato associado já é vinculado automaticamente à tarefa.</p>
+
+  <h2 id="4-campos-de-configuracao-da-tarefa">4. Campos de configuração da tarefa</h2>
+  <p>A tabela abaixo reproduz os campos descritos no material de origem:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo</th><th>Descrição e comportamento</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Título</strong></td><td>Nome da atividade. Recomenda-se utilizar verbos claros e intuitivos (ex.: “Iniciar chat com o cliente”, “Retorno sobre correção”).</td></tr>
+        <tr><td><strong>Responsável</strong></td><td>Usuário que executará a tarefa. Administradores podem delegar tarefas para múltiplos usuários simultaneamente; agentes criam tarefas atribuídas a si mesmos.</td></tr>
+        <tr><td><strong>Vencimento (data e hora)</strong></td><td>Prazo limite para conclusão. Permite disparar uma automação no vencimento quando o horário for atingido.</td></tr>
+        <tr><td><strong>Agendamento de atividades</strong></td><td>Agenda uma ação pré-definida no horário agendado (ex.: iniciar ligação, iniciar chat, marcar reunião).</td></tr>
+        <tr><td><strong>Ação personalizada</strong></td><td>Executa um fluxo automático no horário agendado da tarefa.</td></tr>
+        <tr><td><strong>Progresso (%)</strong></td><td>Percentual de conclusão da tarefa (ex.: marcar 10% na etapa inicial).</td></tr>
+        <tr><td><strong>Descrição e checklist</strong></td><td>Detalhamento do procedimento e divisão em subetapas operacionais.</td></tr>
+        <tr><td><strong>Anexos</strong></td><td>Upload de documentos, arquivos ou gravação direta de áudio pelo próprio sistema.</td></tr>
+        <tr><td><strong>Contatos associados</strong></td><td>Vincula contatos da agenda à tarefa (preenchido automaticamente se a tarefa for gerada pelo CRM).</td></tr>
+        <tr><td><strong>Etiquetas (Tags)</strong></td><td>Marcadores visuais para categorização e relatórios.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>Aviso de configuração:</strong>
+    <ul>
+      <li>Para vincular uma automação ao <strong>Vencimento</strong>, o fluxo correspondente deve estar com a opção <em>“Permitir execução em tarefas”</em> ativada.</li>
+      <li>Para que uma etiqueta apareça disponível nas tarefas, ela deve estar cadastrada com a chave <em>“Tarefas”</em> habilitada.</li>
+    </ul>
+  </div>
+
+  <h2 id="5-acoes-personalizadas">5. Ações personalizadas</h2>
+  <p>As <strong>Ações Personalizadas</strong> permitem criar rotinas automáticas sob medida acionadas pelas tarefas.</p>
+  <ul>
+    <li><strong>Caminho de configuração:</strong> <code>CRM e Tarefas &gt; Ações Personalizadas</code>.</li>
+    <li><strong>Campos:</strong> nome intuitivo, ícone de identificação, descrição breve e seleção do fluxo de automação.</li>
+    <li><strong>Momento da execução:</strong> a ação associada é disparada no início do horário agendado da tarefa.</li>
+  </ul>
+  <div class="callout warn">
+    <strong>Atenção ao contexto:</strong> certifique-se de que o fluxo chamado pela ação utilize apenas variáveis existentes no contexto em que a tarefa foi criada, evitando falhas de execução.
+  </div>
+
+  <h2 id="6-gestao-e-visualizacao-da-equipe">6. Gestão e visualização da equipe</h2>
+  <ul>
+    <li><strong>Filtro de responsáveis:</strong> na tela geral de tarefas, gestores e administradores podem filtrar a listagem por agentes específicos.</li>
+    <li><strong>Abas de controle:</strong> visualização segregada entre tarefas <em>A Fazer</em> e <em>Concluídas</em> dentro do período selecionado.</li>
+    <li><strong>Permissões de administrador:</strong> o perfil administrador tem permissão para visualizar, editar e salvar alterações em tarefas pertencentes a qualquer usuário da equipe.</li>
+  </ul>
+
+  <h2 id="7-rotina-operacional-do-agente-e-apontamento-de-horas">7. Rotina operacional do agente e apontamento de horas</h2>
+  <p>O sistema dispõe de um cronômetro integrado para rastrear o tempo dedicado a cada atividade:</p>
+  <p><code>[ Iniciar Tarefa (Play) ] ➔ [ Cronômetro Ativo ] ➔ [ Concluir ou Interromper ]</code></p>
+  <ol class="steps">
+    <li><strong>Iniciar execução:</strong> ao começar o trabalho, o agente clica no botão <em>Play / Iniciar Tarefa</em>.</li>
+    <li><strong>Regra de unicidade:</strong> o operador só pode executar uma tarefa por vez. Se iniciar uma nova tarefa com outra em andamento, a anterior será interrompida automaticamente.</li>
+    <li><strong>Pausar / interromper:</strong> ao pausar, o agente pode atualizar manualmente o percentual de <strong>Progresso (%)</strong> da atividade.</li>
+    <li><strong>Finalização:</strong> ao término, o operador pode <em>Concluir</em> (finaliza o apontamento e encerra a tarefa) ou <em>Concluir e Criar Nova</em> (finaliza a atual e abre a tela de cadastro para registrar o próximo passo imediatamente).</li>
+  </ol>
+
+  <h2 id="8-automacoes-e-integracao-com-o-crm">8. Automações e integração com o CRM</h2>
+  <p>É possível automatizar a criação, a conclusão e a exclusão de tarefas em qualquer estágio do funil. Os elementos de automação de tarefas são:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Elemento</th><th>Comportamento</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Adicionar Tarefa</strong></td><td>Cria a tarefa no sistema. Se for avulsa, os campos padrão são preenchidos; se for vinculada a uma oportunidade no CRM, preencha o campo de vínculo com a variável <em>ID da oportunidade</em>.</td></tr>
+        <tr><td><strong>Marcar Tarefa como Concluída</strong></td><td>Altera o status da tarefa para concluída via automação, recebendo o <em>ID da Tarefa</em>.</td></tr>
+        <tr><td><strong>Limpar Tarefas Não Concluídas</strong></td><td>Elemento do módulo CRM. Recebe o <em>ID da Oportunidade</em>, mantém as tarefas concluídas e exclui permanentemente todas as tarefas pendentes vinculadas àquela oportunidade.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn">
+    <strong>Cuidado com a exclusão em massa:</strong> o bloco <em>Limpar tarefas não concluídas</em> realiza <strong>exclusões definitivas</strong>. Utilize-o apenas quando as pendências anteriores realmente não forem mais necessárias para histórico.
+  </div>
+  <div class="callout info">
+    <strong>Atenção (automação de vencimento):</strong> para acionar um fluxo no vencimento via automação, é necessário informar <em>manualmente</em> o ID do fluxo de automação no campo respectivo.
+  </div>
+
+  <h2 id="9-relatorios-e-metricas">9. Relatórios e métricas</h2>
+  <p>O painel analítico fica em <code>Painel e Indicadores &gt; Tarefas</code>. Os indicadores do painel geral são:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Indicador</th><th>O que mostra</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Tarefas criadas e concluídas</strong></td><td>Volume total gerado e finalizado no período.</td></tr>
+        <tr><td><strong>Tarefas pendentes</strong></td><td>Saldo de atividades em aberto.</td></tr>
+        <tr><td><strong>Tempo total de execução</strong></td><td>Soma das horas contabilizadas pelos cronômetros dos agentes.</td></tr>
+        <tr><td><strong>Tempo médio por tarefa</strong></td><td>Total de tempo gasto dividido pelo número de tarefas executadas.</td></tr>
+        <tr><td><strong>Etiquetas utilizadas</strong></td><td>Gráficos com a distribuição das tarefas por categoria/etiqueta e índice de conclusão no prazo.</td></tr>
+        <tr><td><strong>Produtividade por agente</strong></td><td>Quantidade de tarefas abertas, concluídas e médias de tempo individualizadas.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout tip">
+    <strong>Leitura combinada:</strong> o tempo de execução das tarefas alimenta os indicadores de jornada do módulo de produtividade. Veja a relação entre <a href="produtividade.html">Monitoramento de Produtividade</a> e Tarefas e, para os relatórios gerais, o capítulo de <a href="relatorios.html">Relatórios</a>.
+  </div>
+
+  <h2 id="10-boas-praticas">10. Boas práticas</h2>
+  <ol class="steps">
+    <li><strong>Padronização de títulos:</strong> estabeleça um padrão descritivo nos nomes das tarefas para facilitar a localização e a clareza operacional de toda a equipe.</li>
+    <li><strong>Cuidado com a exclusão em massa:</strong> use o bloco de automação “Limpar tarefas não concluídas” somente quando as pendências anteriores realmente não forem mais necessárias para histórico.</li>
+    <li><strong>Cultura do cronômetro:</strong> oriente a equipe a utilizar o botão de play/stop das tarefas de forma consistente, para manter os relatórios de tempo médio e capacidade operacional confiáveis.</li>
+  </ol>
+
+  <h2 id="11-perguntas-frequentes">11. Perguntas frequentes</h2>
+  <div class="faq">
+    <h3 id="posso-ter-mais-de-uma-tarefa-em-execucao-ao-mesmo-tempo">Posso ter mais de uma tarefa em execução ao mesmo tempo?</h3>
+    <p>Não. O material de origem descreve uma regra de unicidade: se uma nova tarefa for iniciada com outra em andamento, a anterior é interrompida automaticamente.</p>
+
+    <h3 id="toda-tarefa-criada-no-crm-ja-vem-vinculada-a-um-contato">Toda tarefa criada no CRM já vem vinculada a um contato?</h3>
+    <p>Sim, conforme o material de origem: ao criar a tarefa dentro do card de uma oportunidade, o contato associado já é vinculado automaticamente.</p>
+
+    <h3 id="quem-pode-ver-e-editar-tarefas-de-outros-usuarios">Quem pode ver e editar tarefas de outros usuários?</h3>
+    <p>Gestores e administradores podem filtrar a listagem por agente específico; o perfil administrador também pode visualizar, editar e salvar alterações em tarefas de qualquer usuário da equipe.</p>
   </div>
 
   <div class="pagenav">
@@ -62,6 +276,7 @@
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

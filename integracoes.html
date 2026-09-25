@@ -10,19 +10,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="crm.html">CRM</a>
-    <a href="carrinho-sincronizado.html">Carrinho Sync</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="pabx.html">PABX &amp; Telefonia</a>
-    <a href="contatos.html">Contatos</a>
-    <a href="relatorios.html">Relatórios</a>
-    <a href="configuracoes.html">Configurações</a>
-    <a href="extensoes.html">Extensões</a>
-    <a href="integracoes.html" class="active">Integrações</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a class="active" href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -32,6 +94,44 @@
   <h1>Integrações e Automações Externas</h1>
   <p class="subtitle">Referência operacional para conectar canais, ERPs, formulários, planilhas e bases analíticas sem perder segurança, rastreabilidade e consistência dos dados.</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#visao-geral">1. Arquitetura e escolha da integração</a></li>
+      <li class="toc-h3"><a href="#padrao-recomendado-para-crm-e-erp">Padrão recomendado para CRM e ERP</a></li>
+      <li><a href="#generic-queue-2">2. Generic Queue 2</a></li>
+      <li class="toc-h3"><a href="#2-1-parametros-documentados">2.1. Parâmetros documentados</a></li>
+      <li class="toc-h3"><a href="#2-2-fluxo-bidirecional">2.2. Fluxo bidirecional</a></li>
+      <li class="toc-h3"><a href="#2-3-autenticacao-e-respostas">2.3. Autenticação e respostas</a></li>
+      <li class="toc-h3"><a href="#2-4-payloads-minimos-seguros">2.4. Payloads mínimos seguros</a></li>
+      <li class="toc-h3"><a href="#2-5-tipos-documentados">2.5. Tipos documentados</a></li>
+      <li><a href="#http-webhooks">3. Requisições HTTP, webhooks e automações</a></li>
+      <li class="toc-h3"><a href="#3-1-publicar-um-endpoint-receptor">3.1. Publicar um endpoint receptor</a></li>
+      <li class="toc-h3"><a href="#3-2-enviar-dados-por-uma-automacao">3.2. Enviar dados por uma automação</a></li>
+      <li class="toc-h3"><a href="#3-3-semantica-de-erro-e-repeticao">3.3. Semântica de erro e repetição</a></li>
+      <li><a href="#google-forms">4. Google Forms para Captura de Webhook</a></li>
+      <li class="toc-h3"><a href="#exemplo-adaptado-sem-segredo-embutido">Exemplo adaptado sem segredo embutido</a></li>
+      <li><a href="#google-sheets">5. Consulta ao Google Sheets</a></li>
+      <li class="toc-h3"><a href="#5-1-configuracao-orientada-pelo-material">5.1. Configuração orientada pelo material</a></li>
+      <li class="toc-h3"><a href="#5-2-compartilhamento-e-seguranca">5.2. Compartilhamento e segurança</a></li>
+      <li><a href="#bigquery">6. Google Cloud e BigQuery</a></li>
+      <li class="toc-h3"><a href="#6-1-preparacao-do-projeto">6.1. Preparação do projeto</a></li>
+      <li class="toc-h3"><a href="#6-2-registros-atualizados-e-historico">6.2. Registros atualizados e histórico</a></li>
+      <li class="toc-h3"><a href="#6-3-usos-e-controles">6.3. Usos e controles</a></li>
+      <li><a href="#variaveis-template">7. Variáveis em templates</a></li>
+      <li class="toc-h3"><a href="#exemplo-conceitual">Exemplo conceitual</a></li>
+      <li><a href="#seguranca">8. Segurança, privacidade e governança</a></li>
+      <li class="toc-h3"><a href="#checklist-antes-de-liberar-producao">Checklist antes de liberar produção</a></li>
+      <li><a href="#diagnostico">9. Diagnóstico e solução de problemas</a></li>
+      <li class="toc-h3"><a href="#sequencia-de-diagnostico">Sequência de diagnóstico</a></li>
+      <li><a href="#boas-praticas">10. Boas práticas de implementação</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <div class="callout warn">
     <strong>Valide na sua instância antes de implantar:</strong> a documentação de <em>Generic Queue 2</em> descreve um recurso técnico que pode ser legado, experimental ou não estar habilitado em todas as versões. Confirme com o administrador ou suporte a disponibilidade, os campos exibidos, a URL de webhook gerada e o contrato vigente. Não presuma que exemplos deste capítulo representam o estado atual da sua instalação.
   </div>
@@ -58,7 +158,7 @@
     </table>
   </div>
 
-  <h3>Padrão recomendado para CRM e ERP</h3>
+  <h3 id="padrao-recomendado-para-crm-e-erp">Padrão recomendado para CRM e ERP</h3>
   <ol class="steps">
     <li><strong>Defina uma chave de associação única:</strong> grave, nos dois sistemas, um identificador estável, como o <code>ID da Oportunidade</code>. Não use nome ou telefone como única chave de vínculo.</li>
     <li><strong>Envie mudanças em tempo real:</strong> em eventos de ganho, perda, entrada, saída ou estagnação, uma automação pode chamar a API do ERP.</li>
@@ -74,7 +174,7 @@
   <h2 id="generic-queue-2">2. Generic Queue 2</h2>
   <p>A Generic Queue 2 é descrita no material técnico como uma interface REST para transformar um sistema de mensagens externo em uma fila bidirecional. O contrato contempla texto, mídia, localização, interações, citações, leitura e estados de entrega.</p>
 
-  <h3>2.1. Parâmetros documentados</h3>
+  <h3 id="2-1-parametros-documentados">2.1. Parâmetros documentados</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Campo</th><th>Obrigatório</th><th>Finalidade</th></tr></thead>
@@ -88,7 +188,7 @@
 
   <p>Depois da criação, o material informa que a plataforma fornece uma URL única de webhook. O integrador envia para essa URL os eventos de mensagem recebida e de alteração de status. A URL exata deve ser copiada da própria instância e tratada como informação sensível.</p>
 
-  <h3>2.2. Fluxo bidirecional</h3>
+  <h3 id="2-2-fluxo-bidirecional">2.2. Fluxo bidirecional</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Origem</th><th>Destino</th><th>Operação documentada</th><th>Uso</th></tr></thead>
@@ -101,7 +201,7 @@
     </table>
   </div>
 
-  <h3>2.3. Autenticação e respostas</h3>
+  <h3 id="2-3-autenticacao-e-respostas">2.3. Autenticação e respostas</h3>
   <p>O contrato fornecido usa o header <code>Authorization</code> em todas as requisições. Armazene a chave em cofre ou variável de ambiente, nunca no código-fonte.</p>
   <pre><code>Authorization: Bearer &lt;CHAVE_ARMAZENADA_EM_SEGREDO&gt;
 Content-Type: application/json</code></pre>
@@ -121,7 +221,7 @@ Content-Type: application/json</code></pre>
   }
 }</code></pre>
 
-  <h3>2.4. Payloads mínimos seguros</h3>
+  <h3 id="2-4-payloads-minimos-seguros">2.4. Payloads mínimos seguros</h3>
   <p>Mensagem de saída recebida pelo servidor do integrador em <code>POST /messages</code>:</p>
   <pre><code>{
   "event": "message.send",
@@ -161,7 +261,7 @@ Content-Type: application/json</code></pre>
   }
 }</code></pre>
 
-  <h3>2.5. Tipos documentados</h3>
+  <h3 id="2-5-tipos-documentados">2.5. Tipos documentados</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Tipo</th><th>Campos relevantes de <code>content</code></th><th>Observação</th></tr></thead>
@@ -182,7 +282,7 @@ Content-Type: application/json</code></pre>
   <h2 id="http-webhooks">3. Requisições HTTP, webhooks e automações</h2>
   <p>Os fluxos de automação podem combinar <strong>Requisição HTTP</strong> para enviar ou buscar dados, <strong>Código JS</strong> para transformar variáveis e <strong>Captura de Webhook</strong> para receber eventos externos. Automações podem ser acionadas por eventos de oportunidade — ganho, perda, atraso, entrada, saída e estagnação — ou executadas periodicamente.</p>
 
-  <h3>3.1. Publicar um endpoint receptor</h3>
+  <h3 id="3-1-publicar-um-endpoint-receptor">3.1. Publicar um endpoint receptor</h3>
   <ol class="steps">
     <li><strong>Defina o contrato:</strong> método, caminho, headers, schema, códigos HTTP e limite de tamanho.</li>
     <li><strong>Proteja o endpoint:</strong> aceite somente HTTPS, valide autenticação antes do corpo e aplique limite de requisições.</li>
@@ -192,7 +292,7 @@ Content-Type: application/json</code></pre>
     <li><strong>Registre com segurança:</strong> use ID de correlação, código HTTP, duração e resultado; mascare tokens, telefones, conteúdo e dados pessoais.</li>
   </ol>
 
-  <h3>3.2. Enviar dados por uma automação</h3>
+  <h3 id="3-2-enviar-dados-por-uma-automacao">3.2. Enviar dados por uma automação</h3>
   <p>Monte o payload apenas com os campos necessários e utilize um domínio fictício durante a especificação:</p>
   <pre><code>POST https://api.exemplo.invalid/v1/oportunidades/sincronizar
 Authorization: Bearer &lt;SEGREDO_FORA_DO_FLUXO_E_DOS_LOGS&gt;
@@ -210,7 +310,7 @@ Idempotency-Key: oportunidade-9001-versao-7
     O domínio especial <code>.invalid</code> é usado aqui para impedir chamadas acidentais. Substitua-o somente em ambiente controlado, depois da homologação do contrato e da autorização do proprietário do sistema externo.
   </div>
 
-  <h3>3.3. Semântica de erro e repetição</h3>
+  <h3 id="3-3-semantica-de-erro-e-repeticao">3.3. Semântica de erro e repetição</h3>
   <p>No contrato documentado da Generic Queue 2, falhas de rede, timeout de 30 segundos e respostas <code>5xx</code> acionam repetição com backoff exponencial, chegando a até 15 tentativas ao longo de aproximadamente três horas. Respostas <code>4xx</code> não são repetidas; inclusive <code>429</code> é listado como falha sem retry nesse contrato específico.</p>
   <div class="table-wrap">
     <table class="doc">
@@ -241,7 +341,7 @@ Idempotency-Key: oportunidade-9001-versao-7
     <li><strong>Homologue:</strong> envie uma resposta fictícia, confirme o recebimento na captura e valide os nomes e tipos das perguntas.</li>
   </ol>
 
-  <h3>Exemplo adaptado sem segredo embutido</h3>
+  <h3 id="exemplo-adaptado-sem-segredo-embutido">Exemplo adaptado sem segredo embutido</h3>
   <pre><code>function onSubmit(e) {
   const props = PropertiesService.getScriptProperties();
   const postUrl = props.getProperty('WEBHOOK_URL');
@@ -277,7 +377,7 @@ Idempotency-Key: oportunidade-9001-versao-7
   <p>Exemplo fictício, deliberadamente não funcional:</p>
   <pre><code>GET https://sheets.googleapis.com/v4/spreadsheets/ID_PLANILHA_EXEMPLO/values/Clientes!A2:F200?key=CHAVE_RESTRITA</code></pre>
 
-  <h3>5.1. Configuração orientada pelo material</h3>
+  <h3 id="5-1-configuracao-orientada-pelo-material">5.1. Configuração orientada pelo material</h3>
   <ol class="steps">
     <li>No Google Cloud, selecione o projeto responsável pela integração.</li>
     <li>Em <strong>APIs e serviços</strong>, habilite a Google Sheets API.</li>
@@ -286,7 +386,7 @@ Idempotency-Key: oportunidade-9001-versao-7
     <li>Configure a Requisição HTTP no fluxo e trate a matriz <code>values</code> retornada.</li>
   </ol>
 
-  <h3>5.2. Compartilhamento e segurança</h3>
+  <h3 id="5-2-compartilhamento-e-seguranca">5.2. Compartilhamento e segurança</h3>
   <div class="callout warn">
     O tutorial de apoio sugere liberar a planilha para “qualquer pessoa com o link” em modo leitura. Isso torna o conteúdo acessível a quem obtiver o link e não deve ser o padrão para dados de clientes, atendimentos ou operação. Em produção, prefira identidade autenticada, conta de serviço ou OAuth com menor privilégio e compartilhe a planilha somente com essa identidade. Se a integração disponível na instância aceitar apenas chave de API e conteúdo público, use uma planilha exclusiva, sanitizada e sem dados pessoais; valide o risco com segurança e privacidade.
   </div>
@@ -302,7 +402,7 @@ Idempotency-Key: oportunidade-9001-versao-7
   <h2 id="bigquery">6. Google Cloud e BigQuery</h2>
   <p>O BigQuery recebe dados da plataforma para análise em SQL, BI e processamento em escala. O material informa que a sincronização cria um <em>dataset</em> com tabelas do sistema e ocorre diariamente de madrugada.</p>
 
-  <h3>6.1. Preparação do projeto</h3>
+  <h3 id="6-1-preparacao-do-projeto">6.1. Preparação do projeto</h3>
   <ol class="steps">
     <li><strong>Crie ou selecione o projeto:</strong> copie o ID do projeto; ele será usado no campo <code>ProjectID do BigQuery</code>.</li>
     <li><strong>Prepare uma conta de serviço:</strong> conceda somente as permissões necessárias para criar/escrever no dataset previsto. O material cita <em>Proprietário de Dados BigQuery</em>, mas esse papel é amplo; valide um conjunto de menor privilégio com a equipe Google Cloud.</li>
@@ -316,7 +416,7 @@ Idempotency-Key: oportunidade-9001-versao-7
     <strong><code>Auth Key</code> é segredo:</strong> o JSON pode conter uma chave privada. Cole-o somente no campo oficial da instância; nunca o anexe a chamado, e-mail, documento ou repositório. Se houver exposição, revogue a chave no Google Cloud, crie outra e atualize a integração.
   </div>
 
-  <h3>6.2. Registros atualizados e histórico</h3>
+  <h3 id="6-2-registros-atualizados-e-historico">6.2. Registros atualizados e histórico</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Opção “Excluir registros atualizados”</th><th>Comportamento descrito</th><th>Indicação</th></tr></thead>
@@ -329,7 +429,7 @@ Idempotency-Key: oportunidade-9001-versao-7
 
   <p>Ao trocar o projeto de uma instância já sincronizada, o material orienta substituir os dados, acionar <strong>Limpar sincronização</strong> e reiniciar a instância. Essa é uma operação administrativa com impacto; agende janela, registre o projeto anterior e confirme com suporte o procedimento vigente antes de executar.</p>
 
-  <h3>6.3. Usos e controles</h3>
+  <h3 id="6-3-usos-e-controles">6.3. Usos e controles</h3>
   <ul>
     <li>Conectar Looker Studio, Tableau, Power BI ou Google Sheets para visualização, respeitando os controles de acesso.</li>
     <li>Executar SQL e rotinas de ETL; evitar <code>SELECT *</code> em tabelas grandes para reduzir custo.</li>
@@ -349,7 +449,7 @@ Idempotency-Key: oportunidade-9001-versao-7
     <li><strong>Teste:</strong> confira ordem, conteúdo ausente, tamanho e formatação com dados fictícios antes do disparo real.</li>
   </ol>
 
-  <h3>Exemplo conceitual</h3>
+  <h3 id="exemplo-conceitual">Exemplo conceitual</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Camada</th><th>Configuração fictícia</th></tr></thead>
@@ -386,7 +486,7 @@ Idempotency-Key: oportunidade-9001-versao-7
     </table>
   </div>
 
-  <h3>Checklist antes de liberar produção</h3>
+  <h3 id="checklist-antes-de-liberar-producao">Checklist antes de liberar produção</h3>
   <ol class="steps">
     <li>Responsável técnico e proprietário dos dados identificados.</li>
     <li>Contrato de campos, tipos, códigos HTTP e versionamento aprovado.</li>
@@ -416,7 +516,7 @@ Idempotency-Key: oportunidade-9001-versao-7
     </table>
   </div>
 
-  <h3>Sequência de diagnóstico</h3>
+  <h3 id="sequencia-de-diagnostico">Sequência de diagnóstico</h3>
   <ol class="steps">
     <li><strong>Correlacione:</strong> localize um único evento pelo <code>messageId</code>, ID da oportunidade ou ID de execução.</li>
     <li><strong>Confirme a direção:</strong> determine se a falha está na saída da plataforma, no receptor externo ou no retorno por webhook.</li>
@@ -456,6 +556,7 @@ Idempotency-Key: oportunidade-9001-versao-7
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
   <p>Contratos técnicos e recursos podem variar por versão e instância; valide antes de implantar.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

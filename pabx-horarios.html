@@ -9,19 +9,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="pabx.html">Portal PABX</a>
-    <a href="pabx-troncos.html">Troncos SIP</a>
-    <a href="pabx-rotas.html">Rotas</a>
-    <a href="pabx-ramais.html">Ramais</a>
-    <a href="pabx-filas.html">Filas</a>
-    <a href="pabx-ura-audios.html">URAs & Áudios</a>
-    <a href="pabx-horarios.html" class="active">Horários</a>
-    <a href="pabx-custom.html">Custom & ARI</a>
-    <a href="pabx-cdr-auditoria.html">CDR</a>
-    <a href="pabx-cli-troubleshooting.html">CLI & Debug</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a class="active" href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -31,7 +93,28 @@
   <h1>Condições de Horário (Time Conditions & Time Groups)</h1>
   <p class="subtitle">Como automatizar a abertura e o fechamento da central telefônica por dia e horário, tratar feriados e configurar códigos de sobreposição manual.</p>
 
-  <h2>1. Visão Geral do Controle Temporal</h2>
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-visao-geral-do-controle-temporal">1. Visão Geral do Controle Temporal</a></li>
+      <li><a href="#2-passo-1-criando-o-time-group-applications-time-groups">2. Passo 1: Criando o Time Group (`Applications › Time Groups`)</a></li>
+      <li><a href="#3-passo-2-criando-a-time-condition-applications-time-conditions">3. Passo 2: Criando a Time Condition (`Applications › Time Conditions`)</a></li>
+      <li><a href="#4-modulo-de-horario-de-atendimento-da-plataforma-v13">4. Módulo de Horário de Atendimento da Plataforma (v13+)</a></li>
+      <li class="toc-h3"><a href="#4-1-feriados">4.1 Feriados</a></li>
+      <li class="toc-h3"><a href="#4-2-horario-de-atendimento">4.2 Horário de Atendimento</a></li>
+      <li class="toc-h3"><a href="#4-3-prioridade-do-sistema-para-o-expediente">4.3 Prioridade do Sistema para o Expediente</a></li>
+      <li><a href="#5-aplicacao-do-horario-em-filas-usuarios-e-uras">5. Aplicação do Horário em Filas, Usuários e URAs</a></li>
+      <li class="toc-h3"><a href="#filas">Filas</a></li>
+      <li class="toc-h3"><a href="#usuarios-agentes-e-supervisores">Usuários (Agentes e Supervisores)</a></li>
+      <li class="toc-h3"><a href="#uras-e-fluxos-de-automacao">URAs e Fluxos de Automação</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
+  <h2 id="1-visao-geral-do-controle-temporal">1. Visão Geral do Controle Temporal</h2>
   <p>As <strong>Condições de Horário</strong> garantem que os clientes sejam atendidos pela equipe durante o expediente e recebam mensagens adequadas quando ligarem fora do horário comercial, à noite ou aos finais de semana e feriados.</p>
 
   <p>A configuração opera sempre em duas etapas complementares:</p>
@@ -42,7 +125,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>2. Passo 1: Criando o Time Group (`Applications › Time Groups`)</h2>
+  <h2 id="2-passo-1-criando-o-time-group-applications-time-groups">2. Passo 1: Criando o Time Group (`Applications › Time Groups`)</h2>
   <p>Acesse <code>Applications › Time Groups › + Add Time Group</code> e cadastre as faixas de trabalho da empresa:</p>
 
   <div class="table-wrap">
@@ -58,7 +141,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>3. Passo 2: Criando a Time Condition (`Applications › Time Conditions`)</h2>
+  <h2 id="3-passo-2-criando-a-time-condition-applications-time-conditions">3. Passo 2: Criando a Time Condition (`Applications › Time Conditions`)</h2>
   <p>Acesse <code>Applications › Time Conditions › + Add Time Condition</code> e configure os destinos de atendimento:</p>
 
   <div class="table-wrap">
@@ -80,14 +163,14 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>4. Módulo de Horário de Atendimento da Plataforma (v13+)</h2>
+  <h2 id="4-modulo-de-horario-de-atendimento-da-plataforma-v13">4. Módulo de Horário de Atendimento da Plataforma (v13+)</h2>
   <p>Além das <strong>Time Conditions</strong> do FreePBX (tratadas nos passos 1 a 3), o Sistema de Atendimento conta, desde a <strong>versão 13</strong>, com um <strong>módulo nativo de Horário de Atendimento</strong>. Ele é integrado ao resto do sistema e dispensa as antigas "Tabelas de Horário" espalhadas em cada fluxo. A parametrização fica em <code>Cadastros › Horários</code>.</p>
 
   <div class="callout info">
     <strong>Os dois mecanismos convivem.</strong> As Time Conditions do FreePBX controlam o roteamento das <em>rotas de entrada</em> (telefonia). O módulo nativo da plataforma controla o expediente de <strong>filas, usuários e fluxos de URA/automação</strong>. Use cada um na camada correspondente.
   </div>
 
-  <h3>4.1 Feriados</h3>
+  <h3 id="4-1-feriados">4.1 Feriados</h3>
   <p>Em <code>Cadastros › Horários › Feriados</code> são registrados todos os feriados considerados pela empresa. Após cadastrados, ficam em uma lista com resumo das informações e a chave <strong>Ativo</strong>.</p>
 
   <div class="table-wrap">
@@ -103,7 +186,7 @@
     </table>
   </div>
 
-  <h3>4.2 Horário de Atendimento</h3>
+  <h3 id="4-2-horario-de-atendimento">4.2 Horário de Atendimento</h3>
   <p>Em <code>Cadastros › Horários › Horário de Atendimento</code> são criados os expedientes, com comportamento próprio para feriados e datas especiais. É possível ter vários expedientes (por exemplo, um por setor).</p>
 
   <div class="table-wrap">
@@ -126,7 +209,7 @@
     <strong>Regras de preenchimento da aba Semanal:</strong> os períodos <strong>não podem se sobrepor</strong> e os horários devem seguir ordem <strong>cronológica</strong>.
   </div>
 
-  <h3>4.3 Prioridade do Sistema para o Expediente</h3>
+  <h3 id="4-3-prioridade-do-sistema-para-o-expediente">4.3 Prioridade do Sistema para o Expediente</h3>
   <p>Quando existem várias configurações aplicáveis ao mesmo dia, o sistema decide nesta ordem:</p>
   <ol>
     <li><strong>Data Especial:</strong> tem a maior prioridade. Se existir uma data especial para o dia atual, ela é considerada acima de qualquer outra configuração.</li>
@@ -136,10 +219,10 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>5. Aplicação do Horário em Filas, Usuários e URAs</h2>
+  <h2 id="5-aplicacao-do-horario-em-filas-usuarios-e-uras">5. Aplicação do Horário em Filas, Usuários e URAs</h2>
   <p>O Horário de Atendimento é vinculado por campo próprio em cada contexto. Em todos eles, o critério do módulo tem <strong>prioridade sobre as tabelas de horário antigas</strong>, que só são avaliadas quando não há horário definido (ou quando o item já está dentro dos conformes).</p>
 
-  <h3>Filas</h3>
+  <h3 id="filas">Filas</h3>
   <p>Na aba <strong>Configurações</strong> de cada fila há o campo <strong>Horário de Atendimento</strong> — o horário selecionado é aplicado aos chats vindos por aquela fila. A ordem de avaliação é:</p>
   <ol>
     <li><strong>Horário de Atendimento da fila:</strong> primeiro critério, se definido nas configurações da fila.</li>
@@ -147,14 +230,14 @@
     <li><strong>Tabela de Horários da URA:</strong> considerada se não houver horário de atendimento nem tabela configurada diretamente na fila, ou se estiverem dentro dos conformes.</li>
   </ol>
 
-  <h3>Usuários (Agentes e Supervisores)</h3>
+  <h3 id="usuarios-agentes-e-supervisores">Usuários (Agentes e Supervisores)</h3>
   <p>Nas configurações gerais do usuário há o campo <strong>Horário de Atendimento</strong>, que define o expediente considerado para o login. A ordem de avaliação é:</p>
   <ol>
     <li><strong>Horário de Atendimento do usuário:</strong> primeiro critério, se definido nas configurações do usuário.</li>
     <li><strong>Tabela de Horário do Usuário:</strong> avaliada se não houver horário de atendimento, ou se o item estiver dentro dos conformes, para determinar o expediente em que o usuário é autorizado a logar.</li>
   </ol>
 
-  <h3>URAs e Fluxos de Automação</h3>
+  <h3 id="uras-e-fluxos-de-automacao">URAs e Fluxos de Automação</h3>
   <p>Durante a criação de URAs ou fluxos, o expediente é aplicado por um elemento nativo do módulo, configurado com o <strong>ID do Horário de Atendimento</strong> desejado. O sistema valida automaticamente todas as definições de dias e datas para o momento atual e direciona para o fluxo <strong>"Aberto"</strong> ou <strong>"Fechado"</strong>.</p>
 
   <div class="table-wrap">
@@ -180,6 +263,7 @@
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Módulo de Telefonia e PABX.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

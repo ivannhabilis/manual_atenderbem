@@ -4,22 +4,87 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contatos e Empresas — Manual Omnichannel</title>
+<meta name="description" content="Módulo de Contatos e Empresas do AtenderBem: grade de contatos, filtros, grupos de contatos e controle de acesso, etiquetas e integração com CRM e Tickets.">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="crm.html">CRM</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="pabx.html">PABX & Telefonia</a>
-    <a href="contatos.html" class="active">Contatos</a>
-    <a href="relatorios.html">Relatórios</a>
-    <a href="relatorios-personalizados.html">Personalizados</a>
-    <a href="configuracoes.html">Configurações</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a class="active" href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -27,49 +92,95 @@
   <div class="breadcrumb"><a href="index.html">Início</a> › Contatos e Empresas</div>
 
   <h1>Contatos e Empresas</h1>
-  <p class="subtitle">Gerencie a base de clientes: visualize, filtre, importe, exporte e trate duplicados.</p>
+  <p class="subtitle">Consulte a base de clientes, alterne entre contatos e empresas e controle quem acessa cada contato.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-visao-geral">1. Visão geral</a></li>
+      <li><a href="#2-colunas-da-grade-de-contatos">2. Colunas da grade de contatos</a></li>
+      <li><a href="#3-ferramentas-e-filtros-observados">3. Ferramentas e filtros observados</a></li>
+      <li><a href="#4-grupos-de-contatos-e-controle-de-acesso">4. Grupos de Contatos e controle de acesso</a></li>
+      <li><a href="#5-contatos-nos-demais-modulos">5. Contatos nos demais módulos</a></li>
+      <li><a href="#6-limites-da-evidencia">6. Limites da evidência</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
+  <div class="callout info">
+    <strong>Fontes deste capítulo:</strong> observação da interface <strong>Contacts</strong>, o documento de apoio <em>🔐Grupos de Acesso</em> (seção “Agenda de Contatos”) e as definições do Manual de Uso oficial. O que não pôde ser confirmado está marcado explicitamente.
+  </div>
 
   <figure class="figure">
     <img src="assets/contacts.png" alt="Lista de Contatos em grade">
     <figcaption>Grade de contatos com 510 registros, filtros por coluna e ações em lote.</figcaption>
   </figure>
 
-  <h2>1. Visão geral</h2>
+  <h2 id="1-visao-geral">1. Visão geral</h2>
   <p>O módulo <strong>Contacts</strong> é a base de dados de pessoas e empresas que interagem com a plataforma. Ele possui duas abas principais:</p>
   <ul>
     <li><strong>Contacts</strong> — pessoas físicas/clientes.</li>
     <li><strong>Companies</strong> — empresas.</li>
   </ul>
 
-  <h2>2. Colunas da grade de contatos</h2>
-  <table class="doc">
-    <thead><tr><th>Coluna</th><th>Conteúdo</th></tr></thead>
-    <tbody>
-      <tr><td>ID</td><td>Identificador do contato.</td></tr>
-      <tr><td>Name</td><td>Nome do contato.</td></tr>
-      <tr><td>Number</td><td>Telefone/número.</td></tr>
-      <tr><td>Document</td><td>Documento (CPF/CNPJ) quando preenchido.</td></tr>
-      <tr><td>Instagram</td><td>Usuário do Instagram, se houver.</td></tr>
-      <tr><td>Tags</td><td>Rótulos de classificação.</td></tr>
-      <tr><td>Preferred agents</td><td>Agentes preferidos para aquele contato.</td></tr>
-      <tr><td>Company</td><td>Empresa vinculada.</td></tr>
-      <tr><td>Functions</td><td>Ações (editar, etc.).</td></tr>
-    </tbody>
-  </table>
+  <h2 id="2-colunas-da-grade-de-contatos">2. Colunas da grade de contatos</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Coluna</th><th>Conteúdo</th></tr></thead>
+      <tbody>
+        <tr><td>ID</td><td>Identificador do contato.</td></tr>
+        <tr><td>Name</td><td>Nome do contato.</td></tr>
+        <tr><td>Number</td><td>Telefone/número.</td></tr>
+        <tr><td>Document</td><td>Documento (CPF/CNPJ) quando preenchido.</td></tr>
+        <tr><td>Instagram</td><td>Usuário do Instagram, se houver.</td></tr>
+        <tr><td>Tags</td><td>Rótulos de classificação.</td></tr>
+        <tr><td>Preferred agents (rótulo truncado na captura)</td><td>Campos de preferência/agente de referência do contato. O rótulo completo e seu conteúdo <strong>não foram confirmados</strong> — na captura o cabeçalho estava parcialmente encoberto pelo painel “My tasks”.</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <h2>3. Ações da barra de ferramentas</h2>
+  <h2 id="3-ferramentas-e-filtros-observados">3. Ferramentas e filtros observados</h2>
   <ul>
-    <li><strong>Manage duplicates</strong> — gerencia e une contatos duplicados.</li>
-    <li><strong>Import</strong> — importa contatos (ex.: planilha).</li>
-    <li><strong>Export all</strong> — exporta todos os contatos.</li>
-    <li><strong>Add</strong> — adiciona um contato manualmente.</li>
+    <li><strong>Manage duplicates</strong> — botão parcialmente encoberto pelo painel de tarefas na captura; o rótulo foi identificado como “Manage duplicates”. O comportamento <strong>não foi acionado</strong> nesta inspeção somente leitura.</li>
+    <li><strong>Seleção em lote</strong> — há uma caixa de seleção no cabeçalho e uma por linha visível.</li>
+    <li><strong>Filtros por coluna</strong> — há ícones de lupa abaixo de <em>ID, Name, Number, Document, Instagram, Tags</em> e <em>Preferred agents</em>.</li>
   </ul>
 
-  <h2>4. Filtros e paginação</h2>
-  <p>Cada coluna possui um ícone de lupa para filtrar valores específicos. A grade é paginada (no exemplo, 510 registros distribuídos em 51 páginas). Use a navegação de páginas na parte inferior.</p>
+  <h2 id="4-grupos-de-contatos-e-controle-de-acesso">4. Grupos de Contatos e controle de acesso</h2>
+  <p>Conforme o documento de apoio <em>Grupos de Acesso</em>, na área de agenda de contatos o recurso chama-se <strong>Grupo de Contatos</strong>. Ele serve para segmentar a base de clientes, definindo <strong>quais usuários podem acessar determinados contatos</strong>.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Situação</th><th>Comportamento conforme o material de origem</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Contato vinculado a um Grupo de Contatos</strong></td><td>Fica acessível aos usuários que pertencem àquele grupo de acesso.</td></tr>
+        <tr><td><strong>Permissão “Acesso a todos os contatos” ativa</strong></td><td><strong>Exceção:</strong> o usuário consegue visualizar a agenda completa, independentemente do grupo de acesso configurado.</td></tr>
+        <tr><td><strong>Administradores</strong></td><td>Não são afetados por restrições: administradores são membros automáticos de todos os grupos e possuem acesso a todas as funcionalidades.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout tip">
+    <strong>Onde configurar:</strong> a criação do grupo e a vinculação de membros são feitas em <a href="configuracoes.html">Configurações</a> → <em>Grupos de Acesso</em> (criação do grupo) e no cadastro individual de cada usuário, no campo “Grupos de acesso”. Consulte também o capítulo de <a href="configuracoes.html">Configurações</a>.
+  </div>
 
+  <h2 id="5-contatos-nos-demais-modulos">5. Contatos nos demais módulos</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Relação</th><th>O que o acervo informa</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Etiquetas</strong></td><td>Segundo o Manual de Uso oficial, etiquetas são rótulos que podem ser atribuídos a <em>contatos, empresas, oportunidades de vendas, tickets de suporte</em> e outros registros, para organizar, categorizar e filtrar informações.</td></tr>
+        <tr><td><strong>Tickets por e-mail</strong></td><td>O envio de e-mails de ticket exige que o contato do cliente possua endereço de e-mail cadastrado (<code>Contatos &gt; Cadastro do Cliente &gt; Campo E-mail</code>). É um pré-requisito das notificações automáticas — detalhes no capítulo de <a href="tickets.html">Tickets</a>.</td></tr>
+        <tr><td><strong>CRM e tarefas</strong></td><td>Ao criar uma tarefa dentro do card de uma oportunidade, o contato associado é vinculado automaticamente. Veja <a href="crm.html">CRM e Funil de Vendas</a> e <a href="tarefas.html">Tarefas</a>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="6-limites-da-evidencia">6. Limites da evidência</h2>
+  <p>A aba <strong>Contacts</strong> possuía registros visíveis; a aba <strong>Companies</strong> estava disponível, mas não foi aberta na captura. A paginação não estava na área visível. Ações de importação, exportação, inclusão e edição <strong>não foram confirmadas</strong> nesta varredura e não devem ser inferidas a partir da tela.</p>
   <div class="callout info">
-    <strong>Observado:</strong> a base de exemplo continha 510 contatos, com campos como WhatsApp, documento e Instagram. Muitos registros aparecem como “No agent” (sem agente preferido definido).
+    <strong>Observado:</strong> a captura contém contatos com campos como número, documento e Instagram. O cabeçalho “Preferred agents” estava truncado pela sobreposição do painel “My tasks”; o nome completo do campo não foi confirmado.
   </div>
 
   <div class="pagenav">
@@ -81,6 +192,7 @@
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

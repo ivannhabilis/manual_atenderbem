@@ -37,5 +37,6 @@ if [ -n "${1:-}" ] && [ -n "$(git status --porcelain)" ]; then
 fi
 
 echo "Enviando para o GitHub (branch main)..."
-git push "${REPO_URL/\/\/github.com/\/\/x-access-token:${TOKEN}@github.com}" main
+PUSH_URL="https://x-access-token:${TOKEN}@${REPO_URL#https://}"
+git push "$PUSH_URL" main
 echo "OK: push concluído."

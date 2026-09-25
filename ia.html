@@ -3,25 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Capítulo de Inteligência Artificial do Manual Omnichannel AtenderBem / Habilis: IA Básica e IA Avançada, assistentes, conhecimento, funções, URAs, voz, consumo, segurança, troubleshooting e as novidades dos Assistentes de IA da v14.1 e patches 14.1.x.">
 <title>Inteligência Artificial — Manual Omnichannel</title>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="crm.html">CRM</a>
-    <a href="carrinho-sincronizado.html">Carrinho Sync</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="pabx.html">PABX &amp; Telefonia</a>
-    <a href="contatos.html">Contatos</a>
-    <a href="relatorios.html">Relatórios</a>
-    <a href="configuracoes.html">Configurações</a>
-    <a href="ia.html" class="active">IA</a>
-    <a href="extensoes.html">Extensões</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a class="active" href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -31,11 +94,64 @@
   <h1>Inteligência Artificial: IA Básica e IA Avançada</h1>
   <p class="subtitle">Configuração, operação, assistentes, conhecimento, funções, URAs, voz, consumo, segurança e diagnóstico no AtenderBem.</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-arquitetura-dos-recursos-de-ia">1. Arquitetura dos recursos de IA</a></li>
+      <li><a href="#2-ia-basica-recursos-por-fila">2. IA Básica: recursos por fila</a></li>
+      <li class="toc-h3"><a href="#2-1-analise-automatica-no-encerramento">2.1 Análise automática no encerramento</a></li>
+      <li class="toc-h3"><a href="#2-2-humor-e-risco-de-insatisfacao">2.2 Humor e risco de insatisfação</a></li>
+      <li class="toc-h3"><a href="#2-3-insultos-e-ofensas-enviados-pela-equipe">2.3 Insultos e ofensas enviados pela equipe</a></li>
+      <li><a href="#3-configuracao-da-ia-basica">3. Configuração da IA Básica</a></li>
+      <li><a href="#4-provedores-chaves-e-modelos-na-ia-avancada">4. Provedores, chaves e modelos na IA Avançada</a></li>
+      <li class="toc-h3"><a href="#4-1-capacidades-atribuidas-aos-modelos-no-material">4.1 Capacidades atribuídas aos modelos no material</a></li>
+      <li><a href="#5-tipos-de-assistente-e-ciclo-operacional">5. Tipos de assistente e ciclo operacional</a></li>
+      <li class="toc-h3"><a href="#5-1-geral-identidade-modelo-e-comportamento">5.1 Geral: identidade, modelo e comportamento</a></li>
+      <li class="toc-h3"><a href="#5-2-pre-processamento-e-pos-processamento">5.2 Pré-processamento e pós-processamento</a></li>
+      <li><a href="#6-base-de-conhecimento-e-procedimentos">6. Base de conhecimento e procedimentos</a></li>
+      <li class="toc-h3"><a href="#6-1-conhecimento-recuperavel">6.1 Conhecimento recuperável</a></li>
+      <li class="toc-h3"><a href="#6-2-procedimentos">6.2 Procedimentos</a></li>
+      <li><a href="#7-funcoes-conectores-e-mcp">7. Funções, conectores e MCP</a></li>
+      <li class="toc-h3"><a href="#7-1-funcoes-do-assistente">7.1 Funções do assistente</a></li>
+      <li class="toc-h3"><a href="#7-2-conectores-nativos-citados">7.2 Conectores nativos citados</a></li>
+      <li class="toc-h3"><a href="#7-3-mcp-model-context-protocol">7.3 MCP (Model Context Protocol)</a></li>
+      <li><a href="#8-ia-em-automacoes-e-uras">8. IA em automações e URAs</a></li>
+      <li class="toc-h3"><a href="#8-1-publicacao-de-um-assistente-em-ura">8.1 Publicação de um assistente em URA</a></li>
+      <li class="toc-h3"><a href="#8-2-estrategia-hibrida-para-midia">8.2 Estratégia híbrida para mídia</a></li>
+      <li class="toc-h3"><a href="#8-3-resposta-em-audio-no-chat">8.3 Resposta em áudio no chat</a></li>
+      <li><a href="#9-voz-e-realtime">9. Voz e Realtime</a></li>
+      <li><a href="#10-ajustes-avancados-do-modelo">10. Ajustes avançados do modelo</a></li>
+      <li><a href="#11-observabilidade-testes-e-qualidade">11. Observabilidade, testes e qualidade</a></li>
+      <li class="toc-h3"><a href="#11-1-langfuse">11.1 Langfuse</a></li>
+      <li class="toc-h3"><a href="#11-2-indicadores-do-assistente">11.2 Indicadores do assistente</a></li>
+      <li class="toc-h3"><a href="#11-3-simulador">11.3 Simulador</a></li>
+      <li><a href="#12-limites-seguranca-e-controle-de-custos">12. Limites, segurança e controle de custos</a></li>
+      <li><a href="#13-troubleshooting">13. Troubleshooting</a></li>
+      <li><a href="#14-novidades-dos-assistentes-de-ia-v14-1-e-patches-14-1-x">14. Novidades dos Assistentes de IA (v14.1 e patches 14.1.x)</a></li>
+      <li class="toc-h3"><a href="#14-1-subagentes">14.1 Subagentes</a></li>
+      <li class="toc-h3"><a href="#14-2-busca-de-ferramentas-nos-assistentes">14.2 Busca de ferramentas nos assistentes</a></li>
+      <li class="toc-h3"><a href="#14-3-novos-provedores-e-modelos-de-llm">14.3 Novos provedores e modelos de LLM</a></li>
+      <li class="toc-h3"><a href="#14-4-novos-endpoints">14.4 Novos endpoints</a></li>
+      <li class="toc-h3"><a href="#14-5-melhorias-no-mcp">14.5 Melhorias no MCP</a></li>
+      <li class="toc-h3"><a href="#14-6-novas-variaveis-com-dados-de-campanhas-instagram">14.6 Novas variáveis com dados de campanhas (Instagram)</a></li>
+      <li class="toc-h3"><a href="#14-7-novos-presets-de-assistente-14-1-4">14.7 Novos presets de assistente (14.1.4)</a></li>
+      <li class="toc-h3"><a href="#14-8-pre-carregar-procedimentos-no-inicio-do-atendimento">14.8 Pré-carregar procedimentos no início do atendimento</a></li>
+      <li class="toc-h3"><a href="#14-9-follow-up-automatico-em-atendimento-externo">14.9 Follow-up automático em atendimento externo</a></li>
+      <li class="toc-h3"><a href="#14-10-delay-e-agregacao-de-mensagens-em-filas-cloud-api-14-1-10">14.10 Delay e agregação de mensagens em filas Cloud API (14.1.10)</a></li>
+      <li class="toc-h3"><a href="#14-11-configuracoes-de-assistente-ligadas-a-estas-novidades">14.11 Configurações de assistente ligadas a estas novidades</a></li>
+      <li><a href="#15-checklist-de-implantacao-e-boas-praticas">15. Checklist de implantação e boas práticas</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <div class="callout warn">
     <strong>Escopo e atualidade:</strong> este capítulo consolida os módulos “IA Básica”, “IA Avançada/Premium”, o webinar de IA e o Manual de Uso oficial fornecidos com o projeto. O acervo é histórico. Nomes de planos, preços, modelos, limites e disponibilidade devem ser confirmados na instância e com o provedor antes de uma implantação. Modelos citados abaixo são os exemplos registrados no material de origem, não uma promessa de compatibilidade atual.
   </div>
 
-  <h2>1. Arquitetura dos recursos de IA</h2>
+  <h2 id="1-arquitetura-dos-recursos-de-ia">1. Arquitetura dos recursos de IA</h2>
   <p>Os materiais separam a inteligência artificial em dois níveis. A <strong>IA Básica</strong> assiste o trabalho do agente e executa análises operacionais por fila. A <strong>IA Avançada (Premium)</strong> acrescenta assistentes conversacionais, ferramentas, conectores, procedimentos, processamento em fluxos e participação em URAs.</p>
 
   <div class="table-wrap">
@@ -55,7 +171,7 @@
     <strong>Token:</strong> o webinar define token como uma fração de palavra e usa a aproximação de <strong>0,75 palavra por token</strong>. Essa relação é apenas estimativa operacional; contexto, histórico, arquivos recuperados e tamanho da resposta também afetam o consumo.
   </div>
 
-  <h2>2. IA Básica: recursos por fila</h2>
+  <h2 id="2-ia-basica-recursos-por-fila">2. IA Básica: recursos por fila</h2>
   <p>As opções são habilitadas individualmente em cada fila, permitindo políticas distintas para setores como Vendas, Suporte ou Financeiro.</p>
 
   <div class="table-wrap">
@@ -76,7 +192,7 @@
     <strong>Condição registrada no Manual de Uso:</strong> o resumo é disponibilizado depois de mais de quatro mensagens, com pelo menos uma mensagem do atendente e uma do cliente/lead. Como os módulos mais recentes não repetem essa condição, trate-a como comportamento descrito no material de origem e valide na instância.
   </div>
 
-  <h3>2.1 Análise automática no encerramento</h3>
+  <h3 id="2-1-analise-automatica-no-encerramento">2.1 Análise automática no encerramento</h3>
   <p>Com <strong>Analisar atendimentos no encerramento</strong> ativo, o sistema processa a conversa concluída e produz:</p>
   <ul>
     <li>resumo do atendimento;</li>
@@ -87,10 +203,10 @@
   </ul>
   <p>Uma automação pode ser executada depois da análise. O módulo de origem exemplifica a variável <code>ai_result_score</code>: uma nota baixa pode abrir um atendimento prioritário para retenção, alertar a supervisão ou orientar outra ação; a mesma lógica pode reconhecer avaliações positivas.</p>
 
-  <h3>2.2 Humor e risco de insatisfação</h3>
+  <h3 id="2-2-humor-e-risco-de-insatisfacao">2.2 Humor e risco de insatisfação</h3>
   <p>A avaliação de humor acompanha a escrita recebida e pode disparar automações separadas para um cliente <strong>levemente insatisfeito</strong> ou <strong>muito insatisfeito/nervoso</strong>. Os exemplos do material incluem prevenção, aviso à supervisão e intervenção.</p>
 
-  <h3>2.3 Insultos e ofensas enviados pela equipe</h3>
+  <h3 id="2-3-insultos-e-ofensas-enviados-pela-equipe">2.3 Insultos e ofensas enviados pela equipe</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Modo</th><th>Efeito</th></tr></thead>
@@ -104,7 +220,7 @@
     <strong>Latência:</strong> o bloqueio preventivo precisa verificar cada mensagem antes da transmissão e pode introduzir um pequeno atraso no envio. Meça esse efeito na fila antes de expandir a política.
   </div>
 
-  <h2>3. Configuração da IA Básica</h2>
+  <h2 id="3-configuracao-da-ia-basica">3. Configuração da IA Básica</h2>
   <ol class="steps">
     <li><strong>Abra a fila:</strong> acesse <strong>Configurações &gt; Filas</strong>, localize a fila, abra sua edição e entre em <strong>Configurações de IA</strong>.</li>
     <li><strong>Ative somente o necessário:</strong> selecione extração, reescrita, áudio, OCR, sugestões e resumo conforme o processo da fila.</li>
@@ -119,7 +235,7 @@
     <strong>Plano Lite:</strong> transcrição, reescrita e resumos manuais são citados como funções diretas que permanecem ativas. Fluxos pós-análise, alertas de humor e demais gatilhos dependem do motor de automações e, conforme o material, não executam em instâncias Lite.
   </div>
 
-  <h2>4. Provedores, chaves e modelos na IA Avançada</h2>
+  <h2 id="4-provedores-chaves-e-modelos-na-ia-avancada">4. Provedores, chaves e modelos na IA Avançada</h2>
   <p>A IA Avançada conecta a instância às contas do próprio cliente. Os provedores explicitamente citados são <strong>OpenAI</strong>, <strong>Google AI / Gemini</strong> e <strong>Groq</strong>. O cadastro geral documentado é:</p>
   <ol class="steps">
     <li>No painel do provedor, crie a conta/projeto, habilite faturamento quando necessário e gere a chave de API.</li>
@@ -133,7 +249,7 @@
     <strong>Não copie catálogos antigos como configuração atual:</strong> o Manual de Uso cita Gemini 1.5 Pro, Gemini 1.5 Flash e Gemini 1.5 Flash 8B; o módulo avançado usa como exemplos Gemini 2.5 Flash, GPT-4o-mini e uma voz chamada Puck. Todos são registros do material de origem. A oferta do provedor e as opções exibidas pela instância podem ter mudado.
   </div>
 
-  <h3>4.1 Capacidades atribuídas aos modelos no material</h3>
+  <h3 id="4-1-capacidades-atribuidas-aos-modelos-no-material">4.1 Capacidades atribuídas aos modelos no material</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Família / exemplo</th><th>Uso descrito</th><th>Ressalva</th></tr></thead>
@@ -146,7 +262,7 @@
     </table>
   </div>
 
-  <h2>5. Tipos de assistente e ciclo operacional</h2>
+  <h2 id="5-tipos-de-assistente-e-ciclo-operacional">5. Tipos de assistente e ciclo operacional</h2>
   <p>Com o módulo avançado habilitado, o menu <strong>Assistentes</strong> fica disponível. O material descreve três papéis:</p>
   <ul>
     <li><strong>Atendimento reativo:</strong> conversa com o cliente por texto e, quando habilitado, processa imagens, PDFs e áudios; pode ser acionado em uma fila ou por URA.</li>
@@ -154,7 +270,7 @@
     <li><strong>Copiloto de usuário:</strong> fica associado ao operador e atua como consultor interno para pesquisar vendas, procedimentos e políticas durante o atendimento humano.</li>
   </ul>
 
-  <h3>5.1 Geral: identidade, modelo e comportamento</h3>
+  <h3 id="5-1-geral-identidade-modelo-e-comportamento">5.1 Geral: identidade, modelo e comportamento</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Campo</th><th>Função e orientação documentada</th></tr></thead>
@@ -173,14 +289,14 @@
     </table>
   </div>
 
-  <h3>5.2 Pré-processamento e pós-processamento</h3>
+  <h3 id="5-2-pre-processamento-e-pos-processamento">5.2 Pré-processamento e pós-processamento</h3>
   <ul>
     <li><strong>Pré-processamento:</strong> roda para cada entrada antes que ela chegue ao assistente. O exemplo principal transforma áudio em texto e injeta a transcrição no contexto.</li>
     <li><strong>Pós-processamento:</strong> intercepta cada saída antes do cliente. Pode filtrar, formatar, auditar, chamar integrações ou converter texto em áudio. Com resposta fracionada, é executado para cada bloco.</li>
   </ul>
 
-  <h2>6. Base de conhecimento e procedimentos</h2>
-  <h3>6.1 Conhecimento recuperável</h3>
+  <h2 id="6-base-de-conhecimento-e-procedimentos">6. Base de conhecimento e procedimentos</h2>
+  <h3 id="6-1-conhecimento-recuperavel">6.1 Conhecimento recuperável</h3>
   <p>A aba <strong>Conhecimento</strong> separa material factual do contexto comportamental. Sua descrição informa ao modelo o que existe na base. As fontes documentadas são <strong>FAQs individuais</strong>, <strong>grupos de FAQs</strong>, <strong>grupos de produtos</strong> e anexos <strong>PDF, DOCX e TXT</strong>.</p>
   <ol class="steps">
     <li>Escreva uma descrição curta e fiel do conteúdo disponível.</li>
@@ -190,18 +306,18 @@
     <li>Teste perguntas conhecidas e acompanhe as dúvidas não respondidas para corrigir lacunas.</li>
   </ol>
 
-  <h3>6.2 Procedimentos</h3>
+  <h3 id="6-2-procedimentos">6.2 Procedimentos</h3>
   <p>Procedimentos são roteiros sequenciais para operações como emitir segunda via ou agendar visita. Cada um contém <strong>nome</strong>, <strong>descrição de quando usar</strong>, <strong>introdução</strong> e <strong>passos</strong>. A condição de uso deve deixar claro o momento de iniciar o roteiro.</p>
   <div class="callout tip">
     <strong>Chamada de função:</strong> um passo pode invocar uma função com <code>@</code> seguido do nome cadastrado, por exemplo <code>@enviar_pedido</code>. O nome precisa corresponder à função definida na aba própria.
   </div>
 
-  <h2>7. Funções, conectores e MCP</h2>
-  <h3>7.1 Funções do assistente</h3>
+  <h2 id="7-funcoes-conectores-e-mcp">7. Funções, conectores e MCP</h2>
+  <h3 id="7-1-funcoes-do-assistente">7.1 Funções do assistente</h3>
   <p>Uma função permite sair da conversa puramente textual para executar uma automação ou integrar uma API. Cadastre um nome interno inequívoco, explique seu objetivo, associe o fluxo e declare as entradas obrigatórias. O assistente coleta os dados antes da chamada e reaproveita informações que já estejam na conversa.</p>
   <p>No fluxo associado, os valores coletados ficam disponíveis com prefixo <code>assistant_</code>; para uma entrada chamada <code>cpf</code>, o exemplo documentado é <code>{{assistant_cpf}}</code>.</p>
 
-  <h3>7.2 Conectores nativos citados</h3>
+  <h3 id="7-2-conectores-nativos-citados">7.2 Conectores nativos citados</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Categoria</th><th>Conectores registrados no material de origem</th></tr></thead>
@@ -217,10 +333,10 @@
     <strong>Dependências externas:</strong> conectores podem exigir API key válida e faturamento ativo. O Google Maps é o exemplo do material: uma consulta eficiente requer endereço completo ou nome do local; somente o CEP pode ser insuficiente.
   </div>
 
-  <h3>7.3 MCP (Model Context Protocol)</h3>
+  <h3 id="7-3-mcp-model-context-protocol">7.3 MCP (Model Context Protocol)</h3>
   <p>A aba <strong>MCP</strong> conecta servidores MCP externos para expor ferramentas já existentes — por exemplo, consultas a planilhas, gateways de pagamento e CRMs próprios — ao raciocínio do assistente. O material não define protocolo de autenticação, esquema de servidor ou lista de implementações homologadas; esses detalhes precisam ser validados para o servidor escolhido.</p>
 
-  <h2>8. IA em automações e URAs</h2>
+  <h2 id="8-ia-em-automacoes-e-uras">8. IA em automações e URAs</h2>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Elemento</th><th>Função</th><th>Limite ou comportamento importante</th></tr></thead>
@@ -238,7 +354,7 @@
     </table>
   </div>
 
-  <h3>8.1 Publicação de um assistente em URA</h3>
+  <h3 id="8-1-publicacao-de-um-assistente-em-ura">8.1 Publicação de um assistente em URA</h3>
   <ol class="steps">
     <li>Crie e teste o assistente, o conhecimento, os procedimentos e as funções.</li>
     <li>Abra a fila e edite a URA desejada.</li>
@@ -248,7 +364,7 @@
     <li>Salve e faça testes controlados, incluindo indisponibilidade, limite de mensagens e chamadas de função.</li>
   </ol>
 
-  <h3>8.2 Estratégia híbrida para mídia</h3>
+  <h3 id="8-2-estrategia-hibrida-para-midia">8.2 Estratégia híbrida para mídia</h3>
   <ol class="steps">
     <li>Use como principal um modelo de menor custo adequado ao tráfego predominantemente textual; o módulo cita GPT-4o-mini apenas como exemplo.</li>
     <li>No pré-processamento, condicione pelo MIME type de <code>message_file.file_mimetype</code>.</li>
@@ -256,7 +372,7 @@
     <li>Grave a transcrição ou leitura com <strong>Adicionar contexto ao assistente</strong> antes da resposta principal.</li>
   </ol>
 
-  <h3>8.3 Resposta em áudio no chat</h3>
+  <h3 id="8-3-resposta-em-audio-no-chat">8.3 Resposta em áudio no chat</h3>
   <ol class="steps">
     <li>No pós-processamento, use <strong>Gerar áudio com IA</strong> e passe o texto da resposta em <code>{{message_text}}</code>.</li>
     <li>Envie o arquivo resultante no formato compatível com o canal.</li>
@@ -267,7 +383,7 @@
     <strong>Assistente de Programação por IA:</strong> no construtor de automações, essa ferramenta <strong>limpa e substitui todos os blocos existentes na tela</strong> ao montar um fluxo por instrução textual. Use somente em fluxo novo ou vazio.
   </div>
 
-  <h2>9. Voz e Realtime</h2>
+  <h2 id="9-voz-e-realtime">9. Voz e Realtime</h2>
   <p>O módulo avançado documenta assistentes telefônicos com modelos de voz e integração Realtime/PABX para receber e realizar chamadas em tempo real. Na aba Geral do assistente, as opções citadas são:</p>
   <ul>
     <li>modelo de voz;</li>
@@ -279,7 +395,7 @@
     <strong>Limite da evidência:</strong> as fontes confirmam a existência do modo de voz/Realtime e das opções acima, mas não fornecem matriz de modelos/operadoras, requisitos de tronco, codecs de telefonia, tarifação ou procedimento completo de vinculação ao PABX. Valide esses pontos na instância antes de produção.
   </div>
 
-  <h2>10. Ajustes avançados do modelo</h2>
+  <h2 id="10-ajustes-avancados-do-modelo">10. Ajustes avançados do modelo</h2>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Parâmetro</th><th>Faixa no material</th><th>Efeito documentado</th></tr></thead>
@@ -296,23 +412,23 @@
     <strong>Responsabilidade:</strong> o material recomenda manter o padrão de segurança do provedor. Selecionar <strong>Sem Bloqueio</strong> transfere a responsabilidade operacional pelo comportamento da IA à empresa administradora.
   </div>
 
-  <h2>11. Observabilidade, testes e qualidade</h2>
-  <h3>11.1 Langfuse</h3>
+  <h2 id="11-observabilidade-testes-e-qualidade">11. Observabilidade, testes e qualidade</h2>
+  <h3 id="11-1-langfuse">11.1 Langfuse</h3>
   <p>As fontes registram suporte nativo ao <strong>Langfuse</strong>. Com endpoint e chaves configurados, ele permite rastrear chamadas, medir latência, auditar prompts, observar custos por requisição e avaliar ajustes no contexto e no conhecimento. A aba <strong>Debug</strong> concentra essa integração.</p>
 
-  <h3>11.2 Indicadores do assistente</h3>
+  <h3 id="11-2-indicadores-do-assistente">11.2 Indicadores do assistente</h3>
   <ul>
     <li><strong>Perguntas não respondidas:</strong> pergunta, frequência e link para o chat de origem; use a lista para priorizar lacunas na base.</li>
     <li><strong>Últimos atendimentos:</strong> data/hora, duração e desfecho.</li>
     <li><strong>Dashboard:</strong> sucesso/falha, mensagens enviadas e recebidas, horários de pico e quantidade de consultas à base.</li>
   </ul>
 
-  <h3>11.3 Simulador</h3>
+  <h3 id="11-3-simulador">11.3 Simulador</h3>
   <div class="callout warn">
     <strong>A aba Testar atua em produção:</strong> não é sandbox. Uma simulação pode criar oportunidades reais, alterar cadastros, chamar conectores e disparar webhooks. Use registros controlados, confirme o escopo das ferramentas e reverta os efeitos depois do teste.
   </div>
 
-  <h2>12. Limites, segurança e controle de custos</h2>
+  <h2 id="12-limites-seguranca-e-controle-de-custos">12. Limites, segurança e controle de custos</h2>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Risco</th><th>Controle comprovado nas fontes</th></tr></thead>
@@ -330,7 +446,7 @@
     </table>
   </div>
 
-  <h2>13. Troubleshooting</h2>
+  <h2 id="13-troubleshooting">13. Troubleshooting</h2>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Sintoma</th><th>Verificação</th><th>Ação indicada pelas fontes</th></tr></thead>
@@ -351,7 +467,95 @@
     </table>
   </div>
 
-  <h2>14. Checklist de implantação e boas práticas</h2>
+  <h2 id="14-novidades-dos-assistentes-de-ia-v14-1-e-patches-14-1-x">14. Novidades dos Assistentes de IA (v14.1 e patches 14.1.x)</h2>
+  <p>A linha <strong>14.1</strong> concentrou a maior parte das mudanças recentes dos Assistentes de IA. O ciclo divulgado pelos comunicados oficiais foi:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Versão</th><th>Marco</th><th>Conteúdo relevante para IA</th></tr></thead>
+      <tbody>
+        <tr><td><strong>14.1</strong> (11/08/2026)</td><td>Primeiro beta liberado apenas a parceiros.</td><td>Subagentes; busca de ferramentas nos assistentes; novo provedor de LLMs (OpenRouter); novos modelos Anthropic; novos endpoints; melhorias no MCP; novas variáveis de campanhas (Instagram).</td></tr>
+        <tr><td><strong>14.1.4</strong> (03/09/2026)</td><td>Versão final da 14.1 em funcionalidades (patches seguintes só com correções).</td><td>Novos presets de assistente; pré-carregamento de procedimentos no início do atendimento; follow-up automático do assistente em atendimento externo com carrinho sincronizado ativo.</td></tr>
+        <tr><td><strong>14.1.9</strong> (15/09/2026)</td><td>Liberação a todos os clientes.</td><td>Sem novidades em relação à versão anterior — apenas ajustes e otimizações internas.</td></tr>
+        <tr><td><strong>14.1.10</strong> (18/09/2026)</td><td>Patch liberado a todos os clientes.</td><td>Delay e agregação de mensagens enviadas em filas Cloud API, para redução de custos; correções, entre elas <code>Processar com IA</code> passando a tratar PDFs na URA/automação e motivo real de transferência do assistente.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout info">
+    <strong>Fontes desta seção:</strong> [1] Comunicados de Versões (doc oficial) — seções <em>Versão 14.1</em>, <em>14.1.4</em>, <em>14.1.9</em> e <em>14.1.10</em>; [2] planilha “Versões Do Sistema”; [3] Módulo — IA Avançada; [4] Módulo — IA Básica; [5] WEBINAR IA. As descrições de tela das subseções <em>14.11.1 a 14.11.4</em> seguem a documentação oficial do fornecedor; confirme os rótulos exatos de menu na sua instância.
+  </div>
+
+  <h3 id="14-1-subagentes">14.1 Subagentes</h3>
+  <p>O assistente passa a poder <strong>usar subagentes</strong> — ou seja, delegar parte do trabalho a assistentes especializados em vez de resolver tudo em uma única cadeia de raciocínio. Na prática, o assistente principal (mais genérico) aciona um subagente com escopo restrito para uma tarefa específica e devolve o resultado à conversa.</p>
+  <p><strong>Quando usar:</strong> quando um único assistente teria de carregar conhecimento, procedimentos e ferramentas de várias áreas ao mesmo tempo. Dividir a responsabilidade entre subagentes tende a reduzir o contexto carregado por chamada e a melhorar a precisão de tarefas bem delimitadas.</p>
+
+  <h3 id="14-2-busca-de-ferramentas-nos-assistentes">14.2 Busca de ferramentas nos assistentes</h3>
+  <p>Foi adicionada a <strong>capacidade de busca de ferramentas</strong> pelos assistentes: em vez de todas as ferramentas ficarem disponíveis de uma vez no contexto da chamada, o assistente localiza sob demanda as que precisa para a tarefa.</p>
+  <p><strong>Quando usar:</strong> em assistentes com <strong>muitas ferramentas (mais de aproximadamente 50)</strong>. Carregar todas simultaneamente consome tokens de contexto e pode degradar a escolha da ferramenta correta; a busca sob demanda evita esse carregamento integral e poupa contexto.</p>
+  <div class="callout tip">
+    <strong>Regra prática:</strong> assistentes enxutos (poucas ferramentas) não precisam da busca sob demanda; ela passa a valer a pena à medida que o catálogo de ferramentas cresce, sendo indicada para assistentes com mais de ~50 ferramentas.
+  </div>
+
+  <h3 id="14-3-novos-provedores-e-modelos-de-llm">14.3 Novos provedores e modelos de LLM</h3>
+  <p>A 14.1 introduziu o <strong>OpenRouter</strong> como novo provedor de LLMs e <strong>novos modelos da Anthropic</strong>. Isso amplia a escolha de modelo por assistente.</p>
+  <p><strong>Quando usar:</strong> para ampliar opções de custo, contexto ou capacidade multimodal sem trocar de arquitetura. As chaves e o saldo continuam pertencendo à conta do cliente no provedor (modelo BYOK já descrito no capítulo 4). Os nomes de modelo disponíveis mudam rápido: confirme no provedor e na instância antes de fixar uma configuração.</p>
+
+  <h3 id="14-4-novos-endpoints">14.4 Novos endpoints</h3>
+  <ul>
+    <li><strong>GET para abrir atendimentos no navegador:</strong> permite abrir um atendimento diretamente pela URL/navegador, sem depender só de automação ou do editor.</li>
+    <li><strong>Listar templates do sistema.</strong></li>
+    <li><strong>Listar usuários do sistema.</strong></li>
+  </ul>
+  <p><strong>Quando usar:</strong> em integrações e rotinas de suporte que precisam abrir conversas ou consultar templates e usuários por API. Consulte a documentação de API da instância para os parâmetros exatos; o comunicado não detalha o schema de cada endpoint.</p>
+
+  <h3 id="14-5-melhorias-no-mcp">14.5 Melhorias no MCP</h3>
+  <p>Houve <strong>melhorias no servidor/uso de MCP</strong> (Model Context Protocol) e, na 14.1.4, <strong>capacidades ampliadas do servidor MCP</strong>. O MCP é a via pela qual o assistente acessa ferramentas já existentes em servidores próprios (planilhas, gateways, CRMs externos).</p>
+  <p><strong>Quando usar:</strong> quando a empresa já tem microsserviços ou ferramentas prontas que devem ser expostas ao raciocínio da IA sem reescrever integrações. O material não descreve protocolo de autenticação nem lista de implementações homologadas — valide por servidor.</p>
+
+  <h3 id="14-6-novas-variaveis-com-dados-de-campanhas-instagram">14.6 Novas variáveis com dados de campanhas (Instagram)</h3>
+  <p>A versão adiciona <strong>novas variáveis com dados de campanhas</strong> em filas no <strong>Instagram</strong>, tornando disponíveis no atendimento informações da campanha de origem.</p>
+  <p><strong>Quando usar:</strong> para personalizar a resposta e alimentar automações com o contexto da campanha que trouxe o cliente (relatórios, roteamento, mensagens segmentadas). Os nomes exatos das variáveis não constam do comunicado; confirme os disponíveis na instância.</p>
+
+  <h3 id="14-7-novos-presets-de-assistente-14-1-4">14.7 Novos presets de assistente (14.1.4)</h3>
+  <p>Foram adicionados <strong>novos presets no cadastro de assistentes</strong>, incluindo preset para <strong>gestão de atendimento e carrinho</strong> e para <strong>envio de mensagens especiais</strong>. Presets já haviam sido citados antes na linha de versões (ex.: “Acesso a dados de atendimentos e mensagens”).</p>
+  <p><strong>Quando usar:</strong> como ponto de partida para configurações comuns, evitando montar do zero contexto, ferramentas e comportamento. Trate o preset como base: revise prompts, ferramentas e permissões antes de colocar em produção.</p>
+
+  <h3 id="14-8-pre-carregar-procedimentos-no-inicio-do-atendimento">14.8 Pré-carregar procedimentos no início do atendimento</h3>
+  <p>A 14.1.4 trouxe a <strong>possibilidade de pré-carregar procedimentos em assistentes no início de um atendimento</strong>. Na tela do assistente, a opção é apresentada como <strong>“Carregar no início do atendimento”</strong> no cadastro do procedimento.</p>
+  <p><strong>O que faz:</strong> força o assistente a executar um procedimento específico logo na <strong>primeira interação</strong>, sem depender de a IA interpretar o prompt e decidir quando iniciar o roteiro.</p>
+  <p><strong>Quando usar:</strong> fluxos com abertura obrigatória e sempre igual — por exemplo, triagem inicial, coleta de dados fixos ou um script de saudação + verificação que deve rodar para todo mundo. É a alternativa determinística ao “quando usar” descrito no texto do procedimento (capítulo 6.2).</p>
+
+  <h3 id="14-9-follow-up-automatico-em-atendimento-externo">14.9 Follow-up automático em atendimento externo</h3>
+  <p>O assistente que atende em <strong>atendimento externo</strong> passa a fazer <strong>follow-up automático quando o carrinho sincronizado está ativo</strong>. O carrinho sincronizado (introduzido na 14.1.4) cria automaticamente oportunidades e mantém os produtos sincronizados com um carrinho externo no catálogo.</p>
+  <p><strong>Quando usar:</strong> em jornadas de compra ou retomada de carrinho, para o assistente voltar a contatar o cliente quando o carrinho sincronizado está em uso, sem depender de ação manual do agente. A fonte descreve a existência e a condição (carrinho sincronizado ativo), não o intervalo nem o texto do follow-up; valide na instância.</p>
+
+  <h3 id="14-10-delay-e-agregacao-de-mensagens-em-filas-cloud-api-14-1-10">14.10 Delay e agregação de mensagens em filas Cloud API (14.1.10)</h3>
+  <p>A 14.1.10 acrescentou <strong>delay e agregação de mensagens enviadas em filas Cloud API</strong>, com o objetivo explícito de <strong>reduzir custos</strong>. Em vez de enviar cada fragmento como uma chamada separada, as mensagens enviadas em sequência são agrupadas dentro da janela configurada.</p>
+  <p><strong>Quando usar:</strong> em filas Cloud API com tráfego alto ou respostas que saem em vários blocos, para diminuir o número de envios cobrados. Ajuste o tempo de agregação com cuidado: agrupar demais pode atrasar a resposta percebida pelo cliente.</p>
+
+  <h3 id="14-11-configuracoes-de-assistente-ligadas-a-estas-novidades">14.11 Configurações de assistente ligadas a estas novidades</h3>
+  <p>Os recursos a seguir aparecem na tela do assistente e dialogam diretamente com as novidades acima. Uma <strong>subseção por recurso</strong>, com o que faz e quando usar:</p>
+
+  <h4 style="margin-top:1.1rem">14.11.1 Considerar mensagens recebidas durante as consultas</h4>
+  <p><strong>O que faz:</strong> se o cliente envia uma nova pergunta enquanto o assistente ainda está “pensando” (processando a consulta anterior), o assistente <strong>inclui a nova mensagem na resposta</strong> ao finalizar o processamento em curso.</p>
+  <p><strong>O que NÃO faz:</strong> não cancela nem reinicia a primeira consulta — ela termina normalmente e só então a nova mensagem é incorporada. Isso evita respostas órfãs e reduz a chance de o cliente ficar esperando uma resposta que ignore o que acabou de escrever.</p>
+  <p><strong>Quando usar:</strong> atendimentos em que o cliente costuma mandar mensagens picadas ou complementos enquanto espera; melhora a sensação de continuidade sem descartar o trabalho já em andamento.</p>
+
+  <h4 style="margin-top:1.1rem">14.11.2 Expandir alternativas</h4>
+  <p><strong>O que faz:</strong> quando um produto não está disponível, o sistema identifica o <strong>produto alternativo correto</strong> com base no <strong>“CÓDIGO INTERNO”</strong> cadastrado, que vincula o produto indisponível à sua alternativa. O assistente amplia a resposta com essa alternativa em vez de simplesmente informar a falta.</p>
+  <p><strong>Quando usar:</strong> catálogos com itens substitutos. Depende de o vínculo (código interno ↔ alternativa) estar cadastrado corretamente no catálogo; sem esse vínculo, a expansão não tem como escolher a alternativa certa.</p>
+
+  <h4 style="margin-top:1.1rem">14.11.3 Proatividade: acompanhamento automático e despertar próprio</h4>
+  <p><strong>O que faz:</strong> o assistente <strong>retoma a conversa após um período de inatividade</strong>, em vez de ficar em silêncio. A documentação descreve duas opções: <strong>“Acompanhamento automático do cliente”</strong> e <strong>“Despertar próprio”</strong>.</p>
+  <div class="callout warn">
+    <strong>Atenção — perda de agendamento:</strong> o agendamento do <strong>“Despertar próprio”</strong> pode ser <strong>perdido</strong> se houver o <strong>encerramento do atendimento</strong> ou uma <strong>reinicialização do sistema</strong>. Ou seja, um despertar programado não é garantido após essas ocorrências — projete o fluxo assumindo que ele pode não disparar nesses casos.
+  </div>
+  <p><strong>Quando usar:</strong> recuperação de conversas abandonadas e retomada de funil. Combine com as regras de encerramento e com os ciclos de reinicialização da instância para não contar com um despertar que pode ter sido perdido.</p>
+
+  <h4 style="margin-top:1.1rem">14.11.4 Variáveis do atendimento (recursos avançados)</h4>
+  <p><strong>O que faz:</strong> na aba de <strong>recursos avançados</strong> do assistente, o recurso <strong>“Variáveis do atendimento”</strong> permite ao assistente <strong>criar e manipular variáveis</strong> para armazenar resultados de processamentos intermediários.</p>
+  <p><strong>Quando usar:</strong> quando o assistente precisa reter um valor calculado/concluído (ex.: um dado extraído, um retorno de ferramenta) para reusar depois, sem manter todo esse histórico dentro do prompt. O ganho documentado é a <strong>economia de espaço no contexto do chat</strong>: guarda-se o resultado na variável em vez de reenviá-lo integralmente a cada turno.</p>
+
+  <h2 id="15-checklist-de-implantacao-e-boas-praticas">15. Checklist de implantação e boas práticas</h2>
   <ol class="steps">
     <li><strong>Confirme o plano:</strong> valide se a instância tem o motor necessário e se o módulo avançado está contratado.</li>
     <li><strong>Separe os papéis:</strong> prompt base para identidade e limites; Conhecimento para fatos; Procedimentos para sequências; Funções para ações.</li>
@@ -374,6 +578,7 @@
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

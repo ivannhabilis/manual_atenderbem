@@ -10,17 +10,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="dashboard.html" class="active">Dashboard</a>
-    <a href="crm.html">CRM</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="pabx.html">PABX & Telefonia</a>
-    <a href="contatos.html">Contatos</a>
-    <a href="relatorios.html">Relatórios</a>
-    <a href="relatorios-personalizados.html">Personalizados</a>
-    <a href="configuracoes.html">Configurações</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a class="active" href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -30,6 +94,28 @@
   <h1>Dashboard e Indicadores (KPI)</h1>
   <p class="subtitle">O painel principal de atendimento. É a primeira tela após o login e também é acessado pelo endereço <code>/base/reports/kpidashboard</code>.</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-filtros-no-topo-da-tela">1. Filtros no topo da tela</a></li>
+      <li><a href="#2-cartoes-de-kpi-indicadores-principais">2. Cartões de KPI (Indicadores principais)</a></li>
+      <li><a href="#3-grafico-de-contatos-por-hora">3. Gráfico de contatos por hora</a></li>
+      <li><a href="#4-graficos-de-distribuicao-pizza">4. Gráficos de distribuição (pizza)</a></li>
+      <li><a href="#5-tabela-de-agentes">5. Tabela de agentes</a></li>
+      <li><a href="#6-passo-a-passo-leitura-diaria-do-dashboard">6. Passo a passo — leitura diária do dashboard</a></li>
+      <li><a href="#7-aba-integrations-mensagens">7. Aba Integrations (Mensagens)</a></li>
+      <li class="toc-h3"><a href="#metricas-de-mensagens">Métricas de mensagens</a></li>
+      <li class="toc-h3"><a href="#tabela-de-integracoes">Tabela de integrações</a></li>
+      <li><a href="#8-opcoes-de-filtro-e-recortes-comparaveis">8. Opções de filtro e recortes comparáveis</a></li>
+      <li><a href="#9-regras-de-contabilizacao-dos-indicadores">9. Regras de contabilização dos indicadores</a></li>
+      <li><a href="#10-como-conciliar-dashboard-agentes-e-historico">10. Como conciliar Dashboard, Agentes e Histórico</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <div class="callout info">
     <strong>Observação sobre a plataforma:</strong> na AtenderBem, o endereço de “Dashboard de KPIs” (<code>/base/reports/kpidashboard</code>) abre a tela de <strong>Service Interactions</strong> (Interações de Serviço), que reúne os principais indicadores de atendimento. É aqui que você acompanha, em tempo real, o desempenho do dia.
   </div>
@@ -39,7 +125,7 @@
     <figcaption>Painel de Service Interactions (KPIs) com período “Hoje” e fila “Todas”.</figcaption>
   </figure>
 
-  <h2>1. Filtros no topo da tela</h2>
+  <h2 id="1-filtros-no-topo-da-tela">1. Filtros no topo da tela</h2>
   <p>Antes de ler os números, defina o recorte desejado. Dois filtros aparecem no topo:</p>
   <table class="doc">
     <thead><tr><th>Filtro</th><th>O que faz</th></tr></thead>
@@ -50,7 +136,7 @@
   </table>
   <p>Após ajustar os filtros, clique no botão <strong>Atualizar</strong> para aplicar.</p>
 
-  <h2>2. Cartões de KPI (Indicadores principais)</h2>
+  <h2 id="2-cartoes-de-kpi-indicadores-principais">2. Cartões de KPI (Indicadores principais)</h2>
   <p>Cada cartão mostra o valor atual e a variação em relação a um período anterior (seta verde = alta, vermelha = queda, azul = estável).</p>
   <table class="doc">
     <thead><tr><th>Indicador</th><th>Significado</th></tr></thead>
@@ -68,7 +154,7 @@
     <strong>Dica:</strong> o anel circular verde (100%) exibido no topo é um indicador de meta/ocupação. Os valores variam conforme o período selecionado.
   </div>
 
-  <h2>3. Gráfico de contatos por hora</h2>
+  <h2 id="3-grafico-de-contatos-por-hora">3. Gráfico de contatos por hora</h2>
   <p>A barra roxa mostra a distribuição dos contatos ao longo do dia (00h a 23h). Você pode alternar entre duas visões:</p>
   <ul>
     <li><strong>Contacts per hour</strong> — contatos por hora do dia.</li>
@@ -76,14 +162,14 @@
   </ul>
   <p>Na legenda, as cores representam os tipos de contato: <strong>Chats</strong>, <strong>Calls</strong> (ligações) e <strong>Abandoned</strong> (abandonados).</p>
 
-  <h2>4. Gráficos de distribuição (pizza)</h2>
+  <h2 id="4-graficos-de-distribuicao-pizza">4. Gráficos de distribuição (pizza)</h2>
   <p>Dois gráficos de pizza permitem visualizar de onde vêm os atendimentos:</p>
   <ul>
     <li><strong>Services by queue</strong> vs <strong>Services by channel</strong> — atendimentos por fila ou por canal (ex.: TG do Ivann, IvannCorporativo, Lex Digital - Teste, TESTES_robson).</li>
     <li><strong>Services by IVR filter</strong> vs <strong>Services by closure</strong> — atendimentos por filtro de URA (IVR) ou por tipo de encerramento.</li>
   </ul>
 
-  <h2>5. Tabela de agentes</h2>
+  <h2 id="5-tabela-de-agentes">5. Tabela de agentes</h2>
   <p>Na parte inferior, uma tabela detalha o desempenho por atendente:</p>
   <table class="doc">
     <thead><tr><th>Coluna</th><th>Descrição</th></tr></thead>
@@ -99,7 +185,7 @@
   </table>
   <p>Os cabeçalhos das colunas são clicáveis para ordenação.</p>
 
-  <h2>6. Passo a passo — leitura diária do dashboard</h2>
+  <h2 id="6-passo-a-passo-leitura-diaria-do-dashboard">6. Passo a passo — leitura diária do dashboard</h2>
   <ol class="steps">
     <li>Faça login na plataforma AtenderBem com suas credenciais de acesso.</li>
     <li>Confirme os filtros <strong>Queue = All</strong> e <strong>Period = Today</strong>.</li>
@@ -113,7 +199,7 @@
     <strong>Atenção:</strong> os dados deste manual foram capturados em um ambiente com poucos atendimentos de exemplo. Seus números reais serão diferentes — o importante é entender o que cada indicador representa.
   </div>
 
-  <h2>7. Aba Integrations (Mensagens)</h2>
+  <h2 id="7-aba-integrations-mensagens">7. Aba Integrations (Mensagens)</h2>
   <p>Na mesma tela de Service Interactions, há a aba <strong>Integrations</strong>, que monitora o desempenho de envio de mensagens pelas integrações (ex.: WhatsApp/API).</p>
 
   <figure class="figure">
@@ -121,7 +207,7 @@
     <figcaption>Aba Integrations com métricas de mensagens e tabela por integração/fila.</figcaption>
   </figure>
 
-  <h3>Métricas de mensagens</h3>
+  <h3 id="metricas-de-mensagens">Métricas de mensagens</h3>
   <ul>
     <li><strong>Total messages</strong> — total de mensagens processadas.</li>
     <li><strong>Sent successfully</strong> — envios com sucesso.</li>
@@ -132,10 +218,10 @@
   </ul>
   <p>O gráfico "Messages per hour" (ou "per day of the month") mostra <strong>Submissions</strong>, <strong>Replies</strong> e <strong>Failures</strong> ao longo do dia.</p>
 
-  <h3>Tabela de integrações</h3>
+  <h3 id="tabela-de-integracoes">Tabela de integrações</h3>
   <p>Colunas: <strong>Integration</strong>, <strong>Queue</strong>, <strong>Sends</strong>, <strong>Failures</strong>, <strong>Responses</strong>. Abaixo, um gráfico de "Submissions by integration" / "Replies by integration".</p>
 
-  <h2>8. Opções de filtro e recortes comparáveis</h2>
+  <h2 id="8-opcoes-de-filtro-e-recortes-comparaveis">8. Opções de filtro e recortes comparáveis</h2>
   <p>O filtro de <strong>Fila</strong> aceita todas as filas, uma fila específica ou múltiplas filas ao mesmo tempo. O filtro de <strong>Período</strong> oferece os recortes abaixo:</p>
   <table class="doc">
     <thead><tr><th>Recorte</th><th>Uso operacional</th></tr></thead>
@@ -151,7 +237,7 @@
     <strong>Boa prática de comparação:</strong> mantenha o mesmo conjunto de filas e o mesmo critério de período ao comparar resultados. Depois de alterar qualquer recorte, use <strong>Atualizar</strong> antes de registrar os números.
   </div>
 
-  <h2>9. Regras de contabilização dos indicadores</h2>
+  <h2 id="9-regras-de-contabilizacao-dos-indicadores">9. Regras de contabilização dos indicadores</h2>
   <p>O Dashboard inicial tem como referência a <strong>data de abertura</strong> do atendimento. Essa regra explica diferenças legítimas entre esta tela, o Painel de Agentes e o Histórico de Chats.</p>
   <table class="doc">
     <thead><tr><th>Dado</th><th>Como é contabilizado</th></tr></thead>
@@ -165,7 +251,7 @@
     </tbody>
   </table>
 
-  <h2>10. Como conciliar Dashboard, Agentes e Histórico</h2>
+  <h2 id="10-como-conciliar-dashboard-agentes-e-historico">10. Como conciliar Dashboard, Agentes e Histórico</h2>
   <table class="doc">
     <thead><tr><th>Tela</th><th>Critério principal</th><th>Use para</th></tr></thead>
     <tbody>
@@ -193,6 +279,7 @@
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

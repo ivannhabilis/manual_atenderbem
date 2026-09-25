@@ -9,17 +9,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="../../../index.html">Início</a>
-    <a href="../../../dashboard.html">Dashboard</a>
-    <a href="../../../crm.html">CRM</a>
-    <a href="../../../tickets.html">Tickets</a>
-    <a href="../../../pabx.html">PABX & Telefonia</a>
-    <a href="../../../contatos.html">Contatos</a>
-    <a href="../../../relatorios.html">Relatórios</a>
-    <a href="../../../relatorios-personalizados.html">Personalizados</a>
-    <a href="../../../configuracoes.html" class="active">Configurações</a>
+  <div class="brand"><span class="dot"></span><a href="../../../index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="../../../index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="../../../dashboard.html">Dashboard e Indicadores</a>
+          <a href="../../../agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="../../../produtividade.html">Monitoramento de Produtividade</a>
+          <a href="../../../tarefas.html">Tarefas (My tasks)</a>
+          <a href="../../../chat-interno.html">Chat Interno</a>
+          <a href="../../../contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="../../../crm.html">CRM e Funil de Vendas</a>
+          <a href="../../../carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a class="active" href="../../../base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="../../../canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="../../../ia.html">IA Básica e IA Avançada</a>
+          <a href="../../../integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="../../../tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="../../../tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="../../../pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="../../../suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="../../../suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="../../../pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="../../../pabx-troncos.html">Troncos SIP</a>
+          <a href="../../../pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="../../../pabx-ramais.html">Ramais</a>
+          <a href="../../../pabx-filas.html">Filas de Telefonia</a>
+          <a href="../../../pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="../../../pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="../../../pabx-custom.html">Custom & ARI</a>
+          <a href="../../../pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="../../../pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="../../../relatorios.html">Relatórios</a>
+          <a href="../../../relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="../../../configuracoes.html">Configurações</a>
+          <a href="../../../extensoes.html">Extensões (SDK)</a>
+          <a href="../../../backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -29,6 +93,31 @@
   <h1>Catálogo de Produtos</h1>
   <p class="subtitle">Alimente o catálogo do sistema e do WhatsApp (Meta), conecte ao número e transforme o atendimento em uma máquina de vendas.</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-visao-geral">1. Visão geral</a></li>
+      <li><a href="#2-fonte-da-verdade-de-onde-vem-os-produtos">2. Fonte da verdade: de onde vêm os produtos</a></li>
+      <li><a href="#3-criando-um-grupo-de-produtos">3. Criando um grupo de produtos</a></li>
+      <li><a href="#4-cadastro-manual-de-produtos-cenario-2">4. Cadastro manual de produtos (Cenário 2)</a></li>
+      <li><a href="#5-importacao-de-produtos-cenario-1">5. Importação de produtos (Cenário 1)</a></li>
+      <li><a href="#6-enriquecendo-cadastros-de-erps-legados-cenario-3">6. Enriquecendo cadastros de ERPs legados (Cenário 3)</a></li>
+      <li><a href="#7-requisitos-obrigatorios-da-meta">7. Requisitos obrigatórios da Meta</a></li>
+      <li><a href="#8-meta-business-suite-criando-e-alimentando-o-catalogo">8. Meta Business Suite: criando e alimentando o catálogo</a></li>
+      <li><a href="#9-conectando-o-catalogo-ao-numero-do-whatsapp">9. Conectando o catálogo ao número do WhatsApp</a></li>
+      <li><a href="#10-verificando-erros-e-politicas-comerciais">10. Verificando erros e políticas comerciais</a></li>
+      <li><a href="#11-gerando-o-link-de-feed-do-sistema-atualizacao-automatica">11. Gerando o link de feed do sistema (atualização automática)</a></li>
+      <li><a href="#12-configuracao-final-no-sistema-vinculando-o-catalogo-a-fila">12. Configuração final no sistema: vinculando o catálogo à fila</a></li>
+      <li><a href="#13-visao-do-agente-enviando-produtos-no-chat">13. Visão do agente: enviando produtos no chat</a></li>
+      <li><a href="#14-pedido-crm-e-oportunidade">14. Pedido, CRM e oportunidade</a></li>
+      <li><a href="#15-automacao-avancada-cloud-api-fluxo-de-pedidos-com-ia">15. Automação avançada (Cloud API): fluxo de pedidos com IA</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <div class="callout info">
     <strong>Base deste capítulo:</strong> tutorial oficial da Habilis Sistemas — “Catálogo de Produtos no WhatsApp: Tutorial Completo da Nova Ferramenta” (Versão 11 do sistema, 33 min). As capturas abaixo são frames reais do vídeo.
   </div>
@@ -38,7 +127,7 @@
     <figcaption>Acesso ao módulo: Configurações → Cadastros → Catálogo de Produtos.</figcaption>
   </figure>
 
-  <h2>1. Visão geral</h2>
+  <h2 id="1-visao-geral">1. Visão geral</h2>
   <p>O <strong>Catálogo de Produtos</strong> é a ferramenta que permite cadastrar, importar e gerenciar produtos, conectá-los ao catálogo do WhatsApp (Meta Business Suite) e enviá-los durante os atendimentos. Com ele o agente envia produtos diretamente do chat e recebe pedidos prontos pelo carrinho do aplicativo do WhatsApp.</p>
   <p>O módulo possui <strong>duas visões</strong>:</p>
   <ul>
@@ -47,7 +136,7 @@
   </ul>
   <p>Para utilizar os produtos no WhatsApp é obrigatório criar um <strong>grupo de produtos</strong> e depois <strong>vincular esse grupo a uma fila</strong>.</p>
 
-  <h2>2. Fonte da verdade: de onde vêm os produtos</h2>
+  <h2 id="2-fonte-da-verdade-de-onde-vem-os-produtos">2. Fonte da verdade: de onde vêm os produtos</h2>
   <p>Antes de qualquer configuração, defina a <strong>fonte da verdade</strong> — a origem das informações de cadastro dos produtos. A ideia é manter a consistência em vários pontos (sistema, catálogo da Meta), tendo uma única referência.</p>
   <table class="doc">
     <thead><tr><th>Cenário</th><th>Fonte da verdade</th><th>Como funciona</th><th>Recomendado para</th></tr></thead>
@@ -63,10 +152,10 @@
     <strong>Dica:</strong> mesmo no cenário 2 (pizzaria, por exemplo), se existir a opção de usar o sistema de gestão como fonte (cenário 1), prefira sempre o cenário 1 para reduzir atritos e problemas de consistência.
   </div>
 
-  <h2>3. Criando um grupo de produtos</h2>
+  <h2 id="3-criando-um-grupo-de-produtos">3. Criando um grupo de produtos</h2>
   <p>Na aba <strong>Grupos</strong>, clique em adicionar e dê um nome ao grupo (ex.: “Produtos de informática”). O grupo é o vínculo entre os produtos e a fila de atendimento.</p>
 
-  <h2>4. Cadastro manual de produtos (Cenário 2)</h2>
+  <h2 id="4-cadastro-manual-de-produtos-cenario-2">4. Cadastro manual de produtos (Cenário 2)</h2>
   <p>Na aba <strong>Produtos</strong>, clique em <strong>Adicionar</strong>. Os campos seguem a mesma estrutura do catálogo da Meta, com poucos campos adicionais específicos do sistema.</p>
 
   <figure class="figure">
@@ -85,7 +174,7 @@
     </tbody>
   </table>
 
-  <h2>5. Importação de produtos (Cenário 1)</h2>
+  <h2 id="5-importacao-de-produtos-cenario-1">5. Importação de produtos (Cenário 1)</h2>
   <p>No botão <strong>Importar</strong>, escolha entre <strong>arquivo</strong> ou <strong>URL</strong>:</p>
   <ul>
     <li><strong>Arquivo</strong> — importação manual de CSV/XML exportado (ERP legado, por exemplo).</li>
@@ -102,10 +191,10 @@
     <strong>Atenção:</strong> após a importação, a maioria dos campos fica bloqueada para edição — a atualização deve ser feita novamente por importação, garantindo a consistência do cadastro. Permanecem editáveis: <strong>desconto</strong> máximo aplicável, <strong>arquivos</strong>, <strong>formulários</strong>, associação a <strong>grupos</strong> e a <strong>foto</strong> (apenas se o produto não veio com foto do feed).
   </div>
 
-  <h2>6. Enriquecendo cadastros de ERPs legados (Cenário 3)</h2>
+  <h2 id="6-enriquecendo-cadastros-de-erps-legados-cenario-3">6. Enriquecendo cadastros de ERPs legados (Cenário 3)</h2>
   <p>ERPs legados offline não fornecem as fotos (a coluna de foto do CSV precisa de um <strong>link</strong>). Nesse caso: importe os dados no sistema, <strong>adicione as fotos no sistema</strong> e use o sistema como feed para a Meta. As atualizações seguintes da fonte da verdade virão basicamente para atualizar disponibilidade e preço.</p>
 
-  <h2>7. Requisitos obrigatórios da Meta</h2>
+  <h2 id="7-requisitos-obrigatorios-da-meta">7. Requisitos obrigatórios da Meta</h2>
   <p>Para o produto ser aceito e exibido no catálogo do WhatsApp, é obrigatório ter:</p>
   <ul>
     <li><strong>Nome</strong></li>
@@ -116,7 +205,7 @@
   </ul>
   <p>Os demais campos (cor, marca, gênero) são opcionais. Produtos com problema de cadastro não aparecem no catálogo do WhatsApp, mas aparecem no catálogo da Meta sinalizados como “produtos com problema”.</p>
 
-  <h2>8. Meta Business Suite: criando e alimentando o catálogo</h2>
+  <h2 id="8-meta-business-suite-criando-e-alimentando-o-catalogo">8. Meta Business Suite: criando e alimentando o catálogo</h2>
   <p>No Business Suite da conta onde o número está vinculado, acesse <strong>Fontes de dados → Catálogos</strong>. Clique em <strong>Adicionar → Create a new catalog</strong> (ou use um catálogo existente — não é necessário um catálogo exclusivo para WhatsApp).</p>
   <ul>
     <li>Escolha <strong>produtos online</strong> (portfólio empresarial) e dê um nome (ex.: “Produtos do WhatsApp”).</li>
@@ -129,7 +218,7 @@
     <figcaption>Meta Business Suite (Gerenciador de Comércio): catálogo “Produtos do Whatsapp” com itens sincronizados.</figcaption>
   </figure>
 
-  <h2>9. Conectando o catálogo ao número do WhatsApp</h2>
+  <h2 id="9-conectando-o-catalogo-ao-numero-do-whatsapp">9. Conectando o catálogo ao número do WhatsApp</h2>
   <ol class="steps">
     <li><strong>Anote o ID do catálogo</strong> (seção “identificação do catálogo” ou na barra de endereços do navegador) — será usado na configuração do sistema.</li>
     <li>No <strong>Gerenciador do WhatsApp</strong>, na visão geral, clique sobre o número.</li>
@@ -141,7 +230,7 @@
     <strong>Atenção:</strong> um catálogo só pode ser associado a <strong>um único número</strong> de WhatsApp. Para vários números com os mesmos produtos, crie vários catálogos (podem usar o mesmo feed) e associe cada um a um número.
   </div>
 
-  <h2>10. Verificando erros e políticas comerciais</h2>
+  <h2 id="10-verificando-erros-e-politicas-comerciais">10. Verificando erros e políticas comerciais</h2>
   <p>Após a importação, use o filtro <strong>Problemas</strong> do catálogo para revisar os itens (ex.: “Link da imagem não fornecido”, “Violações de política”).</p>
 
   <figure class="figure">
@@ -153,7 +242,7 @@
     <strong>Política comercial:</strong> produtos proibidos (ex.: medicamentos com prescrição) não podem ser vendidos pelo WhatsApp. Revise os itens antes de importar — se a Meta deixar passar um produto proibido, o número pode ser <strong>banido</strong> por violação da política comercial.
   </div>
 
-  <h2>11. Gerando o link de feed do sistema (atualização automática)</h2>
+  <h2 id="11-gerando-o-link-de-feed-do-sistema-atualizacao-automatica">11. Gerando o link de feed do sistema (atualização automática)</h2>
   <ol class="steps">
     <li>No sistema, em <strong>Grupos</strong>, clique em <strong>Links de acesso ao feed</strong>.</li>
     <li>Clique em <strong>Criar link de acesso</strong> e copie o link gerado.</li>
@@ -162,7 +251,7 @@
   </ol>
   <p>Assim, itens enriquecidos no sistema (ex.: produto sem foto corrigido) são propagados para a Meta automaticamente.</p>
 
-  <h2>12. Configuração final no sistema: vinculando o catálogo à fila</h2>
+  <h2 id="12-configuracao-final-no-sistema-vinculando-o-catalogo-a-fila">12. Configuração final no sistema: vinculando o catálogo à fila</h2>
   <p>No sistema, acesse <strong>Filas</strong>, expanda a fila da <strong>Cloud API</strong> e abra a aba <strong>Catálogo e produtos</strong>:</p>
   <ol class="steps">
     <li>Clique em <strong>Configurar catálogo</strong> e cole o <strong>ID do catálogo</strong> da Meta. Os dois indicadores devem ficar habilitados (verdes).</li>
@@ -181,7 +270,7 @@
     <strong>Propagação:</strong> depois de configurado, o catálogo pode levar de <strong>30 a 40 minutos</strong> para aparecer para os clientes no número da empresa. Se não aparecer de imediato, aguarde e verifique novamente.
   </div>
 
-  <h2>13. Visão do agente: enviando produtos no chat</h2>
+  <h2 id="13-visao-do-agente-enviando-produtos-no-chat">13. Visão do agente: enviando produtos no chat</h2>
   <p>Na tela do agente, o botão de <strong>anexos</strong> ganha a opção <strong>Produtos</strong>. Nela o agente pode:</p>
   <ul>
     <li><strong>Buscar</strong> produtos e visualizar a <strong>ficha</strong> do produto.</li>
@@ -196,11 +285,11 @@
     <figcaption>Demonstração: agente envia cards de produtos (“Veja essas opções”) e o cliente monta o carrinho no WhatsApp (pedido de 2 itens, R$ 2.299,80).</figcaption>
   </figure>
 
-  <h2>14. Pedido, CRM e oportunidade</h2>
+  <h2 id="14-pedido-crm-e-oportunidade">14. Pedido, CRM e oportunidade</h2>
   <p>Do pedido recebido, o agente pode abrir a ficha de cada produto e, se houver oportunidade vinculada ao atendimento, <strong>adicionar os produtos à oportunidade</strong> (na seção de produtos da oportunidade — lembre de salvar/atualizar). Os formulários associados ao produto (seção 4) são acrescentados à oportunidade no CRM.</p>
   <p>Consultar produtos, ver a ficha e fazer perguntas funcionam em <strong>qualquer fila</strong>. Enviar produtos e receber pedidos são recursos <strong>exclusivos das filas Cloud API</strong>.</p>
 
-  <h2>15. Automação avançada (Cloud API): fluxo de pedidos com IA</h2>
+  <h2 id="15-automacao-avancada-cloud-api-fluxo-de-pedidos-com-ia">15. Automação avançada (Cloud API): fluxo de pedidos com IA</h2>
   <p>O fluxo de pedidos pode ser automatizado com <strong>gatilhos de mensagem</strong> e fluxos de automação construídos com auxílio de IA:</p>
   <ol class="steps">
     <li><strong>Gatilho de mensagem</strong> (executado em mensagens recebidas): se a mensagem contém um pedido, a automação cria uma <strong>oportunidade</strong> e adiciona os produtos do pedido ao carrinho da oportunidade (etapa inicial, ex.: “Pedido recebido”).</li>
@@ -230,6 +319,7 @@
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo. Capítulo baseado no tutorial oficial da Habilis Sistemas.</p>
 </footer>
-
+<script src="../../../assets/search-index.js" defer></script>
+<script src="../../../assets/site.js" defer></script>
 </body>
 </html>

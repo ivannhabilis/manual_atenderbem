@@ -4,22 +4,87 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agent Dashboard (Agentes) — Manual Omnichannel</title>
+<meta name="description" content="Painel de Agentes do AtenderBem: status em tempo real, filtros, indicadores do dia, capacidade e distribuição, estados de produtividade e relatórios de produtividade por equipe e por agente.">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="crm.html">CRM</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="pabx.html">PABX & Telefonia</a>
-    <a href="contatos.html">Contatos</a>
-    <a href="relatorios.html">Relatórios</a>
-    <a href="relatorios-personalizados.html">Personalizados</a>
-    <a href="configuracoes.html">Configurações</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a class="active" href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -29,15 +94,38 @@
   <h1>Agent Dashboard (Painel de Agentes)</h1>
   <p class="subtitle">Acompanhe, em tempo real, o status e os indicadores de cada atendente da sua equipe.</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-o-que-e-esta-tela">1. O que é esta tela</a></li>
+      <li><a href="#2-abas-disponiveis">2. Abas disponíveis</a></li>
+      <li><a href="#3-filtros-e-busca">3. Filtros e busca</a></li>
+      <li><a href="#4-tabela-de-agentes">4. Tabela de agentes</a></li>
+      <li><a href="#5-quando-usar">5. Quando usar</a></li>
+      <li><a href="#6-diferenca-entre-agora-e-hoje">6. Diferença entre “Agora” e “Hoje”</a></li>
+      <li><a href="#7-capacidade-e-regras-de-distribuicao">7. Capacidade e regras de distribuição</a></li>
+      <li class="toc-h3"><a href="#atendimentos-travados">Atendimentos travados</a></li>
+      <li><a href="#8-estados-de-produtividade">8. Estados de produtividade</a></li>
+      <li><a href="#9-relatorios-de-produtividade-no-painel-e-indicadores">9. Relatórios de produtividade no Painel e Indicadores</a></li>
+      <li class="toc-h3"><a href="#9-1-produtividade-equipe-visao-consolidada">9.1. Produtividade - Equipe (visão consolidada)</a></li>
+      <li class="toc-h3"><a href="#9-2-produtividade-agente-visao-individual">9.2. Produtividade - Agente (visão individual)</a></li>
+      <li><a href="#10-rotina-de-supervisao">10. Rotina de supervisão</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <figure class="figure">
     <img src="assets/dashboard-agentes.png" alt="Painel de Agentes com abas e tabela">
     <figcaption>Tela “Dashboard and Indicators” com a aba Agents ativa e filtros de busca.</figcaption>
   </figure>
 
-  <h2>1. O que é esta tela</h2>
+  <h2 id="1-o-que-e-esta-tela">1. O que é esta tela</h2>
   <p>O <strong>Agent Dashboard</strong> é a área de monitoramento da equipe. Ela mostra quem está logado, em pausa ou atendendo, e reúne indicadores de produtividade.</p>
 
-  <h2>2. Abas disponíveis</h2>
+  <h2 id="2-abas-disponiveis">2. Abas disponíveis</h2>
   <p>No topo da área, há abas que alternam a visão do painel:</p>
   <ul>
     <li><strong>Agents</strong> — lista e status dos atendentes.</li>
@@ -46,18 +134,20 @@
     <li><strong>Tickets</strong> — visão de tickets por agente.</li>
   </ul>
 
-  <h2>3. Filtros e busca</h2>
-  <table class="doc">
-    <thead><tr><th>Controle</th><th>Função</th></tr></thead>
-    <tbody>
-      <tr><td>Filter (funil)</td><td>Campo de filtro rápido da visão.</td></tr>
-      <tr><td>Filter: Agents</td><td>Seleciona o recorte (ex.: Agents).</td></tr>
-      <tr><td>Search</td><td>Busca por nome ou termo do agente.</td></tr>
-      <tr><td>State: All</td><td>Filtra por estado do agente (todos, online, pausa etc.).</td></tr>
-    </tbody>
-  </table>
+  <h2 id="3-filtros-e-busca">3. Filtros e busca</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Controle</th><th>Função</th></tr></thead>
+      <tbody>
+        <tr><td>Filter (funil)</td><td>Campo de filtro rápido da visão.</td></tr>
+        <tr><td>Filter: Agents</td><td>Seleciona o recorte (ex.: Agents).</td></tr>
+        <tr><td>Search</td><td>Busca por nome ou termo do agente.</td></tr>
+        <tr><td>State: All</td><td>Filtra por estado do agente (todos, online, pausa etc.).</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <h2>4. Tabela de agentes</h2>
+  <h2 id="4-tabela-de-agentes">4. Tabela de agentes</h2>
   <p>A tabela traz colunas para monitorar a operação momento a momento:</p>
   <ul>
     <li><strong>Agent</strong> — nome do atendente (com ordenação).</li>
@@ -70,75 +160,122 @@
     <strong>Indicadores de estado:</strong> os quatro círculos coloridos no canto superior mostram contagens de agentes em diferentes estados (offline, ocupado, disponível etc.). Use o filtro <em>State</em> para isolar um grupo.
   </div>
 
-  <h2>5. Quando usar</h2>
+  <h2 id="5-quando-usar">5. Quando usar</h2>
   <ul>
     <li>Para ver quem está <strong>logado</strong> e quem está em <strong>pausa</strong> agora.</li>
     <li>Para acompanhar a <strong>produtividade</strong> da equipe ao longo do dia.</li>
     <li>Para identificar agentes sem atividade ou sobrecarregados.</li>
   </ul>
 
-  <h2>6. Diferença entre “Agora” e “Hoje”</h2>
-  <table class="doc">
-    <thead><tr><th>Métrica</th><th>Leitura correta</th></tr></thead>
-    <tbody>
-      <tr><td>Chats agora</td><td>Quantidade de chats abertos e em andamento sob responsabilidade do agente no momento da consulta.</td></tr>
-      <tr><td>Chats atendidos hoje</td><td>Total de chats que o agente encerrou no dia, mesmo quando o atendimento havia sido aberto em data anterior.</td></tr>
-    </tbody>
-  </table>
+  <h2 id="6-diferenca-entre-agora-e-hoje">6. Diferença entre “Agora” e “Hoje”</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Métrica</th><th>Leitura correta</th></tr></thead>
+      <tbody>
+        <tr><td>Chats agora</td><td>Quantidade de chats abertos e em andamento sob responsabilidade do agente no momento da consulta.</td></tr>
+        <tr><td>Chats atendidos hoje</td><td>Total de chats que o agente encerrou no dia, mesmo quando o atendimento havia sido aberto em data anterior.</td></tr>
+      </tbody>
+    </table>
+  </div>
   <div class="callout info">
-    <strong>Conciliação:</strong> o total diário do Painel de Agentes mede encerramentos feitos pelo agente. Por isso, pode ser diferente do Dashboard inicial, que usa a data de abertura do atendimento.
+    <strong>Conciliação:</strong> o total diário do Painel de Agentes mede encerramentos feitos pelo agente. Por isso, pode ser diferente do Dashboard inicial, que usa a data de abertura do atendimento. Veja o detalhamento em <a href="dashboard.html">Dashboard e Indicadores</a> e em <a href="relatorios.html">Relatórios</a>.
   </div>
 
-  <h2>7. Capacidade e regras de distribuição</h2>
+  <h2 id="7-capacidade-e-regras-de-distribuicao">7. Capacidade e regras de distribuição</h2>
   <p>O campo <strong>Número Máximo de Atendimentos</strong> controla o recebimento de novos chats automáticos da fila. A verificação soma todos os atendimentos abertos do agente, sem distinguir origem.</p>
-  <table class="doc">
-    <thead><tr><th>Situação</th><th>Comportamento da distribuição</th></tr></thead>
-    <tbody>
-      <tr><td>Limite atingido</td><td>Se o total de chats abertos for igual ou maior que o limite individual, o agente não recebe novos chamados automáticos da fila.</td></tr>
-      <tr><td>Origens contabilizadas</td><td>Entram na conta atendimentos vindos da fila, reaberturas, transferências e preferências.</td></tr>
-      <tr><td>Agendamento reaberto com agente original disponível</td><td>O atendimento volta prioritariamente ao agente que fez o fechamento inicial, mesmo que ele já tenha atingido ou ultrapassado o limite.</td></tr>
-      <tr><td>Agendamento reaberto com agente original indisponível</td><td>O chat entra na espera comum e respeita as regras e os limites padrão ao ser distribuído a outro agente.</td></tr>
-      <tr><td>Captura manual com “Limitar atendimentos puxados” habilitado</td><td>O sistema bloqueia a captura quando o agente já atingiu o teto individual.</td></tr>
-      <tr><td>Captura manual com a opção desabilitada</td><td>O limite individual não é aplicado à captura manual.</td></tr>
-    </tbody>
-  </table>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Situação</th><th>Comportamento da distribuição</th></tr></thead>
+      <tbody>
+        <tr><td>Limite atingido</td><td>Se o total de chats abertos for igual ou maior que o limite individual, o agente não recebe novos chamados automáticos da fila.</td></tr>
+        <tr><td>Origens contabilizadas</td><td>Entram na conta atendimentos vindos da fila, reaberturas, transferências e preferências.</td></tr>
+        <tr><td>Agendamento reaberto com agente original disponível</td><td>O atendimento volta prioritariamente ao agente que fez o fechamento inicial, mesmo que ele já tenha atingido ou ultrapassado o limite.</td></tr>
+        <tr><td>Agendamento reaberto com agente original indisponível</td><td>O chat entra na espera comum e respeita as regras e os limites padrão ao ser distribuído a outro agente.</td></tr>
+        <tr><td>Captura manual com “Limitar atendimentos puxados” habilitado</td><td>O sistema bloqueia a captura quando o agente já atingiu o teto individual.</td></tr>
+        <tr><td>Captura manual com a opção desabilitada</td><td>O limite individual não é aplicado à captura manual.</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <h3>Atendimentos travados</h3>
-  <table class="doc">
-    <thead><tr><th>Permissão</th><th>Efeito</th></tr></thead>
-    <tbody>
-      <tr><td>“Ignorar limites para atendimentos travados” ativada</td><td>O atendimento travado é entregue prioritariamente, ignorando o limite da fila e o limite individual.</td></tr>
-      <tr><td>Permissão desativada</td><td>O atendimento travado respeita os dois limites e aguarda a liberação de capacidade quando agente ou fila estiverem saturados.</td></tr>
-    </tbody>
-  </table>
+  <h3 id="atendimentos-travados">Atendimentos travados</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Permissão</th><th>Efeito</th></tr></thead>
+      <tbody>
+        <tr><td>“Ignorar limites para atendimentos travados” ativada</td><td>O atendimento travado é entregue prioritariamente, ignorando o limite da fila e o limite individual.</td></tr>
+        <tr><td>Permissão desativada</td><td>O atendimento travado respeita os dois limites e aguarda a liberação de capacidade quando agente ou fila estiverem saturados.</td></tr>
+      </tbody>
+    </table>
+  </div>
   <div class="callout warn">
     <strong>Capacidade aparente acima do limite:</strong> antes de tratar como falha, verifique se houve reabertura agendada para o agente original, atendimento travado com permissão para ignorar limites ou captura manual sem limitação.
   </div>
 
-  <h2>8. Estados de produtividade</h2>
+  <h2 id="8-estados-de-produtividade">8. Estados de produtividade</h2>
   <p>Quando o módulo de monitoramento de produtividade está habilitado e configurado, a aba <strong>Productivity</strong> classifica a atividade em tempo real com base no perfil de scoring, nos sites e aplicativos abertos e na interação com o computador.</p>
-  <table class="doc">
-    <thead><tr><th>Estado</th><th>Critério documentado</th></tr></thead>
-    <tbody>
-      <tr><td>Produtivo</td><td>Score entre 71 e 100.</td></tr>
-      <tr><td>Atenção</td><td>Score entre 51 e 70.</td></tr>
-      <tr><td>Improdutivo</td><td>Score entre 0 e 50.</td></tr>
-      <tr><td>Ocioso / Ausente</td><td>Cerca de dois minutos sem movimento do mouse ou digitação.</td></tr>
-      <tr><td>Mídia</td><td>Reprodução de mídia na tela principal; é uma exceção à classificação automática de ociosidade.</td></tr>
-    </tbody>
-  </table>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Estado</th><th>Critério documentado</th></tr></thead>
+      <tbody>
+        <tr><td>Produtivo</td><td>Score entre 71 e 100.</td></tr>
+        <tr><td>Atenção</td><td>Score entre 51 e 70.</td></tr>
+        <tr><td>Improdutivo</td><td>Score entre 0 e 50.</td></tr>
+        <tr><td>Ocioso / Ausente</td><td>Cerca de dois minutos sem movimento do mouse ou digitação.</td></tr>
+        <tr><td>Mídia</td><td>Reprodução de mídia na tela principal; é uma exceção à classificação automática de ociosidade.</td></tr>
+      </tbody>
+    </table>
+  </div>
   <p>Quando há múltiplas penalidades ao mesmo tempo, elas não são somadas: o sistema aplica somente a regra de maior impacto. O perfil de scoring deve ser compatível com as ferramentas usadas por cada equipe.</p>
   <div class="callout tip">
     <strong>Não confunda estados:</strong> disponibilidade operacional (online, em pausa, ocupado) e classificação de produtividade (produtivo, atenção, improdutivo, ausente ou mídia) respondem a perguntas diferentes e devem ser analisadas em conjunto.
   </div>
+  <div class="callout info">
+    <strong>Requisitos (conforme o material de origem):</strong> o módulo é <strong>exclusivo da versão Desktop</strong> e o monitoramento roda por um aplicativo que deve ser executado nas máquinas monitoradas. No cadastro do usuário, é preciso ativar a permissão <em>“Habilitar monitoramento de produtividade”</em> e vincular um <em>Perfil de Scoring</em> na aba de monitoramento. Detalhes de configuração em <a href="produtividade.html">Monitoramento de Produtividade</a>.
+  </div>
 
-  <h2>9. Rotina de supervisão</h2>
+  <h2 id="9-relatorios-de-produtividade-no-painel-e-indicadores">9. Relatórios de produtividade no Painel e Indicadores</h2>
+  <p>O material de origem descreve dois relatórios analíticos acessíveis em <code>Painel e Indicadores</code>: <strong>Produtividade - Equipe</strong> (visão consolidada) e <strong>Produtividade - Agente</strong> (visão individual). Ambos contam com filtros de período (ex.: este mês, últimos 7 dias, personalizado) e botão <em>Atualizar</em>.</p>
+
+  <h3 id="9-1-produtividade-equipe-visao-consolidada">9.1. Produtividade - Equipe (visão consolidada)</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Bloco</th><th>O que apresenta</th></tr></thead>
+      <tbody>
+        <tr><td><strong>KPIs gerais</strong></td><td>Score médio da equipe; composição de tempo (Produtivo, Atenção, Improdutivo, Ausente, Mídia); horas produtivas; tempo logado; <em>agentes em risco</em> (score médio abaixo de 40); total de agentes monitorados.</td></tr>
+        <tr><td><strong>Tendência diária do score</strong></td><td>Evolução da média diária da equipe ao longo do período, para identificar quedas atípicas ou picos de rendimento.</td></tr>
+        <tr><td><strong>Distribuição de scores</strong></td><td>Quantos agentes estão em cada faixa (0–20, 20–40, 40–60, 60–80, 80–100).</td></tr>
+        <tr><td><strong>Calendário de produtividade</strong></td><td>Mapa de calor mensal com a pontuação média do time por dia, colorido conforme o nível atingido.</td></tr>
+        <tr><td><strong>Ranking de agentes</strong></td><td>Agente, score, % de cada estado, tempo logado, <em>melhor streak</em> e <em>trocas de contexto</em>.</td></tr>
+        <tr><td><strong>Aplicativos mais utilizados</strong></td><td>Aplicativo/processo, tempo total, divisão de tempo por categoria e score médio da aplicação.</td></tr>
+        <tr><td><strong>Distribuição de tempo por agente</strong></td><td>Barras empilhadas 100% comparando a proporção de cada estado entre os colaboradores.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="9-2-produtividade-agente-visao-individual">9.2. Produtividade - Agente (visão individual)</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Bloco</th><th>O que apresenta</th></tr></thead>
+      <tbody>
+        <tr><td><strong>KPIs gerais</strong></td><td>Score médio, distribuição percentual de tempo por estado, tempo logado, melhor streak e trocas de contexto.</td></tr>
+        <tr><td><strong>Tendência e distribuição diária</strong></td><td>Flutuação diária do score e proporção de tempo por data; calendário com melhor e pior dia do período.</td></tr>
+        <tr><td><strong>Métricas detalhadas</strong></td><td>Streak produtivo e improdutivo (com data), automações executadas, capturas e os apps mais produtivo e mais improdutivo.</td></tr>
+        <tr><td><strong>Aplicativos mais utilizados</strong></td><td>Tempo total por programa, com horas produtivas, de atenção, improdutivas, média diária e score do aplicativo.</td></tr>
+        <tr><td><strong>Detalhamento diário</strong></td><td>Histórico dia a dia com score do dia, horas por categoria, total logado, streak produtivo, trocas de contexto, mídia e automações.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout tip">
+    <strong>Interpretação combinada:</strong> use o Painel de Agentes para a leitura <em>em tempo real</em> e os relatórios de produtividade para a leitura <em>histórica e comparativa</em>. O detalhamento completo dos conceitos (scores, streaks, trocas de contexto e governança) está em <a href="produtividade.html">Monitoramento de Produtividade</a>.
+  </div>
+
+  <h2 id="10-rotina-de-supervisao">10. Rotina de supervisão</h2>
   <ol class="steps">
     <li>Filtre o estado operacional para localizar agentes disponíveis, ocupados, em pausa ou offline.</li>
     <li>Compare <strong>Chats agora</strong> com o limite individual antes de concluir que há sobrecarga.</li>
     <li>Confira as exceções de distribuição quando a carga estiver acima do teto configurado.</li>
     <li>Use <strong>Chats atendidos hoje</strong> para acompanhar encerramentos e o Dashboard inicial para medir novas demandas.</li>
-    <li>Se o monitoramento estiver habilitado, interprete o estado de produtividade conforme o perfil de scoring da equipe, não de forma isolada.</li>
+    <li>Se o monitoramento estiver habilitado, interprete o estado de produtividade conforme o perfil de scoring da equipe, não de forma isolada, e confirme tendências nos relatórios por equipe e por agente.</li>
   </ol>
 
   <div class="pagenav">
@@ -150,6 +287,7 @@
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

@@ -10,20 +10,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html" class="active">Início</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="crm.html">CRM</a>
-    <a href="carrinho-sincronizado.html">Carrinho Sync</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="pabx.html">PABX & Telefonia</a>
-    <a href="canais-whatsapp-meta.html">WhatsApp/Meta</a>
-    <a href="ia.html">IA</a>
-    <a href="contatos.html">Contatos</a>
-    <a href="relatorios.html">Relatórios</a>
-    <a href="configuracoes.html">Configurações</a>
-    <a href="extensoes.html">Extensões</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink active" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -34,7 +95,7 @@
 </section>
 
 <main class="container section">
-  <h2>Conteúdo do manual</h2>
+  <h2 id="conteudo-do-manual">Conteúdo do manual</h2>
   <p class="lead">Cada capítulo foi elaborado a partir da interface real da plataforma. Clique para abrir.</p>
 
   <div class="grid">
@@ -43,7 +104,7 @@
       <div class="thumb"><img src="assets/dashboard-kpi.png" alt="Dashboard de KPIs"></div>
       <div class="body">
         <span class="tag">Visão geral</span>
-        <h3>Dashboard e Indicadores (KPI)</h3>
+        <h3 id="dashboard-e-indicadores-kpi">Dashboard e Indicadores (KPI)</h3>
         <p>Como ler os KPIs de atendimento, os gráficos de contatos por hora/fila e a tabela de agentes.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -53,7 +114,7 @@
       <div class="thumb"><img src="assets/dashboard-agentes.png" alt="Painel de Agentes"></div>
       <div class="body">
         <span class="tag">Equipe</span>
-        <h3>Agent Dashboard (Agentes)</h3>
+        <h3 id="agent-dashboard-agentes">Agent Dashboard (Agentes)</h3>
         <p>Acompanhe em tempo real o status dos atendentes: online, pausa, funções e indicadores do dia.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -63,7 +124,7 @@
       <div class="thumb"><img src="assets/crm.png" alt="Tela de CRM"></div>
       <div class="body">
         <span class="tag">Vendas</span>
-        <h3>CRM e Funil de Vendas</h3>
+        <h3 id="crm-e-funil-de-vendas">CRM e Funil de Vendas</h3>
         <p>Gerencie oportunidades, visualize o funil de vendas e acompanhe valores totais e recorrentes.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -73,7 +134,7 @@
       <div class="thumb">🛒</div>
       <div class="body">
         <span class="tag">Vendas · CRM</span>
-        <h3>Carrinho Sincronizado com CRM</h3>
+        <h3 id="carrinho-sincronizado-com-crm">Carrinho Sincronizado com CRM</h3>
         <p>Transforme o carrinho de produtos do atendimento em uma oportunidade de CRM sincronizada ao vivo, com catálogo, etapas e automação de preço.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -83,7 +144,7 @@
       <div class="thumb"><img src="assets/tickets.png" alt="Quadro de Tickets"></div>
       <div class="body">
         <span class="tag">Suporte & Configuração</span>
-        <h3>Tickets (Mesa de Ajuda & Configurações)</h3>
+        <h3 id="tickets-mesa-de-ajuda-configuracoes">Tickets (Mesa de Ajuda & Configurações)</h3>
         <p>Operação no quadro Kanban, filtros, matriz de SLA, classificações, motivos, campos personalizados e automações.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -93,7 +154,7 @@
       <div class="thumb">❓</div>
       <div class="body">
         <span class="tag">Suporte & Configuração</span>
-        <h3>FAQ — Tickets e Automações</h3>
+        <h3 id="faq-tickets-e-automacoes">FAQ — Tickets e Automações</h3>
         <p>As 32 dúvidas mais frequentes sobre o módulo de Tickets: níveis, motivos, templates, SLA, estágios, automações, portal público e variáveis.</p>
         <div class="more">Consultar FAQ →</div>
       </div>
@@ -103,7 +164,7 @@
       <div class="thumb"><img src="assets/pabx-painel.png" alt="PABX e Telefonia"></div>
       <div class="body">
         <span class="tag">Telefonia VoIP</span>
-        <h3>PABX Fácil e Telefonia VoIP</h3>
+        <h3 id="pabx-facil-e-telefonia-voip">PABX Fácil e Telefonia VoIP</h3>
         <p>Arquitetura do FreePBX/Asterisk, integração com WhatsApp Cloud API, criação de ramais, URAs e análise de CDR.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -113,7 +174,7 @@
       <div class="thumb"><img src="assets/internal-chat.png" alt="Chat Interno"></div>
       <div class="body">
         <span class="tag">Comunicação</span>
-        <h3>Chat Interno</h3>
+        <h3 id="chat-interno">Chat Interno</h3>
         <p>Converse com a equipe internamente, sem expor o cliente, com atalhos e anexos.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -123,7 +184,7 @@
       <div class="thumb"><img src="assets/tasks.png" alt="Tarefas"></div>
       <div class="body">
         <span class="tag">Produtividade</span>
-        <h3>Tarefas (My tasks)</h3>
+        <h3 id="tarefas-my-tasks">Tarefas (My tasks)</h3>
         <p>Crie e acompanhe tarefas pendentes e concluídas diretamente no painel de trabalho.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -133,7 +194,7 @@
       <div class="thumb"><img src="assets/contacts.png" alt="Lista de Contatos"></div>
       <div class="body">
         <span class="tag">Base de dados</span>
-        <h3>Contatos e Empresas</h3>
+        <h3 id="contatos-e-empresas">Contatos e Empresas</h3>
         <p>Visualize, importe, exporte e gerencie duplicados na base de contatos e empresas.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -143,7 +204,7 @@
       <div class="thumb"><img src="assets/reports-menu.png" alt="Menu de Relatórios"></div>
       <div class="body">
         <span class="tag">Análise</span>
-        <h3>Relatórios</h3>
+        <h3 id="relatorios">Relatórios</h3>
         <p>Histórico de chats, filas, pausas, gravações, produtividade e muito mais.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -153,7 +214,7 @@
       <div class="thumb"><img src="assets/relatorios-personalizados.png" alt="Relatórios Personalizados"></div>
       <div class="body">
         <span class="tag">Análise</span>
-        <h3>Relatórios Personalizados</h3>
+        <h3 id="relatorios-personalizados">Relatórios Personalizados</h3>
         <p>Dashboards e relatórios customizados (CRM, produtividade, telefonia, CDR e mais).</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -163,7 +224,7 @@
       <div class="thumb"><img src="assets/settings-queues.png" alt="Configurações de Filas"></div>
       <div class="body">
         <span class="tag">Administração</span>
-        <h3>Configurações</h3>
+        <h3 id="configuracoes">Configurações</h3>
         <p>Filas, usuários, pausas, campanhas, automações, rótulos e demais ajustes do sistema.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -173,7 +234,7 @@
       <div class="thumb"><img src="assets/catalogo/lista-produtos.jpg" alt="Catálogo de Produtos"></div>
       <div class="body">
         <span class="tag">Vendas · WhatsApp</span>
-        <h3>Catálogo de Produtos</h3>
+        <h3 id="catalogo-de-produtos">Catálogo de Produtos</h3>
         <p>Cadastre ou importe produtos, conecte ao catálogo do WhatsApp (Meta) e automatize o fluxo de pedidos na Cloud API.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -183,7 +244,7 @@
       <div class="thumb">🔌</div>
       <div class="body">
         <span class="tag">Avançado · Integração</span>
-        <h3>Extensões (Micro-Frontends &amp; SDK)</h3>
+        <h3 id="extensoes-micro-frontends-amp-sdk">Extensões (Micro-Frontends &amp; SDK)</h3>
         <p>Aprenda a instalar, gerenciar e programar micro-frontends interativos e workers em segundo plano usando o SDK omni do AtenderBem.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -193,7 +254,7 @@
       <div class="thumb">💬</div>
       <div class="body">
         <span class="tag">Canais · Meta</span>
-        <h3>WhatsApp, Cloud API e Meta</h3>
+        <h3 id="whatsapp-cloud-api-e-meta">WhatsApp, Cloud API e Meta</h3>
         <p>Modalidades de conexão, Business Manager, onboarding, templates, WhatsApp Flows, grupos, diagnóstico e integrações legadas.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -203,7 +264,7 @@
       <div class="thumb">🤖</div>
       <div class="body">
         <span class="tag">Inteligência Artificial</span>
-        <h3>IA Básica e IA Avançada</h3>
+        <h3 id="ia-basica-e-ia-avancada">IA Básica e IA Avançada</h3>
         <p>Provedores, modelos, assistentes, bases de conhecimento, funções, MCP, automações, URAs, voz, segurança e diagnóstico.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -213,7 +274,7 @@
       <div class="thumb">📊</div>
       <div class="body">
         <span class="tag">Qualidade · Experiência</span>
-        <h3>Pesquisas e Satisfação</h3>
+        <h3 id="pesquisas-e-satisfacao">Pesquisas e Satisfação</h3>
         <p>Cadastre pesquisas, configure perguntas, gere links, use em URAs e automações, processe variáveis e analise respostas.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -223,7 +284,7 @@
       <div class="thumb">📈</div>
       <div class="body">
         <span class="tag">Gestão · Equipe</span>
-        <h3>Monitoramento de Produtividade</h3>
+        <h3 id="monitoramento-de-produtividade">Monitoramento de Produtividade</h3>
         <p>Scores, faixas, ociosidade, painéis de equipe e agente, aplicativos, capturas, automações, tarefas e governança.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -233,7 +294,7 @@
       <div class="thumb">🔗</div>
       <div class="body">
         <span class="tag">Avançado · Integração</span>
-        <h3>Integrações e Automações Externas</h3>
+        <h3 id="integracoes-e-automacoes-externas">Integrações e Automações Externas</h3>
         <p>Generic Queue 2, HTTP, webhooks, Google Forms e Sheets, BigQuery, variáveis de template, segurança e diagnóstico.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -243,7 +304,7 @@
       <div class="thumb">💾</div>
       <div class="body">
         <span class="tag">Administração · Segurança</span>
-        <h3>Backups e Restauração</h3>
+        <h3 id="backups-e-restauracao">Backups e Restauração</h3>
         <p>Automatizador e Gerenciador de Backups: configuração, agenda, destinos, retenção, validação, restauração e runbook.</p>
         <div class="more">Ler capítulo →</div>
       </div>
@@ -253,8 +314,18 @@
       <div class="thumb">🛠️</div>
       <div class="body">
         <span class="tag">Suporte · Boas práticas</span>
-        <h3>Playbook de Suporte Operacional</h3>
+        <h3 id="playbook-de-suporte-operacional">Playbook de Suporte Operacional</h3>
         <p>Triagem, coleta de evidências, comunicação de incidentes, suporte visual remoto, escalonamento e atendimento de clientes nervosos.</p>
+        <div class="more">Ler capítulo →</div>
+      </div>
+    </a>
+
+    <a class="card" href="suporte-visual-remoto.html">
+      <div class="thumb">📹</div>
+      <div class="body">
+        <span class="tag">Suporte · Ferramenta</span>
+        <h3 id="suporte-visual-remoto">Suporte Visual Remoto</h3>
+        <p>Videochamada com realidade aumentada: o cliente abre a câmera por um link, sem instalar app. Licenciamento por sessões simultâneas, OCR, LGPD, supervisão e casos de uso por setor.</p>
         <div class="more">Ler capítulo →</div>
       </div>
     </a>
@@ -266,6 +337,7 @@
   <p>Manual Omnichannel — Elaborado a partir da interface real da plataforma <strong>AtenderBem / Habilis</strong>.</p>
   <p>Este material é de uso interno e educativo. Não foram inventadas funcionalidades além das observadas na plataforma.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

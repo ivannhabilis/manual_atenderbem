@@ -9,17 +9,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="crm.html">CRM</a>
-    <a href="tickets.html" class="active">Tickets</a>
-    <a href="pabx.html">PABX & Telefonia</a>
-    <a href="contatos.html">Contatos</a>
-    <a href="relatorios.html">Relatórios</a>
-    <a href="relatorios-personalizados.html">Personalizados</a>
-    <a href="configuracoes.html">Configurações</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a class="active" href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -29,6 +93,62 @@
   <h1>Tickets (Mesa de Ajuda e Configurações)</h1>
   <p class="subtitle">Guia operacional do quadro Kanban e manual técnico de parametrização de todos os 6 módulos administrativos de Tickets no AtenderBem.</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-visao-geral-da-operacao-mesa-de-ajuda">1. Visão geral da operação (Mesa de Ajuda)</a></li>
+      <li><a href="#2-filtros-de-triagem-e-visualizacao">2. Filtros de triagem e visualização</a></li>
+      <li><a href="#3-colunas-de-status-no-kanban">3. Colunas de status no Kanban</a></li>
+      <li><a href="#4-anatomia-do-cartao-de-ticket">4. Anatomia do cartão de ticket</a></li>
+      <li><a href="#5-guia-completo-de-configuracoes-administrativas">5. Guia Completo de Configurações Administrativas</a></li>
+      <li class="toc-h3"><a href="#5-1-grupos-de-atendimento-base-config-tickets-service-groups">5.1. Grupos de Atendimento (`/base/config/tickets-service-groups`)</a></li>
+      <li class="toc-h3"><a href="#5-2-classificacoes-base-config-tickets-classifications">5.2. Classificações (`/base/config/tickets-classifications`)</a></li>
+      <li class="toc-h3"><a href="#5-3-motivos-de-abertura-base-config-tickets-reasons">5.3. Motivos de Abertura (`/base/config/tickets-reasons`)</a></li>
+      <li class="toc-h3"><a href="#5-4-configuracao-de-e-mail-de-tickets-base-config-tickets-email-config">5.4. Configuração de E-mail de Tickets (`/base/config/tickets-email-config`)</a></li>
+      <li class="toc-h3"><a href="#5-5-fluxos-de-etapas-base-config-tickets-stage-flows">5.5. Fluxos de Etapas (`/base/config/tickets-stage-flows`)</a></li>
+      <li class="toc-h3"><a href="#5-6-configuracoes-gerais-do-sistema-base-config-tickets-system-config">5.6. Configurações Gerais do Sistema (`/base/config/tickets-system-config`)</a></li>
+      <li><a href="#6-estudo-de-caso-pratico-configuracao-completa-na-ordem-de-dependencia">6. Estudo de Caso Prático: Configuração Completa na Ordem de Dependência</a></li>
+      <li><a href="#7-resumo-e-boas-praticas-de-governanca">7. Resumo e Boas Práticas de Governança</a></li>
+      <li><a href="#8-novo-modulo-de-tickets-versao-13-multiplos-tickets-por-atendimento">8. Novo Módulo de Tickets (versão 13): múltiplos tickets por atendimento</a></li>
+      <li class="toc-h3"><a href="#8-1-como-um-ticket-nasce-dentro-de-uma-conversa">8.1. Como um ticket nasce dentro de uma conversa</a></li>
+      <li><a href="#9-estruturacao-de-grupos-de-servico-niveis-de-atendimento-e-sla">9. Estruturação de Grupos de Serviço, Níveis de Atendimento e SLA</a></li>
+      <li class="toc-h3"><a href="#9-1-niveis-de-atendimento-ate-6">9.1. Níveis de atendimento (até 6)</a></li>
+      <li class="toc-h3"><a href="#9-2-vincular-a-equipe-agentes-e-supervisores">9.2. Vincular a equipe: agentes e supervisores</a></li>
+      <li class="toc-h3"><a href="#9-3-distribuicao-do-sla-e-regras-de-passagem-de-nivel">9.3. Distribuição do SLA (%) e regras de passagem de nível</a></li>
+      <li><a href="#10-cadastro-de-usuarios-a-aba-tickets-agente-e-supervisor">10. Cadastro de Usuários: a aba Tickets (Agente e Supervisor)</a></li>
+      <li class="toc-h3"><a href="#10-1-usuario-do-tipo-agente-aba-tickets">10.1. Usuário do tipo "Agente" — aba Tickets</a></li>
+      <li class="toc-h3"><a href="#10-2-usuario-do-tipo-supervisor-aba-tickets">10.2. Usuário do tipo "Supervisor" — aba Tickets</a></li>
+      <li><a href="#11-motivos-formulario-de-cadastro-e-as-cinco-abas-pos-cadastro">11. Motivos: formulário de cadastro e as cinco abas pós-cadastro</a></li>
+      <li class="toc-h3"><a href="#11-1-parametros-do-formulario-inicial">11.1. Parâmetros do formulário inicial</a></li>
+      <li class="toc-h3"><a href="#11-2-submotivos">11.2. Submotivos</a></li>
+      <li class="toc-h3"><a href="#11-3-abas-de-refinamento-operacional-pos-cadastro">11.3. Abas de refinamento operacional (pós-cadastro)</a></li>
+      <li class="toc-h3"><a href="#11-3-1-filas">11.3.1. Filas</a></li>
+      <li class="toc-h3"><a href="#11-3-2-alertas">11.3.2. Alertas</a></li>
+      <li class="toc-h3"><a href="#11-3-3-automacao">11.3.3. Automação</a></li>
+      <li class="toc-h3"><a href="#11-3-4-e-mails">11.3.4. E-mails</a></li>
+      <li class="toc-h3"><a href="#11-3-5-estagios">11.3.5. Estágios</a></li>
+      <li><a href="#12-configuracoes-gerais-do-modulo-e-portal-publico-do-ticket">12. Configurações Gerais do Módulo e Portal Público do Ticket</a></li>
+      <li class="toc-h3"><a href="#12-1-permissoes-e-acoes-do-ticket">12.1. Permissões e ações do ticket</a></li>
+      <li class="toc-h3"><a href="#12-2-url-publica-de-acompanhamento">12.2. URL pública de acompanhamento</a></li>
+      <li><a href="#13-e-mails-de-tickets-eventos-hierarquia-e-fila-de-envio">13. E-mails de Tickets: eventos, hierarquia e fila de envio</a></li>
+      <li class="toc-h3"><a href="#13-1-eventos-de-disparo">13.1. Eventos de disparo</a></li>
+      <li class="toc-h3"><a href="#13-2-hierarquia-de-configuracao-efeito-cascata">13.2. Hierarquia de configuração (efeito cascata)</a></li>
+      <li class="toc-h3"><a href="#13-3-modelos-variaveis-e-fila-de-envio">13.3. Modelos, variáveis e fila de envio</a></li>
+      <li><a href="#14-estagios-e-classificacoes-fluxo-transicoes-e-automacoes">14. Estágios e Classificações: fluxo, transições e automações</a></li>
+      <li class="toc-h3"><a href="#14-1-estagios">14.1. Estágios</a></li>
+      <li class="toc-h3"><a href="#14-2-classificacoes">14.2. Classificações</a></li>
+      <li><a href="#15-painel-de-tickets-e-relatorios-gerenciais">15. Painel de Tickets e Relatórios Gerenciais</a></li>
+      <li class="toc-h3"><a href="#15-1-painel-operacional">15.1. Painel operacional</a></li>
+      <li class="toc-h3"><a href="#15-2-dashboard-gerencial">15.2. Dashboard gerencial</a></li>
+      <li class="toc-h3"><a href="#15-3-relatorios-analiticos">15.3. Relatórios analíticos</a></li>
+      <li><a href="#16-automacoes-payload-configuravel-de-cada-bloco-de-ticket">16. Automações: payload configurável de cada bloco de ticket</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <div class="callout info">
     <strong>Dúvidas frequentes?</strong> Consulte o <a href="tickets-faq.html">FAQ — Módulo de Tickets e Automações</a> com as respostas às perguntas mais comuns dos usuários (níveis de atendimento, motivos, templates de e-mail, SLA, estágios e variáveis de automação).
   </div>
@@ -39,14 +159,14 @@
   </figure>
 
   <!-- ==================== PARTE 1: OPERAÇÃO KANBAN ==================== -->
-  <h2>1. Visão geral da operação (Mesa de Ajuda)</h2>
+  <h2 id="1-visao-geral-da-operacao-mesa-de-ajuda">1. Visão geral da operação (Mesa de Ajuda)</h2>
   <p>O módulo de <strong>Tickets</strong> é o centro de resolução de demandas assíncronas e estruturadas da plataforma <strong>AtenderBem</strong>. Ele gerencia solicitações que dependem de prazos contratuais (SLA), análise técnica aprofundada, dependência de peças ou validações financeiras.</p>
 
   <div class="callout info">
     <strong>Omnichannel Integrado:</strong> Um ticket pode nascer automaticamente a partir de um atendimento via WhatsApp/Telefonia ou ser criado manualmente pelo atendente através do botão <code>+</code> roxo no topo do painel.
   </div>
 
-  <h2>2. Filtros de triagem e visualização</h2>
+  <h2 id="2-filtros-de-triagem-e-visualizacao">2. Filtros de triagem e visualização</h2>
   <p>A barra superior do quadro Kanban oferece ferramentas para refinamento de visualização em tempo real:</p>
   <div class="table-wrap">
     <table class="doc">
@@ -61,7 +181,7 @@
     </table>
   </div>
 
-  <h2>3. Colunas de status no Kanban</h2>
+  <h2 id="3-colunas-de-status-no-kanban">3. Colunas de status no Kanban</h2>
   <p>Os chamados transitam horizontalmente pelas 5 colunas de status padrão:</p>
   <ul>
     <li><strong>Open (Azul):</strong> Chamados novos aguardando atribuição de responsável ou triagem inicial.</li>
@@ -71,7 +191,7 @@
     <li><strong>Resolved (Verde):</strong> Demanda totalmente solucionada e encerrada.</li>
   </ul>
 
-  <h2>4. Anatomia do cartão de ticket</h2>
+  <h2 id="4-anatomia-do-cartao-de-ticket">4. Anatomia do cartão de ticket</h2>
   <ul>
     <li><strong>Código do Protocolo:</strong> Identificador amigável (ex.: <code>TK-20260807-05115</code>).</li>
     <li><strong>Responsável:</strong> Nome do agente ou <em>"No agent"</em> (quando não distribuído).</li>
@@ -84,7 +204,7 @@
   <hr style="margin: 44px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
   <!-- ==================== PARTE 2: CONFIGURAÇÕES DETALHADAS ==================== -->
-  <h2>5. Guia Completo de Configurações Administrativas</h2>
+  <h2 id="5-guia-completo-de-configuracoes-administrativas">5. Guia Completo de Configurações Administrativas</h2>
   <p>O ecossistema de Tickets é configurado em <strong>6 áreas administrativas dedicadas</strong>. Abaixo está o detalhamento completo de cada tela, seus campos, regras e opções:</p>
 
   <ul class="menulist">
@@ -97,7 +217,7 @@
   </ul>
 
   <!-- 5.1 Service Groups -->
-  <h3>5.1. Grupos de Atendimento (`/base/config/tickets-service-groups`)</h3>
+  <h3 id="5-1-grupos-de-atendimento-base-config-tickets-service-groups">5.1. Grupos de Atendimento (`/base/config/tickets-service-groups`)</h3>
   <p>Define quais grupos de atendentes respondem por quais tipos de demanda dentro da empresa.</p>
   <div class="table-wrap">
     <table class="doc">
@@ -114,7 +234,7 @@
   </div>
 
   <!-- 5.2 Classifications -->
-  <h3>5.2. Classificações (`/base/config/tickets-classifications`)</h3>
+  <h3 id="5-2-classificacoes-base-config-tickets-classifications">5.2. Classificações (`/base/config/tickets-classifications`)</h3>
   <p>As classificações são as grandes categorias que organizam os chamados para relatórios e direcionamento inicial.</p>
   <div class="table-wrap">
     <table class="doc">
@@ -131,7 +251,7 @@
   </div>
 
   <!-- 5.3 Reasons -->
-  <h3>5.3. Motivos de Abertura (`/base/config/tickets-reasons`)</h3>
+  <h3 id="5-3-motivos-de-abertura-base-config-tickets-reasons">5.3. Motivos de Abertura (`/base/config/tickets-reasons`)</h3>
   <p>Subcategorias específicas vinculadas obrigatoriamente a uma Classificação pai.</p>
   <div class="table-wrap">
     <table class="doc">
@@ -148,7 +268,7 @@
   </div>
 
   <!-- 5.4 Email Config -->
-  <h3>5.4. Configuração de E-mail de Tickets (`/base/config/tickets-email-config`)</h3>
+  <h3 id="5-4-configuracao-de-e-mail-de-tickets-base-config-tickets-email-config">5.4. Configuração de E-mail de Tickets (`/base/config/tickets-email-config`)</h3>
   <p>Parametrização do canal de comunicação por e-mail para envio de comprovantes, respostas e alertas aos solicitantes.</p>
   <div class="table-wrap">
     <table class="doc">
@@ -165,7 +285,7 @@
   </div>
 
   <!-- 5.5 Stage Flows -->
-  <h3>5.5. Fluxos de Etapas (`/base/config/tickets-stage-flows`)</h3>
+  <h3 id="5-5-fluxos-de-etapas-base-config-tickets-stage-flows">5.5. Fluxos de Etapas (`/base/config/tickets-stage-flows`)</h3>
   <p>Configura o ciclo de vida e a esteira de estágios pela qual o chamado transita (a máquina de estados do Kanban).</p>
   <div class="table-wrap">
     <table class="doc">
@@ -181,7 +301,7 @@
   </div>
 
   <!-- 5.6 System Config -->
-  <h3>5.6. Configurações Gerais do Sistema (`/base/config/tickets-system-config`)</h3>
+  <h3 id="5-6-configuracoes-gerais-do-sistema-base-config-tickets-system-config">5.6. Configurações Gerais do Sistema (`/base/config/tickets-system-config`)</h3>
   <p>Parâmetros globais de comportamento do módulo de Tickets:</p>
   <div class="table-wrap">
     <table class="doc">
@@ -200,7 +320,7 @@
   <hr style="margin: 44px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
   <!-- ==================== PARTE 3: EXEMPLO PRÁTICO ==================== -->
-  <h2>6. Estudo de Caso Prático: Configuração Completa na Ordem de Dependência</h2>
+  <h2 id="6-estudo-de-caso-pratico-configuracao-completa-na-ordem-de-dependencia">6. Estudo de Caso Prático: Configuração Completa na Ordem de Dependência</h2>
   <p>Abaixo está o roteiro de parametrização de uma central de atendimento técnica completa na ordem exata de dependência dos cadastros:</p>
 
   <ol class="steps">
@@ -230,7 +350,7 @@
     </li>
   </ol>
 
-  <h2>7. Resumo e Boas Práticas de Governança</h2>
+  <h2 id="7-resumo-e-boas-praticas-de-governanca">7. Resumo e Boas Práticas de Governança</h2>
   <div class="callout tip">
     <ul>
       <li><strong>Ordem de Cadastro:</strong> Sempre configure primeiro o <em>System Config</em> e os <em>Service Groups</em> antes de cadastrar <em>Classificações</em> e <em>Motivos</em>, pois os últimos dependem dos primeiros.</li>
@@ -242,14 +362,14 @@
   <hr style="margin: 44px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
   <!-- ==================== PARTE 4: NOVO MÓDULO (v13) ==================== -->
-  <h2>8. Novo Módulo de Tickets (versão 13): múltiplos tickets por atendimento</h2>
+  <h2 id="8-novo-modulo-de-tickets-versao-13-multiplos-tickets-por-atendimento">8. Novo Módulo de Tickets (versão 13): múltiplos tickets por atendimento</h2>
   <p>A partir da <strong>versão 13</strong> do sistema, o módulo de Tickets passou a operar em um novo modelo de fluxo de trabalho. No modelo anterior, cada atendimento gerava <strong>um único protocolo</strong>, o que limitava o histórico a um único canal e a um único assunto. No modelo atual, <strong>um mesmo atendimento pode conter múltiplos tickets</strong>: dentro de uma única conversa é possível isolar, categorizar e tratar demandas diferentes de forma individual e organizada.</p>
 
   <div class="callout info">
     <strong>Impacto operacional:</strong> o protocolo deixa de ser sinônimo de "atendimento". Um cliente que abre três assuntos distintos no mesmo chat passa a ter três tickets, com SLAs, responsáveis, estágios e históricos independentes.
   </div>
 
-  <h3>8.1. Como um ticket nasce dentro de uma conversa</h3>
+  <h3 id="8-1-como-um-ticket-nasce-dentro-de-uma-conversa">8.1. Como um ticket nasce dentro de uma conversa</h3>
   <ol class="steps">
     <li>
       <strong>Pelo menu de contexto da mensagem (chat/WhatsApp):</strong><br>
@@ -272,10 +392,10 @@
   <hr style="margin: 44px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
   <!-- ==================== PARTE 5: NÍVEIS, SLA E EQUIPE ==================== -->
-  <h2>9. Estruturação de Grupos de Serviço, Níveis de Atendimento e SLA</h2>
+  <h2 id="9-estruturacao-de-grupos-de-servico-niveis-de-atendimento-e-sla">9. Estruturação de Grupos de Serviço, Níveis de Atendimento e SLA</h2>
   <p>Complemento operacional ao capítulo 5.1: abaixo está o detalhamento dos controles de nível, vínculo de equipe e escalonamento disponíveis em <code>Configurações &gt; Ticket &gt; Grupos de Serviço</code>.</p>
 
-  <h3>9.1. Níveis de atendimento (até 6)</h3>
+  <h3 id="9-1-niveis-de-atendimento-ate-6">9.1. Níveis de atendimento (até 6)</h3>
   <ul>
     <li><strong>Limite:</strong> o sistema permite configurar <strong>até 6 níveis de atendimento</strong> por Grupo de Serviço.</li>
     <li><strong>Personalização de nomes:</strong> os níveis padrão (N1, N2, ...) podem ser renomeados clicando diretamente no campo de texto, para alinhar à nomenclatura da empresa (ex.: <em>Triagem</em>, <em>Sustentação</em>).</li>
@@ -286,7 +406,7 @@
     <strong>Hierarquia estrita:</strong> se um nível intermediário for desativado (por exemplo, o N2), <strong>todos os níveis subsequentes (N3, N4, ...) serão desativados automaticamente</strong>. Planeje a estrutura de níveis antes de cadastrar.
   </div>
 
-  <h3>9.2. Vincular a equipe: agentes e supervisores</h3>
+  <h3 id="9-2-vincular-a-equipe-agentes-e-supervisores">9.2. Vincular a equipe: agentes e supervisores</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Ícone / Papel</th><th>Como funciona</th><th>Regra de prioridade</th></tr></thead>
@@ -297,7 +417,7 @@
     </table>
   </div>
 
-  <h3>9.3. Distribuição do SLA (%) e regras de passagem de nível</h3>
+  <h3 id="9-3-distribuicao-do-sla-e-regras-de-passagem-de-nivel">9.3. Distribuição do SLA (%) e regras de passagem de nível</h3>
   <p><strong>Distribuição do SLA (%):</strong> define a porcentagem de tempo que o ticket pode permanecer em cada nível. A soma de todos os níveis ativos deve totalizar <strong>obrigatoriamente 100%</strong>. O ajuste pode ser feito manualmente ou pelos botões <em>Distribuir SLA igualmente</em> e <em>Auto-distribuir SLA</em>. O tempo total em horas/minutos associado a essa porcentagem é puxado posteriormente na configuração de <em>Motivos</em>.</p>
   <div class="table-wrap">
     <table class="doc">
@@ -310,10 +430,10 @@
     </table>
   </div>
 
-  <h2>10. Cadastro de Usuários: a aba Tickets (Agente e Supervisor)</h2>
+  <h2 id="10-cadastro-de-usuarios-a-aba-tickets-agente-e-supervisor">10. Cadastro de Usuários: a aba Tickets (Agente e Supervisor)</h2>
   <p>Depois de estruturar o Grupo de Serviço, é necessário ajustar os limites e permissões individuais diretamente no cadastro de cada colaborador (<code>Configurações &gt; Usuários</code>, pelo ícone de edição do agente ou supervisor).</p>
 
-  <h3>10.1. Usuário do tipo "Agente" — aba Tickets</h3>
+  <h3 id="10-1-usuario-do-tipo-agente-aba-tickets">10.1. Usuário do tipo "Agente" — aba Tickets</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Campo</th><th>Descrição e Regra de Negócio</th></tr></thead>
@@ -325,7 +445,7 @@
     </table>
   </div>
 
-  <h3>10.2. Usuário do tipo "Supervisor" — aba Tickets</h3>
+  <h3 id="10-2-usuario-do-tipo-supervisor-aba-tickets">10.2. Usuário do tipo "Supervisor" — aba Tickets</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Campo</th><th>Descrição e Regra de Negócio</th></tr></thead>
@@ -339,10 +459,10 @@
   <hr style="margin: 44px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
   <!-- ==================== PARTE 6: MOTIVOS (5 ABAS) ==================== -->
-  <h2>11. Motivos: formulário de cadastro e as cinco abas pós-cadastro</h2>
+  <h2 id="11-motivos-formulario-de-cadastro-e-as-cinco-abas-pos-cadastro">11. Motivos: formulário de cadastro e as cinco abas pós-cadastro</h2>
   <p>Complemento ao capítulo 5.3. Os <strong>Motivos</strong> representam o nível de maior especificidade da árvore de categorização de demandas, situando-se abaixo das Classificações: eles determinam o assunto exato do chamado para fins de roteamento e tratamento. Caminho: <code>Configurações &gt; Ticket &gt; Motivos</code>.</p>
 
-  <h3>11.1. Parâmetros do formulário inicial</h3>
+  <h3 id="11-1-parametros-do-formulario-inicial">11.1. Parâmetros do formulário inicial</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Campo</th><th>Obrigatório</th><th>Descrição e Regra de Negócio</th></tr></thead>
@@ -362,13 +482,13 @@
     <strong>Regra de negócio crucial:</strong> após a criação e o salvamento do Motivo, <strong>não é permitido editar a Classificação nem o Grupo de Atendimento</strong>. Valide esses vínculos antes de confirmar; os demais campos permanecem editáveis.
   </div>
 
-  <h3>11.2. Submotivos</h3>
+  <h3 id="11-2-submotivos">11.2. Submotivos</h3>
   <p>O sistema permite ramificações ainda mais profundas (submotivos) para refinar o diagnóstico. Exemplos: dentro do motivo <em>Parcerias</em>, incluir o submotivo <em>"Aceita o segmento X?"</em>; dentro de <em>Faturas</em>, segmentar por <em>"Valor maior/menor"</em> ou <em>"Data de vencimento"</em>.</p>
 
-  <h3>11.3. Abas de refinamento operacional (pós-cadastro)</h3>
+  <h3 id="11-3-abas-de-refinamento-operacional-pos-cadastro">11.3. Abas de refinamento operacional (pós-cadastro)</h3>
   <p>Ao acessar um Motivo já criado, o sistema libera <strong>cinco abas</strong> de refinamento:</p>
 
-  <h3>11.3.1. Filas</h3>
+  <h3 id="11-3-1-filas">11.3.1. Filas</h3>
   <p>Gerencia a distribuição técnica baseada nos níveis herdados do Grupo de Serviço associado.</p>
   <ul>
     <li><strong>Cálculo de Resolução:</strong> o tempo de atendimento por nível é sugerido automaticamente de forma proporcional, cruzando o tempo total definido no motivo com as porcentagens de distribuição configuradas no Grupo de Serviço (ex.: SLA total de 8 horas fatiado em minutos para cada nível técnico).</li>
@@ -378,22 +498,22 @@
     <li><strong>Inclusão de Equipe Extra:</strong> além dos agentes fixados no Grupo de Serviço, é possível adicionar usuários diretamente em cada nível técnico. Esses agentes não fazem parte do grupo base, mas são considerados pelo motor de distribuição exclusivamente quando o ticket der entrada com este motivo específico.</li>
   </ul>
 
-  <h3>11.3.2. Alertas</h3>
+  <h3 id="11-3-2-alertas">11.3.2. Alertas</h3>
   <p>Permite parametrizar gatilhos e avisos baseados no consumo do SLA do chamado. Exemplo prático: programar para que, assim que o tempo consumido atingir <strong>50% da meta do Nível 1</strong>, o sistema dispare uma automação de aviso preventiva para a supervisão.</p>
 
-  <h3>11.3.3. Automação</h3>
+  <h3 id="11-3-3-automacao">11.3.3. Automação</h3>
   <p>Possibilita o desvio do fluxo padrão de automação. A automação definida nesta aba <strong>anula e substitui</strong> a da Classificação. Se a aba for mantida em branco, o sistema herda o comportamento da Classificação; se ambas estiverem vazias, nenhuma automação é executada.</p>
 
-  <h3>11.3.4. E-mails</h3>
+  <h3 id="11-3-4-e-mails">11.3.4. E-mails</h3>
   <p>Configuração de templates de e-mail e notificações específicos para o assunto, sob efeito cascata (do mais específico ao mais geral): 1º Motivo &#8594; 2º Classificação &#8594; 3º Configuração Geral. Caso nenhuma das três instâncias possua dados, nenhuma notificação é enviada.</p>
 
-  <h3>11.3.5. Estágios</h3>
+  <h3 id="11-3-5-estagios">11.3.5. Estágios</h3>
   <p>Permite determinar um fluxo (Kanban) de estágios diferenciado e exclusivo para o assunto. Se nenhuma personalização for feita nesta aba, o ticket adota automaticamente a esteira de estágios configurada na Classificação.</p>
 
   <hr style="margin: 44px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
   <!-- ==================== PARTE 7: CONFIGURAÇÕES GERAIS ==================== -->
-  <h2>12. Configurações Gerais do Módulo e Portal Público do Ticket</h2>
+  <h2 id="12-configuracoes-gerais-do-modulo-e-portal-publico-do-ticket">12. Configurações Gerais do Módulo e Portal Público do Ticket</h2>
   <p>Caminho: <code>Configurações &gt; Tickets &gt; Configurações Gerais</code>. Complementa o capítulo 5.6 com os parâmetros de automação de fechamento, visibilidade e segurança.</p>
   <div class="table-wrap">
     <table class="doc">
@@ -406,7 +526,7 @@
     </table>
   </div>
 
-  <h3>12.1. Permissões e ações do ticket</h3>
+  <h3 id="12-1-permissoes-e-acoes-do-ticket">12.1. Permissões e ações do ticket</h3>
   <p>Configuração que estabelece os limites e regras de manipulação dos tickets dentro do sistema.</p>
   <div class="table-wrap">
     <table class="doc">
@@ -424,7 +544,7 @@
     <strong>Limite da autoatribuição:</strong> um agente comum <strong>nunca</strong> terá permissão para enxergar tickets que já estejam sob a responsabilidade de outro operador.
   </div>
 
-  <h3>12.2. URL pública de acompanhamento</h3>
+  <h3 id="12-2-url-publica-de-acompanhamento">12.2. URL pública de acompanhamento</h3>
   <p>O portal externo do ticket é acessado por uma URL tokenizada, sem exigência de login, no formato:</p>
   <pre style="background:#1f2430;color:#fff;padding:14px;border-radius:8px;"><code>https://app.atenderbem.com/absolute/external/ticketportal/external/public?token=SEU_TOKEN&amp;id=ID_DO_TICKET&amp;hash=SEU_HASH</code></pre>
   <p>Nesse portal o cliente pode visualizar o resumo do ticket (status, prioridade, classificação, motivo, datas de criação e atualização), ler a descrição, acompanhar os comentários, inserir novos comentários e responder às solicitações da equipe.</p>
@@ -432,10 +552,10 @@
   <hr style="margin: 44px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
   <!-- ==================== PARTE 8: E-MAILS ==================== -->
-  <h2>13. E-mails de Tickets: eventos, hierarquia e fila de envio</h2>
+  <h2 id="13-e-mails-de-tickets-eventos-hierarquia-e-fila-de-envio">13. E-mails de Tickets: eventos, hierarquia e fila de envio</h2>
   <p>A funcionalidade de E-mails automatiza a comunicação entre o sistema e os clientes durante todo o ciclo de vida de um ticket, definindo modelos enviados automaticamente em eventos específicos.</p>
 
-  <h3>13.1. Eventos de disparo</h3>
+  <h3 id="13-1-eventos-de-disparo">13.1. Eventos de disparo</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Evento</th><th>Quando é enviado</th></tr></thead>
@@ -449,7 +569,7 @@
     </table>
   </div>
 
-  <h3>13.2. Hierarquia de configuração (efeito cascata)</h3>
+  <h3 id="13-2-hierarquia-de-configuracao-efeito-cascata">13.2. Hierarquia de configuração (efeito cascata)</h3>
   <ol class="steps">
     <li><strong>1º nível — Configuração do Motivo:</strong> se existir um template configurado diretamente no motivo do ticket, ele é utilizado.</li>
     <li><strong>2º nível — Configuração da Classificação:</strong> sem configuração no motivo, o sistema usa o template definido na classificação.</li>
@@ -457,7 +577,7 @@
     <li><strong>Sem configuração:</strong> se nenhuma das configurações estiver definida, nenhum e-mail é enviado.</li>
   </ol>
 
-  <h3>13.3. Modelos, variáveis e fila de envio</h3>
+  <h3 id="13-3-modelos-variaveis-e-fila-de-envio">13.3. Modelos, variáveis e fila de envio</h3>
   <ul>
     <li><strong>Modelos HTML:</strong> devem estar previamente cadastrados em <code>Cadastro &gt; Modelos HTML</code>. Para cada evento disponível, seleciona-se um modelo previamente cadastrado.</li>
     <li><strong>Variáveis do ticket:</strong> os templates podem usar variáveis dinâmicas. Uma das principais é <code>ticket_tracking_url</code>, que gera automaticamente o link para o portal externo do ticket (ver capítulo 12.2).</li>
@@ -468,10 +588,10 @@
   <hr style="margin: 44px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
   <!-- ==================== PARTE 9: ESTÁGIOS E CLASSIFICAÇÕES ==================== -->
-  <h2>14. Estágios e Classificações: fluxo, transições e automações</h2>
+  <h2 id="14-estagios-e-classificacoes-fluxo-transicoes-e-automacoes">14. Estágios e Classificações: fluxo, transições e automações</h2>
   <p>Estágios e Classificações são responsáveis pela organização operacional dos tickets. A esteira de estágios (capítulo 5.5) representa o fluxo operacional que um ticket percorre desde a abertura até a conclusão.</p>
 
-  <h3>14.1. Estágios</h3>
+  <h3 id="14-1-estagios">14.1. Estágios</h3>
   <p>Exemplos de estágios: <em>Confirmação do Problema</em>, <em>Análise Técnica</em>, <em>Ajuste e Orientação</em>, <em>Report de Bug</em>, <em>Finalizado</em>.</p>
   <ol class="steps">
     <li><strong>Criar um fluxo de estágios:</strong> acesse <code>Tickets &gt; Estágios</code>, clique em <em>Adicionar</em> e informe o nome do fluxo.</li>
@@ -484,7 +604,7 @@
     <strong>Regras das transições:</strong> estágios finais não podem avançar; estágios finais podem retornar para etapas anteriores; o sistema só permite movimentações previamente configuradas.
   </div>
 
-  <h3>14.2. Classificações</h3>
+  <h3 id="14-2-classificacoes">14.2. Classificações</h3>
   <p>As classificações representam categorias macro de atendimento (ex.: <em>Financeiro</em>, <em>Comercial</em>, <em>Suporte Técnico</em>, <em>Implantação</em>, <em>Desenvolvimento</em>). Cada classificação pode possuir fluxos de estágio próprios, templates de e-mail específicos e automações específicas.</p>
   <ol class="steps">
     <li><strong>Criar a classificação:</strong> acesse <code>Tickets &gt; Classificações</code>, clique em <em>Adicionar</em> e informe o nome.</li>
@@ -500,11 +620,11 @@
   <hr style="margin: 44px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
   <!-- ==================== PARTE 10: PAINEL E RELATÓRIOS ==================== -->
-  <h2>15. Painel de Tickets e Relatórios Gerenciais</h2>
-  <h3>15.1. Painel operacional</h3>
+  <h2 id="15-painel-de-tickets-e-relatorios-gerenciais">15. Painel de Tickets e Relatórios Gerenciais</h2>
+  <h3 id="15-1-painel-operacional">15.1. Painel operacional</h3>
   <p>Na rotina, a equipe utiliza o <strong>Painel de Tickets</strong>, que conta com visões em <strong>Kanban</strong> (dividido por status ou por estágios) e listagens em <strong>Tabela</strong>.</p>
 
-  <h3>15.2. Dashboard gerencial</h3>
+  <h3 id="15-2-dashboard-gerencial">15.2. Dashboard gerencial</h3>
   <p>O Dashboard funciona como o painel de controle diário do gestor. Sua finalidade não é a análise histórica profunda (papel dos Relatórios), mas a tomada de decisão rápida e proativa.</p>
   <div class="table-wrap">
     <table class="doc">
@@ -518,7 +638,7 @@
     </table>
   </div>
 
-  <h3>15.3. Relatórios analíticos</h3>
+  <h3 id="15-3-relatorios-analiticos">15.3. Relatórios analíticos</h3>
   <p>Os Administradores possuem acesso a uma gama completa de relatórios de tickets:</p>
   <div class="table-wrap">
     <table class="doc">
@@ -539,7 +659,7 @@
   <hr style="margin: 44px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
   <!-- ==================== PARTE 11: PAYLOADS DAS AUTOMAÇÕES ==================== -->
-  <h2>16. Automações: payload configurável de cada bloco de ticket</h2>
+  <h2 id="16-automacoes-payload-configuravel-de-cada-bloco-de-ticket">16. Automações: payload configurável de cada bloco de ticket</h2>
   <p>Complemento ao capítulo 7 do <a href="tickets-faq.html">FAQ — Módulo de Tickets e Automações</a>, que lista os tipos e os nomes dos blocos. Abaixo estão os <strong>campos que cada bloco expõe na janela "Configurar..."</strong> do construtor visual, com exemplos reais de preenchimento.</p>
   <div class="table-wrap">
     <table class="doc">
@@ -574,6 +694,7 @@
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

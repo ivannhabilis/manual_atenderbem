@@ -9,19 +9,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="pabx.html">Portal PABX</a>
-    <a href="pabx-troncos.html">Troncos SIP</a>
-    <a href="pabx-rotas.html">Rotas</a>
-    <a href="pabx-ramais.html">Ramais</a>
-    <a href="pabx-filas.html">Filas</a>
-    <a href="pabx-ura-audios.html">URAs & Áudios</a>
-    <a href="pabx-horarios.html">Horários</a>
-    <a href="pabx-custom.html" class="active">Custom & ARI</a>
-    <a href="pabx-cdr-auditoria.html">CDR</a>
-    <a href="pabx-cli-troubleshooting.html">CLI & Debug</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a class="active" href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -31,17 +93,32 @@
   <h1>Custom Destinations e Integração ARI Bridge com AtenderBem</h1>
   <p class="subtitle">Como conectar o motor de telefonia do Asterisk à inteligência de URA Avançada e fluxos de atendimento do AtenderBem via ARI (Asterisk REST Interface).</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-o-que-e-o-ari-bridge">1. O que é o ARI Bridge?</a></li>
+      <li><a href="#2-passo-1-criando-o-custom-destination-no-freepbx">2. Passo 1: Criando o Custom Destination no FreePBX</a></li>
+      <li><a href="#3-passo-2-criando-a-fila-no-atenderbem">3. Passo 2: Criando a Fila no AtenderBem</a></li>
+      <li><a href="#4-referencia-dos-campos-do-custom-destination">4. Referência dos Campos do Custom Destination</a></li>
+      <li><a href="#5-parametros-de-integracao-do-modulo-de-telefonia">5. Parâmetros de Integração do Módulo de Telefonia</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <figure class="figure">
     <img src="assets/pabx-custom-destination.png" alt="Configuração de Custom Destination no FreePBX">
     <figcaption>Tela de cadastro em Admin › Custom Destinations no FreePBX.</figcaption>
   </figure>
 
-  <h2>1. O que é o ARI Bridge?</h2>
+  <h2 id="1-o-que-e-o-ari-bridge">1. O que é o ARI Bridge?</h2>
   <p>O <strong>ARI (Asterisk REST Interface)</strong> é uma API moderna do Asterisk que permite que aplicações externas controlem canais de voz em tempo real. Através do destino especial <code>ari-bridge</code>, o PABX Fácil transfere a chamada recebida para a URA Visual Avançada do sistema <strong>AtenderBem</strong>, permitindo fluxos com inteligência artificial, integração de banco de dados e roteamento dinâmico.</p>
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>2. Passo 1: Criando o Custom Destination no FreePBX</h2>
+  <h2 id="2-passo-1-criando-o-custom-destination-no-freepbx">2. Passo 1: Criando o Custom Destination no FreePBX</h2>
   <ol class="steps">
     <li>No menu superior do PABX, acesse <code>Admin › Custom Destinations</code>.</li>
     <li>Clique no botão <strong>+ Add Destination</strong>.</li>
@@ -59,7 +136,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>3. Passo 2: Criando a Fila no AtenderBem</h2>
+  <h2 id="3-passo-2-criando-a-fila-no-atenderbem">3. Passo 2: Criando a Fila no AtenderBem</h2>
   <ol class="steps">
     <li>No painel do AtenderBem, acesse <code>Configurações › Filas › + Adicionar</code>.</li>
     <li>
@@ -76,7 +153,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>4. Referência dos Campos do Custom Destination</h2>
+  <h2 id="4-referencia-dos-campos-do-custom-destination">4. Referência dos Campos do Custom Destination</h2>
   <p>Os campos do formulário de Custom Destination no FreePBX e o que preencher em cada um:</p>
 
   <div class="table-wrap">
@@ -98,7 +175,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>5. Parâmetros de Integração do Módulo de Telefonia</h2>
+  <h2 id="5-parametros-de-integracao-do-modulo-de-telefonia">5. Parâmetros de Integração do Módulo de Telefonia</h2>
   <p>A comunicação entre o AtenderBem e o Asterisk é definida por um objeto de configuração do módulo de telefonia. Os parâmetros documentados no acervo são:</p>
 
   <div class="table-wrap">
@@ -129,6 +206,7 @@
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Módulo de Telefonia e PABX.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

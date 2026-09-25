@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suporte Visual Remoto — Manual Omnichannel</title>
+<meta name="description" content="Capítulo completo do Suporte Visual Remoto (Habilis Suporte): conceito, licenciamento por sessões simultâneas, acesso sem instalação, realidade aumentada, OCR com IA avançada, LGPD e termos de uso, supervisão, limitações, comparativo com WhatsApp/Meet e casos de uso por segmento.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a class="active" href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › <a href="configuracoes.html">Configurações</a> › Suporte Visual Remoto</div>
+
+  <h1>Suporte Visual Remoto</h1>
+  <p class="subtitle">Apoio ao atendimento com inteligência visual e realidade aumentada: o cliente clica em um link e a câmera abre, sem instalar aplicativos. O agente enxerga o equipamento, desenha na tela do cliente e resolve à distância o que antes exigia visita técnica.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-conceito-e-para-que-ele-existe">1. Conceito e para que ele existe</a></li>
+      <li><a href="#2-licenciamento-e-cobranca">2. Licenciamento e cobrança</a></li>
+      <li><a href="#3-como-o-cliente-acessa-sem-instalar-nada">3. Como o cliente acessa (sem instalar nada)</a></li>
+      <li class="toc-h3"><a href="#3-1-botao-do-whatsapp-x-link-de-texto-a-diferenca-tecnica-que-importa">3.1. Botão do WhatsApp x link de texto: a diferença técnica que importa</a></li>
+      <li><a href="#4-recursos-do-produto">4. Recursos do produto</a></li>
+      <li><a href="#5-leitura-de-texto-na-tela-ocr-e-ia-avancada">5. Leitura de texto na tela (OCR) e IA avançada</a></li>
+      <li><a href="#6-lgpd-termos-de-uso-e-aceite-obrigatorio">6. LGPD: Termos de Uso e aceite obrigatório</a></li>
+      <li><a href="#7-supervisao-durante-a-sessao">7. Supervisão durante a sessão</a></li>
+      <li><a href="#8-limitacoes-e-restricoes-conhecidas">8. Limitações e restrições conhecidas</a></li>
+      <li><a href="#9-onde-o-recurso-aparece-na-plataforma">9. Onde o recurso aparece na plataforma</a></li>
+      <li><a href="#10-comparativo-com-whatsapp-e-apps-de-reuniao-meet">10. Comparativo com WhatsApp e apps de reunião (Meet)</a></li>
+      <li><a href="#11-casos-de-uso-por-segmento">11. Casos de uso por segmento</a></li>
+      <li><a href="#12-passo-a-passo-operacional-de-uma-sessao">12. Passo a passo operacional de uma sessão</a></li>
+      <li><a href="#13-faq-perguntas-frequentes">13. FAQ — Perguntas frequentes</a></li>
+      <li class="toc-h3"><a href="#q1-como-o-recurso-e-cobrado">Q1. Como o recurso é cobrado?</a></li>
+      <li class="toc-h3"><a href="#q2-o-cliente-precisa-instalar-algo">Q2. O cliente precisa instalar algo?</a></li>
+      <li class="toc-h3"><a href="#q3-por-que-o-zoom-do-agente-nao-aparece">Q3. Por que o Zoom do agente não aparece?</a></li>
+      <li class="toc-h3"><a href="#q4-posso-transferir-o-atendimento-durante-uma-sessao-de-suporte-remoto">Q4. Posso transferir o atendimento durante uma sessão de suporte remoto?</a></li>
+      <li class="toc-h3"><a href="#q5-o-que-e-o-congelamento-freeze-e-por-que-ele-e-importante">Q5. O que é o congelamento (Freeze) e por que ele é importante?</a></li>
+      <li class="toc-h3"><a href="#q6-o-ocr-ler-texto-na-tela-do-cliente-funciona-sempre">Q6. O OCR (ler texto na tela do cliente) funciona sempre?</a></li>
+      <li class="toc-h3"><a href="#q7-e-necessario-aceite-do-cliente-para-gravar">Q7. É necessário aceite do cliente para gravar?</a></li>
+      <li class="toc-h3"><a href="#q8-o-supervisor-participa-da-chamada">Q8. O supervisor participa da chamada?</a></li>
+      <li class="toc-h3"><a href="#q9-o-que-fica-registrado-de-uma-sessao">Q9. O que fica registrado de uma sessão?</a></li>
+      <li class="toc-h3"><a href="#q10-onde-habilito-o-recurso-para-uma-fila">Q10. Onde habilito o recurso para uma fila?</a></li>
+      <li class="toc-h3"><a href="#q11-qual-a-diferenca-real-em-relacao-a-whatsapp-meet">Q11. Qual a diferença real em relação a WhatsApp/Meet?</a></li>
+      <li class="toc-h3"><a href="#q12-em-que-setores-o-recurso-tem-apelo-imediato">Q12. Em que setores o recurso tem apelo imediato?</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
+  <div class="callout info">
+    <strong>O que é:</strong> o <strong>Suporte Visual Remoto</strong> (também chamado de <em>Habilis Suporte</em>) é uma videochamada assistida — “muito mais que uma videochamada”. Durante a sessão, o agente vê ao vivo a cena do cliente (o roteador, o painel da máquina, a vitrine, o dispositivo médico) e pode marcar, apontar e congelar a imagem para orientar. É um recurso de apoio ao atendimento: ele não substitui o atendimento por texto ou voz, e sim acrescenta uma camada visual a ele.
+  </div>
+
+  <figure class="figure">
+    <div style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 8px; padding: 20px; text-align: center; font-weight: bold; color: #1e293b;">
+      <div style="margin-bottom: 12px; font-size: 14px;">CICLO DO SUPORTE VISUAL REMOTO</div>
+      <div style="display: flex; justify-content: space-around; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <div style="background: #dbeafe; border: 2px solid #2563eb; border-radius: 6px; padding: 10px; min-width: 150px;">
+          <strong>1. Convite</strong><br><span style="font-size: 11px; color: #475569;">agente envia o link (WhatsApp)</span>
+        </div>
+        <div style="font-size: 20px;">→</div>
+        <div style="background: #ecfdf5; border: 2px solid #059669; border-radius: 6px; padding: 10px; min-width: 150px;">
+          <strong>2. Aceite (LGPD)</strong><br><span style="font-size: 11px; color: #475569;">cliente aceita os Termos de Uso</span>
+        </div>
+        <div style="font-size: 20px;">→</div>
+        <div style="background: #fef3c7; border: 2px solid #d97706; border-radius: 6px; padding: 10px; min-width: 150px;">
+          <strong>3. Câmera abre</strong><br><span style="font-size: 11px; color: #475569;">sem instalar app / sem login</span>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: space-around; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+        <div style="background: #f5f3ff; border: 2px solid #7c3aed; border-radius: 6px; padding: 10px; min-width: 150px;">
+          <strong>4. Orientação visual</strong><br><span style="font-size: 11px; color: #475569;">desenho, setas, laser, freeze</span>
+        </div>
+        <div style="font-size: 20px;">→</div>
+        <div style="background: #fee2e2; border: 2px solid #dc2626; border-radius: 6px; padding: 10px; min-width: 150px;">
+          <strong>5. Gravação</strong><br><span style="font-size: 11px; color: #475569;">atrelada ao atendimento e ao CRM</span>
+        </div>
+      </div>
+      <div style="margin-top: 12px; background: #fff; padding: 6px; border-radius: 4px; font-size: 11px; font-family: monospace;">
+        Supervisor acompanha indicador de status e pode cancelar a sessão a qualquer momento
+      </div>
+    </div>
+    <figcaption>Do convite por link até a gravação auditável: o cliente não instala nada e o supervisor mantém poder de cancelamento.</figcaption>
+  </figure>
+
+  <hr>
+
+  <h2 id="1-conceito-e-para-que-ele-existe">1. Conceito e para que ele existe</h2>
+  <p>Muitas demandas de suporte têm uma <strong>causa física</strong> que nenhum acesso remoto tradicional resolve: um cabo de rede na porta errada, um LED piscando de um jeito específico, um código de erro no display, um parafuso faltando na montagem de um móvel, uma vitrine fora do padrão da campanha. Ferramentas de acesso remoto a computador são inúteis nesses casos — e mandar um técnico ao local (“truck roll”) é caro e lento.</p>
+  <p>O Suporte Visual Remoto ataca exatamente esse ponto: coloca a <strong>câmera do cliente</strong> a serviço do agente, com recursos que aplicativos de reunião comuns não oferecem. Conforme o material de origem, a proposta é <em>“não apenas ver, é resolver”</em> — reduzir visitas improdutivas, acelerar o diagnóstico e aumentar a taxa de resolução no primeiro contato.</p>
+
+  <div class="callout tip">
+    <strong>Argumento central do recurso:</strong> “Reduza em até 30% as visitas improdutivas. Se o técnico não precisa ir, o lucro da mensalidade aumenta.” Esse enquadramento é voltado ao segmento de provedores (ISP), onde o custo de enviar um técnico é apontado, no material de apoio ao parceiro, como o maior ofensor de lucro.
+  </div>
+
+  <hr>
+
+  <h2 id="2-licenciamento-e-cobranca">2. Licenciamento e cobrança</h2>
+  <p>O modelo comercial do recurso é o ponto mais importante para quem vai dimensionar o uso ou revender a solução. Conforme a documentação oficial do fornecedor:</p>
+
+  <table class="doc">
+    <thead>
+      <tr><th>Aspecto</th><th>Como funciona</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Base de cobrança</strong></td>
+        <td>A licença é contada por <strong>sessões simultâneas</strong>. Isso significa que o limite é a quantidade de videochamadas acontecendo <strong>ao mesmo tempo</strong> — e <strong>não</strong> a quantidade de agentes cadastrados na instância.</td>
+      </tr>
+      <tr>
+        <td><strong>Efeito prático</strong></td>
+        <td>Uma equipe pode ter muitos atendentes habilitados; o que se conta em um dado instante é quantas sessões de suporte visual estão ativas. Se o limite contratado de sessões simultâneas for atingido, novas sessões aguardam até que uma seja encerrada.</td>
+      </tr>
+      <tr>
+        <td><strong>Licença incluída (parceiros)</strong></td>
+        <td>Na versão <strong>10.1</strong>, quando o recurso foi lançado, as <strong>instâncias de parceiro passaram a ter 1 licença incluída</strong>. Licenças adicionais seguem a política comercial do fornecedor.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <strong>Não confunda “agentes” com “sessões”:</strong> habilitar o recurso para 20 atendentes não consome 20 licenças. O que consome é ter 20 videochamadas de suporte visual acontecendo simultaneamente. Dimensione o plano pela <strong>concorrência real</strong> do seu time, não pelo tamanho do quadro.
+  </div>
+
+  <hr>
+
+  <h2 id="3-como-o-cliente-acessa-sem-instalar-nada">3. Como o cliente acessa (sem instalar nada)</h2>
+  <p>O acesso é o diferencial de adoção do produto. O cliente <strong>não baixa aplicativo, não cria conta e não faz login</strong>: ele recebe um <strong>link único</strong> — normalmente enviado pelo WhatsApp — clica e a câmera abre.</p>
+
+  <h3 id="3-1-botao-do-whatsapp-x-link-de-texto-a-diferenca-tecnica-que-importa">3.1. Botão do WhatsApp x link de texto: a diferença técnica que importa</h3>
+  <p>Há uma distinção técnica que o agente precisa conhecer antes de escolher como enviar o convite:</p>
+
+  <table class="doc">
+    <thead>
+      <tr><th>Forma de envio</th><th>Como a câmera abre</th><th>Suporta o Zoom do agente?</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Botão do WhatsApp</strong></td>
+        <td>A câmera abre em um <strong>navegador embutido</strong> (o navegador interno do próprio aplicativo WhatsApp).</td>
+        <td><strong>Não.</strong> O navegador embutido não suporta a função de <strong>Zoom</strong> do agente.</td>
+      </tr>
+      <tr>
+        <td><strong>Link de texto</strong></td>
+        <td>O cliente copia/abre o link em um navegador completo (Chrome, Safari, Edge etc.).</td>
+        <td><strong>Sim.</strong> Em navegador completo, o agente tem acesso à função de Zoom.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <strong>Implicação operacional:</strong> se o atendimento depende de <strong>zoom</strong> (ler uma etiqueta minúscula, um código de erro, um número de série), <strong>prefira enviar o link como texto</strong>, e não como botão do WhatsApp. Pelo botão, a sessão funciona, mas o agente perde a ampliação.
+  </div>
+
+  <div class="callout info">
+    <strong>Sobre a qualidade da imagem:</strong> o produto inclui o <strong>congelamento (Freeze)</strong> — pausa o vídeo para analisar detalhes em alta definição. Mesmo sem o Zoom, o agente pode congelar e analisar o quadro. A descrição abaixo do Zoom é técnica; conforme o material de origem, a diferença está no navegador que hospeda a sessão.
+  </div>
+
+  <hr>
+
+  <h2 id="4-recursos-do-produto">4. Recursos do produto</h2>
+  <p>O conjunto de recursos é o que separa o Suporte Visual Remoto de um simples app de reunião:</p>
+
+  <table class="doc">
+    <thead>
+      <tr><th>Recurso</th><th>Descrição</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Zero instalação</strong></td>
+        <td>Acesso por link único, sem login e sem aplicativo instalado no dispositivo do cliente.</td>
+      </tr>
+      <tr>
+        <td><strong>Realidade aumentada</strong></td>
+        <td>O agente <strong>desenha na tela do cliente</strong>, usa <strong>setas</strong> e <strong>apontador laser</strong> para guiar visualmente cada passo.</td>
+      </tr>
+      <tr>
+        <td><strong>Congelamento (Freeze)</strong></td>
+        <td>Pausa o vídeo para analisar detalhes com <strong>alta definição</strong> sem depender da estabilidade momentânea da transmissão.</td>
+      </tr>
+      <tr>
+        <td><strong>Auditoria e compliance</strong></td>
+        <td>Tudo é <strong>gravado</strong> e atrelado ao <strong>atendimento</strong> e ao <strong>CRM</strong>, com <strong>relatórios de gestão</strong> para supervisão e auditoria.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout tip">
+    <strong>Ferramentas visuais do agente em resumo:</strong> desenho (caneta), setas e laser. Somadas ao freeze, elas permitem conduzir o cliente passo a passo — “aperte este botão”, “conecte o cabo nesta porta”, “use este parafuso” — sem que o cliente precise descrever o que vê.
+  </div>
+
+  <hr>
+
+  <h2 id="5-leitura-de-texto-na-tela-ocr-e-ia-avancada">5. Leitura de texto na tela (OCR) e IA avançada</h2>
+  <p>Além das ferramentas visuais, o recurso pode contar com <strong>OCR</strong> — leitura automática de texto presente na imagem que o cliente transmite (por exemplo, um código de erro ou um número de série capturado pela câmera).</p>
+
+  <div class="callout warn">
+    <strong>Dois pré-requisitos obrigatórios para o OCR:</strong>
+    <ul>
+      <li>A <strong>chave do Google</strong> precisa estar cadastrada na instância;</li>
+      <li>O pacote de <strong>IA Avançada</strong> precisa estar contratado.</li>
+    </ul>
+    Sem os dois, o OCR não funciona — os demais recursos visuais (desenho, laser, freeze, gravação) seguem disponíveis independentemente disso.
+  </div>
+
+  <div class="callout info">
+    <strong>Contexto de IA na plataforma:</strong> os comunicados oficiais registram o <strong>OCR para imagens recebidas</strong> entre as funções de <strong>IA Básica</strong> (desabilitado por padrão), e a consulta a catálogo/produtos com “Perguntar ao produto” entre as funções condicionadas à <strong>IA avançada</strong> habilitada. Ao associar OCR ao Suporte Visual, o material de origem exige chave do Google <em>e</em> pacote de IA Avançada.
+  </div>
+
+  <hr>
+
+  <h2 id="6-lgpd-termos-de-uso-e-aceite-obrigatorio">6. LGPD: Termos de Uso e aceite obrigatório</h2>
+  <p>Como a sessão envolve <strong>imagem ao vivo do cliente</strong> e <strong>gravação</strong>, o produto trata o tema com uma trava explícita de conformidade:</p>
+
+  <div class="callout warn">
+    <strong>Antes de o cliente abrir a câmera é obrigatória a configuração e o aceite dos “Termos de Uso”</strong>, em que o cliente <strong>concorda com as condições</strong> do atendimento — <strong>inclusive com a gravação da sessão</strong>.
+  </div>
+
+  <p>Na prática, isso significa que:</p>
+  <ul>
+    <li>Os <strong>Termos de Uso precisam estar configurados</strong> na plataforma antes de o recurso ser usado com clientes.</li>
+    <li>O cliente <strong>precisa aceitar</strong> os termos — é o aceite que habilita a abertura da câmera e a gravação.</li>
+    <li>A gravação, por sua vez, é a base da <strong>auditoria e compliance</strong>: fica atrelada ao atendimento e ao CRM.</li>
+  </ul>
+
+  <div class="callout tip">
+    <strong>Enquadramento para o cliente:</strong> a gravação não é só obrigação legal — é o que garante um <strong>registro visual do que foi orientado e avalizado</strong>. Em sinistros, garantias e disputas, esse registro vale ouro. “Auditoria e compliance” é, ao mesmo tempo, exigência e recurso de valor.
+  </div>
+
+  <hr>
+
+  <h2 id="7-supervisao-durante-a-sessao">7. Supervisão durante a sessão</h2>
+  <p>O supervisor não precisa estar na chamada para exercer controle. Durante a sessão de suporte remoto, ele:</p>
+  <ul>
+    <li>Pode <strong>visualizar um indicador de status</strong> da sessão em andamento;</li>
+    <li>Tem o poder de <strong>cancelar (derrubar)</strong> a sessão que estiver em curso.</li>
+  </ul>
+
+  <div class="callout info">
+    <strong>O supervisor não entra na chamada:</strong> o papel dele na sessão é de <em>observação de status e cancelamento</em> — ele <strong>não participa da videochamada</strong> falando com o cliente. O controle de supervisão é sobre a existência e a continuidade da sessão, não sobre o diálogo com o cliente.
+  </div>
+
+  <p>Os <strong>relatórios de gestão</strong> que acompanham as gravações complementam esse controle: além do painel em tempo real, a supervisão pode auditar o que foi gravado, atrelado ao atendimento e ao CRM.</p>
+
+  <hr>
+
+  <h2 id="8-limitacoes-e-restricoes-conhecidas">8. Limitações e restrições conhecidas</h2>
+  <p>Restrições confirmadas pela documentação oficial do fornecedor:</p>
+
+  <table class="doc">
+    <thead>
+      <tr><th>Restrição</th><th>Impacto operacional</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Não é possível transferir o atendimento enquanto a sessão de suporte remoto (vídeo) estiver em andamento.</strong></td>
+        <td>Enquanto a videochamada está ativa, a transferência do atendimento fica bloqueada. Encerre a sessão de suporte visual antes de transferir o atendimento para outra fila ou agente.</td>
+      </tr>
+      <tr>
+        <td><strong>Zoom indisponível pelo botão do WhatsApp</strong></td>
+        <td>Ao abrir pelo botão, a sessão roda em navegador embutido sem a função de Zoom do agente. Use link de texto quando a ampliação for necessária.</td>
+      </tr>
+      <tr>
+        <td><strong>OCR depende de dois pré-requisitos</strong></td>
+        <td>Sem a chave do Google cadastrada <em>e</em> o pacote de IA Avançada contratado, a leitura de texto na tela não funciona.</td>
+      </tr>
+      <tr>
+        <td><strong>Sessões simultâneas limitadas pela licença</strong></td>
+        <td>A concorrência de videochamadas é limitada pelo número de licenças de sessão simultânea contratadas; não pela quantidade de agentes.</td>
+      </tr>
+      <tr>
+        <td><strong>Aceite dos Termos de Uso é pré-condição</strong></td>
+        <td>Sem aceite, a câmera não deve ser aberta. É trava de LGPD, não opcional.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <strong>Regra de ouro:</strong> a transferência e a sessão de vídeo são mutuamente exclusivas. Planeje o atendimento para que, quando houver necessidade de transferir, a sessão de suporte visual já tenha sido encerrada.
+  </div>
+
+  <hr>
+
+  <h2 id="9-onde-o-recurso-aparece-na-plataforma">9. Onde o recurso aparece na plataforma</h2>
+  <p>Na configuração das filas, o Suporte Visual Remoto aparece na aba de <strong>Recursos Adicionais</strong>, sob o rótulo <strong>“Assistência/Suporte Remoto”</strong>. Essa aba é onde se habilitam os recursos extras do canal, ao lado de <em>Catálogo e Produtos</em>, <em>API e Webhooks</em> e <em>Configurações de IA</em>.</p>
+  <p>Conforme o material de origem, a mesma lógica vale para a <strong>fila Webchat v2</strong>, cuja configuração é organizada em <strong>Configurações Gerais e SLAs</strong>, <strong>Mensagens</strong> e <strong>Recursos Adicionais</strong> — esta última concentrando <em>Catálogo e Produtos</em>, <em>API e Webhooks</em>, <em>Configurações de IA</em> e <em>Assistência/Suporte Remoto</em>.</p>
+
+  <div class="callout tip">
+    <strong>Onde habilitar, resumindo:</strong> Configurações › Filas › (editar a fila) › aba <strong>Recursos Adicionais</strong> › <strong>Assistência/Suporte Remoto</strong>. É na fila que o recurso fica disponível para os atendimentos daquele canal.
+  </div>
+
+  <hr>
+
+  <h2 id="10-comparativo-com-whatsapp-e-apps-de-reuniao-meet">10. Comparativo com WhatsApp e apps de reunião (Meet)</h2>
+  <p>O material oficial traz um comparativo direto entre o Habilis Suporte e aplicativos genéricos de videochamada:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Recurso</th><th>Habilis Suporte</th><th>WhatsApp / Meet</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Acesso</strong></td><td>Link único (sem login)</td><td>Requer App / Conta</td></tr>
+        <tr><td><strong>Apontador Laser / Desenho</strong></td><td>Sim (nativo)</td><td>Não</td></tr>
+        <tr><td><strong>Congelar Vídeo (HD)</strong></td><td>Sim</td><td>Não</td></tr>
+        <tr><td><strong>Gravação Integrada</strong></td><td>Sim (automática)</td><td>Manual</td></tr>
+        <tr><td><strong>Relatórios de Gestão</strong></td><td>Sim</td><td>Não</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Os pontos decisivos, na leitura do material: a <strong>ausência de atrito no acesso</strong> (link único, sem conta) e a <strong>integração nativa com o atendimento e o CRM</strong> — a gravação não fica solta num aplicativo de terceiros, ela pertence ao registro do atendimento.</p>
+
+  <div class="callout info">
+    <strong>Leitura honesta do comparativo:</strong> a superioridade listada é em relação a apps de reunião genéricos. O valor do produto, dentro do AtenderBem, está na combinação de <em>ferramentas visuais nativas</em> + <em>gravação automática vinculada ao atendimento/CRM</em> + <em>relatórios de gestão</em> — coisas que uma chamada de WhatsApp não entrega de forma integrada.
+  </div>
+
+  <hr>
+
+  <h2 id="11-casos-de-uso-por-segmento">11. Casos de uso por segmento</h2>
+  <p>O material de apoio ao parceiro mapeia nichos e casos de uso típicos. Cada segmento tem uma “dor” específica e um argumento de venda correspondente.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Segmento</th><th>Cenário / dor</th><th>Casos de uso</th><th>Argumento de venda</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Provedores de Internet (ISP)</strong></td>
+          <td>O custo de enviar um técnico (“truck roll”) é o maior ofensor de lucro.</td>
+          <td>Diagnóstico físico (verificar se o cabo de fibra está bem conectado ou dobrado antes de agendar visita); status dos LEDs (o cliente não sabe dizer qual pisca — o agente vê e identifica); pré-instalação (avaliar a infraestrutura interna da casa para decidir qual material levar, evitando retorno).</td>
+          <td>“Reduza em até 30% as visitas improdutivas.”</td>
+        </tr>
+        <tr>
+          <td><strong>Seguradoras e proteção veicular</strong></td>
+          <td>Burocracia e fraude em sinistros são gargalos imensos.</td>
+          <td>Vistoria prévia virtual (cliente mostra o estado do carro antes de fechar o seguro, guiado pelo agente); sinistro de pequena monta (agente avalia o dano na hora, fotografa e inicia a indenização); residencial (avaliação de vazamentos ou danos elétricos para autorizar o serviço de emergência correto).</td>
+          <td>“Agilize a regulação do sinistro e evite fraudes com registros visuais geolocalizados e gravados.”</td>
+        </tr>
+        <tr>
+          <td><strong>Varejo de móveis e e-commerce</strong></td>
+          <td>Devoluções por erro de montagem ou uso destroem a margem (logística reversa).</td>
+          <td>Montagem assistida (o suporte mostra exatamente qual parafuso usar com a caneta laser, ao vivo); validação de avarias (o produto chegou arranhado? se for pequeno, oferece desconto na hora, evitando devolução).</td>
+          <td>“Derrube a taxa de devolução (RMA). Transforme um cliente frustrado em fã ajudando-o a usar o produto.”</td>
+        </tr>
+        <tr>
+          <td><strong>Indústria e fabricantes de máquinas</strong></td>
+          <td>Máquina parada é dinheiro perdido; técnicos especialistas são caros e escassos para viajar.</td>
+          <td>Suporte nível 2 (operador aponta o celular e o engenheiro sênior desenha na tela qual válvula abrir); treinamento on-the-job (guiar novos funcionários na operação de painéis complexos); validação de peças (identificar visualmente a quebra para enviar a reposição exata).</td>
+          <td>“Diminua o downtime do cliente. Seu especialista atende 10 fábricas por dia sem sair da mesa.”</td>
+        </tr>
+        <tr>
+          <td><strong>Assistência técnica e climatização</strong></td>
+          <td>Técnicos chegam sem a peça certa ou são chamados para erros simples de configuração.</td>
+          <td>Triagem técnica (identificar o código de erro no display antes da visita); configuração remota (ensinar o cliente a limpar o filtro ou mudar o modo de operação sem visita); mentoria técnica (técnico júnior em campo compartilha vídeo com o supervisor para problemas complexos).</td>
+          <td>“Aumente o First Time Fix Rate garantindo que o técnico já saia com a peça certa.”</td>
+        </tr>
+        <tr>
+          <td><strong>Saúde, farmacêuticas e home care</strong></td>
+          <td>Pacientes com dúvidas sobre dispositivos médicos ou tratamentos complexos em casa.</td>
+          <td>Dispositivos médicos (suporte na configuração de CPAP, medidores de glicose ou bombas de infusão); aplicação care medicamentos (orientação visual para preparo de injetáveis); home care (cuidador mostra ao médico a evolução de uma ferida para triagem remota).</td>
+          <td>“Humanização e segurança. Garanta a aderência ao tratamento reduzindo erros de aplicação.”</td>
+        </tr>
+        <tr>
+          <td><strong>Suporte de TI e helpdesk</strong></td>
+          <td>Ferramentas de acesso remoto são inúteis quando o problema é físico (cabos) ou sem internet.</td>
+          <td>A “camada física” (identificar cabos desconectados ou em portas erradas e guiar o reparo); periféricos (docking stations, monitores e impressoras); “mãos remotas” no data center (guiar reset de servidores ou verificação de alertas físicos).</td>
+          <td>“Complemente seu acesso remoto. Quando o software não conecta, nossa plataforma vê o escritório.”</td>
+        </tr>
+        <tr>
+          <td><strong>Varejo, franquias e VM</strong></td>
+          <td>Gerentes regionais perdem dias viajando apenas para verificar padrões visuais.</td>
+          <td>Visual merchandising (validação remota da vitrine e da disposição conforme a campanha); manutenção predial (validar lâmpadas queimadas ou danos estruturais antes de acionar manutenção); suporte ao PDV (resolver travamentos de impressoras e caixas visualizando o erro na hora).</td>
+          <td>“Onipresença para sua supervisão. Audite 20 lojas em um único dia reduzindo custos.”</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout tip">
+    <strong>Como usar isso na prática:</strong> o próprio material recomenda fazer uma <em>cópia do material de apoio ao parceiro</em>, personalizar com a identidade visual e ofertar o recurso. Os oito nichos acima são o roteiro de prospecção — cada um tem dor, caso de uso e argumento prontos.
+  </div>
+
+  <hr>
+
+  <h2 id="12-passo-a-passo-operacional-de-uma-sessao">12. Passo a passo operacional de uma sessão</h2>
+  <p>Fluxo recomendado para conduzir um atendimento com Suporte Visual Remoto, do convite ao encerramento:</p>
+
+  <ol class="steps">
+    <li>
+      <strong>Preparar a conformidade:</strong> garanta que os <strong>Termos de Uso</strong> estão configurados na plataforma. Sem isso, não é possível exigir o aceite do cliente — e sem aceite a câmera não deve ser aberta (LGPD).
+    </li>
+    <li>
+      <strong>Confirmar o recurso na fila:</strong> verifique se a fila do atendimento tem a <strong>Assistência/Suporte Remoto</strong> habilitada na aba <strong>Recursos Adicionais</strong>.
+    </li>
+    <li>
+      <strong>Convidar o cliente:</strong> envie o <strong>link único</strong>. Se a leitura de detalhes finos for necessária, envie como <strong>link de texto</strong> (e não pelo botão do WhatsApp) para preservar a função de <strong>Zoom</strong> do agente.
+    </li>
+    <li>
+      <strong>Colher o aceite:</strong> o cliente deve aceitar os <strong>Termos de Uso</strong>, concordando inclusive com a <strong>gravação</strong>. Só então a câmera abre.
+    </li>
+    <li>
+      <strong>Conduzir a orientação:</strong> use <strong>desenho, setas e apontador laser</strong> para guiar; use <strong>freeze</strong> para analisar detalhes em HD; use <strong>Zoom</strong> (quando aberto por link de texto) para ampliar.
+    </li>
+    <li>
+      <strong>Supervisão em paralelo:</strong> o supervisor acompanha o <strong>indicador de status</strong> e pode <strong>cancelar</strong> a sessão se necessário — sem entrar na chamada.
+    </li>
+    <li>
+      <strong>Encerrar antes de transferir:</strong> se o caso exigir transferência, <strong>finalize a sessão de vídeo primeiro</strong> — a transferência fica bloqueada enquanto a sessão está em andamento.
+    </li>
+    <li>
+      <strong>Auditar depois:</strong> a sessão fica <strong>gravada e atrelada ao atendimento e ao CRM</strong>, disponível nos <strong>relatórios de gestão</strong> para conferência, treinamento e respaldo.
+    </li>
+  </ol>
+
+  <hr>
+
+  <h2 id="13-faq-perguntas-frequentes">13. FAQ — Perguntas frequentes</h2>
+
+  <div class="faq">
+    <h3 id="q1-como-o-recurso-e-cobrado">Q1. Como o recurso é cobrado?</h3>
+    <p>Por <strong>sessões simultâneas</strong>. O limite é a quantidade de videochamadas de suporte visual ocorrendo ao mesmo tempo — não a quantidade de agentes cadastrados. Na versão 10.1, as instâncias de parceiro passaram a ter 1 licença incluída.</p>
+  </div>
+
+  <div class="faq">
+    <h3 id="q2-o-cliente-precisa-instalar-algo">Q2. O cliente precisa instalar algo?</h3>
+    <p>Não. O acesso é por <strong>link único, sem login e sem aplicativo</strong>. O cliente clica no link (tipicamente no WhatsApp) e a câmera abre.</p>
+  </div>
+
+  <div class="faq">
+    <h3 id="q3-por-que-o-zoom-do-agente-nao-aparece">Q3. Por que o Zoom do agente não aparece?</h3>
+    <p>Provavelmente a sessão foi aberta pelo <strong>botão do WhatsApp</strong>, que usa um <strong>navegador embutido</strong> sem suporte à função de Zoom. Envie o convite como <strong>link de texto</strong> para que o cliente abra em um navegador completo, onde o Zoom funciona.</p>
+  </div>
+
+  <div class="faq">
+    <h3 id="q4-posso-transferir-o-atendimento-durante-uma-sessao-de-suporte-remoto">Q4. Posso transferir o atendimento durante uma sessão de suporte remoto?</h3>
+    <p>Não. <strong>Não é possível transferir o atendimento enquanto a sessão de suporte remoto (vídeo) estiver em andamento.</strong> Encerre a sessão de vídeo antes de transferir.</p>
+  </div>
+
+  <div class="faq">
+    <h3 id="q5-o-que-e-o-congelamento-freeze-e-por-que-ele-e-importante">Q5. O que é o congelamento (Freeze) e por que ele é importante?</h3>
+    <p>É a pausa do vídeo para analisar detalhes em <strong>alta definição</strong>. Ele permite examinar um quadro específico com calma, sem depender da fluidez da transmissão no momento — útil para ler códigos, identificar peças e registrar evidências.</p>
+  </div>
+
+  <div class="faq">
+    <h3 id="q6-o-ocr-ler-texto-na-tela-do-cliente-funciona-sempre">Q6. O OCR (ler texto na tela do cliente) funciona sempre?</h3>
+    <p>Não. Ele exige <strong>a chave do Google cadastrada</strong> e o <strong>pacote de IA Avançada contratado</strong>. Sem os dois, o OCR não está disponível. Os demais recursos visuais (desenho, laser, freeze, gravação) funcionam independentemente disso.</p>
+  </div>
+
+  <div class="faq">
+    <h3 id="q7-e-necessario-aceite-do-cliente-para-gravar">Q7. É necessário aceite do cliente para gravar?</h3>
+    <p>Sim. Antes de o cliente abrir a câmera, é <strong>obrigatória</strong> a configuração e o <strong>aceite dos Termos de Uso</strong>, em que o cliente concorda com as condições — <strong>inclusive a gravação da sessão</strong>. É exigência de LGPD.</p>
+  </div>
+
+  <div class="faq">
+    <h3 id="q8-o-supervisor-participa-da-chamada">Q8. O supervisor participa da chamada?</h3>
+    <p>Não. Durante a sessão, o supervisor pode <strong>visualizar um indicador de status</strong> e <strong>cancelar (derrubar)</strong> a sessão em andamento — mas <strong>não entra na chamada</strong> para falar com o cliente.</p>
+  </div>
+
+  <div class="faq">
+    <h3 id="q9-o-que-fica-registrado-de-uma-sessao">Q9. O que fica registrado de uma sessão?</h3>
+    <p>Tudo é <strong>gravado e atrelado ao atendimento e ao CRM</strong>, com <strong>relatórios de gestão</strong>. Esse é o pilar de <em>auditoria e compliance</em> do recurso: além de orientar ao vivo, ele deixa um registro auditável do que foi orientado.</p>
+  </div>
+
+  <div class="faq">
+    <h3 id="q10-onde-habilito-o-recurso-para-uma-fila">Q10. Onde habilito o recurso para uma fila?</h3>
+    <p>Em <strong>Configurações › Filas › (editar a fila) › Recursos Adicionais › Assistência/Suporte Remoto</strong>. A mesma aba existe na fila Webchat v2, ao lado de Catálogo e Produtos, API e Webhooks e Configurações de IA.</p>
+  </div>
+
+  <div class="faq">
+    <h3 id="q11-qual-a-diferenca-real-em-relacao-a-whatsapp-meet">Q11. Qual a diferença real em relação a WhatsApp/Meet?</h3>
+    <p>No comparativo oficial: <strong>acesso por link único (sem login)</strong> contra app/conta exigidos; <strong>laser e desenho nativos</strong>; <strong>congelar vídeo em HD</strong>; <strong>gravação integrada automática</strong> (contra gravação manual); e <strong>relatórios de gestão</strong> — itens que apps de reunião genéricos não oferecem.</p>
+  </div>
+
+  <div class="faq">
+    <h3 id="q12-em-que-setores-o-recurso-tem-apelo-imediato">Q12. Em que setores o recurso tem apelo imediato?</h3>
+    <p>ISP (truck roll), seguradoras e proteção veicular, varejo de móveis/e-commerce, indústria e fabricantes de máquinas, assistência técnica e climatização, saúde/farmacêuticas/home care, suporte de TI/helpdesk e varejo/franquias/visual merchandising. Ver a seção 11 para dor, casos e argumento de cada um.</p>
+  </div>
+
+  <div class="callout tip">
+    <strong>Veja também:</strong> o resumo na seção 12 de <a href="configuracoes.html">Configurações</a> e o detalhamento da fila Webchat v2 no capítulo 9 da mesma página, onde o recurso aparece na aba de Recursos Adicionais.
+  </div>
+
+  <div class="pagenav">
+    <a href="configuracoes.html"><span>← Anterior</span> Configurações</a>
+    <a class="next" href="configuracoes.html"><span>Voltar →</span> Configurações (seção 12)</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
+  <p>Elaborado a partir do material oficial de apoio ao parceiro (Suporte Visual Remoto Habilis) e dos comunicados oficiais de versão.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

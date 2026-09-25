@@ -9,17 +9,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="crm.html">CRM</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="pabx.html" class="active">PABX & Telefonia</a>
-    <a href="contatos.html">Contatos</a>
-    <a href="relatorios.html">Relatórios</a>
-    <a href="relatorios-personalizados.html">Personalizados</a>
-    <a href="configuracoes.html">Configurações</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a class="active" href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -29,12 +93,56 @@
   <h1>Portal de Telefonia VoIP e PABX Fácil</h1>
   <p class="subtitle">Guia mestre de arquitetura, operação e parametrização do servidor Asterisk / FreePBX integrado à plataforma AtenderBem.</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-visao-geral-da-arquitetura">1. Visão Geral da Arquitetura</a></li>
+      <li><a href="#2-capitulos-da-documentacao-de-telefonia">2. Capítulos da Documentação de Telefonia</a></li>
+      <li class="toc-h3"><a href="#1-troncos-sip-whatsapp-cloud-api">1. Troncos SIP & WhatsApp Cloud API</a></li>
+      <li class="toc-h3"><a href="#2-rotas-de-entrada-e-saida">2. Rotas de Entrada e Saída</a></li>
+      <li class="toc-h3"><a href="#3-gestao-de-ramais-softphones">3. Gestão de Ramais & Softphones</a></li>
+      <li class="toc-h3"><a href="#4-filas-de-atendimento-queues">4. Filas de Atendimento (Queues)</a></li>
+      <li class="toc-h3"><a href="#5-uras-gravacoes-anuncios">5. URAs, Gravações & Anúncios</a></li>
+      <li class="toc-h3"><a href="#6-condicoes-de-horario-time-conditions">6. Condições de Horário (Time Conditions)</a></li>
+      <li class="toc-h3"><a href="#7-custom-destinations-ari-bridge">7. Custom Destinations & ARI Bridge</a></li>
+      <li class="toc-h3"><a href="#8-auditoria-de-chamadas-analise-de-cdr">8. Auditoria de Chamadas & Análise de CDR</a></li>
+      <li class="toc-h3"><a href="#9-comandos-cli-resolucao-de-problemas">9. Comandos CLI & Resolução de Problemas</a></li>
+      <li><a href="#3-topologia-de-fluxo-de-voz">3. Topologia de Fluxo de Voz</a></li>
+      <li><a href="#faq">4. FAQ — Perguntas Frequentes (Telefonia e PABX Fácil)</a></li>
+      <li class="toc-h3"><a href="#q1-por-que-o-tronco-whatsapp-cloud-api-meta-exige-tls-e-srtp-enquanto-um-tronco-de-operadora-voip-usa-udp-comum">Q1. Por que o Tronco WhatsApp Cloud API (Meta) exige TLS e SRTP, enquanto um tronco de operadora VoIP usa UDP comum?</a></li>
+      <li class="toc-h3"><a href="#q2-para-que-serve-o-sufixo-direct-no-hostname-sip-que-o-atenderbem-fornece-e-por-que-ele-exige-certificado-let-s-encrypt">Q2. Para que serve o sufixo -direct no hostname SIP que o AtenderBem fornece, e por que ele exige certificado Let's Encrypt?</a></li>
+      <li class="toc-h3"><a href="#q3-definir-authentication-none-no-tronco-meta-nao-deixa-a-conexao-insegura">Q3. Definir Authentication = None no tronco Meta não deixa a conexão insegura?</a></li>
+      <li class="toc-h3"><a href="#q4-o-que-significam-x-z-n-e-nos-dial-patterns-de-uma-rota-de-saida">Q4. O que significam X, Z, N e . nos Dial Patterns de uma rota de saída?</a></li>
+      <li class="toc-h3"><a href="#q5-como-garantir-que-as-chamadas-nao-parem-se-o-tronco-principal-cair">Q5. Como garantir que as chamadas não parem se o tronco principal cair?</a></li>
+      <li class="toc-h3"><a href="#q6-qual-tipo-de-ramal-devo-usar-webphone-softphone-ou-telefone-ip">Q6. Qual tipo de ramal devo usar: Webphone, Softphone ou Telefone IP?</a></li>
+      <li class="toc-h3"><a href="#q7-o-icone-do-telefone-do-atendente-esta-cinza-vermelho-e-ele-nao-recebe-ligacoes-o-que-verificar">Q7. O ícone do telefone do atendente está cinza/vermelho e ele não recebe ligações. O que verificar?</a></li>
+      <li class="toc-h3"><a href="#q8-como-gravar-100-das-chamadas-de-um-ramal-ou-de-uma-fila">Q8. Como gravar 100% das chamadas de um ramal ou de uma fila?</a></li>
+      <li class="toc-h3"><a href="#q9-qual-estrategia-de-distribuicao-escolher-numa-fila">Q9. Qual estratégia de distribuição escolher numa fila?</a></li>
+      <li class="toc-h3"><a href="#q10-qual-a-diferenca-entre-agente-estatico-e-dinamico-e-como-pausar-um-atendente">Q10. Qual a diferença entre agente estático e dinâmico, e como pausar um atendente?</a></li>
+      <li class="toc-h3"><a href="#q11-o-que-acontece-com-a-chamada-quando-o-tempo-maximo-de-espera-na-fila-estoura">Q11. O que acontece com a chamada quando o tempo máximo de espera na fila estoura?</a></li>
+      <li class="toc-h3"><a href="#q12-qual-o-formato-de-audio-correto-para-o-asterisk-posso-subir-mp3">Q12. Qual o formato de áudio correto para o Asterisk? Posso subir MP3?</a></li>
+      <li class="toc-h3"><a href="#q13-qual-a-diferenca-entre-um-announcement-e-uma-ura-ivr">Q13. Qual a diferença entre um Announcement e uma URA (IVR)?</a></li>
+      <li class="toc-h3"><a href="#q14-como-fechar-a-central-em-feriados-e-como-forcar-abertura-fora-do-horario">Q14. Como fechar a central em feriados e como forçar abertura fora do horário?</a></li>
+      <li class="toc-h3"><a href="#q15-qual-a-relacao-entre-time-group-e-time-condition">Q15. Qual a relação entre Time Group e Time Condition?</a></li>
+      <li class="toc-h3"><a href="#q16-o-nome-usado-no-target-ari-bridge-nome-fila-1-precisa-ser-igual-no-pabx-e-no-atenderbem">Q16. O nome usado no target ari-bridge,NOME_FILA,1 precisa ser igual no PABX e no AtenderBem?</a></li>
+      <li class="toc-h3"><a href="#q17-como-descobrir-pelo-cdr-um-atendente-que-recusa-chamadas">Q17. Como descobrir, pelo CDR, um atendente que recusa chamadas?</a></li>
+      <li class="toc-h3"><a href="#q18-por-que-minhas-alteracoes-no-freepbx-nao-surtem-efeito">Q18. Por que minhas alterações no FreePBX não surtem efeito?</a></li>
+      <li class="toc-h3"><a href="#q19-o-som-funciona-de-um-lado-so-audio-mudo-de-uma-via-qual-a-causa-e-a-solucao">Q19. O som funciona de um lado só (áudio mudo de uma via). Qual a causa e a solução?</a></li>
+      <li class="toc-h3"><a href="#q20-o-cliente-digita-os-numeros-na-ura-e-o-pabx-nao-reconhece-o-que-fazer">Q20. O cliente digita os números na URA e o PABX não reconhece. O que fazer?</a></li>
+      <li class="toc-h3"><a href="#q21-a-chamada-cai-imediatamente-apos-ser-atendida-por-que">Q21. A chamada cai imediatamente após ser atendida. Por quê?</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <figure class="figure">
     <img src="assets/pabx-painel.png" alt="Painel do PABX Fácil">
     <figcaption>Ambiente de administração do PABX Fácil (Incredible PBX / FreePBX) integrado ao AtenderBem.</figcaption>
   </figure>
 
-  <h2>1. Visão Geral da Arquitetura</h2>
+  <h2 id="1-visao-geral-da-arquitetura">1. Visão Geral da Arquitetura</h2>
   <p>O <strong>PABX Fácil</strong> é o motor de telefonia em nuvem do <strong>AtenderBem</strong>. Ele integra canais telefônicos tradicionais (PSTN / E1 / SIP Trunk) e ligações de voz da <strong>WhatsApp Cloud API Oficial (Meta)</strong> em uma única central inteligente com Webphone integrado no navegador dos atendentes.</p>
 
   <div class="callout tip">
@@ -45,7 +153,7 @@
     <strong>Dúvidas frequentes?</strong> Consulte a <a href="#faq">seção FAQ ao final desta página</a>, com as respostas às dúvidas mais comuns sobre troncos, ramais, filas, URAs, horários, CDR e diagnóstico.
   </div>
 
-  <h2>2. Capítulos da Documentação de Telefonia</h2>
+  <h2 id="2-capitulos-da-documentacao-de-telefonia">2. Capítulos da Documentação de Telefonia</h2>
   <p>Acesse os guias detalhados de cada módulo nos cards abaixo:</p>
 
   <div class="grid" style="margin: 28px 0;">
@@ -54,7 +162,7 @@
       <div class="thumb"><img src="assets/pabx-trunk-meta.png" alt="Troncos SIP"></div>
       <div class="body">
         <span class="tag">Conectividade</span>
-        <h3>1. Troncos SIP & WhatsApp Cloud API</h3>
+        <h3 id="1-troncos-sip-whatsapp-cloud-api">1. Troncos SIP & WhatsApp Cloud API</h3>
         <p>Configuração de troncos de operadoras VoIP e conexão segura com WhatsApp Cloud API Meta (TLS, SRTP e Opus).</p>
         <div class="more">Acessar capítulo →</div>
       </div>
@@ -64,7 +172,7 @@
       <div class="thumb"><img src="assets/pabx-nat-ip.png" alt="Rotas de Entrada e Saída"></div>
       <div class="body">
         <span class="tag">Roteamento</span>
-        <h3>2. Rotas de Entrada e Saída</h3>
+        <h3 id="2-rotas-de-entrada-e-saida">2. Rotas de Entrada e Saída</h3>
         <p>Controle de DIDs de entrada, regras de encaminhamento e padrões de discagem de saída (Dial Patterns).</p>
         <div class="more">Acessar capítulo →</div>
       </div>
@@ -74,7 +182,7 @@
       <div class="thumb"><img src="assets/pabx-extensions.png" alt="Gestão de Ramais"></div>
       <div class="body">
         <span class="tag">Equipe</span>
-        <h3>3. Gestão de Ramais & Softphones</h3>
+        <h3 id="3-gestao-de-ramais-softphones">3. Gestão de Ramais & Softphones</h3>
         <p>Criação de ramais PJSIP, configuração no MicroSIP/Telefones IP e vínculo com atendentes no AtenderBem.</p>
         <div class="more">Acessar capítulo →</div>
       </div>
@@ -84,7 +192,7 @@
       <div class="thumb"><img src="assets/pabx-user-softphone.png" alt="Filas de Atendimento"></div>
       <div class="body">
         <span class="tag">Atendimento</span>
-        <h3>4. Filas de Atendimento (Queues)</h3>
+        <h3 id="4-filas-de-atendimento-queues">4. Filas de Atendimento (Queues)</h3>
         <p>Estratégias de distribuição (ringall, rrmemory, leastrecent), agentes estáticos/dinâmicos e transbordo.</p>
         <div class="more">Acessar capítulo →</div>
       </div>
@@ -94,7 +202,7 @@
       <div class="thumb"><img src="assets/pabx-painel.png" alt="URAs e Áudios"></div>
       <div class="body">
         <span class="tag">Autoatendimento</span>
-        <h3>5. URAs, Gravações & Anúncios</h3>
+        <h3 id="5-uras-gravacoes-anuncios">5. URAs, Gravações & Anúncios</h3>
         <p>Upload de áudios WAV, avisos gravados (Announcements) e estruturação de menus de URA (IVR) com DTMF.</p>
         <div class="more">Acessar capítulo →</div>
       </div>
@@ -104,7 +212,7 @@
       <div class="thumb"><img src="assets/pabx-nat-ip.png" alt="Condições de Horário"></div>
       <div class="body">
         <span class="tag">Automação</span>
-        <h3>6. Condições de Horário (Time Conditions)</h3>
+        <h3 id="6-condicoes-de-horario-time-conditions">6. Condições de Horário (Time Conditions)</h3>
         <p>Horário comercial, atendimento noturno, feriados e códigos de sobreposição manual via ramal.</p>
         <div class="more">Acessar capítulo →</div>
       </div>
@@ -114,7 +222,7 @@
       <div class="thumb"><img src="assets/pabx-custom-destination.png" alt="Custom Destinations"></div>
       <div class="body">
         <span class="tag">Integração</span>
-        <h3>7. Custom Destinations & ARI Bridge</h3>
+        <h3 id="7-custom-destinations-ari-bridge">7. Custom Destinations & ARI Bridge</h3>
         <p>Conexão do Asterisk à inteligência de URA Avançada do sistema AtenderBem através de pontes ARI.</p>
         <div class="more">Acessar capítulo →</div>
       </div>
@@ -124,7 +232,7 @@
       <div class="thumb"><img src="assets/pabx-extensions.png" alt="Auditoria de CDR"></div>
       <div class="body">
         <span class="tag">Auditoria & BI</span>
-        <h3>8. Auditoria de Chamadas & Análise de CDR</h3>
+        <h3 id="8-auditoria-de-chamadas-analise-de-cdr">8. Auditoria de Chamadas & Análise de CDR</h3>
         <p>Decifre as 25 colunas do CDR, detecte atendentes que recusam chamadas e consulte o banco em SQL.</p>
         <div class="more">Acessar capítulo →</div>
       </div>
@@ -134,7 +242,7 @@
       <div class="thumb"><img src="assets/pabx-painel.png" alt="Comandos CLI"></div>
       <div class="body">
         <span class="tag">Diagnóstico</span>
-        <h3>9. Comandos CLI & Resolução de Problemas</h3>
+        <h3 id="9-comandos-cli-resolucao-de-problemas">9. Comandos CLI & Resolução de Problemas</h3>
         <p>Guia de comandos de console traduzidos e solução definitiva para áudio mudo, NAT e queda de chamadas.</p>
         <div class="more">Acessar capítulo →</div>
       </div>
@@ -142,7 +250,7 @@
 
   </div>
 
-  <h2>3. Topologia de Fluxo de Voz</h2>
+  <h2 id="3-topologia-de-fluxo-de-voz">3. Topologia de Fluxo de Voz</h2>
   <figure class="figure">
     <svg viewBox="0 0 900 600" role="img" aria-labelledby="fluxoTitle fluxoDesc" style="width:100%;height:auto;display:block;padding:10px;">
       <title id="fluxoTitle">Topologia de fluxo de voz do PABX Fácil</title>
@@ -218,107 +326,107 @@
   </div>
 
   <div class="faq">
-    <h3>Q1. Por que o Tronco WhatsApp Cloud API (Meta) exige TLS e SRTP, enquanto um tronco de operadora VoIP usa UDP comum?</h3>
+    <h3 id="q1-por-que-o-tronco-whatsapp-cloud-api-meta-exige-tls-e-srtp-enquanto-um-tronco-de-operadora-voip-usa-udp-comum">Q1. Por que o Tronco WhatsApp Cloud API (Meta) exige TLS e SRTP, enquanto um tronco de operadora VoIP usa UDP comum?</h3>
     <p>Porque o tronco Meta trafega pela infraestrutura da própria Meta (<code>wa.meta.vc</code>) e opera criptografado de ponta a ponta: transporte <code>0.0.0.0-tls</code> (TLSv1.2), mídia com <strong>SRTP</strong> e codec <strong>Opus</strong>. Já o tronco de operadora tradicional (Vivo, Embratel, TotalVoice, provedores SIP locais) usa UDP/TCP com codecs da rede pública (<code>alaw</code>, <code>ulaw</code>, <code>g729</code>). Regra prática: Meta → Transport <code>0.0.0.0-tls</code> + Media Encryption <code>srtp</code> + Opus; operadora → UDP + codecs padrão.</p>
   </div>
 
   <div class="faq">
-    <h3>Q2. Para que serve o sufixo <code>-direct</code> no hostname SIP que o AtenderBem fornece, e por que ele exige certificado Let's Encrypt?</h3>
+    <h3 id="q2-para-que-serve-o-sufixo-direct-no-hostname-sip-que-o-atenderbem-fornece-e-por-que-ele-exige-certificado-let-s-encrypt">Q2. Para que serve o sufixo <code>-direct</code> no hostname SIP que o AtenderBem fornece, e por que ele exige certificado Let's Encrypt?</h3>
     <p>O hostname com sufixo <code>-direct</code> é o endereço do servidor SIP gerado pelo AtenderBem ao clicar em <strong>"Configurar telefonia"</strong> (Configurações › Filas). Como o tronco Meta só aceita transporte TLS, o FreePBX precisa de um certificado válido para <strong>esse hostname exato</strong>. Gere-o em <code>Admin › Certificate Management › Generate Let's Encrypt Certificate</code> informando exatamente o hostname com <code>-direct</code>, e selecione-o em <code>Settings › Asterisk SIP Settings › TLS/SSL</code> com <strong>SSL Method = tlsv1_2</strong>. Hostname incorreto = handshake falha e o canal não sobe (Problema 2 do capítulo 9).</p>
   </div>
 
   <div class="faq">
-    <h3>Q3. Definir Authentication = None no tronco Meta não deixa a conexão insegura?</h3>
+    <h3 id="q3-definir-authentication-none-no-tronco-meta-nao-deixa-a-conexao-insegura">Q3. Definir Authentication = None no tronco Meta não deixa a conexão insegura?</h3>
     <p>Negativo. <code>Authentication = None</code> e <code>Registration = None</code> são corretos porque a Meta <strong>não usa REGISTER/SIP auth tradicional</strong> — o canal opera por roteamento direto IP/TLS. A identificação da chamada de entrada é feita por <code>Match Inbound Auth = Auth username</code>, e a segurança vem da camada <strong>TLS + SRTP</strong>. Não confundir com tronco de operadora, onde <code>Authentication = Outbound</code> e <code>Registration = Send</code> com usuário/senha são obrigatórios.</p>
   </div>
 
   <div class="faq">
-    <h3>Q4. O que significam <code>X</code>, <code>Z</code>, <code>N</code> e <code>.</code> nos Dial Patterns de uma rota de saída?</h3>
+    <h3 id="q4-o-que-significam-x-z-n-e-nos-dial-patterns-de-uma-rota-de-saida">Q4. O que significam <code>X</code>, <code>Z</code>, <code>N</code> e <code>.</code> nos Dial Patterns de uma rota de saída?</h3>
     <p>São máscaras do Asterisk: <code>X</code> = qualquer dígito 0-9; <code>Z</code> = qualquer 1-9; <code>N</code> = qualquer 2-9; <code>.</code> = um ou mais dígitos até o fim do número. Exemplos práticos: celular local = Match Pattern <code>9XXXXXXXX</code> com Prepend <code>5511</code> (o DDD é adicionado automaticamente); fixo local = <code>[2-5]XXXXXXX</code> com Prepend <code>5511</code>; DDD nacional = <code>[1-9][1-9]XXXXXXXX</code> com Prefix <code>0</code> (o zero é removido) e Prepend <code>55</code>.</p>
   </div>
 
   <div class="faq">
-    <h3>Q5. Como garantir que as chamadas não parem se o tronco principal cair?</h3>
+    <h3 id="q5-como-garantir-que-as-chamadas-nao-parem-se-o-tronco-principal-cair">Q5. Como garantir que as chamadas não parem se o tronco principal cair?</h3>
     <p>Configure a <strong>Trunk Sequence</strong> da rota de saída com dois troncos em ordem de prioridade: <strong>Tronco 1 (prioritário)</strong> — VoIP de menor custo / WhatsApp Cloud API — e <strong>Tronco 2 (contingência)</strong> — operadora secundária, que assume quando o Tronco 1 está ocupado, offline ou sem saldo.</p>
   </div>
 
   <div class="faq">
-    <h3>Q6. Qual tipo de ramal devo usar: Webphone, Softphone ou Telefone IP?</h3>
+    <h3 id="q6-qual-tipo-de-ramal-devo-usar-webphone-softphone-ou-telefone-ip">Q6. Qual tipo de ramal devo usar: Webphone, Softphone ou Telefone IP?</h3>
     <p><strong>Webphone (PJSIP/WebRTC):</strong> roda dentro do painel do AtenderBem, sem instalar nada — recomendado para agentes de atendimento. <strong>Softphone (MicroSIP/Zoiper/Linphone, PJSIP/SIP UDP/TCP):</strong> aplicativo de desktop — recomendado para estações administrativas. <strong>Telefone IP físico / ATA (Yealink, Grandstream, Intelbras):</strong> aparelhos de mesa, com registro no IP público do PABX.</p>
   </div>
 
   <div class="faq">
-    <h3>Q7. O ícone do telefone do atendente está cinza/vermelho e ele não recebe ligações. O que verificar?</h3>
+    <h3 id="q7-o-icone-do-telefone-do-atendente-esta-cinza-vermelho-e-ele-nao-recebe-ligacoes-o-que-verificar">Q7. O ícone do telefone do atendente está cinza/vermelho e ele não recebe ligações. O que verificar?</h3>
     <p>É falha de registro SIP. Confira, no AtenderBem, se a chave <strong>"Habilitar softphone"</strong> está ativa em <code>Configurações › Usuários</code>, se o campo <strong>Ramal</strong> contém o número exato da extension e se a <strong>Senha</strong> é o <code>secret</code> copiado do PABX. No PABX, valide com <code>asterisk -rx "pjsip show endpoints"</code> — o ramal deve aparecer <em>Available / Reachable</em>. Ícone <strong>verde</strong> no cabeçalho = registro OK (Problema 3 do capítulo 9).</p>
   </div>
 
   <div class="faq">
-    <h3>Q8. Como gravar 100% das chamadas de um ramal ou de uma fila?</h3>
+    <h3 id="q8-como-gravar-100-das-chamadas-de-um-ramal-ou-de-uma-fila">Q8. Como gravar 100% das chamadas de um ramal ou de uma fila?</h3>
     <p>No <strong>ramal:</strong> <code>Applications › Extensions › Recording Options</code>, definindo <em>Inbound External Calls</em> e <em>Outbound External Calls</em> como <code>Force</code>. Na <strong>fila:</strong> <code>Applications › Queues</code>, campo <strong>Call Recording = Force</strong>. O arquivo gerado aparece na coluna <code>recordingfile</code> do CDR.</p>
   </div>
 
   <div class="faq">
-    <h3>Q9. Qual estratégia de distribuição escolher numa fila?</h3>
+    <h3 id="q9-qual-estrategia-de-distribuicao-escolher-numa-fila">Q9. Qual estratégia de distribuição escolher numa fila?</h3>
     <p><code>ringall</code> — toca em todos os ramais livres ao mesmo tempo; ideal para equipes pequenas, suporte emergencial ou vendas de alta velocidade. <code>rrmemory</code> (round-robin com memória) — <strong>padrão da indústria</strong>, distribui de forma justa lembrando quem atendeu por último. <code>leastrecent</code> — atendente há mais tempo ocioso, para nivelar a ociosidade. <code>fewestcalls</code> — quem recebeu menos chamadas completadas, para metas diárias. <code>random</code> — aleatório, quando não há ordem necessária. Na dúvida, use <code>rrmemory</code>.</p>
   </div>
 
   <div class="faq">
-    <h3>Q10. Qual a diferença entre agente estático e dinâmico, e como pausar um atendente?</h3>
+    <h3 id="q10-qual-a-diferenca-entre-agente-estatico-e-dinamico-e-como-pausar-um-atendente">Q10. Qual a diferença entre agente estático e dinâmico, e como pausar um atendente?</h3>
     <p><strong>Estáticos:</strong> ramais fixos na fila (ex.: <code>PJSIP/1001,0</code>), sempre conectados. <strong>Dinâmicos:</strong> o atendente entra na fila discando <code>*45</code> no softphone ou pelo sistema web do AtenderBem, podendo pausar/despausar na jornada. Pausa por CLI: <code>asterisk -rx "queue pause member PJSIP/1001 from 100"</code>; despausa com <code>queue unpause member ...</code>; status completo com <code>queue show 100</code>.</p>
   </div>
 
   <div class="faq">
-    <h3>Q11. O que acontece com a chamada quando o tempo máximo de espera na fila estoura?</h3>
+    <h3 id="q11-o-que-acontece-com-a-chamada-quando-o-tempo-maximo-de-espera-na-fila-estoura">Q11. O que acontece com a chamada quando o tempo máximo de espera na fila estoura?</h3>
     <p>Ela é enviada ao <strong>Fail Over Destination</strong> configurado (outra fila, URA ou caixa postal). O <strong>Max Wait Time</strong> (ex.: 300s) e o Fail Over formam a regra de transbordo — que também dispara se não houver agentes logados. Complementam a experiência o <strong>Agent Timeout</strong> (ex.: 15s, quanto toca no ramal antes de passar ao próximo) e o <strong>Retry</strong> (ex.: 2s, intervalo entre tentativas).</p>
   </div>
 
   <div class="faq">
-    <h3>Q12. Qual o formato de áudio correto para o Asterisk? Posso subir MP3?</h3>
+    <h3 id="q12-qual-o-formato-de-audio-correto-para-o-asterisk-posso-subir-mp3">Q12. Qual o formato de áudio correto para o Asterisk? Posso subir MP3?</h3>
     <p>Use <strong>WAV PCM, 16-bit, mono, 8000 Hz ou 16000 Hz</strong>. Arquivos em MP3 ou estéreo passam por conversão e podem gerar ruído. O cadastro é em <code>Admin › System Recordings › + Add Recording › Upload Recording</code>, com nome descritivo, seguido de <strong>Apply Config</strong>.</p>
   </div>
 
   <div class="faq">
-    <h3>Q13. Qual a diferença entre um Announcement e uma URA (IVR)?</h3>
+    <h3 id="q13-qual-a-diferenca-entre-um-announcement-e-uma-ura-ivr">Q13. Qual a diferença entre um Announcement e uma URA (IVR)?</h3>
     <p>O <strong>Announcement</strong> reproduz uma mensagem gravada e transfere automaticamente para o destino ao fim da fala, <em>sem esperar tecla</em> (ex.: aviso "ligação gravada" → fila). A <strong>URA/IVR</strong> é um menu interativo por DTMF: toca o áudio de opções e aguarda o dígito do cliente (com <em>Timeout</em>, <em>Invalid Retries</em> e <em>Timeout Destination</em>) para rotear. Resumindo: Announcement informa e segue; IVR pergunta e decide.</p>
   </div>
 
   <div class="faq">
-    <h3>Q14. Como fechar a central em feriados e como forçar abertura fora do horário?</h3>
+    <h3 id="q14-como-fechar-a-central-em-feriados-e-como-forcar-abertura-fora-do-horario">Q14. Como fechar a central em feriados e como forçar abertura fora do horário?</h3>
     <p><strong>Feriados:</strong> no Time Group, cadastre a data exata (ex.: 25 de dezembro) com horário vazio, fechando o dia inteiro. <strong>Abertura/fechamento manual:</strong> use o <strong>Override Code</strong> da Time Condition (ex.: <code>*271</code>) — discando esse código no ramal, o gestor força a abertura ou o fechamento em emergências.</p>
   </div>
 
   <div class="faq">
-    <h3>Q15. Qual a relação entre Time Group e Time Condition?</h3>
+    <h3 id="q15-qual-a-relacao-entre-time-group-e-time-condition">Q15. Qual a relação entre Time Group e Time Condition?</h3>
     <p>São duas etapas complementares. O <strong>Time Group</strong> define o calendário (quais dias e horários a empresa funciona). A <strong>Time Condition</strong> testa se a chamada está dentro desse grupo e envia para <em>Destination if time matches</em> (aberto, ex.: URA) ou <em>Destination if time does not match</em> (fechado, ex.: anúncio). Depois, a Inbound Route deve apontar seu <em>Set Destination</em> para a Time Condition.</p>
   </div>
 
   <div class="faq">
-    <h3>Q16. O nome usado no target <code>ari-bridge,NOME_FILA,1</code> precisa ser igual no PABX e no AtenderBem?</h3>
+    <h3 id="q16-o-nome-usado-no-target-ari-bridge-nome-fila-1-precisa-ser-igual-no-pabx-e-no-atenderbem">Q16. O nome usado no target <code>ari-bridge,NOME_FILA,1</code> precisa ser igual no PABX e no AtenderBem?</h3>
     <p>Afirmativo, <strong>rigorosamente o mesmo</strong>. No <code>Admin › Custom Destinations</code> do PABX, o Target é <code>ari-bridge,NOME_FILA,1</code> (ex.: <code>ari-bridge,apptest,1</code>) com <em>Return = No</em>. No AtenderBem, crie em <code>Configurações › Filas</code> uma fila com nome exatamente igual (<code>apptest</code>), tipo <strong>"Telefonia (URA)"</strong>, apontada para a URA Avançada. Nomes divergentes quebram o vínculo e a chamada não chega ao fluxo.</p>
   </div>
 
   <div class="faq">
-    <h3>Q17. Como descobrir, pelo CDR, um atendente que recusa chamadas?</h3>
+    <h3 id="q17-como-descobrir-pelo-cdr-um-atendente-que-recusa-chamadas">Q17. Como descobrir, pelo CDR, um atendente que recusa chamadas?</h3>
     <p>Três padrões: (1) <code>disposition = 'NO ANSWER'</code> com <code>dstchannel</code> preenchido pelo ramal — a chamada tocou e não foi atendida; (2) <code>disposition = 'ANSWERED'</code> com <code>billsec &lt; 10</code>s em chamadas de fila — atendimento e desligamento imediato; (3) <code>disposition = 'BUSY'</code> sem outra chamada ativa — rejeição manual no softphone. A Query 1 do capítulo 8 calcula a taxa de recusa por atendente ((NO ANSWER + BUSY) ÷ total).</p>
   </div>
 
   <div class="faq">
-    <h3>Q18. Por que minhas alterações no FreePBX não surtem efeito?</h3>
+    <h3 id="q18-por-que-minhas-alteracoes-no-freepbx-nao-surtem-efeito">Q18. Por que minhas alterações no FreePBX não surtem efeito?</h3>
     <p>Porque toda alteração exige o duplo passo: clicar em <strong>Submit</strong> (rodapé da página) e depois em <strong>Apply Config</strong> (barra superior), que recarrega o dialplan no Asterisk. Sem o Apply Config, o que está no banco de dados do FreePBX não chega ao motor de voz. É a Regra de Ouro repetida em todos os capítulos.</p>
   </div>
 
   <div class="faq">
-    <h3>Q19. O som funciona de um lado só (áudio mudo de uma via). Qual a causa e a solução?</h3>
+    <h3 id="q19-o-som-funciona-de-um-lado-so-audio-mudo-de-uma-via-qual-a-causa-e-a-solucao">Q19. O som funciona de um lado só (áudio mudo de uma via). Qual a causa e a solução?</h3>
     <p>Causa: o PABX está atrás de NAT e não envia o IP público correto no cabeçalho SDP dos pacotes de voz (RTP). Solução: em <code>Settings › Asterisk SIP Settings › General SIP Settings</code>, clique em <strong>Detect Network Settings</strong> (preenche o <em>External Address</em>) e confirme se as portas UDP <strong>10000 a 20000</strong> estão liberadas no firewall (Problema 1 do capítulo 9).</p>
   </div>
 
   <div class="faq">
-    <h3>Q20. O cliente digita os números na URA e o PABX não reconhece. O que fazer?</h3>
+    <h3 id="q20-o-cliente-digita-os-numeros-na-ura-e-o-pabx-nao-reconhece-o-que-fazer">Q20. O cliente digita os números na URA e o PABX não reconhece. O que fazer?</h3>
     <p>É incompatibilidade no envio de tons <strong>DTMF</strong> entre a operadora e o Asterisk. No tronco SIP da operadora, ajuste o parâmetro <strong>DTMF Mode</strong> para <code>rfc4733</code> ou <code>rfc2833</code> (Problema 4 do capítulo 9).</p>
   </div>
 
   <div class="faq">
-    <h3>Q21. A chamada cai imediatamente após ser atendida. Por quê?</h3>
+    <h3 id="q21-a-chamada-cai-imediatamente-apos-ser-atendida-por-que">Q21. A chamada cai imediatamente após ser atendida. Por quê?</h3>
     <p>Incompatibilidade de codecs de áudio entre as duas pontas. No FreePBX, em <code>Settings › Asterisk SIP Settings</code>, habilite <code>ulaw</code>, <code>alaw</code>, <code>g729</code> e <code>opus</code> para garantir compatibilidade universal (Problema 5 do capítulo 9).</p>
   </div>
 
@@ -331,6 +439,7 @@
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

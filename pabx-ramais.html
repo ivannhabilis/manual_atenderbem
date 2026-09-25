@@ -9,19 +9,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="pabx.html">Portal PABX</a>
-    <a href="pabx-troncos.html">Troncos SIP</a>
-    <a href="pabx-rotas.html">Rotas</a>
-    <a href="pabx-ramais.html" class="active">Ramais</a>
-    <a href="pabx-filas.html">Filas</a>
-    <a href="pabx-ura-audios.html">URAs & Áudios</a>
-    <a href="pabx-horarios.html">Horários</a>
-    <a href="pabx-custom.html">Custom & ARI</a>
-    <a href="pabx-cdr-auditoria.html">CDR</a>
-    <a href="pabx-cli-troubleshooting.html">CLI & Debug</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a class="active" href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -31,12 +93,30 @@
   <h1>Gestão de Ramais (Extensions) e Softphones</h1>
   <p class="subtitle">Como criar e administrar ramais PJSIP, configurar telefones físicos/MicroSIP, habilitar gravação de chamadas e vincular o Webphone ao sistema AtenderBem.</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-o-que-e-um-ramal-extension">1. O que é um Ramal (Extension)?</a></li>
+      <li><a href="#2-passo-a-passo-criando-um-ramal-pjsip-no-freepbx">2. Passo a Passo: Criando um Ramal PJSIP no FreePBX</a></li>
+      <li><a href="#3-vinculando-o-ramal-ao-atendente-no-atenderbem">3. Vinculando o Ramal ao Atendente no AtenderBem</a></li>
+      <li><a href="#4-configuracao-em-aplicativos-softphone-ex-microsip">4. Configuração em Aplicativos Softphone (Ex: MicroSIP)</a></li>
+      <li><a href="#5-tipo-do-ramal-no-pabx-facil-softphone-vs-webphone">5. Tipo do Ramal no PABX Fácil: Softphone vs Webphone</a></li>
+      <li><a href="#6-aba-advanced-do-ramal-pjsip-webrtc-e-midia">6. Aba Advanced do Ramal PJSIP (WebRTC e Mídia)</a></li>
+      <li><a href="#7-atualizar-o-nat-e-obter-o-ip-externo-do-pabx">7. Atualizar o NAT e Obter o IP Externo do PABX</a></li>
+      <li><a href="#8-diagnostico-de-ramais-via-cli">8. Diagnóstico de Ramais via CLI</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <figure class="figure">
     <img src="assets/pabx-extensions.png" alt="Listagem de Ramais no PABX">
     <figcaption>Painel de gerenciamento de ramais em Applications › Extensions.</figcaption>
   </figure>
 
-  <h2>1. O que é um Ramal (Extension)?</h2>
+  <h2 id="1-o-que-e-um-ramal-extension">1. O que é um Ramal (Extension)?</h2>
   <p>O <strong>Ramal</strong> é o ponto de terminação individual de cada atendente ou estação de trabalho. Ele permite que os colaboradores conversem gratuitamente entre si dentro da empresa e recebam ou realizem chamadas externas através dos troncos SIP.</p>
 
   <div class="table-wrap">
@@ -52,7 +132,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>2. Passo a Passo: Criando um Ramal PJSIP no FreePBX</h2>
+  <h2 id="2-passo-a-passo-criando-um-ramal-pjsip-no-freepbx">2. Passo a Passo: Criando um Ramal PJSIP no FreePBX</h2>
   <ol class="steps">
     <li>No menu do PABX, acesse <code>Applications › Extensions › Add Extension › Add New PJSIP Extension</code>.</li>
     <li>
@@ -82,7 +162,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>3. Vinculando o Ramal ao Atendente no AtenderBem</h2>
+  <h2 id="3-vinculando-o-ramal-ao-atendente-no-atenderbem">3. Vinculando o Ramal ao Atendente no AtenderBem</h2>
   <p>Após criar o ramal no PABX, é necessário vinculá-lo ao cadastro do operador no sistema omnichannel:</p>
 
   <figure class="figure">
@@ -105,7 +185,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>4. Configuração em Aplicativos Softphone (Ex: MicroSIP)</h2>
+  <h2 id="4-configuracao-em-aplicativos-softphone-ex-microsip">4. Configuração em Aplicativos Softphone (Ex: MicroSIP)</h2>
   <p>Caso o atendente utilize um aplicativo desktop (MicroSIP):</p>
   <ul>
     <li><strong>Account Name:</strong> Nome do atendente (ex.: <code>Carlos</code>).</li>
@@ -117,7 +197,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>5. Tipo do Ramal no PABX Fácil: Softphone vs Webphone</h2>
+  <h2 id="5-tipo-do-ramal-no-pabx-facil-softphone-vs-webphone">5. Tipo do Ramal no PABX Fácil: Softphone vs Webphone</h2>
   <p>Além do cadastro do protocolo (PJSIP), o PABX Fácil permite classificar o ramal pelo seu <strong>tipo de uso</strong>, determinando em qual interface ele será consumido:</p>
 
   <div class="table-wrap">
@@ -136,7 +216,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>6. Aba Advanced do Ramal PJSIP (WebRTC e Mídia)</h2>
+  <h2 id="6-aba-advanced-do-ramal-pjsip-webrtc-e-midia">6. Aba Advanced do Ramal PJSIP (WebRTC e Mídia)</h2>
   <p>Para que o ramal opere como <strong>webphone</strong> no navegador, é preciso habilitar os parâmetros de conectividade de mídia na aba <code>Advanced</code> do formulário <em>Add PJSIP Extension</em>. Conforme o guia do parceiro, estes campos devem estar definidos como <code>Yes</code>:</p>
 
   <div class="table-wrap">
@@ -159,7 +239,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>7. Atualizar o NAT e Obter o IP Externo do PABX</h2>
+  <h2 id="7-atualizar-o-nat-e-obter-o-ip-externo-do-pabx">7. Atualizar o NAT e Obter o IP Externo do PABX</h2>
   <p>O <strong>IP externo</strong> é o endereço usado para configurar telefones IP e aplicativos VoIP (tipo MicroSIP) que se conectam de fora da rede local. Sem o IP externo correto no NAT, ramais externos não conseguem registrar.</p>
 
   <ol class="steps">
@@ -175,7 +255,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>8. Diagnóstico de Ramais via CLI</h2>
+  <h2 id="8-diagnostico-de-ramais-via-cli">8. Diagnóstico de Ramais via CLI</h2>
   <p>Comandos Asterisk úteis para conferir o cadastro e o registro dos ramais:</p>
 
   <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code># Lista todos os ramais (endpoints PJSIP) cadastrados:
@@ -207,6 +287,7 @@ asterisk -rx "pjsip qualify endpoint 2000"</code></pre>
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Módulo de Telefonia e PABX.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

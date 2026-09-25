@@ -9,19 +9,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="pabx.html">Portal PABX</a>
-    <a href="pabx-troncos.html">Troncos SIP</a>
-    <a href="pabx-rotas.html">Rotas</a>
-    <a href="pabx-ramais.html">Ramais</a>
-    <a href="pabx-filas.html">Filas</a>
-    <a href="pabx-ura-audios.html">URAs & Áudios</a>
-    <a href="pabx-horarios.html">Horários</a>
-    <a href="pabx-custom.html">Custom & ARI</a>
-    <a href="pabx-cdr-auditoria.html">CDR</a>
-    <a href="pabx-cli-troubleshooting.html" class="active">CLI & Debug</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a class="active" href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -31,7 +93,44 @@
   <h1>Comandos CLI do Asterisk e Resolução de Problemas</h1>
   <p class="subtitle">Guia completo de comandos de console traduzidos para diagnóstico avançado e resolução definitiva dos 5 problemas mais comuns em telefonia VoIP.</p>
 
-  <h2>1. Como Acessar a Linha de Comando (CLI)</h2>
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-como-acessar-a-linha-de-comando-cli">1. Como Acessar a Linha de Comando (CLI)</a></li>
+      <li><a href="#2-tabela-de-comandos-cli-traduzidos-e-comentados">2. Tabela de Comandos CLI Traduzidos e Comentados</a></li>
+      <li class="toc-h3"><a href="#a-comandos-gerais-e-de-status-do-sistema">A. Comandos Gerais e de Status do Sistema</a></li>
+      <li class="toc-h3"><a href="#b-comandos-de-canais-e-chamadas-ativas">B. Comandos de Canais e Chamadas Ativas</a></li>
+      <li class="toc-h3"><a href="#c-comandos-pjsip-ramais-e-troncos">C. Comandos PJSIP (Ramais e Troncos)</a></li>
+      <li class="toc-h3"><a href="#d-comandos-de-debug-e-log">D. Comandos de Debug e Log</a></li>
+      <li class="toc-h3"><a href="#e-comandos-de-filas-queues">E. Comandos de Filas (Queues)</a></li>
+      <li class="toc-h3"><a href="#f-comandos-de-dialplan">F. Comandos de Dialplan</a></li>
+      <li class="toc-h3"><a href="#g-comandos-de-banco-de-dados-astdb">G. Comandos de Banco de Dados (ASTDB)</a></li>
+      <li class="toc-h3"><a href="#h-comandos-de-modulos">H. Comandos de Módulos</a></li>
+      <li class="toc-h3"><a href="#i-comandos-de-agentes-e-de-presenca-device-state">I. Comandos de Agentes e de Presença (Device State)</a></li>
+      <li class="toc-h3"><a href="#j-comandos-de-musica-em-espera-moh-e-voicemail">J. Comandos de Música em Espera (MOH) e Voicemail</a></li>
+      <li class="toc-h3"><a href="#k-comandos-de-cdr-registro-de-chamadas-via-cli">K. Comandos de CDR (Registro de Chamadas) via CLI</a></li>
+      <li class="toc-h3"><a href="#l-comandos-de-rtp-e-rtcp">L. Comandos de RTP e RTCP</a></li>
+      <li class="toc-h3"><a href="#m-comandos-de-gerenciamento-manager-ami">M. Comandos de Gerenciamento (Manager/AMI)</a></li>
+      <li class="toc-h3"><a href="#n-comandos-uteis-para-administracao">N. Comandos Úteis para Administração</a></li>
+      <li class="toc-h3"><a href="#o-comandos-pjsip-complementares">O. Comandos PJSIP Complementares</a></li>
+      <li class="toc-h3"><a href="#p-canais-pontes-e-originacao">P. Canais, Pontes e Originação</a></li>
+      <li><a href="#3-guia-de-resolucao-dos-5-maiores-problemas-troubleshooting">3. Guia de Resolução dos 5 Maiores Problemas (Troubleshooting)</a></li>
+      <li class="toc-h3"><a href="#problema-1-audio-mudo-ou-de-uma-via-so-one-way-audio">Problema 1: Áudio Mudo ou de Uma Via Só (One-Way Audio)</a></li>
+      <li class="toc-h3"><a href="#problema-2-tronco-whatsapp-meta-offline-canal-nao-sobe">Problema 2: Tronco WhatsApp Meta Offline (Canal Não Sobe)</a></li>
+      <li class="toc-h3"><a href="#problema-3-ramal-do-webphone-no-atenderbem-nao-conecta">Problema 3: Ramal do Webphone no AtenderBem Não Conecta</a></li>
+      <li class="toc-h3"><a href="#problema-4-o-cliente-digita-os-numeros-na-ura-e-o-pabx-nao-reconhece">Problema 4: O Cliente Digita os Números na URA e o PABX Não Reconhece</a></li>
+      <li class="toc-h3"><a href="#problema-5-chamada-cai-imediatamente-apos-atender">Problema 5: Chamada Cai Imediatamente Após Atender</a></li>
+      <li><a href="#4-fluxo-de-diagnostico-de-uma-chamada-em-tempo-real">4. Fluxo de Diagnóstico de uma Chamada em Tempo Real</a></li>
+      <li class="toc-h3"><a href="#derrubar-uma-chamada-travada">Derrubar uma Chamada Travada</a></li>
+      <li><a href="#5-referencia-rapida-comandos-essenciais-para-filas">5. Referência Rápida: Comandos Essenciais para Filas</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
+  <h2 id="1-como-acessar-a-linha-de-comando-cli">1. Como Acessar a Linha de Comando (CLI)</h2>
   <p>Você pode executar comandos do Asterisk de duas formas:</p>
   <ul>
     <li><strong>Via Painel Web do FreePBX:</strong> Acesse o menu <code>Admin › Asterisk CLI</code>, digite o comando no campo e clique em <em>Send Command</em>.</li>
@@ -40,9 +139,9 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>2. Tabela de Comandos CLI Traduzidos e Comentados</h2>
+  <h2 id="2-tabela-de-comandos-cli-traduzidos-e-comentados">2. Tabela de Comandos CLI Traduzidos e Comentados</h2>
 
-  <h3>A. Comandos Gerais e de Status do Sistema</h3>
+  <h3 id="a-comandos-gerais-e-de-status-do-sistema">A. Comandos Gerais e de Status do Sistema</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
@@ -55,7 +154,7 @@
     </table>
   </div>
 
-  <h3>B. Comandos de Canais e Chamadas Ativas</h3>
+  <h3 id="b-comandos-de-canais-e-chamadas-ativas">B. Comandos de Canais e Chamadas Ativas</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
@@ -67,7 +166,7 @@
     </table>
   </div>
 
-  <h3>C. Comandos PJSIP (Ramais e Troncos)</h3>
+  <h3 id="c-comandos-pjsip-ramais-e-troncos">C. Comandos PJSIP (Ramais e Troncos)</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
@@ -80,7 +179,7 @@
     </table>
   </div>
 
-  <h3>D. Comandos de Debug e Log</h3>
+  <h3 id="d-comandos-de-debug-e-log">D. Comandos de Debug e Log</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
@@ -96,7 +195,7 @@
     </table>
   </div>
 
-  <h3>E. Comandos de Filas (Queues)</h3>
+  <h3 id="e-comandos-de-filas-queues">E. Comandos de Filas (Queues)</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
@@ -117,7 +216,7 @@
     </table>
   </div>
 
-  <h3>F. Comandos de Dialplan</h3>
+  <h3 id="f-comandos-de-dialplan">F. Comandos de Dialplan</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
@@ -134,7 +233,7 @@
     </table>
   </div>
 
-  <h3>G. Comandos de Banco de Dados (ASTDB)</h3>
+  <h3 id="g-comandos-de-banco-de-dados-astdb">G. Comandos de Banco de Dados (ASTDB)</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
@@ -149,7 +248,7 @@
     </table>
   </div>
 
-  <h3>H. Comandos de Módulos</h3>
+  <h3 id="h-comandos-de-modulos">H. Comandos de Módulos</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
@@ -163,7 +262,7 @@
     </table>
   </div>
 
-  <h3>I. Comandos de Agentes e de Presença (Device State)</h3>
+  <h3 id="i-comandos-de-agentes-e-de-presenca-device-state">I. Comandos de Agentes e de Presença (Device State)</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
@@ -179,7 +278,7 @@
     </table>
   </div>
 
-  <h3>J. Comandos de Música em Espera (MOH) e Voicemail</h3>
+  <h3 id="j-comandos-de-musica-em-espera-moh-e-voicemail">J. Comandos de Música em Espera (MOH) e Voicemail</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
@@ -196,7 +295,7 @@
     </table>
   </div>
 
-  <h3>K. Comandos de CDR (Registro de Chamadas) via CLI</h3>
+  <h3 id="k-comandos-de-cdr-registro-de-chamadas-via-cli">K. Comandos de CDR (Registro de Chamadas) via CLI</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
@@ -209,7 +308,7 @@
     </table>
   </div>
 
-  <h3>L. Comandos de RTP e RTCP</h3>
+  <h3 id="l-comandos-de-rtp-e-rtcp">L. Comandos de RTP e RTCP</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
@@ -223,7 +322,7 @@
     </table>
   </div>
 
-  <h3>M. Comandos de Gerenciamento (Manager/AMI)</h3>
+  <h3 id="m-comandos-de-gerenciamento-manager-ami">M. Comandos de Gerenciamento (Manager/AMI)</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
@@ -237,7 +336,7 @@
     </table>
   </div>
 
-  <h3>N. Comandos Úteis para Administração</h3>
+  <h3 id="n-comandos-uteis-para-administracao">N. Comandos Úteis para Administração</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
@@ -252,7 +351,7 @@
     </table>
   </div>
 
-  <h3>O. Comandos PJSIP Complementares</h3>
+  <h3 id="o-comandos-pjsip-complementares">O. Comandos PJSIP Complementares</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
@@ -267,7 +366,7 @@
     </table>
   </div>
 
-  <h3>P. Canais, Pontes e Originação</h3>
+  <h3 id="p-canais-pontes-e-originacao">P. Canais, Pontes e Originação</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Comando</th><th>O que faz</th><th>Exemplo Prático</th></tr></thead>
@@ -284,33 +383,33 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>3. Guia de Resolução dos 5 Maiores Problemas (Troubleshooting)</h2>
+  <h2 id="3-guia-de-resolucao-dos-5-maiores-problemas-troubleshooting">3. Guia de Resolução dos 5 Maiores Problemas (Troubleshooting)</h2>
 
-  <h3>Problema 1: Áudio Mudo ou de Uma Via Só (One-Way Audio)</h3>
+  <h3 id="problema-1-audio-mudo-ou-de-uma-via-so-one-way-audio">Problema 1: Áudio Mudo ou de Uma Via Só (One-Way Audio)</h3>
   <ul>
     <li><strong>Causa Raiz:</strong> O PABX está atrás de um roteador/NAT e não está enviando seu IP público correto no cabeçalho SDP dos pacotes de voz (RTP).</li>
     <li><strong>Solução:</strong> Acesse <code>Settings › Asterisk SIP Settings › General SIP Settings</code>, clique em <strong>Detect Network Settings</strong> para preencher o <em>External Address</em> e confirme se as portas UDP <strong>10000 a 20000</strong> estão liberadas no firewall.</li>
   </ul>
 
-  <h3>Problema 2: Tronco WhatsApp Meta Offline (Canal Não Sobe)</h3>
+  <h3 id="problema-2-tronco-whatsapp-meta-offline-canal-nao-sobe">Problema 2: Tronco WhatsApp Meta Offline (Canal Não Sobe)</h3>
   <ul>
     <li><strong>Causa Raiz:</strong> Falha de handshake TLSv1.2 ou certificado Let's Encrypt gerado com hostname incorreto.</li>
     <li><strong>Solução:</strong> Certifique-se de que o certificado em <code>Admin › Certificate Management</code> tem o mesmo hostname com sufixo <code>-direct</code> fornecido pelo AtenderBem e que o transporte está como <code>0.0.0.0-tls</code> com codec <code>opus</code> habilitado.</li>
   </ul>
 
-  <h3>Problema 3: Ramal do Webphone no AtenderBem Não Conecta</h3>
+  <h3 id="problema-3-ramal-do-webphone-no-atenderbem-nao-conecta">Problema 3: Ramal do Webphone no AtenderBem Não Conecta</h3>
   <ul>
     <li><strong>Causa Raiz:</strong> Senha (<code>secret</code>) digitada incorretamente no cadastro do usuário ou bloqueio de porta WebSocket.</li>
     <li><strong>Solução:</strong> Copie novamente a senha do ramal em <code>Applications › Extensions</code> no PABX e cole em <code>Configurações › Usuários › Habilitar Softphone</code> no AtenderBem.</li>
   </ul>
 
-  <h3>Problema 4: O Cliente Digita os Números na URA e o PABX Não Reconhece</h3>
+  <h3 id="problema-4-o-cliente-digita-os-numeros-na-ura-e-o-pabx-nao-reconhece">Problema 4: O Cliente Digita os Números na URA e o PABX Não Reconhece</h3>
   <ul>
     <li><strong>Causa Raiz:</strong> Incompatibilidade no envio de tons DTMF entre a operadora e o Asterisk.</li>
     <li><strong>Solução:</strong> No tronco SIP da operadora, ajuste o parâmetro <strong>DTMF Mode</strong> para <code>rfc4733</code> ou <code>rfc2833</code>.</li>
   </ul>
 
-  <h3>Problema 5: Chamada Cai Imediatamente Após Atender</h3>
+  <h3 id="problema-5-chamada-cai-imediatamente-apos-atender">Problema 5: Chamada Cai Imediatamente Após Atender</h3>
   <ul>
     <li><strong>Causa Raiz:</strong> Incompatibilidade de codecs de áudio entre as duas pontas.</li>
     <li><strong>Solução:</strong> No FreePBX, em <code>Settings › Asterisk SIP Settings</code>, ative os codecs <code>ulaw</code>, <code>alaw</code>, <code>g729</code> e <code>opus</code> para garantir compatibilidade universal.</li>
@@ -318,7 +417,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>4. Fluxo de Diagnóstico de uma Chamada em Tempo Real</h2>
+  <h2 id="4-fluxo-de-diagnostico-de-uma-chamada-em-tempo-real">4. Fluxo de Diagnóstico de uma Chamada em Tempo Real</h2>
   <p>Quando o parceiro relata uma falha genérica (&ldquo;não completa&rdquo;, &ldquo;sem áudio&rdquo;, &ldquo;cai sozinho&rdquo;), siga esta sequência para isolar a causa antes de alterar qualquer configuração:</p>
   <ol class="steps">
     <li>Confirme o estado geral do servidor: versão, tempo de atividade e recursos.</li>
@@ -362,14 +461,14 @@ asterisk -rx &quot;core set debug 0&quot;</code></pre>
     <strong>Atenção com os logs:</strong> <code>pjsip set logger on</code> e <code>rtp set debug on</code> geram muita saída. Mantenha-os ativos apenas durante a reprodução do problema e desative-os em seguida. Os logs também ficam gravados em <code>/var/log/asterisk/full</code> (verificável com <code>logger show channels</code>).
   </div>
 
-  <h3>Derrubar uma Chamada Travada</h3>
+  <h3 id="derrubar-uma-chamada-travada">Derrubar uma Chamada Travada</h3>
   <p>Se um canal ficar preso (ramal ocupado mesmo sem ligação ativa), identifique o canal exato e solicite o desligamento:</p>
   <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code>asterisk -rx &quot;core show channels&quot;
 asterisk -rx &quot;channel request hangup PJSIP/1001-00000042&quot;</code></pre>
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>5. Referência Rápida: Comandos Essenciais para Filas</h2>
+  <h2 id="5-referencia-rapida-comandos-essenciais-para-filas">5. Referência Rápida: Comandos Essenciais para Filas</h2>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>O que você quer fazer</th><th>Comando prático</th></tr></thead>
@@ -400,6 +499,7 @@ asterisk -rx &quot;channel request hangup PJSIP/1001-00000042&quot;</code></pre>
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Módulo de Telefonia e PABX.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

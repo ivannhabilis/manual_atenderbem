@@ -9,18 +9,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="crm.html">CRM</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="pabx.html">PABX &amp; Telefonia</a>
-    <a href="contatos.html">Contatos</a>
-    <a href="relatorios.html">Relatórios</a>
-    <a href="relatorios-personalizados.html">Personalizados</a>
-    <a href="configuracoes.html">Configurações</a>
-    <a href="pesquisas.html" class="active">Pesquisas</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a class="active" href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -30,11 +93,48 @@
   <h1>Pesquisas</h1>
   <p class="subtitle">Criação, publicação, distribuição, coleta e análise de pesquisas de satisfação e formulários customizados.</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-visao-geral-e-pontos-de-acesso">1. Visão geral e pontos de acesso</a></li>
+      <li class="toc-h3"><a href="#1-1-o-que-pode-ser-associado-a-pesquisa">1.1. O que pode ser associado à pesquisa</a></li>
+      <li><a href="#2-criar-e-estruturar-uma-pesquisa">2. Criar e estruturar uma pesquisa</a></li>
+      <li><a href="#3-tipos-de-perguntas-e-respectivas-regras">3. Tipos de perguntas e respectivas regras</a></li>
+      <li class="toc-h3"><a href="#3-1-escalas">3.1. Escalas</a></li>
+      <li class="toc-h3"><a href="#3-2-regras-transversais-as-perguntas">3.2. Regras transversais às perguntas</a></li>
+      <li><a href="#4-ciclo-de-vida-respostas-e-acoes-de-gerenciamento">4. Ciclo de vida, respostas e ações de gerenciamento</a></li>
+      <li class="toc-h3"><a href="#4-1-acoes-disponiveis-na-listagem">4.1. Ações disponíveis na listagem</a></li>
+      <li><a href="#5-gerar-e-distribuir-links-externos">5. Gerar e distribuir links externos</a></li>
+      <li class="toc-h3"><a href="#5-1-limites-e-expiracao-do-link">5.1. Limites e expiração do link</a></li>
+      <li><a href="#6-uso-em-uras-e-fluxos-de-automacao">6. Uso em URAs e fluxos de automação</a></li>
+      <li class="toc-h3"><a href="#6-1-padrao-assincrono-enviar-link-e-tratar-a-resposta">6.1. Padrão assíncrono: enviar link e tratar a resposta</a></li>
+      <li class="toc-h3"><a href="#6-2-padrao-sincrono-coletar-e-submeter-no-proprio-fluxo">6.2. Padrão síncrono: coletar e submeter no próprio fluxo</a></li>
+      <li class="toc-h3"><a href="#6-3-padrao-com-ia-comprovado-no-material">6.3. Padrão com IA comprovado no material</a></li>
+      <li><a href="#7-variaveis-e-contexto-pos-resposta">7. Variáveis e contexto pós-resposta</a></li>
+      <li class="toc-h3"><a href="#7-1-completar-perguntas-ocultas">7.1. Completar perguntas ocultas</a></li>
+      <li><a href="#8-automacao-pos-resposta">8. Automação pós-resposta</a></li>
+      <li class="toc-h3"><a href="#8-1-exemplos-de-tratativas-suportadas-pela-arquitetura-documentada">8.1. Exemplos de tratativas suportadas pela arquitetura documentada</a></li>
+      <li><a href="#9-resumo-relatorio-consolidado-e-dashboard">9. Resumo, relatório consolidado e dashboard</a></li>
+      <li class="toc-h3"><a href="#9-1-indicadores-gerenciais">9.1. Indicadores gerenciais</a></li>
+      <li class="toc-h3"><a href="#9-2-filtros-e-visualizacoes">9.2. Filtros e visualizações</a></li>
+      <li><a href="#10-boas-praticas-operacionais">10. Boas práticas operacionais</a></li>
+      <li class="toc-h3"><a href="#10-1-antes-da-publicacao">10.1. Antes da publicação</a></li>
+      <li class="toc-h3"><a href="#10-2-na-distribuicao-e-nas-automacoes">10.2. Na distribuição e nas automações</a></li>
+      <li class="toc-h3"><a href="#10-3-ao-enviar-pelo-whatsapp">10.3. Ao enviar pelo WhatsApp</a></li>
+      <li class="toc-h3"><a href="#10-4-encerramento-e-retencao">10.4. Encerramento e retenção</a></li>
+      <li><a href="#11-checklist-de-implantacao">11. Checklist de implantação</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <div class="callout info">
     <strong>Escopo e versionamento:</strong> no material de origem, o módulo descrito foi introduzido na <strong>versão 13</strong>. Rótulos, disponibilidade e comportamento podem variar em outras versões; este capítulo registra somente funções comprovadas na documentação fornecida.
   </div>
 
-  <h2>1. Visão geral e pontos de acesso</h2>
+  <h2 id="1-visao-geral-e-pontos-de-acesso">1. Visão geral e pontos de acesso</h2>
   <p>O módulo permite criar e administrar questionários como <strong>NPS</strong>, <strong>CSAT</strong>, <strong>CES</strong> e formulários customizados. A coleta pode ocorrer de modo síncrono, dentro de uma URA ou fluxo de automação, ou de modo assíncrono, por um link externo enviado ao respondente.</p>
 
   <div class="table-wrap">
@@ -48,7 +148,7 @@
     </table>
   </div>
 
-  <h3>1.1. O que pode ser associado à pesquisa</h3>
+  <h3 id="1-1-o-que-pode-ser-associado-a-pesquisa">1.1. O que pode ser associado à pesquisa</h3>
   <p>As associações dão contexto, rastreabilidade e capacidade de segmentação às respostas. No cadastro, o material de origem apresenta os seguintes vínculos disponíveis:</p>
   <ul>
     <li>Chat e Chamada;</li>
@@ -58,7 +158,7 @@
     <li>Contato e Atendente.</li>
   </ul>
 
-  <h2>2. Criar e estruturar uma pesquisa</h2>
+  <h2 id="2-criar-e-estruturar-uma-pesquisa">2. Criar e estruturar uma pesquisa</h2>
   <ol class="steps">
     <li><strong>Acesse Configurações › Pesquisas.</strong> Entre na seção destinada ao cadastro das pesquisas da empresa.</li>
     <li><strong>Inicie uma nova pesquisa.</strong> Informe um <em>Nome</em> interno, descritivo e fácil de localizar.</li>
@@ -73,7 +173,7 @@
     <strong>Antes de publicar:</strong> revise título, descrição, perguntas, opções, seções e condições. Depois que a pesquisa passa a <strong>Publicada</strong>, toda essa estrutura fica bloqueada para edição.
   </div>
 
-  <h2>3. Tipos de perguntas e respectivas regras</h2>
+  <h2 id="3-tipos-de-perguntas-e-respectivas-regras">3. Tipos de perguntas e respectivas regras</h2>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Tipo</th><th>Uso e parametrização comprovados</th></tr></thead>
@@ -91,10 +191,10 @@
     </table>
   </div>
 
-  <h3>3.1. Escalas</h3>
+  <h3 id="3-1-escalas">3.1. Escalas</h3>
   <p>A escala pode representar modelos matemáticos prontos e também receber parametrização visual. Os limites mínimo e máximo determinam o intervalo aceito; os rótulos das extremidades podem explicar a leitura, como “Péssimo” e “Excelente”; e as faixas numéricas podem ser associadas a cores, formando um semáforo visual para o respondente.</p>
 
-  <h3>3.2. Regras transversais às perguntas</h3>
+  <h3 id="3-2-regras-transversais-as-perguntas">3.2. Regras transversais às perguntas</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Regra</th><th>Comportamento</th></tr></thead>
@@ -113,7 +213,7 @@
     <strong>Validação no formulário:</strong> a interface web impede o envio quando uma pergunta obrigatória está vazia ou quando a quantidade escolhida não respeita os limites configurados para múltipla escolha.
   </div>
 
-  <h2>4. Ciclo de vida, respostas e ações de gerenciamento</h2>
+  <h2 id="4-ciclo-de-vida-respostas-e-acoes-de-gerenciamento">4. Ciclo de vida, respostas e ações de gerenciamento</h2>
   <p>A listagem central mostra o resumo e o status de cada pesquisa. O status controla tanto a edição quanto a aceitação de novas respostas.</p>
 
   <div class="table-wrap">
@@ -128,7 +228,7 @@
     </table>
   </div>
 
-  <h3>4.1. Ações disponíveis na listagem</h3>
+  <h3 id="4-1-acoes-disponiveis-na-listagem">4.1. Ações disponíveis na listagem</h3>
   <ul>
     <li><strong>Visualizar Configurações:</strong> consulta em modo leitura das perguntas, opções e lógicas de pesquisas publicadas, fechadas ou arquivadas.</li>
     <li><strong>Transformar em WhatsApp Flow:</strong> exporta a estrutura em JSON compatível com o WhatsApp Flow para reproduzir a pesquisa na plataforma da Meta.</li>
@@ -143,7 +243,7 @@
     <strong>Ações críticas:</strong> mudanças no ciclo de vida exigem, no material de origem, a digitação exata de palavras de segurança com diferenciação entre maiúsculas e minúsculas (<em>case-sensitive</em>). A exclusão é irreversível.
   </div>
 
-  <h2>5. Gerar e distribuir links externos</h2>
+  <h2 id="5-gerar-e-distribuir-links-externos">5. Gerar e distribuir links externos</h2>
   <p>O elemento <strong>Gerar Link de Pesquisa</strong> cria uma URL única para preenchimento externo. O fluxo armazena essa URL em uma variável de saída; depois, é necessário usar essa variável na mensagem enviada ao cliente.</p>
 
   <ol class="steps">
@@ -155,7 +255,7 @@
     <li><strong>Opcionalmente, selecione uma automação pós-resposta</strong> para iniciar outra tratativa quando o formulário web for submetido.</li>
   </ol>
 
-  <h3>5.1. Limites e expiração do link</h3>
+  <h3 id="5-1-limites-e-expiracao-do-link">5.1. Limites e expiração do link</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Regra</th><th>Efeito</th></tr></thead>
@@ -172,7 +272,7 @@
     <strong>Limite documentado:</strong> as fontes informam limites de seleção em múltipla escolha e as regras de validade e uso único dos links. Elas <strong>não informam</strong> um teto global de perguntas, respostas ou links emitidos; por isso, este guia não estabelece esses números.
   </div>
 
-  <h2>6. Uso em URAs e fluxos de automação</h2>
+  <h2 id="6-uso-em-uras-e-fluxos-de-automacao">6. Uso em URAs e fluxos de automação</h2>
   <p>Além da coleta externa por link, os blocos do módulo registram respostas obtidas no atendimento, preenchidas por agentes ou produzidas por processamento de Inteligência Artificial.</p>
 
   <div class="table-wrap">
@@ -187,7 +287,7 @@
     </table>
   </div>
 
-  <h3>6.1. Padrão assíncrono: enviar link e tratar a resposta</h3>
+  <h3 id="6-1-padrao-assincrono-enviar-link-e-tratar-a-resposta">6.1. Padrão assíncrono: enviar link e tratar a resposta</h3>
   <ol class="steps">
     <li>Gere o link e armazene a URL na variável de saída configurada.</li>
     <li>Envie a URL ao cliente pelo canal escolhido.</li>
@@ -196,7 +296,7 @@
     <li>Use, no novo fluxo, as variáveis de contexto e de respostas para decidir e executar as tratativas seguintes.</li>
   </ol>
 
-  <h3>6.2. Padrão síncrono: coletar e submeter no próprio fluxo</h3>
+  <h3 id="6-2-padrao-sincrono-coletar-e-submeter-no-proprio-fluxo">6.2. Padrão síncrono: coletar e submeter no próprio fluxo</h3>
   <ol class="steps">
     <li>Faça as perguntas durante a URA, atendimento ou automação e guarde cada valor em uma variável.</li>
     <li>Adicione <strong>Submeter Resposta de Pesquisa</strong>.</li>
@@ -204,7 +304,7 @@
     <li>Submeta o conjunto; a resposta passa a compor os relatórios independentemente de ter vindo de link ou submissão direta.</li>
   </ol>
 
-  <h3>6.3. Padrão com IA comprovado no material</h3>
+  <h3 id="6-3-padrao-com-ia-comprovado-no-material">6.3. Padrão com IA comprovado no material</h3>
   <ol class="steps">
     <li>Adicione <strong>Processar com IA</strong> e forneça o contexto aplicável, como o histórico do atendimento.</li>
     <li>Instrua a IA com base nas perguntas configuradas na pesquisa.</li>
@@ -217,7 +317,7 @@
     <strong>Dados gerados por IA:</strong> o material comprova a possibilidade técnica de análise e submissão, mas não declara que o resultado seja infalível. Trate o mapeamento como dado processado, valide o JSON esperado e não o apresente como resposta direta do cliente quando não foi o cliente quem respondeu.
   </div>
 
-  <h2>7. Variáveis e contexto pós-resposta</h2>
+  <h2 id="7-variaveis-e-contexto-pos-resposta">7. Variáveis e contexto pós-resposta</h2>
   <p>Quando uma pesquisa enviada por link é respondida, a automação configurada é executada de forma assíncrona. O contexto do link — como chat, contato, ticket ou fila — é injetado no novo fluxo como variáveis.</p>
 
   <div class="table-wrap">
@@ -235,7 +335,7 @@
     <strong>Uso recomendado:</strong> use o valor bruto para condições e integrações; use o sufixo <code>_label</code> quando a saída precisar ser legível por pessoas. O ID pertence à pergunta gerada, portanto confirme o mapeamento após duplicar ou reconstruir uma pesquisa.
   </div>
 
-  <h3>7.1. Completar perguntas ocultas</h3>
+  <h3 id="7-1-completar-perguntas-ocultas">7.1. Completar perguntas ocultas</h3>
   <p>O bloco <strong>Completar Resposta de Pesquisa</strong> foi projetado para enriquecer uma resposta com dados que não aparecem no formulário. O material mostra o mapeamento de um valor literal ou variável para cada pergunta oculta e informa que vínculos com valor vazio são ignorados em tempo de execução.</p>
 
   <ol class="steps">
@@ -245,10 +345,10 @@
     <li>Aplique o elemento antes de depender desses metadados em relatórios ou passos posteriores.</li>
   </ol>
 
-  <h2>8. Automação pós-resposta</h2>
+  <h2 id="8-automacao-pos-resposta">8. Automação pós-resposta</h2>
   <p>A automação pós-resposta é opcional e executada imediatamente depois que o cliente envia o formulário web. Como é assíncrona, ela constitui um fluxo separado da automação que gerou e enviou o link.</p>
 
-  <h3>8.1. Exemplos de tratativas suportadas pela arquitetura documentada</h3>
+  <h3 id="8-1-exemplos-de-tratativas-suportadas-pela-arquitetura-documentada">8.1. Exemplos de tratativas suportadas pela arquitetura documentada</h3>
   <ul>
     <li>ramificar o processo conforme uma resposta bruta;</li>
     <li>usar o rótulo amigável em uma mensagem ou registro;</li>
@@ -261,10 +361,10 @@
     <strong>Separação importante:</strong> responder ao formulário não retoma a execução original que enviou o link; a fonte descreve o disparo de uma automação assíncrona específica. Modele a continuação do processo nesse fluxo pós-resposta.
   </div>
 
-  <h2>9. Resumo, relatório consolidado e dashboard</h2>
+  <h2 id="9-resumo-relatorio-consolidado-e-dashboard">9. Resumo, relatório consolidado e dashboard</h2>
   <p>Em <strong>Painel e Indicadores › Pesquisas</strong>, respostas recebidas por link externo e por submissão direta podem ser acompanhadas em tempo real.</p>
 
-  <h3>9.1. Indicadores gerenciais</h3>
+  <h3 id="9-1-indicadores-gerenciais">9.1. Indicadores gerenciais</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>KPI</th><th>Leitura</th></tr></thead>
@@ -277,7 +377,7 @@
     </table>
   </div>
 
-  <h3>9.2. Filtros e visualizações</h3>
+  <h3 id="9-2-filtros-e-visualizacoes">9.2. Filtros e visualizações</h3>
   <ul>
     <li><strong>Filtros:</strong> Fila, Atendente, Contato e Período, conforme as associações estabelecidas na criação.</li>
     <li><strong>Visões gráficas:</strong> Barras, Medidor, Faixas, Rosca, Tabelas e Rankings de Opções.</li>
@@ -289,8 +389,8 @@
     <strong>Leitura consistente:</strong> defina as associações antes de publicar. Os filtros do dashboard dependem do contexto vinculado à pesquisa; sem esse desenho, a segmentação gerencial fica limitada ao que foi efetivamente registrado.
   </div>
 
-  <h2>10. Boas práticas operacionais</h2>
-  <h3>10.1. Antes da publicação</h3>
+  <h2 id="10-boas-praticas-operacionais">10. Boas práticas operacionais</h2>
+  <h3 id="10-1-antes-da-publicacao">10.1. Antes da publicação</h3>
   <ul>
     <li>Use um nome interno que identifique objetivo, público ou momento da jornada.</li>
     <li>Escolha as associações que serão necessárias nos filtros e nas automações posteriores.</li>
@@ -300,7 +400,7 @@
     <li>Revise tudo antes de publicar, porque a estrutura publicada não pode ser alterada no ciclo documentado.</li>
   </ul>
 
-  <h3>10.2. Na distribuição e nas automações</h3>
+  <h3 id="10-2-na-distribuicao-e-nas-automacoes">10.2. Na distribuição e nas automações</h3>
   <ul>
     <li>Informe claramente o objetivo da pesquisa ao enviar o link.</li>
     <li>Configure uma validade compatível com o tempo esperado de resposta e lembre que cada link só aceita uma submissão.</li>
@@ -310,10 +410,10 @@
     <li>Ao usar IA, valide o formato de saída antes do bloco de submissão.</li>
   </ul>
 
-  <h3>10.3. Ao enviar pelo WhatsApp</h3>
+  <h3 id="10-3-ao-enviar-pelo-whatsapp">10.3. Ao enviar pelo WhatsApp</h3>
   <p>No <strong>Manual de Uso fornecido</strong>, pesquisas de feedback vinculadas a uma transação ou interação específica aparecem como caso de uso de template de utilidade. O mesmo material alerta que pesquisas sem contexto de uma interação recente podem ser tratadas como spam, recomenda opt-in explícito e orienta usar URL completa do domínio do negócio, sem encurtadores. Essas regras pertencem ao material de origem e devem ser reconfirmadas com as políticas vigentes da Meta antes de novos disparos.</p>
 
-  <h3>10.4. Encerramento e retenção</h3>
+  <h3 id="10-4-encerramento-e-retencao">10.4. Encerramento e retenção</h3>
   <ul>
     <li>Use <strong>Fechar</strong> quando a coleta tiver terminado; respostas existentes permanecem disponíveis.</li>
     <li>Arquive somente depois do fechamento, quando a pesquisa precisar sair da lista ativa.</li>
@@ -321,7 +421,7 @@
     <li>Reserve <strong>Excluir</strong> para casos em que a remoção definitiva do formulário e das respostas seja intencional.</li>
   </ul>
 
-  <h2>11. Checklist de implantação</h2>
+  <h2 id="11-checklist-de-implantacao">11. Checklist de implantação</h2>
   <ol class="steps">
     <li><strong>Objetivo definido:</strong> determine se a coleta será NPS, CSAT, CES ou formulário customizado.</li>
     <li><strong>Contexto definido:</strong> selecione as associações necessárias para rastreabilidade e filtros.</li>
@@ -347,6 +447,7 @@
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

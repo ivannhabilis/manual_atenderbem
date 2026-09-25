@@ -9,17 +9,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="crm.html">CRM</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="pabx.html">PABX & Telefonia</a>
-    <a href="contatos.html">Contatos</a>
-    <a href="relatorios.html">Relatórios</a>
-    <a href="relatorios-personalizados.html">Personalizados</a>
-    <a href="configuracoes.html">Configurações</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a class="active" href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -29,15 +93,45 @@
   <h1>Relatórios Personalizados (Custom Reports)</h1>
   <p class="subtitle">Além dos relatórios prontos, a plataforma permite dashboards e relatórios customizados, acessíveis pelo menu "Service Interactions".</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-como-acessar">1. Como acessar</a></li>
+      <li><a href="#2-relatorios-disponiveis-observados">2. Relatórios disponíveis (observados)</a></li>
+      <li><a href="#3-boas-praticas">3. Boas práticas</a></li>
+      <li><a href="#4-ativacao-do-modulo">4. Ativação do módulo</a></li>
+      <li><a href="#5-criando-um-relatorio-personalizado">5. Criando um relatório personalizado</a></li>
+      <li><a href="#6-o-editor-de-relatorios-montando-o-dashboard">6. O editor de relatórios (montando o dashboard)</a></li>
+      <li class="toc-h3"><a href="#6-1-configuracoes-do-relatorio-menu-superior">6.1 Configurações do relatório (menu superior)</a></li>
+      <li class="toc-h3"><a href="#6-2-aba-layout-grade-e-comportamento">6.2 Aba Layout — grade e comportamento</a></li>
+      <li class="toc-h3"><a href="#6-3-aba-tema-identidade-visual-e-cores">6.3 Aba Tema — identidade visual e cores</a></li>
+      <li class="toc-h3"><a href="#6-4-aba-filtros-aparencia">6.4 Aba Filtros (Aparência)</a></li>
+      <li class="toc-h3"><a href="#6-5-aba-avancado-exportacao">6.5 Aba Avançado — exportação</a></li>
+      <li class="toc-h3"><a href="#6-6-filtros-globais">6.6 Filtros Globais</a></li>
+      <li><a href="#7-configuracao-de-dados-dos-componentes">7. Configuração de dados dos componentes</a></li>
+      <li><a href="#8-personalizacao-visual-e-tipos-de-componente">8. Personalização visual e tipos de componente</a></li>
+      <li class="toc-h3"><a href="#8-1-tipografia-aparencia-geral-e-estilo-do-widget">8.1 Tipografia, aparência geral e estilo do widget</a></li>
+      <li class="toc-h3"><a href="#8-2-configuracoes-de-graficos">8.2 Configurações de gráficos</a></li>
+      <li class="toc-h3"><a href="#8-3-configuracoes-de-tabelas">8.3 Configurações de tabelas</a></li>
+      <li class="toc-h3"><a href="#8-4-configuracoes-de-metricas">8.4 Configurações de métricas</a></li>
+      <li class="toc-h3"><a href="#8-5-configuracao-geral-do-componente">8.5 Configuração Geral do componente</a></li>
+      <li><a href="#9-uso-diario-portabilidade-e-boas-praticas">9. Uso diário, portabilidade e boas práticas</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <figure class="figure">
     <img src="assets/relatorios-personalizados.png" alt="Menu de Relatórios Personalizados">
     <figcaption>Menu de relatórios personalizados/cadastrados na plataforma.</figcaption>
   </figure>
 
-  <h2>1. Como acessar</h2>
+  <h2 id="1-como-acessar">1. Como acessar</h2>
   <p>No menu principal, clique em <strong>Service Interactions</strong> (ou no título da área) para abrir a lista de relatórios disponíveis. Essa lista reúne tanto relatórios do sistema quanto os criados pela equipe.</p>
 
-  <h2>2. Relatórios disponíveis (observados)</h2>
+  <h2 id="2-relatorios-disponiveis-observados">2. Relatórios disponíveis (observados)</h2>
   <table class="doc">
     <thead><tr><th>Relatório</th><th>Conteúdo</th></tr></thead>
     <tbody>
@@ -65,14 +159,14 @@
     <strong>Dica:</strong> itens com nomes em português (ex.: "Relatório de contatos", "Exemplo Tarefa") são relatórios criados/Personalizados no ambiente. O item <strong>"Novo relatório"</strong> abre o assistente de criação.
   </div>
 
-  <h2>3. Boas práticas</h2>
+  <h2 id="3-boas-praticas">3. Boas práticas</h2>
   <ul>
     <li>Use relatórios personalizados para indicadores específicos do seu time.</li>
     <li>Combine com os filtros de período das telas de relatório para recortes precisos.</li>
     <li>Exporte para Excel quando precisar de análise fora da plataforma.</li>
   </ul>
 
-  <h2>4. Ativação do módulo</h2>
+  <h2 id="4-ativacao-do-modulo">4. Ativação do módulo</h2>
   <p>Antes de criar o primeiro relatório, é necessário <strong>habilitar o recurso na instância</strong>. O módulo é vendido como extra, com custo fixo mensal e um custo adicional por agente contratado.</p>
   <ol class="steps">
     <li>Acesse o <strong>Painel de Instâncias</strong>.</li>
@@ -83,7 +177,7 @@
     <strong>Nota:</strong> o painel exibe o custo fixo mensal e o custo adicional por agente contratado antes de você confirmar a alteração.
   </div>
 
-  <h2>5. Criando um relatório personalizado</h2>
+  <h2 id="5-criando-um-relatorio-personalizado">5. Criando um relatório personalizado</h2>
   <p>Com o recurso ativo, você já pode estruturar os dados:</p>
   <ol class="steps">
     <li>Navegue até <strong>Configurações &gt; Relatórios Personalizados</strong>.</li>
@@ -95,7 +189,7 @@
     <strong>Segurança da informação:</strong> o vínculo ao Grupo de Acesso é essencial — o relatório só aparecerá para os usuários que pertencem aos grupos selecionados. Revise essa lista antes de salvar.
   </div>
 
-  <h2>6. O editor de relatórios (montando o dashboard)</h2>
+  <h2 id="6-o-editor-de-relatorios-montando-o-dashboard">6. O editor de relatórios (montando o dashboard)</h2>
   <p>Ao clicar no ícone de edição do relatório recém-criado, você entra no <strong>Editor de Relatório Personalizado</strong>. O sistema funciona no formato <strong>arrastar e soltar</strong> (<em>drag and drop</em>):</p>
   <ul>
     <li><strong>Componentes disponíveis:</strong> no menu esquerdo há categorias como Gráficos (Pizza, Linha, Funil), Tabelas e Métricas numéricas.</li>
@@ -103,7 +197,7 @@
     <li><strong>Ações rápidas do componente:</strong> na base do painel lateral, use <strong>Duplicar</strong> (clona o componente com todas as configurações de dados, filtros e visual já feitas) e <strong>Excluir</strong> (remove o elemento da tela).</li>
   </ul>
 
-  <h3>6.1 Configurações do relatório (menu superior)</h3>
+  <h3 id="6-1-configuracoes-do-relatorio-menu-superior">6.1 Configurações do relatório (menu superior)</h3>
   <p>O botão <strong>Configurações</strong> abre um painel centralizado com <strong>4 abas</strong> que personalizam a estrutura de grade, a identidade visual, o comportamento dos filtros e a exportação. O botão <strong>Visualizar</strong> alterna para o Modo de Visualização, simulando a experiência do usuário final sem risco de alterar configurações.</p>
   <div class="table-wrap">
   <table class="doc">
@@ -117,7 +211,7 @@
   </table>
   </div>
 
-  <h3>6.2 Aba Layout — grade e comportamento</h3>
+  <h3 id="6-2-aba-layout-grade-e-comportamento">6.2 Aba Layout — grade e comportamento</h3>
   <ul>
     <li><strong>Número de Colunas:</strong> define a largura do grid para o alinhamento dos componentes.</li>
     <li><strong>Altura das Linhas (px):</strong> define a altura vertical de cada linha do grid.</li>
@@ -128,14 +222,14 @@
     <li><strong>Animações:</strong> ativa transições visuais suaves ao mover ou redimensionar qualquer elemento.</li>
   </ul>
 
-  <h3>6.3 Aba Tema — identidade visual e cores</h3>
+  <h3 id="6-3-aba-tema-identidade-visual-e-cores">6.3 Aba Tema — identidade visual e cores</h3>
   <p>Determina o padrão de cores aplicado aos componentes de dados, em dois caminhos:</p>
   <ul>
     <li><strong>Padrão do Sistema:</strong> aplica as cores globais predefinidas da plataforma para a paleta primária, secundária e cores de estado (Sucesso, Erro, Aviso e Info).</li>
     <li><strong>Personalizado:</strong> permite customizar individualmente os códigos hexadecimais de cada cor. Além das cores principais e de estado (em variações base, clara e escura), é possível configurar cores adicionais personalizadas (como Rosa, Amarelo e Roxo).</li>
   </ul>
 
-  <h3>6.4 Aba Filtros (Aparência)</h3>
+  <h3 id="6-4-aba-filtros-aparencia">6.4 Aba Filtros (Aparência)</h3>
   <p>Foca exclusivamente no design da seção superior onde ficam os Filtros Globais:</p>
   <div class="table-wrap">
   <table class="doc">
@@ -149,7 +243,7 @@
   </table>
   </div>
 
-  <h3>6.5 Aba Avançado — exportação</h3>
+  <h3 id="6-5-aba-avancado-exportacao">6.5 Aba Avançado — exportação</h3>
   <p>Controla o poder de extração de dados do usuário final ao visualizar o painel pronto:</p>
   <ul>
     <li><strong>Permitir Exportação:</strong> chave geral que habilita ou desabilita a extração do relatório.</li>
@@ -163,7 +257,7 @@
     </li>
   </ul>
 
-  <h3>6.6 Filtros Globais</h3>
+  <h3 id="6-6-filtros-globais">6.6 Filtros Globais</h3>
   <p>Os Filtros Globais são seletores inteligentes posicionados no topo do relatório que afetam <strong>todos os componentes da página de uma só vez</strong> (ex.: mudar o período de análise de todos os gráficos com um clique).</p>
   <ol class="steps">
     <li><strong>Identifique e customize:</strong> dê um <em>Nome</em> ao filtro (rótulo exibido ao usuário, como “Período” ou “Setor”), adicione um texto de ajuda e um placeholder opcional.</li>
@@ -174,7 +268,7 @@
     <strong>Vinculando o filtro aos gráficos:</strong> para que o filtro global controle os gráficos, a vinculação é <em>manual</em> em cada elemento: selecione o Gráfico/Tabela → painel da direita (aba <strong>Dados</strong>) → <strong>Dimensões Temporais</strong> → altere o Tipo para <strong>“Filtro Global”</strong> → associe ao filtro criado.
   </div>
 
-  <h2>7. Configuração de dados dos componentes</h2>
+  <h2 id="7-configuracao-de-dados-dos-componentes">7. Configuração de dados dos componentes</h2>
   <p>Ao clicar sobre um gráfico ou tabela inserido na tela, um painel de configuração se abre à direita. A aba <strong>Dados</strong> é o coração do relatório e reúne as opções disponíveis para aquele tipo de elemento:</p>
   <div class="table-wrap">
   <table class="doc">
@@ -196,10 +290,10 @@
     <strong>Múltiplos cubos:</strong> o sistema permite selecionar medidas, dimensões e dimensões temporais de múltiplos cubos de dados, desde que haja correlação entre as bases — possibilitando visões combinadas e cruzamentos avançados no mesmo elemento. A quantidade permitida varia conforme o tipo de gráfico, e o próprio painel exibe um aviso sobre o limite.
   </div>
 
-  <h2>8. Personalização visual e tipos de componente</h2>
+  <h2 id="8-personalizacao-visual-e-tipos-de-componente">8. Personalização visual e tipos de componente</h2>
   <p>Ao selecionar um componente e acessar a aba <strong>Visual</strong>, alguns blocos de customização aparecem. Os padrões de tipografia e aparência geral permanecem consistentes; o que muda é o conteúdo conforme o elemento.</p>
 
-  <h3>8.1 Tipografia, aparência geral e estilo do widget</h3>
+  <h3 id="8-1-tipografia-aparencia-geral-e-estilo-do-widget">8.1 Tipografia, aparência geral e estilo do widget</h3>
   <ul>
     <li><strong>Título:</strong> tamanho da fonte em pixels (ex.: 16px), peso (ex.: Semi-Negrito, Negrito) e paleta de cores.</li>
     <li><strong>Subtítulo:</strong> descrições complementares — tamanho em pixels (ex.: 12px) e cor do texto (ex.: Text Secondary).</li>
@@ -207,7 +301,7 @@
     <li><strong>Cabeçalho:</strong> marcar/desmarcar “Exibir Cabeçalho” e definir uma cor de fundo exclusiva para a linha do título.</li>
   </ul>
 
-  <h3>8.2 Configurações de gráficos</h3>
+  <h3 id="8-2-configuracoes-de-graficos">8.2 Configurações de gráficos</h3>
   <p>Independentemente do modelo, os blocos de <strong>Esquema de Cores</strong> (Sistema ou Personalizada) e os <strong>Elementos de Exibição</strong> básicos — Mostrar Legenda (com posição: Rodapé, Topo etc.), Mostrar Valores nos Pontos e Animação — permanecem disponíveis. Especificidades:</p>
   <div class="table-wrap">
   <table class="doc">
@@ -223,14 +317,14 @@
     <strong>Gráficos combinados:</strong> dentro do bloco <em>Configuração de Séries</em>, clicar sobre uma medida específica abre duas abas — <strong>Visualização</strong> (muda individualmente a forma de exibição de cada métrica, permitindo combinar uma linha cruzando por cima de barras) e <strong>Formatação</strong> (máscaras de valores: porcentagem, moeda ou duração).
   </div>
 
-  <h3>8.3 Configurações de tabelas</h3>
+  <h3 id="8-3-configuracoes-de-tabelas">8.3 Configurações de tabelas</h3>
   <ul>
     <li><strong>Estilo de Visualização:</strong> Listras Alternadas (Zebra), exibição de Bordas, modo Compacto (densidade menor) e Destacar Linha ao Passar o Mouse.</li>
     <li><strong>Navegação:</strong> quantidade de Linhas por Página (ex.: 20) e Colunas Fixas (congeladas).</li>
     <li><strong>Configuração de Colunas:</strong> clicar sobre o nome de uma coluna abre os ajustes individuais de totalizadores e máscaras de dados.</li>
   </ul>
 
-  <h3>8.4 Configurações de métricas</h3>
+  <h3 id="8-4-configuracoes-de-metricas">8.4 Configurações de métricas</h3>
   <p><strong>Número Único (KPI):</strong></p>
   <ul>
     <li><strong>KPIs e tendências:</strong> Mostrar Ícone, Mostrar Comparação e Mini Gráfico de evolução dentro do card; Cores de Tendência semânticas (Positivo 🟢, Negativo 🔴, Neutro ⚪).</li>
@@ -245,7 +339,7 @@
     <li><strong>Zonas de Cor:</strong> com “+ Adicionar Zona”, fatie o arco em faixas coloridas para diagnóstico instantâneo (verde = OK, amarelo = Atenção, vermelho = Crítico).</li>
   </ul>
 
-  <h3>8.5 Configuração Geral do componente</h3>
+  <h3 id="8-5-configuracao-geral-do-componente">8.5 Configuração Geral do componente</h3>
   <p>A aba <strong>Geral</strong> reúne as propriedades estruturais e de identificação:</p>
   <ul>
     <li><strong>Título:</strong> nome identificador do componente (ex.: “Gráfico”).</li>
@@ -253,7 +347,7 @@
     <li><strong>Posição e Tamanho (Dimensões no Grid):</strong> <em>Largura</em> em colunas de grade (ex.: 12 colunas) e <em>Altura</em> em linhas de grade (ex.: 5 linhas).</li>
   </ul>
 
-  <h2>9. Uso diário, portabilidade e boas práticas</h2>
+  <h2 id="9-uso-diario-portabilidade-e-boas-praticas">9. Uso diário, portabilidade e boas práticas</h2>
   <ul>
     <li><strong>Visualização da equipe:</strong> uma vez salvo, o relatório aparece automaticamente no final da seção de <em>Painel e Indicadores</em> para todos os usuários que pertencem ao Grupo de Acesso configurado.</li>
     <li><strong>Portabilidade entre instâncias:</strong> na listagem em <em>Configurações &gt; Relatórios Personalizados</em>, use <strong>Exportar</strong> e, na nova instância, <strong>Importar</strong> — sem precisar reconstruir o dashboard.</li>
@@ -270,6 +364,7 @@
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

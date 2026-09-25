@@ -9,17 +9,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="crm.html">CRM</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="pabx.html">PABX &amp; Telefonia</a>
-    <a href="contatos.html">Contatos</a>
-    <a href="relatorios.html">Relatórios</a>
-    <a href="configuracoes.html">Configurações</a>
-    <a href="backups.html" class="active">Backups</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a class="active" href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -29,11 +93,54 @@
   <h1>Gerenciador e Automatizador de Backups</h1>
   <p class="subtitle">Guia operacional para proteger, consultar, validar e, quando suportado, restaurar históricos de atendimento.</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-escopo-e-diferencas-entre-as-solucoes">1. Escopo e diferenças entre as soluções</a></li>
+      <li class="toc-h3"><a href="#o-que-a-limpeza-automatica-significa-neste-contexto">O que a limpeza automática significa neste contexto</a></li>
+      <li><a href="#2-pre-requisitos-instalacao-e-acesso">2. Pré-requisitos, instalação e acesso</a></li>
+      <li class="toc-h3"><a href="#2-1-pre-requisitos-operacionais">2.1 Pré-requisitos operacionais</a></li>
+      <li class="toc-h3"><a href="#2-2-instalacao-do-automatizador-backup-manager">2.2 Instalação do Automatizador / Backup Manager</a></li>
+      <li class="toc-h3"><a href="#2-3-dados-de-conexao">2.3 Dados de conexão</a></li>
+      <li><a href="#3-configuracao-do-automatizador-backup-manager">3. Configuração do Automatizador / Backup Manager</a></li>
+      <li class="toc-h3"><a href="#alterar-preferencias">Alterar preferências</a></li>
+      <li><a href="#4-configuracao-do-gerenciador-de-backup">4. Configuração do Gerenciador de Backup</a></li>
+      <li class="toc-h3"><a href="#4-1-formato-e-pasta-de-download">4.1 Formato e pasta de download</a></li>
+      <li class="toc-h3"><a href="#4-2-backup-completo">4.2 Backup completo</a></li>
+      <li class="toc-h3"><a href="#4-3-backup-por-periodo">4.3 Backup por período</a></li>
+      <li><a href="#5-agenda-e-execucao-recorrente">5. Agenda e execução recorrente</a></li>
+      <li class="toc-h3"><a href="#5-1-configurar-o-agendamento-no-gerenciador">5.1 Configurar o agendamento no Gerenciador</a></li>
+      <li class="toc-h3"><a href="#5-2-plano-de-agenda-sugerido-para-a-operacao">5.2 Plano de agenda sugerido para a operação</a></li>
+      <li><a href="#6-destino-capacidade-e-retencao">6. Destino, capacidade e retenção</a></li>
+      <li class="toc-h3"><a href="#6-1-selecao-do-destino">6.1 Seleção do destino</a></li>
+      <li class="toc-h3"><a href="#6-2-matriz-de-retencao-a-ser-definida-pela-organizacao">6.2 Matriz de retenção a ser definida pela organização</a></li>
+      <li class="toc-h3"><a href="#6-3-antes-de-mover-arquivar-ou-excluir">6.3 Antes de mover, arquivar ou excluir</a></li>
+      <li><a href="#7-consulta-exportacao-e-validacao">7. Consulta, exportação e validação</a></li>
+      <li class="toc-h3"><a href="#7-1-no-automatizador">7.1 No Automatizador</a></li>
+      <li class="toc-h3"><a href="#7-2-no-gerenciador">7.2 No Gerenciador</a></li>
+      <li class="toc-h3"><a href="#7-3-checklist-de-validacao">7.3 Checklist de validação</a></li>
+      <li><a href="#8-restauracao-pelo-gerenciador">8. Restauração pelo Gerenciador</a></li>
+      <li class="toc-h3"><a href="#8-1-procedimento">8.1 Procedimento</a></li>
+      <li class="toc-h3"><a href="#8-2-regra-critica-dos-ids">8.2 Regra crítica dos IDs</a></li>
+      <li><a href="#9-seguranca-e-governanca">9. Segurança e governança</a></li>
+      <li class="toc-h3"><a href="#9-1-principios-minimos">9.1 Princípios mínimos</a></li>
+      <li class="toc-h3"><a href="#9-2-cuidados-com-instalacao-atualizacao-e-desinstalacao">9.2 Cuidados com instalação, atualização e desinstalação</a></li>
+      <li><a href="#10-troubleshooting">10. Troubleshooting</a></li>
+      <li class="toc-h3"><a href="#coleta-minima-para-suporte">Coleta mínima para suporte</a></li>
+      <li><a href="#11-runbook-resumido">11. Runbook resumido</a></li>
+      <li><a href="#12-fontes-lacunas-e-controle-de-versao">12. Fontes, lacunas e controle de versão</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <div class="callout warn">
     <strong>Antes de começar:</strong> o acervo descreve duas experiências com nomes próximos, mas recursos e fluxos diferentes. Este capítulo as mantém separadas. Confirme com o suporte qual aplicativo e versão estão homologados para a sua instância; não presuma que arquivos, configurações ou funções sejam intercambiáveis.
   </div>
 
-  <h2>1. Escopo e diferenças entre as soluções</h2>
+  <h2 id="1-escopo-e-diferencas-entre-as-solucoes">1. Escopo e diferenças entre as soluções</h2>
   <p>Os dois aplicativos salvam localmente dados de atendimentos da plataforma, porém os manuais atribuem objetivos e operações diferentes a cada um.</p>
 
   <div class="table-wrap">
@@ -80,12 +187,12 @@
     <strong>Limite de escopo:</strong> estes backups tratam do histórico de atendimentos descrito nos manuais. As fontes não afirmam que eles sejam uma cópia integral da instância, de usuários, filas, automações, CRM, configurações ou bancos de telefonia. Não os trate como recuperação completa de desastre sem confirmação formal do fornecedor.
   </div>
 
-  <h3>O que a limpeza automática significa neste contexto</h3>
+  <h3 id="o-que-a-limpeza-automatica-significa-neste-contexto">O que a limpeza automática significa neste contexto</h3>
   <p>O manual do Automatizador informa que a plataforma pode executar uma limpeza técnica quando a instância excede seu limite. O aplicativo pode guardar os atendimentos encerrados no dia anterior de forma antecipada e/ou capturar os atendimentos associados à limpeza. O manual não documenta o cálculo do limite, o prazo de exclusão nem uma garantia de recuperação de itens já removidos.</p>
 
-  <h2>2. Pré-requisitos, instalação e acesso</h2>
+  <h2 id="2-pre-requisitos-instalacao-e-acesso">2. Pré-requisitos, instalação e acesso</h2>
 
-  <h3>2.1 Pré-requisitos operacionais</h3>
+  <h3 id="2-1-pre-requisitos-operacionais">2.1 Pré-requisitos operacionais</h3>
   <ul>
     <li>Computador Windows autorizado para executar o aplicativo e permanecer ativo nos horários necessários.</li>
     <li>Link da instância e chave global de API válidos.</li>
@@ -98,7 +205,7 @@
     <strong>Chave global de API:</strong> ela autoriza operações sobre dados da instância; no Gerenciador, o manual declara que permite leitura e gravação. Trate-a como segredo. Não a inclua em chamados, capturas, scripts, nomes de arquivo ou neste manual. Se houver suspeita de exposição, revogue ou substitua a chave na plataforma e atualize a configuração do aplicativo.
   </div>
 
-  <h3>2.2 Instalação do Automatizador / Backup Manager</h3>
+  <h3 id="2-2-instalacao-do-automatizador-backup-manager">2.2 Instalação do Automatizador / Backup Manager</h3>
   <ol class="steps">
     <li>Obtenha o instalador somente pelo canal oficial ou pelo suporte responsável. O link aparece como marcador no documento de origem e, por isso, não é reproduzido aqui.</li>
     <li>Valide a procedência do arquivo e a identidade do publicador antes de executar. Se o Windows exibir um alerta, não o ignore automaticamente.</li>
@@ -110,7 +217,7 @@
     <strong>Atualizações:</strong> o manual informa que o Backup Manager verifica atualizações ao iniciar. Quando houver uma, use <strong>Atualizar</strong>. Para o instalador prosseguir, encerre primeiro o aplicativo pelo ícone na bandeja do Windows e siga as instruções exibidas.
   </div>
 
-  <h3>2.3 Dados de conexão</h3>
+  <h3 id="2-3-dados-de-conexao">2.3 Dados de conexão</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Aplicativo</th><th>Campo</th><th>Como preencher com segurança</th></tr></thead>
@@ -124,7 +231,7 @@
     </table>
   </div>
 
-  <h2>3. Configuração do Automatizador / Backup Manager</h2>
+  <h2 id="3-configuracao-do-automatizador-backup-manager">3. Configuração do Automatizador / Backup Manager</h2>
   <p>Após autenticar, o Automatizador apresenta uma tela de preferências. As duas opções de escopo podem ser usadas conforme a necessidade documentada:</p>
 
   <div class="table-wrap">
@@ -149,12 +256,12 @@
     <strong>Evite o destino padrão:</strong> embora o manual permita usar a pasta do programa quando nenhum destino é definido, uma pasta dedicada facilita controle de acesso, monitoramento de espaço, cópia externa e retenção. A documentação não garante que arquivos na pasta do programa sobrevivam a desinstalações, limpezas ou reinstalações.
   </div>
 
-  <h3>Alterar preferências</h3>
+  <h3 id="alterar-preferencias">Alterar preferências</h3>
   <p>Use a <strong>engrenagem</strong> no canto superior direito do Backup Manager para retornar às configurações. Registre a alteração em seu controle operacional e valide a próxima execução; o manual não descreve versionamento nem histórico de mudanças da configuração.</p>
 
-  <h2>4. Configuração do Gerenciador de Backup</h2>
+  <h2 id="4-configuracao-do-gerenciador-de-backup">4. Configuração do Gerenciador de Backup</h2>
 
-  <h3>4.1 Formato e pasta de download</h3>
+  <h3 id="4-1-formato-e-pasta-de-download">4.1 Formato e pasta de download</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Escolha</th><th>Indicação do manual</th><th>Ponto de atenção</th></tr></thead>
@@ -174,7 +281,7 @@
     <li>Clique em <strong>Salvar</strong>.</li>
   </ol>
 
-  <h3>4.2 Backup completo</h3>
+  <h3 id="4-2-backup-completo">4.2 Backup completo</h3>
   <ol class="steps">
     <li>Na tela inicial, clique no botão laranja <strong>Backup Completo</strong>.</li>
     <li>Leia o aviso de confirmação.</li>
@@ -183,7 +290,7 @@
   </ol>
   <p>A primeira carga pode ser demorada porque percorre todo o histórico disponível, do atendimento mais antigo ao mais recente. “Todo” significa o conteúdo ainda disponível à aplicação na instância; a fonte não promete recuperar dados anteriormente excluídos.</p>
 
-  <h3>4.3 Backup por período</h3>
+  <h3 id="4-3-backup-por-periodo">4.3 Backup por período</h3>
   <ol class="steps">
     <li>Na tela inicial, clique em <strong>Backup por Período</strong>.</li>
     <li>Selecione a <strong>Data Inicial</strong> e a <strong>Data Final</strong>.</li>
@@ -194,10 +301,10 @@
     <strong>Faixa documentada:</strong> o período mínimo é de 1 dia. Para desempenho e prevenção de travamentos, o manual recomenda processar no máximo 90 dias por vez. Divida intervalos maiores em lotes consecutivos e registre quais lotes já foram concluídos.
   </div>
 
-  <h2>5. Agenda e execução recorrente</h2>
+  <h2 id="5-agenda-e-execucao-recorrente">5. Agenda e execução recorrente</h2>
   <p>O agendamento explícito pertence ao <strong>Gerenciador de Backup</strong>. No Automatizador, a documentação apenas informa que o aplicativo permanece em segundo plano e executa as preferências configuradas; ela não apresenta dias, horários ou uma tela de agenda.</p>
 
-  <h3>5.1 Configurar o agendamento no Gerenciador</h3>
+  <h3 id="5-1-configurar-o-agendamento-no-gerenciador">5.1 Configurar o agendamento no Gerenciador</h3>
   <ol class="steps">
     <li>Acesse <strong>Configurações</strong>.</li>
     <li>Localize <strong>Agendamento de Backup</strong>.</li>
@@ -211,7 +318,7 @@
     <strong>Condição obrigatória:</strong> no horário agendado, o computador deve estar ligado, sem suspensão ou hibernação, e o Gerenciador deve permanecer aberto, ainda que minimizado. Um agendamento salvo não é prova de execução.
   </div>
 
-  <h3>5.2 Plano de agenda sugerido para a operação</h3>
+  <h3 id="5-2-plano-de-agenda-sugerido-para-a-operacao">5.2 Plano de agenda sugerido para a operação</h3>
   <p>As frequências abaixo são um modelo de governança, não opções automáticas prometidas pelos manuais. Ajuste-as ao volume, à criticidade e às regras internas.</p>
   <div class="table-wrap">
     <table class="doc">
@@ -225,13 +332,13 @@
     </table>
   </div>
 
-  <h2>6. Destino, capacidade e retenção</h2>
+  <h2 id="6-destino-capacidade-e-retencao">6. Destino, capacidade e retenção</h2>
 
   <div class="callout info">
     <strong>O que não está nas fontes:</strong> os manuais não documentam exclusão automática, rotação, compressão, criptografia, cópia para nuvem, replicação, prazo de retenção nem limite de tamanho. Portanto, configure esses controles fora do aplicativo somente sob uma política aprovada e sem alterar arquivos em uso.
   </div>
 
-  <h3>6.1 Seleção do destino</h3>
+  <h3 id="6-1-selecao-do-destino">6.1 Seleção do destino</h3>
   <ul>
     <li>Prefira uma pasta exclusiva para backup, fora de diretórios temporários e fora da pasta do programa.</li>
     <li>Restrinja o acesso à conta operacional e aos responsáveis autorizados.</li>
@@ -240,7 +347,7 @@
     <li>Não use uma sincronização externa como substituto da validação do backup local.</li>
   </ul>
 
-  <h3>6.2 Matriz de retenção a ser definida pela organização</h3>
+  <h3 id="6-2-matriz-de-retencao-a-ser-definida-pela-organizacao">6.2 Matriz de retenção a ser definida pela organização</h3>
   <p>Registre a decisão em formato semelhante ao modelo abaixo. Os valores são marcadores e devem ser aprovados pelo responsável jurídico, de segurança e pelo dono do processo.</p>
   <pre><code>Conjunto: histórico de atendimentos
 Responsável: [função autorizada]
@@ -253,7 +360,7 @@ Revisão de acesso: [periodicidade]
 Teste de restauração: [periodicidade]
 Descarte: [método aprovado e evidência]</code></pre>
 
-  <h3>6.3 Antes de mover, arquivar ou excluir</h3>
+  <h3 id="6-3-antes-de-mover-arquivar-ou-excluir">6.3 Antes de mover, arquivar ou excluir</h3>
   <ol class="steps">
     <li>Encerre ou pause o aplicativo para evitar copiar um arquivo ainda em gravação.</li>
     <li>Registre o período e o formato do conjunto.</li>
@@ -265,16 +372,16 @@ Descarte: [método aprovado e evidência]</code></pre>
     <strong>Não deduza compatibilidade:</strong> não converta SQLite em JSON, não edite IDs e não reorganize internamente os arquivos esperando que o aplicativo os reconheça. Os manuais não documentam migração entre formatos nem importação de conjuntos alterados.
   </div>
 
-  <h2>7. Consulta, exportação e validação</h2>
+  <h2 id="7-consulta-exportacao-e-validacao">7. Consulta, exportação e validação</h2>
 
-  <h3>7.1 No Automatizador</h3>
+  <h3 id="7-1-no-automatizador">7.1 No Automatizador</h3>
   <ul>
     <li><strong>Baixar CSV:</strong> gera uma lista de atendimentos para uso em planilhas.</li>
     <li><strong>Download do arquivo:</strong> salva uma cópia com arquivos do atendimento — chat, imagens e documentos — e gera um PDF da conversa.</li>
     <li><strong>Visualizar atendimento:</strong> abre a conversa para consulta.</li>
   </ul>
 
-  <h3>7.2 No Gerenciador</h3>
+  <h3 id="7-2-no-gerenciador">7.2 No Gerenciador</h3>
   <ul>
     <li>Alterne a <strong>Fonte de Dados</strong> entre SQLite e JSON, quando houver dados nesses formatos.</li>
     <li>Pesquise por ID do atendimento, nome do cliente ou número de telefone.</li>
@@ -283,7 +390,7 @@ Descarte: [método aprovado e evidência]</code></pre>
     <li>Na coluna de ação, clique em <strong>Ver</strong> para ler offline datas, mensagens e a informação de quem encerrou o chat.</li>
   </ul>
 
-  <h3>7.3 Checklist de validação</h3>
+  <h3 id="7-3-checklist-de-validacao">7.3 Checklist de validação</h3>
   <ol class="steps">
     <li><strong>Execução:</strong> confirme se a aplicação indicou conclusão sem erro e registre data/hora.</li>
     <li><strong>Atualidade:</strong> confira o card ou indicador de último backup; compare com a agenda prevista.</li>
@@ -298,14 +405,14 @@ Descarte: [método aprovado e evidência]</code></pre>
     <strong>Validação não é só contagem:</strong> um total preenchido prova que houve registros, mas não confirma legibilidade, anexos, intervalo completo ou possibilidade de restauração. Mantenha evidências de amostragem sem expor dados pessoais desnecessários.
   </div>
 
-  <h2>8. Restauração pelo Gerenciador</h2>
+  <h2 id="8-restauracao-pelo-gerenciador">8. Restauração pelo Gerenciador</h2>
   <p>A restauração descrita nas fontes existe no <strong>Gerenciador de Backup</strong>. Ela envia uma cópia da conversa local para a plataforma online. O manual do Automatizador não documenta essa função.</p>
 
   <div class="callout warn">
     <strong>Ação com escrita na plataforma:</strong> restaure somente com autorização, janela de mudança e escopo conhecido. Uma restauração cria dados na instância e pode afetar relatórios, auditorias, integrações ou pesquisas por atendimento. Se possível, valide primeiro em ambiente de teste homologado.
   </div>
 
-  <h3>8.1 Procedimento</h3>
+  <h3 id="8-1-procedimento">8.1 Procedimento</h3>
   <ol class="steps">
     <li>Na lista do Gerenciador, pesquise e visualize offline cada conversa a recuperar.</li>
     <li>Confirme que o atendimento, o conteúdo e o período correspondem à solicitação aprovada.</li>
@@ -316,7 +423,7 @@ Descarte: [método aprovado e evidência]</code></pre>
     <li>Na plataforma online, localize o novo registro, valide o conteúdo e registre a relação entre o ID original e o novo ID.</li>
   </ol>
 
-  <h3>8.2 Regra crítica dos IDs</h3>
+  <h3 id="8-2-regra-critica-dos-ids">8.2 Regra crítica dos IDs</h3>
   <p>O atendimento restaurado recebe um <strong>novo ID</strong> na plataforma. O ID original permanece inalterado no backup local. Portanto, a restauração não “ressuscita” o mesmo registro: ela cria uma nova cópia online com o conteúdo preservado.</p>
   <pre><code>ID no backup local: [ID_ORIGINAL]  →  ID após restauração: [NOVO_ID]
 Solicitação/aprovação: [REFERÊNCIA_INTERNA]
@@ -327,9 +434,9 @@ Resultado da conferência: [VALIDADO / REQUER ANÁLISE]</code></pre>
     <strong>Evite duplicidade:</strong> antes de repetir uma restauração após demora ou erro visual, procure o atendimento na plataforma e consulte o registro operacional. A fonte não descreve deduplicação nem reversão automática de restaurações repetidas.
   </div>
 
-  <h2>9. Segurança e governança</h2>
+  <h2 id="9-seguranca-e-governanca">9. Segurança e governança</h2>
 
-  <h3>9.1 Princípios mínimos</h3>
+  <h3 id="9-1-principios-minimos">9.1 Princípios mínimos</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Controle</th><th>Aplicação prática</th></tr></thead>
@@ -344,7 +451,7 @@ Resultado da conferência: [VALIDADO / REQUER ANÁLISE]</code></pre>
     </table>
   </div>
 
-  <h3>9.2 Cuidados com instalação, atualização e desinstalação</h3>
+  <h3 id="9-2-cuidados-com-instalacao-atualizacao-e-desinstalacao">9.2 Cuidados com instalação, atualização e desinstalação</h3>
   <ul>
     <li>Baixe instaladores apenas de canal oficial; valide procedência antes de usar a opção de execução quando o Windows alertar.</li>
     <li>Antes de atualizar ou desinstalar, confirme que não há backup nem restauração em andamento.</li>
@@ -353,7 +460,7 @@ Resultado da conferência: [VALIDADO / REQUER ANÁLISE]</code></pre>
     <li>Não copie para documentação nomes reais de instância, URLs privadas, chaves ou caminhos internos.</li>
   </ul>
 
-  <h2>10. Troubleshooting</h2>
+  <h2 id="10-troubleshooting">10. Troubleshooting</h2>
 
   <div class="table-wrap">
     <table class="doc">
@@ -408,14 +515,14 @@ Resultado da conferência: [VALIDADO / REQUER ANÁLISE]</code></pre>
     </table>
   </div>
 
-  <h3>Coleta mínima para suporte</h3>
+  <h3 id="coleta-minima-para-suporte">Coleta mínima para suporte</h3>
   <p>Antes de abrir um chamado, registre versão do aplicativo, tipo de operação, intervalo, data/hora, formato, espaço livre aproximado, mensagem de erro e resultado da última execução válida. Remova ou masque dados pessoais, URLs privadas, caminhos sensíveis e a chave de API.</p>
 
   <div class="callout warn">
     <strong>Não tente “corrigir” o acervo diretamente:</strong> se SQLite, JSON, PDF ou anexos parecerem corrompidos, preserve uma cópia do conjunto, interrompa gravações e acione o suporte. As fontes não fornecem comandos de reparo, esquema de banco nem procedimento manual de reimportação.
   </div>
 
-  <h2>11. Runbook resumido</h2>
+  <h2 id="11-runbook-resumido">11. Runbook resumido</h2>
   <ol class="steps">
     <li><strong>Identifique a solução:</strong> Automatizador ou Gerenciador; registre a versão.</li>
     <li><strong>Proteja o acesso:</strong> valide origem do instalador, dispositivo, pasta e custódia da API.</li>
@@ -427,7 +534,7 @@ Resultado da conferência: [VALIDADO / REQUER ANÁLISE]</code></pre>
     <li><strong>Restaure com controle:</strong> somente no Gerenciador e com autorização; valide o novo ID na plataforma.</li>
   </ol>
 
-  <h2>12. Fontes, lacunas e controle de versão</h2>
+  <h2 id="12-fontes-lacunas-e-controle-de-versao">12. Fontes, lacunas e controle de versão</h2>
   <ul>
     <li><strong>Manual Automatizador de backups / Backup Manager</strong> — atualizado em 27/01/2025; base para instalação, atualização, autenticação, dois escopos automáticos, consulta/exportação e desinstalação.</li>
     <li><strong>Manual de Uso. Gerenciador de Backups</strong> — base para URL e API global, SQLite/JSON, backup completo/por período/agendado, dashboard, consulta offline, restauração e troubleshooting.</li>
@@ -446,6 +553,7 @@ Resultado da conferência: [VALIDADO / REQUER ANÁLISE]</code></pre>
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

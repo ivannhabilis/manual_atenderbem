@@ -9,19 +9,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="pabx.html">Portal PABX</a>
-    <a href="pabx-troncos.html" class="active">Troncos SIP</a>
-    <a href="pabx-rotas.html">Rotas</a>
-    <a href="pabx-ramais.html">Ramais</a>
-    <a href="pabx-filas.html">Filas</a>
-    <a href="pabx-ura-audios.html">URAs & Áudios</a>
-    <a href="pabx-horarios.html">Horários</a>
-    <a href="pabx-custom.html">Custom & ARI</a>
-    <a href="pabx-cdr-auditoria.html">CDR</a>
-    <a href="pabx-cli-troubleshooting.html">CLI & Debug</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a class="active" href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -31,19 +93,45 @@
   <h1>Guia Completo de Troncos SIP (Trunks)</h1>
   <p class="subtitle">Aprenda a configurar Troncos SIP convencionais de operadoras VoIP e o Tronco PJSIP seguro (TLS/SRTP) para números oficiais da WhatsApp Cloud API (Meta).</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-o-que-e-um-tronco-trunk">1. O que é um Tronco (Trunk)?</a></li>
+      <li><a href="#2-tipos-de-troncos-suportados">2. Tipos de Troncos Suportados</a></li>
+      <li><a href="#3-configuracao-passo-a-passo-tronco-whatsapp-cloud-api-meta">3. Configuração Passo a Passo: Tronco WhatsApp Cloud API (Meta)</a></li>
+      <li class="toc-h3"><a href="#passo-1-habilitar-telefonia-no-atenderbem">Passo 1: Habilitar Telefonia no AtenderBem</a></li>
+      <li class="toc-h3"><a href="#passo-2-instalar-certificado-ssl-let-s-encrypt-no-pabx">Passo 2: Instalar Certificado SSL Let's Encrypt no PABX</a></li>
+      <li class="toc-h3"><a href="#passo-3-criar-o-tronco-pjsip-no-freepbx">Passo 3: Criar o Tronco PJSIP no FreePBX</a></li>
+      <li class="toc-h3"><a href="#passo-4-verificacao-de-status">Passo 4: Verificação de Status</a></li>
+      <li><a href="#4-configuracao-de-tronco-sip-convencional-operadora-voip">4. Configuração de Tronco SIP Convencional (Operadora VoIP)</a></li>
+      <li><a href="#5-diagnostico-de-troncos-via-linha-de-comando-cli">5. Diagnóstico de Troncos via Linha de Comando (CLI)</a></li>
+      <li class="toc-h3"><a href="#comandos-pjsip-complementares">Comandos PJSIP complementares</a></li>
+      <li><a href="#6-conceitos-de-sip-trunking-sip-x-voip-ddr-e-canais-sip">6. Conceitos de SIP Trunking: SIP x VoIP, DDR e Canais SIP</a></li>
+      <li class="toc-h3"><a href="#sip-e-voip-nao-sao-a-mesma-coisa">SIP e VoIP não são a mesma coisa</a></li>
+      <li class="toc-h3"><a href="#discagem-direta-ao-ramal-ddr">Discagem Direta ao Ramal (DDR)</a></li>
+      <li class="toc-h3"><a href="#canais-sip-e-dimensionamento">Canais SIP e dimensionamento</a></li>
+      <li class="toc-h3"><a href="#por-que-usar-sip-trunking">Por que usar SIP Trunking</a></li>
+      <li><a href="#7-nat-e-obtencao-do-ip-externo-do-pabx">7. NAT e Obtenção do IP Externo do PABX</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <figure class="figure">
     <img src="assets/pabx-trunk-meta.png" alt="Configuração de Tronco PJSIP">
     <figcaption>Interface de configuração de Tronco PJSIP em Connectivity › Trunks.</figcaption>
   </figure>
 
-  <h2>1. O que é um Tronco (Trunk)?</h2>
+  <h2 id="1-o-que-e-um-tronco-trunk">1. O que é um Tronco (Trunk)?</h2>
   <p>O <strong>Tronco SIP</strong> é o canal digital de comunicação que conecta o PABX Fácil (Asterisk) ao mundo externo. É através dos troncos que as chamadas originadas em telefones convencionais, celulares ou chamadas de voz via WhatsApp chegam até a sua central e que as ligações feitas pelos seus atendentes saem para os clientes.</p>
 
   <div class="callout tip">
     <strong>Regra de Ouro:</strong> Sempre que alterar qualquer configuração de tronco, clique em <strong>Submit</strong> no rodapé da página e em seguida na barra <strong>Apply Config</strong> no topo.
   </div>
 
-  <h2>2. Tipos de Troncos Suportados</h2>
+  <h2 id="2-tipos-de-troncos-suportados">2. Tipos de Troncos Suportados</h2>
   <ul>
     <li><strong>Tronco SIP Convencional (Operadora VoIP / PSTN):</strong> Utiliza autenticação por IP ou Usuário/Senha (SIP Registration), transportado via UDP/TCP padrão e codecs como G.711 (alaw/ulaw) ou G.729.</li>
     <li><strong>Tronco WhatsApp Cloud API (Meta):</strong> Utiliza criptografia de mídia <strong>SRTP</strong>, transporte seguro <strong>TLSv1.2</strong>, autenticação de entrada via cabeçalho SIP e codec de alta fidelidade <strong>Opus</strong>.</li>
@@ -51,13 +139,13 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>3. Configuração Passo a Passo: Tronco WhatsApp Cloud API (Meta)</h2>
+  <h2 id="3-configuracao-passo-a-passo-tronco-whatsapp-cloud-api-meta">3. Configuração Passo a Passo: Tronco WhatsApp Cloud API (Meta)</h2>
   <p>Esta configuração permite receber e realizar chamadas de voz oficiais do WhatsApp diretamente na plataforma.</p>
 
-  <h3>Passo 1: Habilitar Telefonia no AtenderBem</h3>
+  <h3 id="passo-1-habilitar-telefonia-no-atenderbem">Passo 1: Habilitar Telefonia no AtenderBem</h3>
   <p>No painel do AtenderBem, acesse <code>Configurações › Filas</code>. No número WhatsApp Cloud API Oficial, clique no botão <strong>"Configurar telefonia"</strong>. O sistema exibirá o Servidor SIP gerado (com sufixo <code>-direct</code>) e a senha.</p>
 
-  <h3>Passo 2: Instalar Certificado SSL Let's Encrypt no PABX</h3>
+  <h3 id="passo-2-instalar-certificado-ssl-let-s-encrypt-no-pabx">Passo 2: Instalar Certificado SSL Let's Encrypt no PABX</h3>
   <figure class="figure">
     <img src="assets/pabx-cert-meta.png" alt="Instalação de Certificado Let's Encrypt">
     <figcaption>Geração de certificado Let's Encrypt no menu Admin › Certificate Management.</figcaption>
@@ -71,7 +159,7 @@
     <li>Na aba <strong>General SIP Settings</strong>, na seção <strong>Audio Codecs</strong>, marque a opção <code>opus</code>.</li>
   </ol>
 
-  <h3>Passo 3: Criar o Tronco PJSIP no FreePBX</h3>
+  <h3 id="passo-3-criar-o-tronco-pjsip-no-freepbx">Passo 3: Criar o Tronco PJSIP no FreePBX</h3>
   <p>Acesse <code>Connectivity › Trunks › + Add Trunk › Add SIP (chan_pjsip) Trunk</code> e preencha rigorosamente conforme a tabela abaixo:</p>
 
   <div class="table-wrap">
@@ -92,12 +180,12 @@
     </table>
   </div>
 
-  <h3>Passo 4: Verificação de Status</h3>
+  <h3 id="passo-4-verificacao-de-status">Passo 4: Verificação de Status</h3>
   <p>Após clicar em <strong>Submit</strong> e <strong>Apply Config</strong>, vá até <code>Reports › Asterisk Info</code>. Na seção <em>Chan_PJSIP Registrations / Channels</em>, o tronco recém-criado deve constar com status <strong>ONLINE</strong>.</p>
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>4. Configuração de Tronco SIP Convencional (Operadora VoIP)</h2>
+  <h2 id="4-configuracao-de-tronco-sip-convencional-operadora-voip">4. Configuração de Tronco SIP Convencional (Operadora VoIP)</h2>
   <p>Para troncos fornecidos por operadoras como Vivo, Embratel, TotalVoice, Directcall ou provedores SIP locais:</p>
 
   <div class="table-wrap">
@@ -115,7 +203,7 @@
     </table>
   </div>
 
-  <h2>5. Diagnóstico de Troncos via Linha de Comando (CLI)</h2>
+  <h2 id="5-diagnostico-de-troncos-via-linha-de-comando-cli">5. Diagnóstico de Troncos via Linha de Comando (CLI)</h2>
   <p>Execute no terminal SSH para verificar a saúde dos troncos:</p>
   <pre style="background: #1f2430; color: #fff; padding: 14px; border-radius: 8px;"><code># Verificar status de troncos PJSIP registrados:
 asterisk -rx "pjsip show registrations"
@@ -126,7 +214,7 @@ asterisk -rx "pjsip show endpoints"
 # Testar se a porta TLS 5061 está escutando:
 netstat -tulpn | grep 5061</code></pre>
 
-  <h3>Comandos PJSIP complementares</h3>
+  <h3 id="comandos-pjsip-complementares">Comandos PJSIP complementares</h3>
   <p>Comandos adicionais do acervo para inspeção fina de troncos e ramais no mesmo terminal SSH:</p>
 
   <div class="table-wrap">
@@ -145,19 +233,19 @@ netstat -tulpn | grep 5061</code></pre>
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>6. Conceitos de SIP Trunking: SIP x VoIP, DDR e Canais SIP</h2>
+  <h2 id="6-conceitos-de-sip-trunking-sip-x-voip-ddr-e-canais-sip">6. Conceitos de SIP Trunking: SIP x VoIP, DDR e Canais SIP</h2>
   <p>Além da configuração prática, vale fixar os conceitos que explicam por que o Tronco SIP é a base da telefonia em nuvem usada pelo PABX Fácil.</p>
 
-  <h3>SIP e VoIP não são a mesma coisa</h3>
+  <h3 id="sip-e-voip-nao-sao-a-mesma-coisa">SIP e VoIP não são a mesma coisa</h3>
   <p><strong>VoIP</strong> (Voice over Internet Protocol) refere-se a qualquer chamada de voz feita pela internet. <strong>SIP</strong> (Session Initiation Protocol) é uma das tecnologias de protocolo que tornam o VoIP possível — é ele que cria as conexões em tempo real entre dois telefones. Ou seja, todo tronco SIP é VoIP, mas nem toda implantação de VoIP usa SIP.</p>
 
-  <h3>Discagem Direta ao Ramal (DDR)</h3>
+  <h3 id="discagem-direta-ao-ramal-ddr">Discagem Direta ao Ramal (DDR)</h3>
   <p>Com um serviço <strong>DDR</strong>, o provedor conecta o PABX da empresa a um bloco de números de telefone. Esses números virtuais ignoram a linha de recepção principal e vão diretamente para um ramal ou grupo de ramais. O número DDR identifica o telefone e o tronco SIP é o elo entre o telefone identificado e a internet, permitindo que a chamada seja encaminhada ao telefone correto. No PABX, esse número é o <strong>DID Number</strong> preenchido nas Rotas de Entrada.</p>
 
-  <h3>Canais SIP e dimensionamento</h3>
+  <h3 id="canais-sip-e-dimensionamento">Canais SIP e dimensionamento</h3>
   <p>Cada tronco contém vários <strong>canais SIP</strong> independentes. Um canal SIP equivale a uma linha telefônica — só que digital. Se a empresa costuma fazer 20 chamadas simultâneas, serão necessários 20 canais SIP. Dimensione a quantidade de canais do tronco conforme o volume de ligações simultâneas esperado.</p>
 
-  <h3>Por que usar SIP Trunking</h3>
+  <h3 id="por-que-usar-sip-trunking">Por que usar SIP Trunking</h3>
   <ul>
     <li><strong>Redução de custo:</strong> usa a conexão de internet ou rede IP em vez de linhas analógicas caras; ligações de longa distância tornam-se locais por trafegarem pela internet. Segundo o Gartner, a adoção pode reduzir os custos de telefonia em até 50%.</li>
     <li><strong>Escalabilidade:</strong> adicionar ou remover usuários e largura de banda conforme o crescimento da empresa.</li>
@@ -171,7 +259,7 @@ netstat -tulpn | grep 5061</code></pre>
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>7. NAT e Obtenção do IP Externo do PABX</h2>
+  <h2 id="7-nat-e-obtencao-do-ip-externo-do-pabx">7. NAT e Obtenção do IP Externo do PABX</h2>
   <p>O <strong>IP externo</strong> do PABX é o endereço usado para configurar telefones IP e aplicativos VoIP (como o MicroSIP) que acessam a central pela internet.</p>
 
   <ol class="steps">
@@ -194,6 +282,7 @@ netstat -tulpn | grep 5061</code></pre>
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Módulo de Telefonia e PABX.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

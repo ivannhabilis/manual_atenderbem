@@ -34,18 +34,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="crm.html" class="active">CRM</a>
-    <a href="carrinho-sincronizado.html">Carrinho Sync</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="pabx.html">PABX & Telefonia</a>
-    <a href="contatos.html">Contatos</a>
-    <a href="relatorios.html">Relatórios</a>
-    <a href="relatorios-personalizados.html">Personalizados</a>
-    <a href="configuracoes.html">Configurações</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a class="active" href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -55,18 +118,45 @@
   <h1>CRM e Funil de Vendas</h1>
   <p class="subtitle">Gerencie oportunidades de negócio, visualize o funil de vendas e acompanhe os valores envolvidos.</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-visao-geral">1. Visão geral</a></li>
+      <li><a href="#2-seletor-de-funil-sales-funnel">2. Seletor de funil (Sales funnel)</a></li>
+      <li><a href="#3-cartoes-de-metricas">3. Cartões de métricas</a></li>
+      <li><a href="#4-area-de-oportunidades">4. Área de oportunidades</a></li>
+      <li><a href="#5-integracao-do-crm-com-sistemas-externos-erp">5. Integração do CRM com sistemas externos (ERP)</a></li>
+      <li class="toc-h3"><a href="#5-1-automacoes-por-evento-e-periodicas">5.1. Automações: por evento e periódicas</a></li>
+      <li class="toc-h3"><a href="#5-2-ferramentas-de-transferencia-de-dados">5.2. Ferramentas de transferência de dados</a></li>
+      <li class="toc-h3"><a href="#5-3-exemplo-pratico-sincronizacao-crm-erp">5.3. Exemplo prático: sincronização CRM ⇄ ERP</a></li>
+      <li class="toc-h3"><a href="#5-4-atribuicao-de-responsaveis">5.4. Atribuição de responsáveis</a></li>
+      <li class="toc-h3"><a href="#5-5-envio-de-arquivos-anexos">5.5. Envio de arquivos (anexos)</a></li>
+      <li><a href="#6-cartoes-de-informacao-no-painel-do-agente">6. Cartões de Informação no painel do agente</a></li>
+      <li class="toc-h3"><a href="#6-1-acesso-e-criacao">6.1. Acesso e criação</a></li>
+      <li class="toc-h3"><a href="#6-2-seguranca-e-grupos-de-visualizacao">6.2. Segurança e grupos de visualização</a></li>
+      <li class="toc-h3"><a href="#6-3-gerenciamento-na-listagem-principal">6.3. Gerenciamento na listagem principal</a></li>
+      <li class="toc-h3"><a href="#6-4-construindo-o-layout-o-editor-visual">6.4. Construindo o layout (o editor visual)</a></li>
+      <li class="toc-h3"><a href="#6-5-variaveis-dinamicas">6.5. Variáveis dinâmicas</a></li>
+      <li class="toc-h3"><a href="#6-6-chamando-o-cartao-na-ura-fluxo-de-automacao">6.6. Chamando o cartão na URA / fluxo de automação</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <figure class="figure">
     <img src="assets/crm.png" alt="Tela de CRM com funil de vendas e métricas">
     <figcaption>CRM com seletor de “Sales funnel” e cartões de métricas financeiras.</figcaption>
   </figure>
 
-  <h2>1. Visão geral</h2>
+  <h2 id="1-visao-geral">1. Visão geral</h2>
   <p>O módulo <strong>CRM</strong> (Customer Relationship Management) concentra o acompanhamento de oportunidades comerciais. Ele é indicado para equipes de vendas que usam a plataforma também para fechar negócios, além do atendimento.</p>
 
-  <h2>2. Seletor de funil (Sales funnel)</h2>
+  <h2 id="2-seletor-de-funil-sales-funnel">2. Seletor de funil (Sales funnel)</h2>
   <p>No topo, o seletor <strong>Sales funnel</strong> permite escolher o funil exibido. Ao lado foram observados um ícone de engrenagem e um botão circular <strong>+</strong>. A captura não permitiu confirmar os fluxos acionados por esses controles.</p>
 
-  <h2>3. Cartões de métricas</h2>
+  <h2 id="3-cartoes-de-metricas">3. Cartões de métricas</h2>
   <p>Cinco indicadores resumem a saúde do funil selecionado:</p>
   <table class="doc">
     <thead><tr><th>Métrica</th><th>Significado</th></tr></thead>
@@ -79,7 +169,7 @@
     </tbody>
   </table>
 
-  <h2>4. Área de oportunidades</h2>
+  <h2 id="4-area-de-oportunidades">4. Área de oportunidades</h2>
   <p>A área principal mostra as oportunidades do funil. Quando não há dados, a tela aparece vazia (como no ambiente de exemplo capturado). À direita, ícones permitem alternar a visualização e há uma barra de <strong>Search</strong> para localizar rapidamente uma oportunidade.</p>
 
   <div class="callout tip">
@@ -90,16 +180,16 @@
     <strong>Relacionado:</strong> o <a href="carrinho-sincronizado.html">Carrinho Sincronizado</a> transforma o carrinho de produtos de um atendimento em uma oportunidade de CRM sincronizada ao vivo. Quando uma fila está configurada para isso, cada carrinho ativo vira uma oportunidade no funil escolhido, na etapa "carrinho aberto".
   </div>
 
-  <h2>5. Integração do CRM com sistemas externos (ERP)</h2>
+  <h2 id="5-integracao-do-crm-com-sistemas-externos-erp">5. Integração do CRM com sistemas externos (ERP)</h2>
   <p>O CRM pode ser integrado a sistemas externos — tipicamente um ERP — para que as duas plataformas trabalhem com o mesmo dado. A base tecnológica da integração é formada por <strong>automações</strong>, <strong>Requisição HTTP</strong>, <strong>Código JS</strong>, <strong>Capturas de Webhook</strong> e a <strong>API nativa</strong>. O objetivo é manter consistência das informações, rastreabilidade das oportunidades e autonomia para construir integrações sob medida.</p>
 
-  <h3>5.1. Automações: por evento e periódicas</h3>
+  <h3 id="5-1-automacoes-por-evento-e-periodicas">5.1. Automações: por evento e periódicas</h3>
   <ul>
     <li><strong>Baseadas em eventos:</strong> fluxos de automação acionados instantaneamente por eventos da oportunidade — <em>Ganho</em>, <em>Perda</em>, <em>Atraso</em>, <em>Entrada ou Saída de Etapa</em> e <em>Estagnação</em>.</li>
     <li><strong>Periódicas:</strong> execuções recorrentes sobre as oportunidades de um funil específico. Ficam em <strong>Configurações › Automação › Automação com Contatos e Oportunidades</strong>, onde se agenda o fluxo para rodar em intervalos predefinidos.</li>
   </ul>
 
-  <h3>5.2. Ferramentas de transferência de dados</h3>
+  <h3 id="5-2-ferramentas-de-transferencia-de-dados">5.2. Ferramentas de transferência de dados</h3>
   <p>Dentro dos fluxos de automação, quatro recursos se combinam para mover dados entre o CRM e o sistema externo:</p>
   <div class="table-wrap">
     <table class="doc">
@@ -129,7 +219,7 @@
     </table>
   </div>
 
-  <h3>5.3. Exemplo prático: sincronização CRM ⇄ ERP</h3>
+  <h3 id="5-3-exemplo-pratico-sincronizacao-crm-erp">5.3. Exemplo prático: sincronização CRM ⇄ ERP</h3>
   <p>Arquitetura sugerida para manter o CRM e o ERP do cliente atualizados simultaneamente.</p>
 
   <div class="callout info">
@@ -149,10 +239,10 @@
     <li><strong>Via Webhook:</strong> disparando a atualização para a URL da <strong>Captura de Webhook</strong>. Ao receber a notificação, o CRM processa as informações e executa as ações definidas no fluxo de automação vinculado àquela captura.</li>
   </ol>
 
-  <h3>5.4. Atribuição de responsáveis</h3>
+  <h3 id="5-4-atribuicao-de-responsaveis">5.4. Atribuição de responsáveis</h3>
   <p>Para oportunidades que já têm um responsável definido no ERP, é possível espelhar essa associação no momento em que a oportunidade é criada ou atualizada no CRM: basta preencher o campo de <strong>responsável</strong> com o ID do usuário correspondente na plataforma — seja via endpoint da API ou por inserção manual.</p>
 
-  <h3>5.5. Envio de arquivos (anexos)</h3>
+  <h3 id="5-5-envio-de-arquivos-anexos">5.5. Envio de arquivos (anexos)</h3>
   <p>Quando o ERP precisa enviar documentos que serão associados a uma oportunidade, a sequência de integração via API recomendada é:</p>
   <ol class="steps">
     <li>Usar o endpoint <code>uploadFile</code> para subir o documento e gerar o <strong>ID único</strong> do arquivo no CRM.</li>
@@ -165,10 +255,10 @@
     <strong>Em resumo:</strong> Requisições HTTP, Código JS, Capturas de Webhook e a API nativa formam a base que permite integrar o CRM a qualquer sistema externo compatível com APIs — com o parceiro no controle da lógica de sincronização.
   </div>
 
-  <h2>6. Cartões de Informação no painel do agente</h2>
+  <h2 id="6-cartoes-de-informacao-no-painel-do-agente">6. Cartões de Informação no painel do agente</h2>
   <p>Os <strong>Cartões de Informação</strong> são estruturas visuais que enriquecem o painel de atendimento do agente. Com eles é possível trazer dados detalhados e dinâmicos — informações financeiras, dados de contato, status de oportunidades do CRM — diretamente para a tela do agente, vinculados a um <strong>atendimento inteiro</strong> ou a uma <strong>mensagem específica</strong>.</p>
 
-  <h3>6.1. Acesso e criação</h3>
+  <h3 id="6-1-acesso-e-criacao">6.1. Acesso e criação</h3>
   <ol class="steps">
     <li>Acesse <strong>Configurações › Cadastros › Cartões de Informação</strong>.</li>
     <li>Clique em <strong>+ Adicionar</strong>, no canto superior direito.</li>
@@ -176,14 +266,14 @@
     <li><strong>Boa prática:</strong> edite e renomeie o cartão imediatamente com um título claro e descritivo (ex.: "Cartão — Resumo Financeiro") — isso evita confusão na listagem quando houver dezenas de cartões.</li>
   </ol>
 
-  <h3>6.2. Segurança e grupos de visualização</h3>
+  <h3 id="6-2-seguranca-e-grupos-de-visualizacao">6.2. Segurança e grupos de visualização</h3>
   <p>É possível restringir quem vê as informações de um cartão, protegendo dados sensíveis (faturas, cobranças) de agentes não autorizados:</p>
   <ul>
     <li>Na tela de configuração do cartão, localize o campo <strong>Grupo de visualização</strong> e selecione um grupo específico (ex.: "Equipe Financeira").</li>
     <li>Somente os agentes que tiverem esse mesmo grupo atrelado ao próprio perfil (<strong>Configurações › Usuários</strong>) enxergarão o cartão durante o atendimento.</li>
   </ul>
 
-  <h3>6.3. Gerenciamento na listagem principal</h3>
+  <h3 id="6-3-gerenciamento-na-listagem-principal">6.3. Gerenciamento na listagem principal</h3>
   <p>Na listagem dos cartões, a coluna de funções traz atalhos práticos:</p>
   <div class="table-wrap">
     <table class="doc">
@@ -198,7 +288,7 @@
     </table>
   </div>
 
-  <h3>6.4. Construindo o layout (o editor visual)</h3>
+  <h3 id="6-4-construindo-o-layout-o-editor-visual">6.4. Construindo o layout (o editor visual)</h3>
   <p>No modo de edição, os componentes ficam disponíveis como elementos arrastáveis no painel lateral esquerdo. Ao clicar em um elemento inserido, o painel de configurações abre à direita, dividido entre <strong>propriedades comuns</strong> e <strong>parâmetros específicos</strong>.</p>
 
   <h4>Propriedades comuns (globais)</h4>
@@ -300,14 +390,14 @@
     <strong>Dica de design:</strong> combine o elemento <em>Nova linha</em> com <em>Avatar</em> e <em>Texto</em> lado a lado para criar cabeçalhos estruturados, simulando a ficha cadastral do cliente.
   </div>
 
-  <h3>6.5. Variáveis dinâmicas</h3>
+  <h3 id="6-5-variaveis-dinamicas">6.5. Variáveis dinâmicas</h3>
   <p>Para que o cartão exiba dados reais do cliente em atendimento (nome, telefone, notas), utilize variáveis:</p>
   <ul>
     <li>A regra é usar <strong>chaves duplas</strong> e o prefixo <code>cards_</code> — ex.: <code>{{cards_nome}}</code>, <code>{{cards_telefone}}</code>, <code>{{cards_nota}}</code>.</li>
     <li><strong>Dados Demo:</strong> no canto inferior direito do editor há a seção "Variáveis de demonstração". Insira valores fictícios (ex.: digitar "João" na variável <code>cards_nome</code>) para visualizar como o cartão ficará renderizado.</li>
   </ul>
 
-  <h3>6.6. Chamando o cartão na URA / fluxo de automação</h3>
+  <h3 id="6-6-chamando-o-cartao-na-ura-fluxo-de-automacao">6.6. Chamando o cartão na URA / fluxo de automação</h3>
   <p>Depois de pronto, o cartão precisa ser chamado dentro do fluxo de automação ou da URA para aparecer no painel. Há duas formas de aplicação:</p>
 
   <h4>A. Cartão no atendimento (múltiplos cartões)</h4>
@@ -348,6 +438,7 @@ vars['cards_nota'] = 5;</code></pre>
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

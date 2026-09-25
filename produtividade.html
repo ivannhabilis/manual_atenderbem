@@ -9,17 +9,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="crm.html">CRM</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="pabx.html">PABX &amp; Telefonia</a>
-    <a href="contatos.html">Contatos</a>
-    <a href="relatorios.html" class="active">Relatórios</a>
-    <a href="relatorios-personalizados.html">Personalizados</a>
-    <a href="configuracoes.html">Configurações</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a class="active" href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -29,11 +93,49 @@
   <h1>Monitoramento de Produtividade</h1>
   <p class="subtitle">Configure os critérios de atividade, acompanhe equipe e agentes e relacione os sinais do Desktop ao tempo apontado em Tarefas.</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-o-que-o-modulo-mede-e-o-que-nao-mede">1. O que o módulo mede — e o que não mede</a></li>
+      <li><a href="#2-requisitos-e-ativacao-no-desktop">2. Requisitos e ativação no Desktop</a></li>
+      <li class="toc-h3"><a href="#2-1-preparar-a-maquina-monitorada">2.1 Preparar a máquina monitorada</a></li>
+      <li class="toc-h3"><a href="#2-2-habilitar-e-vincular-o-usuario">2.2 Habilitar e vincular o usuário</a></li>
+      <li><a href="#3-configuracao-de-aplicacoes">3. Configuração de Aplicações</a></li>
+      <li class="toc-h3"><a href="#3-1-identificacao-e-classificacao">3.1 Identificação e classificação</a></li>
+      <li class="toc-h3"><a href="#3-2-scores-e-estados-da-janela">3.2 Scores e estados da janela</a></li>
+      <li><a href="#4-regras-de-matching">4. Regras de Matching</a></li>
+      <li><a href="#5-perfis-de-scoring">5. Perfis de Scoring</a></li>
+      <li class="toc-h3"><a href="#5-1-checklist-de-desenho-do-perfil">5.1 Checklist de desenho do perfil</a></li>
+      <li><a href="#6-score-faixas-ociosidade-e-midia">6. Score, faixas, ociosidade e mídia</a></li>
+      <li><a href="#7-painel-em-tempo-real-e-relatorio-da-equipe">7. Painel em tempo real e relatório da equipe</a></li>
+      <li class="toc-h3"><a href="#7-1-painel-de-produtividade-no-painel-de-agentes">7.1 Painel de Produtividade no Painel de Agentes</a></li>
+      <li class="toc-h3"><a href="#7-2-produtividade-equipe">7.2 Produtividade - Equipe</a></li>
+      <li><a href="#8-relatorio-individual-do-agente">8. Relatório individual do agente</a></li>
+      <li class="toc-h3"><a href="#8-1-como-interpretar-streaks-e-trocas-de-contexto">8.1 Como interpretar streaks e trocas de contexto</a></li>
+      <li><a href="#9-aplicativos-automacoes-e-capturas">9. Aplicativos, automações e capturas</a></li>
+      <li class="toc-h3"><a href="#9-1-aplicativos-nos-relatorios">9.1 Aplicativos nos relatórios</a></li>
+      <li class="toc-h3"><a href="#9-2-automacoes-vinculadas-ao-monitoramento">9.2 Automações vinculadas ao monitoramento</a></li>
+      <li class="toc-h3"><a href="#9-3-capturas-de-tela-e-gravacao-de-video">9.3 Capturas de tela e gravação de vídeo</a></li>
+      <li><a href="#10-relacao-entre-produtividade-e-tarefas">10. Relação entre Produtividade e Tarefas</a></li>
+      <li class="toc-h3"><a href="#10-1-rotina-de-apontamento-em-tarefas">10.1 Rotina de apontamento em Tarefas</a></li>
+      <li class="toc-h3"><a href="#10-2-como-conciliar-os-dados">10.2 Como conciliar os dados</a></li>
+      <li><a href="#11-interpretacao-etica-e-governanca">11. Interpretação ética e governança</a></li>
+      <li class="toc-h3"><a href="#11-1-principios-minimos">11.1 Princípios mínimos</a></li>
+      <li class="toc-h3"><a href="#11-2-perguntas-antes-de-agir-sobre-um-indicador">11.2 Perguntas antes de agir sobre um indicador</a></li>
+      <li><a href="#12-troubleshooting">12. Troubleshooting</a></li>
+      <li><a href="#13-checklist-de-implantacao-e-revisao">13. Checklist de implantação e revisão</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <div class="callout warn">
     <strong>Escopo e versão da fonte:</strong> o módulo é documentado a partir da versão <strong>12.0.1</strong> e é exclusivo da <strong>versão Desktop</strong>. A interface e a disponibilidade podem variar em versões posteriores ou conforme as permissões da instância. Confirme os nomes exibidos no seu ambiente antes de publicar uma política operacional.
   </div>
 
-  <h2>1. O que o módulo mede — e o que não mede</h2>
+  <h2 id="1-o-que-o-modulo-mede-e-o-que-nao-mede">1. O que o módulo mede — e o que não mede</h2>
   <p>O Monitoramento de Produtividade coleta, na máquina em que o aplicativo Desktop está em execução, sinais sobre aplicações e janelas, estado de uso e interação com o computador. Esses sinais são comparados com regras e perfis de scoring definidos pela organização, gerando um score e estados operacionais.</p>
 
   <div class="table-wrap">
@@ -54,9 +156,9 @@
     <strong>Limite de interpretação:</strong> score, tempo em aplicativo, ociosidade e trocas de contexto são sinais técnicos. Isoladamente, eles não medem qualidade, complexidade, criatividade, atendimento fora do computador nem o resultado entregue.
   </div>
 
-  <h2>2. Requisitos e ativação no Desktop</h2>
+  <h2 id="2-requisitos-e-ativacao-no-desktop">2. Requisitos e ativação no Desktop</h2>
 
-  <h3>2.1 Preparar a máquina monitorada</h3>
+  <h3 id="2-1-preparar-a-maquina-monitorada">2.1 Preparar a máquina monitorada</h3>
   <p>Segundo o manual do módulo, o aplicativo é distribuído como um pacote portátil: não há um instalador tradicional, mas é necessário baixar, descompactar e executar o programa em cada máquina que será monitorada.</p>
   <ol class="steps">
     <li><strong>Confirme a versão e o escopo.</strong> Verifique se a instância oferece o módulo a partir da versão documentada (12.0.1) e se o colaborador utilizará a versão Desktop.</li>
@@ -68,7 +170,7 @@
     <li><strong>Autentique o usuário.</strong> Entre no aplicativo com o usuário e a senha correspondentes. Não compartilhe contas entre colaboradores.</li>
   </ol>
 
-  <h3>2.2 Habilitar e vincular o usuário</h3>
+  <h3 id="2-2-habilitar-e-vincular-o-usuario">2.2 Habilitar e vincular o usuário</h3>
   <ol class="steps">
     <li><strong>Prepare as regras.</strong> Cadastre ou revise Aplicações, Regras de Matching e o Perfil de Scoring adequado à função.</li>
     <li><strong>Abra o cadastro.</strong> Acesse as configurações individuais do Agente ou Supervisor.</li>
@@ -82,10 +184,10 @@
     <strong>Ordem recomendada:</strong> configure primeiro os critérios, depois vincule o perfil ao usuário. Ativar a coleta sem um perfil coerente pode produzir uma leitura tecnicamente válida, porém inadequada à função exercida.
   </div>
 
-  <h2>3. Configuração de Aplicações</h2>
+  <h2 id="3-configuracao-de-aplicacoes">3. Configuração de Aplicações</h2>
   <p>A seção <strong>Aplicações</strong> lista executáveis identificados pelo monitoramento. O manual informa que uma Inteligência Artificial atribui inicialmente uma pré-definição de score e penalidades; todos esses valores são editáveis e devem ser revisados conforme as diretrizes da operação.</p>
 
-  <h3>3.1 Identificação e classificação</h3>
+  <h3 id="3-1-identificacao-e-classificacao">3.1 Identificação e classificação</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Campo</th><th>Significado</th><th>Cuidados</th></tr></thead>
@@ -99,7 +201,7 @@
     </table>
   </div>
 
-  <h3>3.2 Scores e estados da janela</h3>
+  <h3 id="3-2-scores-e-estados-da-janela">3.2 Scores e estados da janela</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Configuração</th><th>Quando é aplicada</th><th>Exemplo de leitura</th></tr></thead>
@@ -114,7 +216,7 @@
 
   <p>Aplicações também podem disparar fluxos diferentes para os estados <strong>Em Foco</strong>, <strong>Visível</strong>, <strong>Minimizado</strong> e <strong>Reproduzindo Mídia</strong>. O <strong>Cooldown</strong>, em segundos, determina quanto o sistema aguardará antes de disparar novamente o mesmo fluxo.</p>
 
-  <h2>4. Regras de Matching</h2>
+  <h2 id="4-regras-de-matching">4. Regras de Matching</h2>
   <p>As Regras de Matching definem quais sites ou contextos serão reconhecidos e como serão pontuados. Elas são especialmente úteis quando vários trabalhos acontecem dentro de um navegador ou de uma aplicação compartilhada.</p>
 
   <div class="table-wrap">
@@ -136,7 +238,7 @@
     <strong>Evite regras amplas:</strong> um padrão genérico pode classificar contextos diferentes como se fossem iguais. Valide título, processo, diferenciação de maiúsculas/minúsculas e prioridade com cenários reais antes de usar os resultados na gestão.
   </div>
 
-  <h2>5. Perfis de Scoring</h2>
+  <h2 id="5-perfis-de-scoring">5. Perfis de Scoring</h2>
   <p>Um perfil reúne critérios adequados a um escopo de trabalho. O próprio manual sugere perfis distintos para áreas como Vendas, Suporte e Marketing, pois as ferramentas necessárias variam por função.</p>
 
   <ol class="steps">
@@ -148,7 +250,7 @@
     <li><strong>Faça uma calibração.</strong> Compare o resultado com tarefas, escala e contexto operacional; corrija classificações ou regras antes de ampliar o uso.</li>
   </ol>
 
-  <h3>5.1 Checklist de desenho do perfil</h3>
+  <h3 id="5-1-checklist-de-desenho-do-perfil">5.1 Checklist de desenho do perfil</h3>
   <ul>
     <li>O perfil corresponde à função real e não apenas ao departamento nominal?</li>
     <li>Ferramentas de apoio, treinamento, comunicação e pesquisa foram classificadas com contexto?</li>
@@ -158,7 +260,7 @@
     <li>Exceções previstas, como reuniões, mídia de treinamento e trabalho fora do Desktop, foram documentadas?</li>
   </ul>
 
-  <h2>6. Score, faixas, ociosidade e mídia</h2>
+  <h2 id="6-score-faixas-ociosidade-e-midia">6. Score, faixas, ociosidade e mídia</h2>
   <p>O sistema avalia a aplicação em foco em relação às aplicações em segundo plano. Quando mais de uma penalidade é detectada, elas <strong>não são cumulativas</strong>: somente a regra de maior impacto, isto é, a maior penalidade, é aplicada.</p>
 
   <div class="table-wrap">
@@ -180,12 +282,12 @@
 
   <p>No relatório de equipe, <strong>Agentes em Risco</strong> é a quantidade de membros com score médio <strong>abaixo de 40</strong> no período selecionado. Esse limiar é um indicador específico do painel e não altera a faixa geral “Improdutivo”, que vai de 0 a 50.</p>
 
-  <h2>7. Painel em tempo real e relatório da equipe</h2>
+  <h2 id="7-painel-em-tempo-real-e-relatorio-da-equipe">7. Painel em tempo real e relatório da equipe</h2>
 
-  <h3>7.1 Painel de Produtividade no Painel de Agentes</h3>
+  <h3 id="7-1-painel-de-produtividade-no-painel-de-agentes">7.1 Painel de Produtividade no Painel de Agentes</h3>
   <p>O Painel de Produtividade fica dentro do <strong>Painel de Agentes</strong> e mostra informações da equipe em tempo real. O estado de cada agente é calculado com as regras e o Perfil de Scoring previamente vinculados. Use-o para acompanhamento do momento atual; para tendências e comparação por período, consulte os relatórios.</p>
 
-  <h3>7.2 Produtividade - Equipe</h3>
+  <h3 id="7-2-produtividade-equipe">7.2 Produtividade - Equipe</h3>
   <p>A visão consolidada permite comparar colaboradores, observar a distribuição de tempo e identificar os softwares mais usados. Há filtros de <strong>Período</strong>, como Este mês, Últimos 7 dias e personalizado, além do botão <strong>Atualizar</strong>.</p>
 
   <div class="table-wrap">
@@ -204,7 +306,7 @@
     </table>
   </div>
 
-  <h2>8. Relatório individual do agente</h2>
+  <h2 id="8-relatorio-individual-do-agente">8. Relatório individual do agente</h2>
   <p><strong>Produtividade - Agente</strong> detalha um colaborador por dia e permite investigar hábitos de foco, trocas de contexto e uso de ferramentas. Use o mesmo período e a mesma versão de perfil quando for comparar resultados.</p>
 
   <div class="table-wrap">
@@ -221,7 +323,7 @@
     </table>
   </div>
 
-  <h3>8.1 Como interpretar streaks e trocas de contexto</h3>
+  <h3 id="8-1-como-interpretar-streaks-e-trocas-de-contexto">8.1 Como interpretar streaks e trocas de contexto</h3>
   <ul>
     <li><strong>Melhor Streak:</strong> maior sequência ininterrupta classificada como trabalho produtivo.</li>
     <li><strong>Streak Produtivo:</strong> recorde de minutos em foco contínuo, acompanhado da data de ocorrência.</li>
@@ -233,12 +335,12 @@
     <strong>Leitura conjunta:</strong> um streak longo pode refletir concentração, mas não garante qualidade. Muitas trocas podem refletir dispersão ou simplesmente o processo normal de atender, consultar CRM, registrar uma tarefa e responder ao cliente. Cruze a métrica com o trabalho realizado.
   </div>
 
-  <h2>9. Aplicativos, automações e capturas</h2>
+  <h2 id="9-aplicativos-automacoes-e-capturas">9. Aplicativos, automações e capturas</h2>
 
-  <h3>9.1 Aplicativos nos relatórios</h3>
+  <h3 id="9-1-aplicativos-nos-relatorios">9.1 Aplicativos nos relatórios</h3>
   <p>A visão de equipe consolida o uso de cada aplicativo por todos os agentes; a visão individual mostra o uso pelo agente selecionado e sua média diária. O score exibido para uma aplicação depende das regras configuradas. Se uma ferramenta aparece no extremo produtivo ou improdutivo sem representar o trabalho real, revise Aplicações, Matching, prioridade e Perfil de Scoring.</p>
 
-  <h3>9.2 Automações vinculadas ao monitoramento</h3>
+  <h3 id="9-2-automacoes-vinculadas-ao-monitoramento">9.2 Automações vinculadas ao monitoramento</h3>
   <p>Os fluxos podem ser associados tanto ao estado de uma aplicação/regra quanto ao estado geral do usuário. O módulo fornece variáveis exclusivas na aba <strong>Monitoramento</strong>:</p>
   <div class="table-wrap">
     <table class="doc">
@@ -259,14 +361,14 @@
     <li><strong>Acompanhe o resultado.</strong> Consulte os contadores de Automações nos relatórios e ajuste regras que estejam disparando em excesso.</li>
   </ol>
 
-  <h3>9.3 Capturas de tela e gravação de vídeo</h3>
+  <h3 id="9-3-capturas-de-tela-e-gravacao-de-video">9.3 Capturas de tela e gravação de vídeo</h3>
   <p>O editor de automações do módulo inclui elementos de <strong>captura de tela</strong> e <strong>gravação de vídeo</strong>, capazes de registrar visualmente a atividade no momento da execução do fluxo. O relatório individual apresenta o total de <strong>Capturas</strong> no período.</p>
 
   <div class="callout warn">
     <strong>Privacidade e segurança:</strong> capture apenas quando houver finalidade definida, base organizacional apropriada, comunicação transparente e controle de acesso. Limite retenção e consulta, evite registrar dados pessoais ou credenciais e nunca compartilhe imagens do colaborador em canais abertos. O contador de capturas não informa, sozinho, conteúdo, motivo ou legitimidade.
   </div>
 
-  <h2>10. Relação entre Produtividade e Tarefas</h2>
+  <h2 id="10-relacao-entre-produtividade-e-tarefas">10. Relação entre Produtividade e Tarefas</h2>
   <p>Os dois módulos observam dimensões diferentes. O monitoramento classifica sinais do uso do Desktop; Tarefas registra o compromisso operacional e o tempo apontado pelo agente. Uma análise responsável cruza essas dimensões sem esperar igualdade entre elas.</p>
 
   <div class="table-wrap">
@@ -283,7 +385,7 @@
     </table>
   </div>
 
-  <h3>10.1 Rotina de apontamento em Tarefas</h3>
+  <h3 id="10-1-rotina-de-apontamento-em-tarefas">10.1 Rotina de apontamento em Tarefas</h3>
   <ol class="steps">
     <li><strong>Abra a tarefa correta.</strong> Confirme título, responsável, prazo e vínculo com contato ou oportunidade.</li>
     <li><strong>Inicie no Play / Iniciar Tarefa.</strong> O cronômetro passa a registrar o tempo dedicado à atividade.</li>
@@ -292,7 +394,7 @@
     <li><strong>Finalize.</strong> Use Concluir para encerrar ou Concluir e Criar Nova para registrar o próximo passo.</li>
   </ol>
 
-  <h3>10.2 Como conciliar os dados</h3>
+  <h3 id="10-2-como-conciliar-os-dados">10.2 Como conciliar os dados</h3>
   <ol class="steps">
     <li><strong>Alinhe o período.</strong> Compare o mesmo intervalo no relatório de produtividade e em Painel e Indicadores › Tarefas.</li>
     <li><strong>Valide a jornada.</strong> Confira Tempo Logado e o tempo total apontado; eles podem divergir porque nem todo tempo logado pertence a uma tarefa cronometrada.</li>
@@ -308,10 +410,10 @@
 
   <p>Para detalhes de criação, delegação, CRM, vencimento, ações personalizadas e indicadores, consulte o <a href="tarefas.html">guia de Tarefas</a>.</p>
 
-  <h2>11. Interpretação ética e governança</h2>
+  <h2 id="11-interpretacao-etica-e-governanca">11. Interpretação ética e governança</h2>
   <p>O monitoramento deve apoiar melhoria de processo, dimensionamento e diagnóstico de ferramentas — não vigilância indiscriminada. Uma política clara reduz falsos diagnósticos e protege colaboradores, clientes e a própria organização.</p>
 
-  <h3>11.1 Princípios mínimos</h3>
+  <h3 id="11-1-principios-minimos">11.1 Princípios mínimos</h3>
   <ul>
     <li><strong>Finalidade:</strong> declare por que os dados são coletados e quais decisões podem apoiar.</li>
     <li><strong>Transparência:</strong> informe sinais coletados, estados, critérios, automações, capturas, retenção e responsáveis pelo acesso.</li>
@@ -322,7 +424,7 @@
     <li><strong>Revisão humana:</strong> não aplique medida disciplinar ou avaliação de desempenho somente com score, ranking, ociosidade ou captura.</li>
   </ul>
 
-  <h3>11.2 Perguntas antes de agir sobre um indicador</h3>
+  <h3 id="11-2-perguntas-antes-de-agir-sobre-um-indicador">11.2 Perguntas antes de agir sobre um indicador</h3>
   <ol class="steps">
     <li>O Desktop estava aberto, autenticado e coletando durante todo o período?</li>
     <li>O Perfil de Scoring era o correto para a função e estava atualizado?</li>
@@ -333,7 +435,7 @@
     <li>O colaborador teve oportunidade de contextualizar o dado?</li>
   </ol>
 
-  <h2>12. Troubleshooting</h2>
+  <h2 id="12-troubleshooting">12. Troubleshooting</h2>
 
   <div class="table-wrap">
     <table class="doc">
@@ -360,7 +462,7 @@
     <strong>Ao abrir um chamado:</strong> informe versão, tela, período, perfil, regra/aplicação e comportamento observado. Remova dados pessoais e não envie senhas, tokens, conteúdo de captura ou gravações sem necessidade e autorização.
   </div>
 
-  <h2>13. Checklist de implantação e revisão</h2>
+  <h2 id="13-checklist-de-implantacao-e-revisao">13. Checklist de implantação e revisão</h2>
   <ol class="steps">
     <li>Confirmar versão compatível, uso do Desktop e política de monitoramento aprovada.</li>
     <li>Instalar o pacote portátil em ambiente controlado, autorizar firewall e autenticar uma conta de teste.</li>
@@ -384,6 +486,7 @@
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

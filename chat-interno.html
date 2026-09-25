@@ -4,22 +4,87 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chat Interno — Manual Omnichannel</title>
+<meta name="description" content="Chat Interno do AtenderBem: como conversar com a equipe, recursos do campo de mensagem, encaminhamento de mídias, modelo 4Q + 1S e boas práticas de comunicação interna.">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="crm.html">CRM</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="pabx.html">PABX & Telefonia</a>
-    <a href="contatos.html">Contatos</a>
-    <a href="relatorios.html">Relatórios</a>
-    <a href="relatorios-personalizados.html">Personalizados</a>
-    <a href="configuracoes.html">Configurações</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a class="active" href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -29,35 +94,61 @@
   <h1>Chat Interno</h1>
   <p class="subtitle">Converse com a equipe sem expor o cliente. Troque mensagens, anexos e use atalhos de produtividade.</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-para-que-serve">1. Para que serve</a></li>
+      <li><a href="#2-como-usar">2. Como usar</a></li>
+      <li><a href="#3-recursos-do-campo-de-mensagem">3. Recursos do campo de mensagem</a></li>
+      <li><a href="#4-encaminhamento-de-midias">4. Encaminhamento de mídias</a></li>
+      <li><a href="#5-como-pedir-ajuda-ou-escalar-um-problema">5. Como pedir ajuda ou escalar um problema</a></li>
+      <li class="toc-h3"><a href="#modelo-de-mensagem-interna">Modelo de mensagem interna</a></li>
+      <li><a href="#6-boas-praticas-de-comunicacao-interna">6. Boas práticas de comunicação interna</a></li>
+      <li><a href="#7-limites-da-evidencia-e-proximos-passos">7. Limites da evidência e próximos passos</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
+  <div class="callout info">
+    <strong>Fonte deste capítulo:</strong> observação da interface <strong>Internal Chat</strong>, complementada pela política <em>[HABILIS] política de comunicação de problemas</em> (modelo <strong>4Q + 1S</strong> e boas práticas) e pelos comunicados de versão (encaminhamento de mídias para o chat interno em filas oficiais Cloud API). Não há seção oficial dedicada exclusivamente ao Chat Interno no acervo consultado.
+  </div>
+
   <figure class="figure">
     <img src="assets/internal-chat.png" alt="Tela de Chat Interno">
     <figcaption>Chat interno com barra de busca de contatos e campo de mensagem.</figcaption>
   </figure>
 
-  <h2>1. Para que serve</h2>
+  <h2 id="1-para-que-serve">1. Para que serve</h2>
   <p>O <strong>Internal Chat</strong> é um canal de conversa entre colaboradores da empresa. Diferente do atendimento ao cliente, aqui a comunicação fica restrita à equipe — útil para alinhar respostas, pedir ajuda a um colega ou repassar contexto.</p>
 
-  <h2>2. Como usar</h2>
+  <h2 id="2-como-usar">2. Como usar</h2>
   <ol class="steps">
     <li>Na barra lateral esquerda, use o campo <strong>Search</strong> para encontrar o colega ou grupo.</li>
     <li>Selecione a conversa desejada (o texto inicial mostra “No chat selected”).</li>
     <li>Digite a mensagem no campo inferior e envie pelo ícone de avião de papel.</li>
   </ol>
 
-  <h2>3. Recursos do campo de mensagem</h2>
-  <ul>
-    <li><strong>Emoji</strong> — ícone de sorriso para inserir emojis.</li>
-    <li><strong>Anexo</strong> — clipe de papel para enviar arquivos.</li>
-    <li><strong>Modelos</strong> — balão de comentário para usar respostas/modelos.</li>
-    <li><strong>Atalhos</strong> — digite <code>/</code> para ver atalhos; <code>Ctrl + Alt</code> abre a lista de atalhos de teclado.</li>
-  </ul>
-
-  <div class="callout info">
+  <h2 id="3-recursos-do-campo-de-mensagem">3. Recursos do campo de mensagem</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Recurso</th><th>Como acessar / o que faz</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Emoji</strong></td><td>Ícone de sorriso para inserir emojis.</td></tr>
+        <tr><td><strong>Anexo</strong></td><td>Clipe de papel para enviar arquivos.</td></tr>
+        <tr><td><strong>Modelos</strong></td><td>Balão de comentário para usar respostas/modelos.</td></tr>
+        <tr><td><strong>Atalhos</strong></td><td>Digite <code>/</code> para ver atalhos; <code>Ctrl + Alt</code> abre a lista de atalhos de teclado.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout tip">
     <strong>Boa prática:</strong> use o chat interno para dúvidas rápidas entre agentes, mantendo o canal de atendimento ao cliente focado no cliente.
   </div>
 
-  <h2>4. Encaminhamento de mídias</h2>
-  <p>Em atendimentos de filas oficiais <strong>Cloud API</strong>, a plataforma permite encaminhar mídias recebidas para o Chat Interno ou para outro atendimento. Use esse recurso para compartilhar uma evidência com a equipe sem precisar baixar e reenviar o arquivo por um canal externo.</p>
+  <h2 id="4-encaminhamento-de-midias">4. Encaminhamento de mídias</h2>
+  <p>Em atendimentos de filas oficiais <strong>Cloud API</strong>, a plataforma permite encaminhar mídias recebidas para o Chat Interno ou para outro atendimento — funcionalidade registrada nos comunicados de versão. Use esse recurso para compartilhar uma evidência com a equipe sem precisar baixar e reenviar o arquivo por um canal externo.</p>
   <ol class="steps">
     <li>Confirme se a mídia pertence ao atendimento e se é necessária para a análise.</li>
     <li>Use a opção de encaminhamento disponível na própria mídia.</li>
@@ -68,33 +159,37 @@
     <strong>Compartilhamento responsável:</strong> encaminhe somente o conteúdo necessário e apenas a destinatários autorizados. O Chat Interno mantém a comunicação dentro da equipe, mas não elimina os cuidados com dados sensíveis.
   </div>
 
-  <h2>5. Como pedir ajuda ou escalar um problema</h2>
+  <h2 id="5-como-pedir-ajuda-ou-escalar-um-problema">5. Como pedir ajuda ou escalar um problema</h2>
   <p>Para reduzir idas e vindas, estruture a mensagem antes de encaminhar o caso. A política operacional recomenda o modelo <strong>4Q + 1S</strong>:</p>
-  <table class="doc">
-    <thead><tr><th>Parte</th><th>O que informar</th></tr></thead>
-    <tbody>
-      <tr><td>O quê?</td><td>Descrição clara e objetiva do problema, sem julgamento ou suposição.</td></tr>
-      <tr><td>Como?</td><td>Contexto técnico ou operacional, horário, sistema envolvido e evidências disponíveis.</td></tr>
-      <tr><td>Por quê?</td><td>Impacto, consequência, risco ou motivo da prioridade.</td></tr>
-      <tr><td>Quem?</td><td>Equipe, operação ou público afetado, sem expor dados pessoais desnecessários.</td></tr>
-      <tr><td>Sugestão</td><td>Providência já tomada e hipótese de solução ou próximo passo.</td></tr>
-    </tbody>
-  </table>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Parte</th><th>O que informar</th></tr></thead>
+      <tbody>
+        <tr><td>O quê?</td><td>Descrição clara e objetiva do problema, sem julgamento ou suposição.</td></tr>
+        <tr><td>Como?</td><td>Contexto técnico ou operacional, horário, sistema envolvido e evidências disponíveis.</td></tr>
+        <tr><td>Por quê?</td><td>Impacto, consequência, risco ou motivo da prioridade.</td></tr>
+        <tr><td>Quem?</td><td>Equipe, operação ou público afetado, sem expor dados pessoais desnecessários.</td></tr>
+        <tr><td>Sugestão</td><td>Providência já tomada e hipótese de solução ou próximo passo.</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <h3>Modelo de mensagem interna</h3>
-  <table class="doc">
-    <thead><tr><th>Campo</th><th>Preenchimento</th></tr></thead>
-    <tbody>
-      <tr><td>Referência</td><td>ID interno do atendimento ou ticket e data/hora.</td></tr>
-      <tr><td>Status</td><td>Em análise, crítico ou resolvido.</td></tr>
-      <tr><td>Problema e impacto</td><td>O que ocorre, em qual fluxo e qual é o efeito operacional.</td></tr>
-      <tr><td>Evidências</td><td>Logs, captura de tela, vídeo curto ou URL estritamente necessários.</td></tr>
-      <tr><td>Ações executadas</td><td>Testes e providências já realizados.</td></tr>
-      <tr><td>Próximo passo</td><td>Pedido objetivo, sugestão e responsável pelo acompanhamento.</td></tr>
-    </tbody>
-  </table>
+  <h3 id="modelo-de-mensagem-interna">Modelo de mensagem interna</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo</th><th>Preenchimento</th></tr></thead>
+      <tbody>
+        <tr><td>Referência</td><td>ID interno do atendimento ou ticket e data/hora.</td></tr>
+        <tr><td>Status</td><td>Em análise, crítico ou resolvido.</td></tr>
+        <tr><td>Problema e impacto</td><td>O que ocorre, em qual fluxo e qual é o efeito operacional.</td></tr>
+        <tr><td>Evidências</td><td>Logs, captura de tela, vídeo curto ou URL estritamente necessários.</td></tr>
+        <tr><td>Ações executadas</td><td>Testes e providências já realizados.</td></tr>
+        <tr><td>Próximo passo</td><td>Pedido objetivo, sugestão e responsável pelo acompanhamento.</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <h2>6. Boas práticas de comunicação interna</h2>
+  <h2 id="6-boas-praticas-de-comunicacao-interna">6. Boas práticas de comunicação interna</h2>
   <ul>
     <li><strong>Seja direto, mas completo:</strong> informe o essencial sem omitir contexto relevante.</li>
     <li><strong>Inclua evidências úteis:</strong> registros, horários e referências reduzem perguntas repetidas.</li>
@@ -108,6 +203,14 @@
     <strong>Antes de enviar:</strong> confira destino, contexto, evidências, ação solicitada e responsável. Uma mensagem estruturada acelera a decisão e reduz retrabalho.
   </div>
 
+  <h2 id="7-limites-da-evidencia-e-proximos-passos">7. Limites da evidência e próximos passos</h2>
+  <p>A interface observada documenta a busca de contatos e o campo de mensagem com emoji, anexo, modelos e atalhos; o encaminhamento de mídias consta dos comunicados de versão, aplicável às filas oficiais Cloud API. Comportamentos adicionais (histórico persistente, criação de grupos, notificações e permissões específicas do chat) <strong>não foram confirmados</strong> e não devem ser inferidos a partir deste capítulo.</p>
+  <ul>
+    <li>Para escalar um caso estruturado, veja também o <a href="suporte-operacional.html">Playbook de Suporte Operacional</a>.</li>
+    <li>Para registrar pendências e follow-ups originados de uma conversa interna, use <a href="tarefas.html">Tarefas (My tasks)</a>.</li>
+    <li>Para o acompanhamento de atendimentos ao cliente, consulte <a href="tickets.html">Tickets</a>.</li>
+  </ul>
+
   <div class="pagenav">
     <a href="tickets.html"><span>← Anterior</span> Tickets</a>
     <a class="next" href="tarefas.html"><span>Próximo →</span> Tarefas (My tasks)</a>
@@ -117,6 +220,7 @@
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

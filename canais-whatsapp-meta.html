@@ -4,22 +4,87 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Canais WhatsApp e Meta — Manual Omnichannel</title>
+<meta name="description" content="Como escolher a modalidade de WhatsApp (Cloud API Tech Provider, Dev App, Coexistence, WAMD2/WAMD3, Gupshup), preparar o portfólio Meta, conectar a Cloud API, diagnosticar templates, Flows, grupos e pendências, e o que mudou nas versões 13.0.10 a 14.1.10.">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="crm.html">CRM</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="pabx.html">PABX &amp; Telefonia</a>
-    <a href="contatos.html">Contatos</a>
-    <a href="canais-whatsapp-meta.html" class="active">WhatsApp / Meta</a>
-    <a href="relatorios.html">Relatórios</a>
-    <a href="configuracoes.html">Configurações</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a class="active" href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -29,11 +94,45 @@
   <h1>Canais WhatsApp e Meta</h1>
   <p class="subtitle">Escolha a modalidade correta, prepare o portfólio empresarial, conecte a Cloud API e diagnostique templates, Flows, grupos e pendências da Meta sem expor credenciais.</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-como-o-whatsapp-entra-na-plataforma">1. Como o WhatsApp entra na plataforma</a></li>
+      <li><a href="#2-pre-onboarding-business-manager-e-portfolio-empresarial">2. Pré-onboarding: Business Manager e portfólio empresarial</a></li>
+      <li class="toc-h3"><a href="#business-manager-waba-e-numero-nao-confunda">Business Manager, WABA e número: não confunda</a></li>
+      <li><a href="#3-onboarding-pela-fila-wa-cloud-api-tech-provider">3. Onboarding pela fila WA Cloud API (Tech Provider)</a></li>
+      <li class="toc-h3"><a href="#coexistence-decisao-e-limitacoes">Coexistence: decisão e limitações</a></li>
+      <li><a href="#4-wa-cloud-api-dev-app">4. WA Cloud API (Dev App)</a></li>
+      <li class="toc-h3"><a href="#componentes-que-precisam-estar-concluidos">Componentes que precisam estar concluídos</a></li>
+      <li><a href="#5-templates-da-cloud-api">5. Templates da Cloud API</a></li>
+      <li class="toc-h3"><a href="#criar-pela-plataforma">Criar pela plataforma</a></li>
+      <li class="toc-h3"><a href="#checklist-para-aprovacao-e-qualidade">Checklist para aprovação e qualidade</a></li>
+      <li><a href="#6-whatsapp-flows-em-ura-e-automacoes">6. WhatsApp Flows em URA e automações</a></li>
+      <li class="toc-h3"><a href="#conferencia-do-json">Conferência do JSON</a></li>
+      <li><a href="#7-grupos-comunidades-canais-e-listas">7. Grupos, comunidades, canais e listas</a></li>
+      <li><a href="#8-gupshup-integracao-legada">8. Gupshup — integração legada</a></li>
+      <li><a href="#9-diagnostico-de-demandas-meta">9. Diagnóstico de demandas Meta</a></li>
+      <li class="toc-h3"><a href="#coleta-minima-para-suporte">Coleta mínima para suporte</a></li>
+      <li><a href="#10-desativacao-banimento-e-apelacao">10. Desativação, banimento e apelação</a></li>
+      <li><a href="#11-boas-praticas-continuas">11. Boas práticas contínuas</a></li>
+      <li><a href="#12-referencias-oficiais-e-hierarquia-de-decisao">12. Referências oficiais e hierarquia de decisão</a></li>
+      <li><a href="#novidades-canais">13. Novidades recentes dos canais (v13.0.10 a v14.1.10)</a></li>
+      <li class="toc-h3"><a href="#13-1-wamd2-importar-sessao-autenticada-contorno-do-passkey">13.1. WAMD2: importar sessão autenticada (contorno do passkey)</a></li>
+      <li class="toc-h3"><a href="#13-2-botoes-em-wamd2-e-wamd3-v14-1-4">13.2. Botões em WAMD2 e WAMD3 (v14.1.4)</a></li>
+      <li class="toc-h3"><a href="#13-3-cloud-api-delay-e-agregacao-de-mensagens-v14-1-10">13.3. Cloud API: delay e agregação de mensagens (v14.1.10)</a></li>
+      <li class="toc-h3"><a href="#13-4-correcoes-de-canais-na-v14-e-na-v14-1-10">13.4. Correções de canais na v14 e na v14.1.10</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <div class="callout info">
     <strong>Contexto de atualização:</strong> este capítulo prioriza o <em>Guia Demandas Meta — Cloud API e Business Manager, Guia do parceiro 2026</em> e as orientações da versão 9.2 sobre Tech Provider. Telas, preços, limites, elegibilidade e políticas são controlados pela Meta e podem mudar. Confirme sempre a regra vigente na documentação oficial antes de prometer prazo, custo ou disponibilidade.
   </div>
 
-  <h2>1. Como o WhatsApp entra na plataforma</h2>
+  <h2 id="1-como-o-whatsapp-entra-na-plataforma">1. Como o WhatsApp entra na plataforma</h2>
   <p>Cada número ou integração de WhatsApp é cadastrado como uma <strong>fila de atendimento</strong>. Depois da conexão, a fila recebe as mensagens e as distribui aos agentes autorizados. A escolha da modalidade determina como o número é autenticado, quais recursos ficam disponíveis e quem administra os ativos no ecossistema Meta.</p>
 
   <table class="doc">
@@ -51,7 +150,7 @@
     <strong>Diretriz:</strong> para novas operações, prefira a Cloud API oficial. Use a modalidade convencional quando máxima compatibilidade for prioritária; avalie Coexistence somente quando manter o aplicativo no celular for requisito real.
   </div>
 
-  <h2>2. Pré-onboarding: Business Manager e portfólio empresarial</h2>
+  <h2 id="2-pre-onboarding-business-manager-e-portfolio-empresarial">2. Pré-onboarding: Business Manager e portfólio empresarial</h2>
   <p>A maioria das desativações descritas no acervo está associada à dificuldade da Meta em confirmar a existência ou a atividade da empresa, e não a uma falha da fila. Faça a preparação antes de iniciar o cadastro integrado ou criar o app.</p>
 
   <ol class="steps">
@@ -69,7 +168,7 @@
     <strong>Setores regulados:</strong> não reutilize listas históricas de segmentos “permitidos” ou “proibidos” como regra definitiva. As políticas mudam. Consulte a <a href="https://business.whatsapp.com/policy?lang=pt_BR" target="_blank" rel="noopener noreferrer">Política de Negócios do WhatsApp</a>, documente a análise e alinhe limitações antes do onboarding.
   </div>
 
-  <h3>Business Manager, WABA e número: não confunda</h3>
+  <h3 id="business-manager-waba-e-numero-nao-confunda">Business Manager, WABA e número: não confunda</h3>
   <table class="doc">
     <thead><tr><th>Componente</th><th>Função no diagnóstico</th></tr></thead>
     <tbody>
@@ -81,7 +180,7 @@
     </tbody>
   </table>
 
-  <h2>3. Onboarding pela fila WA Cloud API (Tech Provider)</h2>
+  <h2 id="3-onboarding-pela-fila-wa-cloud-api-tech-provider">3. Onboarding pela fila WA Cloud API (Tech Provider)</h2>
   <p>Na documentação da versão 9.2, <strong>WA Cloud API</strong> identifica a modalidade Tech Provider. Ela substitui a criação manual do app por um fluxo de cadastro integrado da Meta.</p>
 
   <ol class="steps">
@@ -101,7 +200,7 @@
     <strong>Não interrompa o cadastro:</strong> fechar uma das janelas antes do estado “Autenticado” pode deixar o fluxo incompleto. Não compartilhe no chamado capturas contendo token, códigos de verificação, telefones completos ou dados pessoais desnecessários.
   </div>
 
-  <h3>Coexistence: decisão e limitações</h3>
+  <h3 id="coexistence-decisao-e-limitacoes">Coexistence: decisão e limitações</h3>
   <table class="doc">
     <thead><tr><th>Escolha</th><th>Vantagem</th><th>Limitação documentada</th></tr></thead>
     <tbody>
@@ -116,10 +215,10 @@
     <li>Elegibilidade de país, versão do aplicativo, tipos de mensagem e periodicidade de abertura do celular mudam; valide na <a href="https://developers.facebook.com/docs/whatsapp/embedded-signup/custom-flows/onboarding-business-app-users/" target="_blank" rel="noopener noreferrer">documentação atual de Coexistence</a>.</li>
   </ul>
 
-  <h2>4. WA Cloud API (Dev App)</h2>
+  <h2 id="4-wa-cloud-api-dev-app">4. WA Cloud API (Dev App)</h2>
   <p>A fila <strong>WA Cloud API (Dev App)</strong> preserva a modalidade em que o aplicativo é criado e administrado em nome do cliente. O acervo confirma equivalência de capacidades técnicas com a conexão convencional via Tech Provider, exceto que <strong>Coexistence não está disponível pelo app próprio</strong>.</p>
 
-  <h3>Componentes que precisam estar concluídos</h3>
+  <h3 id="componentes-que-precisam-estar-concluidos">Componentes que precisam estar concluídos</h3>
   <ul>
     <li>App empresarial criado em <code>developers.facebook.com</code> e associado ao portfólio correto.</li>
     <li>Produto WhatsApp configurado, WABA e número verificado.</li>
@@ -143,10 +242,10 @@
     <strong>Fluxo antigo:</strong> o Manual de Uso descreve cliques detalhados no Facebook Developers e no Business Manager. Esses menus são voláteis e podem não corresponder à interface atual. A Meta também pode exigir análise do app, vídeo e documentação. Use o roteiro acima como checklist, siga a interface vigente e não prometa suporte da Habilis para exigências de publicação de um app próprio.
   </div>
 
-  <h2>5. Templates da Cloud API</h2>
+  <h2 id="5-templates-da-cloud-api">5. Templates da Cloud API</h2>
   <p>Templates são mensagens pré-aprovadas pela Meta para comunicações iniciadas pela empresa fora das condições de mensagem livre. A classificação, a cobrança e os critérios de aprovação pertencem à Meta.</p>
 
-  <h3>Criar pela plataforma</h3>
+  <h3 id="criar-pela-plataforma">Criar pela plataforma</h3>
   <ol class="steps">
     <li>Acesse <strong>Templates › Templates WA Cloud</strong>.</li>
     <li>Clique em <strong>+ Adicionar</strong> e escolha <strong>Cloud API</strong>.</li>
@@ -159,7 +258,7 @@
     <strong>Escopo confirmado:</strong> na versão 9.2, a criação de templates básicos está disponível tanto para WA Cloud API (Tech Provider) quanto para WA Cloud API (Dev App). Edição e exclusão continuam no painel da Meta.
   </div>
 
-  <h3>Checklist para aprovação e qualidade</h3>
+  <h3 id="checklist-para-aprovacao-e-qualidade">Checklist para aprovação e qualidade</h3>
   <table class="doc">
     <thead><tr><th>Verificação</th><th>Boa prática</th></tr></thead>
     <tbody>
@@ -178,7 +277,7 @@
     <strong>Valores e janelas de cobrança:</strong> materiais anteriores descrevem modelos de preço e franquias que podem estar desatualizados. Consulte a documentação oficial de precificação no momento da proposta e do envio. Não use números históricos deste acervo em orçamento.
   </div>
 
-  <h2>6. WhatsApp Flows em URA e automações</h2>
+  <h2 id="6-whatsapp-flows-em-ura-e-automacoes">6. WhatsApp Flows em URA e automações</h2>
   <p>O WhatsApp Flows permite formulários, menus e tarefas interativas dentro da conversa, como cadastro, cotação e agendamento. O recurso documentado funciona <strong>somente em filas oficiais</strong>.</p>
 
   <ol class="steps">
@@ -190,7 +289,7 @@
     <li>Teste a experiência em aparelho celular antes de liberar para produção.</li>
   </ol>
 
-  <h3>Conferência do JSON</h3>
+  <h3 id="conferencia-do-json">Conferência do JSON</h3>
   <pre><code>{
   "version": "&lt;versão suportada pela Meta&gt;",
   "screens": [
@@ -208,7 +307,7 @@
     <strong>Compatibilidade:</strong> trate a ausência de suporte a array/lista como restrição da versão documentada, não como regra permanente. Confirme na versão instalada. O acervo também registra que Flows devem ser testados em celular, pois a experiência pode não estar disponível em todos os clientes do WhatsApp.
   </div>
 
-  <h2>7. Grupos, comunidades, canais e listas</h2>
+  <h2 id="7-grupos-comunidades-canais-e-listas">7. Grupos, comunidades, canais e listas</h2>
   <p>Grupos do WhatsApp não se confundem com <strong>Grupos de Acesso</strong> internos da plataforma. Esta seção trata das conversas coletivas no aplicativo e se aplica principalmente às conexões não oficiais WAMD2/WAMD3.</p>
 
   <table class="doc">
@@ -224,10 +323,10 @@
   </table>
 
   <div class="callout warn">
-    <strong>Legado sem garantia:</strong> WAMD2 e WAMD3 dependem de bibliotecas comunitárias e engenharia reversa. Não há garantia de estabilidade, continuidade ou compatibilidade. WAMD original está documentada como descontinuada para melhorias; planeje migração gradual para a Cloud API oficial.
+    <strong>Legado sem garantia:</strong> WAMD2 e WAMD3 dependem de bibliotecas comunitárias e engenharia reversa. Não há garantia de estabilidade, continuidade ou compatibilidade. WAMD original está documentada como descontinuada para melhorias; planeje migração gradual para a Cloud API oficial. Para o que mudou nessas conexões nas versões 13.0.10 e 14.1.4 — importação de sessão autenticada (contorno do passkey) e suporte a mensagens com botões — veja a <a href="#novidades-canais">seção 13</a>.
   </div>
 
-  <h2>8. Gupshup — integração legada</h2>
+  <h2 id="8-gupshup-integracao-legada">8. Gupshup — integração legada</h2>
   <p>O acervo registra uma integração histórica com a Gupshup. Ela não deve ser adotada em uma nova implantação sem confirmação comercial e técnica de que a fila continua disponível na versão atual.</p>
 
   <ol class="steps">
@@ -243,7 +342,7 @@
     <strong>Segredo operacional:</strong> a API Key é obtida no nível da conta Gupshup, não no app. Trate-a como credencial. Ao migrar um número de provedor externo para Cloud API, coordene a liberação do ativo e a confirmação em duas etapas com o provedor anterior; não exclua ativos sem plano de retorno e backup quando aplicável.
   </div>
 
-  <h2>9. Diagnóstico de demandas Meta</h2>
+  <h2 id="9-diagnostico-de-demandas-meta">9. Diagnóstico de demandas Meta</h2>
   <p>Antes de alterar a fila, determine em qual camada está a falha. A API pode estar saudável enquanto o portfólio, o número, o template, a mídia ou a autorização estão pendentes.</p>
 
   <table class="doc">
@@ -261,7 +360,7 @@
     </tbody>
   </table>
 
-  <h3>Coleta mínima para suporte</h3>
+  <h3 id="coleta-minima-para-suporte">Coleta mínima para suporte</h3>
   <pre><code>Instância: &lt;nome lógico, sem credenciais&gt;
 Fila: &lt;identificador interno&gt;
 Data/hora e fuso: &lt;momento exato&gt;
@@ -277,7 +376,7 @@ Evidência sanitizada: &lt;sem token, código, telefone completo ou PII&gt;</cod
     <strong>Relato útil:</strong> escolha uma ocorrência reproduzível e forneça horário e erro exatos. “Vários clientes com problema” não permite correlacionar webhook, evento, fila ou incidente da Meta.
   </div>
 
-  <h2>10. Desativação, banimento e apelação</h2>
+  <h2 id="10-desativacao-banimento-e-apelacao">10. Desativação, banimento e apelação</h2>
   <p><strong>Desativação da conta</strong> afeta os números associados à conta; <strong>banimento do número</strong> afeta o número específico. A distinção define o diagnóstico e evita uma apelação prematura.</p>
 
   <ol class="steps">
@@ -293,7 +392,7 @@ Evidência sanitizada: &lt;sem token, código, telefone completo ou PII&gt;</cod
     <strong>Privacidade no escalonamento:</strong> envie dados empresariais e estatísticas somente pelo canal seguro indicado pelo suporte. O identificador da WABA, documentos e capturas do cliente não devem ser publicados em grupos, páginas do manual ou conversas sem controle de acesso.
   </div>
 
-  <h2>11. Boas práticas contínuas</h2>
+  <h2 id="11-boas-praticas-continuas">11. Boas práticas contínuas</h2>
   <ul>
     <li>Mantenha site, domínio, política de privacidade, cadastro empresarial e categoria sempre coerentes e disponíveis.</li>
     <li>Use opt-in explícito, segmentação e opt-out simples; não compre listas de contatos.</li>
@@ -306,7 +405,7 @@ Evidência sanitizada: &lt;sem token, código, telefone completo ou PII&gt;</cod
     <li>Para Coexistence, alinhe previamente as limitações de dispositivos, tipos de mensagem, histórico e grupos.</li>
   </ul>
 
-  <h2>12. Referências oficiais e hierarquia de decisão</h2>
+  <h2 id="12-referencias-oficiais-e-hierarquia-de-decisao">12. Referências oficiais e hierarquia de decisão</h2>
   <ol class="steps">
     <li><strong>Primeiro:</strong> mensagem, status e motivo exibidos no Business Manager, WhatsApp Manager ou cadastro integrado da conta afetada.</li>
     <li><strong>Depois:</strong> <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/overview" target="_blank" rel="noopener noreferrer">visão geral da plataforma</a>, <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/support/error-codes" target="_blank" rel="noopener noreferrer">códigos de erro</a>, <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/business-phone-numbers/media/" target="_blank" rel="noopener noreferrer">mídias</a> e política vigente da Meta.</li>
@@ -315,7 +414,61 @@ Evidência sanitizada: &lt;sem token, código, telefone completo ou PII&gt;</cod
   </ol>
 
   <div class="callout info">
-    <strong>Fontes internas consolidadas:</strong> Manual de Uso oficial; Guia Demandas Meta — Cloud API e Business Manager (2026); Meta WAMD e Cloud API (Dev App e Tech Provider); WhatsApp Flow; Gupshup; Guia de Boas Práticas — Grupos WA. Em conflito, este capítulo prioriza o guia de 2026 e a documentação atual da Meta; instruções históricas permanecem identificadas como legado.
+    <strong>Fontes internas consolidadas:</strong> Manual de Uso oficial; Guia Demandas Meta — Cloud API e Business Manager (2026); Meta WAMD e Cloud API (Dev App e Tech Provider); WhatsApp Flow; Gupshup; Guia de Boas Práticas — Grupos WA; Comunicados de Versões (doc oficial) para as novidades das versões 13.0.10 a 14.1.10 (seção 13). Em conflito, este capítulo prioriza o guia de 2026 e a documentação atual da Meta; instruções históricas permanecem identificadas como legado.
+  </div>
+
+  <h2 id="novidades-canais">13. Novidades recentes dos canais (v13.0.10 a v14.1.10)</h2>
+  <p>As versões 13 e 14.x mudaram o comportamento de alguns canais. Os itens abaixo vêm dos <strong>Comunicados de Versões (doc oficial)</strong> da Habilis e complementam este capítulo; onde a nota oficial não detalha, isso é sinalizado.</p>
+
+  <table class="doc">
+    <thead><tr><th>Versão</th><th>Canal</th><th>Novidade relativa a canais</th></tr></thead>
+    <tbody>
+      <tr><td><code>13.0.10</code> <span style="font-size:11px; color:#475569;">(06/07/2026)</span></td><td>WAMD2</td><td><strong>Importação de sessão já autenticada do WhatsApp Web</strong> em filas WAMD2, para lidar com os casos em que a Meta passou a exigir <strong>passkey</strong>.</td></tr>
+      <tr><td><code>14</code> <span style="font-size:11px; color:#475569;">(14/07/2026)</span></td><td>URA/Automação e oficial</td><td>O elemento de <strong>enviar mensagem comum</strong> na URA/Automação passa a permitir enviar <strong>botões</strong> (sem espera por resposta); o <strong>cadastro de mensagens pré-definidas</strong> passa a permitir cadastrar botões; o endpoint <code>enqueueMessageToSend</code> passa a permitir <strong>envio de mensagem livre em oficial</strong>, desde que exista janela aberta com o cliente no momento do envio.</td></tr>
+      <tr><td><code>14.1.4</code> <span style="font-size:11px; color:#475569;">(03/09/2026)</span></td><td>WAMD2 / WAMD3</td><td><strong>Suporte a mensagens com botões</strong> em filas WAMD2 e WAMD3.</td></tr>
+      <tr><td><code>14.1.10</code> <span style="font-size:11px; color:#475569;">(18/09/2026)</span></td><td>Cloud API</td><td><strong>Delay e agregação de mensagens enviadas</strong> em filas Cloud API, para <strong>redução de custos</strong>.</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="13-1-wamd2-importar-sessao-autenticada-contorno-do-passkey">13.1. WAMD2: importar sessão autenticada (contorno do passkey)</h3>
+  <p>A v13.0.10 adicionou a possibilidade de <strong>importar uma sessão já autenticada do WhatsApp Web</strong> numa fila WAMD2. O objetivo declarado é tratar os casos em que a Meta passou a exigir <strong>passkey</strong> na autenticação. Processo comunicado:</p>
+  <ol class="steps">
+    <li>No navegador do cliente, crie um <strong>Favorito/Bookmark</strong> e, no lugar da URL, cole o <strong>script completo</strong> do arquivo indicado no comunicado (importante copiar todo o conteúdo).</li>
+    <li>Abra o <strong>WhatsApp Web</strong> normalmente no Chrome, faça a autenticação (ler o QR Code e concluir a assinatura com a passkey) e aguarde carregar por completo.</li>
+    <li>Com o WhatsApp Web já carregado, clique no <strong>Favorito</strong> criado. Uma janela abrirá para escolher onde salvar o arquivo da sessão; salve e confirme. A sessão é encerrada no navegador.</li>
+    <li>No sistema, numa fila WAMD2, <strong>desabilite a fila</strong>, clique em <strong>Importar sessão</strong> e selecione o arquivo exportado. A fila se habilita e autentica automaticamente com os dados da sessão.</li>
+  </ol>
+  <div class="callout warn">
+    <strong>Validade e uso único:</strong> o arquivo gerado <strong>vale por 3 horas</strong> e, depois de importado, <strong>não serve para ser usado de novo</strong>. Se a importação não der certo, é preciso repetir todo o processo. Trate o arquivo como credencial: contém uma sessão autenticada — não o compartilhe nem o anexe a chamados.
+  </div>
+
+  <h3 id="13-2-botoes-em-wamd2-e-wamd3-v14-1-4">13.2. Botões em WAMD2 e WAMD3 (v14.1.4)</h3>
+  <p>A v14.1.4 passou a suportar <strong>mensagens com botões</strong> também nas filas não oficiais <strong>WAMD2</strong> e <strong>WAMD3</strong>. Antes, o envio de botões era um recurso ligado às filas oficiais / ao fluxo de mensagens pré-definidas da v14. Na mesma versão foram corrigidos, nessas filas, <em>on status</em> (HAB-242) e o processamento de mensagens recebidas na <strong>WAMD3</strong> (HAB-272). Lembre que WAMD2/WAMD3 seguem sendo conexões não oficiais, sem garantia de estabilidade (ver seção 7) — o suporte a botões não altera essa natureza.</p>
+
+  <h3 id="13-3-cloud-api-delay-e-agregacao-de-mensagens-v14-1-10">13.3. Cloud API: delay e agregação de mensagens (v14.1.10)</h3>
+  <p>A v14.1.10, liberada a todos os clientes, trouxe <strong>delay e agregação de mensagens enviadas em filas Cloud API</strong> com o objetivo de <strong>reduzir custos</strong>. Em vez de disparar cada mensagem isoladamente, o envio em filas Cloud API pode ser retardado/agrupado. O comunicado <strong>não detalha</strong> os parâmetros de tempo, os limites de agrupamento nem como configurar o recurso — confirme na tela da fila e na versão instalada (ver incertezas). A mesma versão corrigiu itens relevantes a canais, listados adiante.</p>
+
+  <h3 id="13-4-correcoes-de-canais-na-v14-e-na-v14-1-10">13.4. Correções de canais na v14 e na v14.1.10</h3>
+  <ul>
+    <li><strong>v14.1.10 · não oficiais (HAB-260):</strong> filas de WhatsApp não oficiais passam a <strong>atualizar a lista de grupos a cada reconexão</strong>; grupos em que o número entra depois do pareamento passam a aparecer, e a troca de nome de grupo passa a ser refletida.</li>
+    <li><strong>v14.1.10 · Facebook/Instagram (HAB-286):</strong> ao reconectar uma fila, as mensagens passam a sair com a <strong>conexão nova</strong>, e não mais com o token antigo.</li>
+    <li><strong>v14.1.10 · Facebook/Instagram (HAB-318):</strong> a tela de <strong>saúde</strong> passa a mostrar se a conexão tem permissão para receber comentários e quais campos estão assinados.</li>
+    <li><strong>v14.1.10 · URA/automação (HAB-218):</strong> o elemento <strong>“Processar com IA”</strong> passa a processar arquivos <strong>PDF</strong>, que antes eram ignorados.</li>
+    <li><strong>v14.1.10 · arquivos (HAB-256):</strong> arquivos de tipo pouco comum (ex.: <code>.dwg</code>) passam a ser enviados com o tipo correto e o nome preservado, inclusive em grupos de WhatsApp.</li>
+    <li><strong>v14.1.10 · Coexistence (HAB-303):</strong> a análise de fechamento por IA não classifica mais como “não atendido” os atendimentos em que o agente respondeu, inclusive em conversas longas e com templates.</li>
+  </ul>
+
+  <div class="callout info">
+    <strong>Hierarquia de decisão (reforço):</strong> para comportamento de canal, a fonte oficial primária continua sendo o que a Meta exibe (WhatsApp Manager / Business Manager) e a documentação vigente (seção 12). Os itens desta seção descrevem <em>o que o sistema passou a fazer</em> nessas versões; número, validade e escopo dependem da versão instalada na instância.
+  </div>
+
+  <div class="callout warn">
+    <strong>Incertezas desta seção:</strong>
+    <ul>
+      <li>O comunicado da v14.1.10 <strong>não traz os parâmetros</strong> do delay/agregação em Cloud API (tempo, tamanho do lote, onde configurar). Valide na tela da fila e na versão instalada.</li>
+      <li>O comunicado da v13.0.10 <strong>não reproduz o script</strong> do bookmark nem o formato do arquivo de sessão; obtenha o arquivo pelo canal oficial da Habilis.</li>
+      <li>“Botões em WAMD2/WAMD3” cobre o suporte a mensagens com botões; não implica paridade total de recursos com a Cloud API oficial.</li>
+    </ul>
   </div>
 
   <div class="pagenav">
@@ -327,6 +480,7 @@ Evidência sanitizada: &lt;sem token, código, telefone completo ou PII&gt;</cod
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

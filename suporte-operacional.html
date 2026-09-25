@@ -9,17 +9,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="crm.html">CRM</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="pabx.html">PABX &amp; Telefonia</a>
-    <a href="contatos.html">Contatos</a>
-    <a href="relatorios.html">Relatórios</a>
-    <a href="relatorios-personalizados.html">Personalizados</a>
-    <a href="configuracoes.html">Configurações</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a class="active" href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -29,11 +93,48 @@
   <h1>Suporte Operacional</h1>
   <p class="subtitle">Playbook prático para conduzir o atendimento do primeiro contato ao encerramento, com investigação objetiva, comunicação clara e equilíbrio emocional.</p>
 
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-fluxo-geral-do-atendimento">1. Fluxo geral do atendimento</a></li>
+      <li><a href="#2-triagem-entender-antes-de-agir">2. Triagem: entender antes de agir</a></li>
+      <li class="toc-h3"><a href="#2-1-perguntas-minimas">2.1 Perguntas mínimas</a></li>
+      <li class="toc-h3"><a href="#2-2-classificacao-pratica">2.2 Classificação prática</a></li>
+      <li><a href="#3-coleta-de-evidencias">3. Coleta de evidências</a></li>
+      <li class="toc-h3"><a href="#3-1-pacote-minimo-de-diagnostico">3.1 Pacote mínimo de diagnóstico</a></li>
+      <li class="toc-h3"><a href="#3-2-sequencia-de-coleta">3.2 Sequência de coleta</a></li>
+      <li><a href="#4-comunicacao-de-incidente-4q-1s">4. Comunicação de incidente: 4Q + 1S</a></li>
+      <li class="toc-h3"><a href="#4-1-modelo-para-canal-interno-ou-crm">4.1 Modelo para canal interno ou CRM</a></li>
+      <li class="toc-h3"><a href="#4-2-atualizacao-ao-cliente">4.2 Atualização ao cliente</a></li>
+      <li><a href="#5-suporte-visual-remoto">5. Suporte visual remoto</a></li>
+      <li class="toc-h3"><a href="#5-1-quando-usar-e-quando-parar">5.1 Quando usar — e quando parar</a></li>
+      <li class="toc-h3"><a href="#5-2-roteiro-seguro">5.2 Roteiro seguro</a></li>
+      <li><a href="#6-escalonamento-e-transferencia">6. Escalonamento e transferência</a></li>
+      <li class="toc-h3"><a href="#6-1-quando-escalar">6.1 Quando escalar</a></li>
+      <li class="toc-h3"><a href="#6-2-passagem-sem-perda-de-contexto">6.2 Passagem sem perda de contexto</a></li>
+      <li><a href="#7-registro-acompanhamento-e-encerramento">7. Registro, acompanhamento e encerramento</a></li>
+      <li class="toc-h3"><a href="#7-1-estado-do-atendimento">7.1 Estado do atendimento</a></li>
+      <li class="toc-h3"><a href="#7-2-inatividade-e-continuidade">7.2 Inatividade e continuidade</a></li>
+      <li class="toc-h3"><a href="#7-3-checklist-de-encerramento">7.3 Checklist de encerramento</a></li>
+      <li><a href="#8-cliente-nervoso-desescalar-antes-de-resolver">8. Cliente nervoso: desescalar antes de resolver</a></li>
+      <li class="toc-h3"><a href="#8-1-sequencia-humana">8.1 Sequência humana</a></li>
+      <li class="toc-h3"><a href="#8-2-linguagem-que-reduz-tensao">8.2 Linguagem que reduz tensão</a></li>
+      <li><a href="#9-inteligencia-emocional-do-agente">9. Inteligência emocional do agente</a></li>
+      <li class="toc-h3"><a href="#9-1-pausa-antes-de-enviar">9.1 Pausa antes de enviar</a></li>
+      <li class="toc-h3"><a href="#9-2-revisao-de-30-segundos">9.2 Revisão de 30 segundos</a></li>
+      <li class="toc-h3"><a href="#9-3-fontes-internas-consultadas">9.3 Fontes internas consultadas</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
   <div class="callout info">
     <strong>Como usar:</strong> as seções 1 a 7 são procedimentos operacionais. As seções 8 e 9 tratam de habilidades humanas. Empatia não substitui diagnóstico; diagnóstico não substitui cuidado na comunicação.
   </div>
 
-  <h2>1. Fluxo geral do atendimento</h2>
+  <h2 id="1-fluxo-geral-do-atendimento">1. Fluxo geral do atendimento</h2>
   <ol class="steps">
     <li><strong>Acolha e leia tudo.</strong> Confirme que recebeu a solicitação e identifique o resultado que o cliente esperava.</li>
     <li><strong>Faça a triagem.</strong> Determine escopo, impacto, abrangência, urgência e possibilidade de contorno.</li>
@@ -48,8 +149,8 @@
     <strong>Sem promessas improvisadas:</strong> prazos de retorno, resolução ou disponibilidade só devem ser informados quando confirmados pelos canais e políticas vigentes. Os tempos internos citados neste playbook não criam SLA para o cliente.
   </div>
 
-  <h2>2. Triagem: entender antes de agir</h2>
-  <h3>2.1 Perguntas mínimas</h3>
+  <h2 id="2-triagem-entender-antes-de-agir">2. Triagem: entender antes de agir</h2>
+  <h3 id="2-1-perguntas-minimas">2.1 Perguntas mínimas</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead>
@@ -67,7 +168,7 @@
     </table>
   </div>
 
-  <h3>2.2 Classificação prática</h3>
+  <h3 id="2-2-classificacao-pratica">2.2 Classificação prática</h3>
   <ul>
     <li><strong>Incidente amplo:</strong> sinais semelhantes em vários clientes, instâncias, servidores ou canais.</li>
     <li><strong>Falha pontual:</strong> problema restrito a um contexto identificável, sem evidência de abrangência maior.</li>
@@ -79,8 +180,8 @@
     <strong>Alta demanda:</strong> não classifique apenas pela quantidade de chats. Considere complexidade, impacto, tempo de investigação e idade dos atendimentos. Mantenha interação com todos e priorize o que realmente bloqueia a operação.
   </div>
 
-  <h2>3. Coleta de evidências</h2>
-  <h3>3.1 Pacote mínimo de diagnóstico</h3>
+  <h2 id="3-coleta-de-evidencias">3. Coleta de evidências</h2>
+  <h3 id="3-1-pacote-minimo-de-diagnostico">3.1 Pacote mínimo de diagnóstico</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead>
@@ -99,7 +200,7 @@
     </table>
   </div>
 
-  <h3>3.2 Sequência de coleta</h3>
+  <h3 id="3-2-sequencia-de-coleta">3.2 Sequência de coleta</h3>
   <ol class="steps">
     <li>Peça uma descrição objetiva do que deveria acontecer e do que aconteceu.</li>
     <li>Confirme ambiente, canal, usuário ou instância afetada sem solicitar credenciais.</li>
@@ -109,7 +210,7 @@
     <li>Antes de anexar ou encaminhar, revise se há dados pessoais, conversas privadas, tokens ou senhas expostos.</li>
   </ol>
 
-  <h2>4. Comunicação de incidente: 4Q + 1S</h2>
+  <h2 id="4-comunicacao-de-incidente-4q-1s">4. Comunicação de incidente: 4Q + 1S</h2>
   <p>Estruture o relato interno antes de envolver liderança ou outro time. Seja direto, completo e analítico: descreva fatos, impacto e providências sem alarmismo.</p>
 
   <div class="table-wrap">
@@ -127,7 +228,7 @@
     </table>
   </div>
 
-  <h3>4.1 Modelo para canal interno ou CRM</h3>
+  <h3 id="4-1-modelo-para-canal-interno-ou-crm">4.1 Modelo para canal interno ou CRM</h3>
   <div class="callout info">
     <strong>Identificação:</strong> ticket, data/hora, responsável pelo registro, canal afetado e status.<br>
     <strong>O que aconteceu:</strong> fato observado.<br>
@@ -140,7 +241,7 @@
     <strong>Acompanhamento:</strong> para quem foi escalado, cliente informado, recorrência e tarefa relacionada.
   </div>
 
-  <h3>4.2 Atualização ao cliente</h3>
+  <h3 id="4-2-atualizacao-ao-cliente">4.2 Atualização ao cliente</h3>
   <ol class="steps">
     <li>Reconheça o impacto confirmado: “Entendi que esta etapa da operação ficou bloqueada.”</li>
     <li>Informe o estado real: “Estamos verificando os registros e a abrangência.”</li>
@@ -149,10 +250,10 @@
     <li>Quando houver mudança de status, comunique-a mesmo que a solução final ainda não esteja disponível.</li>
   </ol>
 
-  <h2>5. Suporte visual remoto</h2>
+  <h2 id="5-suporte-visual-remoto">5. Suporte visual remoto</h2>
   <p>Use suporte visual quando a descrição verbal não basta, sobretudo para camada física, LEDs, cabos, periféricos, peças, montagem ou inspeção visual. O recurso pode abrir por link, sem instalação, e oferece desenho, setas, apontador, congelamento da imagem e registro vinculado ao atendimento.</p>
 
-  <h3>5.1 Quando usar — e quando parar</h3>
+  <h3 id="5-1-quando-usar-e-quando-parar">5.1 Quando usar — e quando parar</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead>
@@ -167,7 +268,7 @@
     </table>
   </div>
 
-  <h3>5.2 Roteiro seguro</h3>
+  <h3 id="5-2-roteiro-seguro">5.2 Roteiro seguro</h3>
   <ol class="steps">
     <li>Explique por que a visualização ajudará e confirme que o cliente concorda em iniciar.</li>
     <li>Oriente a não mostrar documentos, telas privadas, credenciais ou pessoas.</li>
@@ -182,8 +283,8 @@
     <strong>Limite:</strong> suporte visual é ferramenta de triagem e orientação, não autorização automática para procedimentos de risco. Não presuma consentimento, retenção ou finalidade de uma gravação; confirme as regras vigentes.
   </div>
 
-  <h2>6. Escalonamento e transferência</h2>
-  <h3>6.1 Quando escalar</h3>
+  <h2 id="6-escalonamento-e-transferencia">6. Escalonamento e transferência</h2>
+  <h3 id="6-1-quando-escalar">6.1 Quando escalar</h3>
   <ul>
     <li>Há impacto amplo, crítico ou crescente.</li>
     <li>O caso é recorrente ou a solução aplicada não se sustenta.</li>
@@ -193,7 +294,7 @@
     <li>O tom permanece em escalada mesmo após reconhecimento, clareza e tentativa adequada de encaminhamento.</li>
   </ul>
 
-  <h3>6.2 Passagem sem perda de contexto</h3>
+  <h3 id="6-2-passagem-sem-perda-de-contexto">6.2 Passagem sem perda de contexto</h3>
   <ol class="steps">
     <li>Preencha o relato 4Q + 1S e anexe evidências sanitizadas.</li>
     <li>Indique impacto, abrangência, status e o que já foi testado.</li>
@@ -207,8 +308,8 @@
     <strong>Escalar não é “passar o problema”.</strong> O agente mantém a responsabilidade pelo registro e pela comunicação até existir uma transferência de responsabilidade claramente confirmada.
   </div>
 
-  <h2>7. Registro, acompanhamento e encerramento</h2>
-  <h3>7.1 Estado do atendimento</h3>
+  <h2 id="7-registro-acompanhamento-e-encerramento">7. Registro, acompanhamento e encerramento</h2>
+  <h3 id="7-1-estado-do-atendimento">7.1 Estado do atendimento</h3>
   <p>Se as etiquetas abaixo estiverem ativas no ambiente, use-as de modo coerente com o estágio real do caso:</p>
   <div class="table-wrap">
     <table class="doc">
@@ -224,13 +325,13 @@
     </table>
   </div>
 
-  <h3>7.2 Inatividade e continuidade</h3>
+  <h3 id="7-2-inatividade-e-continuidade">7.2 Inatividade e continuidade</h3>
   <p>O material de práticas internas registra contatos após 30 minutos, uso de mensagem padrão após 1 hora e encerramento após 2 horas de inatividade em determinados chats. Também descreve regras específicas para Webchat e reabertura de conversas da API oficial.</p>
   <div class="callout warn">
     <strong>Referência operacional sujeita a atualização:</strong> confirme automações, janela do canal, mensagens cadastradas e política atual antes de aplicar esses tempos. Eles são controles internos e não devem ser apresentados como SLA ao cliente.
   </div>
 
-  <h3>7.3 Checklist de encerramento</h3>
+  <h3 id="7-3-checklist-de-encerramento">7.3 Checklist de encerramento</h3>
   <ol class="steps">
     <li>Confirme se todas as perguntas do cliente foram respondidas.</li>
     <li>Registre diagnóstico ou conclusão; se a causa não foi confirmada, declare isso sem transformar hipótese em fato.</li>
@@ -243,10 +344,10 @@
     <li>Antes de encerrar, verifique se uma transferência por novo assunto exige registrar primeiro a demanda já concluída.</li>
   </ol>
 
-  <h2>8. Cliente nervoso: desescalar antes de resolver</h2>
+  <h2 id="8-cliente-nervoso-desescalar-antes-de-resolver">8. Cliente nervoso: desescalar antes de resolver</h2>
   <p>Raiva, ansiedade e impaciência costumam sinalizar perda de controle, pressão de prazo ou histórico ruim. Isso ajuda a escolher a resposta, mas não justifica agressão. Reconheça a experiência sem assumir culpa técnica ainda não apurada.</p>
 
-  <h3>8.1 Sequência humana</h3>
+  <h3 id="8-1-sequencia-humana">8.1 Sequência humana</h3>
   <ol class="steps">
     <li><strong>Ouça.</strong> Leia a mensagem inteira e confirme o problema com suas palavras.</li>
     <li><strong>Reconheça.</strong> Nomeie o impacto concreto: atraso, operação parada, repetição ou incerteza.</li>
@@ -256,7 +357,7 @@
     <li><strong>Diagnostique.</strong> Em casos graves ou recorrentes, registre a causa e a prevenção depois de estabilizar a conversa.</li>
   </ol>
 
-  <h3>8.2 Linguagem que reduz tensão</h3>
+  <h3 id="8-2-linguagem-que-reduz-tensao">8.2 Linguagem que reduz tensão</h3>
   <div class="table-wrap">
     <table class="doc">
       <thead>
@@ -277,8 +378,8 @@
     <strong>Em texto:</strong> escreva a empatia de forma explícita, use mensagens curtas e separe reconhecimento, ação e próximo passo. A ausência de resposta pode parecer desinteresse; mantenha presença sem inventar novidade.
   </div>
 
-  <h2>9. Inteligência emocional do agente</h2>
-  <h3>9.1 Pausa antes de enviar</h3>
+  <h2 id="9-inteligencia-emocional-do-agente">9. Inteligência emocional do agente</h2>
+  <h3 id="9-1-pausa-antes-de-enviar">9.1 Pausa antes de enviar</h3>
   <p>Quando uma mensagem acionar irritação, defesa ou pressa, pare por alguns segundos. Reconhecer a própria emoção evita transferi-la ao cliente.</p>
   <div class="table-wrap">
     <table class="doc">
@@ -295,7 +396,7 @@
     </table>
   </div>
 
-  <h3>9.2 Revisão de 30 segundos</h3>
+  <h3 id="9-2-revisao-de-30-segundos">9.2 Revisão de 30 segundos</h3>
   <ul>
     <li>Minha resposta está clara para quem lê pela primeira vez?</li>
     <li>Respondi todas as perguntas feitas?</li>
@@ -311,7 +412,7 @@
     <strong>Regra de equilíbrio:</strong> valide a emoção, não a agressividade. Não personalize a raiva do cliente, não responda na mesma intensidade e peça apoio quando perceber que perdeu a neutralidade necessária para conduzir o caso.
   </div>
 
-  <h3>9.3 Fontes internas consultadas</h3>
+  <h3 id="9-3-fontes-internas-consultadas">9.3 Fontes internas consultadas</h3>
   <ul>
     <li>Práticas Suporte.</li>
     <li>Política de comunicação de problemas — modelo 4Q + 1S.</li>
@@ -330,6 +431,7 @@
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

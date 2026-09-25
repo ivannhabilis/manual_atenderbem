@@ -9,19 +9,81 @@
 <body>
 
 <header class="topbar">
-  <div class="brand"><span class="dot"></span> Manual Omnichannel</div>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="pabx.html">Portal PABX</a>
-    <a href="pabx-troncos.html">Troncos SIP</a>
-    <a href="pabx-rotas.html">Rotas</a>
-    <a href="pabx-ramais.html">Ramais</a>
-    <a href="pabx-filas.html">Filas</a>
-    <a href="pabx-ura-audios.html" class="active">URAs & Áudios</a>
-    <a href="pabx-horarios.html">Horários</a>
-    <a href="pabx-custom.html">Custom & ARI</a>
-    <a href="pabx-cdr-auditoria.html">CDR</a>
-    <a href="pabx-cli-troubleshooting.html">CLI & Debug</a>
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a class="active" href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+        </div>
+      </div>
   </nav>
 </header>
 
@@ -31,14 +93,35 @@
   <h1>Gravações de Áudio, Anúncios e Menus de URA (IVR)</h1>
   <p class="subtitle">Como fazer upload de áudios profissionais, criar mensagens informativas (Announcements) e estruturar menus vocais interativos de autoatendimento.</p>
 
-  <h2>1. Gravações do Sistema (System Recordings)</h2>
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-gravacoes-do-sistema-system-recordings">1. Gravações do Sistema (System Recordings)</a></li>
+      <li class="toc-h3"><a href="#como-cadastrar-um-audio-no-freepbx">Como cadastrar um áudio no FreePBX:</a></li>
+      <li><a href="#2-anuncios-informativos-announcements">2. Anúncios Informativos (Announcements)</a></li>
+      <li class="toc-h3"><a href="#casos-de-uso-comuns">Casos de uso comuns:</a></li>
+      <li><a href="#3-criacao-de-ura-ivr-interactive-voice-response">3. Criação de URA / IVR (Interactive Voice Response)</a></li>
+      <li class="toc-h3"><a href="#passo-a-passo-no-freepbx-applications-ivr">Passo a passo no FreePBX (`Applications › IVR`):</a></li>
+      <li><a href="#4-vinculacao-da-ura-de-telefonia-ao-sistema-omnichannel">4. Vinculação da URA de Telefonia ao Sistema Omnichannel</a></li>
+      <li class="toc-h3"><a href="#passo-a-passo-da-vinculacao">Passo a passo da vinculação:</a></li>
+      <li><a href="#5-pesquisas-de-satisfacao-em-uras-v13">5. Pesquisas de Satisfação em URAs (v13+)</a></li>
+      <li class="toc-h3"><a href="#variaveis-e-regras-de-negocio">Variáveis e regras de negócio:</a></li>
+      <li><a href="#6-horario-de-atendimento-dentro-do-fluxo-da-ura">6. Horário de Atendimento Dentro do Fluxo da URA</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  
+  
+  <h2 id="1-gravacoes-do-sistema-system-recordings">1. Gravações do Sistema (System Recordings)</h2>
   <p>As <strong>Gravações do Sistema</strong> são a base sonora da central. Elas contêm as vozes que os clientes escutam ao ligar para a empresa.</p>
 
   <div class="callout tip">
     <strong>Padrão Técnico de Áudio para Telefonia:</strong> Para máxima clareza e compatibilidade com o Asterisk, os arquivos de áudio devem estar no formato <strong>WAV PCM, 16-bit Mono, taxa de amostragem de 8000 Hz ou 16000 Hz</strong>. Arquivos em MP3 ou estéreo sofrem conversão e podem gerar ruído.
   </div>
 
-  <h3>Como cadastrar um áudio no FreePBX:</h3>
+  <h3 id="como-cadastrar-um-audio-no-freepbx">Como cadastrar um áudio no FreePBX:</h3>
   <ol class="steps">
     <li>No menu do PABX, acesse <code>Admin › System Recordings › + Add Recording</code>.</li>
     <li>Clique em <strong>Upload Recording</strong> e selecione o arquivo <code>.wav</code> gravado em seu computador.</li>
@@ -48,10 +131,10 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>2. Anúncios Informativos (Announcements)</h2>
+  <h2 id="2-anuncios-informativos-announcements">2. Anúncios Informativos (Announcements)</h2>
   <p>Um <strong>Anúncio (Announcement)</strong> reproduz uma mensagem gravada para o cliente e, imediatamente após o fim da fala, transfere a chamada para o próximo destino automaticamente, sem esperar interação de teclas.</p>
 
-  <h3>Casos de uso comuns:</h3>
+  <h3 id="casos-de-uso-comuns">Casos de uso comuns:</h3>
   <ul>
     <li><em>"Esta ligação está sendo gravada para fins de controle de qualidade..."</em> ➔ Direciona para a <strong>Fila de Atendimento</strong>.</li>
     <li><em>"Nosso horário de atendimento é de segunda a sexta, das 8h às 18h..."</em> ➔ Direciona para <strong>Desligar (Hangup)</strong> ou <strong>Caixa Postal</strong>.</li>
@@ -62,7 +145,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>3. Criação de URA / IVR (Interactive Voice Response)</h2>
+  <h2 id="3-criacao-de-ura-ivr-interactive-voice-response">3. Criação de URA / IVR (Interactive Voice Response)</h2>
   <p>A <strong>URA (IVR)</strong> é o menu eletrônico que orienta o cliente: <em>"Olá, bem-vindo à Central de Atendimento! Digite 1 para Suporte Técnico, 2 para Financeiro, ou 3 para Vendas."</em></p>
 
   <figure class="figure">
@@ -111,7 +194,7 @@
     <figcaption>Fluxo lógico de decisão por DTMF na URA do PABX: Dígito 1 encaminha para a Fila Suporte, Dígito 2 para a Fila Financeiro e Timeout ou opção inválida repete o áudio do menu.</figcaption>
   </figure>
 
-  <h3>Passo a passo no FreePBX (`Applications › IVR`):</h3>
+  <h3 id="passo-a-passo-no-freepbx-applications-ivr">Passo a passo no FreePBX (`Applications › IVR`):</h3>
   <ol class="steps">
     <li>Acesse <code>Applications › IVR › + Add IVR</code>.</li>
     <li>Defina o <strong>IVR Name</strong> (ex.: <code>URA_Principal_Diurna</code>).</li>
@@ -142,14 +225,14 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>4. Vinculação da URA de Telefonia ao Sistema Omnichannel</h2>
+  <h2 id="4-vinculacao-da-ura-de-telefonia-ao-sistema-omnichannel">4. Vinculação da URA de Telefonia ao Sistema Omnichannel</h2>
   <p>Nem toda URA precisa viver dentro do FreePBX. Em vez de montar a árvore toda no PABX, é possível entregar a chamada para o <strong>Sistema de Atendimento (Omnichannel)</strong> por meio de uma fila do tipo <strong>Telefonia (URA)</strong>. Neste modelo, o PABX faz apenas o "handoff" da ligação via <em>Custom Destination</em> e o fluxo de decisão é construído no construtor visual de URAs da plataforma.</p>
 
   <div class="callout tip">
     <strong>Quando usar este modelo:</strong> quando o menu precisa continuar dentro do sistema de atendimento — para reaproveitar blocos modernos (Pesquisas, Horário de Atendimento, IA) e centralizar relatórios. A URA tradicional do FreePBX continua válida para árvores simples que não dependem de dados da plataforma.
   </div>
 
-  <h3>Passo a passo da vinculação:</h3>
+  <h3 id="passo-a-passo-da-vinculacao">Passo a passo da vinculação:</h3>
   <ol class="steps">
     <li>No PABX, acesse <code>Admin › Custom Destinations › + Add Destination</code>.</li>
     <li>
@@ -181,7 +264,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>5. Pesquisas de Satisfação em URAs (v13+)</h2>
+  <h2 id="5-pesquisas-de-satisfacao-em-uras-v13">5. Pesquisas de Satisfação em URAs (v13+)</h2>
   <p>A partir da versão 13, o <strong>Módulo de Pesquisas</strong> substitui os fluxos longos e repetitivos de perguntas dentro da URA. Em vez de encadear dezenas de blocos de "digite 1 a 5", a pesquisa é montada uma única vez em <code>Configurações › Pesquisas</code> e reaproveitada no fluxo por blocos dedicados.</p>
 
   <div class="table-wrap">
@@ -195,7 +278,7 @@
     </table>
   </div>
 
-  <h3>Variáveis e regras de negócio:</h3>
+  <h3 id="variaveis-e-regras-de-negocio">Variáveis e regras de negócio:</h3>
   <ul>
     <li>Cada pergunta expõe duas chaves em tempo de execução: <code>survey_q_&lt;id&gt;</code> (valor bruto) e <code>survey_q_&lt;id&gt;_label</code> (rótulo amigável).</li>
     <li>O <strong>id</strong> é numérico e incremental, gerado no cadastro da pergunta.</li>
@@ -206,7 +289,7 @@
 
   <hr style="margin: 36px 0; border: none; border-top: 2px dashed var(--cinza-300);">
 
-  <h2>6. Horário de Atendimento Dentro do Fluxo da URA</h2>
+  <h2 id="6-horario-de-atendimento-dentro-do-fluxo-da-ura">6. Horário de Atendimento Dentro do Fluxo da URA</h2>
   <p>Nos fluxos de URA e automação, o expediente pode ser validado por um elemento nativo de <strong>Horário de Atendimento</strong>, configurado com o ID do horário desejado. O sistema avalia automaticamente dias, feriados e datas especiais no momento da chamada e direciona o cliente para a saída <strong>Aberto</strong> ou <strong>Fechado</strong>.</p>
 
   <div class="callout tip">
@@ -224,6 +307,7 @@
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Módulo de Telefonia e PABX.</p>
 </footer>
-
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>
