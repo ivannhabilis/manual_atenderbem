@@ -67,6 +67,7 @@ GROUPS = [
         ("configuracoes.html", "Configurações"),
         ("extensoes.html", "Extensões (SDK)"),
         ("backups.html", "Backups e Restauração"),
+        ("novidades-14-2.html", "Novidades da versão 14.2"),
     ]),
 ]
 

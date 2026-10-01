@@ -2105,6 +2105,68 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Novidades da Versão 14.2",
+  "u": "novidades-14-2.html",
+  "s": [
+   {
+    "h": "1. Como identificar a versão instalada",
+    "a": "1-como-identificar-a-versao-instalada"
+   },
+   {
+    "h": "2. Filas e canais de atendimento",
+    "a": "2-filas-e-canais-de-atendimento"
+   },
+   {
+    "h": "2.1 Tipos oferecidos na interface",
+    "a": "2-1-tipos-oferecidos-na-interface"
+   },
+   {
+    "h": "2.2 Novos tipos de canal na API — atenção à divergência com a interface",
+    "a": "2-2-novos-tipos-de-canal-na-api-x-advertencia-da-interface"
+   },
+   {
+    "h": "2.3 Outros tipos citados na API",
+    "a": "2-3-outros-tipos-citados-na-api"
+   },
+   {
+    "h": "3. Horários de Atendimento",
+    "a": "3-horarios-de-atendimento"
+   },
+   {
+    "h": "4. Feriados",
+    "a": "4-feriados"
+   },
+   {
+    "h": "5. Fluxo de Automação e URA",
+    "a": "5-fluxo-de-automacao-e-ura"
+   },
+   {
+    "h": "6. Assistentes de IA",
+    "a": "6-assistentes-de-ia"
+   },
+   {
+    "h": "6.1 Acompanhamento automático ligado a horário",
+    "a": "6-1-acompanhamento-automatico-ligado-a-horario"
+   },
+   {
+    "h": "6.2 Geração de áudio (TTS)",
+    "a": "6-2-geracao-de-audio-tts"
+   },
+   {
+    "h": "7. Catálogo de Produtos",
+    "a": "7-catalogo-de-produtos"
+   },
+   {
+    "h": "8. Campanhas",
+    "a": "8-campanhas"
+   },
+   {
+    "h": "9. Método e incertezas",
+    "a": "9-metodo-e-incertezas"
+   }
+  ]
+ },
+ {
   "t": "Pesquisas",
   "u": "pesquisas.html",
   "s": [

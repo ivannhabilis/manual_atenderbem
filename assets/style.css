@@ -191,6 +191,21 @@ a:hover { text-decoration: underline; }
 .callout.warn { border-color: var(--amarelo); background: #fef3e2; }
 .callout.tip  { border-color: var(--verde); background: #e9f8ee; }
 
+.badge {
+  display: inline-block;
+  font-size: .68em;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 1px 7px;
+  border-radius: 10px;
+  background: #fef3e2;
+  color: #9a5b06;
+  border: 1px solid #f5c98a;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
 /* ---------- Blocos de FAQ (seções internas e páginas de FAQ) ---------- */
 .faq {
   background: var(--branco);
@@ -290,9 +305,12 @@ table.doc tr:nth-child(even) td { background: var(--cinza-100); }
 
 .topbar .navmenu {
   flex: 1 1 auto;
+  min-width: 0;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 2px;
+  row-gap: 2px;
   overflow: visible;
 }
 .topbar .navmenu a.navlink,
@@ -419,7 +437,7 @@ table.doc tr:nth-child(even) td { background: var(--cinza-100); }
   border-radius: var(--raio); padding: 16px 20px; margin: 24px 0; box-shadow: var(--sombra);
 }
 .toc h3 { margin: 0 0 8px; }
-.toc ol { margin: 0; padding-left: 20px; }
+.toc ol { margin: 0; padding-left: 20px; list-style: none; }
 .toc a { font-weight: 600; }
 .toc li.toc-h3 { list-style: none; margin-left: 16px; }
 

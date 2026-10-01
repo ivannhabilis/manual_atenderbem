@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Novidades da versão 14.2 do AtenderBem / Habilis, verificadas na instância FastCorte: como identificar a versão instalada, canais de fila, Horários de Atendimento, Feriados, Fluxo de Automação e URA, Assistentes de IA, Catálogo de Produtos e Campanhas.">
+<title>Novidades da Versão 14.2 — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a class="active" href="novidades-14-2.html">Novidades da versão 14.2</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › Novidades da Versão 14.2</div>
+
+  <h1>Novidades da Versão 14.2</h1>
+  <p class="subtitle">O que foi verificado na instância <strong>fastcorte.atenderbem.com</strong> (versão <strong>14.2.0</strong>) e o que muda em relação à linha 14.1.x documentada nos capítulos de IA, Canais e Carrinho Sincronizado.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-como-identificar-a-versao-instalada">1. Como identificar a versão instalada</a></li>
+      <li><a href="#2-filas-e-canais-de-atendimento">2. Filas e canais de atendimento</a></li>
+      <li class="toc-h3"><a href="#2-1-tipos-oferecidos-na-interface">2.1 Tipos oferecidos na interface</a></li>
+      <li class="toc-h3"><a href="#2-2-novos-tipos-de-canal-na-api-x-advertencia-da-interface">2.2 Novos tipos de canal na API — atenção à divergência com a interface</a></li>
+      <li class="toc-h3"><a href="#2-3-outros-tipos-citados-na-api">2.3 Outros tipos citados na API</a></li>
+      <li><a href="#3-horarios-de-atendimento">3. Horários de Atendimento</a></li>
+      <li><a href="#4-feriados">4. Feriados</a></li>
+      <li><a href="#5-fluxo-de-automacao-e-ura">5. Fluxo de Automação e URA</a></li>
+      <li><a href="#6-assistentes-de-ia">6. Assistentes de IA</a></li>
+      <li class="toc-h3"><a href="#6-1-acompanhamento-automatico-ligado-a-horario">6.1 Acompanhamento automático ligado a horário</a></li>
+      <li class="toc-h3"><a href="#6-2-geracao-de-audio-tts">6.2 Geração de áudio (TTS)</a></li>
+      <li><a href="#7-catalogo-de-produtos">7. Catálogo de Produtos</a></li>
+      <li><a href="#8-campanhas">8. Campanhas</a></li>
+      <li><a href="#9-metodo-e-incertezas">9. Método e incertezas</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <div class="callout info">
+    <strong>Como este capítulo foi feito:</strong> leitura direta da interface autenticada (telas e formulários, sem salvar nada) e do catálogo de ferramentas MCP <code>omni-config</code> servido ao vivo. Nada aqui é inferido: cada item traz a evidência observada. Onde a interface e a API divergem, isso está dito de forma explícita.
+  </div>
+
+  <h2 id="1-como-identificar-a-versao-instalada">1. Como identificar a versão instalada</h2>
+  <p>A versão do sistema aparece em dois pontos, ambos de leitura imediata:</p>
+  <ul>
+    <li><strong>Rodapé da tela de login</strong> — exibe <code>Versão v14.2.0</code> antes mesmo de autenticar.</li>
+    <li><strong>Configurações → Geral → Licenciamento</strong> — mostra <strong>Versão servidor</strong> e <strong>Versão visão</strong> lado a lado (as duas em <code>14.2.0</code> nesta instância), além de <em>Licença</em>, número de <em>Agentes</em> e de <em>Sup/Adms</em>, e os botões <strong>Atualizar licença</strong>, <strong>Apagar caches locais</strong>, <strong>Reiniciar servidor</strong> e <strong>Reiniciar servidor e invalidar sessões</strong>.</li>
+  </ul>
+
+  <figure class="figure">
+    <img src="assets/novidades-142-login.png" alt="Tela de login do AtenderBem com a versão v14.2.0 no rodapé">
+    <figcaption>Tela de acesso: a versão do sistema já aparece no rodapé, antes do login.</figcaption>
+  </figure>
+
+  <figure class="figure">
+    <img src="assets/novidades-142-geral.png" alt="Configurações Gerais com Licenciamento, versão do servidor e versão visão 14.2.0">
+    <figcaption>Configurações → Geral: aba Licenciamento com “Versão servidor” e “Versão visão”.</figcaption>
+  </figure>
+
+  <p>A aba <strong>Geral</strong> traz ainda abas irmãs <em>Segurança</em>, <em>Backup e Limpeza</em>, <em>IA</em>, <em>Telefonia</em> e <em>Webhooks Gerais</em>. Em <strong>Configuração Geral</strong> estão Tamanho máximo para arquivos (KB), Filas/Arquivos de notificação e de automações de contato, País, Idioma, Fuso horário (com botão <em>Salvar fuso horário</em>) e as opções <em>Desabilitar citações</em>, <em>Reduzir qualidade das imagens enviadas</em> e <em>Bloquear criar contatos com mesmo número</em>. Ao final aparecem a integração <strong>BigQuery</strong> (Auth Key, ProjectID, Dataset, estado/última sincronização) e a lista de <strong>Extensões bloqueadas</strong> (<code>.exe</code>, <code>.vbs</code>, <code>.bat</code>, <code>.js</code>, <code>.ps1</code> e outros).
+
+  <h2 id="2-filas-e-canais-de-atendimento">2. Filas e canais de atendimento</h2>
+  <p>O diálogo <strong>Adicionar nova fila</strong> pede apenas <strong>Nome da fila</strong> e <strong>Tipo</strong>. O tipo é <strong>imutável após a criação</strong> — para trocar de canal é preciso criar outra fila.</p>
+
+  <figure class="figure">
+    <img src="assets/novidades-142-filas.png" alt="Lista de Filas com colunas Fila, Número WA, Nome, Número, Tipo, Servidor, Última modificação e Funções">
+    <figcaption>Lista de Filas (telefones de WhatsApp borrados). Colunas: Fila, Número WA, Nome, Número, Tipo, Servidor, Última modificação e Funções.</figcaption>
+  </figure>
+
+  <figure class="figure">
+    <img src="assets/novidades-142-fila-tipos.png" alt="Diálogo Adicionar nova fila com o seletor Tipo aberto">
+    <figcaption>Diálogo “Adicionar nova fila”: o seletor Tipo aberto, com os canais oferecidos nesta instância.</figcaption>
+  </figure>
+
+  <h3 id="2-1-tipos-oferecidos-na-interface">2.1 Tipos oferecidos na interface</h3>
+  <p>Nesta instância (v14.2.0), o seletor <strong>Tipo</strong> lista os canais abaixo, nesta ordem — são exatamente os rótulos exibidos:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Rótulo exibido</th><th>Observação</th></tr></thead>
+      <tbody>
+        <tr><td>WA Cloud API</td><td>Canal oficial WhatsApp (selecionado por padrão no diálogo).</td></tr>
+        <tr><td>Telefonia (URA)</td><td>Telefonia com URA.</td></tr>
+        <tr><td>WAMD 2</td><td>Conexão não oficial.</td></tr>
+        <tr><td>WAMD 3 <span class="badge">BETA</span></td><td>Conexão não oficial, marcada como BETA.</td></tr>
+        <tr><td>Web Chat</td><td>App Web / WebChat.</td></tr>
+        <tr><td>IG Messenger</td><td>Instagram Messenger.</td></tr>
+        <tr><td>FB Messenger</td><td>Facebook Messenger.</td></tr>
+        <tr><td>E-mail <span class="badge">BETA</span></td><td>Canal de e-mail.</td></tr>
+        <tr><td>Telegram</td><td>Telegram.</td></tr>
+        <tr><td>WA Cloud API (Dev App)</td><td>Cloud API via Dev App.</td></tr>
+        <tr><td>WA Dialog 360 <span class="badge">BETA</span></td><td>Provedor Dialog 360.</td></tr>
+        <tr><td>WA Smarte <span class="badge">BETA</span></td><td>Provedor Smarte.</td></tr>
+        <tr><td>WA Gupshup <span class="badge">BETA</span></td><td>Provedor Gupshup.</td></tr>
+        <tr><td>Integrações <span class="badge">BETA</span></td><td>Fila de integração genérica.</td></tr>
+        <tr><td>Integrações 2 <span class="badge">BETA</span></td><td>Segunda variante de integração.</td></tr>
+        <tr><td>Telefonia (Fila de atendimento)</td><td>Telefonia sem URA (fila de voz convencional).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="2-2-novos-tipos-de-canal-na-api-x-advertencia-da-interface">2.2 Novos tipos de canal na API — atenção à divergência com a interface</h3>
+  <p>O schema da ferramenta <code>queues_create</code> (MCP) aceita, além dos anteriores, quatro tipos de canal de marketplace:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Tipo</th><th>Canal</th><th>Regras descritas na própria API</th></tr></thead>
+      <tbody>
+        <tr><td><code>28</code></td><td>TikTok Business Messaging</td><td rowspan="4">Nestes quatro canais: (a) apenas <strong>TEXTO puro</strong> — sem mídia, botões, listas, catálogo ou carrinho; (b) <strong>Mercado Livre</strong> e <strong>TikTok Business Messaging</strong> não permitem iniciar conversa, só responder quem escreveu primeiro; (c) a autorização OAuth da conta é feita <strong>somente pelo painel, na tela da fila</strong> — criar a fila pela API não a deixa conectada.</td></tr>
+        <tr><td><code>29</code></td><td>OLX</td></tr>
+        <tr><td><code>30</code></td><td>Mercado Livre (perguntas dos anúncios e pós-venda)</td></tr>
+        <tr><td><code>31</code></td><td>TikTok Shop</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn">
+    <strong>Divergência verificada — não escreva isso na interface ainda:</strong> o schema da API descreve os tipos 28–31, mas o diálogo <strong>Adicionar nova fila</strong> desta instância (v14.2.0) <strong>não oferece</strong> TikTok, OLX nem Mercado Livre na lista de tipos (ver seção 2.1). Ou seja: o canal existe hoje para a <em>API de configuração</em>, mas não está exposto na criação de fila pela tela. Antes de documentar esses canais como disponíveis para o usuário, confirme a liberação na instância (pode depender de versão/plano).
+  </div>
+  <p>A mesma descrição registra uma <strong>renumeração de canais</strong>: os tipos <code>6</code> e <code>7</code> <strong>deixaram de ser</strong> OLX e Mercado Livre — as filas desses canais passaram para <code>29</code> e <code>30</code>. Os valores 6 e 7 <strong>não servem para fila nova</strong>. Atendimentos antigos de OLX/Mercado Livre permanecem registrados com 6 e 7 no histórico.</p>
+
+  <h3 id="2-3-outros-tipos-citados-na-api">2.3 Outros tipos citados na API</h3>
+  <p>Para referência de integração, a descrição de <code>queues_create</code> também define: <code>0</code> = Telefonia/Voz convencional (segura o cliente em espera e entrega a um atendente); <code>22</code> = Telefonia com URA; <code>26</code> = WebChat V2 (o App Web moderno); <code>27</code> = Telegram unificado (conta do Telegram por QR + bot na mesma fila). Os tipos <code>3</code> (Telegram) e <code>11</code> (Telegram Bot) foram <strong>descontinuados</strong>: a criação é recusada; filas já existentes seguem funcionando. O <strong>Carrinho sincronizado</strong> vale no tipo 26, nas filas com Catálogo sincronizado local — Facebook (2), Telegram (3/11/27), WhatsApp MD (5), WhatsApp Cloud API (10/21), Instagram (12) e Genérica 2 (24) — e nas duas de telefonia (0 e 22).</p>
+  <p>Campos de criação aceitos por <code>queues_create</code>: <code>name</code>, <code>type</code>, <code>number</code>, <code>ivrid</code>, <code>maxchatsperagent</code>, <code>distributionstrategy</code>, <code>fk_businesshours_config</code> e <code>advanced</code>.</p>
+
+  <h2 id="3-horarios-de-atendimento">3. Horários de Atendimento</h2>
+  <p>O módulo <strong>Horários de Atendimento</strong> ganhou uma família completa de ferramentas MCP (leitura e escrita), o que o torna automatizável: <code>businesshours_list/get/create/update/delete</code>, <code>businesshours_check</code>, <code>businesshours_special_dates_*</code> e <code>businesshours_holidays_*</code>.</p>
+
+  <figure class="figure">
+    <img src="assets/novidades-142-horarios.png" alt="Tela Horários de Atendimento com ID, Nome, Descrição, Ativo e Funções">
+    <figcaption>Horários de Atendimento: ID, Nome, Descrição, Ativo e Funções (editar, excluir, agenda, teste, remover).</figcaption>
+  </figure>
+
+  <p>Regras de decisão descritas pela própria plataforma:</p>
+  <ol class="steps">
+    <li><strong>Prioridade:</strong> data especial &gt; feriado global &gt; horário semanal.</li>
+    <li><strong>Catálogo de feriados é global:</strong> vale para todas as tabelas de horário.</li>
+    <li><strong>Exceções por data</strong> são por tabela e têm prioridade sobre feriado e sobre o horário semanal.</li>
+    <li><strong>Tabela sem <code>holidayConfig</code></strong> fica <strong>FECHADA</strong> em todo feriado global.</li>
+    <li><strong>Dia da semana ausente</strong> em <code>weeklySchedules</code> é considerado <strong>FECHADO</strong>.</li>
+  </ol>
+  <p>A tabela de horários é referenciada por filas de atendimento e de telefonia, por usuários, por motivos de ticket e pelo acompanhamento de assistentes.</p>
+
+  <h2 id="4-feriados">4. Feriados</h2>
+  <figure class="figure">
+    <img src="assets/novidades-142-feriados.png" alt="Tela Feriados com ID, Nome, Data, Tipo, Recorrência, Ativo e Funções">
+    <figcaption>Feriados: ID, Nome, Data, Tipo, Recorrência, Ativo e Funções; botões Importar, Exportar e Adicionar.</figcaption>
+  </figure>
+  <p>A tela de <strong>Feriados</strong> permite <strong>Importar</strong> e <strong>Exportar</strong> o calendário, além de <strong>Adicionar</strong> e remover registros. Cada registro tem Nome, Data, Tipo (ex.: <em>Nacional</em>), Recorrência e o interruptor Ativo. Como o catálogo é global (seção 3), um feriado ativo aqui afeta todas as tabelas de horário que não tenham tratamento próprio para a data.</p>
+
+  <h2 id="5-fluxo-de-automacao-e-ura">5. Fluxo de Automação e URA</h2>
+  <p>A página de automações aparece como <strong>Fluxo de Automação e URA</strong>, com contadores por categoria no topo (nesta instância: <em>URA</em> e <em>Automação</em>) e os botões <strong>Importar</strong>, <strong>Importar debug</strong> e <strong>Adicionar</strong>.</p>
+
+  <figure class="figure">
+    <img src="assets/novidades-142-automacoes.png" alt="Lista Fluxo de Automação e URA com tipo, nome e colunas de capacidades">
+    <figcaption>Fluxo de Automação e URA: cada fluxo é classificado como <em>URA</em> ou <em>Automação</em> e mostra suas capacidades por coluna.</figcaption>
+  </figure>
+
+  <p>Colunas da lista: ID, Tipo (URA / Automação), Nome, Contatos, Atendimentos, Mensagens, Oportunidades, Tarefas, Execuções e Última modificação. As colunas de capacidade aparecem com <strong>marca de conferido</strong> quando o fluxo usa aquele recurso, e <strong>traço</strong> quando não usa — útil para auditar rapidamente o que cada fluxo faz.</p>
+  <p>O módulo passou a ter <strong>versionamento</strong> via API: <code>automations_list_revisions</code>, <code>automations_get_revision</code>, <code>automations_diff_revisions</code> e <code>automations_restore_revision</code>. Cada gravação que <strong>muda</strong> o fluxo gera uma versão; são guardadas as <strong>10 versões mais recentes</strong> por fluxo; restaurar é uma gravação nova (portanto desfazível) e devolve também as credenciais do momento; fluxos bloqueados são recusados. Esse histórico é acessível pela API — é o que sustenta o ícone de agenda na coluna Funções e o botão de teste/validação.</p>
+  <div class="callout tip">
+    <strong>Na prática:</strong> com o versionamento, uma URA em produção pode ser comparada e revertida sem depender de cópia manual. Trate o <em>diff</em> como revisão obrigatória antes de restaurar.
+  </div>
+
+  <h2 id="6-assistentes-de-ia">6. Assistentes de IA</h2>
+  <p>O editor de assistente (<strong>Editor do assistente</strong>) organiza a configuração em abas: <em>Geral</em>, <em>Conhecimento</em>, <em>Procedimentos</em>, <em>Funções</em>, <em>Conectores</em>, <em>MCP</em>, <em>Avançado</em>, <em>Debug</em> e <em>Testar</em>.</p>
+
+  <figure class="figure">
+    <img src="assets/novidades-142-assistente.png" alt="Editor do assistente com abas Geral, Conhecimento, Procedimentos, Funções, Conectores, MCP, Avançado, Debug e Testar">
+    <figcaption>Editor do assistente: abas de configuração e o bloco “Perfil público” (foto, assinatura, modelo de IA e contexto inicial).</figcaption>
+  </figure>
+
+  <p>Na aba <strong>Geral</strong> observam-se, entre outros: <em>Iniciar conversa proativamente</em>; as opções de processamento de arquivos (PDF, áudio, vídeo, imagem); <em>Somente copiloto</em>, <em>Permitir envio de mensagens em nome do agente</em>, <em>Somente URA</em>, <em>Permitir uso de botões</em>, <em>Enviar eventos de processamento</em>, <em>Mostrar “digitando...” ao cliente</em> e <em>Considerar mensagens recebidas durante as consultas</em>; automação de pré e pós-processamento; e o bloco <strong>Resultado</strong> (resultado ao transferir / ao encerrar, para relatórios e análise de desempenho).</p>
+
+  <h3 id="6-1-acompanhamento-automatico-ligado-a-horario">6.1 Acompanhamento automático ligado a horário</h3>
+  <p>O acompanhamento automático (já descrito no capítulo de IA) passou a aceitar vínculo com <strong>tabela de Horário de Atendimento</strong> e passou a ter controle de janela. Os campos novos na configuração do assistente:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo</th><th>O que faz</th></tr></thead>
+      <tbody>
+        <tr><td><code>businesshours</code> (por acompanhamento)</td><td>Vincula cada retomada a uma tabela de horário; fora da janela o acompanhamento é adiado ou descartado.</td></tr>
+        <tr><td><code>turnfollowupoutside</code></td><td>Fora da janela: <code>1</code> adia o acompanhamento; <code>0</code> descarta aquele acompanhamento.</td></tr>
+        <tr><td><code>turnfollowupshift</code></td><td>Ao adiar: mantém o horário, desloca a cadência ou cancela os acompanhamentos seguintes.</td></tr>
+        <tr><td><code>turnfollowupwindow</code></td><td>Validade da sequência (0–168 h; padrão 23 h) contada desde a última mensagem do cliente. Excedida, todos os acompanhamentos pendentes são cancelados.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn">
+    <strong>Armadilha documentada pela própria plataforma:</strong> um <em>delay</em> maior ou igual a <code>turnfollowupwindow</code> × 3600 <strong>nunca dispara</strong> — e ainda cancela os acompanhamentos pendentes. Com o padrão de 23 h, delays entre 82.800 e 86.400 s são “letra morta”. Ajuste a janela antes de configurar delays longos.
+  </div>
+  <p>A orientação de retomada passou a aceitar <strong>variáveis</strong> (por exemplo <code>{{contactName}}</code>, <code>{{clientNumber}}</code>), resolvidas no instante de cada disparo.</p>
+
+  <h3 id="6-2-geracao-de-audio-tts">6.2 Geração de áudio (TTS)</h3>
+  <p>A ferramenta de arquivos <code>files_generate_speech</code> gera áudio a partir de texto (OpenAI, Google AI Studio ou OpenRouter). O arquivo nasce na instância (<code>fileId</code>, <code>mimetype</code>, <code>downloadPath</code>) e, com <code>saveToGallery=true</code>, passa a ser item da <strong>galeria</strong> — nesse caso o campo <code>title</code> é obrigatório. Complementa o elemento “Gerar áudio com IA” das automações (que exige chave OpenAI) com a via de API e o salvamento em galeria.</p>
+
+  <h2 id="7-catalogo-de-produtos">7. Catálogo de Produtos</h2>
+  <figure class="figure">
+    <img src="assets/novidades-142-catalogo.png" alt="Catálogo de Produtos com abas Produtos e Grupos e colunas ID, Foto, Nome, Descrição, Cód. Int., GTIN, Valor, Valor Rec. e Estado">
+    <figcaption>Catálogo de Produtos: abas <em>Produtos</em> e <em>Grupos</em>, botões Importar/Adicionar e a coluna Cód. Int. que liga o produto à sua alternativa.</figcaption>
+  </figure>
+  <p>A lista de produtos expõe as colunas ID, Foto, Nome, Descrição, <strong>Cód. Int.</strong>, <strong>GTIN</strong>, Valor, <strong>Valor Rec.</strong> (valor recomendado) e Estado (ex.: <em>Disponível</em>). Há um aviso de cache no topo: <em>“Alterações em produtos não aparecem imediatamente para os clientes; por causa do cache de distribuição, elas podem levar até 20 minutos para surtir efeito público.”</em></p>
+  <p>Dois itens novos fecham o ciclo com o Carrinho Sincronizado e a expansão de alternativas do assistente:</p>
+  <ul>
+    <li><strong>Anexos ao produto por feed/CSV/XML:</strong> o feed de importação passou a poder trazer também os arquivos do produto, e não só os campos.</li>
+    <li><strong>“Não exibir preços no catálogo”:</strong> campo da fila (<code>localcataloghideprices</code>, padrão desligado). Só vale com Catálogo sincronizado <strong>LOCAL</strong> ativo; a vitrine, o carrinho e as mensagens de produto saem sem preço, mas o painel do atendente/supervisor continua mostrando o preço.</li>
+  </ul>
+  <p>O <strong>Cód. Int.</strong> (código interno) é o vínculo usado pelo recurso <em>Expandir alternativas</em> do assistente: quando um produto não está disponível, o assistente identifica a alternativa correta por esse vínculo. Sem o vínculo cadastrado, a expansão não tem como escolher a alternativa certa.</p>
+
+  <h2 id="8-campanhas">8. Campanhas</h2>
+  <p>A tela <strong>Campanhas</strong> (<span class="badge">BETA</span>) lista ID, Nome, Tipo (ex.: <em>Marketing</em>), Template, Fila, Msgs, Teste, Estado (ex.: <em>Enviado</em>) e Data, com as funções iniciar/gerenciar/exportar/remover. A API de campanhas ganhou o campo <code>hourlylimit</code>: um limite de disparos por <strong>janela deslizante de 60 minutos</strong> (0 ou ausente = sem limite), para não sobrecarregar a entrada de atendimentos.</p>
+
+  <h2 id="9-metodo-e-incertezas">9. Método e incertezas</h2>
+  <ul>
+    <li><strong>Fonte primária:</strong> interface autenticada da instância <code>fastcorte.atenderbem.com</code> na versão <strong>14.2.0</strong> (login, Configurações → Geral, Filas, Horários de Atendimento, Feriados, Fluxo de Automação e URA, Assistentes, Catálogo e Campanhas) e o catálogo de ferramentas MCP <code>omni-config</code> (schema de <code>queues_create</code>, <code>businesshours_*</code>, <code>automations_*_revision</code>, <code>assistants_update</code>, <code>campaigns_create</code>, <code>files_generate_speech</code>).</li>
+    <li><strong>Modo somente leitura:</strong> nenhuma configuração foi criada, alterada ou removida. Formulários foram abertos apenas para leitura e fechados sem salvar.</li>
+    <li><strong>Incertezas assumidas:</strong> (1) a presença dos tipos de canal 28–31 no schema da API sem oferta correspondente na tela de criação de fila (seção 2.2); (2) os parâmetros exatos de tempo/lote do delay e agregação de mensagens em filas Cloud API (v14.1.10) não são detalhados pela plataforma; (3) os nomes dos campos de API seguem a documentação do MCP e podem variar de rótulo na tela.</li>
+    <li><strong>Privacidade:</strong> nas capturas de tela com números de WhatsApp, a coluna foi borrada antes de entrar neste capítulo.</li>
+  </ul>
+
+  <div class="pagenav">
+    <a href="index.html"><span>← Voltar</span> Página inicial</a>
+    <a class="next" href="canais-whatsapp-meta.html"><span>Ver também →</span> WhatsApp, Cloud API e Meta</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
+  <p>Verificação da versão 14.2 feita diretamente na instância e no catálogo MCP <code>omni-config</code>.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
