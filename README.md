@@ -34,6 +34,8 @@ Páginas:
 - `extensoes.html` — Extensões (micro-frontends / SDK)
 - `extensoes-criar-publicar-instalar.html` — Extensões: criar, publicar, instalar e distribuir (whitelabel)
 - `extensoes-bastidores.html` — Extensões: bastidores do projeto (método, armadilhas, regras de ouro)
+- `extensoes-tour-guiado.html` — Extensões: tour guiado (nível 2) que roda dentro do produto
+- `assets/tour-extensoes.js` — o script do tour (somente leitura) usado na página acima
 - `ext/kit-extensao-exemplo/` — kit de exemplo para criar uma extensão (manifest + tela + guia)
 - `backups.html` — Backups e Restauração
 

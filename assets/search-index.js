@@ -1455,6 +1455,40 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Extensões: Tour Guiado",
+  "u": "extensoes-tour-guiado.html",
+  "s": [
+   {
+    "h": "1. O que é (e o que não é)",
+    "a": "o-que-e"
+   },
+   {
+    "h": "2. Como executar",
+    "a": "como-executar"
+   },
+   {
+    "h": "Opção A — pelo console (recomendada)",
+    "a": "opcao-console"
+   },
+   {
+    "h": "Opção B — como favorito (bookmarklet)",
+    "a": "opcao-favorito"
+   },
+   {
+    "h": "3. Os 10 passos do tour",
+    "a": "os-passos"
+   },
+   {
+    "h": "4. Como funciona (notas técnicas)",
+    "a": "como-funciona"
+   },
+   {
+    "h": "5. Depois do tour",
+    "a": "depois-do-tour"
+   }
+  ]
+ },
+ {
   "t": "FAQ",
   "u": "tickets-faq.html",
   "s": [
@@ -2083,6 +2117,10 @@ window.MANUAL_INDEX = [
    {
     "h": "Extensões: Bastidores do Projeto",
     "a": "extensoes-bastidores-do-projeto"
+   },
+   {
+    "h": "Extensões: Tour Guiado",
+    "a": "extensoes-tour-guiado"
    },
    {
     "h": "WhatsApp, Cloud API e Meta",

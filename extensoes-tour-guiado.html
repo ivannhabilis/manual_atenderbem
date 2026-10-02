@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extensões: Tour Guiado — Manual Omnichannel</title>
+  <meta name="description" content="Tour guiado (nível 2) que roda dentro do próprio produto: destaca os elementos reais, passo a passo, para ensinar a criar uma extensão. Como instalar e executar (console ou favorito), os 10 passos e as notas técnicas.">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    pre { background:#0f172a; color:#7dd3fc; padding:14px; border-radius:6px; font-size:12px; overflow-x:auto; margin:12px 0; }
+    code { font-family: Consolas, "Liberation Mono", Courier, monospace; }
+    .passo { border-left:5px solid #7c3aed; background:#f5f3ff; padding:10px 14px; border-radius:8px; margin:10px 0; }
+    .passo b { display:block; margin-bottom:2px; }
+    .aviso-lim { border-left:5px solid #f59e0b; background:#fffbeb; padding:10px 14px; border-radius:8px; margin:10px 0; }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a class="active" href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › <a href="configuracoes.html">Configurações</a> › Extensões: Tour Guiado</div>
+
+  <h1>Extensões: Tour Guiado (Nível 2)</h1>
+  <p class="subtitle">Um tour que roda <strong>dentro do próprio produto</strong>: escurece a tela, destaca o elemento real e explica cada passo — do menu de configurações até os selos de versão da extensão. É o complemento prático do guia escrito.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#o-que-e">1. O que é (e o que não é)</a></li>
+      <li><a href="#como-executar">2. Como executar</a></li>
+      <li class="toc-h3"><a href="#opcao-console">Opção A — pelo console (recomendada)</a></li>
+      <li class="toc-h3"><a href="#opcao-favorito">Opção B — como favorito (bookmarklet)</a></li>
+      <li><a href="#os-passos">3. Os 10 passos do tour</a></li>
+      <li><a href="#como-funciona">4. Como funciona (notas técnicas)</a></li>
+      <li><a href="#depois-do-tour">5. Depois do tour</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <div class="callout info">
+    <strong>Os três níveis de documentação:</strong> (1) o <em>guia escrito</em> (passo a passo, arquivo único, funciona offline); (2) o <strong>tour guiado</strong>, que executa sobre a tela real — esta página; (3) um assistente que validaria o manifesto enquanto se digita (projeto futuro).
+  </div>
+
+  <h2 id="o-que-e">1. O que é (e o que não é)</h2>
+  <p>O tour é um pequeno programa que você anexa à página do produto enquanto navega. Ele:</p>
+  <ul>
+    <li><strong>aponta</strong> para os elementos reais, um a um, na ordem certa;</li>
+    <li><strong>navega</strong> por você (abre o menu de configurações, entra no editor);</li>
+    <li>explica <strong>as pegadinhas</strong> no momento em que elas aparecem na tela.</li>
+  </ul>
+  <div class="aviso-lim">
+    <strong>É 100% somente-leitura.</strong> O tour não cria, não publica, não instala e não apaga nada. No máximo abre um formulário de criação — que você pode fechar sem preencher.
+  </div>
+
+  <h2 id="como-executar">2. Como executar</h2>
+  <p>Há duas formas. A primeira é a mais simples e funciona em qualquer navegador.</p>
+
+  <h3 id="opcao-console">Opção A — pelo console (recomendada)</h3>
+  <ol class="steps">
+    <li>Abra a instância e faça login.</li>
+    <li>Abra o <strong>console do navegador</strong> (tecla <code>F12</code> → aba <em>Console</em>).</li>
+    <li>Cole o conteúdo do arquivo <code>assets/tour-extensoes.js</code> e pressione <em>Enter</em>.</li>
+    <li>O tour começa sozinho. Navegue com <strong>Próximo / Anterior</strong>, pelas <strong>setas do teclado</strong> ou saia com <strong>Esc</strong>.</li>
+  </ol>
+
+  <h3 id="opcao-favorito">Opção B — como favorito (bookmarklet)</h3>
+  <p>Crie um favorito no navegador com este endereço (nomeie-o como “Tour Extensões”):</p>
+  <pre>javascript:(function(){var s=document.createElement('script');s.src='https://raw.githack.com/ivannhabilis/manual_atenderbem/4456adb/assets/tour-extensoes.js?v='+Date.now();document.body.appendChild(s);})()</pre>
+  <p>Depois, com o sistema aberto, basta clicar no favorito. Se o navegador remover o começo <code>javascript:</code> ao colar, crie o favorito manualmente e cole o texto no campo <em>URL</em>.</p>
+  <div class="callout warn">
+    <strong>Se a sua instância tiver uma política de segurança (CSP) restritiva</strong>, a opção B pode ser bloqueada: nesse caso use a opção A (o código colado no console não sofre essa restrição).
+  </div>
+
+  <h2 id="os-passos">3. Os 10 passos do tour</h2>
+  <div class="passo"><b>1. O ponto de partida</b> Destaca o menu <em>Configurações</em> na barra superior.</div>
+  <div class="passo"><b>2. O item Extensões</b> O item, no fim do menu, que abre o <strong>Editor</strong>.</div>
+  <div class="passo"><b>3. Criar uma extensão</b> O botão <em>+ Nova extensão</em>.</div>
+  <div class="passo"><b>4. O formulário e a pegadinha do identificador</b> <em>Nome</em>, <em>Identificador</em> e <em>Descrição</em> — e o aviso de que o identificador fica <strong>imutável</strong> após a primeira publicação.</div>
+  <div class="passo"><b>5. A lista de extensões</b> Cada linha e o que ela informa.</div>
+  <div class="passo"><b>6. Rascunho x Publicado</b> O selo do <em>rascunho</em> (único editável) e as versões publicadas (imutáveis).</div>
+  <div class="passo"><b>7. O marcador do canal</b> O selo <em>dev</em>: <strong>publicar não põe no ar — apontar o canal é que põe</strong>.</div>
+  <div class="passo"><b>8. Atualizar sem reinstalar</b> A cota de versões e o fluxo de atualização/rollback.</div>
+  <div class="passo"><b>9 e 10. Encerramento</b> O que é seu (criar/publicar) e o que é do superusuário — e por que, na prática, <strong>alterar uma instalação exige o MCP</strong>.</div>
+
+  <figure class="figure">
+    <img src="assets/tour-passo3-criar.png" alt="O tour destacando o botão Nova extensão" style="border:1px solid #cbd5e1;border-radius:8px">
+    <figcaption>Figura 1 — O tour destacando o botão <em>+ Nova extensão</em> (passo 3/4).</figcaption>
+  </figure>
+  <figure class="figure">
+    <img src="assets/tour-passo5-lista.png" alt="O tour destacando a linha da extensão na lista" style="border:1px solid #cbd5e1;border-radius:8px">
+    <figcaption>Figura 2 — O tour destacando a linha da extensão (passo 5).</figcaption>
+  </figure>
+  <figure class="figure">
+    <img src="assets/tour-passo7-canal.png" alt="O tour destacando o selo do canal dev" style="border:1px solid #cbd5e1;border-radius:8px">
+    <figcaption>Figura 3 — O tour explicando o marcador de canal (passo 7). Publicar congela; apontar coloca em uso.</figcaption>
+  </figure>
+
+  <h2 id="como-funciona">4. Como funciona (notas técnicas)</h2>
+  <ul>
+    <li><strong>Não altera nada no servidor.</strong> Tudo acontece no seu navegador e desaparece quando você sai (Esc ou o botão ✕).</li>
+    <li><strong>Localiza os elementos pelos textos e classes reais</strong> da tela (ex.: o rótulo <em>Configurações</em>, a linha da lista, os selos <em>rascunho</em> e <em>dev</em>).</li>
+    <li><strong>Não rastreia nada</strong> e não envia dados para fora.</li>
+    <li><strong>Se a política de segurança da instância mudar</strong> ou algum rótulo da tela for alterado numa versão futura, um passo pode não encontrar o elemento: nesse caso o tour <em>avisa na hora</em> (“não encontrei este elemento nesta tela”) em vez de apontar errado.</li>
+    <li><strong>A camada do tour não bloqueia os cliques</strong>: você continua podendo operar a tela normalmente por baixo do destaque.</li>
+  </ul>
+
+  <h2 id="depois-do-tour">5. Depois do tour</h2>
+  <p>Para <strong>criar de verdade</strong>, siga o capítulo <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar, Publicar e Instalar</a> ou abra o guia guiado avulso (arquivo único, funciona offline). Para copiar um ponto de partida que já funciona, use o kit em <code>ext/kit-extensao-exemplo/</code>.</p>
+  <div class="callout info">
+    <strong>Lembrete importante:</strong> criar e publicar é papel do Administrador. <strong>Instalar</strong> (e alterar o que está instalado) é do <strong>superusuário</strong> — e como o parceiro/cliente não tem esse acesso na própria instância, na prática isso é feito pelo <strong>MCP</strong> (integração de configuração) ou pelo painel do parceiro.
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — Elaborado a partir da interface real da plataforma <strong>Omnichannel / Habilis</strong>.</p>
+  <p>Documento genérico (whitelabel): utiliza nomes e dados de exemplo. Nenhuma instância de cliente é identificada.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
