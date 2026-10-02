@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extensões: Criar, Publicar e Instalar — Manual Omnichannel</title>
+  <meta name="description" content="Guia completo do ciclo de vida das Extensões na plataforma Omnichannel (whitelabel): quem cria, quem instala, como publicar, como distribuir para outras instâncias e como remover. Com telas e fluxo passo a passo.">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    pre { background:#0f172a; color:#7dd3fc; padding:14px; border-radius:6px; font-size:12px; overflow-x:auto; margin:12px 0; }
+    code { font-family: Consolas, "Liberation Mono", Courier, monospace; }
+    .diagrama { display:flex; flex-wrap:wrap; gap:10px; align-items:stretch; margin:14px 0; }
+    .diagrama .caixa { flex:1 1 200px; border:2px solid #2563eb; border-radius:8px; padding:12px; background:#eff6ff; }
+    .diagrama .caixa h4 { margin:0 0 6px; font-size:13px; }
+    .diagrama .caixa p { margin:0; font-size:12px; }
+    .diagrama .seta { align-self:center; font-size:22px; color:#2563eb; }
+    .fig-num { font-size:11px; color:#64748b; }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a class="active" href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › <a href="configuracoes.html">Configurações</a> › Extensões: Criar, Publicar e Instalar</div>
+
+  <h1>Extensões: Criar, Publicar e Instalar</h1>
+  <p class="subtitle">O ciclo de vida completo das extensões em uma plataforma <strong>whitelabel</strong>: quem desenvolve, quem instala, como publicar, como distribuir para várias instâncias e como desfazer. Explicação com telas reais e o fluxo passo a passo.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#por-que-isso-confunde">1. Por que isso confunde tanto</a></li>
+      <li><a href="#o-que-e-global-e-o-que-e-local">2. O que é global e o que é local</a></li>
+      <li><a href="#quem-pode-fazer-o-que">3. Quem pode fazer o quê</a></li>
+      <li><a href="#onde-fica-o-editor">4. Onde fica o editor (a tela de quem cria)</a></li>
+      <li><a href="#criar-a-extensao">5. Criar a extensão (o que é preciso)</a></li>
+      <li><a href="#o-fluxo-completo">6. O fluxo completo (do zero ao uso)</a></li>
+      <li><a href="#instalar-na-instancia">7. Instalar na instância (a tela de quem entrega)</a></li>
+      <li><a href="#como-aparece-para-o-usuario">8. Como a extensão aparece para o usuário</a></li>
+      <li><a href="#distribuir-para-outras-instancias">9. Distribuir para outras instâncias</a></li>
+      <li><a href="#desfazer">10. Desfazer: desabilitar, remover, apagar</a></li>
+      <li><a href="#armadilhas-e-boas-praticas">11. Armadilhas e boas práticas</a></li>
+      <li><a href="#perguntas-frequentes">12. Perguntas frequentes</a></li>
+      <li class="toc-h3"><a href="#faq-criar-admin">O Administrador consegue criar a extensão?</a></li>
+      <li class="toc-h3"><a href="#faq-so-mcp">E se a empresa não tiver um superusuário acessível? Só resta instalar via integração (API/MCP)?</a></li>
+      <li class="toc-h3"><a href="#faq-outras-instancias">A extensão que eu criei fica só na minha instância?</a></li>
+      <li class="toc-h3"><a href="#faq-atualizar">Para atualizar a extensão, preciso reinstalar em cada empresa?</a></li>
+      <li class="toc-h3"><a href="#faq-nao-aparece">Instalei, mas a extensão não aparece para mim. Por quê?</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <div class="callout info">
+    <strong>Resumo em uma frase:</strong> "<em>criar a extensão</em>" e "<em>instalar a extensão</em>" são dois papéis, em duas telas, com duas permissões — e o aplicativo criado é <strong>global</strong> (mora num servidor central), enquanto cada instalação é <strong>local</strong> (uma por empresa/instância).
+  </div>
+
+  <h2 id="por-que-isso-confunde">1. Por que isso confunde tanto</h2>
+  <p>A funcionalidade de Extensões separa deliberadamente três coisas que, no dia a dia, parecem uma só:</p>
+  <div class="diagrama">
+    <div class="caixa"><h4>1. AUTORAR</h4><p>Escrever a extensão (manifest + telas). Tela: <strong>Editor de Extensões</strong>. Quem: o <em>desenvolvedor</em> (perfil Administrador).</p></div>
+    <div class="seta">→</div>
+    <div class="caixa"><h4>2. INSTALAR</h4><p>Entregar a extensão nesta empresa. Tela: <strong>Extensões Instaladas</strong>. Quem: <em>somente superusuário</em>.</p></div>
+    <div class="seta">→</div>
+    <div class="caixa"><h4>3. DISTRIBUIR</h4><p>Entregar em várias empresas de uma vez. Local: <strong>painel do parceiro</strong>. Quem: <em>parceiro</em>.</p></div>
+  </div>
+  <p>Quem só tem o perfil <strong>Administrador</strong> vê apenas a etapa 1. A etapa 2 (o botão "instalar") pertence ao <strong>superusuário</strong> — e isso é garantido no servidor, não apenas escondido na tela: a chamada direta à API de instalação devolve <em>403 Proibido</em>, inclusive para leitura.</p>
+
+  <h2 id="o-que-e-global-e-o-que-e-local">2. O que é global e o que é local</h2>
+  <p>Pense numa <strong>loja de aplicativos</strong>: o aplicativo existe uma vez só na loja (global); instalado no seu aparelho e no meu, são duas instalações diferentes (locais).</p>
+  <table class="doc">
+    <thead><tr><th>Peça</th><th>Onde vive</th><th>É…</th></tr></thead>
+    <tbody>
+      <tr><td>O <strong>aplicativo</strong> (manifest + arquivos)</td><td>Servidor central do produto (CDN)</td><td><strong>Global</strong> — um identificador único no sistema inteiro</td></tr>
+      <tr><td>O <strong>identificador</strong> (<code>fornecedor.extensao</code>)</td><td>No manifest, congelado na 1ª publicação</td><td><strong>Global</strong> e imutável</td></tr>
+      <tr><td>A <strong>instalação</strong> (quem recebe, com qual configuração)</td><td>Dentro de cada empresa/instância</td><td><strong>Local</strong> — uma por instância, independente</td></tr>
+    </tbody>
+  </table>
+  <p>A mesma extensão instalada em duas instâncias são <strong>duas instalações separadas</strong>, com configuração, público e dados separados.</p>
+
+  <h2 id="quem-pode-fazer-o-que">3. Quem pode fazer o quê</h2>
+  <table class="doc">
+    <thead><tr><th>Ação</th><th>Onde</th><th>Quem</th></tr></thead>
+    <tbody>
+      <tr><td>Criar, editar e publicar a extensão</td><td>Editor de Extensões (Configurações › Extensões)</td><td>Administrador — <em>ou</em> Supervisor com a permissão de editar extensões</td></tr>
+      <tr><td>Instalar, configurar, habilitar, desabilitar e remover</td><td>Extensões Instaladas</td><td><strong>Somente superusuário</strong> (perfis internos 98 e 99)</td></tr>
+      <tr><td>Operar várias instâncias de uma vez (em lote)</td><td>Painel do parceiro</td><td>Quem tem acesso de parceiro</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn">
+    <strong>Atenção:</strong> um Administrador comum <strong>não vê</strong> a tela de extensões instaladas, não instala, não remove e não enxerga nem edita as chaves locais. Se ele tentar abrir a URL diretamente, é redirecionado. Isso é proposital: quem escreve o código não é necessariamente quem decide o que roda na empresa.
+  </div>
+
+  <h2 id="onde-fica-o-editor">4. Onde fica o editor (a tela de quem cria)</h2>
+  <p>No menu <strong>Configurações</strong>, o item <strong>Extensões</strong> fica no fim da lista.</p>
+  <figure class="figure">
+    <img src="assets/extensoes-menu-config.png" alt="Menu Configurações com o item Extensões no fim da lista" style="max-width:320px;border:1px solid #cbd5e1;border-radius:8px">
+    <figcaption>Figura 1 — Menu <strong>Configurações</strong>: o item <strong>Extensões</strong> (Editor) aparece no fim, ao lado de Geral e Log de Auditoria.</figcaption>
+  </figure>
+  <p>O editor lista as extensões autoradas <strong>nesta</strong> instância. Cada linha mostra o nome, o identificador, a versão que está no canal de <em>dev</em> e a cota de versões publicadas.</p>
+  <figure class="figure">
+    <img src="assets/extensoes-editor.png" alt="Tela do Editor de Extensões com uma extensão de exemplo" style="border:1px solid #cbd5e1;border-radius:8px">
+    <figcaption>Figura 2 — <strong>Editor de Extensões</strong>: botão <em>Nova extensão</em>, e uma extensão de exemplo com o identificador e a versão publicada.</figcaption>
+  </figure>
+  <div class="callout tip">
+    <strong>Importante:</strong> o editor é uma tela de <em>desenvolvimento</em>. Ele precisa estar habilitado na instância para que Administradores o utilizem.
+  </div>
+
+  <h2 id="criar-a-extensao">5. Criar a extensão (o que é preciso)</h2>
+  <p>Uma extensão é apenas isto:</p>
+  <ul>
+    <li><strong>1 arquivo de identidade</strong> — o <code>manifest.json</code>;</li>
+    <li><strong>1 ou mais arquivos de tela</strong> — normalmente um <code>index.html</code> (com HTML/CSS/JS).</li>
+  </ul>
+  <p>Manifesto mínimo, comentado:</p>
+  <pre>{
+  "manifestVersion": 1,
+  "id": "fornecedor.extensao",        // identificador GLOBAL: minúsculas, números e hífen;
+                                       // exatamente um ponto. Congela na 1ª publicação.
+  "version": "1.0.0",                  // Semver estrito X.Y.Z; na publicação tem de ser
+                                       // MAIOR que a última publicada.
+  "name": "Minha Extensão",
+  "description": "O que ela faz.",
+  "author": { "name": "Nome do autor" },   // ATENÇÃO: author é OBJETO, não texto solto.
+  "contributions": [                       // ONDE a extensão aparece:
+    { "id": "painel",
+      "type": "chatPanel",                 // abinha no painel lateral do atendimento
+      "title": { "pt-BR": "Meu Painel" },
+      "url": "index.html" },               // o arquivo TEM de existir na versão
+    { "id": "menu",
+      "type": "topMenu",                   // item na barra superior
+      "title": { "pt-BR": "Minha Extensão" },
+      "presentation": { "mode": "dialog", "size": "lg" },
+      "url": "index.html" }
+  ]
+}</pre>
+  <p>Os tipos mais usados de ponto de encaixe:</p>
+  <table class="doc">
+    <thead><tr><th>Tipo</th><th>Onde aparece</th></tr></thead>
+    <tbody>
+      <tr><td><code>chatPanel</code></td><td>Aba no painel lateral do atendimento</td></tr>
+      <tr><td><code>topMenu</code></td><td>Ícone/item na barra superior (visível para todos os perfis)</td></tr>
+      <tr><td><code>mainNav</code></td><td>Item na navegação principal</td></tr>
+      <tr><td><code>chatMenu</code>, <code>msgMenu</code></td><td>Menus dentro do atendimento / da mensagem</td></tr>
+      <tr><td><code>cartAction</code>, <code>cartFooterAction</code></td><td>Botões no painel de carrinho do atendimento</td></tr>
+      <tr><td><code>callAction</code></td><td>Ação em uma chamada de telefonia</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn">
+    <strong>Regra de ouro:</strong> todo arquivo citado no manifest (<code>url</code>, <code>icon</code> e <code>worker</code>) tem de existir de fato na versão. Se citar e não existir, a publicação é recusada. E o <code>icon</code> é um <strong>arquivo da extensão</strong> (ex.: <code>assets/icone.svg</code>), <strong>não</strong> o nome de um ícone do sistema.
+  </div>
+
+  <h2 id="o-fluxo-completo">6. O fluxo completo (do zero ao uso)</h2>
+  <ol class="steps">
+    <li><strong>Criar</strong> a extensão — nasce um rascunho (o único estado editável).</li>
+    <li><strong>Escrever</strong> o manifest e os arquivos da tela.</li>
+    <li><strong>Conferir</strong> — o sistema aponta cada erro antes de publicar.</li>
+    <li><strong>Publicar</strong> — a versão vira <em>imutável</em> e é enviada ao servidor central (CDN). Publicar <strong>não</strong> coloca em uso.</li>
+    <li><strong>Apontar o canal</strong> — <em>dev</em> (teste) ou <em>prod</em> (produção). <strong>Só isto liga a versão.</strong></li>
+    <li><strong>Obter a URL pública do manifest</strong> — é o endereço que se entrega para quem vai instalar.</li>
+    <li><strong>Instalar</strong> na instância — informando a URL, a configuração e <em>para quem</em> entregar.</li>
+    <li><strong>Conferir</strong> na tela do usuário-alvo.</li>
+  </ol>
+  <div class="callout info">
+    <strong>Sobre os "ponteiros" (dev/prod):</strong> publicar cria a versão; apontar decide quem a usa. É por isso que atualizar uma extensão <strong>não exige reinstalar nada</strong>: o fornecedor publica a nova versão e move o ponteiro de produção. O <em>rollback</em> é mover o ponteiro de volta — nada é apagado.
+  </div>
+
+  <h2 id="instalar-na-instancia">7. Instalar na instância (a tela de quem entrega)</h2>
+  <p>A instalação exige três decisões:</p>
+  <table class="doc">
+    <thead><tr><th>Decisão</th><th>O que é</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Qual manifest</strong></td><td>A URL de <code>prod</code> (para valer) ou <code>dev</code> (para testar)</td></tr>
+      <tr><td><strong>Com qual configuração</strong></td><td>Campos que a própria extensão pede (ex.: uma chave de API). Campos marcados como <em>secret</em> são cifrados e nunca retornam em leitura.</td></tr>
+      <tr><td><strong>Para quem</strong></td><td>O filtro de público: por tipo de usuário, por pessoa, por fila ou por grupo</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn">
+    <strong>Duas armadilhas do filtro:</strong> (1) um filtro de inclusão <strong>vazio significa NINGUÉM</strong> — não significa "todos"; (2) se você não informar filtro algum, o sistema aplica o padrão (todos os tipos de usuário). Por segurança, o recomendado é instalar primeiro com um público <strong>restrito</strong> (só você ou uma fila de teste), conferir, e só então abrir para a equipe.
+  </div>
+  <p>A entrega é <strong>imediata</strong>: quem cai no filtro passa a ver a extensão sem precisar recarregar a página.</p>
+
+  <h2 id="como-aparece-para-o-usuario">8. Como a extensão aparece para o usuário</h2>
+  <p>Um item de barra superior aparece como um ícone novo, ao lado dos ícones nativos do sistema.</p>
+  <figure class="figure">
+    <img src="assets/extensoes-topbar-item.png" alt="Barra superior com um ícone novo de extensão ao lado do ícone de Configurações" style="border:1px solid #cbd5e1;border-radius:8px">
+    <figcaption>Figura 3 — O item de extensão (<code>topMenu</code>) aparece como um ícone próprio na barra superior.</figcaption>
+  </figure>
+  <p>Ao clicar, a tela da extensão abre num diálogo — isolada num quadro próprio (por segurança) e já conectada à sessão do atendente.</p>
+  <figure class="figure">
+    <img src="assets/extensoes-painel-exemplo.png" alt="Painel da extensão aberto, mostrando dados da sessão do usuário" style="border:1px solid #cbd5e1;border-radius:8px">
+    <figcaption>Figura 4 — A extensão em execução: ela lê a sessão do usuário (quem está logado, versão do sistema) e reage ao atendimento selecionado.</figcaption>
+  </figure>
+
+  <h2 id="distribuir-para-outras-instancias">9. Distribuir para outras instâncias</h2>
+  <p>Como a plataforma é <strong>whitelabel</strong>, cada cliente possui a sua própria instância (com identidade visual e endereço próprios). A extensão, porém, é um artefato <strong>global</strong>:</p>
+  <ul>
+    <li>o aplicativo é publicado uma única vez, num endereço público, com um identificador único no sistema;</li>
+    <li>qualquer outra instância instala o <strong>mesmo</strong> aplicativo, colando essa URL na sua tela de extensões instaladas;</li>
+    <li>cada instalação permanece independente: configuração, público, chave e dados próprios;</li>
+    <li>para levar a extensão a muitas instâncias de uma vez, usa-se o <strong>painel do parceiro</strong> (gestão remota, individual ou em lote).</li>
+  </ul>
+  <div class="callout tip">
+    <strong>Atualização sem reinstalar:</strong> quando o autor publica uma versão nova e move o ponteiro de produção, <em>todas</em> as instalações que consomem aquela URL passam a receber a versão nova automaticamente. O canal de produção costuma levar alguns minutos para propagar (cache de borda); o canal de <em>dev</em> é imediato.
+  </div>
+
+  <h2 id="desfazer">10. Desfazer: desabilitar, remover, apagar</h2>
+  <table class="doc">
+    <thead><tr><th>Ação</th><th>O que acontece</th><th>Reversível?</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Desabilitar</strong> a instalação</td><td>A extensão sai do ar na hora, mas configuração, filtros e chave são preservados</td><td>Sim — reabilitar</td></tr>
+      <tr><td><strong>Remover</strong> a instalação</td><td>Apaga configuração local, segredos e chave; os usuários deixam de receber</td><td>Não</td></tr>
+      <tr><td><strong>Apagar</strong> a extensão</td><td>Remove o aplicativo inteiro (todas as versões) do servidor central</td><td>Não — e afeta outras instâncias que a tenham instalado</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn">
+    <strong>Atenção:</strong> remover a instalação é diferente de apagar a extensão. Apagar a extensão <strong>não</strong> remove automaticamente as instalações que existiam — é preciso removê-las também, senão elas ficam apontando para algo que não existe mais. E apagar a extensão tem alcance externo: instâncias de outros clientes que a usavam passam a exibir "extensão indisponível".
+  </div>
+
+  <h2 id="armadilhas-e-boas-praticas">11. Armadilhas e boas práticas</h2>
+  <ul>
+    <li><strong><code>author</code> é objeto</strong> (<code>{"name": "..."}</code>), não texto solto.</li>
+    <li><strong><code>icon</code> é arquivo</strong> da extensão, não nome de ícone do sistema.</li>
+    <li><strong>A 1ª publicação congela o identificador.</strong> Escolha bem o <code>id</code>: depois só dá para mudar apagando e recriando.</li>
+    <li><strong>Filtro vazio = ninguém.</strong> Nunca deixe o filtro de inclusão vazio esperando "todos".</li>
+    <li><strong>Teste no canal <em>dev</em></strong> antes de mover o ponteiro de produção.</li>
+    <li><strong>Instale primeiro para um público restrito</strong>; é HTML de terceiro rodando na sessão dos seus atendentes.</li>
+    <li><strong>Segredos vão na configuração</strong> da instalação, nunca escritos no código da tela.</li>
+    <li><strong>Versão publicada é imutável.</strong> Para corrigir algo publicado, crie uma versão nova a partir dela (clonar) — não tente editar.</li>
+  </ul>
+
+  <h2 id="perguntas-frequentes">12. Perguntas frequentes</h2>
+  <div class="faq">
+    <h3 id="faq-criar-admin">O Administrador consegue criar a extensão?</h3>
+    <p>Sim — criar, editar e publicar é papel do Administrador (no Editor de Extensões). O que ele não faz é <em>instalar</em> na instância.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-so-mcp">E se a empresa não tiver um superusuário acessível? Só resta instalar via integração (API/MCP)?</h3>
+    <p>Na prática, sim: a instalação é do superusuário. Não havendo um login de superusuário na instância, a instalação é feita pela integração de configuração (MCP/API), que opera exatamente com esse perfil, ou pelo painel do parceiro.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-outras-instancias">A extensão que eu criei fica só na minha instância?</h3>
+    <p>O aplicativo é global (fica num servidor central); as instalações é que são locais. Outra instância instala o mesmo aplicativo informando a URL do manifest.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-atualizar">Para atualizar a extensão, preciso reinstalar em cada empresa?</h3>
+    <p>Não. Basta publicar a versão nova e mover o ponteiro de produção. Todas as instalações que usam aquela URL recebem a atualização automaticamente.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-nao-aparece">Instalei, mas a extensão não aparece para mim. Por quê?</h3>
+    <p>Quase sempre é o público-alvo. Verifique se o seu usuário casa com o filtro (tipo de usuário, pessoa, fila ou grupo). Lembre-se: filtro de inclusão vazio não entrega para ninguém. E alguns pontos de encaixe só existem em certas telas (por exemplo, a aba de painel de atendimento só aparece para quem atende chats).</p>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — Elaborado a partir da interface real da plataforma <strong>Omnichannel / Habilis</strong>.</p>
+  <p>Documento genérico (whitelabel): utiliza nomes e dados de exemplo. Nenhuma instância de cliente é identificada.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

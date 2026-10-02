@@ -1331,6 +1331,80 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Extensões: Criar, Publicar e Instalar",
+  "u": "extensoes-criar-publicar-instalar.html",
+  "s": [
+   {
+    "h": "1. Por que isso confunde tanto",
+    "a": "por-que-isso-confunde"
+   },
+   {
+    "h": "2. O que é global e o que é local",
+    "a": "o-que-e-global-e-o-que-e-local"
+   },
+   {
+    "h": "3. Quem pode fazer o quê",
+    "a": "quem-pode-fazer-o-que"
+   },
+   {
+    "h": "4. Onde fica o editor (a tela de quem cria)",
+    "a": "onde-fica-o-editor"
+   },
+   {
+    "h": "5. Criar a extensão (o que é preciso)",
+    "a": "criar-a-extensao"
+   },
+   {
+    "h": "6. O fluxo completo (do zero ao uso)",
+    "a": "o-fluxo-completo"
+   },
+   {
+    "h": "7. Instalar na instância (a tela de quem entrega)",
+    "a": "instalar-na-instancia"
+   },
+   {
+    "h": "8. Como a extensão aparece para o usuário",
+    "a": "como-aparece-para-o-usuario"
+   },
+   {
+    "h": "9. Distribuir para outras instâncias",
+    "a": "distribuir-para-outras-instancias"
+   },
+   {
+    "h": "10. Desfazer: desabilitar, remover, apagar",
+    "a": "desfazer"
+   },
+   {
+    "h": "11. Armadilhas e boas práticas",
+    "a": "armadilhas-e-boas-praticas"
+   },
+   {
+    "h": "12. Perguntas frequentes",
+    "a": "perguntas-frequentes"
+   },
+   {
+    "h": "O Administrador consegue criar a extensão?",
+    "a": "faq-criar-admin"
+   },
+   {
+    "h": "E se a empresa não tiver um superusuário acessível? Só resta instalar via integração (API/MCP)?",
+    "a": "faq-so-mcp"
+   },
+   {
+    "h": "A extensão que eu criei fica só na minha instância?",
+    "a": "faq-outras-instancias"
+   },
+   {
+    "h": "Para atualizar a extensão, preciso reinstalar em cada empresa?",
+    "a": "faq-atualizar"
+   },
+   {
+    "h": "Instalei, mas a extensão não aparece para mim. Por quê?",
+    "a": "faq-nao-aparece"
+   }
+  ]
+ },
+ {
   "t": "FAQ",
   "u": "tickets-faq.html",
   "s": [
@@ -1951,6 +2025,10 @@ window.MANUAL_INDEX = [
    {
     "h": "Extensões (Micro-Frontends &amp; SDK)",
     "a": "extensoes-micro-frontends-amp-sdk"
+   },
+   {
+    "h": "Extensões: Criar, Publicar e Instalar",
+    "a": "extensoes-criar-publicar-e-instalar"
    },
    {
     "h": "WhatsApp, Cloud API e Meta",

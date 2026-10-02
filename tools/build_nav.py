@@ -66,6 +66,7 @@ GROUPS = [
     ("Configurações & Admin", [
         ("configuracoes.html", "Configurações"),
         ("extensoes.html", "Extensões (SDK)"),
+        ("extensoes-criar-publicar-instalar.html", "Extensões: Criar e Instalar"),
         ("backups.html", "Backups e Restauração"),
         ("novidades-14-2.html", "Novidades da versão 14.2"),
     ]),

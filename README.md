@@ -32,6 +32,7 @@ Páginas:
 - `relatorios-personalizados.html` — Relatórios Personalizados (Custom Reports)
 - `configuracoes.html` — Configurações (Filas, Usuários, Pausas, Ajuda)
 - `extensoes.html` — Extensões (micro-frontends / SDK)
+- `extensoes-criar-publicar-instalar.html` — Extensões: criar, publicar, instalar e distribuir (whitelabel)
 - `backups.html` — Backups e Restauração
 
 ## Navegação (cabeçalho) e busca
