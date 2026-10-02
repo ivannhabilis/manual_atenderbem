@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assistente de Vendas ERP FastCorte</title>
+  <title>Assistente de Vendas ERP Exemplo</title>
   <style>
     * { box-sizing: border-box; }
     html, body { margin: 0; min-height: 100%; }
@@ -88,7 +88,7 @@
 <div class="app" id="app">
   <section class="hero">
     <h1>Assistente de Vendas ERP</h1>
-    <p>Demo oficial FastCorte para treinamento: atendimento + orçamento + CRM + formulário fiscal.</p>
+    <p>Demo oficial Exemplo para treinamento: atendimento + orçamento + CRM + formulário fiscal.</p>
     <div class="status-grid">
       <div class="status-chip"><b>SDK</b><span id="sdk-state">Inicializando</span></div>
       <div class="status-chip"><b>Chat</b><span id="chat-state">Aguardando</span></div>
@@ -337,7 +337,7 @@
   function quoteText() {
     const lines = state.products.map(p => `• ${p.qty}x ${p.name} — ${money(p.price * p.qty)}`);
     const total = state.products.reduce((s, p) => s + p.price * p.qty, 0);
-    return `Orçamento FastCorte\n${lines.join('\n')}\nTotal: ${money(total)}`;
+    return `Orçamento Exemplo\n${lines.join('\n')}\nTotal: ${money(total)}`;
   }
 
   async function sendCartOrQuote() {
@@ -373,7 +373,7 @@
     const select = $('pipeline-select');
     select.innerHTML = '<option value="">Carregando funis...</option>';
     if (!state.hasOmni || !omni.crm?.listPipelines) {
-      state.pipelines = [{ id: 1, name: 'Demo Extensões FastCorte (virtual)' }];
+      state.pipelines = [{ id: 1, name: 'Demo Extensões Exemplo (virtual)' }];
     } else {
       try {
         state.pipelines = await omni.crm.listPipelines();
@@ -407,7 +407,7 @@
       title: `DEMO Extensão - ${$('cust-name').textContent || 'Cliente'}`,
       value: total,
       probability: 50,
-      description: `${quoteText()}\n\nCriado pela extensão fastcorte.vendas v1.1.0.`
+      description: `${quoteText()}\n\nCriado pela extensão exemplo.vendas v1.1.0.`
     };
     const contactId = safeContactId();
     if (contactId) payload.contactId = contactId;
@@ -425,8 +425,8 @@
 
   async function openDynamicBillingForm() {
     const form = {
-      name: 'Cadastro Fiscal Demo FastCorte',
-      description: 'Formulário dinâmico gerado pela extensão fastcorte.vendas para treinamento.',
+      name: 'Cadastro Fiscal Demo Exemplo',
+      description: 'Formulário dinâmico gerado pela extensão exemplo.vendas para treinamento.',
       fields: [
         { id: 'sec_empresa', label: 'Dados da empresa', type: 20 },
         { id: 'razao_social', label: 'Razão Social', type: 1, required: true, width: 12 },

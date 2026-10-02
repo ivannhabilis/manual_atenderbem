@@ -517,8 +517,8 @@ window.MANUAL_INDEX = [
     "a": "9-4-validar"
    },
    {
-    "h": "10. Estado atual da instância FastCorte (dados reais)",
-    "a": "10-estado-atual-da-instancia-fastcorte-dados-reais"
+    "h": "10. Diagnóstico do ambiente (exemplo)",
+    "a": "10-diagnostico-do-ambiente-exemplo"
    },
    {
     "h": "11. Referência MCP",
@@ -1241,8 +1241,8 @@ window.MANUAL_INDEX = [
     "a": "5-ambiente-de-desenvolvimento-e-testes-o-ensaio"
    },
    {
-    "h": "6. Estudo de Caso Prático: Assistente de Vendas &amp; ERP FastCorte",
-    "a": "6-estudo-de-caso-pratico-assistente-de-vendas-amp-erp-fastcorte"
+    "h": "6. Estudo de Caso Prático: Assistente de Vendas &amp; ERP (exemplo)",
+    "a": "6-estudo-de-caso-pratico-assistente-de-vendas-amp-erp-exemplo"
    },
    {
     "h": "6.1. Dados da Extensão de Exemplo",
@@ -2121,6 +2121,10 @@ window.MANUAL_INDEX = [
    {
     "h": "Extensões: Tour Guiado",
     "a": "extensoes-tour-guiado"
+   },
+   {
+    "h": "Tour Guiado no Sistema Inteiro",
+    "a": "tour-guiado-no-sistema-inteiro-planejamento"
    },
    {
     "h": "WhatsApp, Cloud API e Meta",
@@ -3267,6 +3271,40 @@ window.MANUAL_INDEX = [
    {
     "h": "16. Automações: payload configurável de cada bloco de ticket",
     "a": "16-automacoes-payload-configuravel-de-cada-bloco-de-ticket"
+   }
+  ]
+ },
+ {
+  "t": "Tour Guiado no Sistema Inteiro",
+  "u": "tour-guiado-planejamento.html",
+  "s": [
+   {
+    "h": "1. O tamanho do alvo",
+    "a": "tamanho-do-alvo"
+   },
+   {
+    "h": "2. Custo por tela",
+    "a": "custo-por-tela"
+   },
+   {
+    "h": "3. Fases sugeridas",
+    "a": "fases"
+   },
+   {
+    "h": "4. Arquitetura recomendada",
+    "a": "arquitetura"
+   },
+   {
+    "h": "5. Como dividir o trabalho",
+    "a": "divisao-do-trabalho"
+   },
+   {
+    "h": "6. Riscos e cuidados",
+    "a": "riscos"
+   },
+   {
+    "h": "7. Recomendação",
+    "a": "recomendacao"
    }
   ]
  },

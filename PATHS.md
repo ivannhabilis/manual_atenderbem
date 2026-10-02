@@ -1,4 +1,4 @@
-# Catálogo de Paths — AtenderBem (fastcorte.atenderbem.com)
+# Catálogo de Paths — AtenderBem (sua-instancia.atenderbem.com)
 
 Levantamento dos paths (rotas) do sistema, extraído do bundle de produção
 (`static-fe.atenderbem.com/140001/pt/main.js` + chunks lazy) e cruzado com:

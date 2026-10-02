@@ -36,6 +36,7 @@ Páginas:
 - `extensoes-bastidores.html` — Extensões: bastidores do projeto (método, armadilhas, regras de ouro)
 - `extensoes-tour-guiado.html` — Extensões: tour guiado (nível 2) que roda dentro do produto
 - `assets/tour-extensoes.js` — o script do tour (somente leitura) usado na página acima
+- `tour-guiado-planejamento.html` — planejamento para levar o tour guiado ao sistema inteiro
 - `ext/kit-extensao-exemplo/` — kit de exemplo para criar uma extensão (manifest + tela + guia)
 - `backups.html` — Backups e Restauração
 

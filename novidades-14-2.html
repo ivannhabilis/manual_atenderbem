@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Novidades da versão 14.2 do AtenderBem / Habilis, verificadas na instância FastCorte: como identificar a versão instalada, canais de fila, Horários de Atendimento, Feriados, Fluxo de Automação e URA, Assistentes de IA, Catálogo de Produtos e Campanhas.">
+<meta name="description" content="Novidades da versão 14.2 do AtenderBem / Habilis: como identificar a versão instalada, canais de fila, Horários de Atendimento, Feriados, Fluxo de Automação e URA, Assistentes de IA, Catálogo de Produtos e Campanhas.">
 <title>Novidades da Versão 14.2 — Manual Omnichannel</title>
 <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -85,6 +85,7 @@
           <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
           <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
           <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
           <a href="backups.html">Backups e Restauração</a>
           <a class="active" href="novidades-14-2.html">Novidades da versão 14.2</a>
         </div>
@@ -96,7 +97,7 @@
   <div class="breadcrumb"><a href="index.html">Início</a> › Novidades da Versão 14.2</div>
 
   <h1>Novidades da Versão 14.2</h1>
-  <p class="subtitle">O que foi verificado na instância <strong>fastcorte.atenderbem.com</strong> (versão <strong>14.2.0</strong>) e o que muda em relação à linha 14.1.x documentada nos capítulos de IA, Canais e Carrinho Sincronizado.</p>
+  <p class="subtitle">O que muda na versão <strong>14.2</strong> em relação à linha 14.1.x documentada nos capítulos de IA, Canais e Carrinho Sincronizado.</p>
 
   <!-- AUTO-TOC -->
   <nav class="toc" aria-label="Índice do capítulo">
@@ -121,7 +122,7 @@
   <!-- /AUTO-TOC -->
 
   <div class="callout info">
-    <strong>Como este capítulo foi feito:</strong> leitura direta da interface autenticada (telas e formulários, sem salvar nada) e do catálogo de ferramentas MCP <code>omni-config</code> servido ao vivo. Nada aqui é inferido: cada item traz a evidência observada. Onde a interface e a API divergem, isso está dito de forma explícita.
+    <strong>Escopo deste capítulo:</strong> reúne o que a versão 14.2 alterou em relação à linha 14.1.x. Os pontos marcados como <em>conferir no ambiente</em> dependem de recursos licenciados e devem ser validados antes da implantação.
   </div>
 
   <h2 id="1-como-identificar-a-versao-instalada">1. Como identificar a versão instalada</h2>
@@ -292,7 +293,7 @@
 
   <h2 id="9-metodo-e-incertezas">9. Método e incertezas</h2>
   <ul>
-    <li><strong>Fonte primária:</strong> interface autenticada da instância <code>fastcorte.atenderbem.com</code> na versão <strong>14.2.0</strong> (login, Configurações → Geral, Filas, Horários de Atendimento, Feriados, Fluxo de Automação e URA, Assistentes, Catálogo e Campanhas) e o catálogo de ferramentas MCP <code>omni-config</code> (schema de <code>queues_create</code>, <code>businesshours_*</code>, <code>automations_*_revision</code>, <code>assistants_update</code>, <code>campaigns_create</code>, <code>files_generate_speech</code>).</li>
+    <li><strong>Onde conferir:</strong> Configurações → Geral, Filas, Horários de Atendimento, Feriados, Fluxo de Automação e URA, Assistentes, Catálogo e Campanhas. As mesmas opções estão expostas no catálogo de ferramentas do sistema (<code>queues_create</code>, <code>businesshours_*</code>, <code>assistants_update</code>, <code>campaigns_create</code>, entre outras).</li>
     <li><strong>Modo somente leitura:</strong> nenhuma configuração foi criada, alterada ou removida. Formulários foram abertos apenas para leitura e fechados sem salvar.</li>
     <li><strong>Incertezas assumidas:</strong> (1) a presença dos tipos de canal 28–31 no schema da API sem oferta correspondente na tela de criação de fila (seção 2.2); (2) os parâmetros exatos de tempo/lote do delay e agregação de mensagens em filas Cloud API (v14.1.10) não são detalhados pela plataforma; (3) os nomes dos campos de API seguem a documentação do MCP e podem variar de rótulo na tela.</li>
     <li><strong>Privacidade:</strong> nas capturas de tela com números de WhatsApp, a coluna foi borrada antes de entrar neste capítulo.</li>
@@ -306,7 +307,7 @@
 
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
-  <p>Verificação da versão 14.2 feita diretamente na instância e no catálogo MCP <code>omni-config</code>.</p>
+  <p>Notas sobre a versão 14.2. Em versões diferentes, alguns rótulos de tela podem variar.</p>
 </footer>
 <script src="assets/search-index.js" defer></script>
 <script src="assets/site.js" defer></script>

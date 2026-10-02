@@ -2,7 +2,7 @@
 
 Formulário: https://docs.google.com/forms/d/e/1FAIpQLSeetaNd7cHtcGIKwmOIMXTkPYAZEzdFkfAr9ztqwLVUdJWL0A/viewform
 15 questões, 1 ponto cada. Respostas confirmadas com evidência do bundle de produção
-(static-fe.atenderbem.com main.js + chunks 438.js/549.js) e specs oficiais via MCP omni-config (fastcorte).
+(static-fe.atenderbem.com main.js + chunks 438.js/549.js) e specs oficiais via MCP omni-config.
 
 | # | Resposta | Evidência |
 |---|----------|-----------|

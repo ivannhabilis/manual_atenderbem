@@ -114,6 +114,7 @@
           <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
           <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
           <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
           <a href="backups.html">Backups e Restauração</a>
           <a href="novidades-14-2.html">Novidades da versão 14.2</a>
         </div>
@@ -145,7 +146,7 @@
       <li class="toc-h3"><a href="#3-8-recursos-adicionais-de-integracao">3.8. Recursos Adicionais de Integração</a></li>
       <li><a href="#4-catalogo-de-eventos-em-tempo-real">4. Catálogo de Eventos em Tempo Real</a></li>
       <li><a href="#5-ambiente-de-desenvolvimento-e-testes-o-ensaio">5. Ambiente de Desenvolvimento e Testes: O "Ensaio"</a></li>
-      <li><a href="#6-estudo-de-caso-pratico-assistente-de-vendas-amp-erp-fastcorte">6. Estudo de Caso Prático: Assistente de Vendas &amp; ERP FastCorte</a></li>
+      <li><a href="#6-estudo-de-caso-pratico-assistente-de-vendas-amp-erp-exemplo">6. Estudo de Caso Prático: Assistente de Vendas &amp; ERP (exemplo)</a></li>
       <li class="toc-h3"><a href="#6-1-dados-da-extensao-de-exemplo">6.1. Dados da Extensão de Exemplo</a></li>
       <li class="toc-h3"><a href="#6-2-estrutura-do-manifesto-de-instalacao-manifest-json">6.2. Estrutura do Manifesto de Instalação (manifest.json)</a></li>
       <li class="toc-h3"><a href="#6-3-passo-a-passo-para-instalacao-pratica-no-atenderbem">6.3. Passo a Passo para Instalação Prática no AtenderBem</a></li>
@@ -552,26 +553,26 @@ if (formData) {
 
   <hr>
 
-  <h2 id="6-estudo-de-caso-pratico-assistente-de-vendas-amp-erp-fastcorte">6. Estudo de Caso Prático: Assistente de Vendas &amp; ERP FastCorte</h2>
-  <p>Para guiar a implementação na prática, criamos e disponibilizamos uma extensão real e funcional hospedada e homologada diretamente no CDN do GitHub Pages para a instância <strong>fastcorte.atenderbem.com</strong>.</p>
+  <h2 id="6-estudo-de-caso-pratico-assistente-de-vendas-amp-erp-exemplo">6. Estudo de Caso Prático: Assistente de Vendas &amp; ERP (exemplo)</h2>
+  <p>Para guiar a implementação na prática, criamos e disponibilizamos uma extensão real e funcional hospedada e homologada diretamente no CDN do GitHub Pages para uma instância de demonstração.</p>
 
   <h3 id="6-1-dados-da-extensao-de-exemplo">6.1. Dados da Extensão de Exemplo</h3>
   <ul>
-    <li><strong>Nome:</strong> Assistente de Vendas &amp; ERP FastCorte</li>
-    <li><strong>Manifesto Oficial estável (v1.1.0):</strong> <code>https://raw.githack.com/ivannhabilis/manual_atenderbem/3ff3b36/ext/fastcorte-vendas/manifest.json</code></li>
-    <li><strong>Código-Fonte (HTML/JS) estável:</strong> <code>https://raw.githack.com/ivannhabilis/manual_atenderbem/3ff3b36/ext/fastcorte-vendas/index.html</code></li>
-    <li><strong>URL móvel (main, sujeita a cache de CDN):</strong> <code>https://raw.githack.com/ivannhabilis/manual_atenderbem/main/ext/fastcorte-vendas/manifest.json</code></li>
+    <li><strong>Nome:</strong> Assistente de Vendas &amp; ERP (exemplo)</li>
+    <li><strong>Manifesto (URL pública):</strong> <code>https://raw.githack.com/ivannhabilis/manual_atenderbem/main/ext/exemplo-vendas/manifest.json</code></li>
+    <li><strong>Código-fonte (HTML/JS):</strong> <code>https://raw.githack.com/ivannhabilis/manual_atenderbem/main/ext/exemplo-vendas/index.html</code></li>
+    <li><strong>Observação de cache:</strong> a URL acima é a de distribuição; <code>https://raw.githack.com/ivannhabilis/manual_atenderbem/main/ext/exemplo-vendas/manifest.json</code></li>
   </ul>
 
   <h3 id="6-2-estrutura-do-manifesto-de-instalacao-manifest-json">6.2. Estrutura do Manifesto de Instalação (manifest.json)</h3>
   <pre>
 {
   "manifestVersion": 1,
-  "id": "fastcorte.vendas",
+  "id": "exemplo.vendas",
   "version": "1.1.0",
-  "name": "Assistente de Vendas & ERP FastCorte",
+  "name": "Assistente de Vendas & ERP (exemplo)",
   "description": "Extensão homologada para automação de vendas, gerenciamento de carrinhos e sincronização de pedidos com o ERP corporativo.",
-  "contact": "suporte@fastcorte.com.br",
+  "contact": "suporte@exemplo.com",
   "contributions": [
     {
       "id": "sales_panel",
@@ -589,10 +590,10 @@ if (formData) {
   <h3 id="6-3-passo-a-passo-para-instalacao-pratica-no-atenderbem">6.3. Passo a Passo para Instalação Prática no AtenderBem</h3>
   <ol>
     <li>Acesse o painel com perfil de administrador.</li>
-    <li>Navegue até o menu de <strong>Configurações › Extensões</strong> (ou digite diretamente a URL: <code>https://fastcorte.atenderbem.com/base/config/extensioninstalls</code>).</li>
+    <li>Navegue até o menu de <strong>Configurações › Extensões</strong> (ou digite diretamente a URL: <code>https://sua-instancia.atenderbem.com/base/config/extensioninstalls</code>).</li>
     <li>Clique no botão <strong>Add</strong> (Adicionar).</li>
-    <li>No formulário de inclusão, preencha a URL do manifesto oficial da FastCorte:
-      <br><code>https://raw.githack.com/ivannhabilis/manual_atenderbem/3ff3b36/ext/fastcorte-vendas/manifest.json</code>
+    <li>No formulário de inclusão, preencha a URL pública do manifesto de exemplo:
+      <br><code>https://raw.githack.com/ivannhabilis/manual_atenderbem/main/ext/exemplo-vendas/manifest.json</code>
     </li>
     <li>Clique em Salvar. O sistema irá consultar a URL, validar as permissões de barramento, carregar o ícone de carrinho e exibir a extensão na grade como <strong>Habilitada</strong>.</li>
     <li>Abra a tela de atendimentos do agente em <code>/base/agentchat</code>. Selecione qualquer chat ativo.</li>
@@ -611,9 +612,9 @@ if (formData) {
   </ul>
 
   <h3 id="6-5-resultado-validado-em-producao-teste-real">6.5. Resultado Validado em Produção (Teste Real)</h3>
-  <p>Em <strong>04/09/2026</strong> a demo v1.1.0 foi homologada em atendimento real na instância FastCorte, com chat aberto e agente <strong>#500</strong>. Resultado reportado pelo operador: <em>“ficou FANTASTICO”</em>. Os seguintes comportamentos foram confirmados em ambiente real:</p>
+  <p>A demo v1.1.0 foi testada em um atendimento real, com chat aberto, e os comportamentos abaixo foram confirmados nesse ambiente:</p>
   <ul>
-    <li>Handshake do SDK <code>omni</code> concluído com sucesso e identificação da instância <code>fastcorte</code>.</li>
+    <li>Handshake do SDK <code>omni</code> concluído com sucesso e identificação da instância.</li>
     <li>Leitura do chat ativo selecionado (ID real) e exibição no painel “Cliente ativo”.</li>
     <li>Orçamento local com múltiplos produtos sem perda de estado, com incremento/decremento e remoção.</li>
     <li>Formulário dinâmico fiscal aberto com <code>fields</code> na raiz, sem o erro de “fields vazio”.</li>
@@ -705,8 +706,7 @@ if (formData) {
 </main>
 
 <footer class="footer">
-  <p>Manual Omnichannel — Elaborado a partir da interface real da plataforma <strong>AtenderBem / Habilis</strong>.</p>
-  <p>Este material é de uso interno e educativo. Não foram inventadas funcionalidades além das observadas na plataforma.</p>
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
 </footer>
 <script src="assets/search-index.js" defer></script>
 <script src="assets/site.js" defer></script>

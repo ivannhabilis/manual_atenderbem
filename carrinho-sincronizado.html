@@ -113,6 +113,7 @@
           <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
           <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
           <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
           <a href="backups.html">Backups e Restauração</a>
           <a href="novidades-14-2.html">Novidades da versão 14.2</a>
         </div>
@@ -150,7 +151,7 @@
       <li class="toc-h3"><a href="#9-2-preparar-o-catalogo-produtos">9.2. Preparar o catálogo (produtos)</a></li>
       <li class="toc-h3"><a href="#9-3-ligar-na-fila">9.3. Ligar na fila</a></li>
       <li class="toc-h3"><a href="#9-4-validar">9.4. Validar</a></li>
-      <li><a href="#10-estado-atual-da-instancia-fastcorte-dados-reais">10. Estado atual da instância FastCorte (dados reais)</a></li>
+      <li><a href="#10-diagnostico-do-ambiente-exemplo">10. Diagnóstico do ambiente (exemplo)</a></li>
       <li><a href="#11-referencia-mcp">11. Referência MCP</a></li>
       <li><a href="#12-faq-perguntas-frequentes">12. FAQ — Perguntas frequentes</a></li>
       <li class="toc-h3"><a href="#q1-em-quais-filas-o-carrinho-sincronizado-funciona">Q1. Em quais filas o Carrinho Sincronizado funciona?</a></li>
@@ -518,7 +519,7 @@
 
   <h3 id="9-1-preparar-o-funil-e-as-etapas-crm">9.1. Preparar o funil e as etapas (CRM)</h3>
   <ol>
-    <li>Crie (ou escolha) um funil dedicado — ex.: "Pedidos FastCorte" — em <code>/base/config/crm</code> ou via MCP <code>pipelines_create</code> (só o <code>name</code> é obrigatório; uma etapa inicial "Entrada" com <code>cancreate=1</code> é criada automaticamente).</li>
+    <li>Crie (ou escolha) um funil dedicado — ex.: "Pedidos Online" — em <code>/base/config/crm</code> ou via MCP <code>pipelines_create</code> (só o <code>name</code> é obrigatório; uma etapa inicial "Entrada" com <code>cancreate=1</code> é criada automaticamente).</li>
     <li>Acrescente/renomeie as etapas. Recomendado: uma etapa "Carrinho aberto" (criação permitida) e uma etapa "Pedido" (destino da conversão).</li>
     <li>Anote os IDs do funil e das duas etapas (<code>pipelines_list</code> e <code>pipeline_stages_list</code>).</li>
   </ol>
@@ -555,13 +556,13 @@
 
   <hr>
 
-  <h2 id="10-estado-atual-da-instancia-fastcorte-dados-reais">10. Estado atual da instância FastCorte (dados reais)</h2>
-  <p>Levantamento feito via MCP <code>omni-config</code> nesta instância (<code>fastcorte.atenderbem.com</code>):</p>
+  <h2 id="10-diagnostico-do-ambiente-exemplo">10. Diagnóstico do ambiente (exemplo)</h2>
+  <p>Levantamento feito via API de configuração nesta instância:</p>
   <ul>
     <li><strong>Filas:</strong> 221 cadastradas (88 ativas).</li>
     <li><strong>Carrinho Sincronizado ligado:</strong> 1 fila — <code>id=227</code> "Ivann → WebChatV2" (<code>type=26</code>), porém com configuração <strong>incompleta</strong> (<code>syncedcartpipeline=0</code>, etapas <code>=0</code>, <code>productgroups=[]</code>) — ligado, mas ainda sem funil/etapas/catálogo.</li>
     <li><strong>Catálogo local ligado:</strong> 1 fila — <code>id=26</code> "Ivann → Corporativo" (<code>type=23</code>), com <code>localcatalogenabled=1</code> mas <code>productgroups=[]</code> (catálogo publicado sem grupos).</li>
-    <li><strong>Fila de produção FastCorte:</strong> <code>id=126</code> "fastcorte" (<code>type=22</code> = Telefonia com URA, <code>ivrid=344</code>), habilitada (<code>enabled=1</code>) e com o Carrinho Sincronizado <strong>desligado</strong> (<code>syncedcartenabled=0</code>).</li>
+    <li><strong>Fila de produção:</strong> <code>id=126</code> (<code>type=22</code> = Telefonia com URA, <code>ivrid=344</code>), habilitada (<code>enabled=1</code>) e com o Carrinho Sincronizado <strong>desligado</strong> (<code>syncedcartenabled=0</code>).</li>
     <li><strong>Funis:</strong> 39 (<code>pipelines_list</code>). <strong>Etapas:</strong> 86 (<code>pipeline_stages_list</code>).</li>
     <li><strong>Grupos de produtos:</strong> 3 — <code>periféricos</code> (id 1), <code>Medicamentos</code> (id 2), <code>Estoque</code> (id 3).</li>
     <li><strong>Produtos no catálogo:</strong> 16.</li>
@@ -569,7 +570,7 @@
   </ul>
 
   <div class="callout warn">
-    <strong>Leitura para o administrador:</strong> o recurso existe e está exposto nas filas, mas <strong>nenhuma fila da instância tem uma configuração completa e funcional</strong> hoje. Para colocar em produção (ex.: na fila "fastcorte"), siga o passo a passo da seção 9 — escolha um funil dedicado, crie as duas etapas e aponte um grupo de produtos real (ex.: "Estoque" ou "Medicamentos").
+    <strong>Leitura para o administrador:</strong> o recurso existe e está exposto nas filas, mas <strong>nenhuma fila da instância tem uma configuração completa e funcional</strong> hoje. Para colocar em produção (ex.: na fila de produção), siga o passo a passo da seção 9 — escolha um funil dedicado, crie as duas etapas e aponte um grupo de produtos real (ex.: "Estoque" ou "Medicamentos").
   </div>
 
   <hr>
@@ -739,7 +740,7 @@
 
 <footer class="footer">
   <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
-  <p>Elaborado a partir da documentação oficial exposta pelo servidor MCP <code>omni-config</code> e do estado real da instância FastCorte.</p>
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
 </footer>
 <script src="assets/search-index.js" defer></script>
 <script src="assets/site.js" defer></script>

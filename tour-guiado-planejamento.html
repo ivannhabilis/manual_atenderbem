@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tour Guiado no Sistema Inteiro — Planejamento — Manual Omnichannel</title>
+  <meta name="description" content="Planejamento para levar o tour guiado (destaques explicativos sobre a interface) do módulo de Extensões para o restante do sistema: escopo, custo por tela, fases, arquitetura recomendada e divisão do trabalho.">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    pre { background:#0f172a; color:#7dd3fc; padding:14px; border-radius:6px; font-size:12px; overflow-x:auto; margin:12px 0; }
+    code { font-family: Consolas, "Liberation Mono", Courier, monospace; }
+    .fase { border-left:5px solid #7c3aed; background:#f5f3ff; padding:10px 14px; border-radius:8px; margin:10px 0; }
+    .fase b { display:block; }
+    .alerta { border-left:5px solid #f59e0b; background:#fffbeb; padding:10px 14px; border-radius:8px; margin:10px 0; }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a class="active" href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › <a href="configuracoes.html">Configurações</a> › Tour Guiado no Sistema Inteiro</div>
+
+  <h1>Tour Guiado no Sistema Inteiro — Planejamento</h1>
+  <p class="subtitle">O tour guiado já funciona no módulo de Extensões. Este é o plano para levar o mesmo recurso às demais telas: quanto custa, em que ordem fazer, como dividir o trabalho e o que pode dar errado.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#tamanho-do-alvo">1. O tamanho do alvo</a></li>
+      <li><a href="#custo-por-tela">2. Custo por tela</a></li>
+      <li><a href="#fases">3. Fases sugeridas</a></li>
+      <li><a href="#arquitetura">4. Arquitetura recomendada</a></li>
+      <li><a href="#divisao-do-trabalho">5. Como dividir o trabalho</a></li>
+      <li><a href="#riscos">6. Riscos e cuidados</a></li>
+      <li><a href="#recomendacao">7. Recomendação</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <div class="callout info">
+    <strong>Em uma frase:</strong> tecnicamente é possível e o motor já existe. O custo não depende só de “quantas telas”, e sim de “telas × perfis”. O parecer é fazer em fases, começando por um piloto de três telas.
+  </div>
+
+  <h2 id="tamanho-do-alvo">1. O tamanho do alvo</h2>
+  <table class="doc">
+    <thead><tr><th>Medida</th><th>Quantidade</th></tr></thead>
+    <tbody>
+      <tr><td>Rotas catalogadas no sistema</td><td>124</td></tr>
+      <tr><td>Telas de administração (/base/config)</td><td>64</td></tr>
+      <tr><td>Módulos de operação (atendimento, CRM, tickets, tarefas…)</td><td>12</td></tr>
+      <tr><td>Categorias de configuração</td><td>26</td></tr>
+      <tr><td>Capítulos já escritos neste manual (mapa pronto)</td><td>37</td></tr>
+    </tbody>
+  </table>
+  <div class="alerta">
+    <strong>Multiplicador de perfis:</strong> as telas mudam conforme o perfil. A tela de atendimento aparece vazia para um Administrador; a de usuários só faz sentido para quem administra. Para cobrir as telas de agente é preciso uma conta de agente; as de supervisão, uma conta de supervisor. É esse multiplicador que mais encarece o projeto.
+  </div>
+  <p>E nem toda rota merece um tour: telas de detalhe (com identificador), telas de erro e variações quase idênticas de uma mesma tela não agregam.</p>
+
+  <h2 id="custo-por-tela">2. Custo por tela</h2>
+  <p>O motor do tour já está pronto e reaproveitável, e as dificuldades de automação da interface estão mapeadas. Isso reduz muito o custo por tela em relação à primeira.</p>
+  <table class="doc">
+    <thead><tr><th>Etapa</th><th>Esforço</th></tr></thead>
+    <tbody>
+      <tr><td>Descoberta (abrir a tela, mapear os pontos de destaque)</td><td>2 a 4 execuções de navegador</td></tr>
+      <tr><td>Redação dos passos (6 a 12 por tela)</td><td>50 a 120 linhas</td></tr>
+      <tr><td>Verificação (rodar até zero falhas)</td><td>2 a 4 execuções</td></tr>
+      <tr><td><strong>Total por tela·perfil</strong></td><td><strong>10 a 25 minutos de trabalho</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="fases">3. Fases sugeridas</h2>
+  <div class="fase"><b>Piloto — 3 telas, 1 perfil</b> Mede o custo real em vez de estimá-lo. Sugestão: Usuários, Filas e Atendimento do agente.
+  </div>
+  <div class="fase"><b>Fase A — essencial (~12 telas, 1 perfil)</b> As telas usadas todos os dias, onde a dúvida realmente aparece. Melhor custo-benefício do projeto.</div>
+  <div class="fase"><b>Fase B — administração (~30 telas)</b> Cobre o menu de Configurações.</div>
+  <div class="fase"><b>Fase C — cobertura ampla (~70 telas, 2 perfis nas telas-chave)</b> Projeto de porte, com manutenção contínua.</div>
+  <p>Estimativa de manutenção: cerca de 10% a 15% do custo inicial por ano — o sistema muda, e cada mudança pode deslocar um ponto de destaque.</p>
+
+  <h2 id="arquitetura">4. Arquitetura recomendada</h2>
+  <p>Hoje o tour é um arquivo com os passos dentro. Para escalar, ele se separa em três partes:</p>
+  <pre>tour/motor.js            o motor (carrega os passos conforme a tela)
+tour/passos/&lt;rota&gt;.js    um arquivo de passos por tela
+tour/indice.json         mapa: rota → arquivo + título do tour</pre>
+  <ul>
+    <li><strong>Verificação por versão:</strong> cada passo declara a versão do sistema em que foi conferido. Se a versão mudar, o tour avisa em vez de apontar errado.</li>
+    <li><strong>Cardápio de tours:</strong> quando a tela ainda não tem tour próprio, o recurso sugere os que existem.</li>
+    <li><strong>Teste automático:</strong> um verificador roda todos os tours periodicamente e lista os passos quebrados. É o que impede a manutenção de virar uma bola de neve.</li>
+  </ul>
+
+  <h2 id="divisao-do-trabalho">5. Como dividir o trabalho</h2>
+  <p>Nem tudo paraleliza bem. O que funciona:</p>
+  <ul>
+    <li><strong>Não paralelizar o teste ao vivo:</strong> a mesma conta aberta em vários navegadores derruba a sessão anterior e gera falhas fantasma.</li>
+    <li><strong>Paralelizar a redação:</strong> escrever os passos de cada tela é independente e pode ser distribuído.</li>
+    <li><strong>Desenho sugerido:</strong> um coletor (ao vivo, em série) → vários redatores (em paralelo) → um verificador (ao vivo, em série).</li>
+    <li><strong>Alternativa:</strong> uma conta de teste por executor, o que permite paralelizar também a verificação.</li>
+  </ul>
+
+  <h2 id="riscos">6. Riscos e cuidados</h2>
+  <ul>
+    <li><strong>Mudança de interface:</strong> atualizações do sistema podem deslocar elementos. O aviso do tour e o teste automático cobrem esse risco.</li>
+    <li><strong>Perfis:</strong> sem contas de teste por perfil, parte das telas não pode ser coberta nem validada.</li>
+    <li><strong>Política de segurança da instância:</strong> pode restringir a execução por atalho; a execução pelo console do navegador continua funcionando.</li>
+    <li><strong>Telas que não se deixam conduzir:</strong> formulários embutidos na página e listas expansíveis nem sempre respondem a comando automático — nesses casos o tour <em>aponta e explica</em>, em vez de operar.</li>
+  </ul>
+
+  <h2 id="recomendacao">7. Recomendação</h2>
+  <p>Tratar como projeto futuro, em fases, com o <strong>piloto de três telas</strong> como primeiro passo — ele troca a estimativa por números reais. Se o piloto ficar na faixa de 10 a 25 minutos por tela, a Fase A se justifica de imediato; a Fase C é um projeto de porte, com manutenção própria.</p>
+  <p>Vale registrar também uma conversa com o fornecedor da plataforma: um botão nativo de “ver tour” em cada tela seria o formato ideal, e o material produzido aqui serviria de base para isso.</p>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
