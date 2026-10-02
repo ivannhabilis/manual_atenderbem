@@ -33,6 +33,8 @@ Páginas:
 - `configuracoes.html` — Configurações (Filas, Usuários, Pausas, Ajuda)
 - `extensoes.html` — Extensões (micro-frontends / SDK)
 - `extensoes-criar-publicar-instalar.html` — Extensões: criar, publicar, instalar e distribuir (whitelabel)
+- `extensoes-bastidores.html` — Extensões: bastidores do projeto (método, armadilhas, regras de ouro)
+- `ext/kit-extensao-exemplo/` — kit de exemplo para criar uma extensão (manifest + tela + guia)
 - `backups.html` — Backups e Restauração
 
 ## Navegação (cabeçalho) e busca

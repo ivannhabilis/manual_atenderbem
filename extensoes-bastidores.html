@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extensões: Bastidores do Projeto — Manual Omnichannel</title>
+  <meta name="description" content="Como foi feito o estudo do módulo de Extensões: as fontes de verdade, o método de investigação, o teste do ciclo de vida, as armadilhas e as regras de ouro. Um roteiro reaproveitável para entender e documentar qualquer módulo.">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    pre { background:#0f172a; color:#7dd3fc; padding:14px; border-radius:6px; font-size:12px; overflow-x:auto; margin:12px 0; }
+    code { font-family: Consolas, "Liberation Mono", Courier, monospace; }
+    .regra { border-left:5px solid #10b981; background:#ecfdf5; padding:10px 14px; border-radius:8px; margin:10px 0; }
+    .pegadinha { border-left:5px solid #f59e0b; background:#fffbeb; padding:10px 14px; border-radius:8px; margin:10px 0; }
+    .pegadinha b { display:block; margin-bottom:2px; }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a class="active" href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › <a href="configuracoes.html">Configurações</a> › Extensões: Bastidores do Projeto</div>
+
+  <h1>Extensões: Bastidores do Projeto</h1>
+  <p class="subtitle">Como este material foi produzido: as fontes de verdade, o método de investigação, o teste do ciclo de vida, as armadilhas encontradas e as regras de ouro. Serve como roteiro reaproveitável para entender e documentar qualquer módulo da plataforma.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#o-ponto-de-partida">1. O ponto de partida</a></li>
+      <li><a href="#as-fontes-de-verdade">2. As fontes de verdade (a ordem importa)</a></li>
+      <li><a href="#o-modelo-mental">3. O modelo mental que resolve a confusão</a></li>
+      <li><a href="#o-teste-do-ciclo">4. O teste do ciclo de vida (do zero ao uso)</a></li>
+      <li><a href="#armadilhas-do-produto">5. Armadilhas do produto</a></li>
+      <li><a href="#armadilhas-da-infra">6. Armadilhas da infraestrutura</a></li>
+      <li><a href="#armadilhas-do-manual">7. Armadilhas do projeto do manual</a></li>
+      <li><a href="#erros-nossos">8. Tropeços que cometemos (para você não repetir)</a></li>
+      <li><a href="#como-o-material-foi-feito">9. Como o material foi feito</a></li>
+      <li><a href="#como-testamos">10. Como testamos (método reaproveitável)</a></li>
+      <li><a href="#regras-de-ouro">11. Regras de ouro</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <div class="callout info">
+    <strong>Por que existir esta página:</strong> o módulo de Extensões junta, sob um único nome, três papéis diferentes (criar, instalar, distribuir). A confusão é natural. Este capítulo mostra <em>como</em> desmontamos essa confusão — método, provas e tropeços —, para que o mesmo caminho sirva a outros assuntos.
+  </div>
+
+  <h2 id="o-ponto-de-partida">1. O ponto de partida</h2>
+  <p>A dúvida que originou tudo: um usuário <strong>Administrador</strong> enxerga a tela de <em>Extensões</em>, um <strong>superusuário</strong> enxerga a tela de <em>Extensões instaladas</em>, e sem um acesso de superusuário na própria instância ficava a pergunta: <em>como o Administrador cria as extensões?</em></p>
+  <p>A resposta não estava em nenhum lugar só. Foi preciso cruzar várias fontes — e provar fazendo.</p>
+
+  <h2 id="as-fontes-de-verdade">2. As fontes de verdade (a ordem importa)</h2>
+  <ol class="steps">
+    <li><strong>A instância ao vivo.</strong> A única fonte que não mente. Consultamos a API de configuração da própria plataforma e descobrimos <em>quem</em> o chamador é (um perfil interno de superusuário) — o que explica por que a integração consegue fazer o que o Administrador não consegue.</li>
+    <li><strong>A lista de ferramentas da plataforma.</strong> Ao separá-las por assunto, ficou evidente que existem <strong>duas famílias</strong>: uma de <em>autoria</em> (editor) e outra de <em>instalação</em>. Só esse fato já provava que criar e instalar são coisas distintas.</li>
+    <li><strong>A interface gráfica real.</strong> Entrar como Administrador e olhar os menus mostrou que o item <em>Extensões</em> abre o <strong>editor</strong>; tentar abrir a tela de instalações resulta em <strong>redirecionamento</strong> — não é "escondido", é proibido.</li>
+    <li><strong>A documentação que o produto carrega dentro de si.</strong> A aplicação web baixa no navegador o próprio manual do desenvolvedor. Ali está a frase decisiva: a administração de extensões é <strong>exclusiva de superusuário</strong>, e um Administrador comum recebe <strong>403</strong> inclusive para leitura.</li>
+    <li><strong>Os dados reais.</strong> O que já existia na instância (extensões no editor, instalações, ponteiros) confirmou o modelo: um mesmo aplicativo, várias instalações independentes.</li>
+  </ol>
+  <div class="callout tip">
+    <strong>Método:</strong> nunca decidir por uma fonte só. Quando a documentação, a interface e os dados concordam, o entendimento está firme; quando divergem, é ali que mora a pegadinha.
+  </div>
+
+  <h2 id="o-modelo-mental">3. O modelo mental que resolve a confusão</h2>
+  <p>Pense numa <strong>loja de aplicativos</strong>: o aplicativo existe uma vez só na loja (<strong>global</strong>); cada aparelho que instala tem a sua cópia, com os seus dados (<strong>local</strong>).</p>
+  <table class="doc">
+    <thead><tr><th>Papel</th><th>Tela</th><th>Quem</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Autorar</strong> (criar/publicar)</td><td>Editor de Extensões</td><td>Administrador</td></tr>
+      <tr><td><strong>Instalar</strong> (configurar/ligar/remover)</td><td>Extensões Instaladas</td><td><strong>Somente superusuário</strong></td></tr>
+      <tr><td><strong>Distribuir</strong> em várias empresas</td><td>Painel do parceiro</td><td>Parceiro</td></tr>
+    </tbody>
+  </table>
+  <p>O que é <strong>global</strong>: o aplicativo e o seu identificador único. O que é <strong>local</strong>: a instalação (público, configuração, chave e dados). A mesma extensão instalada em duas empresas são duas instalações separadas.</p>
+
+  <h2 id="o-teste-do-ciclo">4. O teste do ciclo de vida (do zero ao uso)</h2>
+  <p>Para não ficar na teoria, executamos a vida inteira de uma extensão de exemplo, com provas em cada etapa:</p>
+  <ol class="steps">
+    <li><strong>Completar o rascunho</strong> — gravar o arquivo de tela e o manifesto.</li>
+    <li><strong>Publicar</strong> a versão — o artefato vai para o CDN e fica imutável.</li>
+    <li><strong>Apontar o canal de teste</strong> (dev) e instalar para um público restrito.</li>
+    <li><strong>Conferir na tela</strong> — aqui surgiu a primeira lição: um painel de atendimento só aparece para quem atende chats.</li>
+    <li><strong>Acrescentar um item de barra superior</strong> (visível para todos) — nova versão, novo ponteiro, e o item apareceu.</li>
+    <li><strong>Apontar produção</strong> — o endereço público passou a servir a versão nova.</li>
+    <li><strong>Desmontar</strong> — remover a instalação e apagar a extensão (com a lição de que apagar a extensão não remove as instalações).</li>
+  </ol>
+
+  <figure class="figure">
+    <img src="assets/extensoes-nova-extensao.png" alt="Formulário Nova extensão: Nome, Identificador (opcional) e Descrição" style="border:1px solid #cbd5e1;border-radius:8px">
+    <figcaption>Figura 1 — Criando a extensão no editor: Nome, Identificador (opcional, com o aviso de que fica <em>imutável</em> após a primeira publicação) e Descrição.</figcaption>
+  </figure>
+
+  <figure class="figure">
+    <img src="assets/extensoes-versoes.png" alt="Lista de versões: rascunho, versões publicadas e o marcador DEV" style="border:1px solid #cbd5e1;border-radius:8px">
+    <figcaption>Figura 2 — As versões de uma extensão: o <strong>rascunho</strong> (único estado editável), as versões <strong>publicadas</strong> (imutáveis) e o <strong>marcador do canal</strong> (aqui, <em>DEV</em>) indicando onde o ponteiro aponta.</figcaption>
+  </figure>
+
+  <h2 id="armadilhas-do-produto">5. Armadilhas do produto</h2>
+  <div class="pegadinha"><b>Filtro vazio = ninguém.</b> Uma lista de inclusão vazia não significa "todos". Sintoma: instala e não aparece para ninguém, sem erro.</div>
+  <div class="pegadinha"><b>Filtro restrito demais.</b> Instalar "só para um usuário" é ótimo para testar — mas quem não casa com o filtro simplesmente não vê a extensão (foi o que aconteceu com um usuário do tipo Agente).</div>
+  <div class="pegadinha"><b>Aparece só em certas telas.</b> Um painel de atendimento não existe para quem não atende chats. Para demonstração, use um item de barra superior.</div>
+  <div class="pegadinha"><b>O identificador global congela na 1ª publicação.</b> Escolha bem o <code>id</code> (<code>fornecedor.extensao</code>): mudar depois = apagar e recriar.</div>
+  <div class="pegadinha"><b><code>author</code> é objeto, não texto.</b> <code>{ "name": "..." }</code>. Texto solto é recusado.</div>
+  <div class="pegadinha"><b><code>icon</code> é arquivo, não nome de ícone do sistema.</b> Ou aponte para um arquivo da extensão, ou omita (gera aviso, não erro).</div>
+  <div class="pegadinha"><b>Todo <code>url</code> citado tem de existir.</b> Arquivo ausente = publicação recusada.</div>
+  <div class="pegadinha"><b>Publicar não coloca no ar.</b> Publicar congela a versão; <em>apontar o ponteiro</em> (dev/prod) é que coloca em uso.</div>
+  <div class="pegadinha"><b>Versão publicada é imutável.</b> Para corrigir, clone para uma versão nova (o número sobe sozinho).</div>
+  <div class="pegadinha"><b>Remover instalação exige confirmação explícita.</b> Sem ela, a operação só devolve um aviso.</div>
+  <div class="pegadinha"><b>Apagar a extensão não remove as instalações.</b> Elas podem ficar órfãs — remova-as também. E apagar tem <strong>alcance externo</strong>: afeta outras empresas que a instalaram.</div>
+  <div class="pegadinha"><b>Segredos só são protegidos se declarados.</b> Envie apenas as chaves que o manifesto declara; campos do tipo <em>secret</em> voltam sempre mascarados.</div>
+
+  <h2 id="armadilhas-da-infra">6. Armadilhas da infraestrutura</h2>
+  <div class="pegadinha"><b>Produção tem cache (~15 min).</b> O correto é testar no canal de <em>dev</em> (imediato) e só depois mover produção.</div>
+  <div class="pegadinha"><b>Exclusão da CDN não é instantânea sem "purge".</b> Após apagar a extensão, os arquivos somem na hora, mas o manifesto pode continuar respondendo por alguns minutos, por cache de borda.</div>
+  <div class="pegadinha"><b>Falso positivo de CORS.</b> Um verificador pode acusar "sem permissão de acesso" quando a requisição não manda a origem. Confirme com uma chamada que envie a origem antes de acreditar no erro.</div>
+
+  <h2 id="armadilhas-do-manual">7. Armadilhas do projeto do manual</h2>
+  <div class="pegadinha"><b>O cabeçalho e o índice são gerados por script.</b> Editar à mão é perdido na próxima execução: registre a página na lista do script e rode-o.</div>
+  <div class="pegadinha"><b>Adicionar uma página muda muitos arquivos.</b> O cabeçalho aparece em todas as páginas, então uma entrada nova regrava o site inteiro. É esperado.</div>
+  <div class="pegadinha"><b>O repositório é público.</b> Nunca cite nome de instância de cliente — nem em texto, nem em imagem.</div>
+  <div class="pegadinha"><b>Capturas precisam ser "PII-safe".</b> A ferramenta não fotografa a barra de endereço, mas o conteúdo pode vazar dados. Revise cada imagem antes de publicar.</div>
+
+  <h2 id="erros-nossos">8. Tropeços que cometemos (para você não repetir)</h2>
+  <ul>
+    <li><strong>Procurar a coisa errada no teste.</strong> Um item de extensão é um <em>link</em>, não um botão: procurar botão dá "não existe" e leva a conclusão errada. Quando o teste dá negativo, desconfie primeiro do teste.</li>
+    <li><strong>Achar que "não apareceu" era falha da extensão.</strong> Era o filtro de público.</li>
+    <li><strong>Publicar sem ter salvado o manifesto.</strong> Sempre confira se o passo anterior deu certo antes de seguir.</li>
+    <li><strong>Esquecer a confirmação na remoção.</strong> Ler a mensagem de erro resolve — ela diz exatamente o que falta.</li>
+    <li><strong>Deixar o conteúdo de exemplo duplicar</strong> numa captura. Revise a saída antes de fotografar.</li>
+  </ul>
+
+  <h2 id="como-o-material-foi-feito">9. Como o material foi feito</h2>
+  <ol class="steps">
+    <li><strong>Estudo do estilo</strong> — replicar a estrutura e as classes das páginas existentes.</li>
+    <li><strong>Redação</strong> — problema, papéis, conceitos, fluxo, armadilhas, dúvidas comuns.</li>
+    <li><strong>Capturas reais</strong> — automação do navegador, recortes precisos, sem dado sensível.</li>
+    <li><strong>Registro no menu</strong> — lista do script, card na página inicial, README.</li>
+    <li><strong>Geração</strong> — executar o script que reescreve o cabeçalho, cria o índice e atualiza a busca.</li>
+    <li><strong>Verificação</strong> — abrir localmente, conferir imagens, busca e âncoras.</li>
+    <li><strong>Publicação</strong> — commitar e enviar (push).</li>
+  </ol>
+  <div class="callout tip">
+    <strong>Guia avulso:</strong> para quem não consegue abrir este site, o mesmo conteúdo foi condensado num <strong>arquivo HTML único e autossuficiente</strong> (imagens embutidas), que funciona até sem internet.
+  </div>
+
+  <h2 id="como-testamos">10. Como testamos (método reaproveitável)</h2>
+  <ol class="steps">
+    <li><strong>Verificações estáticas:</strong> todo link/imagem aponta para arquivo existente? Há dependência externa indevida? Toda página recebeu o menu? A busca indexou?</li>
+    <li><strong>Teste funcional:</strong> subir um servidor local e abrir num navegador de verdade — card na página inicial, imagens, busca por palavra, clique no índice, item ativo no menu.</li>
+    <li><strong>Teste decisivo:</strong> abrir o guia avulso com a <em>rede desligada</em>.</li>
+    <li><strong>Encerrar o servidor de teste</strong> — não deixar processo pendurado.</li>
+  </ol>
+
+  <h2 id="regras-de-ouro">11. Regras de ouro</h2>
+  <div class="regra"><strong>Separe os três papéis:</strong> quem cria, quem instala, quem distribui. Nunca misture.</div>
+  <div class="regra"><strong>Teste em dev; só depois mova prod.</strong></div>
+  <div class="regra"><strong>Filtro nunca vazio; confira sempre para quem está entregando.</strong></div>
+  <div class="regra"><strong>Instale primeiro para um público restrito</strong> — é código de terceiro rodando na sessão do atendente.</div>
+  <div class="regra"><strong>Publicar = congelar. Apontar = colocar no ar. Rollback = mover o ponteiro.</strong></div>
+  <div class="regra"><strong>Atualizar não exige reinstalar:</strong> publique e aponte.</div>
+  <div class="regra"><strong>No manual:</strong> rode o gerador, nunca cite instância, revise capturas, sempre commite e envie.</div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — Elaborado a partir da interface real da plataforma <strong>Omnichannel / Habilis</strong>.</p>
+  <p>Documento genérico (whitelabel): utiliza nomes e dados de exemplo. Nenhuma instância de cliente é identificada.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

@@ -1331,6 +1331,56 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Extensões: Bastidores do Projeto",
+  "u": "extensoes-bastidores.html",
+  "s": [
+   {
+    "h": "1. O ponto de partida",
+    "a": "o-ponto-de-partida"
+   },
+   {
+    "h": "2. As fontes de verdade (a ordem importa)",
+    "a": "as-fontes-de-verdade"
+   },
+   {
+    "h": "3. O modelo mental que resolve a confusão",
+    "a": "o-modelo-mental"
+   },
+   {
+    "h": "4. O teste do ciclo de vida (do zero ao uso)",
+    "a": "o-teste-do-ciclo"
+   },
+   {
+    "h": "5. Armadilhas do produto",
+    "a": "armadilhas-do-produto"
+   },
+   {
+    "h": "6. Armadilhas da infraestrutura",
+    "a": "armadilhas-da-infra"
+   },
+   {
+    "h": "7. Armadilhas do projeto do manual",
+    "a": "armadilhas-do-manual"
+   },
+   {
+    "h": "8. Tropeços que cometemos (para você não repetir)",
+    "a": "erros-nossos"
+   },
+   {
+    "h": "9. Como o material foi feito",
+    "a": "como-o-material-foi-feito"
+   },
+   {
+    "h": "10. Como testamos (método reaproveitável)",
+    "a": "como-testamos"
+   },
+   {
+    "h": "11. Regras de ouro",
+    "a": "regras-de-ouro"
+   }
+  ]
+ },
+ {
   "t": "Extensões: Criar, Publicar e Instalar",
   "u": "extensoes-criar-publicar-instalar.html",
   "s": [
@@ -2029,6 +2079,10 @@ window.MANUAL_INDEX = [
    {
     "h": "Extensões: Criar, Publicar e Instalar",
     "a": "extensoes-criar-publicar-e-instalar"
+   },
+   {
+    "h": "Extensões: Bastidores do Projeto",
+    "a": "extensoes-bastidores-do-projeto"
    },
    {
     "h": "WhatsApp, Cloud API e Meta",
