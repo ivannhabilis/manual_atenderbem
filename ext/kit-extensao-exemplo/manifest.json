@@ -1,0 +1,23 @@
+{
+  "manifestVersion": 1,
+  "id": "exemplo.kit",
+  "version": "1.0.0",
+  "name": "Kit de Exemplo",
+  "description": "Extensão de exemplo pronta para servir de ponto de partida: um painel dentro do atendimento e um item na barra superior.",
+  "author": { "name": "Equipe Omnichannel" },
+  "contributions": [
+    {
+      "id": "painel_kit",
+      "type": "chatPanel",
+      "title": { "pt-BR": "Kit de Exemplo", "en": "Example Kit" },
+      "url": "index.html"
+    },
+    {
+      "id": "menu_kit",
+      "type": "topMenu",
+      "title": { "pt-BR": "Kit de Exemplo", "en": "Example Kit" },
+      "presentation": { "mode": "dialog", "size": "lg" },
+      "url": "index.html"
+    }
+  ]
+}

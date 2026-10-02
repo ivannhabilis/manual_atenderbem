@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  KIT DE EXEMPLO — arquivo de tela (index.html)
+  ----------------------------------------------------------------------------
+  Este é o arquivo que o Host (a plataforma) carrega dentro de um quadro isolado
+  quando alguém abre a sua extensão.
+
+  REGRAS BÁSICAS:
+  1. É um HTML comum (pode ter CSS e JavaScript embutidos ou em arquivos à parte,
+     declarados no manifesto).
+  2. O Host injeta automaticamente um SDK na variável global "window.omni".
+     É por ele que a extensão conversa com o sistema (lê a sessão, o atendimento,
+     o carrinho, o CRM, etc.).
+  3. Toda chamada do SDK devolve uma "Promise" — use await.
+  4. NUNCA coloque senhas ou chaves de API aqui dentro. Segredos vão na
+     CONFIGURAÇÃO da instalação (o administrador/instalador preenche).
+  5. Chame omni.ui.resize() sempre que o conteúdo mudar de altura.
+  ============================================================================
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kit de Exemplo</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; padding: 14px; font-size: 13px; color: #1e293b; }
+    h1 { font-size: 15px; margin: 0 0 10px; }
+    .card { border: 1px solid #cbd5e1; border-radius: 10px; padding: 12px; margin-bottom: 10px; }
+    .k { color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; }
+    .v { font-weight: 600; margin-top: 2px; }
+    button { padding: 7px 12px; border-radius: 8px; border: 1px solid #94a3b8; background: #f1f5f9; cursor: pointer; }
+    pre { background: #0f172a; color: #7dd3fc; padding: 10px; border-radius: 8px; font-size: 11px; overflow: auto; max-height: 160px; }
+  </style>
+</head>
+<body>
+  <h1>Kit de Exemplo</h1>
+
+  <div class="card">
+    <div class="k">Quem está usando</div>
+    <div class="v" id="usuario">carregando…</div>
+  </div>
+
+  <div class="card">
+    <div class="k">Atendimento selecionado</div>
+    <div class="v" id="contato">carregando…</div>
+  </div>
+
+  <button id="recarregar">Recarregar dados</button>
+  <pre id="log"></pre>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const log = (m) => { $('log').textContent += "\n" + m; };
+
+    async function carregar() {
+      $('log').textContent = "";
+      try {
+        // 1) Quem está na sessão
+        const usuario = await omni.session.getUser();
+        $('usuario').textContent = (usuario && usuario.name ? usuario.name : "(sem nome)") + " — id " + usuario.id;
+        log("getUser: ok");
+
+        // 2) Em qual sistema estamos (nome da instância e versão)
+        const instancia = await omni.session.getInstance();
+        log("host: " + instancia.hostVersion);
+
+        // 3) O atendimento aberto na tela do atendente (pode não haver nenhum)
+        const chat = await omni.chats.getSelected();
+        if (chat) {
+          $('contato').textContent = "Atendimento #" + (chat.id || "?");
+          log("getSelected: ok");
+        } else {
+          $('contato').textContent = "(nenhum atendimento aberto)";
+          log("getSelected: nada aberto");
+        }
+      } catch (e) {
+        log("erro: " + (e && e.message ? e.message : e));
+      }
+      // 4) Avisa o Host para ajustar a altura do quadro ao conteúdo
+      try { omni.ui.resize(); } catch (e) {}
+    }
+
+    document.getElementById('recarregar').addEventListener('click', carregar);
+
+    // O SDK é injetado de forma assíncrona: espere aparecer antes de usar.
+    (function esperar() {
+      if (!window.omni) { return setTimeout(esperar, 400); }
+      if (omni.ready) { omni.ready(() => carregar()); } else { carregar(); }
+    })();
+  </script>
+</body>
+</html>
