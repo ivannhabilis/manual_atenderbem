@@ -73,6 +73,19 @@ GROUPS = [
         ("backups.html", "Backups e Restauração"),
         ("novidades-14-2.html", "Novidades da versão 14.2"),
     ]),
+    ("Base de Conhecimento", [
+        ("faq.html", "Base de Conhecimento (FAQ)"),
+        ("faq-canais-conexoes.html", "FAQ — Canais e Conexões"),
+        ("faq-whatsapp-business.html", "FAQ — WhatsApp Business"),
+        ("faq-ia-assistentes.html", "FAQ — IA e Assistentes"),
+        ("faq-automacao-fluxos.html", "FAQ — Automação e URA"),
+        ("faq-crm-contatos.html", "FAQ — CRM e Contatos"),
+        ("faq-catalogo-vendas.html", "FAQ — Catálogo e Vendas"),
+        ("faq-tickets.html", "FAQ — Tickets e SLA"),
+        ("faq-relatorios-metricas.html", "FAQ — Relatórios e Métricas"),
+        ("faq-telefonia-pabx.html", "FAQ — Telefonia e PABX"),
+        ("faq-admin-operacao.html", "FAQ — Administração e Operação"),
+    ]),
 ]
 
 EXTRA_PAGES = ["base/config/cataloglist/index.html"]

@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canais e Conexões — Manual Omnichannel</title>
+<meta name="description" content="Conexão de filas do WhatsApp (oficial e não oficial), Instagram, Facebook, Telegram, Webchat e marketplaces — requisitos, reconexão, erros e diagnóstico.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a class="active" href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="faq.html">Base de Conhecimento</a> &rsaquo; Canais e Conexões</div>
+
+  <h1>Canais e Conexões</h1>
+  <p class="subtitle">Conexão de filas do WhatsApp (oficial e não oficial), Instagram e Facebook Messenger, e-mail e campanhas — requisitos, reconexão, erros e diagnóstico.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#whatsapp-cloud-api-oficial">WhatsApp Cloud API (oficial)</a></li>
+      <li class="toc-h3"><a href="#faq-2">WhatsApp Business API e WAMD</a></li>
+      <li class="toc-h3"><a href="#faq-105">Quem configura a Cloud API do WhatsApp e quais são os pré-requisitos para conectar?</a></li>
+      <li class="toc-h3"><a href="#faq-151">Como sincronizar os templates do WhatsApp Cloud API com a Meta e o que significa cada status?</a></li>
+      <li class="toc-h3"><a href="#faq-90">Por que templates aprovados na Meta não aparecem ou não sincronizam no sistema?</a></li>
+      <li class="toc-h3"><a href="#faq-94">Por que um template do WhatsApp já aprovado na Meta falha ao enviar?</a></li>
+      <li class="toc-h3"><a href="#faq-95">Por que um template com documento/anexo dá erro 400 ao ser enviado pela API?</a></li>
+      <li class="toc-h3"><a href="#faq-96">Por que aparece &quot;Erro ao salvar&quot; ao tentar criar um template de WhatsApp?</a></li>
+      <li class="toc-h3"><a href="#faq-97">Por que mensagens para números de WhatsApp internacionais não chegam ou dão erro?</a></li>
+      <li><a href="#whatsapp-n-o-oficial-wamd-e-qr-code">WhatsApp não oficial (WAMD e QR Code)</a></li>
+      <li class="toc-h3"><a href="#faq-205">Como conectar e configurar uma fila de WhatsApp não oficial via QR Code e o que cada opção faz?</a></li>
+      <li class="toc-h3"><a href="#faq-78">Por que meu número em fila de WhatsApp não oficial é banido ou tem envios bloqueados pela Meta?</a></li>
+      <li class="toc-h3"><a href="#faq-82">Fila de WhatsApp conectada mas não envia mensagens: o que verificar?</a></li>
+      <li class="toc-h3"><a href="#faq-100">Por que filas desconectam ou param de gerar QR Code após uma atualização do sistema?</a></li>
+      <li class="toc-h3"><a href="#faq-210">O que significam os avisos de conexão instável e de fila sem autenticação no cabeçalho?</a></li>
+      <li><a href="#coexistence-e-migra-o-de-modalidade">Coexistence e migração de modalidade</a></li>
+      <li class="toc-h3"><a href="#faq-92">O que é o modo Coexistence e por que a fila fica nele ao converter para API Oficial?</a></li>
+      <li class="toc-h3"><a href="#faq-112">Por que as mensagens do WhatsApp Coexistence demoram ou param de sincronizar no celular?</a></li>
+      <li class="toc-h3"><a href="#faq-113">Por que o QR Code não aparece ao conectar uma fila em modo Coexistência?</a></li>
+      <li class="toc-h3"><a href="#faq-70">É possível converter uma fila de WhatsApp entre API oficial e não oficial, inclusive em lote?</a></li>
+      <li class="toc-h3"><a href="#faq-116">Como desvincular um número da fila oficial da Habilis para usar outro provedor?</a></li>
+      <li><a href="#instagram-e-facebook-messenger">Instagram e Facebook Messenger</a></li>
+      <li class="toc-h3"><a href="#faq-12">Quais são os requisitos para conectar uma fila de Instagram e evitar erro de permissão?</a></li>
+      <li class="toc-h3"><a href="#faq-224">Que campos e requisitos existem para conectar uma fila de Instagram ou Facebook Messenger?</a></li>
+      <li class="toc-h3"><a href="#faq-6">Por que uma imagem ou áudio enviado pela fila do Instagram não chega ao cliente?</a></li>
+      <li class="toc-h3"><a href="#faq-543">Por que a mensagem do Instagram falha com o aviso &quot;Outro aplicativo controla esta conversa&quot;?</a></li>
+      <li><a href="#e-mail-modelos-e-publica-es">E-mail, modelos e publicações</a></li>
+      <li class="toc-h3"><a href="#faq-251">Quais campos existem na aba Conexão de uma fila de E-mail (SMTP/IMAP)?</a></li>
+      <li class="toc-h3"><a href="#faq-376">Para que servem os Modelos HTML e como criar um para usar no atendimento?</a></li>
+      <li class="toc-h3"><a href="#faq-375">Como cadastrar uma Novidade e onde ela aparece para os usuários do sistema?</a></li>
+      <li><a href="#filas-permiss-es-e-limites">Filas, permissões e limites</a></li>
+      <li class="toc-h3"><a href="#faq-153">Existe limite de quantidade de filas que podem ser criadas por tipo de canal?</a></li>
+      <li class="toc-h3"><a href="#faq-277">Por que uma fila não pode ser desabilitada ou excluída e o que verificar antes?</a></li>
+      <li class="toc-h3"><a href="#faq-312">Quais permissões liberam o chat interno e o acesso a grupos de WhatsApp?</a></li>
+      <li class="toc-h3"><a href="#faq-84">Por que grupos de WhatsApp não aparecem para um agente mesmo com a permissão liberada?</a></li>
+      <li class="toc-h3"><a href="#faq-272">Por que aparece o alerta de arquivo maior que o permitido no atendimento?</a></li>
+      <li><a href="#campanhas-disparos-e-desempenho">Campanhas, disparos e desempenho</a></li>
+      <li class="toc-h3"><a href="#faq-279">Como criar uma campanha de disparo por WhatsApp e quais são suas 4 etapas?</a></li>
+      <li class="toc-h3"><a href="#faq-140">O que faz cada opção de &quot;Cliente com atendimento em andamento&quot; numa campanha?</a></li>
+      <li class="toc-h3"><a href="#faq-142">Como aprovar e liberar manualmente uma campanha suspensa para envio?</a></li>
+      <li class="toc-h3"><a href="#faq-144">Quais são as opções de liberação de uma campanha e como funciona o envio de teste?</a></li>
+      <li class="toc-h3"><a href="#faq-547">Como limitar os envios por hora de uma campanha de disparo?</a></li>
+      <li class="toc-h3"><a href="#faq-89">O sistema fica lento durante atendimento ou disparo de campanha — o que verificar?</a></li>
+      <li class="toc-h3"><a href="#faq-73">Como funciona o limite de atendimentos por agente e quando ele pode ser ultrapassado?</a></li>
+      <li><a href="#integra-es-externas-e-diagn-stico">Integrações externas e diagnóstico</a></li>
+      <li class="toc-h3"><a href="#faq-118">Como configurar e resolver falhas de conectividade na integração com o Fórmula Certa?</a></li>
+      <li class="toc-h3"><a href="#faq-120">É possível liberar acesso direto ao banco de dados da instância para terceiros?</a></li>
+      <li class="toc-h3"><a href="#faq-124">Como formatar os campos clientId e number nas chamadas de API de mensagem?</a></li>
+      <li class="toc-h3"><a href="#faq-126">Como remover ou editar o R$ (símbolo de moeda) da mensagem de orçamento antes de enviar?</a></li>
+      <li class="toc-h3"><a href="#faq-218">Quais erros aparecem ao usar a assistência remota em um atendimento?</a></li>
+      <li class="toc-h3"><a href="#faq-231">O que é a Assistência Remota e como o agente inicia o controle da tela do cliente?</a></li>
+      <li class="toc-h3"><a href="#faq-473">Como instalar e configurar uma extensão nesta instância?</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <div class="callout info">
+    <p>Este capítulo reúne as dúvidas mais comuns sobre a conexão de canais no sistema: pré-requisitos, autenticação, reconexão e diagnóstico de falhas. O conteúdo está organizado por tipo de canal, começando pelas modalidades de WhatsApp, passando por Instagram e Facebook, e-mail, e finalizando com campanhas, permissões e integrações externas.</p>
+  </div>
+
+  <h2 id="whatsapp-cloud-api-oficial">WhatsApp Cloud API (oficial)</h2>
+    <div class="faq">
+    <h3 id="faq-2">WhatsApp Business API e WAMD</h3>
+<h4>Alteração de Nome de Exibição na API Oficial</h4>
+<p><strong>P:</strong> Como alterar o nome de exibição de um número na API Oficial do WhatsApp?</p>
+<p><strong>R:</strong> Após alterar o nome no WhatsApp Manager, é necessário emitir um novo registro. Atualmente não há um botão para essa ação na interface, mas será implementado em versões futuras. Enquanto isso, o processo requer suporte técnico para atualização manual.</p>
+
+<h4>Instabilidades e Banimentos</h4>
+<p><strong>P:</strong> Quais são as causas comuns de instabilidade em conexões não oficiais (WAMD)?</p>
+<p><strong>R:</strong> As instabilidades estão frequentemente associadas a:</p>
+<ul>
+<li>Uso de grupos, canais ou comunidades pelo número conectado.</li>
+<li>Conexões via dispositivos iPhone.</li>
+<li>Falta de garantia de estabilidade em filas não oficiais, que operam em "melhor esforço" devido à engenharia reversa.</li>
+</ul>
+<p><strong>P:</strong> Quais são as diferenças entre banimento de número e desativação de conta?</p>
+<ul>
+<li><strong>Banimento de número:</strong> afeta apenas o número específico, geralmente por violações de políticas (ex.: produtos proibidos ou alta taxa de bloqueios).</li>
+<li><strong>Desativação de conta:</strong> invalida todos os números vinculados, ocorrendo quando a Meta não consegue verificar a legitimidade da empresa ou identifica violações graves.</li>
+</ul>
+<p><strong>P:</strong> Como reduzir riscos de banimento na API Oficial?</p>
+<ul>
+<li>Verifique a empresa no Meta Business Manager.</li>
+<li>Mantenha um site corporativo com CNPJ, endereço, política de privacidade e descrição clara do negócio.</li>
+<li>Evite operar em setores regulados (saúde, armas etc.) sem registros nos órgãos competentes (Anvisa, conselhos profissionais).</li>
+</ul>
+
+<h4>Migração para API Oficial</h4>
+<p><strong>P:</strong> Por que os clientes devem migrar para a API Oficial, apesar do custo?</p>
+<p><strong>R:</strong> A Meta está descontinuando o suporte para conexões não oficiais. Benefícios da API Oficial:</p>
+<ul>
+<li>Estabilidade superior e funcionalidades exclusivas (ex.: mensagens passivas gratuitas).</li>
+<li>Redução de riscos de banimento e alinhamento com as políticas da Meta.</li>
+</ul>
+<p><strong>P:</strong> Quais são as opções de fila na API Oficial?</p>
+<ol>
+<li><strong>WA Cloud API (Dev App):</strong> conexão tradicional, com maior compatibilidade.</li>
+<li><strong>WA Cloud API (Tech Provider):</strong> oferece "Coexistence" (uso simultâneo do app Business no celular), mas com limitações em mensagens de dispositivos antigos.</li>
+</ol>
+
+<h4>WAMD vs. WAMD2</h4>
+<p><strong>P:</strong> Quais são as diferenças entre WAMD e WAMD2?</p>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Característica</th><th>WAMD</th><th>WAMD2</th></tr></thead>
+<tbody>
+<tr><td>Estabilidade</td><td>Menos estável</td><td>Melhorada (nova abordagem técnica)</td></tr>
+<tr><td>Listas de transmissão</td><td>Processa mensagens</td><td>Não exibe mensagens enviadas</td></tr>
+<tr><td>Eventos de digitação</td><td>Suportado</td><td>Não suportado</td></tr>
+<tr><td>Grupos</td><td>Compatibilidade limitada</td><td>Implementação mais completa</td></tr>
+</tbody></table></div>
+<p><strong>Recomendação:</strong> migre para WAMD2 apenas se houver problemas específicos com WAMD.</p>
+
+<h4>Tech Provider vs. BSP</h4>
+<p><strong>P:</strong> Qual é a diferença entre Tech Provider e Business Solution Partner (BSP)?</p>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Aspecto</th><th>Tech Provider</th><th>BSP</th></tr></thead>
+<tbody>
+<tr><td>Capacidades técnicas</td><td>Igual ao BSP</td><td>Igual ao Tech Provider</td></tr>
+<tr><td>Cobrança</td><td>Direto pela Meta</td><td>Pode aplicar markup e intermediar</td></tr>
+<tr><td>Linha de crédito</td><td>Não disponível</td><td>Disponível</td></tr>
+<tr><td>Status oficial</td><td>"Meta Tech Provider"</td><td>"Official Meta Partner"</td></tr>
+</tbody></table></div>
+<p><strong>Observação:</strong> a Habilis atua como Tech Provider, sem planos imediatos de virar BSP.</p>
+
+<h4>Mensagens não suportadas na Coexistence</h4>
+<p><strong>P:</strong> Por que algumas mensagens aparecem como "conteúdo não suportado"?</p>
+<p><strong>R:</strong> É uma limitação da Meta em conexões Coexistence, especialmente para mensagens de:</p>
+<ul>
+<li>Dispositivos antigos (WhatsApp Windows em versões desatualizadas).</li>
+<li>Wear OS ou aplicativos não oficiais.</li>
+</ul>
+<p><strong>Solução:</strong> opte pela API convencional (sem Coexistence) para máxima compatibilidade.</p>
+
+<h4>Links úteis</h4>
+<ul>
+<li><a href="https://business.whatsapp.com/policy">Políticas de Negócios do WhatsApp</a></li>
+<li><a href="https://developers.facebook.com/docs/whatsapp/embedded-signup/custom-flows/onboarding-business-app-users/">Documentação oficial da Meta sobre Coexistence</a></li>
+</ul>
+  </div>
+  <div class="faq">
+    <h3 id="faq-105">Quem configura a Cloud API do WhatsApp e quais são os pré-requisitos para conectar?</h3>
+<h4>Resumo</h4>
+<p>A conexão da Cloud API (WhatsApp oficial) é feita pelo próprio sistema, direto na tela da fila — não é preciso nenhuma ferramenta externa. Antes de conectar, você precisa ter um Business Manager ativo na Meta, um número que não esteja em uso em outro WhatsApp Business App ou Cloud API, e uma forma de pagamento cadastrada na conta.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+  <li>Você vai ativar um número de WhatsApp como fila oficial (Cloud API) pela primeira vez.</li>
+  <li>Você não sabe se precisa contratar ou configurar algo fora do sistema para isso.</li>
+  <li>A conexão falha ou não conclui e você quer saber o que verificar antes de tentar de novo.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+  <li><strong>Garanta os pré-requisitos na Meta.</strong> Tenha um <strong>Business Manager</strong> (Gerenciador de Negócios) ativo, com uma forma de pagamento válida cadastrada nele.</li>
+  <li><strong>Confirme que o número está livre.</strong> O número de telefone não pode estar conectado, no momento, a outro WhatsApp Business App ou a uma Cloud API de outra plataforma. Conectá-lo aqui deriva automaticamente a conexão ativa que ele tinha em outro lugar.</li>
+  <li><strong>Crie ou abra a fila.</strong> Em <strong>Configurações &gt; Filas</strong>, clique em <strong>Adicionar</strong> (ou abra uma fila já existente) e defina o tipo como <strong>WA Cloud API</strong>.</li>
+  <li><strong>Abra a aba Conexão.</strong> Na fila, acesse a aba <strong>Conexão</strong> e localize a seção <strong>Autenticação</strong>.</li>
+  <li><strong>Conecte pelo Facebook.</strong> Clique em <strong>Entrar com o Facebook</strong> e siga o fluxo de login e seleção da conta/página que a Meta apresenta. É esse fluxo que vincula o número à fila — o sistema não pede nenhum dado técnico manual nessa etapa.</li>
+  <li><strong>Cadastre a forma de pagamento, se ainda não tiver.</strong> Se a Meta não tiver um método de pagamento cadastrado, acesse o WhatsApp Manager (Visão geral), clique em <strong>Adicionar método de pagamento</strong> e conclua o fluxo — sem isso a Cloud API não ativa.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+  <li><strong>Não existe ferramenta externa.</strong> Toda a conexão (login, seleção de número, vínculo à fila) acontece dentro do próprio sistema, pelo botão <strong>Entrar com o Facebook</strong>.</li>
+  <li><strong>Número já em uso em outra plataforma.</strong> Conectar um número que já está ativo em outro WhatsApp Business App ou Cloud API não é bloqueado pelo sistema, mas derruba a conexão anterior automaticamente — confirme com o cliente final antes de prosseguir para não interromper um canal que ele já usa em outro lugar.</li>
+  <li><strong>Sem forma de pagamento, a API não ativa.</strong> Esse é um requisito da própria Meta, não do sistema; o cadastro é feito no WhatsApp Manager, fora da tela de conexão.</li>
+  <li>A conexão em modo Coexistence (QR Code + API ao mesmo tempo) segue outro fluxo, iniciado pelo mesmo botão mas com leitura de QR Code — se o objetivo é a Cloud API "pura", confira se essa opção não foi selecionada sem querer.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o login pelo Facebook não conclui ou a fila não fica ativa mesmo após o fluxo completo, reúna: se o Business Manager tem forma de pagamento cadastrada, se o número já estava vinculado a outro WhatsApp/plataforma, e a mensagem de erro exata exibida (se houver) antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-151">Como sincronizar os templates do WhatsApp Cloud API com a Meta e o que significa cada status?</h3>
+<h4>Resumo</h4>
+<p>Na tela "Templates WA Cloud API", o botão "Atualizar online" sincroniza com a Meta, em paralelo, os templates de todas as filas de WhatsApp Cloud API elegíveis (habilitadas e com API key e WABA configurados), trazendo o status de aprovação atualizado de cada um. Só templates criados pela opção "Cloud API" (importados/publicados na Meta) recebem esse status; os cadastrados manualmente pela opção "Outros" sempre aparecem como "Desconhecido", porque não passam por aprovação da Meta.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você aprovou ou editou um template diretamente no gerenciador da Meta e quer trazer o status atualizado para o sistema.</li>
+<li>Você não entende o que significa cada status de um template na lista (Aprovado, Rejeitado, Pendente, etc.).</li>
+<li>Você quer entender a diferença entre cadastrar um template pela opção "Cloud API" e pela opção "Outros".</li>
+<li>Você precisa saber os limites de caracteres ao criar um template pela tela do sistema.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra a tela de templates.</strong> Vá em <code>Configurações &gt; Cadastros &gt; Templates WA Cloud API</code>.</li>
+<li><strong>Sincronize com a Meta.</strong> Clique em "Atualizar online". A sincronização roda para todas as filas WhatsApp Cloud API elegíveis ao mesmo tempo (habilitadas e com API key e WABA configurados) e atualiza o status de cada template importado.</li>
+<li><strong>Confira o status de cada template</strong> na coluna de status da lista.</li>
+<li><strong>Para criar um novo template direto na Meta</strong>, use "Adicionar &gt; Cloud API": escolha a fila, a categoria (Marketing, Utilidade ou Autenticação), preencha nome, idioma, corpo do template, rodapé e botões, e publique.</li>
+<li><strong>Para cadastrar um template manualmente</strong> (sem publicar na Meta), use "Adicionar &gt; Outros"; esse template não recebe status de aprovação e aparece sempre como "Desconhecido".</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Status</th><th>Significado</th></tr></thead>
+<tbody>
+<tr><td>Aprovado</td><td>Template aprovado pela Meta e pronto para uso.</td></tr>
+<tr><td>Rejeitado</td><td>Template recusado pela Meta.</td></tr>
+<tr><td>Em apelação</td><td>Rejeição contestada, aguardando nova análise da Meta.</td></tr>
+<tr><td>Pendente</td><td>Aguardando análise da Meta.</td></tr>
+<tr><td>Exclusão pendente</td><td>Exclusão do template solicitada, aguardando confirmação da Meta.</td></tr>
+<tr><td>Excluído</td><td>Template removido na Meta.</td></tr>
+<tr><td>Desabilitado</td><td>Template desabilitado pela Meta.</td></tr>
+<tr><td>Em pausa</td><td>Template pausado pela Meta.</td></tr>
+<tr><td>Limite excedido</td><td>Limite de qualidade/uso da Meta foi excedido para esse template.</td></tr>
+<tr><td>Desconhecido</td><td>Template cadastrado manualmente pela opção "Outros" — não passa por aprovação da Meta, então não tem status de aprovação.</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>Ao criar um template pela opção "Cloud API": nome do modelo aceita até 512 caracteres, corpo do template aceita até 1.024 caracteres, e o rodapé (opcional) aceita até 60 caracteres — todos com contador de caracteres na própria tela.</li>
+<li>A categoria do template só pode ser Marketing, Utilidade ou Autenticação.</li>
+<li>Só entram na sincronização automática ("Atualizar online") as filas de WhatsApp Cloud API habilitadas que já têm API key e WABA configurados; filas sem essa configuração não são sincronizadas.</li>
+<li>A tela "Templates WA Cloud API" fica disponível para o Administrador, ou para usuários com a permissão de editar galeria habilitada em seu cadastro.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Um template cadastrado como "Outros" nunca vai mostrar Aprovado/Rejeitado/Pendente — o status "Desconhecido" é esperado e não indica erro.</li>
+<li>Editar um template diretamente no gerenciador da Meta não atualiza o sistema sozinho: é preciso clicar em "Atualizar online" para trazer a mudança.</li>
+<li>Um template com status diferente de "Aprovado" pode não estar disponível para uso em campanhas ou no atendimento, dependendo da fila.</li>
+<li>Os limites de caracteres da opção "Cloud API" (nome, corpo, rodapé) seguem as regras da própria Meta para templates de WhatsApp — preencher acima do limite não é possível pela tela.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se um template aprovado na Meta continuar sem aparecer ou sem atualizar mesmo depois de "Atualizar online", veja o artigo "Por que templates aprovados na Meta não aparecem ou não sincronizam no sistema?". Antes de acionar o suporte, reúna: o nome do template, a fila WhatsApp Cloud API associada, o status atual mostrado na lista e se a fila tem API key e WABA configurados.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-90">Por que templates aprovados na Meta não aparecem ou não sincronizam no sistema?</h3>
+<h4>Resumo</h4>
+<p>Antes de tudo, use o botão <strong>Atualizar online</strong> na tela de Templates WA Cloud API: ele busca os dados mais recentes direto na Meta e cadastra automaticamente os templates que ainda não existem no sistema. Se, mesmo assim, o template aprovado continuar sem aparecer ou sem atualizar, o cenário mais comum é uma instabilidade do lado da integração da Habilis com a Meta, sem relação com erro de configuração da sua conta e sem prazo definido de normalização.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você criou ou aprovou um template direto no Gerenciador de Negócios da Meta e ele não aparece na lista de templates do sistema.</li>
+<li>Um template já cadastrado foi editado na Meta e a alteração não é refletida no sistema.</li>
+<li>Um template que já aparecia na lista sumiu sem você ter excluído nada.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Force a atualização.</strong> Acesse <strong>Configurações &gt; Templates WA Cloud API</strong> e clique em <strong>Atualizar online</strong>. Essa ação atualiza os templates existentes com base nos dados cadastrados na Meta e cadastra automaticamente os que ainda não constam no sistema. Está disponível apenas para filas WA Cloud API, Dialog 360 (Cloud API) e WA Smarte.</li>
+<li><strong>Aguarde a confirmação.</strong> O sistema exibe uma mensagem de sucesso e recarrega a lista de templates.</li>
+<li><strong>Se não resolver, reaplique a configuração da instância.</strong> Se você tiver acesso ao Painel de Instâncias (parceiro/administrador), use as opções <strong>Reaplicar configuração</strong> e <strong>Reiniciar serviço</strong> (ou <strong>Reiniciar container</strong>) na instância afetada.</li>
+<li><strong>Se persistir, é provável instabilidade externa.</strong> Esse tipo de falha costuma ser intermitente — às vezes o template sobe, às vezes trava de novo — e depende da própria integração com a Meta normalizar, sem uma data garantida.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>O botão <strong>Atualizar online</strong> só aparece e funciona em filas WA Cloud API, Dialog 360 (Cloud API) e WA Smarte — não existe em filas WAMD (não oficiais).</li>
+<li>Esse tipo de instabilidade, quando confirmada como externa, também já afetou em paralelo outras ações ligadas à integração com a Meta (como ativação de novas filas oficiais e sincronização de filas de Facebook/Instagram), sem impactar o envio e recebimento geral de mensagens.</li>
+<li>Um template recém-aprovado pode levar algum tempo para ficar plenamente disponível para envio — isso é normal enquanto a Meta conclui a validação, e não deve ser confundido com falha de sincronização.</li>
+<li>Trocar o navegador usado para acessar o painel (por exemplo, para o Edge) já resolveu sintomas parecidos em casos pontuais ligados a cache do navegador — vale testar, mas não é garantia.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Acione o suporte informando o nome do template, se ele está pendente/aprovado/ausente na Meta e no sistema, o horário em que tentou o <strong>Atualizar online</strong>, e se o sintoma afeta um template específico ou vários ao mesmo tempo — isso ajuda a diferenciar um caso pontual de uma instabilidade mais ampla.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-94">Por que um template do WhatsApp já aprovado na Meta falha ao enviar?</h3>
+<h4>Resumo</h4>
+<p>Um template aprovado na Meta pode falhar no envio por motivos que acontecem do lado da Meta, não no cadastro dentro do sistema. As causas mais observadas em suporte são: a Meta adicionar automaticamente um botão de chamada ao template durante a aprovação (erro do tipo "Calling API not enabled"); o template usar emoji no texto do cabeçalho, que a Meta pode rejeitar; ou a fila estar conectada a uma Conta Comercial do WhatsApp (WABA/portfólio) diferente daquela onde o template foi aprovado, fazendo o sistema não encontrar o template para enviar.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>O template está com status "Aprovado" na Meta, mas o envio individual ou em massa falha ou retorna erro.</li>
+<li>Você não consegue localizar/selecionar, na tela do sistema, um template que já está aprovado na Meta.</li>
+<li>Um disparo em massa com um template falha, mesmo quando outro disparo com o mesmo template funcionou antes.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Confira se a Meta adicionou um botão de chamada.</strong> Abra o template no Gerenciador de Negócios da Meta e veja se, na área de botões, existe algo como "Can {nome do negócio} call you?" (botão de chamada/consentimento). Esse botão só funciona quando o número tem a função de chamadas por API ativada; na maioria dos casos não tem, e o envio falha.</li>
+<li><strong>Remova o botão de chamada.</strong> Edite o template na Meta e remova esse botão nas configurações de botões. Se não for possível editar, crie um novo template idêntico com os botões marcados como "Nenhum" e aguarde a nova aprovação.</li>
+<li><strong>Revise o cabeçalho por emojis.</strong> Se o template tiver emoji no texto do cabeçalho (título), remova-o e teste o envio novamente — a Meta pode rejeitar templates com emoji em determinados campos, tanto em envio individual quanto em disparo em massa.</li>
+<li><strong>Se o template simplesmente não aparece para seleção</strong>, primeiro use o botão <strong>Atualizar online</strong> na tela de Templates WA Cloud API — veja o artigo "Por que templates aprovados na Meta não aparecem ou não sincronizam no sistema?" para esse cenário específico.</li>
+<li><strong>Se mesmo assim o template não aparece, confira o portfólio conectado.</strong> Verifique em qual Conta Comercial (WABA/portfólio) da Meta o template foi criado e aprovado, e compare com a conta que está conectada na fila do sistema.</li>
+<li><strong>Reconecte a fila ao portfólio correto.</strong> Em <strong>Configurações &gt; Filas</strong>, refaça a conexão da fila com o WhatsApp Cloud API e, no fluxo de conexão da Meta, selecione explicitamente a mesma Conta Comercial onde o template está aprovado — o sistema usa a conta escolhida nesse fluxo de conexão, ele não escolhe sozinho qual portfólio vincular.</li>
+<li><strong>Depois de reconectar, sincronize os templates.</strong> Na tela de templates, use <strong>Atualizar online</strong> para trazer os templates aprovados daquele portfólio para o sistema.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Botão de chamada, emoji e portfólio incorreto são as causas mais observadas no suporte, mas nem toda falha de envio de um template aprovado tem causa óbvia — em alguns casos é preciso investigar caso a caso.</li>
+<li>Um disparo em massa (campanha) pode falhar mesmo que o mesmo template já tenha funcionado antes: verifique também o volume de disparos e se o número não está sendo sinalizado como possível spam pela Meta.</li>
+<li>Reconectar a fila ao WhatsApp Cloud API exige acesso de administrador ao Gerenciador de Negócios da Meta para escolher a conta correta durante a conexão.</li>
+<li>Se a fila conecta normalmente mas o problema parece mais amplo (não só um template), veja também o artigo "Como saber se uma falha de conexão, envio ou template do WhatsApp Cloud API é da Meta?", que traz um diagnóstico mais completo via verificação de saúde do número.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se depois de checar botão de chamada, emoji e portfólio o template ainda falhar, reúna o nome exato do template, o print do erro retornado pela Meta e a fila/instância utilizada antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-95">Por que um template com documento/anexo dá erro 400 ao ser enviado pela API?</h3>
+<h4>Resumo</h4>
+<p>O endpoint de envio de template pela API não aceita um documento/arquivo diferente a cada chamada: o arquivo enviado no cabeçalho é sempre o mesmo arquivo cadastrado como <strong>Mídia padrão do cabeçalho</strong> no template. Se o campo <code>data</code> da chamada incluir um objeto de arquivo (ex.: <code>{"file": "...", "filename": "..."}</code>) pensando em substituir esse arquivo, ele acaba sendo interpretado como uma variável de texto comum, o que desalinha a contagem de parâmetros e gera erros como "Format mismatch, expected DOCUMENT, received UNKNOWN" (código Meta 132012) ou a mensagem genérica de parâmetros que não batem com o template.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Seu template tem cabeçalho do tipo Documento (ou Imagem/Vídeo) e o envio pela API retorna erro 400, enquanto o mesmo template sem cabeçalho de arquivo funciona normalmente.</li>
+<li>A Meta retorna um erro citando parâmetro/formato do cabeçalho, como "Format mismatch, expected DOCUMENT, received UNKNOWN" (132012) ou "número de parâmetros não corresponde ao template".</li>
+<li>Você está tentando enviar um documento diferente por chamada da API, e não o arquivo fixo já cadastrado no template.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Confirme o cabeçalho do template.</strong> Em <strong>Configurações &gt; Templates WA Cloud API</strong>, abra o template usado e confira se o <strong>Tipo do cabeçalho</strong> está como Documento (ou Imagem/Vídeo) e se há um arquivo salvo em <strong>Mídia padrão do cabeçalho</strong>. Sem esse arquivo cadastrado, o envio por API sempre falha no cabeçalho.</li>
+<li><strong>Monte o array de parâmetros na ordem certa.</strong> No campo <code>data</code> da chamada, envie somente as variáveis de texto do corpo (e do cabeçalho de texto, se houver), na mesma ordem e quantidade cadastradas no template. Não inclua um objeto de arquivo no meio dessa lista — o arquivo do cabeçalho de mídia não é passado por esse campo neste endpoint, ele vem do arquivo padrão já cadastrado no template.</li>
+<li><strong>Reveja a contagem de variáveis.</strong> Se o corpo do template tem, por exemplo, 2 variáveis (<code>{{1}}</code>, <code>{{2}}</code>), o array <code>data</code> precisa ter exatamente 2 itens de texto — nem a mais, nem a menos, e um objeto de arquivo enviado por engano no início do array desloca essa contagem e gera exatamente esse tipo de erro.</li>
+<li><strong>Teste com um template de texto simples primeiro.</strong> Envie o mesmo payload de variáveis usando um template sem cabeçalho de arquivo para confirmar que a contagem e a ordem dos parâmetros estão corretas antes de reintroduzir o cabeçalho de documento.</li>
+<li><strong>Se precisar trocar o documento</strong>, edite o template em <strong>Configurações &gt; Templates WA Cloud API</strong> e substitua o arquivo em <strong>Mídia padrão do cabeçalho</strong> — esse é o arquivo que será usado em todos os envios seguintes desse template pela API.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Esse endpoint de envio por API não suporta um arquivo diferente por envio quando o cabeçalho é de mídia: o documento/imagem/vídeo enviado é sempre o cadastrado no template, não algo definido em cada chamada.</li>
+<li>O sistema não faz uma checagem prévia do número de parâmetros antes de repassar a chamada para a Meta — o erro de contagem/formato retornado é o erro original da própria Meta.</li>
+<li>Templates de texto simples, sem cabeçalho de arquivo, não sofrem essa limitação e continuam aceitando envio normalmente pelo mesmo endpoint.</li>
+<li>A documentação de referência da sua instância, com os campos exatos aceitos pelo endpoint, fica em <strong>Configurações &gt; Filas &gt; Documentação da API</strong> (botão no canto superior direito da tela).</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se depois de ajustar a ordem/contagem de parâmetros e confirmar o arquivo cadastrado no cabeçalho o erro persistir, reúna o payload exato enviado (sem dados sensíveis do cliente), a resposta de erro completa da Meta e o nome do template antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-96">Por que aparece &quot;Erro ao salvar&quot; ao tentar criar um template de WhatsApp?</h3>
+<h4>Resumo</h4>
+<p>A mensagem "Erro ao salvar" ao criar um template quase sempre indica que falta preencher algum campo obrigatório do formulário — confira principalmente fila, categoria, nome, idioma, corpo com todos os exemplos de variável e, se o cabeçalho for de mídia, o arquivo anexado. A tela de templates do sistema suporta apenas modelos mais simples: formatos elaborados, como carrossel ou templates com múltiplos componentes fora do padrão simples, precisam ser criados diretamente no Gerenciador de Negócios da Meta. A aprovação do template, de qualquer forma, é sempre feita pela Meta, nunca pelo sistema.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você recebe "Erro ao salvar" ao tentar cadastrar um novo template.</li>
+<li>Você preencheu o que parecia necessário e mesmo assim o cadastro falhou.</li>
+<li>Você quer um formato de template (carrossel, múltiplas imagens etc.) e não encontra a opção na tela de criação do sistema.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra a tela de templates.</strong> Acesse <strong>Configurações &gt; Templates WA Cloud API</strong>.</li>
+<li><strong>Inicie a criação.</strong> Clique em <strong>Adicionar &gt; Cloud API</strong>. O assistente abre em duas etapas: "Fila e tipo" e "Editar modelo".</li>
+<li><strong>Etapa 1 — Fila e tipo.</strong> Selecione a <strong>Fila</strong> de WhatsApp Cloud API à qual o template pertence e escolha a categoria: Marketing, Utilidade ou Autenticação.</li>
+<li><strong>Etapa 2 — Nome, idioma e corpo.</strong> Preencha <strong>Nome do modelo</strong>, <strong>Idioma</strong> e o <strong>Corpo do template</strong>. Se o corpo tiver variáveis (<code>{{1}}</code>, <code>{{2}}</code>...), preencha um valor de exemplo para cada uma — sem exemplo o sistema não salva.</li>
+<li><strong>Configure o cabeçalho, se for usar.</strong> O campo <strong>Texto do cabeçalho</strong> é opcional de verdade: dá para salvar o template sem preenchê-lo. Mas se você escolher cabeçalho de mídia (imagem, vídeo ou documento), é obrigatório anexar um arquivo em <strong>Mídia no cabeçalho</strong> — sem ele, o template não salva.</li>
+<li><strong>Rodapé e botões (opcionais).</strong> O rodapé não pode conter variáveis. Cada botão precisa ter o texto preenchido, e campos como número de telefone, URL ou ID do Flow dependem do tipo de botão escolhido — o sistema aceita no máximo 3 botões.</li>
+<li><strong>Salve.</strong> O template é enviado para aprovação da Meta com status pendente; a aprovação em si acontece no ambiente da Meta, fora do sistema.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li><strong>"Erro ao salvar" quase sempre é campo obrigatório faltando.</strong> Confira fila, categoria, nome, idioma, corpo preenchido com todos os exemplos de variável e — quando o cabeçalho for de mídia — o arquivo anexado.</li>
+<li><strong>O texto de cabeçalho é mesmo opcional.</strong> Templates sem texto no cabeçalho (ou com cabeçalho marcado como "Nenhuma") salvam normalmente; se isso não estiver funcionando na sua instância, é uma exceção pontual, e vale reportar ao suporte com o formato exato do template usado.</li>
+<li><strong>Formatos elaborados não são suportados na tela do sistema.</strong> Carrossel e outros formatos fora do padrão simples precisam ser criados direto no Gerenciador de Negócios da Meta; depois de aprovados lá, eles ficam disponíveis para uso no sistema usando <strong>Atualizar online</strong> na tela de templates.</li>
+<li><strong>Uma vez pendente, aguarde a Meta.</strong> O tempo de aprovação é definido pela própria Meta, não pelo sistema.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o erro persistir mesmo com todos os campos preenchidos (fila, categoria, nome, idioma, corpo com exemplos e arquivo de cabeçalho quando aplicável), reúna um print da tela com o erro e o passo a passo exato que você seguiu antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-97">Por que mensagens para números de WhatsApp internacionais não chegam ou dão erro?</h3>
+<h4>Resumo</h4>
+<p>Falhas ao enviar mensagens para números de WhatsApp internacionais têm duas causas distintas já confirmadas: (1) o número foi sinalizado como spam ou denunciado à Meta — isolado a um contato específico; e (2) o sistema pode recusar como <code>Número inválido</code> alguns formatos de número internacional, especialmente DDIs de três dígitos, mesmo sendo um número real. Identifique qual dos dois cenários é o seu antes de agir.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+  <li>O envio para um número internacional específico aparece marcado com um X vermelho, mesmo com o chat aberto e a mensagem aparentemente entregue.</li>
+  <li>Ao tentar abrir um novo atendimento digitando um número internacional (pela tela ou pela API), aparece a mensagem <code>Número inválido</code> e não é possível prosseguir.</li>
+  <li>Outros números internacionais funcionam normalmente — o problema é isolado a um contato ou a um DDI específico.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+  <li><strong>Confirme se é um caso isolado.</strong> Teste abrir atendimento com outro número internacional. Se os demais funcionam normalmente, o problema está restrito àquele contato ou àquele DDI, e não é uma falha geral do canal.</li>
+  <li><strong>Se o X vermelho aparece só em um contato.</strong> Passe o mouse (ou toque, no celular) sobre o ícone para ver a mensagem exibida. Quando o chat já existe e o histórico mostra a mensagem como enviada, mas o ícone persiste, a causa mais provável é que o número esteja marcado como spam pela Meta ou tenha denunciado o número da fila — isso não é causado por uma configuração do sistema.</li>
+  <li><strong>Contorne a suspeita de spam.</strong> Peça ao contato para salvar o número da fila em sua agenda de celular e, se houver outra fila/número disponível, tente reabrir o atendimento por ela.</li>
+  <li><strong>Se a mensagem é "Número inválido" ao digitar o número.</strong> Confira o DDI e o número completo, sem espaços ou caracteres extras, no padrão código do país + código de área/DDD + número. Números com DDI de três dígitos (por exemplo, 595, do Paraguai) já tiveram relato confirmado de rejeição mesmo digitados corretamente.</li>
+  <li><strong>Registre o caso se a rejeição persistir.</strong> Se o número está correto e mesmo assim é recusado como inválido, acione o suporte informando o DDI, o formato exato digitado e se o teste foi feito pela tela ou pela API.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+  <li>A validação de <code>Número inválido</code> ocorre tanto ao abrir chat pela tela quanto pela API — não é um problema restrito a um único canal de acesso.</li>
+  <li>Números com DDI de três dígitos que começam com o dígito 9 (como o 595 do Paraguai) têm relato confirmado de rejeição indevida; se for o seu caso, é um comportamento já identificado pelo suporte, não um erro de digitação seu.</li>
+  <li>O X vermelho em uma mensagem enviada nem sempre significa falha de entrega — verifique a mensagem exata ao passar o mouse sobre ele antes de concluir que é um problema do sistema.</li>
+  <li>A suspeita de spam ou denúncia à Meta é uma decisão da própria Meta sobre aquele contato específico; nem o suporte nem o sistema conseguem reverter isso diretamente.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Reúna o protocolo, o número completo com DDI, se o teste foi feito pela tela ou pela API, e uma captura de tela do erro exato (a mensagem do X ou do "Número inválido") antes de acionar o suporte.</p>
+  </div>
+  <h2 id="whatsapp-n-o-oficial-wamd-e-qr-code">WhatsApp não oficial (WAMD e QR Code)</h2>
+  <div class="faq">
+    <h3 id="faq-205">Como conectar e configurar uma fila de WhatsApp não oficial via QR Code e o que cada opção faz?</h3>
+<h4>Resumo</h4>
+<p>Uma fila de WhatsApp não oficial (conectada por QR Code, nas variantes WAMD, WAMD 2 ou WAMD 3) exibe, na aba "Conexão", indicadores de status e botões para conectar, desconectar, deslogar e ler o QR Code. A tela mostra um aviso pedindo para consultar os termos de uso do serviço de mensageria antes de usar a integração, por se tratar de conexão não oficial.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Conectar ou reconectar uma fila de WhatsApp não oficial pela leitura do QR Code.</li>
+<li>Entender o que cada indicador e botão da aba "Conexão" significa.</li>
+<li>Importar uma sessão do WhatsApp já autenticada, sem ler o QR Code novamente.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra a fila.</strong> Vá em <em>Configurações &gt; Filas</em>, clique na fila de WhatsApp não oficial para expandi-la e abra a aba "Conexão".</li>
+<li><strong>Habilite o servidor</strong>, se ainda não estiver habilitado.</li>
+<li><strong>Clique em "Conectar"</strong> para iniciar a conexão com o servidor de mensageria.</li>
+<li><strong>Clique em "QR Code"</strong> para exibir o código e parear com o celular usando o aplicativo de mensageria.</li>
+<li><strong>Acompanhe os indicadores</strong> de smartphone, conexão (socket) e autenticação até todos indicarem conectado/autenticado.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>Indicadores de status na aba "Conexão": ícone de smartphone (conectado/desconectado), ícone de conexão (socket conectado/desconectado) e ícone de cadeado (servidor autenticado/não autenticado).</li>
+<li>Botão <strong>Conectar</strong>: fica desabilitado se a fila estiver desabilitada ou já conectada.</li>
+<li>Botão <strong>Desconectar</strong>: fica desabilitado se a fila estiver desabilitada ou já desconectada.</li>
+<li>Botão <strong>Deslogar</strong>: desconecta e apaga os dados de autenticação salvos, exigindo nova leitura de QR Code na próxima conexão.</li>
+<li>Botão <strong>QR Code</strong>: só fica disponível com a fila habilitada, conectada e ainda não autenticada.</li>
+<li>Botão <strong>Importar sessão</strong>: só existe na variante WAMD 2. Importa uma sessão do WhatsApp exportada do navegador; só fica disponível com a fila desabilitada. A ação apaga as credenciais atuais e, ao reabilitar a fila, ela reconecta já autenticada com a sessão importada.</li>
+<li>Campo "Importar histórico": define até quantos dias de mensagens antigas são importados na sincronização inicial da fila, logo após a leitura do QR Code — opções de "Não importar" até 180 dias. Esse campo fica na aba "Configurações", não na aba "Conexão".</li>
+<li>Em algumas variantes existem ainda dois alternadores próprios de sincronização com o celular: "Importar histórico de mensagens" e "Importar contatos do aparelho". Os dois só funcionam se a conexão foi feita via QR Code em modo Coexistence e o celular está conectado, e precisam estar ativos ANTES da autenticação da fila para valerem — ativá-los depois não importa nada retroativamente. Nenhum dos dois abre atendimentos no sistema para mensagens antigas ainda não lidas.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Os botões de conexão (Conectar, Desconectar, Deslogar) variam conforme a variante da fila — nem todas as variantes de WhatsApp não oficial mostram exatamente os mesmos botões.</li>
+<li>"Importar sessão" derruba a autenticação atual assim que o arquivo é carregado; use apenas quando pretende substituir a sessão em uso.</li>
+<li>Os campos "Manter conexão online", "Versão do WhatsApp Web" e "User-agent" ficam na aba "Configurações" da fila, não na aba "Conexão" — veja o artigo "Quais opções de comportamento existem na aba Configurações de uma fila e o que cada uma faz?" para o detalhe desses campos.</li>
+<li>"Enviar eventos de digitação" (indicador de "digitando..." para o cliente) só existe nas variantes de WhatsApp não oficial — não existe na fila de WhatsApp Cloud API oficial.</li>
+<li>Os botões para converter a fila entre WAMD, WAMD 2, WAMD 3 e Cloud API também ficam na aba "Conexão", ao lado dos controles de autenticação — veja o artigo "Quais botões existem para converter uma fila de WhatsApp entre WAMD, WAMD 2, WAMD 3 e Cloud API?" para os detalhes de cada conversão.</li>
+<li>Por ser integração não oficial, o funcionamento depende do serviço de mensageria de terceiros e está sujeito aos termos de uso desse serviço.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se a fila não sai do estado "desconectado" ou o QR Code não aparece mesmo com o servidor habilitado, confirme se o celular usado no pareamento está com internet ativa e se nenhuma outra sessão está usando o mesmo número. Antes de acionar o suporte, reúna a variante da fila (WAMD, WAMD 2 ou WAMD 3), o estado exato dos três indicadores de status e se a tentativa foi de primeira conexão, reconexão ou importação de sessão.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-78">Por que meu número em fila de WhatsApp não oficial é banido ou tem envios bloqueados pela Meta?</h3>
+<h4>Resumo</h4>
+<p>Números conectados por QR Code (WAMD, WAMD2 ou WAMD3) correm risco de banimento ou de bloqueio silencioso pela Meta com base no padrão de uso do número — volume, frequência e comportamento de automação —, independentemente das permissões configuradas no sistema. Para reduzir picos de disparo, o sistema aplica por padrão um limite de mensagens por minuto para envios feitos pela API de integração, que não fica visível nem é editável na interface. Não há hoje um indicador na tela avisando quando um número foi restringido pela Meta.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você usa uma fila conectada por QR Code (WAMD, WAMD2 ou WAMD3), não a API Oficial (Cloud API).</li>
+<li>Mensagens deixam de ser entregues sem nenhum aviso de erro visível na tela.</li>
+<li>Você recebe um erro de limite de requisições ao disparar mensagens pela API de integração.</li>
+<li>Você quer saber se pode habilitar recursos adicionais, como grupos de WhatsApp, sem aumentar o risco do número.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Evite picos de envio.</strong> Distribua os disparos ao longo do tempo em vez de concentrar um volume grande em poucos minutos — esse é o padrão de comportamento que mais chama atenção das políticas da Meta para números conectados por automação.</li>
+<li><strong>Não habilite recursos que fogem do uso esperado de um número comum</strong>, como a exibição de grupos de WhatsApp no chat interno, a menos que seja realmente necessário — isso aumenta a chance de banimento.</li>
+<li><strong>Se o envio for feito pela API de integração</strong>, respeite o retorno de erro de limite de requisições e reduza a frequência das chamadas.</li>
+<li><strong>Se você precisa de volume e estabilidade de envio</strong>, migre a fila para a API Oficial (Cloud API), que usa templates aprovados pela Meta e não sofre as mesmas restrições comportamentais das conexões não oficiais.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>O risco de banimento ou bloqueio é inerente ao uso de um número por conexão não oficial — depende do comportamento do número avaliado pela Meta, e não é algo que as permissões do sistema controlem.</li>
+<li>O bloqueio pode ser silencioso: o número para de enviar sem aviso explícito, e hoje não existe indicador na interface mostrando que um número está restrito pela Meta.</li>
+<li>Por padrão, o sistema aplica um limite de poucas mensagens por minuto ao envio feito pela API de integração, como proteção contra picos de disparo. Esse limite é definido internamente por instância, não aparece nem pode ser alterado na interface do cliente, e não se aplica ao envio manual feito pelo agente na tela de atendimento.</li>
+<li>Habilitar grupos de WhatsApp no chat interno aumenta o risco de banimento, mesmo que o número já esteja em uso normal na fila.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se um número parar de enviar mensagens sem erro aparente, verifique se não está recebendo erro de limite de requisições da API, se não houve mudança brusca de volume recente e se não está conectado simultaneamente em outro WhatsApp Web ou aplicativo. Reúna o tipo da fila, o horário em que o envio parou e, se houver, a mensagem de erro retornada pela API antes de acionar o suporte — para números efetivamente banidos pela Meta, não há reversão possível dentro do sistema.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-82">Fila de WhatsApp conectada mas não envia mensagens: o que verificar?</h3>
+<h4>Resumo</h4>
+<p>Quando uma fila de WhatsApp não oficial (WAMD, WAMD2 ou WAMD3) permanece conectada e recebe mensagens normalmente, mas não envia respostas — para todos os contatos ou só para um contato específico — na maioria dos casos é uma instabilidade da própria conexão não oficial, sem uma causa fixa visível na tela. Não existe hoje uma ferramenta de diagnóstico dedicada para esse sintoma nas filas WAMD; siga o checklist abaixo antes de abrir um chamado.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>A fila WAMD, WAMD2 ou WAMD3 mostra status conectado, mas o agente não consegue enviar nem responder mensagens.</li>
+<li>Mensagens do cliente chegam normalmente, mas as enviadas pelo sistema não saem ou não são confirmadas como entregues.</li>
+<li>O bloqueio afeta só um contato específico, enquanto outros contatos na mesma fila continuam recebendo mensagens normalmente.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Confirme o status da fila.</strong> Em <strong>Configurações &gt; Filas</strong>, verifique se a fila realmente aparece conectada e qual variante está em uso (WAMD, WAMD2 ou WAMD3).</li>
+<li><strong>Reaplique a configuração e reinicie o serviço.</strong> No <strong>Painel de Instâncias</strong>, use <strong>Reaplicar configuração</strong> e, em seguida, <strong>Reiniciar serviço</strong> (ou <strong>Reiniciar container</strong>) na instância afetada. Esse painel só aparece para usuários com acesso de parceiro/administrador; se você não tiver acesso, peça a quem tiver ou acione o suporte.</li>
+<li><strong>Desconecte e reconecte a fila.</strong> Na tela de Filas, use <strong>Desconectar-se do servidor</strong> e, depois, leia o QR Code novamente para reautenticar.</li>
+<li><strong>Verifique se o WhatsApp do celular está atualizado.</strong> Em conexões via QR Code, uma versão desatualizada do aplicativo no celular pode causar falhas de envio.</li>
+<li><strong>Considere trocar de variante.</strong> Se o problema persistir, use o botão <strong>Converter para WAMD 2</strong> ou <strong>Converter para WAMD 3</strong> na tela de Filas — variantes diferentes usam mecanismos de conexão distintos e podem não apresentar a mesma instabilidade. A conversão exige nova leitura do QR Code.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Esse tipo de bloqueio de envio silencioso é uma característica conhecida das conexões não oficiais, dependentes de heurísticas da própria Meta — fora do controle direto do sistema.</li>
+<li>Os passos acima nem sempre resolvem de forma definitiva: em alguns casos o sintoma volta depois de um tempo mesmo após reiniciar e reconectar.</li>
+<li>Converter o tipo da fila (entre WAMD, WAMD2 e WAMD3) derruba a autenticação atual — combine com a equipe antes de fazer isso em horário de atendimento.</li>
+<li>Se estabilidade e volume de envio forem essenciais, a alternativa recomendada para eliminar esse tipo de instabilidade é migrar a fila para a API Oficial (Cloud API).</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o checklist não resolver, abra um chamado informando: a fila e a instância afetadas, se o bloqueio é geral ou específico a um contato, os passos já testados e, se possível, um print da tentativa de envio mostrando o status da mensagem.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-100">Por que filas desconectam ou param de gerar QR Code após uma atualização do sistema?</h3>
+<h4>Resumo</h4>
+<p>É comum que, logo após o lançamento de uma nova versão do sistema, filas de WhatsApp fiquem temporariamente desconectadas, não consigam gerar QR Code, ou a instância apareça offline / retorne erro ao tentar reiniciar. Na maioria dos casos isso se resolve reaplicando a configuração e reiniciando a instância pelo <strong>Painel de instâncias</strong>; às vezes a instância volta sozinha depois de alguns minutos, ainda em função da atualização em andamento no servidor.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+  <li>Uma ou mais filas de WhatsApp desconectaram logo após uma atualização do sistema.</li>
+  <li>O botão de <strong>Conectar</strong>/gerar QR Code na fila não responde.</li>
+  <li>A instância aparece <strong>offline</strong> no painel ou retorna erro ao tentar reiniciar.</li>
+  <li>Vários clientes relatam o mesmo sintoma ao mesmo tempo, pouco depois de um lançamento.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+  <li><strong>Acesse o Painel de instâncias</strong> com um usuário que tenha permissão para isso.</li>
+  <li><strong>Reaplique a configuração</strong> da instância afetada.</li>
+  <li><strong>Reinicie o serviço.</strong> Aguarde alguns minutos — durante o rollout de uma atualização, a instância pode demorar um pouco mais que o normal para voltar sozinha.</li>
+  <li><strong>Se a fila ainda não gerar QR Code</strong>, reinicie o container da instância (opção mais forte, usada quando reiniciar o serviço não é suficiente).</li>
+  <li><strong>Teste a conexão da fila</strong> novamente, lendo o QR Code se necessário.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+  <li>Essa ação depende do administrador da instância: o suporte só consegue reaplicar configuração/reiniciar acessando a instância com autorização pontual do cliente. Não existe uma rotina para o suporte aplicar isso remotamente e em massa para todos os clientes afetados por uma mesma atualização — cada instância precisa ser tratada individualmente pelo painel.</li>
+  <li>Se o tempo de instância offline ultrapassar bastante o esperado para uma atualização normal (alguns minutos), é sinal de que o caso já não é o comportamento padrão pós-atualização e vale abrir chamado.</li>
+  <li>Reiniciar o container é mais demorado que reiniciar o serviço e deixa a instância temporariamente indisponível — tente reiniciar o serviço primeiro.</li>
+  <li>Atendimentos abertos há muito tempo sem encerramento também podem gerar inconsistências visuais após atualizações; encerrar chats concluídos ajuda a evitar esse tipo de sintoma.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se depois de reaplicar a configuração e reiniciar (serviço e, se preciso, container) a fila continuar sem gerar QR Code ou a instância continuar offline, abra um chamado informando o endereço da instância, o número/tipo da fila afetada, o horário em que o problema começou e se o sintoma coincide com o horário de um lançamento de nova versão.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-210">O que significam os avisos de conexão instável e de fila sem autenticação no cabeçalho?</h3>
+<h4>Resumo</h4>
+<p>O cabeçalho do sistema mostra ícones fixos e piscantes para avisar sobre problemas de conexão que afetam o uso normal do sistema. O aviso amarelo "Conexão com o servidor instável" indica que a comunicação em tempo real do seu navegador com o servidor está instável. O aviso vermelho de fila sem autenticação indica que uma ou mais filas de mensageria perderam a autenticação e precisam ser reconectadas. Diferente de uma notificação comum, esses avisos ficam fixos no cabeçalho enquanto a condição persistir, e somem sozinhos quando o problema se resolve.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>O usuário vê um ícone piscando no canto superior direito e não sabe o que significa.</li>
+<li>Mensagens não estão chegando ou saindo em tempo real e há um ícone amarelo aceso no cabeçalho.</li>
+<li>Uma fila de WhatsApp ou outro canal de mensageria parou de receber mensagens e o cabeçalho mostra um aviso vermelho listando o nome da fila.</li>
+<li>Este artigo não cobre o aviso azul "conectado em múltiplos dispositivos" — veja o artigo "Por que aparece o aviso de múltiplos dispositivos e como deslogar dos demais?" para esse caso específico.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Identificar o aviso amarelo "Conexão com o servidor instável".</strong> Aparece quando a conexão do navegador com o servidor está instável. Não exige ação: normalmente se resolve sozinho quando a rede normaliza. Se persistir, verifique a conexão de internet do computador ou tente recarregar a página.</li>
+<li><strong>Identificar o aviso vermelho de fila sem autenticação.</strong> Ao passar o mouse sobre o ícone (ou, no celular, na barra de aviso do topo), o texto lista os nomes das filas afetadas: "Uma ou mais filas perderam a autenticação com o servidor... Filas com problema: (nomes)".</li>
+<li><strong>Aguardar a reconexão automática.</strong> O próprio texto do aviso orienta aguardar alguns instantes, já que a reautenticação pode ocorrer sozinha.</li>
+<li><strong>Reautenticar manualmente se o aviso não sumir.</strong> Um Administrador ou Supervisor deve abrir a configuração da fila afetada e reler o QR Code pelo celular (filas de WhatsApp não oficial) ou reintroduzir os dados de autenticação (demais canais), conforme o tipo de conexão da fila.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>O aviso de conexão instável e o de fila sem autenticação aparecem para qualquer perfil (Administrador, Supervisor ou Agente) que estiver com a sessão aberta — não dependem de permissão específica para serem exibidos.</li>
+<li>No layout de celular, o aviso de conexão instável e o de fila sem autenticação aparecem juntos em uma barra própria no topo da tela, com o mesmo texto da versão para computador; só um dos dois é mostrado por vez nessa barra (o de conexão instável tem prioridade sobre o de fila sem autenticação).</li>
+<li>No computador, os dois avisos podem aparecer lado a lado no cabeçalho ao mesmo tempo, já que cada um tem seu próprio ícone.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>O aviso de fila sem autenticação é o mais crítico dos dois: enquanto ele estiver ativo, a fila listada não está trocando mensagens com o canal até ser reautenticada.</li>
+<li>Esses avisos não são notificações que aparecem e somem sozinhas (toast): eles ficam fixos no cabeçalho enquanto a condição persistir, e desaparecem automaticamente assim que o problema é resolvido.</li>
+<li>Uma instabilidade recorrente e específica de uma fila de Instagram ou Facebook (que volta mesmo depois de reconectar) pode ter causa fora do sistema, do lado da Meta — consulte o artigo de suporte "Por que a fila de Instagram ou Facebook desconecta ou fica instável sozinha?" para esse cenário.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o aviso de conexão instável não sumir depois de recarregar a página e checar a internet local, ou se o aviso de fila sem autenticação continuar mesmo após reler o QR Code ou reconfigurar a autenticação da fila, anote o nome exato da(s) fila(s) listada(s) no aviso, o horário em que o problema começou e se ele afeta um usuário específico ou todos antes de acionar o suporte.</p>
+  </div>
+  <h2 id="coexistence-e-migra-o-de-modalidade">Coexistence e migração de modalidade</h2>
+  <div class="faq">
+    <h3 id="faq-92">O que é o modo Coexistence e por que a fila fica nele ao converter para API Oficial?</h3>
+<h4>Resumo</h4>
+<p>Uma fila de WhatsApp pode operar em três modos: <strong>WAMD</strong> (não oficial, conexão por QR Code), <strong>API Oficial</strong> (Cloud API pura) e <strong>Coexistence</strong> (API Oficial funcionando ao mesmo tempo com o aplicativo WhatsApp Business no celular, no mesmo número). Ao converter uma fila WAMD para Cloud API, se a janela de autenticação da Meta encontrar o número já ativo no WhatsApp Business App do celular, ela ativa o modo Coexistence automaticamente — mesmo que você não tenha escolhido nada relacionado a isso. Para migrar de fato para API Oficial pura, é preciso apagar a conta do WhatsApp Business App no celular antes de refazer a conexão.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você converteu uma fila WAMD para Cloud API e, ao final, a fila ficou marcada como Coexistence (ícone de celular ao lado da fila) em vez de API Oficial pura.</li>
+<li>Você quer entender a diferença entre WAMD, API Oficial e Coexistence antes de converter uma fila.</li>
+<li>Você precisa migrar uma fila de Coexistence para API Oficial pura (sem o app no celular).</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Faça backup, se necessário.</strong> No celular do cliente, se houver conversas que precisem ser preservadas, oriente a fazer backup pelo próprio WhatsApp Business App antes do próximo passo.</li>
+<li><strong>Apague a conta no WhatsApp Business App.</strong> No celular do cliente, acesse o aplicativo WhatsApp Business, vá em <strong>Configurações &gt; Conta</strong> e selecione <strong>Apagar conta</strong>. Isso remove o vínculo do número com o aplicativo do celular.</li>
+<li><strong>Desconecte a fila na plataforma.</strong> Na tela de <strong>Configurações &gt; Filas</strong>, desconecte a fila atual.</li>
+<li><strong>Refaça a conexão.</strong> Clique novamente na opção de conectar via Facebook/Meta.</li>
+<li><strong>Escolha adicionar um número novo.</strong> Na janela da Meta, ao chegar na etapa de número, selecione a opção de adicionar um novo número (em vez de selecionar a conta/perfil já existente) e conclua a verificação por SMS ou ligação.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>O ícone de celular ao lado da fila na lista de filas indica que aquela conexão está em modo Coexistence.</li>
+<li>Não é possível combinar Coexistence com WAMD e API Oficial ao mesmo tempo no mesmo número — o risco de banimento pelo WhatsApp é alto. É possível, porém, manter várias conexões (WAMD, Oficial ou Coexistence) desde que cada uma use um número diferente.</li>
+<li>O sistema não bloqueia tecnicamente o cadastro de duas filas diferentes usando o mesmo número na API oficial, mas isso não é recomendado: gera atendimentos duplicados para o mesmo contato e o envio de templates fica vinculado a apenas uma das filas.</li>
+<li>Um número já em uso em uma fila de API Oficial não pode também ser usado no aplicativo comum do WhatsApp (não Business) ao mesmo tempo, a menos que a conexão seja Coexistence — sem isso, o contato final pode ver o aviso de que o número "não usa mais o WhatsApp".</li>
+<li>Converter uma fila WAMD para Cloud API é uma ação imediata e encerra automaticamente todos os atendimentos abertos na fila naquele momento — veja o artigo "É possível converter uma fila de WhatsApp entre API oficial e não oficial, inclusive em lote?" para o passo a passo completo do botão de conversão.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se, mesmo apagando a conta do celular e escolhendo "adicionar novo número", a fila continuar em modo Coexistence, acione o suporte informando a fila, a instância, e se a conta do WhatsApp Business App foi de fato apagada do celular antes de refazer a conexão.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-112">Por que as mensagens do WhatsApp Coexistence demoram ou param de sincronizar no celular?</h3>
+<h4>Resumo</h4>
+<p>No modo Coexistence, a sincronização entre o aplicativo WhatsApp Business no celular e o sistema é feita inteiramente pela Meta — o sistema não controla nem força esse processo. Atrasos e inconsistências pontuais (mensagens que demoram a aparecer, ou que param de aparecer no celular) são um comportamento conhecido desse modelo, e não existe um recurso para ressincronizar retroativamente mensagens que já pararam de sincronizar.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Sua fila está conectada em modo Coexistence (WhatsApp Business App + API Cloud no mesmo número).</li>
+<li>Mensagens que chegam normalmente no sistema demoram para aparecer no aplicativo do celular, ou pararam de aparecer nele.</li>
+<li>Você quer saber se dá para recuperar o histórico que parou de sincronizar, ou identificar atendimentos originados de um Status (story) do WhatsApp.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Confirme a abrangência.</strong> Verifique se o problema ocorre em todos os números da fila ou apenas em alguns.</li>
+<li><strong>Teste no aplicativo do celular.</strong> Confirme que o WhatsApp Business está sendo aberto com regularidade — o aplicativo precisa ser aberto periodicamente para manter a sincronização ativa.</li>
+<li><strong>Verifique a atualização e a conexão.</strong> Confirme que o aplicativo está na versão mais recente e que a fila está com a conexão estável, sem quedas recentes.</li>
+<li><strong>Verifique há quanto tempo a fila está em Coexistence.</strong> Conexões muito recentes podem ainda estar concluindo a sincronização inicial.</li>
+<li><strong>Se nada disso resolver, desconecte e reconecte a Coexistence.</strong> Isso pode ajudar a restabelecer a sincronização, mas não garante a recuperação de mensagens que já pararam de sincronizar antes da reconexão.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Não existe hoje um recurso de ressincronização retroativa do histórico entre o sistema e o aplicativo do celular. A importação de histórico e de contatos do celular só é possível durante a configuração inicial da conexão via QR Code, e precisa estar ativada <strong>antes</strong> da autenticação da fila — não depois, com a fila já em uso.</li>
+<li>O sistema identifica automaticamente atendimentos originados de um clique em anúncio (Click to WhatsApp), mas não existe hoje uma forma de identificar que um atendimento começou como resposta a um Status/story do WhatsApp — essa origem não é sinalizada pelo WhatsApp para esse tipo de interação.</li>
+<li>Atrasos e inconsistências de sincronização no Coexistence são inerentes ao modelo, pois dependem da infraestrutura da Meta, e podem se repetir mesmo depois de reconectar.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o problema persistir mesmo após confirmar aplicativo atualizado, conexão estável e reconexão da Coexistence, reúna: os números afetados, há quanto tempo a fila está em Coexistence, se o problema ocorre em todos os números ou só em alguns, e desde quando as mensagens pararam de aparecer no celular — essas informações agilizam a investigação pelo suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-113">Por que o QR Code não aparece ao conectar uma fila em modo Coexistência?</h3>
+<h4>Resumo</h4>
+<p>O QR Code de conexão em modo Coexistência costuma não aparecer por causa de algo do lado do celular ou da conta Meta do cliente, não do sistema: PIN de confirmação em duas etapas ativo no WhatsApp, permissões incompletas no Gerenciador de Negócios, o botão de confirmação escondido pela rolagem da janela da Meta, ou o número já vinculado a outro cadastro. Revise esses quatro pontos e tente exibir o QR Code novamente.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+  <li>Você está conectando (ou reconectando) uma fila de WhatsApp em modo Coexistência (WhatsApp Business App + API no mesmo número) e o QR Code não chega a aparecer na tela.</li>
+  <li>A janela de autenticação da Meta abre, mas fica travada, em branco, ou sem o botão final de confirmação.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+  <li><strong>Desative temporariamente o PIN do WhatsApp.</strong> No celular onde o WhatsApp Business está instalado, acesse as configurações da conta e desative a confirmação em duas etapas. Com o PIN ativo, a API pode não conseguir assumir o número durante o pareamento inicial. Depois de conectar, o PIN pode ser reativado.</li>
+  <li><strong>Confira as permissões no Gerenciador de Negócios (Meta Business Manager).</strong> O usuário que está fazendo a conexão precisa ter controle total (Admin) sobre o Portfólio Empresarial selecionado, e não pode haver pendência de aceite de termos ou verificação de empresa em aberto.</li>
+  <li><strong>Verifique se o botão de confirmação não está escondido.</strong> Às vezes o botão final de consentimento fica abaixo da área visível da janela da Meta. Role para baixo dentro da janela (com o mouse ou as setas do teclado) antes de concluir que o QR Code não vai aparecer.</li>
+  <li><strong>Confirme que o número não está vinculado a outro cadastro.</strong> Se esse número já foi cadastrado antes em outra API (oficial ou não) ou em outro provedor, ele precisa ser desvinculado dessa outra conta antes de conseguir parear em uma conexão nova.</li>
+  <li><strong>Tente exibir o QR Code novamente.</strong> Na tela da fila, use os botões de conexão para desconectar e, em seguida, solicitar o QR Code de novo. O botão de QR Code só fica disponível quando a fila está conectada ao servidor mas ainda não autenticada.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+  <li>Os quatro primeiros pontos acontecem do lado do celular e da conta Meta do cliente — o suporte não tem como agir diretamente sobre eles, apenas orientar a verificação.</li>
+  <li>Reaplicar configurações e reiniciar o contêiner da instância são ações que o suporte executa pelo painel interno quando os pontos acima já foram checados e o problema persiste — não é algo disponível para o cliente configurar sozinho.</li>
+  <li>O modo Coexistência é diferente da API Oficial "pura": nele o WhatsApp Business App continua ativo no celular ao mesmo tempo que a API. Se a intenção era migrar totalmente para API Oficial sem o aplicativo continuar ativo, esse é um assunto à parte — veja o artigo "O que é o modo Coexistence e por que a fila fica nele ao converter para API Oficial?".</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se, mesmo após verificar os quatro pontos acima, o QR Code continuar sem aparecer, acione o suporte informando a instância, o número/fila que está tentando conectar, se os pontos de PIN e permissões já foram checados, e um print ou vídeo do momento exato em que a tela trava.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-70">É possível converter uma fila de WhatsApp entre API oficial e não oficial, inclusive em lote?</h3>
+<h4>Resumo</h4>
+<p>Converter uma fila de WhatsApp não oficial (WAMD, WAMD2 ou WAMD3) para a API Oficial (Cloud API), ou trocar entre as variantes WAMD entre si, é uma ação que você mesmo faz pela tela de <strong>Configurações &gt; Filas</strong>, sem precisar do suporte. O caminho contrário — converter uma fila já em Cloud API de volta para não oficial — não tem botão próprio e depende de abertura de chamado. Não existe, hoje, uma ferramenta de conversão em lote para várias filas de uma vez.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você quer migrar uma fila WAMD, WAMD2 ou WAMD3 para Cloud API, ou trocar entre as variantes não oficiais.</li>
+<li>Você clicou por engano em um dos botões de conversão e quer entender o que aconteceu e como reverter.</li>
+<li>Você precisa converter várias filas, possivelmente em instâncias diferentes, de uma só vez.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Acesse a fila.</strong> Vá em <strong>Configurações &gt; Filas</strong> e localize a fila desejada.</li>
+<li><strong>Use o botão de conversão correspondente.</strong> Uma fila WAMD, WAMD2 ou WAMD3 mostra o botão <strong>Converter para Cloud API</strong> e, conforme a variante atual, também <strong>Converter para WAMD</strong>, <strong>Converter para WAMD 2</strong> ou <strong>Converter para WAMD 3</strong>.</li>
+<li><strong>Confirme digitando a palavra pedida.</strong> O sistema pede que você digite <code>converter</code> para confirmar — a ação é aplicada imediatamente após a confirmação, não é apenas um pedido para o suporte analisar depois.</li>
+<li><strong>Reautentique a fila.</strong> Ao converter entre variantes WAMD, a autenticação atual é perdida e é preciso ler o QR Code novamente. Ao converter para Cloud API, é preciso concluir a autenticação via Facebook/Meta na própria tela da fila.</li>
+<li><strong>Para reverter uma conversão para Cloud API de volta a não oficial, abra um chamado.</strong> Não existe botão para esse caminho contrário; informe a fila, a instância e o tipo desejado ao suporte.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>A conversão fecha automaticamente todos os atendimentos abertos naquela fila no momento — avise a equipe antes de converter em horário de atendimento.</li>
+<li>Pode existir um limite de quantidade de filas de um determinado tipo permitidas na instância; ao atingi-lo, a conversão é recusada com a mensagem <strong>Limite excedido</strong>.</li>
+<li>Não há botão nem ferramenta de conversão em lote/em massa: cada fila precisa ser convertida individualmente, uma de cada vez. Para um volume grande de filas (dezenas ou centenas, especialmente em instâncias diferentes), é preciso abrir chamado com o suporte, sem garantia de prazo.</li>
+<li>Converter de Cloud API para não oficial não é recomendado pelo suporte por causa da divergência estrutural entre os dois tipos de conexão; a alternativa geralmente sugerida é criar uma fila nova já no tipo não oficial desejado, em vez de converter a existente.</li>
+<li>O histórico de mensagens pode deixar de aparecer vinculado ao contato depois da conversão, porque fica ligado ao identificador da integração anterior.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o botão de conversão não aparecer, verifique o tipo atual da fila — o botão só aparece para tipos compatíveis com aquela conversão. Se, após converter, a fila não conectar ou ficar com o tipo anterior, abra chamado informando o ID da fila, a instância e a mensagem de erro exibida.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-116">Como desvincular um número da fila oficial da Habilis para usar outro provedor?</h3>
+<h4>Resumo</h4>
+<p>A Habilis não realiza a liberação do número/WABA em nome de outro provedor — essa etapa é sempre responsabilidade do novo provedor de destino. Você mesmo consegue remover, pelo seu acesso ao Gerenciador de Negócios da Meta, as permissões concedidas à Habilis, e desconectar a fila no sistema. Se o objetivo é não ter nenhum intermediário, isso exige uma integração própria (BSP ou Direct Developer) direto com a Meta, e o número deixa de poder usar uma fila do tipo <strong>WA Cloud API</strong> padrão — passando, se quiser continuar no sistema, para uma fila <strong>WA Cloud API (Dev App)</strong>. <strong>Importante: o mesmo número não pode ficar ativo em duas plataformas de API oficial ao mesmo tempo</strong> — ao ser registrado na plataforma nova, o webhook do número é redirecionado para ela, e a fila que estava conectada na Habilis para de receber mensagens.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+  <li>Você está migrando o número da fila oficial da Habilis para outro provedor/parceiro de WhatsApp API.</li>
+  <li>O novo provedor pediu para a Habilis "liberar" o número, a WABA ou desativar a verificação em duas etapas.</li>
+  <li>Você quer usar o número sem nenhum intermediário, com integração própria direto com a Meta.</li>
+  <li>Você quer apenas desvincular as contas de Facebook/Instagram do gerenciamento da Habilis.</li>
+  <li>Você quer saber se pode manter o número funcionando na Habilis e em outra plataforma ao mesmo tempo, durante a transição.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+  <li><strong>Entenda quem faz o quê.</strong> A liberação de número/WABA para outro provedor é um procedimento do lado do <em>novo</em> provedor junto à Meta — a Habilis não executa essa liberação em nome de terceiros nem atende diretamente o provedor de destino.</li>
+  <li><strong>Remova as permissões no Gerenciador de Negócios da Meta.</strong> É você quem concede e remove o acesso da Habilis aos ativos do seu negócio (páginas, contas do Instagram, WhatsApp Business Platform). Essa remoção é feita pelo próprio Gerenciador de Negócios da Meta, não por uma tela da Habilis.</li>
+  <li><strong>Desconecte a fila no sistema.</strong> Em <strong>Configurações &gt; Filas</strong>, desabilite ou exclua a fila conectada como oficial se não for mais utilizá-la.</li>
+  <li><strong>Decida se vai continuar usando o sistema Habilis.</strong> Se sim, e a integração com a Meta passará a ser própria (BSP ou Direct Developer), o número deve ser configurado em uma fila do tipo <strong>WA Cloud API (Dev App)</strong> ao criar a fila — não na fila oficial padrão.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+  <li>Somente Business Solution Providers (BSPs) e Direct Developers têm acesso direto à Cloud API da Meta sem intermediário; é a própria Meta quem define e restringe esse acesso.</li>
+  <li>Remover as permissões da Habilis no Gerenciador de Negócios pode interromper a integração oficial em uso imediatamente — planeje a migração antes de remover o acesso, para não ficar sem o canal funcionando.</li>
+  <li>Se a intenção for apenas trocar de parceiro/BSP mantendo o número na Habilis depois, e não desenvolver integração própria, confirme com o novo parceiro qual etapa cabe a cada lado antes de mexer nas permissões — a Habilis não intermedia esse contato.</li>
+  <li>Uma fila <strong>WA Cloud API (Dev App)</strong> é destinada a números com integração feita diretamente pelo próprio cliente/desenvolvedor, diferente da fila oficial padrão em que a Habilis é a intermediária junto à Meta.</li>
+  <li>Não existe uma etapa de "coexistência" entre duas plataformas de API oficial: ao concluir a conexão do número na plataforma nova, a conexão anterior para de receber mensagens, mesmo que a fila continue aparecendo como conectada no sistema antigo.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o novo provedor continuar informando que "a Habilis precisa liberar algo" mesmo após você remover as permissões no Gerenciador de Negócios da Meta, peça a ele que detalhe exatamente qual ação técnica falta — na prática, a liberação de número e WABA é um procedimento entre o provedor de destino e a Meta. Ao acionar o suporte, informe se sua intenção é usar uma fila Dev App no próprio sistema ou sair completamente da plataforma.</p>
+  </div>
+  <h2 id="instagram-e-facebook-messenger">Instagram e Facebook Messenger</h2>
+  <div class="faq">
+    <h3 id="faq-12">Quais são os requisitos para conectar uma fila de Instagram e evitar erro de permissão?</h3>
+<h4>Resumo</h4>
+<p>Para conectar uma fila do tipo Instagram, a conta precisa ser profissional e ter uma página do Facebook associada, e o usuário do Facebook usado na autenticação precisa ter, no mínimo, permissão de <strong>moderador</strong> nessa página. Erros de permissão (inclusive falhas de OAuth) que aparecem depois de a fila já estar funcionando geralmente indicam que esse acesso foi reduzido ou revogado — refazer a conexão da fila costuma resolver.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+  <li>Você está criando uma fila do tipo Instagram e a autenticação falha.</li>
+  <li>Uma fila do tipo Instagram que já funcionava parou de enviar ou receber mensagens, com erro de permissão.</li>
+  <li>Você quer saber se dá para atender pelo Instagram e responder pelo WhatsApp na mesma fila.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+  <li><strong>Confira os requisitos da conta antes de conectar.</strong> A conta do Instagram precisa ser profissional e estar vinculada a uma página do Facebook.</li>
+  <li><strong>Confira o nível de acesso na página do Facebook.</strong> O usuário do Facebook que vai se autenticar precisa ter, no mínimo, permissão de moderador na página vinculada à conta do Instagram. Permissões mais restritas tendem a causar falha na integração ou erro de permissão mais adiante.</li>
+  <li><strong>Autentique.</strong> Em <strong>Configurações &gt; Filas</strong>, na fila do tipo Instagram, clique em <strong>Entrar com o Facebook</strong>; uma janela pop-up abre para você fazer login e autorizar o acesso.</li>
+  <li><strong>Se aparecer erro de permissão depois de já conectada</strong>, use o botão <strong>Verificar saúde da conexão</strong> da fila para confirmar se o token, o webhook ou a conta do Instagram vinculada estão com problema, e refaça a conexão (<strong>Desconectar do Facebook</strong> e depois <strong>Entrar com o Facebook</strong> de novo) para revalidar o acesso.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+  <li>Uma conta de Instagram só pode estar conectada a uma fila por vez; conectar a mesma conta em outra fila remove a inscrição de eventos da fila anterior.</li>
+  <li>Não é possível unificar duas filas de canais diferentes — por exemplo, receber pelo Instagram e responder pelo mesmo atendimento no WhatsApp na mesma fila. Cada canal usa sua própria fila.</li>
+  <li>Se outras contas de Instagram na mesma instância continuam funcionando normalmente, o problema costuma ser específico daquela conta ou página (permissão ou sessão expirada), e não uma falha geral do sistema.</li>
+  <li>Ao concluir a conexão, o sistema exige a confirmação de que você leu a política de privacidade e os termos de uso do serviço.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Rode o <strong>Verificar saúde da conexão</strong> da fila e anote qual item aparece inválido (Token, Webhook ou Conta Instagram), além do nível de acesso do usuário do Facebook na página vinculada, antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-224">Que campos e requisitos existem para conectar uma fila de Instagram ou Facebook Messenger?</h3>
+<h4>Resumo</h4>
+<p>As filas do tipo "FB Messenger" e "IG Messenger" conectam exclusivamente pelo botão "Entrar com o Facebook" (login OAuth em um pop-up) — não existem campos de token para digitar. Depois de autenticado, a fila mostra "Autenticado com a página: {nome da página}" e um botão para verificar a saúde da conexão.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você vai criar ou reconectar uma fila de Instagram Direct ou Facebook Messenger e quer saber quais campos preencher.</li>
+<li>A fila mostra "Entrar com o Facebook" e você não sabe se precisa de token, API key ou outra credencial.</li>
+<li>Você quer confirmar os pré-requisitos de página/conta antes de iniciar a conexão.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra a fila.</strong> Vá em <em>Configurações &gt; Filas</em>, edite (ou crie) uma fila do tipo "FB Messenger" ou "IG Messenger" e abra a aba "Conexão".</li>
+<li><strong>Confira os pré-requisitos.</strong> Para Facebook Messenger, você precisa ser administrador de uma página da empresa no Facebook. Para Instagram, é preciso ter uma conta profissional associada a uma página do Facebook, com um usuário de permissão de no mínimo moderador.</li>
+<li><strong>Clique em "Entrar com o Facebook".</strong> Um pop-up abre pedindo login e senha da conta Facebook/Instagram.</li>
+<li><strong>Selecione a página.</strong> Se o usuário administra mais de uma página, apenas uma pode ser selecionada por fila.</li>
+<li><strong>Aceite os termos.</strong> Ao continuar, você declara concordar com a Política de Privacidade e os Termos de Uso do fornecedor da integração.</li>
+<li><strong>Confirme a autenticação.</strong> A tela passa a mostrar "Autenticado com a página: {nome da página}".</li>
+<li><strong>Teste a conexão (opcional).</strong> Use o botão "Verificar saúde da conexão" para checar se a integração autenticada continua funcionando.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>Não há campos de token, chave de API ou credencial digitável nessas filas — a única forma de conectar é pelo login OAuth do botão "Entrar com o Facebook".</li>
+<li>Uma mesma página do Facebook só pode ser vinculada a uma fila por vez, mesmo que o administrador tenha acesso a várias páginas.</li>
+<li>Uma mesma conta de Instagram só pode estar sincronizada em uma fila por vez: sincronizá-la em uma segunda fila remove a inscrição de eventos da fila anterior, interrompendo o recebimento de mensagens na fila original.</li>
+<li>No Instagram, o usuário autenticado precisa ter no mínimo permissão de moderador na página associada.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Se o botão "Entrar com o Facebook" não abrir o pop-up ou ele fechar sem concluir o login, verifique se o navegador está bloqueando pop-ups para o domínio do sistema.</li>
+<li>Trocar a conta sincronizada de uma fila para outra não é automático: é preciso reautenticar na fila nova, o que desconecta a fila antiga desse mesmo canal.</li>
+<li>Facebook Messenger e Instagram exigem administração/moderação da página no momento da autenticação; perder essa permissão na Meta depois de conectado pode derrubar a integração mesmo sem alteração na fila.</li>
+<li>Uma fila de Instagram tem, na aba "Configurações" (fora da aba "Conexão"), duas opções independentes para abrir atendimento automaticamente quando alguém comenta em uma publicação ou em uma live da conta conectada.</li>
+<li>Para os requisitos de permissão da Meta e erros comuns ao conectar, veja também o artigo "Quais são os requisitos para conectar uma fila de Instagram e evitar erro de permissão?".</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se a autenticação falhar ou a fila aparecer desconectada mesmo depois de autenticada, use o botão "Verificar saúde da conexão" para confirmar o status atual. Antes de acionar o suporte, reúna: o tipo de fila (FB Messenger ou IG Messenger), se a autenticação chegou a ser concluída (a tela mostrou o nome da página), e se a mesma conta está ou já esteve conectada em outra fila.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-6">Por que uma imagem ou áudio enviado pela fila do Instagram não chega ao cliente?</h3>
+<h4>Resumo</h4>
+<p>Quando uma imagem ou um áudio enviado pela fila do Instagram aparece como "enviado" no sistema mas não chega ao cliente final, a causa mais comum é a perda de conexão da conta do Instagram vinculada à fila — por exemplo, depois de uma troca de senha da conta. Antes de qualquer outra coisa, use o botão <strong>Verificar saúde da conexão</strong> na configuração da fila para confirmar se o token e a conta ainda estão válidos.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+  <li>Você enviou uma imagem ou um áudio pelo Instagram e o sistema mostra como enviado, mas o cliente final diz que não recebeu nada.</li>
+  <li>O problema começou depois de alguma alteração na conta do Instagram (senha, segurança, dispositivos conectados).</li>
+  <li>Apenas uma fila específica apresenta o problema, enquanto outras filas de Instagram continuam funcionando normalmente.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+  <li><strong>Verifique a saúde da conexão.</strong> Em <strong>Configurações &gt; Filas</strong>, abra a fila do Instagram e clique no botão <strong>Verificar saúde da conexão</strong> (disponível quando a fila já está autenticada). Ele confirma se o token de acesso e a conta do Instagram vinculada continuam válidos.</li>
+  <li><strong>Se a verificação indicar problema, reconecte a fila.</strong> Clique em <strong>Desconectar do Facebook</strong> e depois em <strong>Entrar com o Facebook</strong> novamente, autenticando com a mesma conta.</li>
+  <li><strong>Confirme se a conta segue com os requisitos.</strong> A conta precisa ser profissional, estar associada a uma página do Facebook, e o usuário que autentica precisa ter no mínimo permissão de moderador nessa página.</li>
+  <li><strong>Isole o problema com uma fila de teste.</strong> Crie ou use uma fila de Instagram de teste com outra conta e tente enviar uma imagem e um áudio. Se o comportamento se repetir em qualquer conta, o problema não está limitado a uma conta específica.</li>
+  <li><strong>Reinicie a instância, se necessário.</strong> No painel de instâncias, reaplique a configuração e reinicie o serviço; em alguns casos isso restabelece a sincronização da fila.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+  <li>Uma troca de senha na conta do Instagram pode invalidar a sessão da integração sem gerar nenhum aviso visível dentro do sistema — o sintoma percebido é justamente mídia "enviada" que não chega ao destinatário. Reconectar a fila resolve esse caso.</li>
+  <li>Uma mesma conta de Instagram só pode estar sincronizada a uma fila por vez; conectá-la em uma segunda fila remove a inscrição de eventos da fila anterior.</li>
+  <li>Se a verificação de saúde da conexão não aponta problema e o envio de mídia continua falhando mesmo em uma fila de teste com conta nova, reúna prints ou vídeo do ocorrido antes de acionar o suporte — esse padrão de falha já foi identificado em outros casos e está em análise.</li>
+  <li>Veja também o artigo "Quais são os requisitos para conectar uma fila de Instagram e por que aparece erro de permissão (OAuth)?" para mais detalhes sobre permissões de página exigidas na conexão.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se depois de verificar a saúde da conexão, reconectar a fila e testar com uma conta nova o problema de mídia persistir, abra um chamado com o link da instância, o tipo e número da fila, um print do resultado da verificação de saúde da conexão e, se possível, um vídeo mostrando o envio da imagem ou do áudio sem chegar ao destinatário.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-543">Por que a mensagem do Instagram falha com o aviso &quot;Outro aplicativo controla esta conversa&quot;?</h3>
+<h4>Resumo</h4>
+<p>Quando mais de um aplicativo está ligado à mesma conta do Instagram, a Meta define qual deles é o dono de cada conversa. Se outro aplicativo é o dono, este sistema continua recebendo as mensagens do cliente, mas a Meta recusa as respostas. A mensagem enviada fica com o X vermelho de falha e, abaixo dela, aparece o aviso "Outro aplicativo controla esta conversa no Instagram." com o botão "Tentar obter controle". A solução definitiva é configurar este sistema como aplicativo padrão no encaminhamento de conversas do Instagram, na Página do Facebook vinculada à conta.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>A fila é do tipo "IG Messenger" e as mensagens do cliente chegam normalmente, mas as respostas falham.</li>
+<li>Ao passar o mouse sobre o horário da mensagem com falha, o erro mostra código 100, subcódigo 2534037 e um texto como "A ação é inválida porque não é a dona do tópico".</li>
+<li>A conta do Instagram usa ou já usou outra ferramenta de automação ou de atendimento (chatbots, ferramentas de anúncios e similares).</li>
+<li>O problema aparece só em algumas conversas, por exemplo nas que começaram por um anúncio.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Entenda o que o sistema já fez.</strong> Na primeira falha desse tipo em um atendimento, o sistema tenta assumir a conversa sozinho e, se conseguir, reenvia a mensagem sem que você precise fazer nada. O aviso só aparece quando essa tentativa não deu certo.</li>
+<li><strong>Tente manualmente, se quiser.</strong> Clique em "Tentar obter controle", abaixo da mensagem que falhou. Se o sistema conseguir assumir a conversa, aparece a confirmação "Controle obtido". Envie a mensagem de novo, porque a mensagem que falhou não é reenviada automaticamente.</li>
+<li><strong>Corrija a configuração da conta para resolver de vez.</strong> Peça a quem administra a Página do Facebook vinculada ao Instagram que abra a Página, entre em Configurações, depois Configuração da página e depois Encaminhamento de conversas do Instagram.</li>
+<li><strong>Defina este sistema como aplicativo padrão.</strong> Na seção do aplicativo padrão, selecione este sistema e salve.</li>
+<li><strong>Libere a tomada de controle.</strong> Na mesma tela, confira se este sistema tem a permissão para assumir o controle das conversas ativada.</li>
+<li><strong>Remova aplicativos que não são mais usados.</strong> Se uma ferramenta antiga continua ligada à conta, remova-a dali para que ela não volte a ser a dona das conversas.</li>
+<li><strong>Confira as conversas vindas de anúncio.</strong> A mesma tela permite escolher um aplicativo diferente para as conversas que começam por anúncios. Se só essas conversas falham, verifique qual aplicativo está escolhido para elas.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>A tentativa automática acontece uma vez por atendimento. Cada novo atendimento com o mesmo cliente tem direito a uma nova tentativa automática.</li>
+<li>Depois de uma tentativa, automática ou manual, o botão fica indisponível por 30 segundos e mostra quanto tempo falta ("Tentar de novo em ...s").</li>
+<li>Cada atendimento aceita no máximo 5 tentativas por hora. Depois disso, o sistema pede para aguardar.</li>
+<li>O botão aparece apenas para o agente que está com o atendimento aberto. Ele não aparece no histórico de atendimentos anteriores nem nas telas de supervisão.</li>
+<li>Tentar obter o controle só funciona se a Meta permitir que este sistema assuma as conversas. Sem essa permissão na Página, as tentativas continuam falhando até a configuração ser corrigida.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Obter o controle não é permanente. Se a conversa ficar sem atividade por muito tempo, ela pode voltar para o aplicativo padrão definido na Página, e a falha volta a aparecer. Configurar este sistema como aplicativo padrão evita isso.</li>
+<li>Assumir a conversa tira o controle do outro aplicativo. Se a empresa usa de propósito outra ferramenta nessa conta, combine com quem cuida dela antes de mudar o aplicativo padrão.</li>
+<li>Respostas públicas a comentários não dependem do dono da conversa e não mostram este aviso.</li>
+<li>Para os requisitos de conexão da fila, veja o artigo "Que campos e requisitos existem para conectar uma fila de Instagram ou Facebook Messenger?".</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se a falha continuar depois de definir este sistema como aplicativo padrão e liberar a permissão para assumir o controle das conversas, reconecte a fila pelo botão "Entrar com o Facebook" e envie uma nova mensagem. Antes de acionar o suporte, reúna: o nome da fila, o horário de uma mensagem que falhou, o texto do erro exibido ao passar o mouse sobre o horário e uma captura da tela de encaminhamento de conversas do Instagram na Página.</p>
+  </div>
+  <h2 id="e-mail-modelos-e-publica-es">E-mail, modelos e publicações</h2>
+  <div class="faq">
+    <h3 id="faq-251">Quais campos existem na aba Conexão de uma fila de E-mail (SMTP/IMAP)?</h3>
+<h4>Resumo</h4>
+<p>A fila do tipo E-mail (marcada como BETA na criação) usa <strong>SMTP</strong> para enviar mensagens e <strong>IMAP</strong> para recebê-las. Na aba <strong>Conexão</strong> dessa fila, a tela mostra dois blocos lado a lado — "Dados para envio (SMTP)" e "Dados para recebimento (IMAP)" — cada um com Servidor, Porta, um toggle "Conexão segura?", Usuário e Senha; o bloco SMTP ainda pede Nome do remetente e E-mail do remetente. Abaixo dos dois blocos há um campo para informar um endereço de teste e os botões para testar o envio, testar o recebimento e salvar as credenciais.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você está configurando ou revisando uma fila de E-mail e precisa saber quais campos preencher na aba Conexão.</li>
+<li>Você quer testar se o envio (SMTP) ou o recebimento (IMAP) estão funcionando antes de salvar.</li>
+<li>Você não sabe por que a aba "Mensagens" não aparece nessa fila.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra a fila de E-mail.</strong> Em <em>Configurações &gt; Filas</em>, expanda a fila do tipo E-mail e abra a aba <strong>Conexão</strong>.</li>
+<li><strong>Preencha "Dados para envio (SMTP)".</strong> Servidor, Porta, o toggle "Conexão segura?", Usuário, Senha, Nome do remetente e E-mail do remetente.</li>
+<li><strong>Preencha "Dados para recebimento (IMAP)".</strong> Servidor, Porta, o toggle "Conexão segura?", Usuário e Senha.</li>
+<li><strong>Informe um e-mail em "Enviar para:"</strong> e clique em <strong>Enviar teste</strong> para disparar uma mensagem de teste a esse endereço usando os dados SMTP preenchidos.</li>
+<li><strong>Clique em Testar recebimento</strong> para validar a leitura via IMAP com os dados informados.</li>
+<li><strong>Clique em Salvar dados</strong> para gravar as credenciais SMTP e IMAP da fila.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>Porta SMTP e Porta IMAP: aceitam valores numéricos entre 1 e 65.535.</li>
+<li>O E-mail do remetente precisa estar em formato de e-mail válido, assim como o endereço informado em "Enviar para:".</li>
+<li>A aba "Mensagens" (mensagens automáticas de fora de horário, fechamento, pesquisa de satisfação etc.) não é exibida para filas do tipo E-mail.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>O tipo E-mail está marcado como BETA na lista de criação de filas — trate como recurso em estágio experimental.</li>
+<li>Use os botões de teste de envio e de teste de recebimento antes de salvar: eles validam as credenciais sem depender de um cliente real enviando mensagem.</li>
+<li>Servidor, porta e o toggle "Conexão segura?" precisam ser compatíveis com o que o provedor de e-mail exige (por exemplo, portas e exigência de conexão segura variam entre provedores) — confirme esses dados com o provedor do e-mail antes de preencher.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o teste de envio ou de recebimento falhar mesmo com os dados corretos, veja o artigo "Como configurar uma fila de e-mail com Gmail (SMTP/IMAP) e o que fazer se o envio falhar?" para os passos de diagnóstico de autenticação com provedores como o Gmail. Antes de acionar o suporte, reúna o servidor e a porta usados em cada bloco (SMTP e IMAP), se o toggle "Conexão segura?" estava ativado, e a mensagem de erro exibida ao clicar em Enviar teste ou Testar recebimento.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-376">Para que servem os Modelos HTML e como criar um para usar no atendimento?</h3>
+<h4>Resumo</h4>
+<p>Modelos HTML é um cadastro em Configurações &gt; Cadastros &gt; Modelos HTML usado para pré-montar e-mails: cada modelo guarda nome, assunto, anexos e um corpo em HTML editável em editor de texto rico. Ao compor um e-mail no atendimento, o agente escolhe um desses modelos na lista "Modelos" e o assunto, o conteúdo e os anexos são preenchidos automaticamente, podendo ser editados antes do envio.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Padronizar o texto e a formatação de e-mails enviados a partir do atendimento.</li>
+<li>Entender a diferença entre Modelos HTML e outros cadastros parecidos: Modelos de documentos (usado em Configurações &gt; Cadastros &gt; Modelos de documentos, para gerar documentos, ex.: no CRM) e Templates WA Cloud API (mensagens pré-aprovadas pela Meta para WhatsApp Cloud API).</li>
+<li>Descobrir por que um e-mail sai com assunto, conteúdo e anexos já preenchidos ao escolher um modelo.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra o cadastro.</strong> Vá em Configurações &gt; Cadastros &gt; Modelos HTML e clique em "Adicionar".</li>
+<li><strong>Preencha Nome e Assunto.</strong> Ambos são obrigatórios: o Nome identifica o modelo na lista de seleção do e-mail; o Assunto é copiado para o campo assunto do e-mail ao usar o modelo.</li>
+<li><strong>Adicione anexos, se precisar.</strong> Use o campo "Anexos" para vincular arquivos da Galeria de arquivos que devem acompanhar o modelo.</li>
+<li><strong>Monte o conteúdo.</strong> Clique em "Editar HTML" e use o editor de texto rico (formatação, cores, tabelas, links, imagens) para montar o corpo do e-mail.</li>
+<li><strong>Salve.</strong> Clique em "Adicionar" (ou "Atualizar", ao editar um modelo existente).</li>
+<li><strong>Use o modelo no atendimento.</strong> Ao compor um e-mail, selecione o modelo desejado na lista "Modelos"; ao trocar a seleção, o assunto, o conteúdo e os anexos do e-mail são recarregados a partir do modelo escolhido (a opção "Sem modelo" limpa a seleção).</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Campo</th><th>Regra</th></tr></thead>
+<tbody>
+<tr><td>Nome</td><td>Obrigatório, até 255 caracteres</td></tr>
+<tr><td>Assunto</td><td>Obrigatório, até 255 caracteres</td></tr>
+<tr><td>Conteúdo</td><td>Corpo em HTML, montado no editor de texto rico</td></tr>
+<tr><td>Anexos</td><td>Opcional, selecionados a partir da Galeria de arquivos</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>Criar, editar ou excluir Modelos HTML exige perfil Administrador ou a permissão de edição da Galeria liberada no cadastro do usuário.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Modelos HTML servem para e-mail, não para WhatsApp: templates de WhatsApp Cloud API têm cadastro próprio ("Templates WA Cloud API") e passam por aprovação da Meta.</li>
+<li>Não confunda com "Modelos de documentos", usado para gerar documentos (por exemplo, ligados a oportunidades do CRM), que é um cadastro separado.</li>
+<li>Ao trocar o modelo selecionado na composição do e-mail, o conteúdo já digitado é substituído pelo conteúdo do novo modelo.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Confirme se o modelo foi salvo com Nome e Assunto preenchidos e se o conteúdo HTML não ficou vazio (o botão de salvar do cadastro fica desabilitado sem esses dados). Se o modelo não aparece na lista de composição de e-mail, verifique se ele foi realmente salvo em Configurações &gt; Cadastros &gt; Modelos HTML. Persistindo o problema, reúna o nome do modelo e a fila/canal de e-mail usada antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-375">Como cadastrar uma Novidade e onde ela aparece para os usuários do sistema?</h3>
+<h4>Resumo</h4>
+<p>Novidades são avisos ou comunicados criados pelo administrador em Configurações &gt; Cadastros &gt; Novidades, com título, imagem, período de validade e conteúdo em HTML. Elas aparecem para os usuários no botão "Novidades" do menu do usuário (com contador de não lidas) e, se marcadas, também como popup automático no login. Novidades do tipo público ainda podem ser exibidas nas filas de Web Chat.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Anunciar uma atualização, aviso ou comunicado interno para administradores, supervisores e/ou agentes.</li>
+<li>Publicar um comunicado público que apareça também para clientes no Web Chat.</li>
+<li>Entender por que uma novidade não aparece para um usuário específico ou não some do Web Chat de imediato.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra o cadastro.</strong> Vá em Configurações &gt; Cadastros &gt; Novidades e clique em "Adicionar".</li>
+<li><strong>Preencha o cabeçalho.</strong> Informe o link da imagem principal (opcional, tamanho ideal 1200x400px, proporção 3:1) e o Título (obrigatório).</li>
+<li><strong>Escolha o Tipo.</strong> Selecione Pública, Interna, Pública restrita ou Interna restrita. Nos tipos restritos, um campo "Filas permitidas" aparece para escolher quais filas liberam a novidade.</li>
+<li><strong>Defina o período.</strong> Preencha "Válido a partir de" e "Válido até" para controlar quando a novidade fica ativa.</li>
+<li><strong>Marque o público.</strong> Em "Exibir para", marque Admins, Supervisores e/ou Agentes. Em instâncias com Painel de instâncias habilitado, o administrador também pode marcar "Instâncias" para novidades do tipo Interna.</li>
+<li><strong>Ative o popup, se quiser.</strong> Marque "Exibir popup no login" para que a novidade abra automaticamente na primeira vez que o usuário elegível fizer login.</li>
+<li><strong>Complete o conteúdo.</strong> Preencha Subtítulo, Palavras-chave e Etiquetas, e use "Editar HTML" para escrever o conteúdo completo no editor de texto rico (formatação, listas, tabelas, links e imagens).</li>
+<li><strong>Salve.</strong> Clique em "Adicionar" (ou "Atualizar", ao editar uma novidade existente).</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Campo</th><th>Regra</th></tr></thead>
+<tbody>
+<tr><td>Título</td><td>Obrigatório, até 500 caracteres</td></tr>
+<tr><td>Link da Imagem Principal</td><td>Opcional, até 500 caracteres; tamanho ideal 1200x400px (proporção 3:1)</td></tr>
+<tr><td>Tipo</td><td>Pública, Interna, Pública restrita ou Interna restrita</td></tr>
+<tr><td>Filas permitidas</td><td>Obrigatório definir ao menos uma fila quando o Tipo é Pública restrita ou Interna restrita</td></tr>
+<tr><td>Exibição pública no Web Chat</td><td>Fica em cache por até 6 horas: criação, edição ou exclusão de uma novidade pública pode levar até 6 horas para refletir nas filas de Web Chat</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>Criar ou editar novidades exige perfil Administrador ou a permissão específica "Editar novidades" liberada no cadastro do usuário.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>O botão "Novidades" no menu do usuário mostra um contador com a quantidade de novidades ainda não lidas por ele.</li>
+<li>Uma novidade só aparece para um usuário se o tipo, o período de validade e a marcação em "Exibir para" (ou a fila, nos tipos restritos) forem compatíveis com o perfil dele.</li>
+<li>O popup automático no login só dispara para novidades marcadas com "Exibir popup no login" que ainda não foram vistas pelo usuário.</li>
+<li>Alterações em novidades públicas não aparecem de imediato no Web Chat por causa do cache de até 6 horas — isso não é falha do cadastro.</li>
+<li>Veja também o artigo "Quais permissões liberam editar catálogo, galeria, base de conhecimento e novidades?" para detalhes sobre como liberar a permissão de edição para supervisores ou agentes.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Confirme o Tipo da novidade, o período de validade, as marcações em "Exibir para" (ou as filas permitidas, se restrita) e se já se passaram até 6 horas no caso de novidade pública destinada ao Web Chat. Se o problema persistir, reúna o título da novidade, o tipo escolhido e o perfil do usuário que deveria vê-la antes de acionar o suporte.</p>
+  </div>
+  <h2 id="filas-permiss-es-e-limites">Filas, permissões e limites</h2>
+  <div class="faq">
+    <h3 id="faq-153">Existe limite de quantidade de filas que podem ser criadas por tipo de canal?</h3>
+<h4>Resumo</h4>
+<p>Sim, o sistema pode limitar quantas filas ativas de um mesmo canal uma instância pode ter. Esse limite é definido na configuração da instância (não é um campo editável na tela de Filas) e pode valer para um tipo exato de fila ou para um grupo inteiro de canal — por exemplo, todas as variantes de WhatsApp somadas. Um tipo de canal também pode estar completamente bloqueado para a instância, independentemente de qualquer limite de quantidade.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Um administrador tenta criar uma nova fila de um canal (WhatsApp, Telegram, Instagram etc.) e recebe um erro de limite.</li>
+<li>Entender se o limite conta as filas de cada tipo separadamente ou o canal inteiro somado.</li>
+<li>Confirmar se um tipo de fila está bloqueado para a instância, e não apenas limitado por quantidade.</li>
+</ul>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>Ao tentar criar uma fila além do limite configurado para aquele tipo ou grupo de canal, a interface mostra o erro "Limite excedido — Limite de filas deste tipo foi atingido."</li>
+<li>Quando um tipo de canal está totalmente desabilitado para a instância, a criação é bloqueada com o erro "Tipo desabilitado — Este tipo de fila está desabilitado", mesmo que o limite de quantidade não tenha sido atingido.</li>
+<li>O limite pode ser configurado de duas formas, à escolha da administração da plataforma: por tipo exato de fila, ou por grupo de canal (todas as variantes de WhatsApp juntas, todas as variantes de Telegram juntas, e assim por diante).</li>
+<li>OLX e Mercado Livre têm, cada um, o seu próprio grupo. As duas filas do TikTok (TikTok Shop e TikTok Business Messaging) formam um grupo só: são liberadas ou bloqueadas juntas e, no limite por grupo, contam juntas.</li>
+<li>Quando o limite por grupo de canal está ativo mas sem um valor específico definido, o sistema aplica automaticamente um padrão de 150 filas ativas para aquele grupo.</li>
+<li>Esses limites contam apenas filas ativas (não contam filas excluídas ou inativas).</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Esses limites e bloqueios são definidos na configuração da instância pela administração da plataforma — não existe um campo na tela de Filas onde o cliente possa ver ou alterar o valor do limite.</li>
+<li>Um mesmo canal pode ter suas variantes contadas juntas (por grupo) ou separadamente (por tipo exato), dependendo de como o limite foi configurado para aquela instância — por isso o mesmo canal pode se comportar de forma diferente em instâncias diferentes.</li>
+<li>O erro "Tipo desabilitado" e o erro "Limite excedido" têm causas diferentes: um bloqueia o canal por completo, o outro é apenas uma questão de quantidade — vale conferir qual dos dois apareceu antes de investigar.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se um cliente não consegue mais criar filas de um determinado canal, primeiro identifique qual dos dois erros apareceu ("Limite excedido" ou "Tipo desabilitado") e o tipo exato de canal envolvido. Como o valor do limite e o bloqueio de tipo são configurados na instância e não ficam visíveis na tela de Filas, acione o suporte informando o canal, o erro exibido e quantas filas ativas desse canal a instância já possui, para que a configuração da instância seja conferida.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-277">Por que uma fila não pode ser desabilitada ou excluída e o que verificar antes?</h3>
+<h4>Resumo</h4>
+<p>Uma fila só pode ser desabilitada ou excluída depois que todos os agentes e supervisores vinculados a ela forem removidos. Tentar a operação antes disso mostra o aviso "Usuários vinculados" (se houver agentes) ou "Supervisores vinculados" (se houver supervisores, mesmo sem nenhum agente). Tanto o botão de excluir de cada fila quanto o botão de desabilitar em lote fazem a mesma verificação e aplicam, no fundo, a mesma inativação: a fila deixa de operar, mas o registro não é apagado fisicamente.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você clicou para excluir ou desabilitar uma fila e recebeu um aviso de bloqueio.</li>
+<li>Você quer saber o que precisa remover antes de conseguir desabilitar ou excluir uma fila.</li>
+<li>Você quer saber quem tem permissão para excluir uma fila.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Remover os agentes vinculados.</strong> Em Configurações &gt; Filas, edite a fila e desvincule todos os agentes associados a ela.</li>
+<li><strong>Remover os supervisores vinculados.</strong> Do mesmo modo, desvincule todos os supervisores associados à fila.</li>
+<li><strong>Excluir a fila.</strong> Na grade de Filas, clique no ícone de "x" (Excluir fila) na linha da fila — visível apenas para o perfil Administrador.</li>
+<li><strong>Ou desabilitar em lote.</strong> Selecione uma ou mais filas na grade e clique no botão "Desabilitar" no topo da tela para aplicar a mesma verificação a todas de uma vez.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>Existindo pelo menos um agente vinculado à fila, a operação é bloqueada com o aviso "Usuários vinculados".</li>
+<li>Sem agentes, mas existindo ao menos um supervisor vinculado, a operação é bloqueada com o aviso "Supervisores vinculados".</li>
+<li>O ícone de excluir fila na grade só aparece para o perfil Administrador.</li>
+<li>O botão de desabilitar em lote fica disponível somente com pelo menos uma fila selecionada na grade, e só para Administrador ou perfis internos da operação.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Excluir uma fila, no sistema, é uma inativação: o registro da fila continua existindo, só deixa de estar habilitado. Não existe, pela interface, uma ação separada de apagar definitivamente os dados da fila.</li>
+<li>Ao inativar (excluir) uma fila do tipo Webchat (App Web), a configuração do widget dessa fila publicada para uso externo também é removida automaticamente.</li>
+<li>Veja também o artigo "Quais erros podem aparecer ao criar, conectar ou importar a sessão de uma fila de atendimento?" para outras mensagens de erro do cadastro de filas.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o aviso de bloqueio continuar aparecendo mesmo depois de remover os agentes e supervisores que você conhece, confira novamente a lista completa de vínculos da fila — pode haver mais agentes ou supervisores associados do que o esperado. Antes de acionar o suporte, reúna o nome da fila e a mensagem exata exibida ("Usuários vinculados" ou "Supervisores vinculados").</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-312">Quais permissões liberam o chat interno e o acesso a grupos de WhatsApp?</h3>
+<h4>Resumo</h4>
+<p>Duas permissões da seção Chat da aba Permissões do usuário controlam o acesso ao chat interno: "Acessar chat interno" libera o módulo em si, e "Acessar grupos de WA" libera especificamente os grupos de WhatsApp dentro dele. A segunda depende da primeira: só aparece na tela, e só faz sentido, se "Acessar chat interno" já estiver marcada. Um agente recém-criado já vem com "Acessar chat interno" marcada; "Acessar grupos de WA" não.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Um usuário não vê o ícone ou o módulo de chat interno.</li>
+<li>Um usuário acessa o chat interno mas não consegue entrar em grupos de WhatsApp dentro dele.</li>
+<li>É preciso liberar o chat interno para um agente sem liberar o acesso aos grupos de WhatsApp.</li>
+<li>É preciso tirar o chat interno de um agente que já nasceu com ele liberado.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra a ficha do usuário.</strong> Vá em Configurações &gt; Usuários, edite o usuário e abra a aba Permissões.</li>
+<li><strong>Localize a seção Chat.</strong> Ela aparece apenas para um usuário do tipo Agente com o chat habilitado, em uma instância com o recurso de chat habilitado.</li>
+<li><strong>Confira "Acessar chat interno".</strong> Em um agente recém-criado ela já vem marcada; desmarque se aquele agente não deve usar o recurso. Essa opção só é exibida se o chat interno não estiver desabilitado na instância.</li>
+<li><strong>Marque "Acessar grupos de WA", se necessário.</strong> Essa opção só aparece depois que "Acessar chat interno" já estiver marcada para o mesmo usuário.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>Um usuário do tipo Agente é criado já com "Acessar chat interno" marcada, desde que o chat interno esteja habilitado na instância. "Acessar grupos de WA" nunca vem marcada por padrão.</li>
+<li>"Acessar grupos de WA" tem uma dependência de ordem: a opção só é exibida na tela quando "Acessar chat interno" está marcada. Se você desmarcar "Acessar chat interno" depois, "Acessar grupos de WA" some da tela.</li>
+<li>Ambas as permissões só existem para usuários do tipo Agente e só ficam visíveis se o chat interno não estiver desabilitado nesta instância.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Marcar apenas "Acessar chat interno" não dá acesso a grupos de WhatsApp — é preciso marcar as duas permissões.</li>
+<li>Se o chat interno estiver desabilitado para toda a instância, nenhuma das duas opções aparece na aba Permissões, independente do que estiver marcado no cadastro do usuário — e um agente novo também não recebe a liberação.</li>
+<li>A permissão inicial do agente é só um ponto de partida: desmarcá-la vale imediatamente e não é reposta ao salvar a ficha de novo.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Confirme se o chat interno está habilitado na instância e se o usuário é do tipo Agente; depois revise se as duas permissões — "Acessar chat interno" e "Acessar grupos de WA" — estão marcadas na seção Chat. Veja também o artigo "O que é o Chat Interno e quais usuários podem acessá-lo?" para o funcionamento geral do recurso, e "Por que grupos de WhatsApp não aparecem para um agente mesmo com a permissão liberada?" para outras causas de grupo não aparecer.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-84">Por que grupos de WhatsApp não aparecem para um agente mesmo com a permissão liberada?</h3>
+<h4>Resumo</h4>
+<p>Grupos de WhatsApp só existem em filas não oficiais (WAMD, WAMD2 ou WAMD3), pois a API Oficial (Cloud API) da Meta não permite gerenciar grupos. Para um agente ver os grupos é preciso que o número conectado à fila seja membro do grupo e que o usuário tenha as permissões <strong>Acessar chat interno</strong> e <strong>Acessar grupos de WA</strong> habilitadas. A sincronização em si é automática — não existe uma opção separada para "ligar" na configuração da fila.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+  <li>Você habilitou a permissão "Acessar grupos de WA" para um agente e os grupos continuam sem aparecer.</li>
+  <li>Você quer entender por que grupos de WhatsApp não aparecem em uma fila conectada pela API Oficial.</li>
+  <li>Você suspeita que a permissão "Acessar funções de supervisão" bloqueia o acesso a grupos.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+  <li><strong>Confirme o tipo da fila.</strong> Grupos de WhatsApp só sincronizam em filas dos tipos WAMD, WAMD2 ou WAMD3 (conexão não oficial por QR Code). Em fila da API Oficial não é possível visualizar nem atender grupos, pois a Meta não oferece esse recurso via API.</li>
+  <li><strong>Confirme que o número está no grupo.</strong> Pelo aplicativo do WhatsApp no celular conectado à fila, verifique se o número está de fato entre os participantes do grupo que deveria aparecer.</li>
+  <li><strong>Confira as duas permissões do usuário.</strong> Em <strong>Configurações &gt; Usuários</strong>, selecione o agente e verifique se <strong>Acessar chat interno</strong> e <strong>Acessar grupos de WA</strong> estão habilitadas. A segunda só é exibida na tela de edição quando a primeira já está marcada, e as duas precisam estar ativas ao mesmo tempo.</li>
+  <li><strong>Peça para o agente atualizar a sessão.</strong> Depois de ajustar uma permissão ou reconectar a fila, oriente o agente a sair e entrar novamente no sistema (ou atualizar a página) para que a lista seja recarregada.</li>
+  <li><strong>Procure o grupo dentro de "Chat Interno".</strong> Os grupos de WhatsApp aparecem junto com as conversas do módulo Chat Interno, não em uma tela separada exclusiva de grupos.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+  <li>Grupos de WhatsApp não existem em filas conectadas pela API Oficial (Cloud API) — a Meta não oferece suporte a gerenciamento de grupos por essa via.</li>
+  <li>A permissão <strong>Acessar grupos de WA</strong> só fica visível na tela de edição do usuário se <strong>Acessar chat interno</strong> também estiver marcada. Sem o chat interno habilitado, o agente não visualiza grupos, mesmo que a permissão de grupos já esteja salva como ativa.</li>
+  <li>A permissão <strong>Acessar funções de supervisão</strong> não tem relação com a exibição de grupos de WhatsApp: um agente que recebe essa função continua sendo do tipo Agente e mantém normalmente a permissão de grupos, sem bloqueio cruzado entre as duas opções.</li>
+  <li>A sincronização é automática assim que a fila é do tipo certo e o número está no grupo — não existe um botão de "importar grupos" a acionar na configuração da fila.</li>
+  <li>Há casos registrados de grupo que continua sem aparecer mesmo com todos os requisitos acima atendidos e mesmo depois de reiniciar a instância, indicando uma falha pontual de sincronização já identificada para investigação interna.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se você já confirmou o tipo da fila, a participação do número no grupo e as duas permissões do usuário, e o grupo mesmo assim não aparece, acione o suporte informando: o nome do grupo esperado, se o problema ocorre para todos os agentes daquela fila ou só para alguns, e um print da tela de permissões do usuário afetado.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-272">Por que aparece o alerta de arquivo maior que o permitido no atendimento?</h3>
+<h4>Resumo</h4>
+<p>O tamanho máximo de arquivo aceito em um atendimento é definido pelo campo "Tamanho máximo para arquivos" em <strong>Configurações &gt; Geral</strong>, preenchido em KB. O maior valor que vale é 300 MB (307.200 KB): se você informar mais que isso, o sistema usa 300 MB. Ele vale nos dois sentidos — arquivo recebido do cliente e arquivo enviado pelo agente — e para qualquer canal de mensageria com suporte a mídia (WhatsApp oficial e não oficial, Instagram, Facebook, Telegram, Webchat, e-mail, entre outros). Se esse campo nunca foi configurado na instância, o sistema usa um padrão de 3 MB (3.145.728 bytes).</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Um alerta de sistema aparece no atendimento avisando que o cliente enviou um arquivo maior que o permitido.</li>
+<li>O agente tenta anexar uma foto, vídeo, áudio ou documento e recebe um aviso de arquivo muito grande.</li>
+<li>Você precisa saber ou alterar o limite de tamanho de arquivo aceito pela instância.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Localize o campo.</strong> Acesse <em>Configurações &gt; Geral</em>, aba "Geral", e encontre o campo "Tamanho máximo para arquivos".</li>
+<li><strong>Informe o valor em KB.</strong> Digite o novo limite, de até 307.200 KB (300 MB); o campo é obrigatório e numérico, com o valor sempre expresso em quilobytes (KB).</li>
+<li><strong>Salve.</strong> Use o botão "Salvar" da tela para aplicar a mudança.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Item</th><th>Regra</th></tr></thead>
+<tbody>
+<tr><td>Campo "Tamanho máximo para arquivos"</td><td>Obrigatório, numérico, valor informado em KB. O formulário aceita qualquer número, mas o valor que vale é no máximo 300 MB (307.200 KB)</td></tr>
+<tr><td>Valor acima do teto</td><td>Vale 300 MB. Uma instância que já tinha um valor maior passa a usar 300 MB, e a tela passa a mostrar 307.200 KB</td></tr>
+<tr><td>Valor padrão se o campo nunca foi configurado</td><td>3.145.728 bytes (3 MB)</td></tr>
+<tr><td>Sentido em que o limite é aplicado</td><td>Arquivo recebido do cliente e arquivo enviado pelo agente, nos dois casos</td></tr>
+<tr><td>Abrangência</td><td>Vale para todos os canais de mensageria com envio de mídia da instância</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>Quando o cliente envia um arquivo acima do limite, o sistema registra um alerta de sistema no atendimento com o texto "O cliente enviou um arquivo maior que o permitido!" e a mídia não chega a ser processada nem entregue ao agente.</li>
+<li>Quando o próprio agente tenta enviar um arquivo acima do limite, o sistema recusa o envio e mostra um aviso de "Arquivo muito grande" ("O arquivo enviado excede o tamanho máximo permitido.").</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Arquivos acima de 300 MB não são aceitos em nenhuma configuração, mesmo que o campo tenha sido preenchido com um valor maior.</li>
+<li>Esse limite é diferente do limite de tamanho de anexo processado pelo assistente de IA durante o atendimento e do limite de upload de documentos na base de conhecimento (RAG) — cada um tem seu próprio valor e é checado em um momento diferente do fluxo.</li>
+<li>Só o perfil Administrador acessa e altera o campo "Tamanho máximo para arquivos".</li>
+<li>Aumentar bastante esse valor eleva o consumo de espaço da instância, o que pode antecipar a limpeza automática por excesso de cota.</li>
+<li>O campo é obrigatório: não é possível salvar a tela com ele vazio.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se um arquivo dentro do limite configurado ainda assim é recusado, confirme com o administrador o valor atual do campo "Tamanho máximo para arquivos" em Configurações &gt; Geral, pois ele é específico de cada instância e pode ter sido reduzido. Antes de acionar o suporte, reúna o canal/fila do atendimento, o tipo e o tamanho aproximado do arquivo e se o problema ocorre no envio (agente) ou no recebimento (cliente). Veja também os artigos "Quais campos e opções existem na aba Geral de Configurações &gt; Geral da instância?" e "Como anexar e enviar fotos, vídeos, áudio, contato e produtos em um atendimento?".</p>
+  </div>
+  <h2 id="campanhas-disparos-e-desempenho">Campanhas, disparos e desempenho</h2>
+  <div class="faq">
+    <h3 id="faq-279">Como criar uma campanha de disparo por WhatsApp e quais são suas 4 etapas?</h3>
+<h4>Resumo</h4>
+<p>A campanha de disparo em massa por WhatsApp é criada em <strong>Configurações &gt; Campanhas</strong> (exibida com selo BETA na listagem) por um assistente de 4 etapas: <strong>Início</strong>, <strong>Audiência</strong>, <strong>Respostas</strong> e <strong>Liberação</strong>. Na primeira etapa você define o tipo, nome, fila de disparo e o template de WhatsApp que será enviado; as demais etapas montam a lista de destinatários, definem o que fazer com as respostas dos clientes e liberam o envio.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você precisa criar uma campanha de disparo em massa por WhatsApp e não sabe por onde começar.</li>
+<li>Você quer saber o que preencher na primeira etapa (Início) do assistente de criação.</li>
+<li>Você quer saber por que uma fila não aparece na lista de filas disponíveis para a campanha.</li>
+<li>Você quer saber quem pode apagar uma campanha já criada.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra o assistente.</strong> Acesse <strong>Configurações &gt; Campanhas</strong> e inicie a criação de uma nova campanha.</li>
+<li><strong>Etapa Início — dados básicos.</strong> Escolha o <strong>Tipo da campanha</strong> (Marketing ou Utilidades), informe o <strong>Nome da campanha</strong> (obrigatório), selecione a <strong>Fila</strong> de disparo (obrigatória) e o <strong>Template</strong> de WhatsApp a enviar (obrigatório).</li>
+<li><strong>(Opcional) Restrinja a visualização.</strong> Ainda na etapa Início, você pode escolher um <strong>Grupo de visualização</strong> para limitar quais agentes enxergam as mensagens enviadas por essa campanha. Supervisores e Administradores sempre veem, independente do grupo escolhido.</li>
+<li><strong>(Opcional) Trate atendimentos em aberto.</strong> Ainda na etapa Início, o campo <strong>Cliente com atendimento em andamento</strong> define o que fazer quando o destinatário já tem uma conversa aberta no momento do disparo.</li>
+<li><strong>Etapa Audiência — monte a lista.</strong> Importe um CSV ou gere a audiência a partir dos contatos ou do CRM.</li>
+<li><strong>Etapa Respostas — defina o destino.</strong> Configure o tempo de resposta esperado e para onde encaminhar quando o cliente responder à campanha.</li>
+<li><strong>Etapa Liberação — envie.</strong> Defina o tamanho do teste (se houver) e libere a campanha, imediatamente ou agendada. Opcionalmente, marque <strong>"Limitar envios por hora"</strong> para distribuir o disparo ao longo do tempo — veja o artigo "Como limitar os envios por hora de uma campanha de disparo?".</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>Nome da campanha, Fila e Template são obrigatórios na etapa Início.</li>
+<li>O combo Fila só lista filas habilitadas cujo tipo permite envio de template do WhatsApp Cloud API — uma fila de outro canal, ou uma fila desabilitada, não aparece na lista.</li>
+<li>A opção "Limitar envios por hora" é opcional e aparece na etapa Liberação, junto das políticas de envio.</li>
+<li>Apagar uma campanha exige ser Administrador ou o usuário que criou a campanha.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>O recurso está identificado como BETA na listagem de campanhas.</li>
+<li>Se a fila que você esperava usar não aparece no combo Fila, confirme se ela está habilitada e se o tipo dela permite envio de template do WhatsApp Cloud API — outros tipos de fila não são elegíveis para disparo de campanha.</li>
+<li>Para o detalhe de como montar a audiência por CSV ou CRM, veja o artigo "Como funciona a etapa Audiência ao criar uma campanha e como os contatos são importados?".</li>
+<li>Para o detalhe das opções da etapa Liberação e do envio de teste, veja o artigo "Quais são as opções de liberação de uma campanha e como funciona o envio de teste?".</li>
+<li>Para o detalhe do limite de envios por hora, veja o artigo "Como limitar os envios por hora de uma campanha de disparo?".</li>
+<li>Para o detalhe das opções de "Cliente com atendimento em andamento", veja o artigo "O que faz cada opção de 'Cliente com atendimento em andamento' numa campanha?".</li>
+<li>Para quem tem permissão de criar e apagar campanhas, veja o artigo "Quem pode criar campanhas de disparo e discadora, e como liberar isso a um supervisor?".</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o menu Campanhas não aparecer, confirme o perfil do usuário. Se a fila esperada não aparece no combo, confirme se ela está habilitada e se o canal dela suporta template do WhatsApp Cloud API. Se a campanha for criada mas não avançar da etapa Início, confirme se Nome, Fila e Template foram preenchidos. Antes de acionar o suporte, reúna o nome da campanha, o tipo escolhido, a fila usada e o template selecionado.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-140">O que faz cada opção de &quot;Cliente com atendimento em andamento&quot; numa campanha?</h3>
+<h4>Resumo</h4>
+<p>No cadastro de campanha, o campo "Cliente com atendimento em andamento" define o que fazer quando o destinatário do disparo já tem um atendimento aberto no momento do envio. Existem 3 opções: "Enviar mesmo assim", "Marcar envio como falha e não enviar" e "Deixar na fila e enviar quando o atendimento for encerrado".</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você quer entender por que uma mensagem de campanha apareceu no meio de uma conversa de atendimento já aberta.</li>
+<li>Você quer que a campanha nunca interrompa um atendimento em curso, seja descartando o envio, seja adiando para depois do atendimento terminar.</li>
+<li>Você está configurando uma nova campanha e precisa decidir qual das 3 opções usar.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abrir o campo.</strong> No cadastro da campanha, em <strong>Configurações &gt; Campanhas</strong>, localize o campo "Cliente com atendimento em andamento" na etapa inicial do formulário.</li>
+<li><strong>Enviar mesmo assim.</strong> Escolha esta opção se quiser que a campanha seja enviada independentemente de haver atendimento aberto. A mensagem aparece no meio da conversa do atendimento e fica visível ao agente, se o grupo de visualização dele permitir.</li>
+<li><strong>Marcar envio como falha e não enviar.</strong> Escolha esta opção se preferir simplesmente não incomodar quem já está em atendimento. O disparo para esse cliente fica registrado como falha no relatório da campanha e a mensagem nunca é enviada.</li>
+<li><strong>Deixar na fila e enviar quando o atendimento for encerrado.</strong> Escolha esta opção para adiar o envio. A mensagem aguarda o encerramento do atendimento atual e é enviada assim que ele fechar — podendo sair junto com a pesquisa de satisfação, se ela estiver habilitada para a fila.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>O campo aceita exatamente uma das 3 opções: "Enviar mesmo assim", "Marcar envio como falha e não enviar" ou "Deixar na fila e enviar quando o atendimento for encerrado".</li>
+<li>A regra vale por destinatário: em uma mesma campanha, uns clientes podem ter atendimento aberto e outros não — a opção escolhida se aplica individualmente a cada caso encontrado no momento do envio.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Com "Enviar mesmo assim", a visibilidade da mensagem para o agente depende do grupo de visualização configurado — em alguns casos o agente pode não perceber que uma campanha foi enviada durante o atendimento.</li>
+<li>Com "Marcar envio como falha e não enviar", o cliente não recebe a mensagem nesse ciclo; a campanha não tenta reenviar automaticamente depois.</li>
+<li>Com "Deixar na fila", o envio pode se atrasar de forma imprevisível caso o atendimento em aberto demore para ser encerrado.</li>
+<li>Essa configuração só entra em ação quando o destinatário já tem um atendimento aberto no exato momento do disparo; não afeta clientes sem atendimento em andamento.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se uma mensagem de campanha não chegou ao cliente e você suspeita da opção configurada, confira o relatório de resultados da campanha: um disparo marcado como falha por esse motivo aparece identificado ali. Antes de acionar o suporte, reúna o nome da campanha, a opção configurada em "Cliente com atendimento em andamento" e o identificador do cliente afetado.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-142">Como aprovar e liberar manualmente uma campanha suspensa para envio?</h3>
+<h4>Resumo</h4>
+<p>Na lista de <strong>Configurações &gt; Campanhas</strong>, o botão com ícone de play e tooltip "Liberar para envio" aprova uma campanha que está com status "Aguardando liberação" ou "Teste enviado" e libera o disparo das mensagens pendentes. Ao clicar, o status da campanha passa para "Enviado" e todas as mensagens que estavam aguardando autorização entram na fila de envio.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você criou a campanha com liberação manual (opção "Envio manual") e ela ficou suspensa aguardando aprovação.</li>
+<li>Você criou a campanha com "Enviar teste agora e aguardar liberação": o lote de teste já saiu e o restante está parado aguardando você revisar o resultado antes de liberar o envio completo.</li>
+<li>Você quer saber por que uma campanha não está enviando as mensagens restantes sozinha.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Localizar a campanha.</strong> Acesse <strong>Configurações &gt; Campanhas</strong> e encontre a campanha com status "Aguardando liberação" ou "Teste enviado" na lista.</li>
+<li><strong>Liberar.</strong> Clique no botão de ícone de play com tooltip "Liberar para envio" na linha da campanha.</li>
+<li><strong>Confirmar a mudança de status.</strong> O status da campanha muda para "Enviado" e o botão fica desabilitado (a campanha já não pode ser liberada de novo).</li>
+<li><strong>Acompanhar o disparo.</strong> As mensagens que estavam aguardando autorização entram na fila de envio e passam a ser processadas normalmente pelo motor de disparo da fila.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>O botão "Liberar para envio" fica desabilitado quando a campanha já está com status "Enviado".</li>
+<li>Liberar a campanha afeta todas as mensagens dela que estavam com status "aguardando autorização" — não é possível liberar mensagens individualmente.</li>
+<li>A ação é registrada no log de auditoria como aprovação e liberação do disparo da campanha, com o horário e o usuário responsável.</li>
+<li>Somente Administrador, ou Supervisor com a permissão individual de criar campanhas habilitada, tem acesso à tela de Campanhas e a esse botão.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Uma campanha agendada (status "Agendado para" uma data/hora) não precisa de liberação manual: ela dispara sozinha na data configurada, salvo se a política de envio escolhida na criação também exigir aprovação.</li>
+<li>Depois de liberar, a campanha não pode ser pausada de volta ao estado "aguardando liberação" — a ação não tem desfazer pela interface.</li>
+<li>Se a campanha foi criada com "Enviar teste agora e aguardar liberação", revise o resultado do lote de teste antes de liberar o restante, pois a liberação envia para todos os destinatários pendentes de uma vez.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o botão "Liberar para envio" estiver desabilitado mesmo com a campanha parecendo pendente, confirme o status exato exibido na coluna de status da lista. Se o status mudar para "Enviado" mas as mensagens não saírem, veja o artigo "Por que uma campanha de disparo falha, aparece bloqueada ou envia para número errado?". Antes de acionar o suporte, reúna o nome da campanha, o status atual e o horário em que você clicou em liberar.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-144">Quais são as opções de liberação de uma campanha e como funciona o envio de teste?</h3>
+<h4>Resumo</h4>
+<p>Na etapa "Liberação" do cadastro de uma campanha existem quatro políticas de envio: enviar manualmente só depois de uma liberação, enviar um teste antes e aguardar liberação, enviar imediatamente, ou agendar para uma data e horário futuros. A campanha criada mostra na lista um status que reflete a política escolhida, e uma campanha suspensa pode ser liberada manualmente a qualquer momento pelo botão de liberação da lista. A mesma etapa traz ainda a opção opcional "Limitar envios por hora", que controla o ritmo do disparo — veja o artigo "Como limitar os envios por hora de uma campanha de disparo?".</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você está criando uma campanha e não sabe qual opção escolher na etapa de liberação.</li>
+<li>Você quer testar o disparo com poucos contatos antes de liberar para toda a base.</li>
+<li>Você quer programar o início do disparo para uma data e horário futuros.</li>
+<li>Você não entende o que significa o status da campanha na lista (Aguardando liberação, Teste enviado, Enviado, Agendado).</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra o cadastro da campanha.</strong> Vá em <code>Configurações &gt; Campanhas</code> e crie ou edite uma campanha até chegar na etapa "Liberação".</li>
+<li><strong>Escolha a política de envio.</strong>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Opção</th><th>O que faz</th></tr></thead>
+<tbody>
+<tr><td>Envio manual</td><td>A campanha fica suspensa aguardando liberação manual, sem enviar nada até você liberar.</td></tr>
+<tr><td>Enviar teste agora e aguardar liberação</td><td>Envia o número de mensagens definido em "Tamanho do teste" e, em seguida, suspende a campanha aguardando liberação manual do restante.</td></tr>
+<tr><td>Enviar agora</td><td>Libera e envia a campanha imediatamente para todos os destinatários.</td></tr>
+<tr><td>Agendar envio</td><td>Agenda o disparo para a data e horário escolhidos no campo "Selecione uma data".</td></tr>
+</tbody>
+</table></div>
+</li>
+<li><strong>Preencha "Tamanho do teste".</strong> Só fica habilitado quando a política é "Enviar teste agora e aguardar liberação"; define quantas mensagens de teste serão enviadas antes de suspender o envio da campanha.</li>
+<li><strong>Preencha a data de agendamento.</strong> Só fica habilitado quando a política é "Agendar envio"; a data mínima selecionável é a data atual (não é possível agendar no passado).</li>
+<li><strong>(Opcional) Marque "Limitar envios por hora"</strong> e informe o máximo de mensagens que a campanha pode enviar em 1 hora, para distribuir o disparo ao longo do tempo. Veja o artigo "Como limitar os envios por hora de uma campanha de disparo?".</li>
+<li><strong>Libere manualmente quando necessário.</strong> Na lista de campanhas (<code>Configurações &gt; Campanhas</code>), use o botão "Liberar para envio" em uma campanha suspensa (política "Envio manual" ou depois de um teste) para iniciar o disparo do restante da base.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>Existem exatamente quatro políticas de envio: Envio manual, Enviar teste agora e aguardar liberação, Enviar agora, Agendar envio.</li>
+<li>O status da campanha na lista reflete a política escolhida: "Aguardando liberação" (envio manual ou aguardando após teste), "Teste enviado", "Enviado" ou "Agendado para [data e hora]".</li>
+<li>O botão "Liberar para envio" fica desabilitado quando a campanha já está com status "Enviado".</li>
+<li>Para agendamento, a data e horário precisam ser futuros — o seletor não permite escolher uma data anterior à atual.</li>
+<li>A opção "Limitar envios por hora" é independente da política de envio escolhida e vale para todas elas.</li>
+<li>O item de menu "Campanhas" só aparece para o perfil Administrador, ou para o Supervisor quando o usuário tem a permissão de criar campanhas habilitada em seu cadastro.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Escolher "Enviar teste agora e aguardar liberação" sem preencher (ou preenchendo com zero) "Tamanho do teste" pode resultar em nenhuma mensagem de teste sendo enviada antes da suspensão — confirme o valor antes de avançar.</li>
+<li>Uma campanha agendada só passa a status "Enviado" quando a data programada chega; até lá permanece com o rótulo "Agendado para [data]".</li>
+<li>Depois de liberada uma campanha (política "Enviar agora" ou liberação manual), o processo de disparo é irreversível — não é possível suspender novamente.</li>
+<li>Quem apenas visualiza a lista de campanhas sem ser Administrador precisa ter a permissão de criação de campanhas para enxergar o menu e liberar disparos.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se a campanha não mudar de status mesmo depois de liberada, ou parte da base não receber as mensagens, veja o artigo "Por que uma campanha de disparo falha, aparece bloqueada ou envia para número errado?". Antes de acionar o suporte, reúna: o nome da campanha, a política de envio escolhida, o horário em que ela foi liberada (ou a data agendada) e o status atual mostrado na lista.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-547">Como limitar os envios por hora de uma campanha de disparo?</h3>
+<h4>Resumo</h4>
+<p>A opção "Limitar envios por hora", na etapa "Liberação" do cadastro de uma campanha, distribui o disparo ao longo do tempo: em qualquer janela de 1 hora, no máximo o número de mensagens informado será enviado. As mensagens restantes ficam na fila e o envio retoma sozinho quando a janela abre, até o fim da audiência. Por exemplo, uma campanha de 1000 destinatários com limite de 100 por hora leva cerca de 10 horas para ser concluída, enviando aproximadamente 100 mensagens por hora.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você quer disparar uma campanha grande sem sobrecarregar a entrada de atendimentos da sua operação.</li>
+<li>Você quer que as respostas da campanha cheguem de forma espaçada, em um volume que sua equipe consiga atender.</li>
+<li>Você quer entender por que uma campanha limitada envia poucas mensagens por hora ou demora dias para terminar.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra o cadastro da campanha.</strong> Vá em <code>Configurações &gt; Campanhas</code>, clique em "Adicionar" e siga o assistente.</li>
+<li><strong>Avance até a etapa "Liberação"</strong> (depois de Início, Audiência e Respostas).</li>
+<li><strong>Marque a opção "Limitar envios por hora".</strong> Ela é opcional e vem desmarcada: sem ela, a campanha envia no ritmo padrão do sistema, sem limite por hora.</li>
+<li><strong>Informe o "Máximo de envios por hora".</strong> Digite um número inteiro a partir de 1. Ex.: 100.</li>
+<li><strong>Conclua a campanha.</strong> O limite passa a valer a partir da liberação do disparo, em qualquer política de envio (manual, teste, agora ou agendada).</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>A contagem é por janela deslizante de 1 hora: em QUALQUER período de 60 minutos, a campanha envia no máximo o número informado de mensagens — não é por hora fechada do relógio.</li>
+<li>Ao atingir o limite, o envio pausa sozinho e retoma sozinho à medida que a janela abre; não é preciso liberar nada manualmente.</li>
+<li>O limite é por campanha: duas campanhas limitadas em 100 na mesma fila podem enviar até 200 mensagens por hora na fila.</li>
+<li>As mensagens do envio de teste também contam para o limite da campanha.</li>
+<li>Se o sistema for reiniciado no meio de uma janela, a contagem da hora corrente é preservada — o limite não é esquecido.</li>
+<li>Mensagens com falha que serão reenviadas automaticamente também esperam a janela do limite abrir, como qualquer outra.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>A campanha não pode ser editada depois de criada: se precisar de outro limite, crie a campanha novamente.</li>
+<li>Com o limite ativo, a campanha leva mais tempo para concluir. Uma estimativa simples: número de destinatários dividido pelo limite informado.</li>
+<li>Enquanto aguardam a janela abrir, os disparos continuam aparecendo com o status "Na fila" no detalhe da campanha — isso é o comportamento esperado, não uma falha.</li>
+<li>O limite controla o ritmo da campanha; ele não interfere nos limites de taxa do WhatsApp da própria Meta.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se a campanha com limite não enviar nada mesmo com a janela aberta, ou se quiser entender o ritmo padrão sem limite, veja os artigos "Quais são as opções de liberação de uma campanha e como funciona o envio de teste?" e "Como funciona o processamento da fila de disparo AutoSend de campanhas com template?". Antes de acionar o suporte, reúna: o nome da campanha, o limite informado, o tamanho da audiência e o horário em que ela foi liberada.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-89">O sistema fica lento durante atendimento ou disparo de campanha — o que verificar?</h3>
+<h4>Resumo</h4>
+<p>Lentidão percebida durante atendimento ou disparos costuma ter causa local (navegador, cache, internet) ou é o efeito de um agente com um número excessivo de atendimentos abertos ao mesmo tempo — e não necessariamente um problema no servidor. O sistema permite limitar quantos atendimentos simultâneos um agente pode receber, por agente e por fila, o que ajuda a prevenir esse cenário.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+  <li>O sistema, os painéis, os relatórios ou o envio de mensagens estão respondendo devagar.</li>
+  <li>Uma campanha de disparo em massa está demorando muito mais que o normal para processar os contatos.</li>
+  <li>Você quer descartar causas locais antes de abrir um chamado de lentidão.</li>
+  <li>Você suspeita que agentes com muitos atendimentos abertos ao mesmo tempo estejam pesando no desempenho.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+  <li><strong>Verifique se a lentidão é geral ou pontual.</strong> Confirme se ela afeta só um computador/agente ou toda a equipe, e se afeta só uma tela (ex.: campanhas) ou o sistema inteiro (atendimento, relatórios, painéis).</li>
+  <li><strong>Teste em outro navegador/máquina.</strong> Abra a instância anonimamente em outro navegador (janela anônima) ou em outro computador. Se a lentidão não se repetir, o problema é local.</li>
+  <li><strong>Limpe o cache do navegador</strong> do computador afetado e recarregue a página. Cache acumulado é uma causa conhecida de lentidão percebida na interface.</li>
+  <li><strong>Verifique a conexão de internet local</strong> de quem relata lentidão — instabilidade ou baixa velocidade local afeta diretamente o carregamento de conversas e relatórios.</li>
+  <li><strong>Ajuste as configurações locais de desempenho.</strong> No menu do usuário (canto superior), abra <strong>Configurações locais</strong> e ative <strong>Desabilitar animações</strong> (reduz animações visuais, útil em máquinas com desempenho limitado — exige recarregar a página) e/ou <strong>Desabilitar waveform</strong> (remove a visualização de ondas sonoras nos players de áudio, o que ajuda em conversas com muitas mensagens de áudio).</li>
+  <li><strong>Revise quantos atendimentos cada agente está com aberto.</strong> Um agente acumulando um número muito alto de atendimentos não encerrados pode ter o desempenho da própria tela impactado. Oriente a equipe a encerrar atendimentos já resolvidos.</li>
+  <li><strong>Configure um limite de atendimentos simultâneos por agente, se ainda não existir.</strong> Em <strong>Configurações &gt; Usuários</strong>, edite o agente e ajuste o campo <strong>Número máximo de atendimentos</strong> (0 = sem limite). Também é possível limitar por fila em <strong>Configurações &gt; Filas</strong>, no campo <strong>Atendimentos / agente</strong>.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+  <li><strong>O limite por agente é opcional e vem desligado por padrão.</strong> O campo <strong>Número máximo de atendimentos</strong> (Configurações &gt; Usuários) aceita de 0 a 500; com 0, não há limite algum — se você nunca configurou isso, é esperado que um agente possa acumular centenas de atendimentos abertos.</li>
+  <li><strong>O limite por fila é independente por fila.</strong> O campo <strong>Atendimentos / agente</strong> (Configurações &gt; Filas) limita quantos atendimentos daquela fila específica um agente recebe; atendimentos vindos de outras filas não entram nessa conta. Um agente em 5 filas com limite 10 em cada pode acumular até 50 atendimentos no total.</li>
+  <li>Atendimentos travados, com agente preferencial disponível ou recebidos por transferência <strong>não respeitam</strong> nenhum desses limites — por isso um agente pode ultrapassar o número configurado em situações específicas.</li>
+  <li>Se a lentidão for isolada a um fluxo de automação específico (por exemplo, uma automação de funil/CRM que trava ao processar listas grandes, ou uma automação em loop), a causa é diferente da lentidão geral de interface tratada aqui — veja os artigos "Por que uma automação de funil trava ao processar muitas oportunidades de uma vez?" e "O que fazer quando uma automação em loop derruba ou trava a instância?".</li>
+  <li>Ao reportar lentidão ao suporte, um teste feito a partir de outra máquina/rede frequentemente não reproduz o problema relatado — por isso reunir evidência do lado do cliente (gravação de tela, horário exato, navegador, se afeta todos os agentes ou só um) é o que mais ajuda a investigar.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se, após testar em outro navegador/máquina, limpar o cache, verificar a internet local e revisar a quantidade de atendimentos abertos por agente a lentidão persistir de forma consistente e reproduzível, acione o suporte com: instância, horário exato em que ocorreu, se afeta todos os agentes ou só alguns, navegador usado, e uma gravação de tela mostrando o travamento.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-73">Como funciona o limite de atendimentos por agente e quando ele pode ser ultrapassado?</h3>
+<h4>Resumo</h4>
+<p>O limite de atendimentos por agente é configurado em <strong>Configurações &gt; Usuários</strong>, na aba <strong>Filas e Atendimento</strong>, e cada fila também tem seu próprio limite em <strong>Configurações &gt; Filas</strong>. Mesmo com o limite ativado, ele só vale para atendimentos que o agente puxa ativamente pela distribuição automática: transferências diretas, atendimentos travados com o agente e atendimentos de agente preferencial continuam chegando normalmente e não contam para esse limite.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você configurou um número máximo de atendimentos simultâneos para um agente (ou para uma fila) e ele está recebendo mais do que esse número.</li>
+<li>Você quer entender a diferença entre o limite do agente e o limite da fila, e por que ajustar só um deles pode não resolver.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Configure o limite do agente.</strong> Acesse <strong>Configurações &gt; Usuários</strong>, selecione o agente e vá até a aba <strong>Filas e Atendimento</strong>. Informe o número máximo de atendimentos simultâneos atribuídos a ele; com o valor 0, não há limite.</li>
+<li><strong>Ative a aplicação do limite ao puxar.</strong> Nessa mesma aba existe uma opção para que esse número máximo seja considerado quando o agente tenta puxar atendimentos da fila. Se essa opção estiver desmarcada, o limite não é aplicado e o agente pode puxar quantos atendimentos quiser.</li>
+<li><strong>Configure também o limite por fila, se necessário.</strong> Em <strong>Configurações &gt; Filas</strong>, cada fila tem um campo para o número máximo de atendimentos simultâneos, vindos daquela fila, atribuídos a um agente.</li>
+<li><strong>Lembre-se de que os dois limites são independentes.</strong> O limite da fila vale só para os atendimentos daquela fila; o limite do agente é o total somado de todas as filas em que ele atua. Um agente em 5 filas com limite de 10 por fila pode acumular até 50 atendimentos no total, então os dois valores precisam ser ajustados de forma compatível com o resultado que você espera.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li><strong>Transferência direta ignora o limite.</strong> Se outro agente transferir manualmente um atendimento para alguém que já está no limite, a transferência é concluída mesmo assim.</li>
+<li><strong>Atendimento travado ignora o limite.</strong> Um atendimento travado com o agente (trava de atendimento) pode ser entregue a ele mesmo que ultrapasse o limite da fila e do agente.</li>
+<li><strong>Agente preferencial ignora o limite.</strong> Se o contato tem um agente preferencial disponível, o atendimento vai para ele mesmo que esteja no limite.</li>
+<li>Confirme se a opção que aplica o limite ao puxar está realmente marcada — é comum o número estar preenchido, mas a aplicação dele estar desativada.</li>
+<li>Ajustar apenas o limite do agente pode não resolver se o limite configurado na fila continuar permissivo, e vice-versa: os dois valores agem em conjunto.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se mesmo com o limite corretamente configurado, a opção de aplicação ativada e nenhuma das exceções acima envolvida (sem transferência direta, sem trava, sem agente preferencial) o agente continuar recebendo atendimentos genuinamente novos acima do limite, reúna o protocolo dos atendimentos excedentes, o horário exato e os valores configurados de limite do agente e da fila antes de acionar o suporte.</p>
+  </div>
+  <h2 id="integra-es-externas-e-diagn-stico">Integrações externas e diagnóstico</h2>
+  <div class="faq">
+    <h3 id="faq-118">Como configurar e resolver falhas de conectividade na integração com o Fórmula Certa?</h3>
+<h4>Resumo</h4>
+<p>A integração com o Fórmula Certa é habilitada pelo suporte para a sua instância e depende de conectividade direta entre o servidor do sistema e o banco de dados do Fórmula Certa no ambiente do seu cliente. Quando a integração para de funcionar do nada, a causa quase sempre é de rede do lado de quem hospeda o Fórmula Certa: IP alterado, porta bloqueada no firewall ou falha no DDNS.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+  <li>Você quer confirmar se o recurso Fórmula Certa está habilitado na sua instância.</li>
+  <li>A busca de orçamento pelo Fórmula Certa parou de funcionar, mesmo já tendo funcionado antes.</li>
+  <li>Você precisa liberar acesso de rede pela primeira vez para configurar a integração.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+  <li><strong>Confirme se o recurso está habilitado.</strong> Na tela de atendimento, digite <code>/</code> na caixa de mensagem: se a opção <strong>Busca orçamento</strong> aparecer, o recurso está habilitado para a sua instância. Se não aparecer, acione o suporte para habilitar.</li>
+  <li><strong>Reúna os dados de conexão com o suporte.</strong> Peça o IP (ou endereço DDNS) e a porta configurados para acessar o banco de dados do Fórmula Certa a partir do sistema. Essa porta costuma ser a <code>3050</code>, padrão do banco usado pelo Fórmula Certa, mas confirme sempre o valor exato com o suporte, pois pode variar.</li>
+  <li><strong>Libere o acesso no firewall do ambiente do Fórmula Certa.</strong> Peça ao time de T.I. responsável pelo servidor do Fórmula Certa que libere, na porta informada, o IP do servidor do sistema.</li>
+  <li><strong>Confirme o DDNS, se for o caso.</strong> Se o acesso usa um endereço de DNS dinâmico em vez de um IP fixo, confirme que esse endereço está resolvendo para o IP atual do ambiente do Fórmula Certa.</li>
+  <li><strong>Teste a conectividade antes de acionar o suporte novamente.</strong> Peça ao seu T.I. um teste de conexão na porta liberada (por exemplo, um teste de porta/telnet) a partir do IP do sistema. Se o teste falhar, o bloqueio está do lado da rede do Fórmula Certa, não do sistema.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+  <li><strong>Apenas um IP por vez.</strong> A configuração da integração aceita um único endereço de conexão. Não é possível cadastrar dois IPs simultaneamente; se a rede do cliente usa IP dinâmico, a solução é usar DDNS em vez de tentar liberar múltiplos IPs.</li>
+  <li><strong>Não há tela de configuração para o cliente.</strong> A habilitação e os dados técnicos da integração (host, porta, caminho do banco) são configurados pelo suporte, não por uma tela que o administrador da conta acessa sozinho.</li>
+  <li><strong>Coexiste com outras integrações.</strong> Habilitar o Fórmula Certa não interfere em outras integrações já configuradas na mesma instância, como uma integração com intranet — elas funcionam de forma independente.</li>
+  <li><strong>Causa mais comum de parada repentina.</strong> Quando uma integração que já funcionava passa a falhar, o motivo mais frequente é alguma mudança na rede do cliente (troca de roteador, novo IP, regra de firewall alterada) ou o DDNS parando de resolver corretamente.</li>
+  <li><strong>Cache local.</strong> Em alguns casos pontuais, limpar o cache do navegador e recarregar a página resolve problemas de exibição da busca de orçamento sem envolver a rede.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>O suporte não tem acesso a logs internos dessa integração para acelerar o diagnóstico — o teste de porta feito pelo seu T.I. é o que confirma se o bloqueio é de rede. Antes de acionar o suporte novamente, reúna: o resultado do teste de porta, o IP/endereço atual do ambiente onde o Fórmula Certa está hospedado, e se houve alguma mudança recente de rede, roteador ou provedor de internet no ambiente do cliente.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-120">É possível liberar acesso direto ao banco de dados da instância para terceiros?</h3>
+<h4>Resumo</h4>
+<p>Não. O sistema não fornece credenciais de conexão (usuário, senha, host, banco) nem libera acesso direto ao banco de dados de nenhuma instância para sistemas ou desenvolvedores externos — é uma política de segurança de dados, sem exceção. Para consumir os dados da instância de forma estruturada fora do sistema, a alternativa oferecida é a <strong>integração com o BigQuery</strong>.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Um parceiro, desenvolvedor ou fornecedor pediu usuário, senha, host e nome do banco de dados da sua instância.</li>
+<li>Pediram para liberar o IP de um servidor externo para conectar direto ao banco.</li>
+<li>Você precisa consumir dados da instância (atendimentos, contatos, tickets etc.) em outro sistema, de forma estruturada e recorrente.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Peça a habilitação da integração com o BigQuery.</strong> Abra um chamado com o suporte solicitando a integração, e tenha em mãos um Project ID de um projeto seu no Google Cloud onde os dados serão replicados.</li>
+<li><strong>Configure o Project ID.</strong> Um administrador acessa <strong>Configurações &gt; Geral</strong>, localiza a seção <strong>Integração BigQuery</strong> e preenche o campo <strong>ProjectID do BigQuery</strong>.</li>
+<li><strong>Consulte os dados pelo BigQuery.</strong> A partir da sincronização, seu parceiro ou desenvolvedor consulta os dados diretamente no seu projeto BigQuery, com as ferramentas de sua preferência — sem qualquer acesso ao banco de dados original da instância.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Credenciais de banco de dados não são fornecidas em nenhuma hipótese, mesmo para desenvolvedores de confiança do cliente ou parceiros já homologados.</li>
+<li>Em casos pontuais, o suporte pode informar apenas o <strong>IP da própria instância</strong> para que um fornecedor externo o libere do lado dele — isso não abre acesso ao banco, apenas permite que a instância se conecte a um serviço de terceiros (por exemplo, uma API do parceiro).</li>
+<li>Registros atualizados são reinseridos no BigQuery; registros excluídos localmente na instância não são removidos automaticamente do BigQuery pela integração — considere isso ao construir consultas ou relatórios sobre esses dados.</li>
+<li>A configuração do Project ID exige perfil de administrador e um projeto próprio do cliente no Google Cloud.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se a sincronização do BigQuery não atender sua necessidade (por exemplo, você precisa de dados em tempo real ou de alguma informação que não é replicada), abra um chamado descrevendo exatamente quais dados e com que frequência o sistema externo precisa consumir, para o suporte avaliar alternativas.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-124">Como formatar os campos clientId e number nas chamadas de API de mensagem?</h3>
+<h4>Resumo</h4>
+<p>Nas chamadas de API que enviam mensagem ou consultam atendimentos de um contato, o campo <code>number</code> é o telefone do cliente (DDD + número) e o campo <code>clientId</code> é o identificador do atendimento/conversa daquele contato no canal — <strong>não é o mesmo ID usado no cadastro de contatos</strong>. Sempre que o endpoint aceitar os dois, prefira informar apenas o <code>number</code>: o sistema completa e valida automaticamente o formato do número brasileiro.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+  <li>Você está integrando via API (envio de mensagem, consulta de atendimentos abertos, consulta de histórico de um contato) e não sabe o que colocar em <code>clientId</code> ou <code>number</code>.</li>
+  <li>Sua chamada retorna lista vazia ou erro mesmo enviando um <code>clientId</code> que parece correto.</li>
+  <li>Você quer saber se <code>clientId</code> é o mesmo campo usado para identificar um contato no CRM.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+  <li><strong>Prefira sempre o campo <code>number</code> quando o endpoint aceitar.</strong> Informe apenas os dígitos do telefone do cliente (DDD + número). Você pode enviar com ou sem o código do país (<code>55</code>) e com ou sem o nono dígito — para números brasileiros o sistema tenta as variações automaticamente e valida o formato.</li>
+  <li><strong>Use <code>clientId</code> apenas quando já tiver esse valor em mãos</strong> (por exemplo, recebido em um webhook anterior ou em uma resposta de outro endpoint da API), não tente montá-lo manualmente a partir do número do cliente.</li>
+  <li><strong>Não confunda <code>clientId</code> com o ID do cadastro de contato.</strong> Se sua integração precisa buscar, criar ou editar um contato no CRM, use o campo de identificação do contato dos endpoints de contato — ele é um valor numérico próprio, diferente do <code>clientId</code> usado nos endpoints de mensagem/atendimento.</li>
+  <li><strong>Se for consultar por <code>clientId</code> e a fila for oficial (WhatsApp Cloud API)</strong>, o valor esperado é apenas o número, sem qualquer sufixo.</li>
+  <li><strong>Se for consultar por <code>clientId</code> e a fila for WhatsApp não oficial</strong>, o valor esperado inclui o sufixo <code>@s.whatsapp.net</code> depois do número.</li>
+  <li><strong>Confira a chave de autenticação da fila (apikey) usada na chamada</strong> em <strong>Configurações &gt; Filas</strong>, selecionando a fila e abrindo a aba <strong>API e Webhooks</strong>.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+  <li><strong><code>clientId</code> não é o ID do contato do CRM.</strong> É o identificador da conversa/canal daquele contato, derivado do número de telefone (e não o valor numérico interno usado para buscar, criar ou editar um cadastro de contato).</li>
+  <li><strong>O formato do <code>clientId</code> muda conforme o tipo de canal.</strong> Fila oficial (Cloud API): só o número, sem sufixo. Fila de WhatsApp não oficial: número seguido de <code>@s.whatsapp.net</code>. Enviar o formato errado para o tipo de fila resulta em lista vazia ou "não encontrado", mesmo com o número correto.</li>
+  <li><strong>Quando o endpoint aceita <code>number</code> e <code>clientId</code> ao mesmo tempo</strong>, normalmente só um dos dois é efetivamente usado para localizar o contato — evite enviar os dois com valores diferentes, pois isso pode gerar resultado inesperado. Se possível, envie apenas o campo que você tem certeza do valor.</li>
+  <li><strong><code>number</code> não exige o <code>55</code> na frente.</strong> Para números brasileiros, DDD + número (com ou sem o nono dígito) já é aceito; o sistema completa o formato automaticamente ao processar.</li>
+  <li>Se você monta o <code>clientId</code> manualmente a partir do número do cliente (por exemplo, tirando o nono dígito ou acrescentando o sufixo por conta própria), o risco de errar o formato é maior — sempre que possível, prefira <code>number</code> ou reaproveite um <code>clientId</code> já recebido do próprio sistema em uma resposta anterior.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se a chamada continuar retornando lista vazia ou "não encontrado", reúna: o endpoint chamado, o payload enviado (sem a chave de autenticação), a resposta recebida, o tipo do canal (WhatsApp oficial ou não oficial) e o ID da fila usada, e acione o suporte com essas informações.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-126">Como remover ou editar o R$ (símbolo de moeda) da mensagem de orçamento antes de enviar?</h3>
+<h4>Resumo</h4>
+<p>Quando o sistema gera automaticamente o texto de uma mensagem a partir de uma integração (como uma busca de orçamento), o texto é aberto em uma caixa de edição antes de ser enviado ao cliente. Você pode editar livremente esse texto — inclusive remover o símbolo de moeda ou qualquer outro trecho — antes de clicar em enviar. Não existe uma configuração permanente do sistema para mudar o formato desse texto de uma vez por todas: a edição precisa ser feita mensagem por mensagem.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+  <li>Você usa, na caixa de mensagem do atendimento, um atalho/comando que busca dados (como um orçamento) e monta automaticamente um texto para enviar ao cliente.</li>
+  <li>O texto gerado vem com um formato (por exemplo, o símbolo "R$" antes do valor) que você gostaria de mudar ou remover.</li>
+  <li>Você quer saber se dá para personalizar permanentemente esse texto para todas as próximas mensagens.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+  <li><strong>Gere a mensagem.</strong> No atendimento, use o atalho de busca correspondente na caixa de mensagem, informe os dados pedidos (por exemplo, os identificadores do orçamento) e confirme a busca.</li>
+  <li><strong>Abra a edição do texto.</strong> Com os dados retornados na tela, clique na opção que gera a mensagem. O sistema abre uma janela <strong>Editar mensagem</strong> com um campo de texto contendo a mensagem completa que seria enviada.</li>
+  <li><strong>Edite o texto livremente.</strong> Nesse campo você pode apagar, reescrever ou remover qualquer parte do texto, incluindo símbolos de moeda, antes de enviar.</li>
+  <li><strong>Envie.</strong> Clique em <strong>Enviar</strong> para que o texto editado (e não o texto original gerado) seja a mensagem efetivamente entregue ao cliente.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+  <li>A edição vale apenas para <strong>aquela mensagem</strong>. Da próxima vez que a mensagem for gerada a partir dos dados da integração, o texto volta a vir no formato original — não há campo de configuração do sistema para alterar permanentemente o modelo desse texto.</li>
+  <li>Esse recurso de geração automática de mensagem a partir de uma busca de orçamento é uma integração específica, habilitada apenas para as contas que a contrataram. Se o atalho não aparecer na sua caixa de mensagem, esse recurso não está habilitado na sua conta.</li>
+  <li>Se o campo de texto ficar vazio, o botão <strong>Enviar</strong> permanece desabilitado — é preciso manter algum conteúdo na mensagem.</li>
+  <li>Para textos que o sistema envia automaticamente sem intervenção do agente (como mensagens de automações/URA), a personalização é feita na configuração do próprio fluxo de automação, não nesta janela de edição.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o atalho de busca de orçamento não aparece para você, confirme com o administrador se essa integração está habilitada na sua conta. Se o texto gerado vier com dados incorretos (não apenas de formatação), reúna o identificador do orçamento consultado e a filial informada antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-218">Quais erros aparecem ao usar a assistência remota em um atendimento?</h3>
+<h4>Resumo</h4>
+<p>Durante um atendimento, o ícone "Assistência remota" no cabeçalho do chat abre um menu para iniciar uma sessão de suporte/assistência remota com o cliente. Se a opção não aparecer ou uma tentativa falhar, o sistema mostra uma mensagem específica: falta de licença ou de habilitação na fila, sessão já em andamento, ou o cliente não está no ambiente esperado (aplicativo desktop ou página com o chat incorporado). Este artigo lista o que cada mensagem significa.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>O ícone de assistência remota não aparece no cabeçalho do atendimento.</li>
+<li>Ao clicar em "Iniciar suporte remoto" ou "Iniciar assistência remota", aparece uma mensagem de erro em vez de a sessão começar.</li>
+<li>Um agente convidado (que não é o titular do atendimento) tenta iniciar a sessão.</li>
+<li>A sessão de suporte remoto cai ou não pode mais ser retomada.</li>
+</ul>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>Somente usuários com perfil <strong>Agente</strong> têm acesso à funcionalidade de assistência/suporte remoto.</li>
+<li>O usuário precisa ter uma licença de suporte remoto atribuída à sua conta; sem ela, o ícone de assistência remota não aparece no cabeçalho do chat.</li>
+<li>A fila do atendimento precisa ter a assistência/suporte remoto habilitado. Em Configurações &gt; Filas, na aba "Assistência / Suporte remotos" da fila, o campo "Assistência / Suporte remoto" define isso, com as opções: Desabilitar, Habilitar todos os tipos, Habilitar somente suporte remoto e (para os tipos de fila que suportam, como Web Chat) Habilitar somente assistência remota.</li>
+<li>Somente o agente <strong>titular</strong> do atendimento pode iniciar uma sessão de suporte ou assistência remota — um agente convidado no chat não consegue.</li>
+<li>Um agente só pode ter uma sessão de suporte/assistência remota ativa por vez; não é possível abrir uma segunda sessão em outro atendimento enquanto a primeira está em andamento.</li>
+<li>A assistência remota tem dois modos, cada um com um pré-requisito do lado do cliente: controle do aplicativo desktop (o cliente precisa estar usando o app) ou assistência em página (o cliente precisa estar com o chat incorporado na própria página, modo de compartilhamento de tela do navegador).</li>
+<li>A tela de configuração da fila também permite habilitar a gravação das sessões remotas e disparar uma automação ao iniciar ou ao encerrar a sessão.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Mensagem</th><th>O que significa</th></tr></thead>
+<tbody>
+<tr><td>Suporte remoto não disponível</td><td>A fila do atendimento não tem a assistência/suporte remoto habilitado.</td></tr>
+<tr><td>Acesso negado</td><td>Você não é o agente titular deste atendimento.</td></tr>
+<tr><td>Sessão já ativa</td><td>Você já tem uma sessão de suporte/assistência remota ativa em outro atendimento.</td></tr>
+<tr><td>Licenças esgotadas</td><td>Não há licenças de suporte remoto disponíveis no momento; o limite de sessões simultâneas da instância foi atingido.</td></tr>
+<tr><td>Sessão não encontrada / Sessão finalizada / Sessão expirada / Sessão inativa</td><td>A sessão referenciada já foi encerrada, cancelada, expirou por tempo ou não está mais ativa.</td></tr>
+<tr><td>Assistência remota indisponível (cliente não está no aplicativo desktop)</td><td>O modo de controle de desktop exige que o cliente esteja usando o aplicativo desktop; ele não está.</td></tr>
+<tr><td>Assistência remota indisponível (cliente não está com o chat embutido)</td><td>O modo de assistência em página exige o chat incorporado na página do cliente; isso não foi detectado.</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>O botão de assistência remota só aparece para atendimentos de canais compatíveis com a funcionalidade (por exemplo, Webchat); em outros canais o ícone simplesmente não é exibido.</li>
+<li>Perder a licença de suporte remoto (por exemplo, se ela for removida do usuário) faz o ícone desaparecer do cabeçalho sem gerar mensagem de erro — é preciso verificar o cadastro do usuário.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Confirme, nesta ordem: se o usuário tem perfil Agente e licença de suporte remoto atribuída; se a fila do atendimento tem a assistência/suporte remoto habilitado e, se aplicável, se o tipo certo de assistência está liberado para aquele tipo de fila; se o agente já não tem outra sessão remota ativa em outro atendimento; e, no lado do cliente, se ele está no ambiente esperado (app desktop ou chat incorporado na página). Se tudo isso estiver correto e o erro persistir, acione o suporte informando a mensagem exata exibida e o horário da tentativa.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-231">O que é a Assistência Remota e como o agente inicia o controle da tela do cliente?</h3>
+<h4>Resumo</h4>
+<p>A Assistência Remota deixa o agente ver a tela do computador do cliente durante um atendimento e, se escolher esse modo, também controlar o mouse e o teclado dele. O agente inicia pelo ícone de assistência remota no cabeçalho do atendimento, escolhe entre "Somente visualizar" ou "Visualizar e controlar", e o cliente precisa aceitar o pedido antes da sessão começar. O recurso só existe em atendimentos de filas WebChat V2 e exige uma licença de suporte remoto atribuída ao agente.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>O agente precisa orientar o cliente visualizando a tela dele em tempo real.</li>
+<li>O agente precisa executar uma ação diretamente no computador do cliente (preencher um campo, clicar em um botão, navegar até uma tela).</li>
+<li>O ícone de assistência remota não aparece no cabeçalho do atendimento.</li>
+<li>Entender a diferença entre "Somente visualizar" e "Visualizar e controlar".</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra o atendimento.</strong> Dentro de um atendimento ativo de uma fila WebChat V2, localize o ícone de assistência remota no cabeçalho do chat (dica "Assistência remota").</li>
+<li><strong>Abra o menu.</strong> Clique no ícone e escolha a opção "Iniciar assistência remota".</li>
+<li><strong>Escolha o modo.</strong> No diálogo "Assistência remota", selecione "Somente visualizar" (você vê a tela, mas não controla mouse/teclado) ou "Visualizar e controlar" (você vê e controla mouse e teclado do cliente).</li>
+<li><strong>Inicie a sessão.</strong> Clique em "Iniciar". O sistema lembra sua última escolha de modo para a próxima vez.</li>
+<li><strong>Aguarde o aceite do cliente.</strong> O cliente recebe o pedido de acesso e precisa aceitar antes da tela aparecer para o agente; ele pode interromper a sessão a qualquer momento pelo lado dele.</li>
+<li><strong>Durante a sessão.</strong> É possível minimizar a janela da sessão (ela e a gravação, se habilitada, continuam em segundo plano), silenciar o áudio do computador remoto, trocar de monitor quando o cliente tem mais de um, e trocar arquivos e área de transferência com o cliente.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>Só está disponível em atendimentos de filas do tipo WebChat V2 — não existe em outros canais (WhatsApp, e-mail, Instagram, telefonia, etc.).</li>
+<li>A fila precisa ter a assistência remota habilitada na aba "Assistência / Suporte remotos" do cadastro da fila (opção "Habilitar todos os tipos" ou "Habilitar somente assistência remota").</li>
+<li>O agente precisa ter uma licença de suporte remoto atribuída. O administrador atribui a licença em <em>Configurações &gt; Licenças</em>, pelo botão "Atribuir licença"; uma licença atribuída fica vinculada ao agente por no mínimo 5 dias antes de poder ser removida.</li>
+<li>Só o titular do atendimento pode iniciar a assistência remota — um agente que só está acompanhando o atendimento (convidado) não vê a opção habilitada.</li>
+<li>Enquanto o agente já tem uma sessão de assistência (ou suporte) remota ativa, a opção "Iniciar assistência remota" fica indisponível no menu até essa sessão ser encerrada.</li>
+<li>A gravação das sessões de assistência remota é uma opção configurável por fila (Habilitar/Desabilitar) na mesma aba "Assistência / Suporte remotos"; quando habilitada, a gravação continua mesmo se o agente minimizar a janela da sessão.</li>
+<li>É possível vincular automações que disparam automaticamente ao iniciar e ao encerrar uma sessão de assistência remota, configuradas na mesma aba da fila.</li>
+<li>A fila pode ter um texto de "Termos de Uso" configurado, exibido ao cliente no início da sessão remota.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Existem dois modos técnicos por trás da mesma ação "Iniciar assistência remota": acesso ao aplicativo desktop do cliente, ou uma sessão embutida na própria página do cliente (co-navegação). O sistema escolhe automaticamente qual modo usar de acordo com como o cliente está conectado — o agente não escolhe isso, só escolhe entre visualizar e controlar.</li>
+<li>No modo embutido na página do cliente, o botão de iniciar só fica disponível depois que o navegador do cliente sinaliza que está pronto para a sessão; pode haver um pequeno atraso até o ícone habilitar.</li>
+<li>Se o ícone de assistência remota não aparecer, confirme a licença do agente, a configuração da fila e se a janela do chat está larga o suficiente para exibir os ícones do cabeçalho.</li>
+<li>Este recurso é diferente do "Suporte remoto" tradicional (acesso por vídeo/tela), que aparece como uma opção separada no mesmo menu quando habilitado para a fila.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Confirme, nesta ordem: se a fila do atendimento é WebChat V2, se a aba "Assistência / Suporte remotos" da fila está habilitada, se o agente tem licença de suporte remoto atribuída em Configurações &gt; Licenças, e se o agente é o titular do atendimento (não um convidado). Se tudo isso estiver correto e o ícone ainda não aparecer, ou o cliente não conseguir aceitar o pedido, reúna o horário aproximado da tentativa, o nome da fila e o navegador/aplicativo usado pelo cliente antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-473">Como instalar e configurar uma extensão nesta instância?</h3>
+<h4>Resumo</h4>
+<p>A instalação de extensões fica em <em>Configurações &gt; Extensões instaladas</em> e é restrita às contas internas da operação (os perfis 98 e 99). Instalar tem duas etapas: informar o endereço do manifest publicado pelo fornecedor e, depois que o sistema lê esse manifest, preencher o nome da instalação, os campos de configuração que a própria extensão declara e o filtro de quem recebe. Valores marcados como segredo são gravados cifrados e nunca mais podem ser lidos — só substituídos. Se a extensão mostra páginas de outros sites, a lista desses sites aparece antes de instalar.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>O fornecedor entregou o endereço de uma extensão e você precisa colocá-la em uso na instância.</li>
+<li>Precisa alterar a configuração, o público ou a chave de uma extensão já instalada.</li>
+<li>Quer instalar a mesma extensão duas vezes — uma para produção e outra para teste.</li>
+<li>Precisa desligar uma extensão temporariamente sem perder a configuração.</li>
+<li>Um Administrador comum reclama que não encontra a tela de extensões.</li>
+<li>O fornecedor avisou que a extensão não consegue mais guardar dados e você precisa saber qual é o espaço disponível.</li>
+<li>Quer saber de quais sites uma extensão mostra conteúdo dentro do sistema.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra a tela.</strong> Vá em <em>Configurações &gt; Extensões instaladas</em>. O item só aparece para os perfis 98 e 99.</li>
+<li><strong>Inicie a instalação.</strong> Clique em <strong>Instalar extensão</strong>.</li>
+<li><strong>Informe o endereço.</strong> Preencha <em>URL do manifest</em> com o endereço que o fornecedor passou. Ele precisa apontar direto para o arquivo do manifest, sem redirecionamentos. Clique em <strong>Buscar manifest</strong>.</li>
+<li><strong>Confira a identificação.</strong> O sistema mostra nome, versão, descrição, fornecedor e quantos pontos de montagem a extensão declara. Se o endereço estiver errado, use <strong>Trocar URL</strong>. Se a extensão mostra páginas de outros sites (um painel do Looker Studio ou do Power BI, por exemplo), aparece também o quadro <em>Páginas de outros sites</em>, com a lista desses sites: confira se são os esperados antes de continuar.</li>
+<li><strong>Dê um nome à instalação.</strong> Preencha <em>Nome da instalação</em>. É o que distingue duas instalações da mesma extensão — por exemplo "Financeiro (produção)" e "Financeiro (teste)". Esse nome aparece só para a administração.</li>
+<li><strong>Preencha a configuração.</strong> Em <em>Configuração da extensão</em> aparecem os campos que a própria extensão pediu: texto, número, endereço, lista de opções, chave/liga-desliga e segredos. Os obrigatórios são marcados com asterisco. Se a extensão não pedir nada, a seção informa isso. Quando a extensão mostra um relatório externo, é comum ela pedir aqui o identificador ou o endereço do relatório do seu cliente.</li>
+<li><strong>Defina quem recebe.</strong> Em <em>Quem recebe esta extensão</em>, monte as listas de inclusão e exclusão. Veja o artigo "Como definir quais usuários recebem uma extensão (inclusão e exclusão)".</li>
+<li><strong>Decida o compartilhamento.</strong> Em <em>Compartilhamento entre instalações</em>, deixe <em>Compartilhar armazenamento</em> e <em>Compartilhar canal de mensagens</em> desligados, que é o padrão e a opção segura.</li>
+<li><strong>Conclua.</strong> Clique em <strong>Instalar</strong>. Para alterar depois, use o botão <em>Configurar</em> na linha da instalação e finalize em <strong>Salvar</strong>.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>A tela é restrita aos perfis 98 e 99, e o servidor recusa qualquer operação de extensão vinda de outro perfil, inclusive as de leitura. Um Administrador comum não vê a tela, não instala, não remove e não consegue ler nem alterar a configuração local.</li>
+<li>Campos de segredo nunca voltam em leitura, nem nesta tela nem por consulta externa. Com um valor já guardado, deixar o campo como está mantém o valor; digitar um novo substitui. Segredos não obrigatórios podem ser apagados pelo botão da borracha, e a exclusão só é efetivada ao salvar.</li>
+<li>Quando um segredo é gravado, ele não é mais exibido. Guarde uma cópia em local seguro antes de salvar.</li>
+<li>O endereço informado precisa ser um endereço direto do manifest. O servidor que hospeda a extensão precisa devolver o cabeçalho Access-Control-Allow-Origin; sem isso a instalação é recusada com essa explicação na própria tela.</li>
+<li>O nome da instalação é obrigatório e aceita até 255 caracteres.</li>
+<li>Campos de endereço precisam começar por http:// ou https://.</li>
+<li><strong>Espaço para os dados que a extensão guarda: cerca de 262 mil caracteres</strong>, somando o nome e o conteúdo de todas as entradas guardadas. Esse espaço é de cada usuário em cada instalação — não é um bolo único dividido entre a equipe, e um agente que enche o próprio espaço não tira lugar de ninguém. Ao atingir o teto, aquela extensão deixa de conseguir gravar para aquele usuário até que algo seja apagado.</li>
+<li>A mesma extensão pode ser instalada mais de uma vez. Por padrão, cada instalação tem armazenamento e canal isolados — a etiqueta <em>Isolada</em> na lista indica isso.</li>
+<li>Avisos do manifest não impedem a instalação: o ponto de montagem afetado simplesmente não aparece para os usuários.</li>
+<li>Uma extensão só consegue mostrar páginas dos sites listados no quadro <em>Páginas de outros sites</em>, no máximo 10, sempre com endereço seguro (https). O endereço do próprio sistema nunca aparece nessa lista.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Quando uma operação é recusada, a mensagem do servidor aparece inteira numa faixa vermelha no topo da tela ou do formulário. Ela diz exatamente o que falta — leia antes de repetir a tentativa.</li>
+<li>Ligar <em>Compartilhar armazenamento</em> faz todas as instalações da mesma extensão lerem e gravarem os mesmos dados. É o que impede uma instalação de teste de mexer nos dados da instalação de produção; mantenha desligado a menos que o fornecedor exija.</li>
+<li>Com o armazenamento compartilhado ligado, as instalações da mesma extensão passam a dividir também o mesmo teto de espaço, sempre dentro do espaço daquele usuário.</li>
+<li>Os dados guardados pela extensão ficam no navegador de cada usuário: quem entra de outro computador ou de outro navegador começa com o espaço vazio, e uma limpeza de dados do navegador apaga o que estava guardado. O que precisa sobreviver a isso é responsabilidade do sistema do fornecedor.</li>
+<li>Na lista, o botão de sincronizar reconsulta o manifest no fornecedor e atualiza a versão em uso; a coluna <em>Verificado em</em> mostra quando isso foi feito pela última vez. Uma versão nova do fornecedor pode trazer uma lista diferente de sites externos; a lista em vigor aparece ao abrir <em>Configurar</em>.</li>
+<li>Para desligar sem perder a configuração, use o botão de habilitar/desabilitar em vez de remover.</li>
+<li>Remover é definitivo: apaga a configuração local, os segredos guardados e o token do canal, e os usuários deixam de receber a extensão imediatamente. A confirmação mostra o nome da instalação antes de executar.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se a busca do manifest falhar, confirme com o fornecedor se o endereço aponta direto para o arquivo e se o servidor dele devolve o cabeçalho exigido — a faixa de erro traz o diagnóstico. Se a instalação concluir mas a extensão ficar como Desabilitada, veja o artigo "Por que uma extensão instalada aparece como Desabilitada e o que fazer". Se ela ficar Habilitada mas ninguém a enxergar, o problema é o filtro de entrega: veja "Como definir quais usuários recebem uma extensão (inclusão e exclusão)". Se um item que mostra um relatório externo não aparece, confira se o campo de configuração que o fornecedor pediu para esse relatório está preenchido; para página em branco, veja "O que uma extensão consegue fazer no sistema e quais são os limites?". Se o fornecedor relatar falha ao guardar dados, confira o teto de espaço acima antes de abrir chamado — e confirme se o problema atinge todos os usuários ou apenas um, já que o espaço é individual. Ao acionar o suporte, informe o nome da instalação e o texto exato da mensagem de erro exibida na tela.</p>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

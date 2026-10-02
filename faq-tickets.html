@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tickets e SLA — Manual Omnichannel</title>
+<meta name="description" content="Motivos, classificações e sub-motivos, grupos de serviço e níveis, SLA e distribuição, estágios, relatórios e auditoria de tickets — dúvidas frequentes.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a class="active" href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="faq.html">Base de Conhecimento</a> &rsaquo; Tickets</div>
+
+  <h1>Tickets e SLA</h1>
+  <p class="subtitle">Motivos, classificações e sub-motivos, grupos de serviço e níveis, SLA e distribuição, estágios, relatórios e auditoria de tickets — dúvidas frequentes.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#vis-o-geral-do-m-dulo-de-tickets">Visão geral do módulo de Tickets</a></li>
+      <li class="toc-h3"><a href="#faq-54">O que é o módulo de Tickets, para que serve e como funciona?</a></li>
+      <li class="toc-h3"><a href="#faq-369">O que o Painel de Tickets mostra e quais são os modos de visualização disponíveis?</a></li>
+      <li><a href="#motivos-classifica-es-e-sub-motivos">Motivos, classificações e sub-motivos</a></li>
+      <li class="toc-h3"><a href="#faq-297">O que são Classificações de Tickets e qual a diferença entre Externo e Interno?</a></li>
+      <li class="toc-h3"><a href="#faq-368">O que são Motivos de Tickets e quais campos de SLA e distribuição eles definem?</a></li>
+      <li class="toc-h3"><a href="#faq-285">O que são Sub-motivos de tickets e onde são cadastrados?</a></li>
+      <li class="toc-h3"><a href="#faq-283">Qual a ordem de prioridade entre Motivo, Classificação e Emails globais de tickets?</a></li>
+      <li><a href="#grupos-de-servi-o-n-veis-e-sla">Grupos de serviço, níveis e SLA</a></li>
+      <li class="toc-h3"><a href="#faq-364">O que são Grupos de Serviço de Tickets e como configurar os níveis de atendimento com escalonamento?</a></li>
+      <li class="toc-h3"><a href="#faq-298">Como funciona a distribuição do SLA entre os níveis de atendimento de um motivo de ticket?</a></li>
+      <li class="toc-h3"><a href="#faq-22">Como o sistema calcula o SLA e o que é o percentual de corte usado?</a></li>
+      <li><a href="#est-gios-status-e-kanban">Estágios, status e Kanban</a></li>
+      <li class="toc-h3"><a href="#faq-370">O que são Estágios de Tickets (fluxos de estágio) e como funciona o Kanban por Estágio?</a></li>
+      <li class="toc-h3"><a href="#faq-365">Quais são os status de um ticket e quais regras controlam a mudança entre eles?</a></li>
+      <li><a href="#filas-distribui-o-e-permiss-es">Filas, distribuição e permissões</a></li>
+      <li class="toc-h3"><a href="#faq-300">Como um agente entra e sai de uma fila de tickets para receber chamados?</a></li>
+      <li class="toc-h3"><a href="#faq-303">Qual permissão libera a Gestão de Tickets e como funcionam níveis e filas do agente?</a></li>
+      <li class="toc-h3"><a href="#faq-50">Por que um agente sem perfil administrador só vê os tickets que ele criou?</a></li>
+      <li class="toc-h3"><a href="#faq-206">Qual o limite máximo de atendimentos e de tickets simultâneos que posso configurar para um agente?</a></li>
+      <li><a href="#cria-o-e-opera-o-de-tickets">Criação e operação de tickets</a></li>
+      <li class="toc-h3"><a href="#faq-295">Quais campos existem no diálogo de criação de um ticket?</a></li>
+      <li class="toc-h3"><a href="#faq-265">Quais elementos existem para criar, resolver, escalar ou comentar um ticket no fluxo?</a></li>
+      <li class="toc-h3"><a href="#faq-271">Onde uma configuração de Horário de Atendimento pode ser usada além da própria tela de Horários?</a></li>
+      <li class="toc-h3"><a href="#faq-291">Quais campos e limites existem nas Configurações Gerais de Tickets?</a></li>
+      <li class="toc-h3"><a href="#faq-167">Como cadastrar uma etiqueta e marcá-la para contato, FAQ, tarefa ou CRM?</a></li>
+      <li><a href="#relat-rios-pain-is-e-auditoria">Relatórios, painéis e auditoria</a></li>
+      <li class="toc-h3"><a href="#faq-301">Quais relatórios de Tickets existem no menu de Relatórios e o que cada um mostra?</a></li>
+      <li class="toc-h3"><a href="#faq-289">Quais colunas e indicadores tem o relatório de Tickets SLA Detalhado?</a></li>
+      <li class="toc-h3"><a href="#faq-290">Quais colunas tem o relatório de Performance de Agentes em Tickets?</a></li>
+      <li class="toc-h3"><a href="#faq-363">Quais colunas tem o relatório Top Problemas de Tickets e como funciona a navegação?</a></li>
+      <li class="toc-h3"><a href="#faq-328">Quais colunas tem o relatório de Tickets Top Clientes?</a></li>
+      <li class="toc-h3"><a href="#faq-325">Quais colunas o relatório de Volumetria de Tickets mostra por dia?</a></li>
+      <li class="toc-h3"><a href="#faq-322">Quais colunas e filtros tem o relatório Histórico de Tickets?</a></li>
+      <li class="toc-h3"><a href="#faq-323">Quais colunas tem o relatório Tickets Empresa e em que ele difere do Histórico?</a></li>
+      <li class="toc-h3"><a href="#faq-318">Quais colunas e indicadores tem o relatório de Auditoria de Tickets?</a></li>
+      <li class="toc-h3"><a href="#faq-309">O que o painel de indicadores Tickets mostra e quais são seus gráficos e tabelas?</a></li>
+      <li class="toc-h3"><a href="#faq-333">O que o painel Atendimentos (Painel e Indicadores) mostra e quais filtros aceita?</a></li>
+      <li><a href="#manuten-o-parceiros-e-suporte">Manutenção, parceiros e suporte</a></li>
+      <li class="toc-h3"><a href="#faq-278">Depois de quantos dias o sistema apaga sozinho tarefas, auditoria e outros dados antigos?</a></li>
+      <li class="toc-h3"><a href="#faq-374">O que o painel de Estatísticas do parceiro mostra e quem pode acessá-lo?</a></li>
+      <li class="toc-h3"><a href="#faq-472">O que são extensões e onde elas aparecem no sistema?</a></li>
+      <li class="toc-h3"><a href="#faq-492">Como registrar um bug ou reportar um problema ao suporte?</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <div class="callout info">
+    <p>Este capítulo reúne as dúvidas frequentes sobre o módulo de Tickets: como são classificados e distribuídos os chamados, como o SLA é calculado e dividido entre níveis, como funcionam os estágios, as filas e as permissões, e o que cada relatório e painel mostra. Para perguntas mais específicas de configuração e automação, consulte também a página <a href="tickets-faq.html">Perguntas frequentes de Tickets</a>.</p>
+  </div>
+
+  <h2 id="vis-o-geral-do-m-dulo-de-tickets">Visão geral do módulo de Tickets</h2>
+  <div class="faq">
+    <h3 id="faq-54">O que é o módulo de Tickets, para que serve e como funciona?</h3>
+<h4>Resumo</h4>
+<p>O módulo de Tickets serve para registrar e acompanhar demandas específicas dentro (ou fora) de um atendimento, cada uma com uma <strong>Classificação</strong> e um <strong>Motivo</strong>, evoluindo por <strong>Estágios</strong> com prazos de SLA e podendo escalar entre <strong>Níveis</strong> dentro de um <strong>Grupo de Serviço</strong>. Um ticket pode ser criado manualmente pelo agente ou automaticamente por uma automação.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+  <li>Você quer separar diferentes demandas de um mesmo cliente/atendimento em registros próprios, com SLA e histórico individuais.</li>
+  <li>Você precisa acompanhar prazos de primeira resposta e de resolução por tipo de assunto.</li>
+  <li>Você quer disparar ações automáticas quando um ticket é aberto, muda de estágio, é escalado ou é resolvido.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+  <li><strong>Cadastre a estrutura primeiro.</strong> Em Configurações, cadastre as <strong>Classificações de Tickets</strong> (categorias gerais, do Tipo Externo ou Interno) e os <strong>Motivos de Tickets</strong> vinculados a cada classificação — é no Motivo que ficam os prazos de SLA de primeira resposta e de resolução.</li>
+  <li><strong>Configure o escalonamento, se for usar.</strong> Em <strong>Grupos de Serviço</strong>, cadastre os Níveis pelos quais um ticket pode escalar.</li>
+  <li><strong>Defina os Estágios.</strong> Em <strong>Estágios de Tickets</strong>, configure o fluxo pelo qual o ticket passa (por exemplo: aberto, em andamento, resolvido) e as transições permitidas.</li>
+  <li><strong>Crie um ticket manualmente.</strong> No menu <strong>Tickets</strong> (Painel de Tickets), use o botão de criar ticket: escolha o Tipo (Externo ou Interno), a Classificação, o Motivo (só é liberado depois da Classificação), o Assunto, a Descrição, os contatos vinculados e anexos.</li>
+  <li><strong>Ou crie um ticket por automação.</strong> No editor de automação/URA existe um elemento próprio para adicionar ticket, com campos de Motivo, Assunto e Descrição — aceita variáveis do atendimento.</li>
+  <li><strong>Trabalhe o ticket no dia a dia.</strong> Tanto pelo Painel de Tickets quanto por automação é possível comentar, atribuir a um agente, mudar de estágio ou status, escalar para o próximo nível, resolver, reabrir, vincular ou desvincular contatos e adicionar etiquetas.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+  <li>A lista de Classificações que aparece ao criar um ticket só traz classificações marcadas como <strong>Ativas</strong> e do mesmo <strong>Tipo</strong> (Externo/Interno) escolhido na tela; se uma classificação recém-criada não aparecer, confira esses dois pontos antes de suspeitar de um problema no sistema.</li>
+  <li>O campo Motivo só é liberado depois que uma Classificação é selecionada, porque cada motivo pertence a uma classificação específica.</li>
+  <li>Os prazos de SLA de primeira resposta e de resolução são configurados por <strong>Motivo</strong>, não pela Classificação.</li>
+  <li>Um Grupo de Serviço pode escalar o ticket para o próximo Nível de três formas: manualmente (agente ou supervisor), automaticamente ao violar o SLA do nível atual, ou automaticamente após um tempo fixo no nível, independente do SLA.</li>
+  <li>A criação de ticket por automação já está disponível hoje: existem elementos próprios para abrir, editar, comentar, atribuir, mudar estágio/status, escalar, resolver, reabrir, buscar, vincular contato e adicionar etiqueta a um ticket.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se uma classificação ou motivo esperado não aparecer numa tela de criação de ticket mesmo parecendo corretamente cadastrado, atualize a página para sincronizar o cache local antes de mais nada. Se persistir, reúna o nome da classificação/motivo, o Tipo (Externo/Interno) e a tela onde tentou usá-los antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-369">O que o Painel de Tickets mostra e quais são os modos de visualização disponíveis?</h3>
+<h4>Resumo</h4>
+<p>O Painel de Tickets é a tela onde qualquer usuário logado acompanha e trabalha os tickets, com três formas de visualização: Kanban por Status, Kanban por Estágio e Tabela. Ele fica acessível pelo ícone de Tickets no cabeçalho superior e reúne filtros por classificação, motivo, fila, prioridade e (para quem não é Agente) um filtro "Meus tickets". Ele é diferente do item de menu "Tickets" com indicadores, que só aparece para Supervisor ou superior.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Visualizar e mover tickets entre status ou estágios sem abrir cada um individualmente.</li>
+<li>Filtrar tickets por classificação, motivo, fila ou prioridade.</li>
+<li>Ver apenas os tickets do próprio usuário (Supervisor e Administrador).</li>
+<li>Entender a diferença entre o Painel de Tickets e o painel-resumo "Tickets" com indicadores.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra o painel.</strong> Clique no ícone de Tickets no cabeçalho superior — ele mostra um indicador quando há tickets novos.</li>
+<li><strong>Escolha o modo de visualização.</strong> Use os botões "Kanban por Status", "Kanban por Estágio" (só aparece se existir ao menos um fluxo de estágios cadastrado) ou "Tabela".</li>
+<li><strong>Filtre os tickets.</strong> Use os campos Classificação, Motivo, Fila e Prioridade; no modo Kanban por Estágio, o filtro de Fila some e aparecem no lugar os filtros Fluxo de estágios e Nome de estágio.</li>
+<li><strong>Restrinja aos seus tickets, se necessário.</strong> Marque o checkbox "Meus tickets" (não aparece para o perfil Agente).</li>
+<li><strong>Mova um ticket entre colunas.</strong> No Kanban por Status, arraste o card para outra coluna de status; colunas marcadas como somente leitura não aceitam arrastar.</li>
+<li><strong>Abra ou crie um ticket.</strong> Clique em um card ou linha da tabela para abrir o detalhe, ou use o botão de criar ticket no cabeçalho do painel.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>O painel exige apenas estar logado no sistema — não há restrição de perfil para acessá-lo.</li>
+<li>O modo Kanban por Status sempre mostra as 6 colunas de status possíveis de um ticket: Aberto, Em Atendimento, Aguardando Recurso, Resolvido, Aguardando Cliente e Fechado.</li>
+<li>O modo Kanban por Estágio só é exibido se existir ao menos um fluxo de estágios cadastrado na instância.</li>
+<li>O filtro "Meus tickets" fica oculto para o perfil Agente.</li>
+<li>O item de menu "Tickets" com indicadores (painel-resumo) exige perfil Supervisor ou superior; é uma tela diferente deste painel.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>No Kanban por Estágio é preciso escolher um Fluxo de estágios ou um Nome de estágio para o painel exibir alguma coluna — sem essa seleção a tela fica vazia com uma mensagem pedindo o filtro.</li>
+<li>Nem toda coluna de status aceita arrastar um card para dentro: algumas colunas são somente leitura e servem só para exibir os tickets naquele status.</li>
+<li>O painel não substitui os relatórios de Tickets: ele mostra a situação atual, não histórico ou métricas agregadas.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o painel não exibir os tickets esperados, confira os filtros ativos (classificação, motivo, fila, prioridade, "Meus tickets") e, no modo Kanban por Estágio, se um fluxo ou nome de estágio está selecionado. Se o modo "Kanban por Estágio" não aparecer, confirme se existe algum fluxo de estágios cadastrado. Reúna o modo de visualização usado, os filtros ativos e o número do ticket esperado antes de acionar o suporte.</p>
+  </div>
+  <h2 id="motivos-classifica-es-e-sub-motivos">Motivos, classificações e sub-motivos</h2>
+  <div class="faq">
+    <h3 id="faq-297">O que são Classificações de Tickets e qual a diferença entre Externo e Interno?</h3>
+<h4>Resumo</h4>
+<p>Uma Classificação de ticket é do tipo <strong>Externo</strong> ou <strong>Interno</strong>: esse tipo define em qual lista ela aparece no diálogo de criação de ticket, que também pede para escolher entre Externo e Interno antes de exibir as classificações correspondentes. Além do nome e do tipo, cada Classificação carrega uma configuração própria de automações por evento, um fluxo de estágios opcional e uma cascata de e-mails de notificação por evento, que outras telas de tickets podem herdar.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você quer entender para que serve a tela de Classificações de Tickets e a diferença entre os tipos Externo e Interno.</li>
+<li>Ao criar um ticket, a lista de classificações some ou vem vazia depois de trocar o campo Tipo do diálogo.</li>
+<li>Você precisa configurar qual automação roda ou qual e-mail é enviado quando um ticket muda de status, é comentado, resolvido, fechado ou reaberto.</li>
+<li>Você quer associar um fluxo de estágios a um grupo de classificações.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra a tela.</strong> Vá em <em>Configurações &gt; Ticket &gt; Classificações</em> (disponível para Administrador).</li>
+<li><strong>Crie ou edite.</strong> Informe o <em>Nome</em> (até 100 caracteres, obrigatório) e escolha o <em>Tipo</em>: Externo ou Interno.</li>
+<li><strong>Configure automações.</strong> Na aba Automações da classificação, defina a fila usada para executar as automações (ou deixe a fila padrão) e associe uma automação a cada um dos eventos do ciclo de vida do ticket: criação, distribuição, primeira resposta, mudança de status, mudança de prioridade, reatribuição, escalonamento, violação de SLA, comentário, inatividade do cliente, resolução, fechamento, reabertura, mudança de estágio e chegada em estágio final.</li>
+<li><strong>Configure e-mails.</strong> Na aba E-mails, para cada evento (ao criar, ao comentar, ao resolver, ao fechar, ao reabrir) escolha um modelo de e-mail, a opção <em>Herdar configuração</em> (usa o modelo definido na configuração geral de e-mails de tickets) ou <em>Não enviar</em>. Defina também a fila de envio dos e-mails, que aceita <em>Herdar configuração</em> ou uma fila específica.</li>
+<li><strong>Associe um fluxo de estágios (opcional).</strong> Na aba Estágios, selecione um <em>Fluxo de estágios</em> já cadastrado ou deixe em <em>Nenhum</em> se a classificação não usa estágios.</li>
+<li><strong>Salve</strong> cada aba pelo botão de salvar correspondente antes de sair da linha expandida da classificação.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>Nome da Classificação: obrigatório, até 100 caracteres.</li>
+<li>O Tipo só aceita Externo ou Interno; não há um terceiro valor.</li>
+<li>No diálogo de criação de ticket, o campo Tipo filtra a lista de Classificações exibida: só aparecem as classificações cujo Tipo bate com o valor escolhido ali.</li>
+<li>Cada evento de automação, se deixado sem automação selecionada, herda a automação configurada em um nível acima (quando existir) ou fica sem automação.</li>
+<li>Somente os eventos criar, comentar, resolver, fechar e reabrir têm e-mail de notificação configurável; os demais eventos do ciclo de vida não têm modelo de e-mail associado.</li>
+<li>Só é possível gerenciar Classificações com perfil Administrador.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Trocar o Tipo de uma Classificação depois que já existem Motivos vinculados a ela pode fazer a classificação sumir do filtro do diálogo de criação de ticket para quem espera o tipo antigo — confira os Motivos afetados em <em>Configurações &gt; Ticket &gt; Motivos</em>.</li>
+<li>Se nenhuma classificação aparece ao abrir o diálogo de criação de ticket, verifique se existe ao menos uma Classificação cadastrada com o Tipo selecionado no próprio diálogo.</li>
+<li>A opção <em>Não enviar</em> em um evento de e-mail é diferente de deixar em branco: <em>Não enviar</em> bloqueia o envio mesmo que exista um modelo herdado de um nível acima; deixar herdando busca o modelo do nível superior.</li>
+<li>Excluir uma Classificação em uso pode impactar Motivos e automações que dependem dela — confira os vínculos antes de excluir.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Confirme em qual Motivo o ticket está classificado (aba Filas do Motivo aponta a Classificação usada) e reveja, na Classificação correspondente, o Tipo, os eventos de automação configurados e a cascata de e-mail (modelo próprio, herdado ou "Não enviar"). Se o comportamento esperado envolve estágios, confira também se há um Fluxo de estágios associado. Reúna o nome exato da Classificação e do Motivo envolvidos antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-368">O que são Motivos de Tickets e quais campos de SLA e distribuição eles definem?</h3>
+<h4>Resumo</h4>
+<p>Um Motivo de Ticket é o terceiro nível de classificação do módulo de Tickets (depois de Grupo de Atendimento e Classificação) e concentra as regras operacionais do atendimento: prioridade padrão, horário comercial, os dois prazos de SLA e a estratégia de distribuição de cada nível de fila. Ele fica em <em>Configurações &gt; Ticket &gt; Motivos</em> e é o objeto usado para calcular automaticamente o SLA e escolher a fila de um ticket.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Cadastrar um novo motivo de atendimento (ex.: "Dúvida de cobrança", "Solicitação de troca").</li>
+<li>Definir a prioridade padrão, o horário comercial e os prazos de SLA de um tipo de solicitação.</li>
+<li>Entender por que um ticket herdou determinada prioridade, SLA ou fila ao ser criado.</li>
+<li>Configurar automações (fluxo/URA) ou e-mails que devem disparar em eventos específicos de tickets desse motivo.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra a lista de Motivos.</strong> Vá em <em>Configurações &gt; Ticket &gt; Motivos</em>.</li>
+<li><strong>Crie um novo motivo.</strong> Informe o Nome, escolha o Grupo de Atendimento e a Classificação aos quais o motivo pertence — os dois são obrigatórios e não podem ser trocados depois que o motivo é salvo.</li>
+<li><strong>Defina a prioridade padrão.</strong> Escolha entre Baixa, Média, Alta ou Urgente; se não alterar, o motivo é salvo com prioridade Média.</li>
+<li><strong>Associe um Horário Comercial, se for o caso.</strong> A opção "Nenhum" deixa o motivo sem restrição de horário comercial próprio.</li>
+<li><strong>Preencha os prazos de SLA.</strong> "SLA 1ª Resposta (min)" define o prazo de primeira resposta em minutos; "SLA Resolução (horas)" define o prazo total de resolução em horas.</li>
+<li><strong>Configure a distribuição por nível de atendimento.</strong> Na tela do motivo, para cada nível do grupo de atendimento (N1, N2 etc.) defina o Método de Distribuição, o SLA de resolução daquele nível em minutos e se a fila deve "Distribuir mesmo com agentes offline". Um nível desmarcado como ativo não recebe tickets desse motivo.</li>
+<li><strong>Configure automações e e-mails, se necessário.</strong> O motivo aceita uma automação (fluxo/URA) própria para cada evento do ciclo de vida do ticket, e um modelo de e-mail próprio para os eventos de criar, comentar, resolver, fechar e reabrir.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Campo</th><th>Regra</th></tr></thead>
+<tbody>
+<tr><td>Nome</td><td>Obrigatório, até 150 caracteres</td></tr>
+<tr><td>Grupo de Atendimento</td><td>Obrigatório; não pode ser alterado após criar o motivo</td></tr>
+<tr><td>Classificação</td><td>Obrigatória; não pode ser alterada após criar o motivo</td></tr>
+<tr><td>Prioridade</td><td>Baixa, Média, Alta ou Urgente; padrão Média se não alterada</td></tr>
+<tr><td>Horário Comercial</td><td>Opcional; opção "Nenhum" disponível</td></tr>
+<tr><td>SLA 1ª Resposta</td><td>Em minutos; mínimo 0</td></tr>
+<tr><td>SLA Resolução</td><td>Em horas; mínimo 0</td></tr>
+<tr><td>Código de cada nível de fila do motivo</td><td>Obrigatório, até 50 caracteres</td></tr>
+<tr><td>Método de Distribuição do nível</td><td>Manual, Round Robin, Menos Ocupado, Mais Ocioso ou Por Capacidade; padrão Manual</td></tr>
+<tr><td>Distribuir mesmo com agentes offline</td><td>Desligado por padrão em cada nível</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>O acesso à tela de Motivos não exige ser Administrador: qualquer usuário com a permissão de configurar ticket habilitada no cadastro também acessa (o perfil Administrador já tem essa permissão por padrão).</li>
+<li>Automações do motivo têm prioridade sobre as da Classificação: se o motivo não tiver uma automação configurada para um evento, o sistema usa a automação da Classificação para esse mesmo evento.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Grupo de Atendimento e Classificação ficam bloqueados para edição assim que o motivo é criado — confira os dois com atenção antes de salvar.</li>
+<li>O SLA de 1ª Resposta e o de Resolução do motivo são o "SLA total"; a distribuição desse total entre os níveis de atendimento é configurada à parte, nível a nível.</li>
+<li>Um nível de atendimento que aparece "Inativa" na tela de níveis do motivo não recebe distribuição de tickets, mesmo que esteja habilitado no cadastro do Grupo de Atendimento.</li>
+<li>O horário comercial do motivo é independente do horário comercial de uma fila de atendimento comum: são cadastros separados.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se um ticket não estiver recebendo a prioridade, o SLA ou a distribuição esperada, confirme o motivo selecionado no ticket, o nível de atendimento correspondente na tela do motivo (se está ativo e qual método de distribuição está configurado) e se existe automação própria no motivo sobrepondo a da Classificação. Reúna o nome do motivo, o nível afetado e um exemplo de ticket antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-285">O que são Sub-motivos de tickets e onde são cadastrados?</h3>
+<h4>Resumo</h4>
+<p>Um Sub-motivo é um detalhamento opcional dentro de um Motivo de ticket, usado para classificar o atendimento com mais granularidade do que o Motivo sozinho permite. Cada Sub-motivo pertence a um único Motivo. Não existe um item de menu próprio para Sub-motivos: eles são cadastrados por um diálogo aberto a partir da linha do Motivo, na tela de Motivos de Tickets.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você quer detalhar um Motivo de ticket (por exemplo, separar os tipos de solicitação dentro de um mesmo Motivo) sem criar um Motivo novo para cada variação.</li>
+<li>Você não encontra onde cadastrar Sub-motivos porque procurou um item de menu dedicado.</li>
+<li>Você quer saber onde o campo Sub-motivo aparece para o agente durante o atendimento do ticket.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abrir a lista de Motivos.</strong> Acesse <em>Configurações &gt; Ticket &gt; Motivos</em>.</li>
+<li><strong>Abrir o diálogo de Sub-motivos.</strong> Na linha do Motivo desejado, clique no botão com o tooltip "Submotivos" (ícone de lista).</li>
+<li><strong>Adicionar um Sub-motivo.</strong> Clique em "Adicionar", preencha o campo <strong>Nome</strong> e confirme.</li>
+<li><strong>Editar ou excluir.</strong> Na mesma lista do diálogo, use os botões de editar ou excluir na linha do Sub-motivo. O alternador "Ativo" da linha liga ou desliga o Sub-motivo sem excluí-lo.</li>
+<li><strong>Usar no ticket.</strong> Ao abrir um ticket que já tem um Motivo selecionado, o campo <strong>Sub-motivo</strong> aparece junto com Prioridade e Estágio, listando os Sub-motivos ativos daquele Motivo (mais a opção "Nenhum").</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li><strong>Nome:</strong> obrigatório, até 150 caracteres.</li>
+<li>Um Sub-motivo sempre pertence a exatamente um Motivo; não é possível reaproveitar o mesmo Sub-motivo em Motivos diferentes.</li>
+<li>O campo Sub-motivo só aparece no ticket depois que um Motivo é escolhido; sem Motivo definido, o campo fica oculto.</li>
+<li>Um Sub-motivo desativado (alternador "Ativo" desligado) deixa de aparecer na lista de seleção do ticket, mas continua registrado nos tickets que já o usavam.</li>
+<li>Cadastrar, editar, excluir ou desativar Sub-motivos exige perfil Administrador.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Excluir um Motivo não pede confirmação separada sobre os Sub-motivos vinculados a ele — confira se há Sub-motivos cadastrados antes de excluir o Motivo.</li>
+<li>O campo Sub-motivo no ticket é opcional: mesmo com Sub-motivos cadastrados para o Motivo, o agente pode deixar "Nenhum" selecionado.</li>
+<li>Sub-motivo não tem SLA, fila ou configuração de e-mail próprios — essas configurações continuam sendo feitas no nível do Motivo ou da Classificação.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Confirme se o Motivo do ticket em questão realmente tem Sub-motivos cadastrados e ativos em Configurações &gt; Ticket &gt; Motivos (botão "Submotivos" da linha). Se o campo Sub-motivo não aparece no ticket, verifique se o Motivo do ticket está preenchido — o campo só é exibido quando há um Motivo selecionado. Reúna o nome do Motivo e do Sub-motivo esperado antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-283">Qual a ordem de prioridade entre Motivo, Classificação e Emails globais de tickets?</h3>
+<h4>Resumo</h4>
+<p>O envio de e-mails automáticos de tickets segue uma cascata de 3 níveis, do mais específico para o mais geral: 1º o Motivo do ticket, 2º a Classificação do ticket e 3º a configuração global em Configurações &gt; Ticket &gt; Emails. Para cada evento do ciclo de vida do ticket, o sistema usa a primeira configuração completa (modelo de e-mail + fila de envio) que encontrar percorrendo essa ordem. Se um nível estiver marcado como "Não enviar" para aquele evento, o envio é bloqueado ali mesmo, sem consultar os níveis abaixo.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Um ticket com um Motivo específico não dispara o e-mail esperado, embora a configuração global esteja correta.</li>
+<li>Você quer que só alguns Motivos ou Classificações enviem e-mail ao cliente, mantendo os demais no padrão da instância.</li>
+<li>Você precisa entender por que um evento (criação, comentário, resolução, fechamento ou reabertura) envia um modelo de e-mail diferente do configurado na tela global.</li>
+<li>Você quer bloquear o envio de e-mail para um Motivo ou Classificação específicos, mesmo com a configuração global ativa.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Configurar o padrão da instância.</strong> Acesse <em>Configurações &gt; Ticket &gt; Emails</em>. Escolha a <strong>Fila para envio de e-mails</strong> (a fila cujo servidor de e-mail será usado) e, para cada evento — <strong>Ao Criar Ticket</strong>, <strong>Ao Comentar</strong>, <strong>Ao Resolver</strong>, <strong>Ao Fechar</strong> e <strong>Ao Reabrir</strong> — selecione o modelo de e-mail a disparar, ou "Nenhum" para não enviar naquele evento. Clique em Salvar.</li>
+<li><strong>Sobrescrever por Motivo (opcional).</strong> Acesse <em>Configurações &gt; Ticket &gt; Motivos</em> e edite as configurações de e-mail do Motivo desejado. Para cada evento e para a fila de envio, escolha um valor específico, "Herdar configuração" (usa o próximo nível da cascata) ou "Não enviar" (bloqueia o envio para tickets desse Motivo, independentemente do que estiver configurado na Classificação ou no nível global).</li>
+<li><strong>Sobrescrever por Classificação (opcional).</strong> Acesse <em>Configurações &gt; Ticket &gt; Classificações</em> e repita o mesmo ajuste: modelo específico, "Herdar configuração" ou "Não enviar" por evento, além da fila de envio da Classificação.</li>
+<li><strong>Testar.</strong> Crie ou movimente um ticket que use o Motivo/Classificação ajustado e confira se o e-mail chega conforme o nível configurado.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Nível</th><th>Opções por evento</th><th>Opções de fila de envio</th></tr></thead>
+<tbody>
+<tr><td>Motivo (1º, mais específico)</td><td>Modelo específico / Herdar configuração / Não enviar</td><td>Fila específica / Herdar configuração / Não enviar</td></tr>
+<tr><td>Classificação (2º)</td><td>Modelo específico / Herdar configuração / Não enviar</td><td>Fila específica / Herdar configuração / Não enviar</td></tr>
+<tr><td>Global — Configurações &gt; Ticket &gt; Emails (3º, padrão da instância)</td><td>Modelo específico / Nenhum</td><td>Fila específica / Nenhuma</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>Para um nível "vencer" a cascata em um evento, ele precisa ter modelo de e-mail <strong>e</strong> fila de envio definidos nesse mesmo nível — não bastando só um dos dois.</li>
+<li>"Não enviar" em qualquer evento do Motivo ou da Classificação interrompe a cascata: o e-mail não é disparado para esse evento, mesmo que a Classificação ou a configuração global tenham um modelo válido.</li>
+<li>"Herdar configuração" faz o sistema consultar o próximo nível (Motivo → Classificação → Global) até achar uma configuração completa ou até chegar ao fim sem nenhuma — nesse caso, nenhum e-mail é enviado.</li>
+<li>Configurar e editar qualquer um dos três níveis exige perfil Administrador.</li>
+<li>Os 5 eventos disponíveis são os mesmos nos três níveis: Ao Criar Ticket, Ao Comentar, Ao Resolver, Ao Fechar e Ao Reabrir.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Se nenhum e-mail chega para um Motivo específico mas o teste no nível global funciona, verifique primeiro se o Motivo tem "Não enviar" marcado em algum evento — essa é a causa mais comum de e-mail "sumindo" apesar da configuração global correta.</li>
+<li>A fila de envio de cada nível precisa ter um servidor de e-mail configurado; sem isso, mesmo com o modelo certo escolhido, o disparo não ocorre.</li>
+<li>O modelo de e-mail usado em qualquer nível precisa existir e estar ativo; se o modelo for excluído depois de vinculado, o evento correspondente deixa de enviar.</li>
+<li>A cascata é avaliada de forma independente por evento — um Motivo pode herdar a configuração de "Ao Criar Ticket" e, ao mesmo tempo, ter um modelo próprio para "Ao Resolver".</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Confira, nesta ordem: (1) o Motivo do ticket em Configurações &gt; Ticket &gt; Motivos — algum evento está em "Não enviar"? (2) a Classificação do ticket em Configurações &gt; Ticket &gt; Classificações — mesma checagem; (3) a configuração global em Configurações &gt; Ticket &gt; Emails. Anote o Motivo, a Classificação e o evento (criação, comentário, resolução, fechamento ou reabertura) do ticket que não recebeu o e-mail antes de acionar o suporte, além de confirmar se a fila de envio usada em cada nível tem servidor de e-mail ativo.</p>
+  </div>
+  <h2 id="grupos-de-servi-o-n-veis-e-sla">Grupos de serviço, níveis e SLA</h2>
+  <div class="faq">
+    <h3 id="faq-364">O que são Grupos de Serviço de Tickets e como configurar os níveis de atendimento com escalonamento?</h3>
+<h4>Resumo</h4>
+<p>Um Grupo de Serviço de tickets (também chamado de "Grupos de Atendimento" na tela) é apenas um nome e um status ativo/inativo: a configuração de verdade fica nos Níveis de Atendimento cadastrados dentro dele. Cada nível (N1, N2, N3...) define para quem os tickets vão primeiro e, com até três chaves independentes de escalonamento, quando e como um ticket avança automaticamente ou manualmente para o próximo nível.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você quer entender a diferença entre um Grupo de Serviço e um Nível de Atendimento (N1, N2...).</li>
+<li>Você precisa configurar quando um ticket escala sozinho para o próximo nível (por estourar o SLA ou por tempo fixo) ou apenas manualmente.</li>
+<li>Você quer dividir o SLA total do grupo entre os níveis (SLA %) e não sabe por que o botão de salvar não habilita.</li>
+<li>Você quer saber onde vincular agentes e supervisores a um nível específico.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra a tela.</strong> Vá em <em>Configurações &gt; Ticket &gt; Grupos de Serviço</em>. Só usuários com perfil Administrador acessam este item de menu.</li>
+<li><strong>Crie o grupo.</strong> Clique em "Adicionar" e informe o nome do Grupo de Serviço.</li>
+<li><strong>Abra os níveis do grupo.</strong> Expanda a linha do grupo na listagem para ver a aba "Níveis de Atendimento" e cadastre cada nível com nome, ordem e o "Próximo nível" (o nível para o qual ele escala, ou "Nenhum" se for o último).</li>
+<li><strong>Configure o escalonamento de cada nível.</strong> Ative os alternadores "SLA Breach", "Tempo Fixo" (informando os minutos) e/ou "Manual", conforme a regra desejada. O último nível ativo do grupo não mostra essas opções, pois não há para onde escalar.</li>
+<li><strong>Distribua o SLA %.</strong> Preencha manualmente o percentual de cada nível ou use os botões "Distribuir SLA igualmente" e "Auto-distribuir SLA"; a barra de total precisa fechar em 100% para o botão "Salvar configuração" habilitar.</li>
+<li><strong>Vincule agentes e supervisores.</strong> Use os ícones de fone e de escudo na coluna "Equipe" de cada nível para abrir o diálogo de vínculo; o número ao lado do ícone mostra quantos já estão vinculados.</li>
+<li><strong>Ative ou inative.</strong> Use os alternadores "Ativo" na listagem de grupos e na coluna "Ativo" de cada nível.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Campo</th><th>Obrigatório</th><th>Limite</th></tr></thead>
+<tbody>
+<tr><td>Nome do Grupo de Serviço</td><td>sim</td><td>até 100 caracteres</td></tr>
+<tr><td>Nome do Nível de Serviço</td><td>sim</td><td>até 100 caracteres</td></tr>
+<tr><td>Ordem do nível</td><td>sim</td><td>de 1 a 6</td></tr>
+<tr><td>Minutos para escalar (Tempo Fixo)</td><td>não</td><td>de 0 a 9999 minutos; com 0 o sistema avisa que o nível será ignorado (escalação imediata)</td></tr>
+<tr><td>SLA % do nível</td><td>não</td><td>de 0 a 200 no campo; a soma dos níveis ativos precisa fechar em 100% para salvar</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>"Distribuir SLA igualmente" divide o percentual em partes iguais entre os níveis ativos.</li>
+<li>"Auto-distribuir SLA" só tem um padrão pronto para até 3 níveis ativos (por exemplo, 30%/70% para dois níveis e 15%/35%/50% para três); com mais de 3 níveis ativos o botão não altera nada.</li>
+<li>Desativar um nível desativa automaticamente todos os níveis de ordem maior (acima dele) no mesmo grupo, e zera os campos de escalonamento e de SLA % desse nível.</li>
+<li>Reativar um nível reativa automaticamente os níveis de ordem menor (abaixo dele) que estiverem inativos, para não deixar uma lacuna na cadeia de escalonamento.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Se nenhuma das três chaves de escalonamento estiver ativa em um nível que não é o último, a tela avisa "Nenhuma regra de escalonamento ativa" — tickets parados nele não avançam para o próximo nível por conta própria nem manualmente.</li>
+<li>Um Grupo de Serviço só passa a receber tickets quando vinculado a um Motivo de ticket; a associação é feita na tela de Motivos, não aqui.</li>
+<li>Cada nível mostra, na própria listagem, quantos agentes e quantos supervisores estão vinculados a ele, sem precisar abrir o diálogo de vínculo.</li>
+<li>Veja também o artigo "Como funciona a distribuição do SLA entre os níveis de atendimento de um motivo de ticket?" para a divisão do SLA por Motivo, e "Como um agente entra e sai de uma fila de tickets para receber chamados?" para o login do agente em cada nível.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se um ticket não está escalando como esperado, confira se pelo menos uma chave de escalonamento (SLA Breach, Tempo Fixo ou Manual) está ativa no nível atual e se o "Próximo nível" dele está preenchido. Se o botão "Salvar configuração" do SLA não habilita, confira se a soma dos percentuais dos níveis ativos fecha em exatamente 100%. Reúna o nome do Grupo, do nível e do Motivo envolvido antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-298">Como funciona a distribuição do SLA entre os níveis de atendimento de um motivo de ticket?</h3>
+<h4>Resumo</h4>
+<p>O diálogo <strong>Configurar SLA</strong> de um Motivo de ticket divide o SLA total do motivo (o campo "SLA Resolução" cadastrado no próprio Motivo) entre os níveis de atendimento do Grupo de Atendimento associado. Cada nível pode ser habilitado ou não e recebe um tempo de resolução próprio, em minutos; níveis desabilitados não recebem tickets daquele motivo. O diálogo mostra em tempo real o percentual de cada nível sobre o total e destaca em vermelho quando a soma configurada ultrapassa 100% do SLA do motivo.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você quer saber como o tempo total de SLA de um Motivo é repartido entre os níveis (N1, N2 etc.) do atendimento em etapas.</li>
+<li>Um nível não está recebendo tickets e você quer confirmar se ele está desabilitado no SLA do motivo.</li>
+<li>A soma dos tempos configurados nos níveis está maior que o SLA total e você não sabe onde isso é sinalizado.</li>
+<li>Você quer preencher rapidamente o tempo de cada nível sem calcular manualmente.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra o Motivo.</strong> Vá em <em>Configurações &gt; Ticket &gt; Motivos</em> e localize o Motivo desejado.</li>
+<li><strong>Abra o diálogo de SLA.</strong> Clique no ícone de SLA do Motivo para abrir "Configurar SLA".</li>
+<li><strong>Habilite os níveis.</strong> Marque a caixa <em>Ativo</em> de cada nível que deve participar da distribuição de tickets desse Motivo. Níveis desmarcados ficam com opacidade reduzida e não recebem tickets.</li>
+<li><strong>Defina o tempo de cada nível.</strong> No campo de cada linha, informe o tempo de resolução do nível em minutos. A barra de "% do Total" atualiza automaticamente conforme você digita.</li>
+<li><strong>Use os botões de preenchimento automático (opcional).</strong> <em>Auto-distribuir</em> ou <em>Distribuir igualmente</em> preenchem o tempo de todos os níveis ativos automaticamente a partir do SLA total do motivo.</li>
+<li><strong>Confira o total.</strong> A barra "Total configurado" mostra a soma dos níveis ativos frente ao SLA Total do Motivo, em cor de destaque se ultrapassar 100%.</li>
+<li><strong>Salve</strong> o diálogo para gravar os tempos de cada nível.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>O SLA Total do Motivo vem do campo "SLA Resolução (horas)" cadastrado na edição do próprio Motivo — o diálogo de SLA não cria esse total, só o distribui.</li>
+<li>O tempo de resolução de cada nível aceita no mínimo 0 minutos; não há um teto configurado na tela.</li>
+<li>Um nível desabilitado (caixa Ativo desmarcada) não recebe distribuição de tickets daquele Motivo, mesmo que tenha um tempo preenchido.</li>
+<li>O percentual de cada nível é calculado sobre o SLA Total do Motivo, não sobre a soma dos níveis ativos.</li>
+<li>Configurar SLA de um Motivo requer perfil Administrador (mesmo acesso da tela de Motivos de Tickets).</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>A tela deixa o total configurado ultrapassar 100% do SLA do Motivo — isso só é sinalizado visualmente em vermelho, não é bloqueado no salvamento. Revise antes de confirmar.</li>
+<li><em>Auto-distribuir</em> e <em>Distribuir igualmente</em> sobrescrevem os tempos já preenchidos dos níveis ativos; use com atenção se já havia uma distribuição manual.</li>
+<li>Trocar o Grupo de Atendimento do Motivo muda os níveis disponíveis nesse diálogo — os tempos configurados para o grupo anterior não se aplicam ao novo grupo.</li>
+<li>Um ticket que chega a um nível desabilitado não fica "parado" nele: o nível simplesmente não participa da distribuição, então confira se pelo menos um nível está ativo.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Veja também o artigo "O que é o módulo de Tickets, para que serve e como funciona?" para entender a relação entre Motivo, Nível e SLA. Se o problema persistir, reúna o nome do Motivo, o Grupo de Atendimento associado, os níveis habilitados e os tempos configurados em cada um antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-22">Como o sistema calcula o SLA e o que é o percentual de corte usado?</h3>
+<h4>Resumo</h4>
+<p>O SLA de uma fila é o percentual de atendimentos cuja primeira resposta ficou dentro de um <strong>tempo-limite configurado na própria fila</strong>. Não existe um "percentual de corte" fixo no sistema: o que existe é um <strong>tempo</strong> de corte, em segundos, configurável fila a fila no campo <strong>SLA Primeira Resposta (s)</strong>. O percentual que aparece nos relatórios (por exemplo, 3,3%) é o <em>resultado</em> desse cálculo — quantos atendimentos responderam dentro desse tempo, não um número fixo do sistema.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+  <li>Você quer entender o que é o SLA mostrado nos relatórios de fila.</li>
+  <li>Você viu um percentual de SLA baixo (ou alto) e não sabe o que ele representa.</li>
+  <li>Você quer saber qual número o sistema usa como "corte" para considerar um atendimento dentro ou fora do SLA.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+  <li><strong>Localize o tempo-limite da fila.</strong> Acesse <strong>Configurações &gt; Filas</strong>, abra a fila desejada e vá até a aba <strong>SLAs</strong>.</li>
+  <li><strong>Confira o campo "SLA Primeira Resposta (s)".</strong> É o tempo-limite, em segundos, usado como corte: atendimentos com primeira resposta dentro desse tempo contam como dentro do SLA.</li>
+  <li><strong>Ajuste se necessário.</strong> Esse valor pode ser alterado por fila, conforme a meta de atendimento da sua operação.</li>
+  <li><strong>Leia o percentual no relatório de filas ou no dashboard.</strong> O percentual de SLA exibido é calculado automaticamente a partir desse tempo-limite e do tempo real de primeira resposta de cada atendimento do período.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+  <li><strong>Como o percentual é calculado:</strong> SLA (%) = (atendimentos cuja primeira resposta ocorreu dentro do tempo-limite da fila) dividido pelo (total de atendimentos com primeira resposta registrada no período), multiplicado por 100.</li>
+  <li><strong>O limite é por fila, não único no sistema.</strong> Cada fila tem seu próprio tempo configurado; por isso o SLA de filas diferentes não é comparável sem olhar o tempo-limite de cada uma.</li>
+  <li><strong>Existem outros indicadores de SLA na mesma aba da fila</strong>, que medem coisas diferentes: <strong>SLA Abandonadas (%)</strong> (meta de atendimentos abandonados), <strong>SLA Rechamada (%)</strong> (meta de rechamadas) e <strong>SLA Avaliação (Nota)</strong> (meta de nota de avaliação). Nenhum desses altera o cálculo do SLA de primeira resposta.</li>
+  <li><strong>Tickets têm um SLA à parte.</strong> No módulo de Tickets, o SLA é configurado por motivo/categoria, com campos próprios de prazo de primeira resposta (em minutos) e de resolução (em horas) — é um cálculo separado do SLA de filas de atendimento.</li>
+  <li><strong>O cálculo em si não é editável.</strong> O que a interface permite configurar é o tempo-limite (o "corte"); a fórmula que compara esse tempo com o atendimento real é interna e não é ajustável pela tela.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o percentual de SLA exibido parecer incoerente com o tempo-limite configurado, confira se o campo SLA Primeira Resposta (s) da fila está com o valor esperado e reúna o nome da fila, o período do relatório e o percentual exibido antes de acionar o suporte.</p>
+  </div>
+  <h2 id="est-gios-status-e-kanban">Estágios, status e Kanban</h2>
+  <div class="faq">
+    <h3 id="faq-370">O que são Estágios de Tickets (fluxos de estágio) e como funciona o Kanban por Estágio?</h3>
+<h4>Resumo</h4>
+<p>Um Fluxo de Estágios é um conjunto nomeado de etapas (estágios) pelas quais um ticket passa, com as transições permitidas entre elas cadastradas explicitamente numa matriz. Ele fica em <em>Configurações &gt; Ticket &gt; Estágios</em>, visível apenas para Administrador, e só se aplica a tickets de uma Classificação ou Motivo que tenha esse fluxo associado. No Painel de Tickets, o modo "Kanban por Estágio" exibe esses tickets organizados por estágio em vez de por status.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Modelar um processo com etapas próprias (ex.: "Triagem" → "Em análise" → "Aguardando peça" → "Concluído") além do status padrão do ticket.</li>
+<li>Restringir para quais estágios um ticket pode avançar ou retroceder.</li>
+<li>Disparar uma automação quando um ticket muda de estágio ou chega a um estágio final.</li>
+<li>Entender por que o campo Estágio não aparece na tela de um ticket.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra a tela de Estágios.</strong> Vá em <em>Configurações &gt; Ticket &gt; Estágios</em> (só Administrador).</li>
+<li><strong>Crie um Fluxo de Estágios.</strong> Informe o Nome do fluxo.</li>
+<li><strong>Cadastre os estágios do fluxo.</strong> Para cada estágio informe Nome, Ordem, Cor (opcional) e marque "Estágio inicial" (tickets novos começam nele; só um por fluxo) ou "Estágio final" (dispara a automação do evento de estágio final e bloqueia avanço, permitindo só retorno para correção) — os dois marcadores são mutuamente exclusivos no mesmo estágio.</li>
+<li><strong>Cadastre as transições permitidas.</strong> Na aba "Transições" do fluxo, clique nas células da matriz (linhas = estágio de origem, colunas = estágio de destino) para permitir ou bloquear cada transição. Estágios finais só aceitam transições de retorno, nunca de avanço.</li>
+<li><strong>Associe o fluxo a uma Classificação ou a um Motivo.</strong> No cadastro da Classificação ou do Motivo, selecione o Fluxo de Estágios desejado (ou "Nenhum" para não usar estágios).</li>
+<li><strong>Configure automações do fluxo, se necessário.</strong> Uma Classificação ou Motivo com fluxo associado pode disparar uma automação específica ao mudar de estágio e outra ao chegar em um estágio final.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>Nome do Fluxo de Estágios: obrigatório, até 100 caracteres.</li>
+<li>Nome do Estágio: obrigatório, até 100 caracteres.</li>
+<li>Cor do Estágio: até 20 caracteres, opcional.</li>
+<li>Um estágio pertence a exatamente um fluxo.</li>
+<li>Somente um estágio por fluxo pode ser marcado como "Estágio inicial".</li>
+<li>Um estágio não pode ser marcado como inicial e final ao mesmo tempo.</li>
+<li>Um ticket só muda de um estágio para outro se existir uma transição cadastrada entre os dois; sem transição cadastrada, o estágio de destino não fica disponível para seleção.</li>
+<li>A tela de Estágios só é visível para o perfil Administrador — diferente da tela de Motivos, que também aceita usuários com a permissão de configurar ticket.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Um fluxo precisa de pelo menos 2 estágios cadastrados para a matriz de transições ficar disponível para edição.</li>
+<li>O campo "Estágio" só aparece na tela de um ticket quando a Classificação ou o Motivo daquele ticket tem um fluxo de estágios associado; sem associação, o ticket segue apenas pelo status padrão.</li>
+<li>O modo "Kanban por Estágio" do Painel de Tickets só aparece se existir ao menos um fluxo de estágios cadastrado na instância, e exige selecionar um fluxo ou um nome de estágio para exibir as colunas.</li>
+<li>Mudar a associação de fluxo de uma Classificação ou Motivo depois de já existirem tickets em andamento pode deixar esses tickets sem um estágio compatível com o novo fluxo.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se um ticket não conseguir avançar para o estágio esperado, confirme se existe uma transição cadastrada entre o estágio atual e o de destino na aba "Transições" do fluxo, e se o estágio de destino não é um estágio anterior a um estágio final já ultrapassado. Se o campo Estágio não aparece no ticket, confirme se a Classificação ou o Motivo do ticket tem um Fluxo de Estágios associado. Reúna o nome do fluxo, os estágios de origem e destino e o número do ticket antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-365">Quais são os status de um ticket e quais regras controlam a mudança entre eles?</h3>
+<h4>Resumo</h4>
+<p>Um ticket pode estar em um dos seis status: Aberto, Em Atendimento, Aguardando Cliente, Resolvido, Fechado ou Aguardando Recurso. A movimentação entre eles não é livre: fechar, sair de "Aguardando Cliente" e reabrir um ticket resolvido seguem regras próprias, e um ticket Fechado não aceita mais nenhuma mudança de status.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você quer saber o significado de cada status que aparece no Painel de Tickets.</li>
+<li>Você tentou mudar o status de um ticket e a ação foi bloqueada.</li>
+<li>Você quer saber se um ticket Resolvido ou Fechado pode voltar a ser trabalhado.</li>
+<li>Você quer entender quando um ticket muda de status sozinho, sem ação de um agente.</li>
+</ul>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Status</th><th>Significado</th></tr></thead>
+<tbody>
+<tr><td>Aberto</td><td>status inicial de todo ticket criado</td></tr>
+<tr><td>Em Atendimento</td><td>ticket sendo trabalhado por um agente</td></tr>
+<tr><td>Aguardando Cliente</td><td>ticket parado aguardando retorno do cliente</td></tr>
+<tr><td>Resolvido</td><td>atendimento concluído pelo agente, mas ainda reabrível</td></tr>
+<tr><td>Fechado</td><td>ciclo do ticket encerrado; nenhum status pode mais ser alterado</td></tr>
+<tr><td>Aguardando Recurso</td><td>ticket parado aguardando um recurso interno</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>Um ticket <strong>Fechado</strong> não aceita nenhuma alteração de status, por nenhum perfil.</li>
+<li>Um ticket <strong>Resolvido</strong> pode ser reaberto, voltando para o status Aberto.</li>
+<li>Sair do status <strong>Aguardando Cliente</strong> para qualquer outro status só é permitido se a opção geral "Permitir agente/supervisor retornar ticket de Aguardando Cliente" estiver habilitada; do contrário a mudança é bloqueada.</li>
+<li>Fechar um ticket diretamente (sem ele ter passado por Resolvido) só é permitido se a opção geral "Permitir supervisor fechar ticket diretamente" estiver habilitada.</li>
+<li>Com a opção "Exigir comentário ao fechar ticket" ativa, um comentário é obrigatório para concluir o fechamento.</li>
+<li>Horas para auto-fechamento (rotina automática que move Resolvido para Fechado): padrão 48 horas, configurável de 1 a 120 horas.</li>
+<li>Se a opção "Reabrir ticket resolvido ao receber resposta do cliente" estiver ativa, uma resposta do cliente em um ticket Resolvido o reabre automaticamente, sem ação manual.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Não existe transição direta de Fechado para nenhum outro status: se um ticket foi fechado por engano, é preciso tratar o caso como um novo ticket ou reabri-lo antes de ele ser fechado novamente.</li>
+<li>A rotina automática de fechamento só move para Fechado tickets que estão em Resolvido — ela não fecha tickets Abertos, Em Atendimento ou Aguardando Cliente.</li>
+<li>Todas as opções que controlam essas regras (auto-fechamento, permitir fechar direto, exigir comentário, permitir retorno de Aguardando Cliente, reabrir ao responder) ficam em uma única tela de configuração e valem para toda a instância, sem exceção por fila ou motivo — veja o artigo "Quais campos e limites existem nas Configurações Gerais de Tickets?" para o passo a passo de cada opção.</li>
+<li>As mesmas regras de bloqueio valem independentemente de a mudança de status vir do Painel de Tickets ou de uma automação.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se uma mudança de status foi bloqueada, confira primeiro o status atual do ticket (Fechado nunca muda) e, em seguida, as opções gerais relacionadas em Configurações &gt; Ticket &gt; Configurações Gerais. Reúna o número do ticket, o status atual, o status para o qual você tentou mudar e o perfil do usuário que tentou a ação antes de acionar o suporte.</p>
+  </div>
+  <h2 id="filas-distribui-o-e-permiss-es">Filas, distribuição e permissões</h2>
+  <div class="faq">
+    <h3 id="faq-300">Como um agente entra e sai de uma fila de tickets para receber chamados?</h3>
+<h4>Resumo</h4>
+<p>Uma "fila de tickets" é a combinação de um Motivo com um nível de atendimento (N1, N2 etc.) do Grupo de Atendimento associado a esse Motivo. Um Administrador adiciona agentes e supervisores a cada nível na aba Filas do Motivo; a partir daí, essa fila passa a aparecer para o agente na seção "Filas de Tickets" do menu Painel e Indicadores do cabeçalho, onde ele clica para logar ou deslogar. Estar logado em uma fila de tickets é o que torna o agente elegível a receber a distribuição automática de tickets daquele Motivo/nível.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Um agente não sabe como entrar ou sair de uma fila de tickets para começar a receber chamados.</li>
+<li>A seção "Filas de Tickets" não aparece no menu do agente.</li>
+<li>Um agente deveria receber tickets de um Motivo/nível e não está recebendo.</li>
+<li>Você precisa entender quem pode ser adicionado a uma fila de tickets e onde isso é feito.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Administrador cadastra o Grupo de Atendimento.</strong> Em <em>Configurações &gt; Ticket &gt; Grupos de Serviço</em>, defina os níveis de atendimento que serão usados pelos Motivos.</li>
+<li><strong>Administrador associa o Motivo ao grupo.</strong> Em <em>Configurações &gt; Ticket &gt; Motivos</em>, ao criar ou editar um Motivo, escolha o "Grupo de Atendimento" que define os níveis disponíveis para ele.</li>
+<li><strong>Administrador adiciona agentes/supervisores aos níveis.</strong> Na linha do Motivo, abra a aba <em>Filas</em>: cada nível do grupo aparece com um contador de agentes e de supervisores. Use os ícones dessa linha para buscar e adicionar o agente ou o supervisor responsável por aquele nível.</li>
+<li><strong>Agente loga na fila.</strong> No cabeçalho, o agente abre o menu do ícone "Painel e Indicadores" (o mesmo usado para logar em filas de atendimento comuns). Se o módulo de Tickets estiver habilitado e o agente tiver sido adicionado a pelo menos um nível, aparece a seção "Filas de Tickets" com uma linha por fila (Motivo/nível).</li>
+<li><strong>Alternar login/logout.</strong> Um clique na linha da fila alterna entre logado e deslogado; o rótulo muda entre "Logado", "Em pausa" e "Deslogado", com o mesmo tooltip "Clique para logar"/"Clique para deslogar" das filas de atendimento comuns.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>A seção "Filas de Tickets" só aparece no menu do agente se o módulo de Tickets estiver habilitado na instância e o agente tiver sido adicionado a pelo menos um nível de algum Motivo.</li>
+<li>Somente Administrador acessa Configurações &gt; Ticket &gt; Grupos de Serviço; a tela de Motivos também é acessível a quem tem a permissão específica de configurar tickets.</li>
+<li>Um agente logado em uma fila de tickets fica elegível à distribuição automática apenas do Motivo/nível correspondente àquela fila, não de outros níveis aos quais não foi adicionado.</li>
+<li>Estar em pausa em uma fila de tickets impede o recebimento de novos tickets daquela fila até encerrar a pausa.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>"Fila de tickets" (Motivo + nível) não é a mesma coisa que uma fila de atendimento comum (WhatsApp, webchat etc.) configurada em Configurações &gt; Filas — são conceitos e telas diferentes, mesmo aparecendo lado a lado no mesmo menu de login do cabeçalho.</li>
+<li>Se um Motivo não tem nenhum agente adicionado em nenhum nível, nenhuma fila desse Motivo aparece para logar, e os tickets desse Motivo não têm quem os atenda manualmente.</li>
+<li>Trocar o Grupo de Atendimento de um Motivo já em uso muda os níveis (e portanto as filas de login) associados a ele — os agentes precisam ser adicionados novamente aos níveis do novo grupo.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Veja também o artigo "O que é o módulo de Tickets, para que serve e como funciona?" para o panorama geral de Motivo, Classificação, Estágio e Nível. Se a fila continuar não aparecendo, confirme com o Administrador se o agente foi adicionado ao nível correto na aba Filas do Motivo e reúna o nome do Motivo, do nível e do agente antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-303">Qual permissão libera a Gestão de Tickets e como funcionam níveis e filas do agente?</h3>
+<h4>Resumo</h4>
+<p>A permissão "Gestão de Tickets", na seção Ticket da aba Permissões do usuário, libera o menu de configuração de Tickets para um Supervisor. Já a aba Tickets da própria ficha do usuário — disponível para qualquer Agente ou Supervisor, com ou sem essa permissão — guarda os campos que definem quantos tickets um agente recebe e a quais filas e níveis o agente e o supervisor estão vinculados.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Um supervisor precisa configurar Motivos, Classificações, Grupos de Serviço ou Emails de tickets e o menu correspondente não aparece para ele.</li>
+<li>É preciso limitar quantos tickets simultâneos um agente pode receber.</li>
+<li>É preciso decidir a quais filas e níveis de atendimento de tickets um agente recebe chamados, ou que um supervisor pode visualizar e gerenciar.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra a ficha do usuário.</strong> Vá em Configurações &gt; Usuários, edite o usuário e abra a aba Permissões.</li>
+<li><strong>Marque "Gestão de Tickets".</strong> A opção fica na seção Ticket, visível apenas ao editar um usuário do tipo Supervisor (ou um Agente com "Acessar funções de supervisão" ativada) em uma instância com o módulo de Tickets habilitado.</li>
+<li><strong>Configure a capacidade e o vínculo do agente.</strong> Na aba Tickets do mesmo cadastro, informe "Capacidade máxima de tickets", os "Níveis de ticket" e, se necessário, "Filas de ticket" específicas além das já herdadas pelos níveis.</li>
+<li><strong>Configure o alcance do supervisor.</strong> Ainda na aba Tickets, preencha "Níveis supervisionados (tickets)" e "Filas supervisionadas (tickets)" para definir o que esse supervisor pode visualizar e gerenciar.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>"Capacidade máxima de tickets" aceita um número inteiro de 0 a 500; o valor 0 significa que não há limite de tickets simultâneos atribuídos ao agente.</li>
+<li>Um Administrador sempre tem acesso à configuração de Tickets, independente da flag "Gestão de Tickets" — essa permissão só é necessária para liberar o acesso a um Supervisor.</li>
+<li>A seção Ticket da aba Permissões e a aba Tickets do cadastro só aparecem se o módulo de Tickets estiver habilitado na instância.</li>
+<li>A aba Tickets aparece para qualquer Agente ou Supervisor mesmo sem "Gestão de Tickets" marcada — essa permissão libera o menu de configuração de tickets, não a aba de vínculo do próprio usuário a filas e níveis.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Com "Gestão de Tickets" marcada, o supervisor não vê o menu de tickets inteiro: por padrão só acessa o item "Motivos". Os itens Grupos de Serviço, Classificações e Emails ficam restritos ao Administrador mesmo com a flag marcada.</li>
+<li>O agente recebe tickets de todas as filas dos níveis marcados em "Níveis de ticket", mais as filas específicas adicionadas em "Filas de ticket" — os dois campos se somam, não se substituem.</li>
+<li>Da mesma forma, "Níveis supervisionados (tickets)" e "Filas supervisionadas (tickets)" se somam para definir o alcance do supervisor.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Confirme se o módulo de Tickets está habilitado na instância e se o usuário é do tipo Supervisor, ou Agente com "Acessar funções de supervisão" ativada — sem isso a seção Ticket nem aparece na aba Permissões. Veja também o artigo "Quais permissões gerais de atendimento e tarefas existem na ficha do usuário?" para as demais seções da aba Permissões, e "O que é o módulo de Tickets, para que serve e como funciona?" para o funcionamento geral de tickets.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-50">Por que um agente sem perfil administrador só vê os tickets que ele criou?</h3>
+<h4>Resumo</h4>
+<p>Não é um erro: por padrão, um usuário com perfil <strong>Agente</strong> só enxerga na tela de tickets os chamados que já estão <strong>atribuídos a ele mesmo</strong>. Além disso, um ticket <strong>nunca é vinculado automaticamente</strong> a quem o criou — ele nasce sem agente e só passa a aparecer para alguém quando é distribuído ou atribuído. Administradores e supervisores enxergam um conjunto mais amplo, conforme suas filas/níveis.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+  <li>Um agente (perfil comum, sem ser Administrador ou Supervisor) só vê os próprios tickets, mesmo estando na mesma fila/grupo de colegas que têm outros tickets.</li>
+  <li>Um ticket foi criado (manualmente, por automação ou a partir de um atendimento) e não aparece para o agente que o abriu.</li>
+  <li>Você quer entender por que um ticket "sem dono" não aparece para ninguém da equipe.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+  <li><strong>Entenda a regra padrão.</strong> Um ticket é sempre criado sem agente responsável, independentemente de quem o abriu. A partir daí ele segue o método de distribuição configurado na fila (pode ser distribuído automaticamente a um agente ou ficar pendente para atribuição manual).</li>
+  <li><strong>Verifique a que um agente comum tem acesso.</strong> A tela de tickets de um Agente mostra apenas os tickets em que o campo de responsável é o próprio usuário logado. Não existe, para esse perfil, uma visão "todos os tickets da fila".</li>
+  <li><strong>Para o agente puxar tickets sem dono da própria fila, habilite a auto-atribuição.</strong> Um Administrador acessa <strong>Configurações &gt; Configurações Gerais de Tickets</strong> e ativa a opção <strong>"Permitir agentes visualizar e se auto-atribuir tickets sem agente nas suas filas"</strong>.</li>
+  <li><strong>Confirme o vínculo do agente com a fila/nível do ticket.</strong> Em <strong>Configurações &gt; Usuários</strong>, abra o usuário e confira, na aba de tickets, os campos <strong>Níveis de ticket</strong> (o agente recebe tickets de todas as filas dos níveis selecionados) e <strong>Filas de ticket</strong> (filas específicas adicionais). Se o ticket estiver numa fila fora desses vínculos, ele nunca vai aparecer para esse agente.</li>
+  <li><strong>Com a opção ativada, o agente usa "Atribuir a mim".</strong> Um ticket aberto e sem responsável, dentro de uma fila vinculada ao agente, passa a exibir o botão <strong>Atribuir a mim</strong>, que faz a auto-atribuição.</li>
+  <li><strong>Para visão ampla por fila/nível, use o perfil Supervisor.</strong> No cadastro do usuário é possível definir <strong>Níveis supervisionados (tickets)</strong> e <strong>Filas supervisionadas (tickets)</strong>: um Supervisor enxerga todos os tickets das filas pertencentes aos níveis selecionados, não só os próprios.</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+  <li><strong>Isso não é uma falha do sistema.</strong> A restrição de um agente comum só ver seus próprios tickets é comportamento intencional, não um bug pontual de uma instância.</li>
+  <li><strong>Criação não vincula ao criador.</strong> Não existe hoje uma configuração para que o ticket nasça já atribuído a quem o criou. O caminho é: deixar a fila distribuir automaticamente, atribuir manualmente (se você for admin/supervisor), ou habilitar a auto-atribuição para que o próprio criador possa se atribuir o ticket depois de criado.</li>
+  <li><strong>Mesmo com a auto-atribuição ativada, um agente nunca vê tickets já atribuídos a outro agente.</strong> Essa regra é fixa e não é configurável — ela só libera a visão dos tickets <em>sem</em> responsável nas filas do próprio agente.</li>
+  <li>O botão <strong>Atribuir a mim</strong> só aparece para tickets com status <strong>Aberto</strong> e sem responsável definido.</li>
+  <li>Se o agente não estiver vinculado ao nível ou à fila do ticket (via Níveis de ticket / Filas de ticket no cadastro dele), nenhuma das opções acima resolve — o vínculo precisa existir primeiro.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Confirme com o administrador se a opção de auto-atribuição está realmente ativada em Configurações Gerais de Tickets e se o agente está vinculado ao nível/fila correto em seu cadastro de usuário. Se mesmo assim um ticket específico não aparecer para o agente certo, reúna o número do ticket, a fila em que ele está e o perfil do usuário (Agente, Supervisor ou Administrador) antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-206">Qual o limite máximo de atendimentos e de tickets simultâneos que posso configurar para um agente?</h3>
+<h4>Resumo</h4>
+<p>Cada agente pode ter um limite próprio de atendimentos simultâneos e, com o módulo de Tickets habilitado, um limite próprio de tickets simultâneos. Os dois campos ficam na edição do usuário (<em>Configurações &gt; Usuários</em>), aceitam de 0 a 500, e 0 significa sem limite. Além do limite numérico, um conjunto de permissões na seção "Chat" da aba Permissões controla como o agente puxa atendimentos da fila: se o limite vale ao puxar ativamente, se ele pode escolher qual atendimento puxar, se pode abrir novos chats e se atendimentos travados ignoram os limites. A aba "Tickets" também define a quais níveis e filas de ticket o agente (ou supervisor) fica vinculado.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Definir quantos atendimentos um agente pode receber ao mesmo tempo.</li>
+<li>Definir quantos tickets um agente pode ter atribuídos ao mesmo tempo.</li>
+<li>Entender por que um agente recebeu mais atendimentos do que o limite configurado.</li>
+<li>Entender por que um agente consegue (ou não consegue) escolher qual atendimento puxar da fila, ou abrir novos chats por conta própria.</li>
+<li>Configurar o que um supervisor enxerga no painel de supervisão.</li>
+<li>Definir de quais níveis ou filas de ticket um agente ou supervisor recebe e gerencia tickets.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra o usuário.</strong> Vá em <em>Configurações &gt; Usuários</em> e clique no agente ou supervisor a configurar.</li>
+<li><strong>Defina o limite de atendimentos.</strong> Na aba "Filas e Atendimento", preencha "Número máximo de atendimentos".</li>
+<li><strong>Defina o limite de tickets, se aplicável.</strong> Na aba "Tickets" (só visível com o módulo habilitado, para usuário do tipo Agente ou Supervisor), preencha "Capacidade máxima de tickets".</li>
+<li><strong>Vincule o agente a níveis e filas de ticket.</strong> Ainda na aba "Tickets", em "Níveis de ticket" selecione os níveis de atendimento aos quais o agente fica vinculado — ele passa a receber tickets de todas as filas pertencentes a esses níveis; em "Filas de ticket" selecione filas de ticket específicas adicionais, além das já herdadas pelos níveis. Para um usuário Supervisor, os campos equivalentes são "Níveis supervisionados (tickets)" e "Filas supervisionadas (tickets)", que definem quais tickets ele pode visualizar e gerenciar.</li>
+<li><strong>Ajuste os campos que afetam a distribuição de atendimento comum</strong> na aba "Filas e Atendimento": "Filas de atendimento" (a quais filas o agente pertence), "Filtros" (tags que restringem quais atendimentos ele recebe) e "Grupo de visualização" (quem mais enxerga as mensagens desse atendimento).</li>
+<li><strong>Ajuste as permissões de puxar atendimento.</strong> Na aba "Permissões", seção "Chat" (só aparece para Agente com chat habilitado), marque conforme o comportamento desejado: "Limitar atendimentos puxados", "Visualizar e selecionar atendimentos da fila", "Ignorar limites para atendimentos travados", "Abrir novos chats" e "Usuário sempre online".</li>
+<li><strong>Salve</strong> o cadastro.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>"Número máximo de atendimentos": de 0 a 500. Se 0, não há limite. Vale só para atendimentos vindos da fila; atendimentos atribuídos por preferência do contato, atendimentos travados e transferências não obedecem a esse limite.</li>
+<li>"Capacidade máxima de tickets": de 0 a 500, mesma regra de 0 = sem limite. O campo só aparece no formulário quando o usuário editado é do tipo Agente.</li>
+<li>"Limitar atendimentos puxados": decide se o limite de atendimentos também vale quando o agente tenta puxar ativamente um atendimento da fila. Desligado, o agente pode puxar quantos atendimentos quiser, mesmo com o limite configurado.</li>
+<li>"Visualizar e selecionar atendimentos da fila": se marcada, o agente vê a lista de atendimentos aguardando na fila e escolhe qual deseja puxar, em vez de só poder puxar o que está no topo.</li>
+<li>"Ignorar limites para atendimentos travados": se marcada, atendimentos travados para esse agente são entregues a ele mesmo que isso ultrapasse os limites de atendimento da fila e do agente.</li>
+<li>"Abrir novos chats": permite ao agente iniciar novos atendimentos por conta própria, além dos que recebe por distribuição de fila.</li>
+<li>"Usuário sempre online": o usuário é sempre considerado conectado, mesmo sem nenhuma conexão ativa no momento — indicado para uso em dispositivos móveis que entram em modo de economia de energia e cortam a conexão.</li>
+<li>A aba "Filas e Atendimento" só aparece para usuários do tipo Agente ou Supervisor. A seção "Chat" da aba Permissões só aparece para Agente com chat habilitado.</li>
+<li>A aba "Tickets" só aparece com o módulo de Tickets habilitado, para Agente ou Supervisor. "Níveis de ticket" e "Filas de ticket" só aparecem para Agente; "Níveis supervisionados (tickets)" e "Filas supervisionadas (tickets)" só aparecem para Supervisor.</li>
+<li>Campo "Filas de atendimento" (só Agente): o agente só recebe distribuição ou pode puxar atendimento das filas selecionadas ali, mas continua podendo receber transferências de qualquer fila.</li>
+<li>Campo "Filtros" (tags, só Agente): o agente só recebe atendimentos sem filtro ou que casem com um dos filtros configurados.</li>
+<li>Campo "Grupo de visualização": restringe quem vê as mensagens trocadas enquanto o atendimento está com esse agente — só o mesmo grupo, além de supervisores e administradores.</li>
+<li>Para Supervisor existem ainda "Filas supervisionadas" (o que aparece no painel de agentes do supervisor), "Filtro de usuários" (restringe quais agentes o supervisor enxerga) e "Perfis de monitoramento de produtividade" (quais perfis de scoring o supervisor pode ver).</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>O limite de atendimentos por agente é independente do limite de atendimentos por fila: se um agente está em várias filas, cada fila pode ter seu próprio limite de atendimentos simultâneos, e o total do agente pode somar mais do que o valor configurado aqui.</li>
+<li>Atendimentos travados, com agente preferencial ou vindos de transferência ignoram o limite de atendimentos do agente — por isso o número de atendimentos abertos pode passar do valor configurado em alguns casos.</li>
+<li>O limite de tickets segue o mesmo padrão (0 = sem limite), mas é um campo separado do limite de atendimentos: configurar um não afeta o outro. Ele também é independente dos campos "Níveis de ticket" e "Filas de ticket": vincular o agente a um nível não aumenta nem reduz sua capacidade máxima de tickets.</li>
+<li>"Visualizar e selecionar atendimentos da fila", "Ignorar limites para atendimentos travados", "Abrir novos chats" e "Usuário sempre online" são permissões independentes entre si e da "Limitar atendimentos puxados" — cada uma pode ser marcada ou desmarcada sem afetar as demais.</li>
+<li>Veja também o artigo "Como funciona o limite de atendimentos por agente e quando ele pode ser ultrapassado?" para os cenários de falha ao aplicar o limite de atendimentos.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o agente continuar recebendo mais atendimentos ou tickets do que o limite configurado, ou não conseguir puxar/escolher atendimentos como esperado, confirme se os atendimentos excedentes se encaixam em uma das exceções (preferência do contato, travado ou transferência) e se os alternadores da seção "Chat" da aba Permissões (especialmente "Limitar atendimentos puxados" e "Visualizar e selecionar atendimentos da fila") estão no estado esperado. Se o agente não está recebendo tickets de um motivo esperado, confirme também se ele está vinculado ao nível ou à fila de ticket correspondente na aba "Tickets". Antes de acionar o suporte, reúna o nome do agente, o valor configurado no campo, as permissões marcadas na seção Chat, os níveis/filas de ticket vinculados e um exemplo de atendimento ou ticket que excedeu o limite ou não pôde ser puxado.</p>
+  </div>
+  <h2 id="cria-o-e-opera-o-de-tickets">Criação e operação de tickets</h2>
+  <div class="faq">
+    <h3 id="faq-295">Quais campos existem no diálogo de criação de um ticket?</h3>
+<h4>Resumo</h4>
+<p>O diálogo "Criar Ticket" pede o tipo do ticket, a classificação e o motivo do atendimento, um assunto e uma descrição opcional, além de permitir vincular contatos e anexar arquivos já na criação. Classificação, Motivo e Assunto são obrigatórios; o botão "Criar Ticket" só libera quando esses três campos estão preenchidos.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você precisa abrir um ticket manualmente, sem que ele venha de uma automação ou de um fluxo.</li>
+<li>Você quer saber quais campos são obrigatórios antes de conseguir clicar em "Criar Ticket".</li>
+<li>Você quer saber por que o campo "Motivo" aparece desabilitado.</li>
+<li>Você quer vincular um contato existente ou anexar um arquivo já no momento da criação do ticket.</li>
+<li>Você quer entender como a fila e o prazo de SLA do ticket são definidos no momento da criação.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra o diálogo.</strong> Clique no ícone de criar ticket no menu <em>Tickets</em> (Painel de Tickets) ou, dentro de um atendimento em andamento, no botão de criar ticket associado ao contato.</li>
+<li><strong>Escolha o "Tipo".</strong> Selecione "Externo" ou "Interno".</li>
+<li><strong>Escolha a "Classificação".</strong> Selecione uma das classificações cadastradas na instância. É obrigatório.</li>
+<li><strong>Escolha o "Motivo".</strong> Este campo só é habilitado depois que uma Classificação é selecionada; a lista de motivos exibida é filtrada de acordo com a Classificação escolhida. É obrigatório.</li>
+<li><strong>Preencha o "Assunto".</strong> Texto livre, obrigatório.</li>
+<li><strong>Preencha a "Descrição" (opcional).</strong> Campo de texto livre com múltiplas linhas.</li>
+<li><strong>Vincule contatos (opcional).</strong> Use a área de seleção de contatos para associar um ou mais contatos já cadastrados ao ticket.</li>
+<li><strong>Anexe arquivos (opcional).</strong> Adicione os anexos desejados diretamente na criação do ticket.</li>
+<li><strong>Clique em "Criar Ticket".</strong> O botão só fica habilitado quando Classificação, Motivo e Assunto estão preenchidos e nenhuma outra criação está em andamento.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Campo</th><th>Obrigatório</th><th>Observação</th></tr></thead>
+<tbody>
+<tr><td>Tipo</td><td>não</td><td>Externo ou Interno</td></tr>
+<tr><td>Classificação</td><td>sim</td><td>lista as classificações cadastradas na instância</td></tr>
+<tr><td>Motivo</td><td>sim</td><td>desabilitado até escolher a Classificação; opções filtradas pela Classificação</td></tr>
+<tr><td>Assunto</td><td>sim</td><td>texto livre, até 255 caracteres</td></tr>
+<tr><td>Descrição</td><td>não</td><td>texto livre, várias linhas</td></tr>
+<tr><td>Contatos vinculados</td><td>não</td><td>pode vincular mais de um contato existente</td></tr>
+<tr><td>Anexos</td><td>não</td><td>pode anexar arquivos já na criação</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>A fila do ticket não é escolhida no diálogo: ela é resolvida automaticamente a partir do Motivo, percorrendo a cadeia de níveis de atendimento do motivo (N1, depois N2 e assim por diante) até encontrar um nível com fila ativa.</li>
+<li>Se nenhuma fila ativa for encontrada para o Motivo escolhido, a criação do ticket falha e nenhum ticket é gravado.</li>
+<li>Os prazos de SLA de primeira resposta e de resolução do ticket são calculados automaticamente no momento da criação, com base no Motivo e na fila resolvida — não existe campo de SLA neste diálogo.</li>
+<li>Todo ticket criado por este diálogo nasce com o status "Aberto".</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Se o campo "Motivo" parece travado, selecione primeiro uma "Classificação" — ele só libera depois disso.</li>
+<li>A prioridade do ticket criado por este diálogo é herdada do Motivo escolhido, quando o motivo tem uma prioridade definida; não há campo de prioridade separado neste diálogo.</li>
+<li>O ticket criado por este diálogo, quando aberto a partir de um atendimento, já nasce vinculado ao contato e ao canal daquele atendimento.</li>
+<li>Para uma visão geral do módulo de Tickets e como ele se encaixa no atendimento, veja o artigo "O que é o módulo de Tickets, para que serve e como funciona?".</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o botão "Criar Ticket" não habilita, confira se Classificação, Motivo e Assunto estão todos preenchidos. Se a Classificação ou o Motivo esperado não aparecem na lista, confirme se eles estão cadastrados na instância. Se a criação falhar informando que não há fila ativa para o motivo, verifique a configuração de níveis de atendimento daquele motivo. Reúna a Classificação e o Motivo usados, e o horário da tentativa, antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-265">Quais elementos existem para criar, resolver, escalar ou comentar um ticket no fluxo?</h3>
+<h4>Resumo</h4>
+<p>O editor de Fluxo de Automação e URA tem uma categoria de elementos dedicada a tickets: criar, editar, buscar, resolver, reabrir, atribuir, escalar, marcar como aguardando cliente, comentar, vincular/desvincular contato, alterar status, adicionar tag e alterar estágio de um ticket. Esses elementos ficam disponíveis em qualquer tipo de fluxo (URA de mensagem, URA telefônica ou Automação).</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você quer abrir um ticket automaticamente a partir de uma conversa, sem depender de um agente fazer isso manualmente.</li>
+<li>Você quer que o fluxo resolva, reabra ou escale um ticket conforme uma condição (por exemplo, resposta do cliente ou retorno de uma integração).</li>
+<li>Você quer consultar dados de um ticket existente dentro do fluxo, por telefone, e-mail, ID ou número.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra o editor.</strong> Acesse Automação &gt; Fluxo de Automação e URA, abra o fluxo desejado e entre em Configurar fluxo.</li>
+<li><strong>Localize a categoria Tickets</strong> na barra superior do editor (só aparece conforme o plano contratado), ou use o campo de busca de elementos pelo nome.</li>
+<li><strong>Arraste o elemento desejado</strong> para o fluxograma, por exemplo Criar ticket ou Resolver ticket, e conecte-o ao ponto certo do fluxo.</li>
+<li><strong>Preencha a configuração do elemento.</strong> Em Criar ticket, informe ao menos o Motivo; a Classificação pode ficar em branco para ser preenchida automaticamente a partir do motivo.</li>
+<li><strong>Salve o resultado em uma variável, se necessário,</strong> para usar os dados do ticket (criado ou encontrado) nos elementos seguintes do fluxo.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Elemento</th><th>O que faz</th></tr></thead>
+<tbody>
+<tr><td>Criar ticket</td><td>Cria um novo ticket com status Aberto. O Motivo é obrigatório; a fila é resolvida automaticamente a partir dele, seguindo a cadeia de escalonamento de níveis (N1, N2, N3...). Se a Classificação não for informada, é obtida a partir do motivo. Os prazos de SLA são calculados automaticamente.</td></tr>
+<tr><td>Editar ticket</td><td>Altera assunto, prioridade e sub-motivo, e pode adicionar tags a um ticket existente pelo ID. Campos deixados em branco não alteram o ticket; tags informadas são somadas às já existentes.</td></tr>
+<tr><td>Buscar ticket</td><td>Localiza tickets por ID, número, telefone ou e-mail e disponibiliza o resultado em variáveis.</td></tr>
+<tr><td>Resolver ticket</td><td>Marca o ticket como Resolvido, registra a data de resolução e calcula o cumprimento do SLA. Aceita um comentário opcional, externo ou interno.</td></tr>
+<tr><td>Reabrir ticket</td><td>Reabre um ticket que estava resolvido, com comentário opcional; o prazo de SLA é recalculado com base no tempo que ainda restava no momento em que o ticket foi resolvido.</td></tr>
+<tr><td>Atribuir ticket</td><td>Atribui o ticket a um agente específico ou por distribuição automática, conforme o método configurado na fila do ticket.</td></tr>
+<tr><td>Escalar ticket</td><td>Move o ticket para uma fila do próximo nível de escalonamento com o mesmo motivo; o ticket perde o agente responsável atual, volta ao status Aberto e tem o SLA recalculado.</td></tr>
+<tr><td>Aguardar cliente (ticket)</td><td>Marca o ticket como aguardando retorno do cliente, registrando um comentário.</td></tr>
+<tr><td>Adicionar comentário ao ticket</td><td>Adiciona um comentário a um ticket pelo ID. O comentário externo (público) é visível ao cliente e dispara o evento de "comentário adicionado", que pode acionar outras automações configuradas para reagir a esse evento; o comentário interno é visível só para a equipe e não dispara esse evento.</td></tr>
+<tr><td>Vincular / Desvincular contato ao ticket</td><td>Associa ou remove a associação de um contato a um ticket pelo ID do ticket. O contato pode ser o do atendimento atual associado ao fluxo, ou um contato específico informado pelo ID.</td></tr>
+<tr><td>Alterar status do ticket</td><td>Altera o status do ticket entre Aberto, Em andamento, Resolvido ou Aguardando recurso. Para colocar o ticket como aguardando o cliente, use o elemento Aguardar cliente (ticket).</td></tr>
+<tr><td>Adicionar tag ao ticket</td><td>Adiciona uma etiqueta a um ticket existente.</td></tr>
+<tr><td>Alterar estágio do ticket</td><td>Move o ticket para outro estágio configurado no fluxo de estágios de tickets.</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>Se o Motivo informado em Criar ticket não resolver uma fila válida, o ticket não é criado e o fluxo segue normalmente para o próximo elemento, sem interromper a execução.</li>
+<li>Se o ticket informado por ID não for encontrado em Editar, Resolver, Reabrir, Atribuir ou Escalar ticket, nenhuma alteração é feita e o fluxo segue normalmente.</li>
+<li>O resultado de Criar ticket ou Buscar ticket pode ser salvo em uma variável trazendo id, número, assunto, status, prioridade, canal, classificação, motivo, fila, agente responsável, prazos de SLA e dados do estágio do ticket.</li>
+<li>Enquanto o ticket está no status "Aguardando cliente" (aplicado pelo elemento Aguardar cliente), a contagem do prazo de SLA fica pausada; ao sair desse status — inclusive por Alterar status do ticket —, o tempo que ficou pausado é descontado do prazo restante.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>A automação só cria o ticket se o Motivo resolver uma fila ativa com atendimento de tickets configurada — motivos sem fila de destino não geram ticket, e a automação não avisa isso de outra forma além de o ticket simplesmente não aparecer.</li>
+<li>Alterar status do ticket dispara automaticamente eventos do sistema que podem acionar outras automações configuradas para reagir a mudança de status — tenha isso em mente ao encadear elementos de ticket em sequência. O mesmo vale para o comentário externo em Adicionar comentário ao ticket.</li>
+<li>A categoria Tickets só aparece conforme o plano contratado da instância; se ela não aparece na barra do editor, confirme com o administrador se o módulo de Tickets está habilitado.</li>
+<li>Veja também o artigo "O que é o módulo de Tickets, para que serve e como funciona?" para entender fila, motivo, classificação e SLA fora do contexto do editor de fluxo.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se um elemento de ticket não produz o efeito esperado, confirme se o Motivo informado tem uma fila de destino válida configurada, se o ID do ticket usado na variável está correto, e consulte o Visualizador de debug do fluxo para ver o valor das variáveis em cada etapa. Reúna o nome do fluxo, o elemento usado e o número ou ID do ticket envolvido antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-271">Onde uma configuração de Horário de Atendimento pode ser usada além da própria tela de Horários?</h3>
+<h4>Resumo</h4>
+<p>Uma configuração de <strong>Horário de Atendimento</strong> (cadastrada em Cadastros &gt; Horários) pode ser reaproveitada em quatro lugares diferentes: no campo <strong>Horário de atendimento</strong> de uma fila, no bloco <strong>Verificar horário</strong> do editor de URA/Automação, no campo <strong>Horário Comercial</strong> de um motivo de ticket (para restringir a meta de SLA) e no campo <strong>Tabela de horários</strong> de cada acompanhamento automático de um assistente de IA (para que ele só retome a conversa dentro do expediente). A mesma configuração pode estar vinculada a quantas filas, automações, motivos de ticket e assistentes você quiser ao mesmo tempo — não é preciso duplicar o cadastro.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você já cadastrou um Horário de Atendimento e quer saber em quais telas dá para usá-lo.</li>
+<li>Você quer entender a ordem em que o sistema verifica o horário da fila quando ela tem mais de uma configuração de horário envolvida.</li>
+<li>Você quer que a meta de SLA de um motivo de ticket só valha dentro de um horário comercial específico, em vez de valer o tempo todo.</li>
+<li>Você quer que o assistente de IA não mande acompanhamentos automáticos de madrugada ou fora do expediente.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Vincular a uma fila.</strong> Em <strong>Configurações &gt; Filas</strong>, no campo <strong>Horário de atendimento</strong> da fila, selecione a configuração desejada (ou clique no ícone ao lado para editar a existente ou criar uma nova sem sair da tela). Deixe em "Nenhum" se a fila não deve ser fechada por esse mecanismo.</li>
+<li><strong>Vincular a uma URA ou automação.</strong> Em <strong>Configurações &gt; Fluxo de Automação e URA</strong>, adicione o bloco <strong>Verificar horário</strong> ao fluxo e informe, no campo <strong>ID da Configuração</strong>, o ID do Horário de Atendimento cadastrado. O bloco gera duas saídas, <strong>Aberto</strong> e <strong>Fechado</strong>, conforme o horário. Veja também o artigo "Como funciona o bloco 'Verificar horário' da URA e como configurá-lo?" para o passo a passo completo desse bloco.</li>
+<li><strong>Vincular a um motivo de ticket.</strong> Em <strong>Configurações &gt; Ticket &gt; Motivos</strong>, ao criar ou editar um motivo, selecione a configuração no campo <strong>Horário Comercial</strong>. Deixe em "Nenhum" para não restringir a meta de SLA a nenhum horário específico.</li>
+<li><strong>Vincular a um acompanhamento automático do assistente de IA.</strong> No editor do assistente, aba <strong>Avançado</strong>, seção <strong>Acompanhamento automático do cliente</strong>, escolha a configuração no campo <strong>Tabela de horários</strong> de cada acompanhamento. Deixe em "Sempre (sem restrição)" para que ele possa sair a qualquer hora. Veja o artigo "Como fazer o assistente de IA retomar sozinho a conversa quando o cliente para de responder?".</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>Em uma fila com <strong>Horário de atendimento</strong> vinculado, essa verificação é feita primeiro: se o horário estiver fechado (fora do expediente, feriado ou data especial da configuração), a fila já é considerada fora do horário e a mensagem automática de fora de horário é enviada. Se estiver aberto, a fila ainda avalia sua própria <strong>Tabela de horário</strong> (um recurso à parte, específico da fila) para marcar períodos adicionais como fora do horário.</li>
+<li>Uma mesma configuração de Horário de Atendimento pode ser usada simultaneamente em várias filas, em vários blocos de URA/automação, em vários motivos de ticket e nos acompanhamentos de vários assistentes.</li>
+<li>No motivo de ticket, o campo é rotulado <strong>Horário Comercial</strong> (não "Horário de Atendimento"); o motivo tem ainda os campos separados <strong>SLA 1ª Resposta (min)</strong> e <strong>SLA Resolução (horas)</strong>, cuja contagem é o que o Horário Comercial pode restringir.</li>
+<li>No bloco Verificar horário da URA, o campo ID da Configuração é obrigatório: sem ele, o editor sinaliza um alerta de problema na configuração.</li>
+<li>No acompanhamento automático, uma configuração desativada ou excluída não tem próxima abertura: o acompanhamento que depende dela é descartado, em vez de ser enviado fora do horário.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>O nome do campo muda conforme a tela: "Horário de atendimento" na fila, "ID da Configuração" na URA (que recebe o ID da mesma configuração), "Horário Comercial" no motivo de ticket e "Tabela de horários" no acompanhamento do assistente — todos apontam para o mesmo cadastro de Cadastros &gt; Horários.</li>
+<li>Excluir, desativar ou alterar uma configuração de Horário de Atendimento afeta, ao mesmo tempo, todas as filas, automações, motivos de ticket e acompanhamentos de assistentes que a usam — não é um vínculo isolado por tela. Na URA, o bloco Verificar horário apontado para uma configuração excluída passa a seguir sempre a saída Fechado.</li>
+<li>Para saber como criar a configuração de horário em si (dias da semana, feriados, datas especiais), veja o artigo "Como configurar horários de atendimento e cadastrar feriados de uma fila?".</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o comportamento esperado (mensagem de fora de horário, desvio de fluxo na URA, meta de SLA ou acompanhamento do assistente) não estiver acontecendo, confirme em cada tela se o campo de horário está realmente apontando para a configuração certa e não está em "Nenhum" ou "Sempre (sem restrição)". Antes de acionar o suporte, reúna o nome da fila, automação, motivo de ticket ou assistente envolvido, o nome (ou ID) da configuração de Horário de Atendimento vinculada e o horário em que o comportamento saiu diferente do esperado.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-291">Quais campos e limites existem nas Configurações Gerais de Tickets?</h3>
+<h4>Resumo</h4>
+<p>A tela Configurações Gerais de Tickets reúne quatro grupos de opções: fechamento automático, visibilidade de tickets fechados, o que o cliente vê no portal público de acompanhamento e permissões de ações sobre o ticket. Todos os campos ficam em uma única tela, salvos com um botão único, e valem para toda a instância.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Definir depois de quantas horas um ticket resolvido é fechado automaticamente.</li>
+<li>Definir por quanto tempo um ticket fechado continua aparecendo no painel de tickets.</li>
+<li>Decidir quais informações o cliente enxerga no portal público de acompanhamento do ticket (prioridade, nome do agente, classificação).</li>
+<li>Permitir que um ticket resolvido reabra sozinho quando o cliente responde.</li>
+<li>Liberar supervisores para fechar tickets diretamente, com ou sem comentário obrigatório.</li>
+<li>Permitir que agente ou supervisor retorne um ticket do status "Aguardando Cliente".</li>
+<li>Permitir que agentes vejam e se auto-atribuam tickets sem agente nas próprias filas.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra a tela.</strong> Vá em <em>Configurações &gt; Ticket &gt; Configurações Gerais</em>. Só usuários com perfil Administrador têm acesso a este item de menu e a esta tela.</li>
+<li><strong>Fechamento Automático.</strong> Informe em "Horas para auto-fechamento" o tempo, em horas, para mover automaticamente tickets resolvidos para o status fechado.</li>
+<li><strong>Visibilidade de Tickets Fechados.</strong> Informe em "Horas de visibilidade" o tempo, em horas, que um ticket fechado permanece visível no painel de tickets.</li>
+<li><strong>Portal Público (Visualização do Cliente).</strong> Ative ou desative os alternadores "Exibir prioridade", "Exibir nome do agente", "Exibir classificação" e "Reabrir ticket resolvido ao receber resposta do cliente".</li>
+<li><strong>Permissões e Ações.</strong> Ative os alternadores conforme necessário: "Permitir supervisor fechar ticket diretamente", "Exigir comentário ao fechar ticket" (só pode ser ativado se o anterior estiver ativo), "Permitir agente/supervisor retornar ticket de 'Aguardando Cliente'" e "Permitir agentes visualizar e se auto-atribuir tickets sem agente nas suas filas".</li>
+<li><strong>Salve.</strong> Clique em "Salvar" para aplicar as alterações a toda a instância.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Campo</th><th>O que faz</th><th>Limite</th><th>Valor padrão</th></tr></thead>
+<tbody>
+<tr><td>Horas para auto-fechamento</td><td>Tempo para mover ticket resolvido para fechado</td><td>mínimo 1, máximo 120 horas</td><td>48 horas</td></tr>
+<tr><td>Horas de visibilidade</td><td>Tempo que ticket fechado some do painel</td><td>mínimo 1, máximo 120 horas</td><td>24 horas</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>Os alternadores "Exibir prioridade", "Exibir nome do agente", "Exibir classificação" e "Reabrir ticket resolvido ao receber resposta do cliente" vêm ativados por padrão (ligados) em uma instância nova.</li>
+<li>Os alternadores "Permitir supervisor fechar ticket diretamente", "Exigir comentário ao fechar ticket", "Permitir agente/supervisor retornar ticket de 'Aguardando Cliente'" e "Permitir agentes visualizar e se auto-atribuir tickets sem agente nas suas filas" vêm desativados por padrão.</li>
+<li>O alternador "Exigir comentário ao fechar ticket" só fica habilitado quando "Permitir supervisor fechar ticket diretamente" está ativo; desativar o primeiro desativa automaticamente o segundo na tela.</li>
+<li>Todas as opções desta tela são globais: aplicam-se a todos os tickets e a todas as filas da instância, não é possível configurar por fila.</li>
+<li>Somente Administrador acessa esta tela; o item de menu Ticket em Configurações fica visível também para usuários com permissão específica de configurar ticket, mas o submenu "Configurações Gerais" só aparece para Administrador.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>As opções do portal público só têm efeito para clientes que acompanham o ticket pelo link público; não afetam o que o agente vê dentro do sistema.</li>
+<li>Se "Reabrir ticket resolvido ao receber resposta do cliente" estiver desativado, uma resposta do cliente a um ticket resolvido não muda o status automaticamente.</li>
+<li>Alterar "Horas para auto-fechamento" ou "Horas de visibilidade" não reprocessa tickets já fechados retroativamente com o valor antigo; o novo valor passa a valer a partir da próxima verificação do sistema.</li>
+<li>Para a lista completa dos status de ticket e as regras específicas de cada transição (o que bloqueia fechar, reabrir ou sair de "Aguardando Cliente"), veja o artigo "Quais são os status de um ticket e quais regras controlam a mudança entre eles?".</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Confirme se o usuário tem perfil Administrador (o menu Ticket &gt; Configurações Gerais não aparece para outros perfis). Se um ticket não fechou ou não sumiu do painel no prazo esperado, verifique o valor salvo nesta tela e o horário em que o ticket mudou para o status resolvido, antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-167">Como cadastrar uma etiqueta e marcá-la para contato, FAQ, tarefa ou CRM?</h3>
+<h4>Resumo</h4>
+<p>Etiquetas de Contato, FAQ, Tarefas e CRM ficam em <strong>Configurações &gt; Etiquetas &gt; Etiquetas de Contato, FAQ, Tarefas e CRM</strong>, acesso exclusivo de Administrador. Uma mesma etiqueta pode ser marcada para valer em mais de um lugar ao mesmo tempo: contatos, FAQ e Novidade, tarefas, CRM (oportunidades) e tickets. Ela recebe um nome e uma cor de fundo/fonte escolhidas em uma paleta fixa, e passa a aparecer como opção de marcação nas telas correspondentes.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Cadastrar uma nova etiqueta para classificar contatos, oportunidades do CRM, tarefas, artigos de FAQ/Novidade ou tickets.</li>
+<li>Entender por que uma etiqueta aparece no filtro de contatos mas não no kanban do CRM (ou vice-versa).</li>
+<li>Editar o nome ou as cores de uma etiqueta já existente.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abrir a tela.</strong> Vá em <em>Configurações &gt; Etiquetas &gt; Etiquetas de Contato, FAQ, Tarefas e CRM</em>. Essa tela é separada da tela de Etiquetas de Chat, que fica no mesmo menu.</li>
+<li><strong>Nome.</strong> Preencha o nome da etiqueta (campo obrigatório).</li>
+<li><strong>Cores.</strong> Escolha a Cor do fundo e a Cor da fonte, cada uma em uma lista fixa de cores disponíveis. Uma prévia da etiqueta com as cores escolhidas aparece no rodapé do formulário.</li>
+<li><strong>Onde a etiqueta vale.</strong> Ative um ou mais dos toggles: Etiqueta de contatos, Etiqueta de FAQ e Novidade, Etiqueta de Tarefas, Etiqueta de CRM e Etiqueta de Tickets. É possível ativar vários ao mesmo tempo — a mesma etiqueta passa a estar disponível em todos os lugares marcados.</li>
+<li><strong>Salvar.</strong> Clique em Adicionar (ou Atualizar, se estiver editando uma etiqueta existente).</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>Nome: obrigatório, até 200 caracteres na tela.</li>
+<li>Cor do fundo e Cor da fonte: selecionadas de uma paleta fixa de cores (não é possível digitar uma cor livre).</li>
+<li>O toggle "Etiqueta de CRM" só aparece na tela se o recurso de CRM estiver habilitado na instância; se o CRM estiver desativado, esse toggle não é exibido.</li>
+<li>Acesso à tela é exclusivo do perfil Administrador.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Cada uso (contato, FAQ/Novidade, tarefa, CRM, ticket) é um vínculo independente: uma etiqueta marcada só como "Etiqueta de contatos" não aparece no filtro do kanban do CRM nem no formulário de tarefa, mesmo que o nome pareça genérico.</li>
+<li>Etiquetas de contato aparecem no filtro e no cadastro de contato; etiquetas de CRM aparecem no filtro do painel de CRM; etiquetas de tarefa aparecem no formulário de tarefa.</li>
+<li>Não confunda esta tela com Etiquetas de Chat, que é um cadastro separado usado para marcar atendimentos/conversas.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se uma etiqueta recém-criada não aparece na tela onde você esperava usá-la, confira se o toggle correspondente (contatos, FAQ e Novidade, tarefas, CRM ou tickets) está realmente ativado no cadastro da etiqueta, e se o recurso de CRM está habilitado na instância quando o caso for etiqueta de CRM. Se o problema for uma etiqueta não disparar uma automação de transferência esperada, veja também o artigo "Por que uma etiqueta ou automação de transferência não move o atendimento?".</p>
+  </div>
+  <h2 id="relat-rios-pain-is-e-auditoria">Relatórios, painéis e auditoria</h2>
+  <div class="faq">
+    <h3 id="faq-301">Quais relatórios de Tickets existem no menu de Relatórios e o que cada um mostra?</h3>
+<h4>Resumo</h4>
+<p>O submenu <em>Relatórios &gt; Tickets</em>, visível para quem é Supervisor ou Administrador, reúne 8 relatórios detalhados: SLA Detalhado, Top Problemas, Top Clientes, Volumetria de Tickets, Performance Agentes, Auditoria, Histórico e Tickets Empresa. Esse submenu é diferente do item "Tickets" que aparece isolado no menu de Relatórios para Supervisores — esse último é o painel-resumo (dashboard) de indicadores, não um relatório detalhado.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você quer saber quais relatórios detalhados de tickets existem além do painel de indicadores.</li>
+<li>Você precisa localizar um relatório específico (SLA, produtividade do agente, histórico de um ticket) e não sabe em qual item do menu ele está.</li>
+<li>Você quer entender a diferença entre o painel-resumo "Tickets" e o submenu de relatórios "Tickets".</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra o menu de relatórios.</strong> Vá em <em>Relatórios &gt; Tickets</em> (submenu, visível a partir do perfil Supervisor).</li>
+<li><strong>Escolha o relatório</strong> conforme a necessidade — veja a tabela abaixo.</li>
+</ol>
+
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Relatório</th><th>O que mostra</th></tr></thead>
+<tbody>
+<tr><td>SLA Detalhado</td><td>Detalhamento do cumprimento de SLA por motivo/categoria, com prazos configurados e tempos médios de primeira resposta e resolução no período.</td></tr>
+<tr><td>Top Problemas</td><td>Ranking dos assuntos/motivos de ticket mais recorrentes.</td></tr>
+<tr><td>Top Clientes</td><td>Ranking dos clientes com mais tickets abertos.</td></tr>
+<tr><td>Volumetria de Tickets</td><td>Volume de tickets abertos, em andamento e finalizados ao longo do período.</td></tr>
+<tr><td>Performance Agentes</td><td>Por agente: total de tickets finalizados no período, tempo médio de primeira resposta, tempo médio de resolução, percentual de tickets com primeira resposta dentro do SLA, percentual de tickets resolvidos dentro do SLA e resolução no primeiro contato (percentual resolvido sem reabertura).</td></tr>
+<tr><td>Auditoria</td><td>Registro de alterações feitas nos tickets, com ação "Visualizar ticket" em cada linha para abrir o detalhe do ticket correspondente.</td></tr>
+<tr><td>Histórico</td><td>Linha do tempo de eventos de cada ticket, também com ação "Visualizar ticket" em cada linha.</td></tr>
+<tr><td>Tickets Empresa</td><td>Relatório de tickets agregado por empresa/cliente.</td></tr>
+</tbody>
+</table></div>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>O submenu Relatórios &gt; Tickets e todos os 8 relatórios nele exigem perfil Supervisor ou Administrador; Agente não tem acesso.</li>
+<li>O submenu só aparece se o módulo de Tickets estiver habilitado na instância.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Não confunda o submenu "Tickets" de Relatórios (os 8 relatórios detalhados acima) com o item "Tickets" isolado no mesmo menu de Relatórios, que abre o painel-resumo de indicadores (dashboard), e não um relatório tabular.</li>
+<li>Auditoria e Histórico têm propósitos diferentes: Auditoria foca em alterações registradas nos tickets; Histórico foca na sequência de eventos do ciclo de vida de cada ticket. Os dois oferecem "Visualizar ticket" para ir direto ao detalhe.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Veja também o artigo "O que é o módulo de Tickets, para que serve e como funciona?" para o panorama geral do módulo. Se um relatório específico não aparecer com os dados esperados, confirme o período do filtro e reúna o nome exato do relatório e do Motivo/agente envolvido antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-289">Quais colunas e indicadores tem o relatório de Tickets SLA Detalhado?</h3>
+<h4>Resumo</h4>
+<p>O relatório SLA Detalhado mostra, por motivo/categoria de ticket, o volume de tickets finalizados no período e o desempenho de SLA de resolução e de primeira resposta, junto com tempos médios e percentual de violações. Fica em <strong>Relatórios &gt; Tickets &gt; SLA Detalhado</strong>, visível apenas para Supervisor/Administrador e apenas quando o módulo de Tickets está habilitado na instância.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Entender quais colunas e indicadores esse relatório mostra antes de orientar um usuário a interpretá-lo.</li>
+<li>Comparar o cumprimento de SLA entre diferentes motivos de ticket num período.</li>
+<li>Identificar quais motivos concentram mais violações de prazo.</li>
+<li>Exportar os dados de SLA por motivo para uma planilha.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra o relatório.</strong> Vá em <strong>Relatórios &gt; Tickets &gt; SLA Detalhado</strong>.</li>
+<li><strong>Escolha o período.</strong> Selecione entre Esta semana, Semana anterior, Últimas 2 semanas, Últimas 4 semanas ou Personalizado (com data de início e fim).</li>
+<li><strong>Leia os cartões de indicador no topo.</strong> Mostram SLA Global, SLA 1ª Resposta, TMR Médio, TMA Médio e o percentual/quantidade de Violações no período.</li>
+<li><strong>Consulte a tabela por motivo.</strong> Cada linha traz os indicadores detalhados daquele motivo de ticket.</li>
+<li><strong>Exporte para Excel (opcional).</strong> Use o botão de exportação da grade; o arquivo é gerado com o nome "SLA Detalhado".</li>
+<li><strong>Atualize os dados.</strong> Use o botão Atualizar para recarregar o relatório com o período selecionado; a tela mostra a data/hora da última geração.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Coluna</th><th>O que mostra</th></tr></thead>
+<tbody>
+<tr><td>Motivo</td><td>Motivo/categoria do ticket</td></tr>
+<tr><td>Tickets</td><td>Total de tickets finalizados no período para aquele motivo</td></tr>
+<tr><td>SLA (h)</td><td>Prazo de SLA de resolução configurado para o motivo, em horas</td></tr>
+<tr><td>SLA %</td><td>Percentual de tickets resolvidos dentro do prazo de SLA</td></tr>
+<tr><td>SLA 1ª Resp. (min)</td><td>Prazo de SLA de primeira resposta configurado para o motivo, em minutos</td></tr>
+<tr><td>SLA 1ª Resp. %</td><td>Percentual de tickets com primeira resposta dentro do prazo</td></tr>
+<tr><td>TMR</td><td>Tempo médio de primeira resposta</td></tr>
+<tr><td>TMA</td><td>Tempo médio de resolução do ticket</td></tr>
+<tr><td>Violações</td><td>Quantidade de tickets que ultrapassaram o prazo de SLA no período</td></tr>
+<tr><td>Violações %</td><td>Percentual de tickets com SLA violado em relação ao total do motivo</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>As colunas SLA % e SLA 1ª Resp. % usam um selo colorido: verde a partir de 90%, amarelo entre 70% e 89%, vermelho abaixo de 70%.</li>
+<li>A coluna Violações % usa selo colorido no sentido inverso: verde até 10%, amarelo entre 10% e 30%, vermelho acima de 30%.</li>
+<li>O relatório só considera tickets finalizados dentro do período escolhido.</li>
+<li>O prazo de SLA (horas para resolução, minutos para primeira resposta) é o configurado para cada motivo — motivos diferentes podem ter prazos diferentes.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>O item "Tickets" no submenu Relatórios só aparece quando o módulo de Tickets está habilitado na instância, e mesmo assim só para Supervisor/Administrador.</li>
+<li>Os indicadores dos cartões do topo (SLA Global, SLA 1ª Resposta etc.) são calculados sobre o total do período, enquanto a tabela abaixo detalha por motivo — os dois podem divergir entre si porque representam agregações diferentes.</li>
+<li>O relatório não recarrega sozinho: para ver dados mais recentes é preciso clicar em Atualizar ou trocar o período.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se os números de SLA parecerem incorretos, confira o período selecionado e se o motivo em questão tem um prazo de SLA configurado. Para entender como o percentual de SLA é calculado, veja o artigo "Como o sistema calcula o SLA e o que é o percentual de corte usado?". Veja também o artigo "Quais colunas tem o relatório de Performance de Agentes em Tickets?". Se persistir, acione o suporte informando o motivo e o período usados na consulta.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-290">Quais colunas tem o relatório de Performance de Agentes em Tickets?</h3>
+<h4>Resumo</h4>
+<p>O relatório Performance Agentes mostra, por agente, o volume de tickets finalizados no período e os principais indicadores de qualidade de atendimento: tempos médios de resposta e resolução, percentual de SLA de resolução, percentual de SLA de primeira resposta e percentual de resolução no primeiro contato (FCR). Fica em <strong>Relatórios &gt; Tickets &gt; Performance Agentes</strong>, visível apenas para Supervisor/Administrador e apenas quando o módulo de Tickets está habilitado na instância.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Entender quais colunas e indicadores esse relatório mostra antes de orientar um usuário a interpretá-lo.</li>
+<li>Comparar o desempenho de diferentes agentes na resolução de tickets num período.</li>
+<li>Identificar agentes com SLA baixo ou muitos tickets reabertos (FCR baixo).</li>
+<li>Exportar os dados de performance por agente para uma planilha.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra o relatório.</strong> Vá em <strong>Relatórios &gt; Tickets &gt; Performance Agentes</strong>.</li>
+<li><strong>Escolha o período.</strong> Selecione entre Esta semana, Semana anterior, Últimas 2 semanas, Últimas 4 semanas ou Personalizado (com data de início e fim).</li>
+<li><strong>Leia os cartões de indicador no topo.</strong> Mostram o total de Tickets Atendidos no período, a Média/Agente de tickets e o SLA Médio geral.</li>
+<li><strong>Consulte a tabela por agente.</strong> Cada linha traz os indicadores detalhados daquele agente.</li>
+<li><strong>Exporte para Excel (opcional).</strong> Use o botão de exportação da grade; o arquivo é gerado com o nome "Performance Agentes".</li>
+<li><strong>Atualize os dados.</strong> Use o botão Atualizar para recarregar com o período selecionado; a tela mostra a data/hora da última geração.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Coluna</th><th>O que mostra</th></tr></thead>
+<tbody>
+<tr><td>Agente</td><td>Nome do agente responsável pelos tickets</td></tr>
+<tr><td>Tickets</td><td>Total de tickets finalizados pelo agente no período</td></tr>
+<tr><td>TMR</td><td>Tempo médio de primeira resposta do agente</td></tr>
+<tr><td>TMA</td><td>Tempo médio de resolução dos tickets do agente</td></tr>
+<tr><td>SLA %</td><td>Percentual de tickets do agente resolvidos dentro do prazo de SLA</td></tr>
+<tr><td>FCR %</td><td>Resolução no primeiro contato — percentual de tickets resolvidos sem reabertura</td></tr>
+<tr><td>SLA 1ª Resp. %</td><td>Percentual de tickets do agente com primeira resposta dentro do prazo de SLA</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>A coluna SLA % usa um selo colorido: verde a partir de 90%, amarelo entre 70% e 89%, vermelho abaixo de 70%.</li>
+<li>O relatório só considera tickets finalizados dentro do período escolhido, atribuídos a cada agente.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>O item "Tickets" no submenu Relatórios só aparece quando o módulo de Tickets está habilitado na instância, e mesmo assim só para Supervisor/Administrador.</li>
+<li>Os cartões do topo (Tickets Atendidos, Média/Agente, SLA Médio) são agregados de todos os agentes no período, enquanto a tabela detalha por agente individualmente.</li>
+<li>O relatório não recarrega sozinho: para ver dados mais recentes é preciso clicar em Atualizar ou trocar o período.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se um agente não aparece na lista, confira se ele finalizou algum ticket dentro do período selecionado. Para entender como o percentual de SLA é calculado, veja o artigo "Como o sistema calcula o SLA e o que é o percentual de corte usado?". Veja também o artigo "Quais colunas e indicadores tem o relatório de Tickets SLA Detalhado?". Se persistir, acione o suporte informando o agente e o período usados na consulta.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-363">Quais colunas tem o relatório Top Problemas de Tickets e como funciona a navegação?</h3>
+<h4>Resumo</h4>
+<p>O relatório Top Problemas, em <strong>Relatórios &gt; Tickets &gt; Top Problemas</strong>, não é uma tabela única: é uma navegação em três níveis que começa pelas Classificações, desce para os Motivos de uma classificação e termina nos Submotivos e nas Tags de um motivo específico. Cada nível tem suas próprias colunas, e as tabelas de Motivos, Submotivos e Tags exportam para Excel separadamente. A tela exige perfil Supervisor ou Administrador e só aparece com o módulo de Tickets habilitado.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Saber quais colunas o relatório Top Problemas mostra em cada nível de detalhamento.</li>
+<li>Entender como navegar de uma classificação até os submotivos e tags associados a um motivo.</li>
+<li>Saber o que significam as colunas Tendência e TMR na tabela de Motivos.</li>
+<li>Exportar os dados de Motivos, Submotivos ou Tags para Excel.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abrir o relatório.</strong> Vá em <em>Relatórios &gt; Tickets &gt; Top Problemas</em>.</li>
+<li><strong>Escolher o período.</strong> Selecione Esta semana, Semana anterior, Últimas 2 semanas, Últimas 4 semanas ou Personalizado (com data de início e fim).</li>
+<li><strong>Ler o nível Classificações.</strong> A tela abre mostrando os cartões de total de tickets por tipo e uma classificação por tipo (Externo/Interno, com filtro "Tipo de Classificação": Ambos, Externo ou Interno), com gráfico de barras e tabela ao lado.</li>
+<li><strong>Descer para Motivos.</strong> Clique numa barra do gráfico ou numa linha da tabela de Classificações para abrir os Motivos daquela classificação.</li>
+<li><strong>Descer para Submotivos e Tags.</strong> Clique numa linha da tabela de Motivos para abrir, lado a lado, os Submotivos e as Tags daquele motivo.</li>
+<li><strong>Voltar um nível.</strong> Use a trilha (breadcrumb) exibida acima das tabelas para retornar a um nível anterior.</li>
+<li><strong>Exportar.</strong> Cada tabela (Motivos, Submotivos, Tags) tem seu próprio botão de exportação para Excel.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Nível</th><th>Colunas</th></tr></thead>
+<tbody>
+<tr><td>Classificações</td><td>Classificação, Tipo, Qtd, %</td></tr>
+<tr><td>Motivos</td><td>Motivo, Quantidade, %, Tendência, TMR</td></tr>
+<tr><td>Submotivos</td><td>Submotivo, Quantidade, %</td></tr>
+<tr><td>Tags</td><td>Tag, Quantidade, %</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>A coluna <strong>Tendência</strong> (nível Motivos) compara a quantidade do motivo com o período anterior equivalente: mostra o percentual de variação, ou o rótulo "Novo" quando o motivo não teve tickets no período anterior. A variação exibida é limitada a ±999%; acima disso a tela mostra "+999%"/"-999%" com o valor exato disponível ao passar o mouse.</li>
+<li><strong>TMR</strong> nesta tela é o mesmo indicador de tempo médio de primeira resposta usado no relatório SLA Detalhado de Tickets.</li>
+<li>As três tabelas (Motivos, Submotivos, Tags) exportam para Excel com nomes de arquivo próprios; o nível Classificações não tem botão de exportação.</li>
+<li>Acesso exige perfil Supervisor ou Administrador, e o módulo de Tickets precisa estar habilitado na instância.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Não existe um seletor único para "trocar a visão para Motivo, Submotivo ou Tag" — o relatório é sempre um drill-down: primeiro Classificações, depois Motivos, depois Submotivos e Tags juntos.</li>
+<li>O filtro "Tipo de Classificação" (Ambos/Externo/Interno) só existe no primeiro nível; ele reduz o gráfico e a tabela de Classificações, e por consequência o que aparece ao descer para Motivos.</li>
+<li>Cada troca de período reinicia a navegação de volta ao nível Classificações.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o item Top Problemas não aparece em Relatórios &gt; Tickets, confirme se o usuário tem perfil Supervisor ou Administrador e se o módulo de Tickets está habilitado na instância. Se os números por motivo parecerem incompletos, confira o período selecionado e se o filtro "Tipo de Classificação" não está restringindo a visão. Veja também o artigo "Quais colunas e indicadores tem o relatório de Tickets SLA Detalhado?" para a definição completa de TMR e TMA nos relatórios de tickets.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-328">Quais colunas tem o relatório de Tickets Top Clientes?</h3>
+<h4>Resumo</h4>
+<p>O relatório Top Clientes, em <strong>Relatórios &gt; Tickets &gt; Top Clientes</strong>, mostra um ranking dos clientes com mais tickets no período, com posição, empresa, total de tickets, tickets abertos, percentual de SLA e quantidade de tickets em backlog. É visível apenas para Supervisor/Administrador e apenas quando o módulo de Tickets está habilitado na instância.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Identificar quais clientes concentram mais tickets em um período.</li>
+<li>Ver quais clientes têm tickets parados em backlog ou SLA baixo.</li>
+<li>Exportar o ranking de clientes por volume de tickets para uma planilha.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra o relatório.</strong> Vá em <strong>Relatórios &gt; Tickets &gt; Top Clientes</strong>.</li>
+<li><strong>Escolha o período.</strong> Selecione entre Este mês, Mês anterior, Últimos 30 dias, Últimos 90 dias ou Personalizado (com data de início e fim).</li>
+<li><strong>Leia os cartões no topo.</strong> Mostram os indicadores agregados do período (clientes ativos, média de tickets por cliente, SLA médio e quantos clientes têm backlog).</li>
+<li><strong>Consulte a tabela.</strong> As linhas já vêm no ranking, da posição 1 em diante.</li>
+<li><strong>Exporte para Excel (opcional).</strong> Use o botão de exportação da grade; o arquivo é gerado com o nome "Top Clientes".</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Coluna</th><th>O que mostra</th></tr></thead>
+<tbody>
+<tr><td>#</td><td>Posição do cliente no ranking do período</td></tr>
+<tr><td>Cliente</td><td>Nome do cliente</td></tr>
+<tr><td>Empresa</td><td>Empresa/segmento ao qual o cliente pertence</td></tr>
+<tr><td>Tickets</td><td>Total de tickets do cliente no período</td></tr>
+<tr><td>Abertos</td><td>Quantidade de tickets do cliente ainda em aberto</td></tr>
+<tr><td>SLA</td><td>Percentual de SLA do cliente no período, com selo colorido: verde a partir de 90%, amarelo entre 70% e 89%, vermelho abaixo de 70%</td></tr>
+<tr><td>Backlog</td><td>Quantidade de tickets em backlog do cliente; aparece em vermelho e destacado quando maior que zero</td></tr>
+</tbody>
+</table></div>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>As opções de período deste relatório são diferentes das usadas em outros relatórios de Tickets (Histórico, Tickets Empresa): aqui são Este mês, Mês anterior, Últimos 30 dias e Últimos 90 dias, não "Esta semana"/"últimas semanas".</li>
+<li>O ranking é recalculado a cada troca de período — não existe filtro adicional por empresa nesta tela (para isso, use o relatório Tickets Empresa).</li>
+<li>Só é visível para quem é Supervisor ou Administrador, e apenas quando o módulo de Tickets está habilitado na instância.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se um cliente esperado não aparece no ranking, confirme se ele teve algum ticket criado dentro do período selecionado. Veja também o artigo "Quais relatórios de Tickets existem no menu de Relatórios e o que cada um mostra?" para o panorama dos demais relatórios de tickets. Se persistir, acione o suporte informando o nome do cliente e o período usado na consulta.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-325">Quais colunas o relatório de Volumetria de Tickets mostra por dia?</h3>
+<h4>Resumo</h4>
+<p>O relatório Volumetria, em Relatórios &gt; Tickets &gt; Volumetria, mostra uma linha por dia com a
+quantidade de tickets abertos, resolvidos e pendentes, além do canal de atendimento e da
+classificação (categoria) que mais apareceram naquele dia. Acima da tabela ficam quatro totais do
+período selecionado: Total, Resolvidos, Em Aberto e Pendentes. A tela é visível para
+Administradores e Supervisores (inclusive agentes com a permissão extra de funções de supervisor)
+quando o módulo de Tickets está habilitado.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+  <li>Você quer ver a evolução diária do volume de tickets em vez de só o total do período.</li>
+  <li>Você quer saber qual canal (API, Chat ou IVR) gerou mais tickets em um dia específico.</li>
+  <li>Você quer saber qual classificação de ticket foi mais frequente em um dia específico.</li>
+  <li>Você precisa exportar essa contagem diária para Excel.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+  <li><strong>Abra o relatório.</strong> Vá em <em>Relatórios &gt; Tickets &gt; Volumetria</em>.</li>
+  <li><strong>Escolha o período.</strong> No campo Período, selecione Esta semana, Semana anterior,
+    Últimas 2 semanas, Últimas 4 semanas ou Personalizado. A tela abre já carregada com o período
+    Esta semana.</li>
+  <li><strong>Informe as datas, se for período personalizado.</strong> Ao escolher Personalizado,
+    aparecem os campos Data de início e Data de fim.</li>
+  <li><strong>Atualize, se necessário.</strong> Use o botão Atualizar para recarregar os dados sem
+    trocar o período. O rodapé da tela mostra quando os dados foram gerados, o intervalo de datas
+    aplicado e o total de tickets do período.</li>
+  <li><strong>Exporte para Excel, se precisar.</strong> Use a opção de exportação da própria tabela;
+    o arquivo é gerado com o nome "Volumetria Tickets".</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+  <thead><tr><th>Coluna</th><th>O que mostra</th></tr></thead>
+  <tbody>
+    <tr><td>Data</td><td>Dia do período, no formato dd/mm/aaaa.</td></tr>
+    <tr><td>Abertos</td><td>Quantidade de tickets abertos naquele dia.</td></tr>
+    <tr><td>Resolvidos</td><td>Quantidade de tickets resolvidos naquele dia.</td></tr>
+    <tr><td>Pendentes</td><td>Quantidade de tickets pendentes naquele dia.</td></tr>
+    <tr><td>Canal Principal</td><td>Canal que mais gerou tickets naquele dia: API, Chat ou IVR.</td></tr>
+    <tr><td>Classificação Top</td><td>Classificação (categoria) de ticket mais frequente naquele dia.</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li>Acesso exige que o módulo de Tickets esteja habilitado na instância e que o usuário seja
+    Administrador ou Supervisor (agentes com a permissão extra de funções de supervisor também
+    veem a tela).</li>
+  <li>Período padrão ao abrir a tela: Esta semana.</li>
+  <li>As opções de período disponíveis são apenas as cinco listadas no passo a passo; não há opção
+    de "hoje" nem de "ontem" nesta tela.</li>
+  <li>Os quatro totais acima da tabela (Total, Resolvidos, Em Aberto, Pendentes) somam o período
+    inteiro selecionado, não apenas o dia em destaque.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+  <li>Se o submenu Tickets não aparece em Relatórios, confirme se o módulo de Tickets está
+    habilitado na instância e se o seu perfil tem função de supervisão.</li>
+  <li>Canal Principal e Classificação Top mostram só o valor que mais ocorreu no dia — dias com
+    tickets divididos entre vários canais ou classificações ainda exibem apenas um valor
+    predominante, não a distribuição completa.</li>
+  <li>Trocar o período recarrega a tabela inteira; datas de início/fim do período personalizado só
+    aparecem depois de selecionar a opção Personalizado.</li>
+  <li>Para ver indicadores adicionais de tickets (SLA, performance de agentes, auditoria), use os
+    outros itens do submenu Relatórios &gt; Tickets — veja também o artigo "Quais relatórios de
+    Tickets existem no menu de Relatórios e o que cada um mostra?".</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Confirme o perfil do usuário (precisa ser Administrador ou Supervisor), se o módulo de Tickets
+está habilitado na instância e qual período estava selecionado quando o número pareceu incorreto.
+Se a tabela ficar vazia mesmo com tickets conhecidos no período, anote o intervalo de datas exato
+exibido no rodapé (Gerado / Período) antes de acionar o suporte.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-322">Quais colunas e filtros tem o relatório Histórico de Tickets?</h3>
+<h4>Resumo</h4>
+<p>O relatório Histórico, em <strong>Relatórios &gt; Tickets &gt; Histórico</strong>, lista cada ticket do período com uma coluna por etapa (classificação, motivo, fila, agente, prioridade, status, SLA, datas de criação e resolução). É visível apenas para Supervisor/Administrador e apenas quando o módulo de Tickets está habilitado na instância. Cada linha tem uma ação para abrir o ticket correspondente em modo de visualização.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Entender quais colunas e cartões de indicador o relatório Histórico de Tickets mostra.</li>
+<li>Conferir todos os tickets criados ou resolvidos em um período, com filtro por Fila e Agente incluído nas colunas.</li>
+<li>Abrir rapidamente o detalhe de um ticket a partir da listagem.</li>
+<li>Exportar a lista de tickets do período para uma planilha.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra o relatório.</strong> Vá em <strong>Relatórios &gt; Tickets &gt; Histórico</strong>.</li>
+<li><strong>Escolha o período.</strong> Selecione entre Esta semana, Semana anterior, Últimas 2 semanas, Últimas 4 semanas ou Personalizado (com data de início e fim).</li>
+<li><strong>Leia os cartões no topo.</strong> Mostram Total de Tickets, Tempo Médio de Resolução, SLA Compliance (percentual cumprido) e Reabertos, todos referentes ao período escolhido.</li>
+<li><strong>Consulte a tabela.</strong> Use a busca da grade para localizar um ticket por número, assunto ou nome de agente/fila.</li>
+<li><strong>Abra um ticket.</strong> Clique no ícone de visualizar na coluna Funções para abrir o ticket em modo somente leitura.</li>
+<li><strong>Exporte para Excel (opcional).</strong> Use o botão de exportação da grade; o arquivo é gerado com o nome "Historico".</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Coluna</th><th>O que mostra</th></tr></thead>
+<tbody>
+<tr><td>Número</td><td>Número do ticket</td></tr>
+<tr><td>Assunto</td><td>Assunto/título do ticket</td></tr>
+<tr><td>Classificação</td><td>Classificação atribuída ao ticket</td></tr>
+<tr><td>Motivo</td><td>Motivo de abertura do ticket</td></tr>
+<tr><td>Fila</td><td>Fila responsável pelo ticket</td></tr>
+<tr><td>Agente</td><td>Agente responsável pelo ticket</td></tr>
+<tr><td>Prioridade</td><td>Prioridade do ticket</td></tr>
+<tr><td>Status</td><td>Situação atual do ticket</td></tr>
+<tr><td>SLA</td><td>Ícone indicando se o SLA foi cumprido (marca de sucesso), não cumprido (marca de falha) ou não se aplica (traço)</td></tr>
+<tr><td>Criado em</td><td>Data/hora de criação do ticket</td></tr>
+<tr><td>Resolvido em</td><td>Data/hora de resolução do ticket; a tabela vem ordenada por esta coluna, do mais recente para o mais antigo</td></tr>
+<tr><td>Tempo Resolução</td><td>Tempo decorrido entre criação e resolução</td></tr>
+<tr><td>Funções</td><td>Ação para visualizar o ticket; não é ordenável, não é filtrável e não entra na exportação para Excel</td></tr>
+</tbody>
+</table></div>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>O submenu Relatórios &gt; Tickets, e portanto o Histórico, só aparece quando o módulo de Tickets está habilitado na instância e o usuário é Supervisor ou Administrador — Agente não tem acesso.</li>
+<li>Os cartões do topo (Total de Tickets, Tempo Médio de Resolução, SLA Compliance, Reabertos) são agregados de todo o período, independentes de qual linha você está olhando na tabela.</li>
+<li>Não confunda este relatório com o relatório Tickets Empresa: o Histórico traz a coluna Fila e cobre todos os tickets do período; o Tickets Empresa exige escolher uma empresa/cliente e não tem coluna Fila. Veja o artigo "Quais colunas tem o relatório Tickets Empresa e em que ele difere do Histórico?".</li>
+<li>O relatório não recarrega sozinho: para ver dados mais recentes é preciso clicar em Atualizar ou trocar o período.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se um ticket esperado não aparece, confirme se ele foi criado ou resolvido dentro do período selecionado. Veja também o artigo "Quais relatórios de Tickets existem no menu de Relatórios e o que cada um mostra?" para o panorama dos demais relatórios de tickets. Se persistir, acione o suporte informando o número do ticket e o período usado na consulta.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-323">Quais colunas tem o relatório Tickets Empresa e em que ele difere do Histórico?</h3>
+<h4>Resumo</h4>
+<p>O relatório Tickets Empresa, em <strong>Relatórios &gt; Tickets &gt; Tickets Empresa</strong>, mostra a lista de tickets de uma única empresa/cliente escolhida, com as mesmas colunas de detalhe do relatório Histórico — exceto a coluna Fila, que não existe aqui. É visível apenas para Supervisor/Administrador e só carrega dados depois que uma empresa é selecionada no topo da tela.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Ver todos os tickets de uma empresa/cliente específica em um período, sem misturar com tickets de outras empresas.</li>
+<li>Entender por que este relatório não separa os tickets por fila de atendimento.</li>
+<li>Exportar os tickets de uma empresa para uma planilha.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abra o relatório.</strong> Vá em <strong>Relatórios &gt; Tickets &gt; Tickets Empresa</strong>.</li>
+<li><strong>Selecione a empresa.</strong> Use o campo de seleção de empresa no topo — sem essa escolha a tela mostra a mensagem "Selecione uma empresa para visualizar seus tickets no período" e o botão Atualizar fica desabilitado.</li>
+<li><strong>Escolha o período.</strong> Selecione entre Esta semana, Semana anterior, Últimas 2 semanas, Últimas 4 semanas ou Personalizado (com data de início e fim).</li>
+<li><strong>Leia os cartões no topo.</strong> Aparecem somente depois de escolher a empresa, com os indicadores agregados dos tickets dela no período.</li>
+<li><strong>Consulte a tabela.</strong> Cada linha é um ticket da empresa selecionada; use o ícone na coluna Funções para abrir o ticket em modo somente leitura.</li>
+<li><strong>Exporte para Excel (opcional).</strong> Use o botão de exportação da grade; o arquivo é gerado com o nome "TicketsEmpresa".</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Coluna</th><th>O que mostra</th></tr></thead>
+<tbody>
+<tr><td>Número</td><td>Número do ticket</td></tr>
+<tr><td>Assunto</td><td>Assunto/título do ticket</td></tr>
+<tr><td>Classificação</td><td>Classificação atribuída ao ticket</td></tr>
+<tr><td>Motivo</td><td>Motivo de abertura do ticket</td></tr>
+<tr><td>Agente</td><td>Agente responsável pelo ticket</td></tr>
+<tr><td>Prioridade</td><td>Prioridade do ticket</td></tr>
+<tr><td>Status</td><td>Situação atual do ticket</td></tr>
+<tr><td>SLA</td><td>Ícone indicando se o SLA foi cumprido, não cumprido ou não se aplica</td></tr>
+<tr><td>Criado em</td><td>Data/hora de criação do ticket; a tabela vem ordenada por esta coluna, do mais recente para o mais antigo</td></tr>
+<tr><td>Resolvido em</td><td>Data/hora de resolução do ticket</td></tr>
+<tr><td>Tempo Resolução</td><td>Tempo decorrido entre criação e resolução</td></tr>
+<tr><td>Funções</td><td>Ação para visualizar o ticket; não é ordenável, não é filtrável e não entra na exportação para Excel</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>Sem empresa selecionada, a tela não faz nenhuma consulta e o botão Atualizar fica desabilitado.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>A diferença central para o relatório Histórico é a coluna Fila: o Tickets Empresa <strong>não tem</strong> essa coluna, porque a visão aqui é consolidada por empresa/cliente, não por fila de atendimento. Veja o artigo "Quais colunas e filtros tem o relatório Histórico de Tickets?" para a versão com a coluna Fila.</li>
+<li>O relatório exige selecionar uma empresa antes de mostrar qualquer dado; trocar de empresa ou de período recarrega a lista.</li>
+<li>Só é visível para quem é Supervisor ou Administrador, e apenas quando o módulo de Tickets está habilitado na instância.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se a lista de tickets vier vazia mesmo com uma empresa selecionada, confirme se ela tem tickets criados no período escolhido. Veja também o artigo "Quais relatórios de Tickets existem no menu de Relatórios e o que cada um mostra?" para o panorama dos demais relatórios de tickets. Se persistir, acione o suporte informando o nome da empresa e o período usado na consulta.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-318">Quais colunas e indicadores tem o relatório de Auditoria de Tickets?</h3>
+<h4>Resumo</h4>
+<p>O relatório Auditoria, em Relatórios &gt; Tickets &gt; Auditoria, lista cada ação registrada sobre tickets no período (criação, mudança de status, reatribuição, edição de campos etc.), quem fez, em qual ticket e com qual detalhe. Também mostra quatro indicadores de resumo do período: total de ações, usuários ativos, tipos de ação distintos e alertas de tickets sem histórico. Só aparece no menu para quem é Supervisor com o módulo de Tickets habilitado.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você precisa investigar quem alterou um ticket, quando e o que mudou.</li>
+<li>Você quer conferir todas as ações de um usuário específico sobre tickets em um período.</li>
+<li>Você quer visualizar o ticket original a partir de uma linha da auditoria.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abrir o relatório.</strong> Vá em <em>Relatórios &gt; Tickets &gt; Auditoria</em>.</li>
+<li><strong>Escolher o período.</strong> No filtro Período, selecione Esta semana, Semana anterior, Últimas 2 semanas, Últimas 4 semanas ou Personalizado (com Data de início e Data de fim).</li>
+<li><strong>Filtrar por usuário (opcional).</strong> No filtro Usuário, busque e selecione um usuário específico ou deixe em Todos.</li>
+<li><strong>Ler o resumo do período.</strong> Confira os indicadores Ações Registradas, Usuários Ativos, Tipos de Ação e Alertas no topo da tela.</li>
+<li><strong>Consultar a tabela.</strong> Cada linha traz Data/Hora, Usuário, Ação, Ticket, Grupo e Detalhes da alteração.</li>
+<li><strong>Abrir o ticket.</strong> Na coluna Funções, clique no ícone de visualizar para abrir o ticket correspondente em modo somente leitura.</li>
+<li><strong>Exportar.</strong> Use a opção de exportação da grade para gerar o arquivo em Excel.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Coluna</th><th>O que mostra</th></tr></thead>
+<tbody>
+<tr><td>Data/Hora</td><td>Data e hora em que a ação foi registrada</td></tr>
+<tr><td>Usuário</td><td>Quem executou a ação</td></tr>
+<tr><td>Ação</td><td>Tipo de ação realizada, exibido como selo colorido</td></tr>
+<tr><td>Ticket</td><td>Número do ticket afetado</td></tr>
+<tr><td>Grupo</td><td>Grupo de atendimento do ticket</td></tr>
+<tr><td>Detalhes</td><td>Descrição da alteração; quando aplicável, mostra o valor anterior e o novo valor</td></tr>
+<tr><td>Funções</td><td>Ação para visualizar o ticket em modo somente leitura</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>Acesso restrito a quem tem perfil Supervisor, com o módulo de Tickets habilitado na instância.</li>
+<li>A lista de usuários do filtro depende do perfil: um administrador vê todos os usuários; um supervisor vê apenas os agentes das filas e níveis sob sua supervisão.</li>
+<li>A coluna Funções não é ordenável, não é filtrável e não entra na exportação para Excel.</li>
+<li>O relatório é exportado para Excel com o nome "Auditoria".</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>O indicador Alertas conta tickets sem histórico de ações no período — útil para identificar registros com dados de auditoria incompletos.</li>
+<li>Este relatório mostra o registro de ações; para ver a linha do tempo completa de um ticket específico, use a opção de abrir o ticket direto pela coluna Funções.</li>
+<li>Veja também o artigo "Quais relatórios de Tickets existem no menu de Relatórios e o que cada um mostra?" para a diferença entre este relatório e o Histórico de Tickets.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se uma ação esperada não aparecer na auditoria, confirme o período e o usuário selecionados no filtro. Se a divergência persistir, acione o suporte informando o número do ticket, o período consultado e a ação que você esperava encontrar.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-309">O que o painel de indicadores Tickets mostra e quais são seus gráficos e tabelas?</h3>
+<h4>Resumo</h4>
+<p>O painel Tickets, em Painel e Indicadores &gt; Tickets, reúne em uma única tela indicadores, gráficos e uma tabela de ranking sobre os tickets do período selecionado: volume aberto/resolvido, cumprimento de SLA, tickets prestes a vencer ou já vencidos, distribuição por classificação, motivo, submotivo, canal e etiqueta, além do ranking dos clientes com mais tickets. Só fica visível no menu para quem é Supervisor e quando o módulo de Tickets está habilitado na instância.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Você quer uma visão executiva do volume e do SLA de tickets sem abrir cada relatório separado.</li>
+<li>Você quer saber quais classificações, motivos, submotivos, canais ou etiquetas mais geram tickets no período.</li>
+<li>Você quer ver rapidamente quais tickets estão perto de estourar o SLA ou já estão vencidos.</li>
+<li>Você quer o ranking dos clientes com mais tickets abertos no mês e o SLA de cada um.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abrir o painel.</strong> Vá em <em>Painel e Indicadores &gt; Tickets</em> no menu superior.</li>
+<li><strong>Escolher o período.</strong> No filtro Período, selecione Hoje, Ontem, Esta semana, Semana anterior, Este mês, Mês anterior, Últimos 30 dias, Últimos 365 dias ou Personalizado (com Data de início e Data de fim).</li>
+<li><strong>Ler os indicadores do topo.</strong> Tickets Abertos e Resolvidos mostram o total e a variação percentual em relação ao período anterior equivalente; Em Atendimento, Aguardando Cliente e Backlog Total mostram o valor atual.</li>
+<li><strong>Conferir o SLA.</strong> O card SLA Compliance mostra o percentual atingido contra a meta configurada; os cards ao lado listam os tickets Próximos a Vencer SLA e os que já estão com SLA Vencido.</li>
+<li><strong>Explorar os gráficos.</strong> Tickets por Hora (abertos x resolvidos), Por Classificação, Top 10 Motivos, Top 10 Submotivos, Volumetria por Canal e Top 10 Tags. Clicar em um item da legenda de um gráfico de pizza oculta/mostra aquela fatia.</li>
+<li><strong>Consultar o ranking de clientes.</strong> A tabela Top 5 Clientes por Volume, na parte inferior, lista os clientes com mais tickets no mês.</li>
+<li><strong>Atualizar os dados.</strong> Use o botão Atualizar para recarregar o painel com o período selecionado.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Elemento</th><th>O que mostra</th></tr></thead>
+<tbody>
+<tr><td>Indicadores do topo</td><td>Tickets Abertos, Resolvidos, Em Atendimento, Aguardando Cliente, Backlog Total</td></tr>
+<tr><td>SLA Compliance</td><td>Percentual atingido no período comparado à meta definida para o SLA</td></tr>
+<tr><td>Próximos a Vencer SLA / SLA Vencidos</td><td>Lista dos tickets, com o tempo restante ou o tempo de atraso de cada um</td></tr>
+<tr><td>Tickets por Hora</td><td>Abertos e Resolvidos, agrupados por hora do dia</td></tr>
+<tr><td>Por Classificação</td><td>Gráfico de pizza com a distribuição de tickets por classificação</td></tr>
+<tr><td>Top 10 Motivos / Top 10 Submotivos</td><td>Os 10 motivos e os 10 submotivos com mais tickets no período</td></tr>
+<tr><td>Volumetria por Canal</td><td>Distribuição de tickets por canal de origem</td></tr>
+<tr><td>Top 10 Tags</td><td>As 10 etiquetas mais usadas nos tickets do período</td></tr>
+<tr><td>Top 5 Clientes por Volume</td><td>Colunas: # (posição), Cliente, Empresa, Tickets (Mês), Abertos, SLA</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>O item de menu Tickets só aparece para quem tem perfil Supervisor e quando o módulo de Tickets está habilitado na instância.</li>
+<li>Nenhum gráfico do painel tem exportação individual: para extrair dados em planilha, use os relatórios do submenu Relatórios &gt; Tickets.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Este painel é um resumo visual, não substitui os relatórios detalhados (SLA Detalhado, Performance de Agentes, Auditoria, Histórico) do submenu Relatórios &gt; Tickets — veja também o artigo "Quais relatórios de Tickets existem no menu de Relatórios e o que cada um mostra?".</li>
+<li>Os indicadores de variação (Tickets Abertos, Resolvidos, Backlog Total) comparam sempre com o período anterior equivalente ao filtro escolhido.</li>
+<li>Se o painel aparecer vazio ou sem o item de menu, confirme se o módulo de Tickets está habilitado e se o usuário tem perfil Supervisor.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se algum card ou gráfico não carregar dados, use o botão Atualizar e confira se o período selecionado realmente tem tickets. Se o problema persistir, acione o suporte informando o período usado, o card ou gráfico afetado e uma captura de tela do painel.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-333">O que o painel Atendimentos (Painel e Indicadores) mostra e quais filtros aceita?</h3>
+<h4>Resumo</h4>
+<p>O item "Atendimentos", dentro do menu Painel e Indicadores, é o painel executivo de volumetria de chat: mostra totais gerais (atendimentos, clientes únicos, mensagens enviadas/recebidas), a distribuição por fila, canal, hora e dia, e o detalhamento dos envios de mensagem (sucesso, falha, resposta). Ele é filtrado por Fila e por Período (Data de início/fim) e só aparece para quem tem perfil Supervisor com o atendimento por chat habilitado na instância. É um painel de chat — CRM, Tickets e Tarefas têm painéis próprios, separados deste.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Ter uma visão geral do volume de atendimentos e mensagens de chat em um período, sem abrir vários relatórios separados.</li>
+<li>Ver a distribuição de atendimentos por fila ou por canal.</li>
+<li>Ver picos de contato por hora do dia ou por dia do mês.</li>
+<li>Acompanhar o total de mensagens enviadas, quantas falharam e por qual motivo (número inválido, outro problema).</li>
+<li>Comparar envios e respostas por integração de canal.</li>
+<li>Saber se um número mudou muito em relação ao período anterior, sem precisar calcular manualmente.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abrir a tela.</strong> Acesse <em>Painel e Indicadores &gt; Atendimentos</em>. O item só aparece para Supervisor com o atendimento por chat habilitado na instância.</li>
+<li><strong>Filtrar por fila.</strong> No campo "Fila", escolha uma fila específica ou mantenha a opção de todas as filas de atendimento.</li>
+<li><strong>Escolher o período.</strong> No campo "Período", defina o intervalo com "Data de início" e "Data de fim".</li>
+<li><strong>Ler os indicadores gerais</strong> no topo: Atendimentos, Clientes únicos, Mensagens enviadas, Mensagens recebidas e a média de atendimentos por agente — cada um com a variação percentual em relação ao período anterior equivalente.</li>
+<li><strong>Explorar os gráficos de volumetria</strong> (atendimentos por fila, por canal, por hora e por dia do mês) e o bloco de mensagens (total, sucesso, falhas e respostas).</li>
+<li><strong>Atualizar os dados.</strong> Use o botão "Atualizar" para recarregar o painel manualmente; ele fica desabilitado enquanto nenhuma fila estiver selecionada no filtro.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Bloco</th><th>O que mostra</th></tr></thead>
+<tbody>
+<tr><td>Indicadores gerais</td><td>Atendimentos, Clientes únicos (com percentual em relação ao total), Mensagens enviadas, Mensagens recebidas, Méd. atend. / agente — cada um com variação percentual contra o período anterior equivalente</td></tr>
+<tr><td>TMA</td><td>Indicador identificado como "TMA" na tela; o texto de ajuda associado a ele descreve "tempo médio que o cliente levou para responder ao contato"</td></tr>
+<tr><td>Contatos por hora / por dia do mês</td><td>Distribuição do volume de contatos ao longo do dia e do mês</td></tr>
+<tr><td>Atendimentos por fila / por canal</td><td>Distribuição do total de atendimentos entre as filas e entre os canais de atendimento</td></tr>
+<tr><td>Chats, Chamadas, Abandonadas</td><td>Volume de chats, chamadas telefônicas e chamadas telefônicas abandonadas na fila; as séries Chamadas e Abandonadas só aparecem quando a telefonia está habilitada na instância</td></tr>
+<tr><td>Mensagens (total, envios, falhas)</td><td>Total de mensagens, Enviadas com sucesso, Problemas com o número, Outros problemas, Total de falhas e Mensagens respondidas</td></tr>
+<tr><td>Mensagens por hora / por dia do mês</td><td>Distribuição do volume de mensagens ao longo do dia e do mês</td></tr>
+<tr><td>Envios / Respostas / Falhas por integração</td><td>Mesmos números de envio, resposta e falha, quebrados por integração de canal</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>O item de menu só aparece para perfil Supervisor, e só quando o atendimento por chat está habilitado na instância.</li>
+<li>Os filtros disponíveis são apenas Fila e Período (Data de início/Data de fim) — não há filtro por agente ou por etiqueta nesta tela.</li>
+<li>O botão "Atualizar" fica desabilitado quando nenhuma fila está selecionada; com a telefonia desabilitada na instância, os gráficos de volumetria mostram só a série Chats, sem Chamadas nem Abandonadas.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Este painel cobre atendimento por chat (incluindo chamadas de telefonia associadas à fila); CRM, Tickets, Tarefas e Pesquisas têm painéis próprios dentro de Painel e Indicadores, com filtros e indicadores diferentes.</li>
+<li>O bloco "Abandonadas" refere-se a chamadas telefônicas abandonadas na fila, não a chats abandonados.</li>
+<li>Escolher "todas as filas" mistura canais diferentes nos totais gerais; para comparar uma fila específica, use o filtro Fila.</li>
+<li>A variação percentual de cada indicador compara sempre com um período anterior de igual duração — mudar o período muda também a base de comparação.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se o item "Atendimentos" não aparece no menu Painel e Indicadores, confirme se o usuário tem perfil Supervisor e se o atendimento por chat está habilitado na instância. Se os números deste painel parecerem diferentes dos relatórios detalhados de atendimento, reúna a fila e o período usados nos dois lugares antes de comparar — veja também o artigo "Por que os números do dashboard e dos relatórios de atendimento parecem inconsistentes?" para entender por que painéis e relatórios podem contar de formas diferentes.</p>
+  </div>
+  <h2 id="manuten-o-parceiros-e-suporte">Manutenção, parceiros e suporte</h2>
+  <div class="faq">
+    <h3 id="faq-278">Depois de quantos dias o sistema apaga sozinho tarefas, auditoria e outros dados antigos?</h3>
+<h4>Resumo</h4>
+<p>Além da limpeza automática de atendimentos por excesso de cota de espaço, o sistema roda todos os dias, de madrugada, uma rotina de manutenção que apaga sozinha vários tipos de dado depois de um prazo de conservação contado a partir da criação ou da conclusão do registro. A maior parte desses prazos pode ser <strong>reduzida</strong> em <em>Configurações &gt; Geral &gt; Backup e Limpeza</em>, na seção "Prazos de Limpeza Automática", disponível apenas para perfis internos da operação. Nenhum deles pode ser aumentado acima do padrão do sistema. Os demais prazos são fixos e não têm tela de edição.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Um dado (tarefa, oportunidade, registro de auditoria, histórico de chat interno, pesquisa arquivada, ticket resolvido, captura de tela de produtividade etc.) que existia sumiu sozinho do sistema.</li>
+<li>Você precisa saber por quanto tempo um tipo de dado fica disponível antes de ser apagado automaticamente.</li>
+<li>Você quer liberar espaço guardando um tipo de dado por menos tempo.</li>
+<li>Você tentou aumentar um prazo e o campo não aceitou o valor.</li>
+<li>Você está avaliando se precisa exportar um dado antes que o prazo de conservação dele se esgote.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li>Abra <em>Configurações &gt; Geral</em> e vá até a aba "Backup e Limpeza".</li>
+<li>Localize a seção "Prazos de Limpeza Automática". Cada campo mostra o prazo em dias, uma explicação do que ele apaga e, logo abaixo, o mínimo e o máximo aceitos.</li>
+<li>Reduza o valor desejado e clique em "Salvar". O sistema pede uma confirmação antes de gravar, listando os prazos que foram reduzidos.</li>
+<li>O novo prazo vale já na próxima execução da limpeza, na madrugada seguinte, sem precisar reiniciar o sistema.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<p><strong>Prazos ajustáveis na tela.</strong> O máximo de cada campo é o próprio padrão do sistema: o prazo só pode ser reduzido. Instâncias já em uso mantêm o prazo que praticavam até que alguém o altere.</p>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Tipo de dado</th><th>Padrão (e máximo)</th><th>Mínimo</th></tr></thead>
+<tbody>
+<tr><td>Tarefas concluídas (com histórico, comentários e apontamentos de tempo)</td><td>1.095 dias (3 anos)</td><td>7 dias</td></tr>
+<tr><td>Oportunidades fechadas, ganhas ou perdidas (com histórico, produtos e arquivos)</td><td>1.095 dias (3 anos)</td><td>7 dias</td></tr>
+<tr><td>Tickets resolvidos (com histórico, anexos e vínculos)</td><td>1.095 dias (3 anos)</td><td>30 dias</td></tr>
+<tr><td>Pesquisas de satisfação arquivadas e suas respostas</td><td>1.095 dias (3 anos)</td><td>30 dias</td></tr>
+<tr><td>Mensagens do chat interno</td><td>365 dias (1 ano)</td><td>7 dias</td></tr>
+<tr><td>Eventos de monitoramento e resumos de produtividade</td><td>16 dias</td><td>1 dia</td></tr>
+<tr><td>Capturas de tela e timelapses de produtividade</td><td>4 dias</td><td>1 dia</td></tr>
+<tr><td>Execuções de depuração de automações e URAs</td><td>15 dias</td><td>1 dia</td></tr>
+</tbody>
+</table></div>
+<p><strong>Prazos fixos, sem tela de edição.</strong></p>
+<div class="table-wrap"><table class="doc">
+<thead><tr><th>Tipo de dado</th><th>Prazo até a exclusão automática</th></tr></thead>
+<tbody>
+<tr><td>Registros do log de auditoria</td><td>180 dias</td></tr>
+<tr><td>Relatórios diários de produtividade</td><td>730 dias</td></tr>
+<tr><td>Registros de disparo sem campanha vinculada</td><td>365 dias</td></tr>
+<tr><td>Registros de disparo vinculados a campanha</td><td>730 dias</td></tr>
+<tr><td>Tarefas órfãs (sem vínculo válido)</td><td>7 dias</td></tr>
+<tr><td>Novidades remotas expiradas</td><td>7 dias</td></tr>
+<tr><td>Links de pesquisa de satisfação expirados</td><td>10 dias</td></tr>
+</tbody>
+</table></div>
+<ul>
+<li>Essa rotina roda todos os dias, de forma independente da cota de armazenamento da instância — ela não depende da cota ter sido excedida.</li>
+<li>Cada tipo de dado tem seu próprio prazo, contado a partir da data de criação (ou de conclusão, quando for o caso) do registro. Registros ainda em aberto não são removidos por esses prazos.</li>
+<li>A edição é de mão única: um prazo pode ser reduzido, nunca aumentado acima do padrão. Prazos maiores fariam a base crescer além do espaço contratado.</li>
+<li>Os prazos só aceitam números inteiros de dias. O valor zero não é aceito: não é possível desligar uma limpeza.</li>
+<li>A seção não aparece para o administrador da instância, nem mesmo com o painel de gestão habilitado — é restrita a perfis internos da operação.</li>
+<li>Toda alteração de prazo fica registrada no log de auditoria, com o valor anterior, o novo valor e quem alterou.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>Essa limpeza diária por prazo é diferente da limpeza automática de atendimentos por excesso de cota de espaço, que só roda quando a instância ultrapassa a cota contratada e segue regras próprias de agendamento.</li>
+<li>Dados apagados por essa rotina não podem ser recuperados, e o prazo não pode ser esticado além do padrão para segurá-los por mais tempo. Se precisa manter tarefas, oportunidades ou tickets além do prazo da sua instância, exporte a informação antes que ele se esgote.</li>
+<li>Reduzir um prazo tem efeito imediato na madrugada seguinte: tudo que ficar fora do novo prazo é apagado de uma só vez. A tela pede confirmação justamente por isso — confirme que os dados já foram exportados antes de diminuir qualquer valor.</li>
+<li>Se a sua instância precisa conservar algum tipo de dado por mais tempo do que o padrão permite, isso envolve espaço adicional e passa pelo suporte — não é uma alteração de tela.</li>
+<li>Capturas de tela e timelapses são os itens que mais ocupam espaço; eventos de monitoramento são os que mais geram registros. São os dois campos com maior impacto no consumo da instância, e por isso os de prazo padrão mais curto.</li>
+<li>Prazos curtos, como o de capturas de tela (4 dias) e o de tarefas órfãs (7 dias), costumam ser a causa quando um dado recente parece ter sumido "rápido demais".</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se um dado sumiu antes do prazo configurado, ou um tipo de dado que você esperava ver não está em nenhuma das duas tabelas, confirme a data de criação/conclusão exata do registro, o tipo de dado envolvido e o valor que está no campo correspondente da tela antes de acionar o suporte. Para o consumo de espaço da instância e a limpeza automática de atendimentos por cota, veja o artigo "O que a aba Backup e Limpeza de Configurações Gerais controla?".</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-374">O que o painel de Estatísticas do parceiro mostra e quem pode acessá-lo?</h3>
+<h4>Resumo</h4>
+<p>A tela Estatísticas, dentro do Painel de instâncias, mostra indicadores consolidados de todas as instâncias do parceiro/revenda: instâncias ativas, total de agentes, trials ativados/convertidos/perdidos, churn, saldo do mês e cobertura de recursos contratados (IA avançada, telefonia, suporte remoto e relatórios personalizados). O acesso exige a mesma permissão do Faturamento dentro do Painel de instâncias, além do acesso ao próprio Painel de instâncias. Os dados são consolidados por período (mês) e atualizados periodicamente, não em tempo real.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Um parceiro/revendedor quer acompanhar a evolução da carteira de instâncias (trials, conversões, churn) mês a mês.</li>
+<li>Quer saber quantos clientes usam cada recurso adicional (IA avançada, telefonia, suporte remoto, relatórios personalizados).</li>
+<li>Precisa entender por que não enxerga o item "Estatísticas" no menu do Painel de instâncias.</li>
+<li>Quer saber a diferença entre a tela Estatísticas e a tela Instâncias do mesmo painel.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Abrir o painel.</strong> No cabeçalho do sistema, clique no ícone "Painel de instâncias" e, no menu que abre, clique em "Estatísticas".</li>
+<li><strong>Ler os indicadores do mês atual.</strong> No topo da tela ficam os cartões: Instâncias Ativas, Total de Agentes, Média de Agentes por Instância, Trials Ativados, Convertidos, Perdidos, Churn e Saldo do Mês.</li>
+<li><strong>Alternar os gráficos do primeiro card.</strong> Use o seletor "Trials e Conversões" / "Churn e Saldo" para trocar a série exibida no gráfico de barras por período.</li>
+<li><strong>Alternar os gráficos do segundo card.</strong> Use o seletor "Ticket Médio por Mês" / "Agentes por Mês" para trocar entre as duas visões.</li>
+<li><strong>Consultar a tabela histórica.</strong> A tabela abaixo dos gráficos lista, por período (mês), os valores de Trials Ativados, Trials Convertidos, Trials Perdidos, Churn, Pedidos de Cancelamento, Saldo e Ticket Médio.</li>
+<li><strong>Ver a cobertura de recursos.</strong> No card "Cobertura de Features Atual" fica o gráfico com o percentual e a quantidade de instâncias ativas que usam IA Avançada, Telefonia, Suporte Remoto e Relatórios Personalizados.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>Acesso à tela exige ter a permissão de acesso ao Painel de instâncias e, adicionalmente, a mesma permissão que libera o Faturamento dentro desse painel — sem ela, o item "Estatísticas" não aparece no menu, mesmo com acesso ao painel liberado.</li>
+<li>Perfis internos da operação da plataforma têm acesso independente dessas permissões.</li>
+<li>O histórico exibido cobre o mês atual mais os 6 meses anteriores (7 períodos no total).</li>
+<li>Os números são consolidados em lote e reaproveitados por algumas horas antes de recalcular — a tela não mostra dados em tempo real, então uma instância criada ou cancelada há poucos minutos pode ainda não refletir nos indicadores.</li>
+<li>A tela não tem filtro de período, de instância ou de cliente: os indicadores são sempre agregados de toda a carteira visível ao parceiro.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>"Churn" nesta tela conta cancelamentos no período, não a taxa percentual — a taxa é calculada a partir desse número e do total de instâncias ativas.</li>
+<li>"Saldo do Mês" é exibido com sinal (positivo em verde, negativo em vermelho) e representa o resultado financeiro líquido do período, não o faturamento bruto.</li>
+<li>Esta tela é diferente da tela "Instâncias" do mesmo Painel de instâncias, que lista e permite agir sobre cada instância individualmente — a Estatísticas só consolida números, sem ações sobre instâncias.</li>
+<li>Se a permissão de Faturamento for revogada de um usuário, ele perde acesso tanto ao Faturamento quanto às Estatísticas ao mesmo tempo.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Confirme com um administrador com acesso à seção de permissões avançadas se o usuário tem o acesso ao Painel de instâncias e ao Faturamento marcados no cadastro dele. Veja também o artigo "Quais permissões da seção MASTER liberam o painel de instâncias e o login remoto?" para o detalhe de como conceder cada uma dessas permissões, e "O que é o Painel de instâncias e quais ações um parceiro pode executar em cada instância?" para as demais telas do mesmo painel. Se as permissões estiverem corretas e a tela ainda não abrir ou os números parecerem incoerentes, acione o suporte informando o nome da instância do parceiro e o horário em que a divergência foi observada.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-472">O que são extensões e onde elas aparecem no sistema?</h3>
+<h4>Resumo</h4>
+<p>Extensões são módulos adicionais fornecidos pelo fornecedor do sistema para acrescentar recursos à interface sem trocar a versão do produto. Quando uma extensão está instalada e liberada para você, ela aparece como itens de menu novos, elementos fixos na barra superior, itens no menu de opções do atendimento, uma aba própria no painel lateral do atendimento, opções no menu de ações de uma mensagem, botões na fileira de ações do painel de Carrinho, botões de ação dentro da ficha de um contato, oportunidade, ticket ou tarefa, e opções em menus de contexto — sempre misturados aos recursos nativos, com o mesmo visual. Enquanto nenhuma extensão estiver instalada na instância, nada muda: o sistema funciona exatamente como antes.</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Apareceu um item de menu, uma aba no painel do atendimento ou um botão que não existe no restante da documentação do sistema.</li>
+<li>Surgiu uma opção nova no menu de uma mensagem do atendimento.</li>
+<li>Surgiu um botão novo no painel de Carrinho, no cabeçalho ou ao lado de <em>Converter em pedido</em>.</li>
+<li>Surgiu um botão novo dentro da ficha de um contato, de uma oportunidade, de um ticket ou de uma tarefa.</li>
+<li>Você quer saber de onde vem uma tela que não é nativa e quem responde por ela.</li>
+<li>Precisa saber se esta instância usa extensões e quais estão instaladas.</li>
+<li>Dois usuários da mesma instância veem itens diferentes e você quer entender o motivo.</li>
+<li>Quer saber se uma extensão consegue ver ou fazer algo além do que o usuário logado já pode.</li>
+<li>Um cadastro mudou e apareceu um aviso com o nome de uma extensão.</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Identifique o item.</strong> Um recurso de extensão fica no meio dos recursos nativos, com o nome e o ícone definidos pelo fornecedor. Não há marca na tela indicando que aquilo veio de uma extensão.</li>
+<li><strong>Procure nos pontos onde extensões aparecem.</strong> Um menu próprio na barra superior; itens dentro de menus já existentes, como <em>Painel e Indicadores</em>, <em>Relatórios</em>, <em>Produtividade</em> e <em>Configurações</em>; um elemento sempre visível na barra superior; um botão fixo na barra do atendimento ou um item dentro do menu <em>Opções</em> do atendimento; itens no menu do botão direito da lista de atendimentos; e ações nos painéis de supervisão, sobre um atendimento, sobre um agente ou no menu de uma fila.</li>
+<li><strong>Procure na aba de extensões do painel do atendimento.</strong> O painel lateral do atendimento tem um seletor no topo com as abas disponíveis, nesta ordem: <strong>Extensões</strong>, <strong>Carrinho</strong>, <strong>Cartões de informação</strong>, <strong>Oportunidades</strong> e <strong>Contato</strong>. Cada aba só aparece quando há o que mostrar nela — a de <em>Carrinho</em>, por exemplo, só existe em atendimento de uma fila com <em>Carrinho sincronizado com o CRM</em> e <em>Exibir painel de carrinho para o agente</em> ligados. Quando existe extensão no painel, é a aba de extensões que abre por padrão na primeira vez que você abre aquele atendimento.</li>
+<li><strong>Procure no menu de ações de uma mensagem.</strong> Passando o mouse sobre uma mensagem do atendimento aparece um ícone de engrenagem (<em>Executar ações</em>). Uma extensão pode acrescentar itens ali, depois das automações de mensagem. O item pode agir sobre aquela mensagem sem abrir nada, ou abrir uma tela da extensão.</li>
+<li><strong>Procure nas ações do painel de Carrinho.</strong> Numa fila com carrinho sincronizado, uma extensão pode acrescentar botões em dois lugares da aba <em>Carrinho</em>: no <strong>cabeçalho</strong>, depois de <em>Adicionar produtos ao carrinho</em>, <em>Limpar carrinho</em> e <em>Enviar mensagem de carrinho</em>; e no <strong>rodapé</strong>, à esquerda de <em>Converter em pedido</em>. São botões de ícone — passe o mouse para ver o nome da ação e o nome da extensão. Um clique pode executar algo direto, abrir uma tela da extensão ou abrir um menu com várias opções.</li>
+<li><strong>Procure também nas fichas dos cadastros.</strong> Uma extensão pode acrescentar botões de ação dentro da ficha de um <strong>contato</strong> (e também na linha do contato na agenda), de uma <strong>oportunidade</strong>, de um <strong>ticket</strong> e de uma <strong>tarefa</strong>, tanto na tela de detalhe quanto no diálogo de detalhe da tarefa.</li>
+<li><strong>Confirme com a administração.</strong> Só as contas internas da operação (os perfis 98 e 99) enxergam a lista do que está instalado, em <em>Configurações &gt; Extensões instaladas</em>. Administrador, Supervisor e Agente não têm essa tela.</li>
+<li><strong>Peça suporte a quem forneceu.</strong> O conteúdo da extensão é de responsabilidade do fornecedor dela, e não da operação do sistema. O nome do fornecedor aparece na tela de administração, junto da instalação.</li>
+</ol>
+
+<h4>Limites e regras</h4>
+<ul>
+<li>Extensões são instaladas por quem administra a instância; um usuário comum não instala, não remove e não desliga uma extensão pela própria conta.</li>
+<li>Cada instalação tem uma lista de quem recebe a extensão. Um usuário fora dessa lista não vê nenhum item daquela extensão, e nem sabe que ela existe.</li>
+<li>As contas internas da operação (perfis 98 e 99) nunca recebem extensões, mesmo sendo as únicas que administram a lista.</li>
+<li>No painel do atendimento, quando <strong>mais de uma</strong> extensão ocupa o painel, aparece um seletor <em>Extensão</em> acima do conteúdo para trocar entre elas. Com uma só, o seletor não aparece e o nome fica no cabeçalho do cartão. Apenas a extensão escolhida fica carregada por vez.</li>
+<li>O painel do atendimento <strong>lembra, por atendimento, se você o deixou aberto ou fechado e em qual aba</strong>: ao voltar para um atendimento já aberto antes, ele reaparece como você deixou. Essa memória vale só enquanto você não recarrega a página — depois disso, e em um atendimento aberto pela primeira vez, valem os padrões. Se a aba lembrada não existir mais no atendimento, o painel volta para a primeira aba disponível.</li>
+<li>O painel lateral não existe no modo celular. No celular, o carrinho é aberto pelo menu <em>Opções</em> do atendimento, e os botões de extensão do carrinho aparecem ali também.</li>
+<li><strong>Um item de extensão no menu da mensagem pode aparecer só em alguns tipos de mensagem</strong> — por exemplo, apenas nas recebidas do cliente, ou apenas nas enviadas pelo agente. Quem define isso é a própria extensão; por isso o mesmo item pode existir numa mensagem e não na de cima.</li>
+<li><strong>Um botão de extensão no carrinho pode aparecer só em certos estados do carrinho</strong> — só com o carrinho vazio, só com itens, ou só com o carrinho bloqueado. Quem define isso, para os botões de extensão, é a própria extensão.</li>
+<li><strong>Botão do carrinho que aparece e some sozinho não é falha — e nem sempre é de extensão.</strong> Alguns botões <em>nativos</em> se comportam assim pela mesma razão: <em>Limpar carrinho</em> e <em>Enviar mensagem de carrinho</em> só existem enquanto houver ao menos um item. Antes de procurar o fornecedor de uma extensão, confira se o botão que sumiu não é um desses — veja "Como o agente usa o painel de Carrinho durante o atendimento".</li>
+<li>As ações dentro de uma ficha só aparecem em um registro <strong>já salvo</strong>. Enquanto você está criando um contato, uma oportunidade, um ticket ou uma tarefa, os botões de extensão ainda não são exibidos; salve primeiro e reabra o registro.</li>
+<li>A mesma extensão pode estar instalada mais de uma vez na instância — por exemplo, uma instalação de produção e outra de teste, cada uma com sua própria configuração e seu próprio público.</li>
+<li>Uma extensão pode declarar que só aparece para determinados perfis. Vale sempre a interseção: quem não passa pelo filtro da instalação não vê nada, mesmo que a extensão permitisse.</li>
+<li>Uma extensão instalada pode estar desabilitada e, nesse caso, não é entregue a ninguém.</li>
+</ul>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>A extensão trabalha sempre com as permissões do usuário logado: ela não enxerga nem executa nada que o próprio usuário já não pudesse enxergar ou executar pela interface normal.</li>
+<li><strong>Uma extensão pode abrir ou fechar o painel lateral e trocar a aba exibida</strong> — por exemplo, abrir a oportunidade do atendimento quando termina uma conferência. É uma mudança de exibição, não de dados: nada é gravado por isso.</li>
+<li><strong>Uma extensão pode mexer no carrinho do atendimento</strong>: incluir e remover produto, mudar quantidade, conceder desconto, definir frete, esvaziar o carrinho, converter em pedido e mandar ao cliente a mensagem que abre o carrinho dele. Tudo isso aparece <strong>na hora na tela do cliente</strong>, como se você tivesse feito pelo painel — e vale a mesma regra de sempre: a extensão só consegue o que você já poderia fazer, e só nos produtos do catálogo daquela fila. Com o carrinho bloqueado, ela também não altera nada, e com o carrinho vazio ela também não consegue mandar a mensagem de carrinho ao cliente.</li>
+<li><strong>Uma extensão pode alterar um contato ou uma oportunidade sem abrir formulário</strong> — por exemplo, ao trazer dados de um sistema externo. O normal, nesses casos, é aparecer um aviso de sucesso com o <strong>nome da extensão no título</strong>, justamente para você saber quem fez a alteração. Um aviso desses não é erro nem indício de problema; se a alteração não era esperada, procure o fornecedor da extensão pelo nome que aparece ali. A extensão pode suprimir esse aviso — é o caso de quem grava vários registros de uma vez —, então a ausência dele não garante que nada foi alterado.</li>
+<li>Uma extensão também pode abrir a tela de escolha de produtos ou um formulário próprio para pedir dados a você antes de gravar. Nesses casos nada é gravado se você fechar sem confirmar.</li>
+<li>Uma falha dentro de uma extensão não derruba o sistema: o item afetado deixa de aparecer ou mostra um aviso, e o restante continua funcionando normalmente.</li>
+<li>Se uma versão da extensão foi retirada pelo fornecedor, no lugar dela aparece a mensagem "extensão indisponível — contate o fornecedor". Isso é resposta esperada, não erro da instância.</li>
+<li>Itens de extensão dentro de um menu só aparecem para quem já enxerga aquele menu. Um agente que não vê <em>Configurações</em> também não vê um item de extensão colocado ali.</li>
+<li>Quando o sistema está com o modo de monitoramento restrito ativo, os pontos de extensão da barra superior não são exibidos.</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se um item de extensão sumiu ou nunca apareceu para um usuário, o motivo mais comum é o filtro de entrega da instalação — veja o artigo "Como definir quais usuários recebem uma extensão (inclusão e exclusão)". Se o que sumiu foi um botão do painel de Carrinho, confira antes se ele não é um botão nativo que depende de haver itens no carrinho, em "Como o agente usa o painel de Carrinho durante o atendimento". Se a extensão está instalada mas aparece como Desabilitada na administração, veja "Por que uma extensão instalada aparece como Desabilitada e o que fazer". Para instalar ou reconfigurar, veja "Como instalar e configurar uma extensão nesta instância". Para saber o que uma extensão consegue fazer, o que ela nunca alcança e quais limites valem para todas elas, veja "O que uma extensão consegue fazer no sistema e quais são os limites". Ao acionar o suporte, informe o nome da instalação, o nome do usuário afetado e em qual tela o item deveria aparecer.</p>
+  </div>
+  <div class="faq">
+    <h3 id="faq-492">Como registrar um bug ou reportar um problema ao suporte?</h3>
+<h4>Resumo</h4>
+<p>Para registrar um bug, abra um chamado (ticket) com: a instância/usuário afetado, a descrição do comportamento errado, o horário aproximado em que aconteceu, os passos para reproduzir e, <strong>obrigatoriamente, uma gravação de tela demonstrando como reproduzir o problema</strong>. A gravação é o que mais acelera a correção: mostra exatamente o que acontece na tela, na ordem em que acontece, com a sua narração. Use a opção "Gravar a tela" do menu do usuário (veja o artigo "Como gravar a tela para demonstrar um problema no sistema?").</p>
+
+<h4>Quando se aplica</h4>
+<ul>
+<li>Um comportamento errado se repete e você quer que a equipe do sistema investigue e corrija.</li>
+<li>O suporte pediu evidências ou um vídeo demonstrando o problema.</li>
+<li>Você quer transformar um problema avulso em um registro formal (chamado/ticket).</li>
+</ul>
+
+<h4>Passo a passo</h4>
+<ol>
+<li><strong>Anote os passos antes de gravar.</strong> Refaça o caminho mentalmente: onde você clica, o que espera acontecer e o que acontece de errado.</li>
+<li><strong>Grave a tela.</strong> No menu do usuário, clique em "Gravar a tela", escolha o microfone para narrar e grave a reprodução completa do problema, explicando em voz alta o que está fazendo e o que deveria acontecer. A gravação pode ter até 3 minutos; se o problema demora mais para aparecer, comece a gravação o mais perto possível do momento em que ele ocorre.</li>
+<li><strong>Baixe o vídeo.</strong> No diálogo "Gravação concluída", clique em "Baixar vídeo". O arquivo fica no seu computador — ele não é enviado sozinho ao suporte.</li>
+<li><strong>Abra o chamado.</strong> Registre o ticket com: instância afetada, descrição do comportamento errado, horário aproximado, os passos de reprodução e o vídeo anexado.</li>
+<li><strong>Guarde o protocolo.</strong> Para saber como acompanhar a correção depois, veja o artigo "Como acompanhar o andamento de um problema já reportado e escalado ao desenvolvimento?".</li>
+</ol>
+
+<h4>Pontos de atenção</h4>
+<ul>
+<li>A gravação de tela demonstrando como reproduzir o bug é <strong>obrigatória</strong> para o registro: sem ela, a investigação normalmente começa com o suporte pedindo exatamente esse vídeo, o que atrasa a correção.</li>
+<li>Narre durante a gravação: dizer em voz alta o que você está fazendo e o que esperava reduz muito o tempo de entendimento do problema.</li>
+<li>Não substitua o vídeo por print quando o problema envolver comportamento (algo que some, trava, muda de lugar, não é enviado) — prints servem para erros estáticos de layout.</li>
+<li>Se o problema não acontece sempre, informe a frequência na descrição (por exemplo: "acontece em 1 de cada 3 tentativas" ou "somente no período da manhã").</li>
+</ul>
+
+<h4>Se não resolver</h4>
+<p>Se a opção "Gravar a tela" não estiver disponível no seu navegador, use uma ferramenta de gravação de tela do próprio sistema operacional e anexe o arquivo normalmente ao chamado. Se o vídeo ficar grande demais para anexar, grave um trecho mais curto, começando próximo do momento em que o problema acontece.</p>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

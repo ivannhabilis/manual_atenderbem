@@ -1,6 +1,236 @@
 /* Gerado por tools/build_nav.py — índice de busca (títulos e seções). */
 window.MANUAL_INDEX = [
  {
+  "t": "Administração, Operação e Segurança",
+  "u": "faq-admin-operacao.html",
+  "s": [
+   {
+    "h": "Usuários, perfis e licença",
+    "a": "usu-rios-perfis-e-licen-a"
+   },
+   {
+    "h": "Como criar um novo usuário (agente, supervisor ou administrador)?",
+    "a": "faq-5"
+   },
+   {
+    "h": "Por que não consigo adicionar mais agentes ou vejo mais administradores do que contratei?",
+    "a": "faq-65"
+   },
+   {
+    "h": "O que cada perfil (Administrador, Supervisor, Agente) já pode fazer sem flag extra marcada?",
+    "a": "faq-288"
+   },
+   {
+    "h": "O que são as Licenças de suporte remoto e por que a tela não aparece no menu?",
+    "a": "faq-373"
+   },
+   {
+    "h": "Quais notificações e preferências locais o usuário pode configurar no sistema?",
+    "a": "faq-177"
+   },
+   {
+    "h": "Permissões e acesso",
+    "a": "permiss-es-e-acesso"
+   },
+   {
+    "h": "Por que um agente ou supervisor não vê o histórico de conversas de outros ou dos próprios atendimentos?",
+    "a": "faq-64"
+   },
+   {
+    "h": "Quais permissões liberam ver histórico e reabrir atendimentos próprios e de terceiros?",
+    "a": "faq-307"
+   },
+   {
+    "h": "Quais permissões da seção MASTER liberam o painel de instâncias e o login remoto?",
+    "a": "faq-314"
+   },
+   {
+    "h": "Como configurar validade de senha e restrição de IPs para login e API em Configurações Gerais?",
+    "a": "faq-238"
+   },
+   {
+    "h": "Login, sessão e estabilidade",
+    "a": "login-sess-o-e-estabilidade"
+   },
+   {
+    "h": "Como recuperar o acesso quando a senha, o acesso remoto ou o 2FA travam o login?",
+    "a": "faq-63"
+   },
+   {
+    "h": "Por que a tela do sistema aparece cortada ou instável no celular?",
+    "a": "faq-87"
+   },
+   {
+    "h": "O que fazer quando o sistema trava, fica lento ou dá erro antes de abrir chamado?",
+    "a": "faq-98"
+   },
+   {
+    "h": "Instâncias e white label",
+    "a": "inst-ncias-e-white-label"
+   },
+   {
+    "h": "Por que o painel de instâncias fica indisponível ou com dados incorretos após uma atualização?",
+    "a": "faq-107"
+   },
+   {
+    "h": "Como transferir uma instância ou base de clientes entre painéis de parceiros?",
+    "a": "faq-108"
+   },
+   {
+    "h": "Como personalizar logo e cores da instância (White Label) e por que pode não aplicar?",
+    "a": "faq-109"
+   },
+   {
+    "h": "Como personalizar cores, logos e título da marca (White Label) pelo Painel de instâncias?",
+    "a": "faq-245"
+   },
+   {
+    "h": "Backups, segurança e atualizações",
+    "a": "backups-seguran-a-e-atualiza-es"
+   },
+   {
+    "h": "Como funciona o backup de conversas: onde baixar e por que pode falhar?",
+    "a": "faq-106"
+   },
+   {
+    "h": "O que significa o aviso de cota de armazenamento excedida com limpeza automática agendada?",
+    "a": "faq-200"
+   },
+   {
+    "h": "Por que a sincronização com o BigQuery falha, trava ou traz uma tabela sem dados?",
+    "a": "faq-119"
+   },
+   {
+    "h": "Como acompanhar o andamento de um problema já reportado e escalado ao desenvolvimento?",
+    "a": "faq-86"
+   },
+   {
+    "h": "Por que uma integração via API que já funcionava passa a dar erro 401 ou AUTH_018?",
+    "a": "faq-121"
+   },
+   {
+    "h": "O que significa o aviso de nova versão disponível com reinício automático de madrugada?",
+    "a": "faq-221"
+   },
+   {
+    "h": "Extensões",
+    "a": "extens-es"
+   },
+   {
+    "h": "Como definir quais usuários recebem uma extensão (inclusão e exclusão)?",
+    "a": "faq-474"
+   },
+   {
+    "h": "Por que uma extensão instalada aparece como Desabilitada e o que fazer?",
+    "a": "faq-475"
+   },
+   {
+    "h": "Como criar, publicar e reverter versões de uma extensão?",
+    "a": "faq-476"
+   },
+   {
+    "h": "Como clonar uma extensão?",
+    "a": "faq-494"
+   },
+   {
+    "h": "O editor de extensões não salva, ou aparece &quot;Requisição bloqueada pela rede&quot;. O que fazer?",
+    "a": "faq-519"
+   },
+   {
+    "h": "Filas, distribuição e transferência",
+    "a": "filas-distribui-o-e-transfer-ncia"
+   },
+   {
+    "h": "Como configurar uma fila de e-mail com Gmail (SMTP/IMAP) e o que fazer se o envio falhar?",
+    "a": "faq-10"
+   },
+   {
+    "h": "Como recuperar uma fila que foi excluída por engano?",
+    "a": "faq-68"
+   },
+   {
+    "h": "Por que a distribuição circular de atendimentos entre agentes fica desigual?",
+    "a": "faq-72"
+   },
+   {
+    "h": "Por que a trava de atendimento não impede a transferência do chat para outro agente?",
+    "a": "faq-74"
+   },
+   {
+    "h": "Por que a pesquisa de satisfação não é enviada em todo atendimento encerrado?",
+    "a": "faq-79"
+   },
+   {
+    "h": "Para que serve e como configurar o campo &quot;Travar atendimento&quot; de uma fila?",
+    "a": "faq-130"
+   },
+   {
+    "h": "Como transferir um atendimento para outro agente no chat?",
+    "a": "faq-131"
+   },
+   {
+    "h": "O que é a Sala de Espera do chat e como enviar um atendimento para lá?",
+    "a": "faq-190"
+   },
+   {
+    "h": "Quais mensagens automáticas podem ser configuradas em uma fila e quando disparam?",
+    "a": "faq-220"
+   },
+   {
+    "h": "Como configurar o encerramento automático do atendimento por inatividade do cliente?",
+    "a": "faq-264"
+   },
+   {
+    "h": "Quais são as opções de estratégia de distribuição de atendimentos entre agentes?",
+    "a": "faq-281"
+   },
+   {
+    "h": "Depois de quanto tempo um atendimento parado é encerrado automaticamente pelo sistema?",
+    "a": "faq-287"
+   },
+   {
+    "h": "Como criar um motivo de pausa e configurar o limite de vezes por dia ou tempo máximo?",
+    "a": "faq-359"
+   },
+   {
+    "h": "Recursos e rotina do atendimento",
+    "a": "recursos-e-rotina-do-atendimento"
+   },
+   {
+    "h": "Por que a notificação de tarefa não chega exatamente no horário de início?",
+    "a": "faq-57"
+   },
+   {
+    "h": "Por que o histórico de conversas trava, não carrega ou mensagens antigas somem?",
+    "a": "faq-85"
+   },
+   {
+    "h": "Como criar mensagens pré-definidas e quais campos, máscaras e limites elas têm?",
+    "a": "faq-154"
+   },
+   {
+    "h": "O que são os Convidados de um atendimento e como adicionar um agente?",
+    "a": "faq-179"
+   },
+   {
+    "h": "O que são os Cartões de informação e como o agente os visualiza no atendimento?",
+    "a": "faq-181"
+   },
+   {
+    "h": "O que é o Chat Interno e quais usuários podem acessá-lo?",
+    "a": "faq-188"
+   },
+   {
+    "h": "O que são os Grupos de Chat Interno e como cadastrar seus participantes?",
+    "a": "faq-371"
+   },
+   {
+    "h": "O que é o contador no rodapé da lista de atendimentos do agente?",
+    "a": "faq-508"
+   }
+  ]
+ },
+ {
   "t": "Agent Dashboard (Agentes)",
   "u": "agentes.html",
   "s": [
@@ -193,6 +423,272 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Automação, URA e Fluxos",
+  "u": "faq-automacao-fluxos.html",
+  "s": [
+   {
+    "h": "Tipos de fluxo e contexto de execução",
+    "a": "tipos-de-fluxo-e-contexto-de-execu-o"
+   },
+   {
+    "h": "Como criar um novo Fluxo de Automação ou URA, passo a passo?",
+    "a": "faq-215"
+   },
+   {
+    "h": "O que é um Fluxo de formulário e como configurar o avanço condicional entre etapas?",
+    "a": "faq-183"
+   },
+   {
+    "h": "É possível recuperar usuários, filas ou URAs excluídos acidentalmente?",
+    "a": "faq-69"
+   },
+   {
+    "h": "Como ver o histórico de versões de um fluxo de automação ou URA e voltar para uma versão anterior?",
+    "a": "faq-538"
+   },
+   {
+    "h": "Elementos de mensagem e interação",
+    "a": "elementos-de-mensagem-e-intera-o"
+   },
+   {
+    "h": "Como funcionam os elementos Mensagem de informação, botão de URL, Encerrar e Transferir atendimento?",
+    "a": "faq-310"
+   },
+   {
+    "h": "O que fazem os elementos de cartão de informação, notificação e grupo de visualização?",
+    "a": "faq-330"
+   },
+   {
+    "h": "Como funcionam os elementos Exibir formulário, Exibir confirmação e Exibir informação ao agente?",
+    "a": "faq-345"
+   },
+   {
+    "h": "Por que os botões configurados em uma URA não aparecem para o cliente no WhatsApp?",
+    "a": "faq-38"
+   },
+   {
+    "h": "Quais tipos de campo estão disponíveis em um Formulário personalizado?",
+    "a": "faq-132"
+   },
+   {
+    "h": "Variáveis, condições e laços",
+    "a": "vari-veis-condi-es-e-la-os"
+   },
+   {
+    "h": "Como o elemento &quot;Condição com variáveis&quot; decide qual caminho o fluxo vai seguir?",
+    "a": "faq-260"
+   },
+   {
+    "h": "O que fazem os elementos de condição de variável e tabela de horários no fluxo?",
+    "a": "faq-331"
+   },
+   {
+    "h": "Como identificar em uma automação que um campo capturado veio vazio?",
+    "a": "faq-47"
+   },
+   {
+    "h": "Por que as variáveis de atendimento ficam vazias na automação de pesquisa?",
+    "a": "faq-48"
+   },
+   {
+    "h": "Quais variáveis o elemento &quot;Verificar horário&quot; cria e o que cada uma significa?",
+    "a": "faq-258"
+   },
+   {
+    "h": "Quantas variáveis personalizadas um usuário pode ter e quais os limites de tamanho?",
+    "a": "faq-367"
+   },
+   {
+    "h": "O que o elemento de Código Javascript pode e não pode fazer dentro do fluxo?",
+    "a": "faq-241"
+   },
+   {
+    "h": "Horários, feriados e gatilhos",
+    "a": "hor-rios-feriados-e-gatilhos"
+   },
+   {
+    "h": "Como funciona o bloco &quot;Verificar horário&quot; da URA e como configurá-lo?",
+    "a": "faq-37"
+   },
+   {
+    "h": "Como configurar horários de atendimento e cadastrar feriados de uma fila?",
+    "a": "faq-81"
+   },
+   {
+    "h": "O que significam os erros ao cadastrar feriados e horários de atendimento?",
+    "a": "faq-219"
+   },
+   {
+    "h": "O que são os Gatilhos de atendimento e quais tipos de regra existem?",
+    "a": "faq-228"
+   },
+   {
+    "h": "Como criar e configurar um conjunto de Gatilhos de atendimento passo a passo?",
+    "a": "faq-237"
+   },
+   {
+    "h": "Como criar uma configuração de Horários de Atendimento e quais campos ela tem?",
+    "a": "faq-250"
+   },
+   {
+    "h": "Qual a diferença entre o Horário de Atendimento vinculado e a tabela de horário da fila?",
+    "a": "faq-275"
+   },
+   {
+    "h": "Webhooks e integrações no fluxo",
+    "a": "webhooks-e-integra-es-no-fluxo"
+   },
+   {
+    "h": "Como configurar o elemento de requisição HTTP (chamada de API externa) no fluxo?",
+    "a": "faq-201"
+   },
+   {
+    "h": "O que fazem os elementos Resposta do webhook, Executar automação, Gerar protocolo e Gerar QR Code?",
+    "a": "faq-321"
+   },
+   {
+    "h": "É possível enviar um PDF diferente a cada chamada do endpoint de template da API?",
+    "a": "faq-122"
+   },
+   {
+    "h": "Como cadastrar um novo template de WhatsApp Cloud API e publicá-lo na Meta?",
+    "a": "faq-135"
+   },
+   {
+    "h": "Quais campos de conexão existem em uma fila de WhatsApp Cloud API oficial?",
+    "a": "faq-191"
+   },
+   {
+    "h": "Para que serve o canal de mensagens de uma extensão e quais limites ele tem?",
+    "a": "faq-477"
+   },
+   {
+    "h": "Como saber se o cliente que chegou pelo WhatsApp também tem Telegram, para oferecer a migração de canal?",
+    "a": "faq-512"
+   },
+   {
+    "h": "Como conectar uma fila de OLX ou de Mercado Livre?",
+    "a": "faq-535"
+   },
+   {
+    "h": "Como conectar uma fila de TikTok Shop ou de TikTok Business Messaging?",
+    "a": "faq-536"
+   },
+   {
+    "h": "O que são modelos de documentos e como configurar um para gerar DOCX/PDF?",
+    "a": "faq-189"
+   },
+   {
+    "h": "Limites de execução e laços",
+    "a": "limites-de-execu-o-e-la-os"
+   },
+   {
+    "h": "Como funciona o elemento Laço de repetição no fluxo de automação e URA?",
+    "a": "faq-533"
+   },
+   {
+    "h": "Quais são os limites de execução de uma URA ou automação e o que acontece quando o fluxo passa deles?",
+    "a": "faq-534"
+   },
+   {
+    "h": "O que fazer quando uma automação em loop derruba ou trava a instância?",
+    "a": "faq-40"
+   },
+   {
+    "h": "Por que minha automação foi suspensa por laço e como reativá-la?",
+    "a": "faq-539"
+   },
+   {
+    "h": "Quais os limites do elemento Armazenamento persistente no editor de fluxo?",
+    "a": "faq-282"
+   },
+   {
+    "h": "Debug e diagnóstico",
+    "a": "debug-e-diagn-stico"
+   },
+   {
+    "h": "Como gravar a tela para demonstrar um problema no sistema?",
+    "a": "faq-491"
+   },
+   {
+    "h": "Quais erros podem aparecer ao criar, conectar ou importar a sessão de uma fila de atendimento?",
+    "a": "faq-196"
+   },
+   {
+    "h": "Por que a fila de Instagram ou Facebook desconecta ou fica instável sozinha?",
+    "a": "faq-7"
+   },
+   {
+    "h": "Por que uma etiqueta ou automação de transferência não move o atendimento?",
+    "a": "faq-23"
+   },
+   {
+    "h": "Por que agentes são deslogados ou desconectados automaticamente do sistema?",
+    "a": "faq-67"
+   },
+   {
+    "h": "Por que a fila configurada para fechar por inatividade não encerra o atendimento?",
+    "a": "faq-77"
+   },
+   {
+    "h": "Como funcionam as metas de SLA de uma fila e o que significa a fila ficar laranja ou vermelha no painel?",
+    "a": "faq-509"
+   },
+   {
+    "h": "Elementos de atendimento, ticket e CRM no fluxo",
+    "a": "elementos-de-atendimento-ticket-e-crm-no-fluxo"
+   },
+   {
+    "h": "Para quais destinos o elemento &quot;Transferir&quot; pode enviar um atendimento no fluxo?",
+    "a": "faq-263"
+   },
+   {
+    "h": "O que fazem os elementos Etiqueta, Bloqueio, Impedir encerramento/transferência, Alerta e Lista de espera no fluxo?",
+    "a": "faq-324"
+   },
+   {
+    "h": "Como funcionam os elementos de disponibilidade, abrir e buscar atendimento e responder comentário?",
+    "a": "faq-338"
+   },
+   {
+    "h": "Como funcionam os elementos de agendar e cancelar a execução de uma automação?",
+    "a": "faq-346"
+   },
+   {
+    "h": "Como funcionam os elementos de enviar e-mail, notificação, criar e concluir tarefa na automação?",
+    "a": "faq-352"
+   },
+   {
+    "h": "Quais campos uma tarefa tem e como funcionam ação, checklist e agendamento?",
+    "a": "faq-145"
+   },
+   {
+    "h": "O que é a etiqueta (marcador) de um atendimento no chat e como configurar?",
+    "a": "faq-163"
+   },
+   {
+    "h": "Como agendar a reabertura automática de um atendimento ao encerrar o chat?",
+    "a": "faq-164"
+   },
+   {
+    "h": "Como consultar os atendimentos de uma fila numa automação (Consultar atendimentos da fila)?",
+    "a": "faq-540"
+   },
+   {
+    "h": "Como operar em outra fila ou em outro atendimento a partir de uma automação?",
+    "a": "faq-542"
+   },
+   {
+    "h": "Como configurar o encerramento automático de atendimentos por inatividade?",
+    "a": "faq-27"
+   },
+   {
+    "h": "Como encerrar automaticamente um atendimento sem tirar da sala de espera?",
+    "a": "faq-49"
+   }
+  ]
+ },
+ {
   "t": "Backups",
   "u": "backups.html",
   "s": [
@@ -327,6 +823,270 @@ window.MANUAL_INDEX = [
    {
     "h": "12. Fontes, lacunas e controle de versão",
     "a": "12-fontes-lacunas-e-controle-de-versao"
+   }
+  ]
+ },
+ {
+  "t": "Base de Conhecimento (FAQ)",
+  "u": "faq.html",
+  "s": [
+   {
+    "h": "FAQ — Canais e Conexões",
+    "a": "faq-canais-e-conexoes"
+   },
+   {
+    "h": "FAQ — WhatsApp Business",
+    "a": "faq-whatsapp-business"
+   },
+   {
+    "h": "FAQ — IA e Assistentes",
+    "a": "faq-ia-e-assistentes"
+   },
+   {
+    "h": "FAQ — Automação e URA",
+    "a": "faq-automacao-e-ura"
+   },
+   {
+    "h": "FAQ — CRM e Contatos",
+    "a": "faq-crm-e-contatos"
+   },
+   {
+    "h": "FAQ — Catálogo e Vendas",
+    "a": "faq-catalogo-e-vendas"
+   },
+   {
+    "h": "FAQ — Tickets e SLA",
+    "a": "faq-tickets-e-sla"
+   },
+   {
+    "h": "FAQ — Relatórios e Métricas",
+    "a": "faq-relatorios-e-metricas"
+   },
+   {
+    "h": "FAQ — Telefonia e PABX",
+    "a": "faq-telefonia-e-pabx"
+   },
+   {
+    "h": "FAQ — Administração e Operação",
+    "a": "faq-administracao-e-operacao"
+   },
+   {
+    "h": "Capítulos relacionados",
+    "a": "capitulos-relacionados"
+   }
+  ]
+ },
+ {
+  "t": "Canais e Conexões",
+  "u": "faq-canais-conexoes.html",
+  "s": [
+   {
+    "h": "WhatsApp Cloud API (oficial)",
+    "a": "whatsapp-cloud-api-oficial"
+   },
+   {
+    "h": "WhatsApp Business API e WAMD",
+    "a": "faq-2"
+   },
+   {
+    "h": "Quem configura a Cloud API do WhatsApp e quais são os pré-requisitos para conectar?",
+    "a": "faq-105"
+   },
+   {
+    "h": "Como sincronizar os templates do WhatsApp Cloud API com a Meta e o que significa cada status?",
+    "a": "faq-151"
+   },
+   {
+    "h": "Por que templates aprovados na Meta não aparecem ou não sincronizam no sistema?",
+    "a": "faq-90"
+   },
+   {
+    "h": "Por que um template do WhatsApp já aprovado na Meta falha ao enviar?",
+    "a": "faq-94"
+   },
+   {
+    "h": "Por que um template com documento/anexo dá erro 400 ao ser enviado pela API?",
+    "a": "faq-95"
+   },
+   {
+    "h": "Por que aparece &quot;Erro ao salvar&quot; ao tentar criar um template de WhatsApp?",
+    "a": "faq-96"
+   },
+   {
+    "h": "Por que mensagens para números de WhatsApp internacionais não chegam ou dão erro?",
+    "a": "faq-97"
+   },
+   {
+    "h": "WhatsApp não oficial (WAMD e QR Code)",
+    "a": "whatsapp-n-o-oficial-wamd-e-qr-code"
+   },
+   {
+    "h": "Como conectar e configurar uma fila de WhatsApp não oficial via QR Code e o que cada opção faz?",
+    "a": "faq-205"
+   },
+   {
+    "h": "Por que meu número em fila de WhatsApp não oficial é banido ou tem envios bloqueados pela Meta?",
+    "a": "faq-78"
+   },
+   {
+    "h": "Fila de WhatsApp conectada mas não envia mensagens: o que verificar?",
+    "a": "faq-82"
+   },
+   {
+    "h": "Por que filas desconectam ou param de gerar QR Code após uma atualização do sistema?",
+    "a": "faq-100"
+   },
+   {
+    "h": "O que significam os avisos de conexão instável e de fila sem autenticação no cabeçalho?",
+    "a": "faq-210"
+   },
+   {
+    "h": "Coexistence e migração de modalidade",
+    "a": "coexistence-e-migra-o-de-modalidade"
+   },
+   {
+    "h": "O que é o modo Coexistence e por que a fila fica nele ao converter para API Oficial?",
+    "a": "faq-92"
+   },
+   {
+    "h": "Por que as mensagens do WhatsApp Coexistence demoram ou param de sincronizar no celular?",
+    "a": "faq-112"
+   },
+   {
+    "h": "Por que o QR Code não aparece ao conectar uma fila em modo Coexistência?",
+    "a": "faq-113"
+   },
+   {
+    "h": "É possível converter uma fila de WhatsApp entre API oficial e não oficial, inclusive em lote?",
+    "a": "faq-70"
+   },
+   {
+    "h": "Como desvincular um número da fila oficial da Habilis para usar outro provedor?",
+    "a": "faq-116"
+   },
+   {
+    "h": "Instagram e Facebook Messenger",
+    "a": "instagram-e-facebook-messenger"
+   },
+   {
+    "h": "Quais são os requisitos para conectar uma fila de Instagram e evitar erro de permissão?",
+    "a": "faq-12"
+   },
+   {
+    "h": "Que campos e requisitos existem para conectar uma fila de Instagram ou Facebook Messenger?",
+    "a": "faq-224"
+   },
+   {
+    "h": "Por que uma imagem ou áudio enviado pela fila do Instagram não chega ao cliente?",
+    "a": "faq-6"
+   },
+   {
+    "h": "Por que a mensagem do Instagram falha com o aviso &quot;Outro aplicativo controla esta conversa&quot;?",
+    "a": "faq-543"
+   },
+   {
+    "h": "E-mail, modelos e publicações",
+    "a": "e-mail-modelos-e-publica-es"
+   },
+   {
+    "h": "Quais campos existem na aba Conexão de uma fila de E-mail (SMTP/IMAP)?",
+    "a": "faq-251"
+   },
+   {
+    "h": "Para que servem os Modelos HTML e como criar um para usar no atendimento?",
+    "a": "faq-376"
+   },
+   {
+    "h": "Como cadastrar uma Novidade e onde ela aparece para os usuários do sistema?",
+    "a": "faq-375"
+   },
+   {
+    "h": "Filas, permissões e limites",
+    "a": "filas-permiss-es-e-limites"
+   },
+   {
+    "h": "Existe limite de quantidade de filas que podem ser criadas por tipo de canal?",
+    "a": "faq-153"
+   },
+   {
+    "h": "Por que uma fila não pode ser desabilitada ou excluída e o que verificar antes?",
+    "a": "faq-277"
+   },
+   {
+    "h": "Quais permissões liberam o chat interno e o acesso a grupos de WhatsApp?",
+    "a": "faq-312"
+   },
+   {
+    "h": "Por que grupos de WhatsApp não aparecem para um agente mesmo com a permissão liberada?",
+    "a": "faq-84"
+   },
+   {
+    "h": "Por que aparece o alerta de arquivo maior que o permitido no atendimento?",
+    "a": "faq-272"
+   },
+   {
+    "h": "Campanhas, disparos e desempenho",
+    "a": "campanhas-disparos-e-desempenho"
+   },
+   {
+    "h": "Como criar uma campanha de disparo por WhatsApp e quais são suas 4 etapas?",
+    "a": "faq-279"
+   },
+   {
+    "h": "O que faz cada opção de &quot;Cliente com atendimento em andamento&quot; numa campanha?",
+    "a": "faq-140"
+   },
+   {
+    "h": "Como aprovar e liberar manualmente uma campanha suspensa para envio?",
+    "a": "faq-142"
+   },
+   {
+    "h": "Quais são as opções de liberação de uma campanha e como funciona o envio de teste?",
+    "a": "faq-144"
+   },
+   {
+    "h": "Como limitar os envios por hora de uma campanha de disparo?",
+    "a": "faq-547"
+   },
+   {
+    "h": "O sistema fica lento durante atendimento ou disparo de campanha — o que verificar?",
+    "a": "faq-89"
+   },
+   {
+    "h": "Como funciona o limite de atendimentos por agente e quando ele pode ser ultrapassado?",
+    "a": "faq-73"
+   },
+   {
+    "h": "Integrações externas e diagnóstico",
+    "a": "integra-es-externas-e-diagn-stico"
+   },
+   {
+    "h": "Como configurar e resolver falhas de conectividade na integração com o Fórmula Certa?",
+    "a": "faq-118"
+   },
+   {
+    "h": "É possível liberar acesso direto ao banco de dados da instância para terceiros?",
+    "a": "faq-120"
+   },
+   {
+    "h": "Como formatar os campos clientId e number nas chamadas de API de mensagem?",
+    "a": "faq-124"
+   },
+   {
+    "h": "Como remover ou editar o R$ (símbolo de moeda) da mensagem de orçamento antes de enviar?",
+    "a": "faq-126"
+   },
+   {
+    "h": "Quais erros aparecem ao usar a assistência remota em um atendimento?",
+    "a": "faq-218"
+   },
+   {
+    "h": "O que é a Assistência Remota e como o agente inicia o controle da tela do cliente?",
+    "a": "faq-231"
+   },
+   {
+    "h": "Como instalar e configurar uma extensão nesta instância?",
+    "a": "faq-473"
    }
   ]
  },
@@ -649,6 +1409,240 @@ window.MANUAL_INDEX = [
    {
     "h": "15. Automação avançada (Cloud API): fluxo de pedidos com IA",
     "a": "15-automacao-avancada-cloud-api-fluxo-de-pedidos-com-ia"
+   }
+  ]
+ },
+ {
+  "t": "Catálogo, Carrinho e Vendas",
+  "u": "faq-catalogo-vendas.html",
+  "s": [
+   {
+    "h": "Cadastro de produto e campos",
+    "a": "cadastro-de-produto-e-campos"
+   },
+   {
+    "h": "Como cadastrar um produto no Catálogo e quais campos e limites ele tem?",
+    "a": "faq-150"
+   },
+   {
+    "h": "O que a tela de detalhes de um produto mostra e como usar o botão Perguntar ao produto?",
+    "a": "faq-485"
+   },
+   {
+    "h": "Como usar o campo Observações do produto e quem enxerga o que é escrito nele?",
+    "a": "faq-523"
+   },
+   {
+    "h": "Quais permissões liberam editar catálogo, galeria, base de conhecimento e novidades?",
+    "a": "faq-305"
+   },
+   {
+    "h": "Importação por arquivo, feed e API",
+    "a": "importa-o-por-arquivo-feed-e-api"
+   },
+   {
+    "h": "Como importar produtos de um arquivo ou de um feed externo no Catálogo de Produtos?",
+    "a": "faq-487"
+   },
+   {
+    "h": "Como as fotos do produto são importadas e o que acontece quando a imagem muda no feed?",
+    "a": "faq-517"
+   },
+   {
+    "h": "Como enviar o catálogo de produtos para o sistema pela API ou por um assistente de IA externo?",
+    "a": "faq-513"
+   },
+   {
+    "h": "Onde encontro a documentação oficial dos endpoints da API do sistema?",
+    "a": "faq-123"
+   },
+   {
+    "h": "Por que um arquivo enviado à base de conhecimento da IA fica pendente ou falha ao indexar?",
+    "a": "faq-15"
+   },
+   {
+    "h": "Promoção e preço promocional",
+    "a": "promo-o-e-pre-o-promocional"
+   },
+   {
+    "h": "Como funciona o Preço promocional do produto e onde ele vale?",
+    "a": "faq-505"
+   },
+   {
+    "h": "Farmácia e produtos alternativos",
+    "a": "farm-cia-e-produtos-alternativos"
+   },
+   {
+    "h": "Como cadastrar produtos alternativos (genéricos e similares) e onde eles aparecem?",
+    "a": "faq-500"
+   },
+   {
+    "h": "Como anexar arquivos e receitas ao carrinho do cliente?",
+    "a": "faq-495"
+   },
+   {
+    "h": "Carrinho sincronizado, CRM e atendimento",
+    "a": "carrinho-sincronizado-crm-e-atendimento"
+   },
+   {
+    "h": "Como fazer o assistente de IA continuar a conversa sozinho depois que o cliente mexe no carrinho?",
+    "a": "faq-502"
+   },
+   {
+    "h": "Como registrar observações sobre o carrinho do cliente durante o atendimento?",
+    "a": "faq-503"
+   },
+   {
+    "h": "Como testar um assistente de IA com a configuração de uma fila real, incluindo o carrinho do cliente?",
+    "a": "faq-504"
+   },
+   {
+    "h": "Como ver os carrinhos de um atendimento ao abrir a conversa, ao vivo ou no histórico?",
+    "a": "faq-507"
+   },
+   {
+    "h": "Quais variáveis dão acesso direto ao carrinho do atendimento no fluxo de automação e URA?",
+    "a": "faq-516"
+   },
+   {
+    "h": "Como fazer os elementos de carrinho agirem no carrinho de um atendimento, sem o ID da oportunidade?",
+    "a": "faq-544"
+   },
+   {
+    "h": "O que fazem os elementos Enviar formulário, notificações push, ver carrinho e link de migração no WebChat?",
+    "a": "faq-342"
+   },
+   {
+    "h": "Como vincular uma oportunidade do CRM a um atendimento, manual ou automaticamente?",
+    "a": "faq-61"
+   },
+   {
+    "h": "O que significam os status de uma oportunidade e como ganhar, perder ou congelar?",
+    "a": "faq-139"
+   },
+   {
+    "h": "Quais campos existem no formulário de oportunidade do CRM?",
+    "a": "faq-152"
+   },
+   {
+    "h": "Como criar e configurar as etapas (estágios) de um funil de CRM?",
+    "a": "faq-173"
+   },
+   {
+    "h": "Quais erros de permissão aparecem ao gerenciar oportunidades e funis do CRM?",
+    "a": "faq-216"
+   },
+   {
+    "h": "Quais elementos existem para criar, mover, ganhar, perder e editar oportunidades no fluxo?",
+    "a": "faq-262"
+   },
+   {
+    "h": "Como encerrar um atendimento e o que é o campo Resultado do atendimento?",
+    "a": "faq-157"
+   },
+   {
+    "h": "Quais ações existem no menu Opções do chat do agente e quando cada uma aparece?",
+    "a": "faq-165"
+   },
+   {
+    "h": "O que o Painel de agentes mostra em tempo real e como alternar entre Agentes e Atendimentos?",
+    "a": "faq-332"
+   },
+   {
+    "h": "Como cadastrar, importar e exportar feriados no catálogo de Feriados?",
+    "a": "faq-244"
+   },
+   {
+    "h": "Como configurar feriados e datas especiais dentro de Horários de Atendimento?",
+    "a": "faq-266"
+   },
+   {
+    "h": "Estoque e disponibilidade",
+    "a": "estoque-e-disponibilidade"
+   },
+   {
+    "h": "Como baixar ou devolver o estoque dos produtos vendidos por um fluxo de automação?",
+    "a": "faq-545"
+   },
+   {
+    "h": "Como configurar a base de conhecimento de um assistente na aba Conhecimento?",
+    "a": "faq-162"
+   },
+   {
+    "h": "Venda por catálogo nos canais",
+    "a": "venda-por-cat-logo-nos-canais"
+   },
+   {
+    "h": "Como vender por catálogo no WhatsApp, Telegram, Instagram e Facebook",
+    "a": "faq-488"
+   },
+   {
+    "h": "Como enviar produtos do catálogo para o cliente durante o atendimento?",
+    "a": "faq-192"
+   },
+   {
+    "h": "O que a fila de Telegram consegue enviar, e por que às vezes os botões não saem?",
+    "a": "faq-510"
+   },
+   {
+    "h": "Como funcionam os elementos de template, flow, catálogo de produtos e pedido do WhatsApp Cloud API?",
+    "a": "faq-313"
+   },
+   {
+    "h": "Como fazer o assistente de IA enviar botões, listas, produtos, pedidos e arquivos ao cliente?",
+    "a": "faq-478"
+   },
+   {
+    "h": "Como anexar e enviar fotos, vídeos, áudio, contato e produtos em um atendimento?",
+    "a": "faq-158"
+   },
+   {
+    "h": "Qual a diferença entre os elementos Enviar mensagem, Enviar pergunta e Enviar opções?",
+    "a": "faq-199"
+   },
+   {
+    "h": "O que são os Gatilhos de mensagem (palavras-chave) e quais tipos existem?",
+    "a": "faq-204"
+   },
+   {
+    "h": "Como usar os dados reconhecidos nas mensagens do cliente (destaques, pesquisa de produtos, ligar, contato e oportunidade)?",
+    "a": "faq-546"
+   },
+   {
+    "h": "O que é uma fila de Webchat e qual a diferença entre a versão 1 e a versão 2?",
+    "a": "faq-252"
+   },
+   {
+    "h": "Busca, vitrine e IA",
+    "a": "busca-vitrine-e-ia"
+   },
+   {
+    "h": "Onde dá para buscar produtos por texto e o que a busca considera?",
+    "a": "faq-486"
+   },
+   {
+    "h": "Como usar a Busca inteligente de produtos no atendimento?",
+    "a": "faq-514"
+   },
+   {
+    "h": "Por que um produto não aparece na busca do assistente de IA?",
+    "a": "faq-490"
+   },
+   {
+    "h": "Quando as alterações do Catálogo aparecem para o cliente na vitrine do WebChat?",
+    "a": "faq-499"
+   },
+   {
+    "h": "Como fazer o assistente de IA considerar mensagens que o cliente envia enquanto ele consulta informações?",
+    "a": "faq-529"
+   },
+   {
+    "h": "Quais parâmetros avançados controlam tokens, temperatura e filtro de segurança do assistente?",
+    "a": "faq-160"
+   },
+   {
+    "h": "Como adicionar e configurar conectores (presets) no assistente de IA?",
+    "a": "faq-208"
    }
   ]
  },
@@ -1097,6 +2091,236 @@ window.MANUAL_INDEX = [
    {
     "h": "6.6. Chamando o cartão na URA / fluxo de automação",
     "a": "6-6-chamando-o-cartao-na-ura-fluxo-de-automacao"
+   }
+  ]
+ },
+ {
+  "t": "CRM, Contatos e Oportunidades",
+  "u": "faq-crm-contatos.html",
+  "s": [
+   {
+    "h": "Funis, estágios e campos",
+    "a": "funis-est-gios-e-campos"
+   },
+   {
+    "h": "Como criar um funil (pipeline) de CRM e quais campos gerais ele tem?",
+    "a": "faq-137"
+   },
+   {
+    "h": "Como criar uma oportunidade e movê-la entre etapas do funil?",
+    "a": "faq-148"
+   },
+   {
+    "h": "Oportunidades e movimentação",
+    "a": "oportunidades-e-movimenta-o"
+   },
+   {
+    "h": "Como ganhar, perder, congelar ou transferir várias oportunidades de uma vez?",
+    "a": "faq-172"
+   },
+   {
+    "h": "Por que uma automação de funil trava ao processar muitas oportunidades de uma vez?",
+    "a": "faq-39"
+   },
+   {
+    "h": "Por que aparecem oportunidades ou leads duplicados no CRM e como evitar isso?",
+    "a": "faq-52"
+   },
+   {
+    "h": "Por que as variáveis de chat não preenchem os cards de CRM criados por campanha?",
+    "a": "faq-62"
+   },
+   {
+    "h": "Atribuição e responsável",
+    "a": "atribui-o-e-respons-vel"
+   },
+   {
+    "h": "Como fazer o CRM atribuir automaticamente um lead ao agente responsável?",
+    "a": "faq-55"
+   },
+   {
+    "h": "Por que o card do CRM perde o responsável ao ser clonado ou movido entre funis?",
+    "a": "faq-58"
+   },
+   {
+    "h": "Origem de leads, UTM e anúncios",
+    "a": "origem-de-leads-utm-e-an-ncios"
+   },
+   {
+    "h": "Como rastrear a origem dos leads no CRM: UTM, anúncios e origens cadastradas?",
+    "a": "faq-59"
+   },
+   {
+    "h": "Como cadastrar uma origem de oportunidade no CRM e quais campos ela tem?",
+    "a": "faq-171"
+   },
+   {
+    "h": "Como funciona a etapa Audiência ao criar uma campanha e como os contatos são importados?",
+    "a": "faq-226"
+   },
+   {
+    "h": "Contatos, empresas, duplicados e grupos de acesso",
+    "a": "contatos-empresas-duplicados-e-grupos-de-acesso"
+   },
+   {
+    "h": "Como evitar que uma automação duplique contatos já cadastrados?",
+    "a": "faq-35"
+   },
+   {
+    "h": "Por que um contato com o mesmo número em formato diferente é salvo como duplicado?",
+    "a": "faq-56"
+   },
+   {
+    "h": "O que são campos extras de contato e como criar um campo personalizado?",
+    "a": "faq-143"
+   },
+   {
+    "h": "Como mesclar contatos duplicados e o que acontece com os dados de origem?",
+    "a": "faq-170"
+   },
+   {
+    "h": "Quais colunas mostra a tela de Contatos e quais ações exigem perfil de administrador?",
+    "a": "faq-362"
+   },
+   {
+    "h": "Como configurar webhooks globais de contatos, empresas e usuários da instância?",
+    "a": "faq-268"
+   },
+   {
+    "h": "Por que o histórico de conversas não aparece quando o contato muda de fila?",
+    "a": "faq-75"
+   },
+   {
+    "h": "Para que servem os grupos de acesso de contato e como restringem a visibilidade?",
+    "a": "faq-169"
+   },
+   {
+    "h": "Quais permissões controlam o acesso de um usuário a contatos e grupos de acesso do CRM?",
+    "a": "faq-308"
+   },
+   {
+    "h": "Importação e planilhas",
+    "a": "importa-o-e-planilhas"
+   },
+   {
+    "h": "Qual formato de data o sistema aceita ao importar uma planilha de contatos?",
+    "a": "faq-51"
+   },
+   {
+    "h": "Como importar contatos via planilha CSV e quais os limites de cada campo?",
+    "a": "faq-136"
+   },
+   {
+    "h": "Como importar oportunidades para um funil via planilha CSV?",
+    "a": "faq-174"
+   },
+   {
+    "h": "Quais erros aparecem ao importar uma planilha de contatos ou editar um contato?",
+    "a": "faq-222"
+   },
+   {
+    "h": "Automações de CRM e ações personalizadas",
+    "a": "automa-es-de-crm-e-a-es-personalizadas"
+   },
+   {
+    "h": "Por que uma automação de contato/CRM pede funil mesmo sem envolver oportunidade?",
+    "a": "faq-25"
+   },
+   {
+    "h": "Por que o protocolo de atendimento não é enviado automaticamente ao cliente?",
+    "a": "faq-36"
+   },
+   {
+    "h": "Por que automações vinculadas a um funil do CRM não disparam?",
+    "a": "faq-53"
+   },
+   {
+    "h": "Como configurar um intervalo de espera entre disparos automáticos do CRM?",
+    "a": "faq-60"
+   },
+   {
+    "h": "É possível disparar uma mensagem manualmente numa etapa do funil sem montar automação completa?",
+    "a": "faq-127"
+   },
+   {
+    "h": "O que é a Automação com contatos e oportunidades e quais os tipos disponíveis?",
+    "a": "faq-225"
+   },
+   {
+    "h": "Quais são os limites de disparos por minuto de uma Automação com contatos e oportunidades?",
+    "a": "faq-229"
+   },
+   {
+    "h": "Quais campos definem em que contexto um Fluxo de Automação pode ser executado?",
+    "a": "faq-232"
+   },
+   {
+    "h": "Como configurar o dia e a hora de execução de uma Automação com contatos e oportunidades?",
+    "a": "faq-255"
+   },
+   {
+    "h": "Como funcionam os elementos de buscar, adicionar, editar e compartilhar contato na automação?",
+    "a": "faq-335"
+   },
+   {
+    "h": "Para que servem os elementos de gestão de instância na automação e quem pode usá-los?",
+    "a": "faq-353"
+   },
+   {
+    "h": "Filas, canais e erros comuns",
+    "a": "filas-canais-e-erros-comuns"
+   },
+   {
+    "h": "Por que filas de WhatsApp não oficial (WAMD) duplicam atendimentos e atrasam mensagens?",
+    "a": "faq-76"
+   },
+   {
+    "h": "Quais as diferenças de recursos entre WAMD, WAMD2, WAMD3 e a API oficial do WhatsApp?",
+    "a": "faq-80"
+   },
+   {
+    "h": "Por que a foto de perfil do contato não aparece ou some em fila WhatsApp não oficial?",
+    "a": "faq-83"
+   },
+   {
+    "h": "Por que a foto de perfil do cliente não aparece em filas de API Oficial do WhatsApp?",
+    "a": "faq-111"
+   },
+   {
+    "h": "Quais opções de comportamento existem na aba Configurações de uma fila e o que cada uma faz?",
+    "a": "faq-146"
+   },
+   {
+    "h": "Quais campos preencho para conectar uma fila de Telegram?",
+    "a": "faq-227"
+   },
+   {
+    "h": "O que a fila WA Smarte faz: templates, mensagens especiais e abertura de atendimento ativo",
+    "a": "faq-528"
+   },
+   {
+    "h": "Como funciona o atendimento pelas filas de OLX, Mercado Livre e TikTok?",
+    "a": "faq-537"
+   },
+   {
+    "h": "Por que aparece o aviso de múltiplos dispositivos e como deslogar dos demais?",
+    "a": "faq-193"
+   },
+   {
+    "h": "Quais mensagens de erro aparecem ao tentar fazer login e o que cada uma significa?",
+    "a": "faq-195"
+   },
+   {
+    "h": "Quais erros genéricos aparecem ao abrir, transferir ou enviar mensagem em um atendimento?",
+    "a": "faq-214"
+   },
+   {
+    "h": "O que significam as telas &quot;sistema já aberto em outra aba&quot; e &quot;página não encontrada&quot; (404)?",
+    "a": "faq-223"
+   },
+   {
+    "h": "Quais campos e opções existem na aba Geral de Configurações &gt; Geral da instância?",
+    "a": "faq-246"
    }
   ]
  },
@@ -1747,6 +2971,236 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "IA e Assistentes",
+  "u": "faq-ia-assistentes.html",
+  "s": [
+   {
+    "h": "IA básica, avançada e planos",
+    "a": "ia-b-sica-avan-ada-e-planos"
+   },
+   {
+    "h": "Por que a opção de configurar o assistente de IA aparece, some ou fica bloqueada?",
+    "a": "faq-24"
+   },
+   {
+    "h": "Em quais filas a IA básica funciona e como funcionam tokens e limite mensal?",
+    "a": "faq-26"
+   },
+   {
+    "h": "Quais recursos de inteligência artificial podem ser habilitados por fila e o que cada um faz?",
+    "a": "faq-141"
+   },
+   {
+    "h": "Quantos agentes e administradores posso cadastrar? Como funciona o limite de licenciamento?",
+    "a": "faq-358"
+   },
+   {
+    "h": "Chaves de API e tokens",
+    "a": "chaves-de-api-e-tokens"
+   },
+   {
+    "h": "Por que ocorre erro ao cadastrar ou testar uma chave de API do assistente de IA?",
+    "a": "faq-17"
+   },
+   {
+    "h": "O que fazer quando a instância atinge o limite de tokens de IA e as funções param?",
+    "a": "faq-19"
+   },
+   {
+    "h": "Como configurar as chaves de API de IA e o limite de tokens da instância?",
+    "a": "faq-248"
+   },
+   {
+    "h": "Assistentes e configuração",
+    "a": "assistentes-e-configura-o"
+   },
+   {
+    "h": "O que é um assistente de IA e quais recursos ele reúne na plataforma?",
+    "a": "faq-178"
+   },
+   {
+    "h": "O que são as &quot;Perguntas não respondidas&quot; de um assistente e como usá-las?",
+    "a": "faq-186"
+   },
+   {
+    "h": "O que são procedimentos e funções personalizadas de um assistente de IA?",
+    "a": "faq-209"
+   },
+   {
+    "h": "Quais elementos de Inteligência Artificial existem no editor de Fluxo de Automação e URA?",
+    "a": "faq-259"
+   },
+   {
+    "h": "Como o assistente de IA acompanha os passos de um procedimento durante o atendimento?",
+    "a": "faq-484"
+   },
+   {
+    "h": "Como o assistente de IA trabalha com variáveis do atendimento (transcrições e conteúdos grandes)?",
+    "a": "faq-501"
+   },
+   {
+    "h": "Como ajustar o quanto o assistente de IA pensa antes de responder (esforço de raciocínio)?",
+    "a": "faq-506"
+   },
+   {
+    "h": "Base de conhecimento e indexação",
+    "a": "base-de-conhecimento-e-indexa-o"
+   },
+   {
+    "h": "Como consultar a Base de Conhecimento durante o atendimento?",
+    "a": "faq-133"
+   },
+   {
+    "h": "Quais os limites de tamanho de documento e como o RAG divide um arquivo em chunks?",
+    "a": "faq-159"
+   },
+   {
+    "h": "Como criar uma base de conhecimento (grupo) e anexar arquivos para a IA?",
+    "a": "faq-176"
+   },
+   {
+    "h": "Como criar um documento de FAQ e quais campos ele tem?",
+    "a": "faq-180"
+   },
+   {
+    "h": "Quais são os tipos de FAQ (Pública, Interna, restrita) e quem pode vê-los?",
+    "a": "faq-187"
+   },
+   {
+    "h": "Por que agrupar FAQs em uma base de conhecimento em vez de anexá-los soltos ao assistente?",
+    "a": "faq-211"
+   },
+   {
+    "h": "Quais os limites de tamanho de arquivo que o assistente de IA processa no atendimento?",
+    "a": "faq-274"
+   },
+   {
+    "h": "MCP e conectores externos",
+    "a": "mcp-e-conectores-externos"
+   },
+   {
+    "h": "Por que um conector de IA conecta com sucesso mas o assistente não consegue usá-lo?",
+    "a": "faq-28"
+   },
+   {
+    "h": "Como conectar um assistente de IA a um servidor MCP externo?",
+    "a": "faq-203"
+   },
+   {
+    "h": "Por que o assistente de IA externo vê as credenciais das filas como *** e como ele edita a fila sem apagá-las?",
+    "a": "faq-522"
+   },
+   {
+    "h": "Voz, transcrição e realtime",
+    "a": "voz-transcri-o-e-realtime"
+   },
+   {
+    "h": "Por que a transcrição de áudio por IA para de funcionar ou nunca funcionou?",
+    "a": "faq-13"
+   },
+   {
+    "h": "Por que a IA de transcrição de áudio ou imagem mistura dados de atendimentos anteriores?",
+    "a": "faq-14"
+   },
+   {
+    "h": "Como usar o elemento &quot;Gerar áudio com IA&quot; e quais provedores de TTS ele aceita?",
+    "a": "faq-548"
+   },
+   {
+    "h": "Como fazer o assistente de IA retomar sozinho a conversa quando o cliente para de responder?",
+    "a": "faq-531"
+   },
+   {
+    "h": "Copiloto, atendimento e diagnóstico",
+    "a": "copiloto-atendimento-e-diagn-stico"
+   },
+   {
+    "h": "Por que o assistente de IA para de responder ou fica muito lento em atendimentos?",
+    "a": "faq-11"
+   },
+   {
+    "h": "O que é o Copiloto de IA e quem pode utilizá-lo durante o atendimento?",
+    "a": "faq-185"
+   },
+   {
+    "h": "Quais permissões e campos de IA (Copiloto e resumo) existem na ficha do usuário?",
+    "a": "faq-294"
+   },
+   {
+    "h": "O que é o Suporte Remoto e como iniciar uma sessão com a câmera do cliente?",
+    "a": "faq-243"
+   },
+   {
+    "h": "O que são os Grupos de Visualização de Mensagens e quem consegue ler essas mensagens?",
+    "a": "faq-361"
+   },
+   {
+    "h": "Como acionar o suporte da Habilis e conceder acesso temporário à instância?",
+    "a": "faq-498"
+   },
+   {
+    "h": "Como inspecionar as requisições que o assistente de IA envia ao modelo (aba Debug)?",
+    "a": "faq-469"
+   },
+   {
+    "h": "Como funciona o agrupamento de mensagens do atendente para reduzir a cobrança da API oficial do WhatsApp?",
+    "a": "faq-527"
+   },
+   {
+    "h": "Como autenticar e quais limites de disparo tem o envio de mensagens pela API?",
+    "a": "faq-233"
+   },
+   {
+    "h": "Como configurar um webhook em uma fila, quais eventos disparam e quais limites tem a URL?",
+    "a": "faq-129"
+   },
+   {
+    "h": "Automações, pesquisas e integrações",
+    "a": "automa-es-pesquisas-e-integra-es"
+   },
+   {
+    "h": "Como gerar e enviar o link de uma pesquisa de satisfação em um fluxo de automação?",
+    "a": "faq-155"
+   },
+   {
+    "h": "O que é a Captura de webhook e como configurá-la para disparar uma automação?",
+    "a": "faq-197"
+   },
+   {
+    "h": "Como funciona o Visualizador de debug de uma automação ou URA?",
+    "a": "faq-202"
+   },
+   {
+    "h": "Quais campos de configuração geral existem para uma URA avançada (Chat)?",
+    "a": "faq-239"
+   },
+   {
+    "h": "Quais são os status de uma pesquisa e quais tipos de pergunta o construtor aceita?",
+    "a": "faq-273"
+   },
+   {
+    "h": "Quais campos existem na etapa Respostas do cadastro de campanha e o que cada opção faz?",
+    "a": "faq-293"
+   },
+   {
+    "h": "Como submeter e completar respostas de pesquisa diretamente por um fluxo de automação?",
+    "a": "faq-344"
+   },
+   {
+    "h": "Onde fica a documentação da API do sistema e como obter acesso para integrar?",
+    "a": "faq-378"
+   },
+   {
+    "h": "Onde fica a documentação para desenvolver extensões e o que o editor oferece?",
+    "a": "faq-479"
+   },
+   {
+    "h": "Como enviar uma mensagem de pesquisa ao cliente pelo fluxo de automação (elemento &quot;Enviar mensagem de pesquisa&quot;)?",
+    "a": "faq-524"
+   }
+  ]
+ },
+ {
   "t": "Integrações e Automações Externas",
   "u": "integracoes.html",
   "s": [
@@ -2157,6 +3611,10 @@ window.MANUAL_INDEX = [
    {
     "h": "Suporte Visual Remoto",
     "a": "suporte-visual-remoto"
+   },
+   {
+    "h": "Base de Conhecimento (FAQ)",
+    "a": "base-de-conhecimento-faq"
    }
   ]
  },
@@ -2757,6 +4215,256 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Relatórios, Painéis e Métricas",
+  "u": "faq-relatorios-metricas.html",
+  "s": [
+   {
+    "h": "Métricas de tempo e siglas",
+    "a": "m-tricas-de-tempo-e-siglas"
+   },
+   {
+    "h": "Qual a diferença entre TMA, TMPR, TMPR-A e TPR nos relatórios de atendimento?",
+    "a": "faq-20"
+   },
+   {
+    "h": "O que significam as siglas TMA, TMPR, TMPR-A, TPR e ESR usadas nos relatórios?",
+    "a": "faq-299"
+   },
+   {
+    "h": "Por que os números do dashboard e dos relatórios de atendimento parecem inconsistentes?",
+    "a": "faq-30"
+   },
+   {
+    "h": "Relatórios de filas e de agentes",
+    "a": "relat-rios-de-filas-e-de-agentes"
+   },
+   {
+    "h": "Quais filtros, colunas e métricas o Relatório de filas mostra?",
+    "a": "faq-296"
+   },
+   {
+    "h": "Quais colunas e métricas o relatório de Agentes (Relatórios &amp;gt; Agentes) mostra?",
+    "a": "faq-329"
+   },
+   {
+    "h": "Quais permissões gerais de atendimento e tarefas existem na ficha do usuário?",
+    "a": "faq-292"
+   },
+   {
+    "h": "Histórico de chats, buscas e reaberturas",
+    "a": "hist-rico-de-chats-buscas-e-reaberturas"
+   },
+   {
+    "h": "Quais filtros e colunas tem o relatório Histórico de Chats?",
+    "a": "faq-284"
+   },
+   {
+    "h": "É possível buscar uma palavra-chave dentro de atendimentos ou do histórico?",
+    "a": "faq-93"
+   },
+   {
+    "h": "Como funciona a tela Reaberturas agendadas e como cancelar ou editar um reagendamento?",
+    "a": "faq-351"
+   },
+   {
+    "h": "Relatórios de pausas, inatividade e disparos",
+    "a": "relat-rios-de-pausas-inatividade-e-disparos"
+   },
+   {
+    "h": "Quais colunas tem o Relatório de Pausas e como ele detalha cada motivo de pausa?",
+    "a": "faq-316"
+   },
+   {
+    "h": "Quais colunas e opções de período tem o relatório de Usuários Inativos?",
+    "a": "faq-304"
+   },
+   {
+    "h": "Quais filtros e colunas tem o relatório de Registros na AutoSend?",
+    "a": "faq-302"
+   },
+   {
+    "h": "Qual permissão libera o supervisor a acessar os registros do relatório de AutoSend?",
+    "a": "faq-311"
+   },
+   {
+    "h": "Relatórios personalizados",
+    "a": "relat-rios-personalizados"
+   },
+   {
+    "h": "Como criar relatórios personalizados e dar acesso individual por agente?",
+    "a": "faq-21"
+   },
+   {
+    "h": "O que é um Relatório Personalizado e quais tipos de widget o editor oferece?",
+    "a": "faq-334"
+   },
+   {
+    "h": "Como funcionam os filtros globais e o controle de acesso de um Relatório Personalizado?",
+    "a": "faq-315"
+   },
+   {
+    "h": "Como ordenar e limitar os dados de um widget do Relatório Personalizado (Top N)?",
+    "a": "faq-471"
+   },
+   {
+    "h": "Como medir no relatório a variação de valor que ainda está acontecendo dentro de uma etapa do funil?",
+    "a": "faq-496"
+   },
+   {
+    "h": "Monitoramento de produtividade e scores",
+    "a": "monitoramento-de-produtividade-e-scores"
+   },
+   {
+    "h": "Como funciona o monitoramento de produtividade dos agentes e por que ele pode não aparecer?",
+    "a": "faq-29"
+   },
+   {
+    "h": "Quais erros aparecem no Monitoramento de Produtividade e o que significam?",
+    "a": "faq-234"
+   },
+   {
+    "h": "Como cadastrar e classificar as Aplicações do monitoramento de produtividade e sua pontuação?",
+    "a": "faq-235"
+   },
+   {
+    "h": "O que é o Monitoramento de Produtividade e como habilitar para um agente?",
+    "a": "faq-240"
+   },
+   {
+    "h": "Como funciona o relatório de Timelapse dos agentes monitorados?",
+    "a": "faq-242"
+   },
+   {
+    "h": "O que são os Perfis de Scoring de produtividade e como atribuir um perfil a um agente?",
+    "a": "faq-253"
+   },
+   {
+    "h": "Como interpretar os relatórios de Produtividade - Equipe e Produtividade - Agente?",
+    "a": "faq-254"
+   },
+   {
+    "h": "Quais são os limiares de score que definem os estados Produtivo, Atenção e Improdutivo?",
+    "a": "faq-256"
+   },
+   {
+    "h": "Como criar uma Regra de Matching por título de janela e qual a ordem de prioridade?",
+    "a": "faq-257"
+   },
+   {
+    "h": "Como consultar as capturas de tela e vídeo do Monitoramento de Produtividade?",
+    "a": "faq-261"
+   },
+   {
+    "h": "O que mostra o relatório de Monitoramento e por que ele pode não aparecer no menu?",
+    "a": "faq-317"
+   },
+   {
+    "h": "Painéis e indicadores",
+    "a": "pain-is-e-indicadores"
+   },
+   {
+    "h": "Quais são as colunas das tabelas de usuários e de tarefas no painel Tarefas?",
+    "a": "faq-327"
+   },
+   {
+    "h": "O que o painel de Tarefas em Painel e Indicadores mostra sobre prazo e produtividade?",
+    "a": "faq-341"
+   },
+   {
+    "h": "Quais indicadores, gráficos e filtros têm os painéis CRM Geral e CRM por usuário?",
+    "a": "faq-320"
+   },
+   {
+    "h": "O que a tela Histórico de Oportunidades mostra e quais filtros e colunas ela tem?",
+    "a": "faq-349"
+   },
+   {
+    "h": "O que é o painel Funil ao vivo e o que ele mostra em tempo real?",
+    "a": "faq-489"
+   },
+   {
+    "h": "O que a tela Minhas tarefas mostra para o agente e como usá-la no dia a dia?",
+    "a": "faq-377"
+   },
+   {
+    "h": "O que o painel de Pesquisas mostra e como é calculada a taxa de resposta?",
+    "a": "faq-350"
+   },
+   {
+    "h": "O que é o módulo Pesquisas e como criar um formulário de pesquisa personalizado?",
+    "a": "faq-88"
+   },
+   {
+    "h": "O que é o painel de CRM e como funcionam funis, estágios e oportunidades?",
+    "a": "faq-134"
+   },
+   {
+    "h": "Para que serve o painel de Faturamento do parceiro e que informações ele traz?",
+    "a": "faq-379"
+   },
+   {
+    "h": "Exportação, auditoria e temas correlatos",
+    "a": "exporta-o-auditoria-e-temas-correlatos"
+   },
+   {
+    "h": "Quais são as limitações da exportação de relatórios para Excel?",
+    "a": "faq-31"
+   },
+   {
+    "h": "Quais informações o Log de Auditoria registra e como filtrar ou exportar os registros?",
+    "a": "faq-372"
+   },
+   {
+    "h": "Excluir um usuário ou substituí-lo por outro afeta o histórico, os relatórios ou a licença?",
+    "a": "faq-71"
+   },
+   {
+    "h": "Um agente bloqueado com o ícone de cadeado ainda consegue puxar atendimentos?",
+    "a": "faq-66"
+   },
+   {
+    "h": "Por que o Webchat passa a dar erro 404 depois de uma atualização do sistema?",
+    "a": "faq-8"
+   },
+   {
+    "h": "Por que o botão de ajuda do WebChat não mostra ou não abre os artigos da base de conhecimento?",
+    "a": "faq-18"
+   },
+   {
+    "h": "Por que uma campanha de disparo falha, aparece bloqueada ou envia para número errado?",
+    "a": "faq-9"
+   },
+   {
+    "h": "Quais são os status de uma mensagem nos Detalhes de uma campanha?",
+    "a": "faq-147"
+   },
+   {
+    "h": "Como funciona o processamento da fila de disparo AutoSend de campanhas com template?",
+    "a": "faq-175"
+   },
+   {
+    "h": "Como habilitar e visualizar o resumo ou avaliação automática do atendimento por IA?",
+    "a": "faq-16"
+   },
+   {
+    "h": "Quais campos existem na configuração de aparência e botão de acesso do App Web?",
+    "a": "faq-217"
+   },
+   {
+    "h": "Quais categorias de elementos existem na barra do editor visual de fluxo de automação/URA?",
+    "a": "faq-212"
+   },
+   {
+    "h": "Como avisar o cliente do que o assistente de IA está fazendo durante o atendimento?",
+    "a": "faq-493"
+   },
+   {
+    "h": "Como mostrar &quot;digitando...&quot; ao cliente enquanto o assistente de IA prepara a resposta?",
+    "a": "faq-526"
+   }
+  ]
+ },
+ {
   "t": "Rotas de Entrada e Saída",
   "u": "pabx-rotas.html",
   "s": [
@@ -3085,6 +4793,296 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Telefonia e PABX",
+  "u": "faq-telefonia-pabx.html",
+  "s": [
+   {
+    "h": "O módulo de Telefonia e configurações gerais",
+    "a": "o-m-dulo-de-telefonia-e-configura-es-gerais"
+   },
+   {
+    "h": "O que é o módulo de Telefonia (PABX) e quem tem acesso a ele?",
+    "a": "faq-354"
+   },
+   {
+    "h": "Quais campos configurar em Configurações &amp;gt; Geral &amp;gt; Telefonia (PABX externo e automação em todas as chamadas)?",
+    "a": "faq-269"
+   },
+   {
+    "h": "O que significam os avisos de status do PABX (offline, erro, reinício pendente) no cabeçalho?",
+    "a": "faq-213"
+   },
+   {
+    "h": "Quais são as configurações gerais do PBX (idioma, gravação padrão e limites de segurança)?",
+    "a": "faq-336"
+   },
+   {
+    "h": "Quais erros e limites aparecem na configuração de Telefonia (ramais, troncos, senha SIP)?",
+    "a": "faq-194"
+   },
+   {
+    "h": "É possível integrar um PABX externo ou de terceiros ao sistema?",
+    "a": "faq-34"
+   },
+   {
+    "h": "Como saber se um problema de ligação ou ramal é do PABX ou da minha rede/operadora?",
+    "a": "faq-44"
+   },
+   {
+    "h": "O que a aba Backup e Limpeza de Configurações Gerais controla?",
+    "a": "faq-230"
+   },
+   {
+    "h": "O que uma extensão consegue fazer no sistema e quais são os limites?",
+    "a": "faq-480"
+   },
+   {
+    "h": "Qual a diferença entre instância cancelada e excluída, e é possível reativar?",
+    "a": "faq-102"
+   },
+   {
+    "h": "O que é o Painel de instâncias e quais ações um parceiro pode executar em cada instância?",
+    "a": "faq-270"
+   },
+   {
+    "h": "Como criar uma nova instância pelo Painel de instâncias e o que fazer quando a criação falha?",
+    "a": "faq-470"
+   },
+   {
+    "h": "Como habilitar e configurar o servidor MCP da instância para assistentes de IA externos?",
+    "a": "faq-267"
+   },
+   {
+    "h": "Ramais, usuários e registro SIP",
+    "a": "ramais-usu-rios-e-registro-sip"
+   },
+   {
+    "h": "Por que um ramal do PABX perde registro, fica offline ou não completa ligações?",
+    "a": "faq-32"
+   },
+   {
+    "h": "Quais campos existem no cadastro de um ramal e quais os limites de cada um?",
+    "a": "faq-182"
+   },
+   {
+    "h": "Como obter os dados de conexão SIP para registrar um ramal em telefone externo?",
+    "a": "faq-355"
+   },
+   {
+    "h": "Quais são os campos avançados (SIP/PJSIP) disponíveis na edição de um ramal?",
+    "a": "faq-357"
+   },
+   {
+    "h": "Por que o sistema continua pedindo o ramal mesmo com a telefonia desabilitada?",
+    "a": "faq-41"
+   },
+   {
+    "h": "Por que agentes ou ramais são deslogados por ociosidade da fila de telefonia?",
+    "a": "faq-46"
+   },
+   {
+    "h": "Quais permissões de telefonia existem na ficha do usuário e o que cada uma libera?",
+    "a": "faq-306"
+   },
+   {
+    "h": "Quais campos existem no cadastro completo de um usuário do sistema?",
+    "a": "faq-198"
+   },
+   {
+    "h": "Como criar um novo usuário e quais campos são obrigatórios no cadastro inicial?",
+    "a": "faq-356"
+   },
+   {
+    "h": "O que acontece ao excluir um usuário e é possível reaproveitar o nome de usuário depois?",
+    "a": "faq-366"
+   },
+   {
+    "h": "Troncos, rotas e discagem",
+    "a": "troncos-rotas-e-discagem"
+   },
+   {
+    "h": "Como configurar um tronco SIP com uma operadora de telefonia (PABX)?",
+    "a": "faq-125"
+   },
+   {
+    "h": "Quais campos existem no cadastro de um tronco SIP e quais os limites de cada um?",
+    "a": "faq-184"
+   },
+   {
+    "h": "Quais são as regras para fazer e receber chamadas de voz pelo WhatsApp?",
+    "a": "faq-33"
+   },
+   {
+    "h": "Como criar uma rota de entrada e o que acontece se o DID não bater com nenhuma rota?",
+    "a": "faq-337"
+   },
+   {
+    "h": "Como criar uma rota de saída e como funcionam os padrões de discagem?",
+    "a": "faq-343"
+   },
+   {
+    "h": "Filas de voz e grupos de toque",
+    "a": "filas-de-voz-e-grupos-de-toque"
+   },
+   {
+    "h": "Como criar uma fila de voz (Telefonia) e o que configura a estratégia de distribuição?",
+    "a": "faq-340"
+   },
+   {
+    "h": "Como criar um grupo de toque e quais estratégias de toque existem?",
+    "a": "faq-339"
+   },
+   {
+    "h": "Como criar uma fila nova e quais campos são exigidos no formulário inicial?",
+    "a": "faq-247"
+   },
+   {
+    "h": "Quais tipos de fila e canal de atendimento o sistema permite criar hoje?",
+    "a": "faq-249"
+   },
+   {
+    "h": "Como acessar a tela Estado da Fila (Tempo Real) e o que cada indicador mostra?",
+    "a": "faq-360"
+   },
+   {
+    "h": "Como logar, deslogar e pausar em filas de atendimento pelo Painel do agente?",
+    "a": "faq-128"
+   },
+   {
+    "h": "Como usar o Carrinho sincronizado numa fila de telefonia?",
+    "a": "faq-497"
+   },
+   {
+    "h": "Como cadastrar um arquivo na Galeria de arquivos para uso rápido no atendimento?",
+    "a": "faq-166"
+   },
+   {
+    "h": "O que é o Carrinho sincronizado com o CRM e como configurá-lo?",
+    "a": "faq-482"
+   },
+   {
+    "h": "Como o agente usa o painel de Carrinho durante o atendimento?",
+    "a": "faq-483"
+   },
+   {
+    "h": "Como usar os formulários do carrinho no atendimento e configurá-los na fila?",
+    "a": "faq-520"
+   },
+   {
+    "h": "O que são as Ações personalizadas do CRM e como criar uma para uma oportunidade?",
+    "a": "faq-168"
+   },
+   {
+    "h": "URA telefônica e fluxos de automação",
+    "a": "ura-telef-nica-e-fluxos-de-automa-o"
+   },
+   {
+    "h": "O que é o Fluxo de Automação e URA e quais são os três tipos de fluxo existentes?",
+    "a": "faq-207"
+   },
+   {
+    "h": "O que fazem os elementos de áudio, DTMF, transferência e encerramento na URA telefônica?",
+    "a": "faq-347"
+   },
+   {
+    "h": "O que são as variáveis do fluxo e como usá-las na configuração dos elementos?",
+    "a": "faq-236"
+   },
+   {
+    "h": "O que fazem os elementos Nova variável, Pausar (Esperar) e os elementos de gatilho no fluxo?",
+    "a": "faq-319"
+   },
+   {
+    "h": "Como fazer uma automação ou URA iniciar uma chamada telefônica e encaminhá-la para uma fila, um ramal ou uma URA?",
+    "a": "faq-521"
+   },
+   {
+    "h": "Como executar uma automação ao fim de uma ligação iniciada pelo fluxo?",
+    "a": "faq-541"
+   },
+   {
+    "h": "Como configurar o hook de chamada recebida para disparar uma automação?",
+    "a": "faq-43"
+   },
+   {
+    "h": "Discadora e campanhas de voz",
+    "a": "discadora-e-campanhas-de-voz"
+   },
+   {
+    "h": "Como criar uma campanha de discadora (chamadas de voz automáticas) e quais campos configurar?",
+    "a": "faq-276"
+   },
+   {
+    "h": "Quais são os status de uma campanha de discadora e quando pausar, retomar ou cancelar?",
+    "a": "faq-138"
+   },
+   {
+    "h": "Quem pode criar campanhas de disparo e discadora, e como liberar isso a um supervisor?",
+    "a": "faq-161"
+   },
+   {
+    "h": "CDR, gravações e auditoria",
+    "a": "cdr-grava-es-e-auditoria"
+   },
+   {
+    "h": "Quais filtros e colunas tem o relatório CDR e Gravações?",
+    "a": "faq-286"
+   },
+   {
+    "h": "Quais filtros e colunas tem o relatório de chamadas Abandonadas?",
+    "a": "faq-326"
+   },
+   {
+    "h": "Quais são as limitações do relatório de chamadas (CDR) e do SimplePBX?",
+    "a": "faq-45"
+   },
+   {
+    "h": "Como funcionam as gravações de chamada, o player e a cota de armazenamento?",
+    "a": "faq-348"
+   },
+   {
+    "h": "Como originar chamadas, consultar o histórico de chamadas e baixar gravações pela API?",
+    "a": "faq-530"
+   },
+   {
+    "h": "Voz com IA e transferência",
+    "a": "voz-com-ia-e-transfer-ncia"
+   },
+   {
+    "h": "Como configurar o modo Realtime (voz) de um assistente de IA?",
+    "a": "faq-511"
+   },
+   {
+    "h": "Como escolher a voz do assistente de IA que atende chamadas?",
+    "a": "faq-515"
+   },
+   {
+    "h": "O que é o Modelo de apoio do assistente de voz e como ajustar o esforço de raciocínio dele?",
+    "a": "faq-518"
+   },
+   {
+    "h": "Por que o agente de IA de telefonia (voz) falha ao transferir para um atendente humano?",
+    "a": "faq-42"
+   },
+   {
+    "h": "Como criar um assistente de IA e o que configurar na aba Geral?",
+    "a": "faq-156"
+   },
+   {
+    "h": "Como fazer o assistente de IA enviar uma mensagem de espera enquanto processa a resposta?",
+    "a": "faq-525"
+   },
+   {
+    "h": "Como dar ao assistente de IA o controle do atendimento que ele está conduzindo (etiquetas, contato, oportunidades, carrinho, histórico de pedidos e tickets)?",
+    "a": "faq-481"
+   },
+   {
+    "h": "Como deixar o assistente de IA consultar os atendimentos anteriores do cliente?",
+    "a": "faq-532"
+   }
+  ]
+ },
+ {
   "t": "Tickets (Mesa de Ajuda e Configurações Administrativas)",
   "u": "tickets.html",
   "s": [
@@ -3275,6 +5273,184 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Tickets e SLA",
+  "u": "faq-tickets.html",
+  "s": [
+   {
+    "h": "Visão geral do módulo de Tickets",
+    "a": "vis-o-geral-do-m-dulo-de-tickets"
+   },
+   {
+    "h": "O que é o módulo de Tickets, para que serve e como funciona?",
+    "a": "faq-54"
+   },
+   {
+    "h": "O que o Painel de Tickets mostra e quais são os modos de visualização disponíveis?",
+    "a": "faq-369"
+   },
+   {
+    "h": "Motivos, classificações e sub-motivos",
+    "a": "motivos-classifica-es-e-sub-motivos"
+   },
+   {
+    "h": "O que são Classificações de Tickets e qual a diferença entre Externo e Interno?",
+    "a": "faq-297"
+   },
+   {
+    "h": "O que são Motivos de Tickets e quais campos de SLA e distribuição eles definem?",
+    "a": "faq-368"
+   },
+   {
+    "h": "O que são Sub-motivos de tickets e onde são cadastrados?",
+    "a": "faq-285"
+   },
+   {
+    "h": "Qual a ordem de prioridade entre Motivo, Classificação e Emails globais de tickets?",
+    "a": "faq-283"
+   },
+   {
+    "h": "Grupos de serviço, níveis e SLA",
+    "a": "grupos-de-servi-o-n-veis-e-sla"
+   },
+   {
+    "h": "O que são Grupos de Serviço de Tickets e como configurar os níveis de atendimento com escalonamento?",
+    "a": "faq-364"
+   },
+   {
+    "h": "Como funciona a distribuição do SLA entre os níveis de atendimento de um motivo de ticket?",
+    "a": "faq-298"
+   },
+   {
+    "h": "Como o sistema calcula o SLA e o que é o percentual de corte usado?",
+    "a": "faq-22"
+   },
+   {
+    "h": "Estágios, status e Kanban",
+    "a": "est-gios-status-e-kanban"
+   },
+   {
+    "h": "O que são Estágios de Tickets (fluxos de estágio) e como funciona o Kanban por Estágio?",
+    "a": "faq-370"
+   },
+   {
+    "h": "Quais são os status de um ticket e quais regras controlam a mudança entre eles?",
+    "a": "faq-365"
+   },
+   {
+    "h": "Filas, distribuição e permissões",
+    "a": "filas-distribui-o-e-permiss-es"
+   },
+   {
+    "h": "Como um agente entra e sai de uma fila de tickets para receber chamados?",
+    "a": "faq-300"
+   },
+   {
+    "h": "Qual permissão libera a Gestão de Tickets e como funcionam níveis e filas do agente?",
+    "a": "faq-303"
+   },
+   {
+    "h": "Por que um agente sem perfil administrador só vê os tickets que ele criou?",
+    "a": "faq-50"
+   },
+   {
+    "h": "Qual o limite máximo de atendimentos e de tickets simultâneos que posso configurar para um agente?",
+    "a": "faq-206"
+   },
+   {
+    "h": "Criação e operação de tickets",
+    "a": "cria-o-e-opera-o-de-tickets"
+   },
+   {
+    "h": "Quais campos existem no diálogo de criação de um ticket?",
+    "a": "faq-295"
+   },
+   {
+    "h": "Quais elementos existem para criar, resolver, escalar ou comentar um ticket no fluxo?",
+    "a": "faq-265"
+   },
+   {
+    "h": "Onde uma configuração de Horário de Atendimento pode ser usada além da própria tela de Horários?",
+    "a": "faq-271"
+   },
+   {
+    "h": "Quais campos e limites existem nas Configurações Gerais de Tickets?",
+    "a": "faq-291"
+   },
+   {
+    "h": "Como cadastrar uma etiqueta e marcá-la para contato, FAQ, tarefa ou CRM?",
+    "a": "faq-167"
+   },
+   {
+    "h": "Relatórios, painéis e auditoria",
+    "a": "relat-rios-pain-is-e-auditoria"
+   },
+   {
+    "h": "Quais relatórios de Tickets existem no menu de Relatórios e o que cada um mostra?",
+    "a": "faq-301"
+   },
+   {
+    "h": "Quais colunas e indicadores tem o relatório de Tickets SLA Detalhado?",
+    "a": "faq-289"
+   },
+   {
+    "h": "Quais colunas tem o relatório de Performance de Agentes em Tickets?",
+    "a": "faq-290"
+   },
+   {
+    "h": "Quais colunas tem o relatório Top Problemas de Tickets e como funciona a navegação?",
+    "a": "faq-363"
+   },
+   {
+    "h": "Quais colunas tem o relatório de Tickets Top Clientes?",
+    "a": "faq-328"
+   },
+   {
+    "h": "Quais colunas o relatório de Volumetria de Tickets mostra por dia?",
+    "a": "faq-325"
+   },
+   {
+    "h": "Quais colunas e filtros tem o relatório Histórico de Tickets?",
+    "a": "faq-322"
+   },
+   {
+    "h": "Quais colunas tem o relatório Tickets Empresa e em que ele difere do Histórico?",
+    "a": "faq-323"
+   },
+   {
+    "h": "Quais colunas e indicadores tem o relatório de Auditoria de Tickets?",
+    "a": "faq-318"
+   },
+   {
+    "h": "O que o painel de indicadores Tickets mostra e quais são seus gráficos e tabelas?",
+    "a": "faq-309"
+   },
+   {
+    "h": "O que o painel Atendimentos (Painel e Indicadores) mostra e quais filtros aceita?",
+    "a": "faq-333"
+   },
+   {
+    "h": "Manutenção, parceiros e suporte",
+    "a": "manuten-o-parceiros-e-suporte"
+   },
+   {
+    "h": "Depois de quantos dias o sistema apaga sozinho tarefas, auditoria e outros dados antigos?",
+    "a": "faq-278"
+   },
+   {
+    "h": "O que o painel de Estatísticas do parceiro mostra e quem pode acessá-lo?",
+    "a": "faq-374"
+   },
+   {
+    "h": "O que são extensões e onde elas aparecem no sistema?",
+    "a": "faq-472"
+   },
+   {
+    "h": "Como registrar um bug ou reportar um problema ao suporte?",
+    "a": "faq-492"
+   }
+  ]
+ },
+ {
   "t": "Tour Guiado no Sistema Inteiro",
   "u": "tour-guiado-planejamento.html",
   "s": [
@@ -3425,6 +5601,448 @@ window.MANUAL_INDEX = [
    {
     "h": "6. Horário de Atendimento Dentro do Fluxo da URA",
     "a": "6-horario-de-atendimento-dentro-do-fluxo-da-ura"
+   }
+  ]
+ },
+ {
+  "t": "WhatsApp Business: Políticas, Limites e Cobrança",
+  "u": "faq-whatsapp-business.html",
+  "s": [
+   {
+    "h": "Conexão, filas e diagnóstico da API oficial",
+    "a": "conex-o-filas-e-diagn-stico-da-api-oficial"
+   },
+   {
+    "h": "Como saber se uma falha de conexão, envio ou template do WhatsApp Cloud API é da Meta?",
+    "a": "faq-91"
+   },
+   {
+    "h": "O que fazer quando a Meta restringe a conexão Coexistence de uma fila?",
+    "a": "faq-99"
+   },
+   {
+    "h": "Por que a fila da API oficial do WhatsApp não envia mensagens por falta de pagamento na Meta?",
+    "a": "faq-101"
+   },
+   {
+    "h": "Conta ou número do WhatsApp aparece banido/restrito, mas na Meta está tudo certo. O que fazer?",
+    "a": "faq-103"
+   },
+   {
+    "h": "Quais tipos de mensagem não são processados ou exibidos na API oficial do WhatsApp?",
+    "a": "faq-104"
+   },
+   {
+    "h": "O que significa o aviso &quot;A assinatura da mensagem não pôde ser verificada&quot;?",
+    "a": "faq-110"
+   },
+   {
+    "h": "Por que não consigo enviar um template para continuar um atendimento após a janela de 24h fechar?",
+    "a": "faq-114"
+   },
+   {
+    "h": "Por que uma mensagem aparece como enviada mas o cliente final não a recebe?",
+    "a": "faq-115"
+   },
+   {
+    "h": "Por que anexos pela API oficial demoram, não chegam ou saem sem nome?",
+    "a": "faq-117"
+   },
+   {
+    "h": "Quais botões existem para converter uma fila de WhatsApp entre WAMD, WAMD 2, WAMD 3 e Cloud API?",
+    "a": "faq-149"
+   },
+   {
+    "h": "Número, WABA e verificação",
+    "a": "n-mero-waba-e-verifica-o"
+   },
+   {
+    "h": "Quantos números de telefone uma empresa pode registrar no WhatsApp Business?",
+    "a": "faq-384"
+   },
+   {
+    "h": "O que é a verificação do negócio (business verification) e para que ela é exigida no WhatsApp",
+    "a": "faq-385"
+   },
+   {
+    "h": "Quais as regras para trocar o nome de exibição do número no WhatsApp Business?",
+    "a": "faq-386"
+   },
+   {
+    "h": "Quais números de telefone são elegíveis para virar número comercial do WhatsApp",
+    "a": "faq-387"
+   },
+   {
+    "h": "Como registrar um número de telefone comercial no WhatsApp Business Platform?",
+    "a": "faq-388"
+   },
+   {
+    "h": "Como remover ou excluir um número de telefone da conta do WhatsApp Business",
+    "a": "faq-389"
+   },
+   {
+    "h": "O que é a Conta Comercial Oficial (selo azul) do WhatsApp e quem tem direito a ela?",
+    "a": "faq-390"
+   },
+   {
+    "h": "Dá para usar o aplicativo WhatsApp Business e a API no mesmo número ao mesmo tempo",
+    "a": "faq-391"
+   },
+   {
+    "h": "O que significam os status do nome de exibição do WhatsApp: aprovado, recusado, em análise?",
+    "a": "faq-406"
+   },
+   {
+    "h": "O que significa o número aparecer com status &quot;connected&quot; (conectado) no WhatsApp?",
+    "a": "faq-407"
+   },
+   {
+    "h": "Uma mesma WABA pode ser compartilhada com mais de um parceiro no WhatsApp?",
+    "a": "faq-408"
+   },
+   {
+    "h": "Em quanto tempo a Meta responde um chamado de suporte sobre a conta do WhatsApp Business?",
+    "a": "faq-411"
+   },
+   {
+    "h": "O que é uma WhatsApp Business Account (WABA) e como ela se relaciona com o número?",
+    "a": "faq-412"
+   },
+   {
+    "h": "É possível migrar um número comercial do WhatsApp entre WABAs ou entre parceiros diferentes?",
+    "a": "faq-416"
+   },
+   {
+    "h": "O que é a verificação em duas etapas (PIN de 6 dígitos) do número comercial do WhatsApp?",
+    "a": "faq-419"
+   },
+   {
+    "h": "O que significa cada status de um número no WhatsApp Business (Connected, Flagged, Restricted, Banned)?",
+    "a": "faq-421"
+   },
+   {
+    "h": "Como solicitar o selo de Conta Comercial Oficial (Official Business Account) no WhatsApp?",
+    "a": "faq-422"
+   },
+   {
+    "h": "Por que o nome de exibição do número entrou em análise sem eu ter pedido alteração?",
+    "a": "faq-427"
+   },
+   {
+    "h": "Templates e categorias",
+    "a": "templates-e-categorias"
+   },
+   {
+    "h": "Quais são os status possíveis de um modelo de mensagem (template) no WhatsApp?",
+    "a": "faq-409"
+   },
+   {
+    "h": "Quantos botões um modelo de mensagem do WhatsApp pode ter e quais os limites de cada tipo?",
+    "a": "faq-423"
+   },
+   {
+    "h": "Por que um modelo de mensagem foi pausado (PAUSED) e quanto tempo dura cada pausa?",
+    "a": "faq-424"
+   },
+   {
+    "h": "Quantos caracteres pode ter o cabeçalho, corpo e rodapé de um modelo de mensagem?",
+    "a": "faq-425"
+   },
+   {
+    "h": "O que significa a Meta ter mudado sozinha a categoria de um modelo de mensagem?",
+    "a": "faq-426"
+   },
+   {
+    "h": "Quais são as categorias de modelo de mensagem do WhatsApp (marketing, utilidade, autenticação)?",
+    "a": "faq-439"
+   },
+   {
+    "h": "Quanto tempo demora a aprovação de um modelo de mensagem no WhatsApp?",
+    "a": "faq-441"
+   },
+   {
+    "h": "Qual o limite máximo de modelos de mensagem (templates) que uma WABA pode ter?",
+    "a": "faq-442"
+   },
+   {
+    "h": "O que acontece se a empresa categorizar modelos de utilidade como marketing repetidamente?",
+    "a": "faq-444"
+   },
+   {
+    "h": "Quais são as regras específicas para modelos de autenticação (authentication templates)?",
+    "a": "faq-445"
+   },
+   {
+    "h": "Quantas vezes é possível editar um modelo de mensagem (template) já aprovado?",
+    "a": "faq-446"
+   },
+   {
+    "h": "Por que um modelo de mensagem (template) do WhatsApp foi rejeitado e como recorrer?",
+    "a": "faq-448"
+   },
+   {
+    "h": "Quais os limites de um modelo carrossel de cartões de mídia no WhatsApp?",
+    "a": "faq-456"
+   },
+   {
+    "h": "O que é a Biblioteca de Modelos (Template Library) da Meta e quando ela é obrigatória?",
+    "a": "faq-457"
+   },
+   {
+    "h": "O que é o pacing de modelo de mensagem e por que envios ficam retidos para avaliação?",
+    "a": "faq-459"
+   },
+   {
+    "h": "Como funcionam as variáveis (parâmetros) em um modelo de mensagem do WhatsApp?",
+    "a": "faq-461"
+   },
+   {
+    "h": "Limites de envio e qualidade do número",
+    "a": "limites-de-envio-e-qualidade-do-n-mero"
+   },
+   {
+    "h": "O que faz a qualidade do número de WhatsApp cair e como isso afeta o envio?",
+    "a": "faq-398"
+   },
+   {
+    "h": "Por que meu pedido de aumento de limite de mensagens no WhatsApp foi negado?",
+    "a": "faq-400"
+   },
+   {
+    "h": "Onde consultar o limite atual de mensagens do meu número no WhatsApp?",
+    "a": "faq-403"
+   },
+   {
+    "h": "Como aumentar a capacidade de envio para 1.000 mensagens por segundo no WhatsApp?",
+    "a": "faq-405"
+   },
+   {
+    "h": "Por que o limite de mensagens do WhatsApp agora é compartilhado entre todos os números?",
+    "a": "faq-414"
+   },
+   {
+    "h": "Quantos contatos podem ser enviados em uma única mensagem no WhatsApp?",
+    "a": "faq-417"
+   },
+   {
+    "h": "Como a Meta calcula a classificação de qualidade (quality rating) do número no WhatsApp?",
+    "a": "faq-418"
+   },
+   {
+    "h": "O que significam as classificações de qualidade verde, amarela e vermelha de um modelo?",
+    "a": "faq-436"
+   },
+   {
+    "h": "Quais são as faixas do limite de envio de mensagens do WhatsApp Business?",
+    "a": "faq-458"
+   },
+   {
+    "h": "Como o limite de mensagens sobe automaticamente para 10 mil, 100 mil ou ilimitado?",
+    "a": "faq-462"
+   },
+   {
+    "h": "O que conta e o que não conta para o limite de envio do WhatsApp Business?",
+    "a": "faq-464"
+   },
+   {
+    "h": "Como aumentar o limite inicial de 250 mensagens para 2.000 no WhatsApp?",
+    "a": "faq-466"
+   },
+   {
+    "h": "Existe limite de quantas mensagens de marketing um cliente pode receber no WhatsApp?",
+    "a": "faq-467"
+   },
+   {
+    "h": "Existe limite de mensagens que posso mandar para o mesmo cliente no WhatsApp?",
+    "a": "faq-468"
+   },
+   {
+    "h": "Formatos e tamanhos de mídia",
+    "a": "formatos-e-tamanhos-de-m-dia"
+   },
+   {
+    "h": "Quais formatos de vídeo e tamanho máximo de arquivo o WhatsApp aceita?",
+    "a": "faq-382"
+   },
+   {
+    "h": "Quais formatos de imagem e tamanho máximo de arquivo o WhatsApp aceita?",
+    "a": "faq-383"
+   },
+   {
+    "h": "Quais formatos de áudio o WhatsApp aceita e qual o tamanho máximo de arquivo?",
+    "a": "faq-399"
+   },
+   {
+    "h": "Quais tipos de documento o WhatsApp aceita e qual o tamanho máximo de arquivo?",
+    "a": "faq-401"
+   },
+   {
+    "h": "Qual o limite de caracteres do texto de uma mensagem simples no WhatsApp?",
+    "a": "faq-402"
+   },
+   {
+    "h": "Existe limite de caracteres para o nome e o endereço numa mensagem de localização?",
+    "a": "faq-410"
+   },
+   {
+    "h": "Qual o tamanho máximo de uma figurinha (sticker) no WhatsApp?",
+    "a": "faq-413"
+   },
+   {
+    "h": "Até quando dá para reagir com emoji a uma mensagem no WhatsApp?",
+    "a": "faq-415"
+   },
+   {
+    "h": "Existe um limite geral de tamanho para qualquer mídia enviada no WhatsApp?",
+    "a": "faq-420"
+   },
+   {
+    "h": "Mensagens interativas e catálogo",
+    "a": "mensagens-interativas-e-cat-logo"
+   },
+   {
+    "h": "Quantos itens uma mensagem de lista interativa pode ter no WhatsApp?",
+    "a": "faq-380"
+   },
+   {
+    "h": "Quantos botões de resposta rápida uma mensagem interativa pode ter no WhatsApp?",
+    "a": "faq-381"
+   },
+   {
+    "h": "Quantos produtos cabem em uma mensagem de catálogo (multi-product) do WhatsApp?",
+    "a": "faq-404"
+   },
+   {
+    "h": "Como funciona a moderação e a denúncia de itens do catálogo de produtos no WhatsApp?",
+    "a": "faq-451"
+   },
+   {
+    "h": "Quem é responsável pelas vendas feitas pelo catálogo e pagamentos do WhatsApp?",
+    "a": "faq-465"
+   },
+   {
+    "h": "Opt-in, opt-out e políticas de conteúdo",
+    "a": "opt-in-opt-out-e-pol-ticas-de-conte-do"
+   },
+   {
+    "h": "O que a Meta exige para um opt-in válido antes de mandar modelo de mensagem?",
+    "a": "faq-432"
+   },
+   {
+    "h": "Como funciona o opt-out (cancelamento) das mensagens do WhatsApp pelo cliente?",
+    "a": "faq-434"
+   },
+   {
+    "h": "O que acontece se o negócio violar a política de opt-in ou mandar mensagem sem autorização?",
+    "a": "faq-438"
+   },
+   {
+    "h": "Quais métodos a Meta aceita para coletar o opt-in do cliente no WhatsApp?",
+    "a": "faq-454"
+   },
+   {
+    "h": "Preciso pedir opt-in separado para cada tipo de mensagem (marketing, utilidade, autenticação)?",
+    "a": "faq-455"
+   },
+   {
+    "h": "Cobrança e janela de atendimento",
+    "a": "cobran-a-e-janela-de-atendimento"
+   },
+   {
+    "h": "Como funciona a janela de 24 horas para responder mensagens em canais oficiais?",
+    "a": "faq-280"
+   },
+   {
+    "h": "É verdade que o WhatsApp vai cobrar mensagem de serviço e utilidade a partir de outubro de 2026?",
+    "a": "faq-428"
+   },
+   {
+    "h": "É possível enviar mensagem livre (sem modelo) para o cliente no WhatsApp?",
+    "a": "faq-429"
+   },
+   {
+    "h": "O WhatsApp Business Platform cobra por conversa ou por mensagem hoje?",
+    "a": "faq-430"
+   },
+   {
+    "h": "O que é a janela de atendimento de 24 horas do WhatsApp e quando ela abre?",
+    "a": "faq-431"
+   },
+   {
+    "h": "Quais categorias de mensagem do WhatsApp são cobradas e quais são gratuitas hoje?",
+    "a": "faq-433"
+   },
+   {
+    "h": "O que é o ponto de entrada gratuito (Free Entry Point) e quanto tempo ele dura?",
+    "a": "faq-437"
+   },
+   {
+    "h": "O que determina o preço de uma mensagem de modelo (template) no WhatsApp?",
+    "a": "faq-450"
+   },
+   {
+    "h": "O que reinicia o temporizador da janela de atendimento de 24 horas do WhatsApp?",
+    "a": "faq-452"
+   },
+   {
+    "h": "Setores regulados e conformidade",
+    "a": "setores-regulados-e-conformidade"
+   },
+   {
+    "h": "Que dados a empresa não pode pedir ou compartilhar em conversa no WhatsApp?",
+    "a": "faq-392"
+   },
+   {
+    "h": "Em quais países a Meta permite mensagens sobre medicamento sem prescrição no WhatsApp?",
+    "a": "faq-393"
+   },
+   {
+    "h": "Quais os requisitos extras para promover apostas e jogos online no WhatsApp?",
+    "a": "faq-394"
+   },
+   {
+    "h": "Governo, partido político, polícia ou forças armadas podem usar o WhatsApp Business?",
+    "a": "faq-395"
+   },
+   {
+    "h": "Quais organizações têm proibição total de usar a Plataforma WhatsApp Business?",
+    "a": "faq-396"
+   },
+   {
+    "h": "Em quais países é permitido divulgar bebida alcoólica pelo WhatsApp?",
+    "a": "faq-397"
+   },
+   {
+    "h": "Quais produtos e serviços são proibidos pela Política de Comércio do WhatsApp?",
+    "a": "faq-435"
+   },
+   {
+    "h": "Por quanto tempo a Meta retém as mensagens e os dados de usuário no WhatsApp?",
+    "a": "faq-440"
+   },
+   {
+    "h": "Que tipo de conteúdo é proibido nas mensagens enviadas pelo WhatsApp?",
+    "a": "faq-443"
+   },
+   {
+    "h": "Como recorrer de uma violação de política aplicada à conta do WhatsApp Business?",
+    "a": "faq-447"
+   },
+   {
+    "h": "Quais são as obrigações da empresa na Política de Mensagens Comerciais do WhatsApp?",
+    "a": "faq-449"
+   },
+   {
+    "h": "A empresa pode usar as mensagens recebidas do WhatsApp para segmentar anúncios?",
+    "a": "faq-453"
+   },
+   {
+    "h": "Quais são as regras gerais da Meta para setores regulados (regulated verticals)?",
+    "a": "faq-460"
+   },
+   {
+    "h": "Quais caminhos de atendimento humano são obrigatórios quando a empresa usa chatbot no WhatsApp?",
+    "a": "faq-463"
    }
   ]
  }

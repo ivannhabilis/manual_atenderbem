@@ -39,6 +39,17 @@ Páginas:
 - `tour-guiado-planejamento.html` — planejamento para levar o tour guiado ao sistema inteiro
 - `ext/kit-extensao-exemplo/` — kit de exemplo para criar uma extensão (manifest + tela + guia)
 - `backups.html` — Backups e Restauração
+- `faq.html` — Base de Conhecimento (FAQ): índice dos capítulos de perguntas frequentes
+- `faq-canais-conexoes.html` — FAQ: Canais e Conexões (WhatsApp, Instagram, Facebook, Telegram, Webchat, marketplaces)
+- `faq-whatsapp-business.html` — FAQ: WhatsApp Business (políticas, limites, cobrança e qualidade da Meta)
+- `faq-ia-assistentes.html` — FAQ: IA e Assistentes
+- `faq-automacao-fluxos.html` — FAQ: Automação, URA e Fluxos
+- `faq-crm-contatos.html` — FAQ: CRM, Contatos e Oportunidades
+- `faq-catalogo-vendas.html` — FAQ: Catálogo, Carrinho e Vendas
+- `faq-tickets.html` — FAQ: Tickets e SLA (complementa `tickets-faq.html`)
+- `faq-relatorios-metricas.html` — FAQ: Relatórios, Painéis e Métricas
+- `faq-telefonia-pabx.html` — FAQ: Telefonia e PABX
+- `faq-admin-operacao.html` — FAQ: Administração, Operação e Segurança
 
 ## Navegação (cabeçalho) e busca
 
