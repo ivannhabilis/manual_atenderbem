@@ -29,6 +29,8 @@ Páginas:
 - `suporte-operacional.html` — Playbook de Suporte Operacional
 - `pabx.html` + `pabx-*.html` — PABX Fácil / Telefonia VoIP (troncos, rotas, ramais, filas, URAs, horários, custom, CDR, CLI)
 - `pabx-simplepbx.html` — SimplePBX (Telefonia Simplificada): telefonia gerenciada dentro da plataforma (ramais, troncos, rotas, grupos de toque, gravações, Debug SIP, limites, importação/exportação e API de telefonia)
+- `pabx-simplepbx-configuracao.html` — SimplePBX: guia de configuração campo a campo (tronco WhatsApp Cloud API voz, tronco de operadora SIP, ramais WebRTC, rotas, grupos de toque, filas e URA), com capturas de tela
+- `assets/simplepbx/` — capturas de tela do SimplePBX usadas no guia de configuração
 - `relatorios.html` — Relatórios (menu principal)
 - `relatorios-personalizados.html` — Relatórios Personalizados (Custom Reports)
 - `configuracoes.html` — Configurações (Filas, Usuários, Pausas, Ajuda)

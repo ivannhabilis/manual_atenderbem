@@ -3537,6 +3537,10 @@ window.MANUAL_INDEX = [
     "a": "simplepbx-telefonia-simplificada"
    },
    {
+    "h": "SimplePBX — Guia de Configuração",
+    "a": "simplepbx-guia-de-configuracao"
+   },
+   {
     "h": "Chat Interno",
     "a": "chat-interno"
    },
@@ -4507,6 +4511,68 @@ window.MANUAL_INDEX = [
    {
     "h": "5. DDR e o Roteamento por DID nas Rotas de Entrada",
     "a": "5-ddr-e-o-roteamento-por-did-nas-rotas-de-entrada"
+   }
+  ]
+ },
+ {
+  "t": "SimplePBX: Guia de Configuração",
+  "u": "pabx-simplepbx-configuracao.html",
+  "s": [
+   {
+    "h": "Antes de começar",
+    "a": "antes-de-comecar"
+   },
+   {
+    "h": "Como o SimplePBX corresponde ao PABX Fácil",
+    "a": "correspondencia"
+   },
+   {
+    "h": "1. Tronco WhatsApp Cloud API (voz oficial)",
+    "a": "tronco-whatsapp"
+   },
+   {
+    "h": "Resumo dos valores do tronco WhatsApp",
+    "a": "tronco-whatsapp-valores"
+   },
+   {
+    "h": "2. Tronco de operadora SIP",
+    "a": "tronco-operadora"
+   },
+   {
+    "h": "3. Ramais (WebRTC)",
+    "a": "ramais"
+   },
+   {
+    "h": "4. Rotas de Saída",
+    "a": "rotas-saida"
+   },
+   {
+    "h": "5. Rotas de Entrada",
+    "a": "rotas-entrada"
+   },
+   {
+    "h": "6. Grupos de Toque",
+    "a": "grupos-toque"
+   },
+   {
+    "h": "7. Filas de telefonia e URA",
+    "a": "filas-ura"
+   },
+   {
+    "h": "8. Gravações e cota",
+    "a": "gravacoes"
+   },
+   {
+    "h": "9. Debug SIP",
+    "a": "debug"
+   },
+   {
+    "h": "10. Conferência final",
+    "a": "checklist"
+   },
+   {
+    "h": "Erros comuns ao configurar",
+    "a": "erros-comuns"
    }
   ]
  },

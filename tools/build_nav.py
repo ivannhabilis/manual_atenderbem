@@ -50,6 +50,7 @@ GROUPS = [
     ("Telefonia (PABX)", [
         ("pabx.html", "PABX Fácil e Telefonia VoIP"),
         ("pabx-simplepbx.html", "SimplePBX (Telefonia Simplificada)"),
+        ("pabx-simplepbx-configuracao.html", "SimplePBX — Guia de Configuração"),
         ("pabx-troncos.html", "Troncos SIP"),
         ("pabx-rotas.html", "Rotas de Entrada/Saída"),
         ("pabx-ramais.html", "Ramais"),

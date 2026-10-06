@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SimplePBX: Guia de Configuração — Manual Omnichannel</title>
+<meta name="description" content="Passo a passo para configurar o SimplePBX (telefonia simplificada) do zero: tronco WhatsApp Cloud API (voz), tronco de operadora SIP, ramais WebRTC, rotas de entrada e saída, grupos de toque, filas, URA, gravações e Debug SIP — campo a campo.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a class="active" href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="pabx.html">Telefonia (PABX)</a> &rsaquo; <a href="pabx-simplepbx.html">SimplePBX</a> &rsaquo; Guia de Configuração</div>
+
+  <h1>SimplePBX — Guia de Configuração</h1>
+  <p class="subtitle">Como montar a telefonia simplificada do zero, campo a campo, nos mesmos canais que já operamos: WhatsApp Cloud API (voz oficial), tronco de operadora SIP, ramais, rotas, grupos de toque, filas e URA.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#antes-de-comecar">Antes de começar</a></li>
+      <li><a href="#correspondencia">Como o SimplePBX corresponde ao PABX Fácil</a></li>
+      <li><a href="#tronco-whatsapp">1. Tronco WhatsApp Cloud API (voz oficial)</a></li>
+      <li class="toc-h3"><a href="#tronco-whatsapp-valores">Resumo dos valores do tronco WhatsApp</a></li>
+      <li><a href="#tronco-operadora">2. Tronco de operadora SIP</a></li>
+      <li><a href="#ramais">3. Ramais (WebRTC)</a></li>
+      <li><a href="#rotas-saida">4. Rotas de Saída</a></li>
+      <li><a href="#rotas-entrada">5. Rotas de Entrada</a></li>
+      <li><a href="#grupos-toque">6. Grupos de Toque</a></li>
+      <li><a href="#filas-ura">7. Filas de telefonia e URA</a></li>
+      <li><a href="#gravacoes">8. Gravações e cota</a></li>
+      <li><a href="#debug">9. Debug SIP</a></li>
+      <li><a href="#checklist">10. Conferência final</a></li>
+      <li class="toc-h3"><a href="#erros-comuns">Erros comuns ao configurar</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <div class="callout info">
+    Este guia assume o <a href="pabx-simplepbx.html">SimplePBX</a> habilitado na instância. O objetivo é <strong>compatibilizar</strong> a configuração do SimplePBX com o que o PABX Fácil (Asterisk/FreePBX) já faz hoje, traduzindo cada item para o campo equivalente nas telas do sistema.
+  </div>
+
+  <h2 id="antes-de-comecar">Antes de começar</h2>
+  <ul>
+    <li><strong>Módulo habilitado.</strong> Com a telefonia simplificada ativa, o menu <strong>Telefonia</strong> aparece com: Geral, Ramais, Troncos, Rotas de Entrada, Rotas de Saída, Grupos de Toque, Gravações e Debug SIP.</li>
+    <li><strong>Se aparecer "Telefonia indisponível",</strong> pare: é falha do serviço de telefonia (bootstrap/AMI), não de cadastro. Reaplicar configuração ou recarregar a tela não resolve — acione o suporte.</li>
+    <li><strong>Chave de API global.</strong> Importar/exportar cadastros e usar a API de telefonia exigem a chave de API global da instância (Configurações &gt; Geral).</li>
+    <li><strong>Ordem recomendada:</strong> Troncos → Ramais → Rotas de Saída → Rotas de Entrada → Grupos de Toque → Fila/URA. As telas avisam quando falta a peça anterior (por exemplo, "Nenhum tronco cadastrado" ao criar rota de saída).</li>
+    <li><strong>Gravação e limites</strong> ficam na tela <strong>Geral</strong>: política de gravação padrão (cascata <code>não gravar &gt; gravar &gt; indiferente</code>), limites de proteção (chamadas simultâneas, duração máxima, tempo em automação) e IPs confiáveis.</li>
+  </ul>
+
+  <h2 id="correspondencia">Como o SimplePBX corresponde ao PABX Fácil</h2>
+  <p>A tradução entre o que já existe no servidor Asterisk/FreePBX e as telas do SimplePBX:</p>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>No PABX Fácil (Asterisk/FreePBX)</th><th>No SimplePBX</th></tr></thead>
+    <tbody>
+      <tr><td>Trunk PJSIP (Settings &gt; Trunks)</td><td>Telefonia &gt; <strong>Troncos</strong></td></tr>
+      <tr><td>Extension (Applications &gt; Extensions)</td><td>Telefonia &gt; <strong>Ramais</strong></td></tr>
+      <tr><td>Inbound Route</td><td>Telefonia &gt; <strong>Rotas de Entrada</strong></td></tr>
+      <tr><td>Outbound Route + Dial Patterns</td><td>Telefonia &gt; <strong>Rotas de Saída</strong> (Padrão de discagem)</td></tr>
+      <tr><td>Ring Group</td><td>Telefonia &gt; <strong>Grupos de Toque</strong></td></tr>
+      <tr><td>Queue</td><td><strong>Fila de telefonia</strong> do sistema, recebida pelo destino "Fila"</td></tr>
+      <tr><td>IVR / Announcement</td><td><strong>URA (IVR)</strong> do Fluxo de Automação e URA, recebida pelo destino "URA (IVR)"</td></tr>
+      <tr><td>Custom Destination / ARI Bridge</td><td>Elementos de <strong>automação/URA</strong> (não há equivalente direto)</td></tr>
+      <tr><td>SIP Settings (TLS, Codecs, SRTP)</td><td><strong>Visão avançada</strong> do tronco + Codecs habilitados</td></tr>
+      <tr><td>CDR (Reports &gt; CDR Reports)</td><td>Telefonia &gt; <strong>Gravações</strong> + Relatórios &gt; CDR e Gravações</td></tr>
+      <tr><td>Console/CLI do Asterisk</td><td>Telefonia &gt; <strong>Debug SIP</strong></td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="tronco-whatsapp">1. Tronco WhatsApp Cloud API (voz oficial)</h2>
+  <p>É o canal de voz dos números oficiais da Meta. No PABX Fácil ele é um tronco PJSIP seguro (TLS/SRTP/Opus). No SimplePBX, o mesmo é cadastrado em <strong>Telefonia &gt; Troncos</strong>.</p>
+  <ol class="steps">
+    <li><strong>Obtenha os dados do canal.</strong> No painel do sistema, em <strong>Configurações &gt; Filas</strong>, no número WhatsApp Cloud API Oficial, use o botão <strong>"Configurar telefonia"</strong>. Ele mostra o servidor SIP (com o sufixo <code>-direct</code>) e a senha do canal.</li>
+    <li><strong>Abra Telefonia &gt; Troncos e clique em Adicionar.</strong></li>
+    <li><strong>Nome do tronco.</strong> Um rótulo curto, por exemplo <code>whatsapp_meta</code>.</li>
+    <li><strong>Conexão.</strong> Em <strong>Host</strong> informe <code>wa.meta.vc</code> (servidor oficial de telefonia da Meta); em <strong>Porta</strong> use <code>5061</code> (TLS); em <strong>Transporte</strong> escolha <strong>TLS (criptografia de sinalização)</strong>.</li>
+    <li><strong>Registro e autenticação.</strong> A Meta não usa REGISTER nem autenticação SIP tradicional: deixe <strong>Direção do registro = Nenhum</strong> e <strong>Autenticação = Nenhum</strong>.</li>
+    <li><strong>Caller ID padrão (ANI).</strong> Informe o número do WhatsApp com DDI+DDD (ex.: <code>5511987654321</code>).</li>
+    <li><strong>Codecs.</strong> Marque <strong>Opus</strong> (voz em banda larga, usada pelo WhatsApp) e deixe desmarcados os codecs estreitos desnecessários.</li>
+    <li><strong>Visão avançada.</strong> Em <strong>Mídia &gt; Media encryption</strong>, escolha criptografia de mídia: para transporte TLS, <strong>DTLS-SRTP (chaves via handshake)</strong> é o par natural; <strong>SDES (chaves no SDP)</strong> é a alternativa. Em <strong>DTMF mode</strong>, mantenha <strong>RFC 4733</strong>.</li>
+    <li><strong>Política de gravação</strong> e <strong>Adicionar</strong>.</li>
+  </ol>
+  <figure class="figure">
+    <img src="assets/simplepbx/tronco-whatsapp-meta.jpg" alt="Formulário do tronco WhatsApp Cloud API preenchido">
+    <figcaption>Telefonia &gt; Troncos: tronco do WhatsApp oficial — host <code>wa.meta.vc</code>, porta 5061, transporte TLS, registro/autenticação Nenhum e codec Opus.</figcaption>
+  </figure>
+  <figure class="figure">
+    <img src="assets/simplepbx/tronco-visao-avancada.jpg" alt="Visão avançada do tronco (identidade SIP, mídia e identificação inbound)">
+    <figcaption>Visão avançada do tronco: identidade SIP (from_user/from_domain), Media encryption, DTMF mode, SIP Bundle, RTCP-MUX, Rewrite Contact (NAT) e Tipo de match inbound.</figcaption>
+  </figure>
+  <div class="callout warn">
+    <strong>Aviso de identificação inbound.</strong> Ao deixar Autenticação = Nenhum, a tela pode alertar que "a identificação inbound foi para Padrão (PJSIP global)". As opções de identificar pelo usuário, pelo cabeçalho SIP ou por IP ficam indisponíveis sem autenticação — é o comportamento esperado para o canal da Meta, que roteia por IP/TLS. Mantenha <strong>Padrão (PJSIP global)</strong>.
+  </div>
+
+  <h3 id="tronco-whatsapp-valores">Resumo dos valores do tronco WhatsApp</h3>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Campo</th><th>Valor</th></tr></thead>
+    <tbody>
+      <tr><td>Nome do tronco</td><td>ex.: <code>whatsapp_meta</code></td></tr>
+      <tr><td>Host (FQDN ou IP)</td><td><code>wa.meta.vc</code></td></tr>
+      <tr><td>Porta</td><td><code>5061</code></td></tr>
+      <tr><td>Transporte</td><td>TLS (criptografia de sinalização)</td></tr>
+      <tr><td>Direção do registro</td><td>Nenhum</td></tr>
+      <tr><td>Autenticação</td><td>Nenhum</td></tr>
+      <tr><td>Caller ID padrão (ANI)</td><td>número do WhatsApp com DDI+DDD</td></tr>
+      <tr><td>Codecs habilitados</td><td>Opus</td></tr>
+      <tr><td>Media encryption (avançado)</td><td>DTLS-SRTP (ou SDES)</td></tr>
+      <tr><td>DTMF mode (avançado)</td><td>RFC 4733</td></tr>
+      <tr><td>Tipo de match inbound (avançado)</td><td>Padrão (PJSIP global)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="tronco-operadora">2. Tronco de operadora SIP</h2>
+  <p>Para operadoras VoIP (Vivo, Embratel, TotalVoice, Directcall e provedores SIP locais), o tronco exige credenciais e registro.</p>
+  <ol class="steps">
+    <li><strong>Adicionar</strong> em Telefonia &gt; Troncos.</li>
+    <li><strong>Nome do tronco:</strong> ex.: <code>operadora_sip</code>.</li>
+    <li><strong>Conexão:</strong> Host = endereço SIP da operadora; Porta = <code>5060</code>; Transporte = <strong>UDP</strong> (ou TCP, conforme a operadora).</li>
+    <li><strong>Direção do registro:</strong> <strong>Enviar (PBX → Provedor)</strong> — o sistema registra-se na operadora.</li>
+    <li><strong>Autenticação:</strong> <strong>Outbound (PBX autentica saindo)</strong> e informe <strong>Usuário (auth)</strong> e <strong>Senha (auth)</strong> fornecidos pela operadora.</li>
+    <li><strong>Caller ID padrão (ANI):</strong> o número de origem das chamadas.</li>
+    <li><strong>Codecs:</strong> marque os que a operadora suporta (normalmente <strong>G.711 µ-law</strong> e <strong>A-law</strong>; <strong>G.729</strong> quando a operadora oferece).</li>
+    <li>Defina a <strong>Política de gravação</strong> e clique em <strong>Adicionar</strong>.</li>
+  </ol>
+  <figure class="figure">
+    <img src="assets/simplepbx/tronco-operadora-sip.jpg" alt="Formulário do tronco de operadora SIP preenchido">
+    <figcaption>Tronco de operadora: registro enviado ao provedor, autenticação outbound com usuário e senha e codecs da operadora.</figcaption>
+  </figure>
+
+  <h2 id="ramais">3. Ramais (WebRTC)</h2>
+  <p>No SimplePBX o atendente fala pelo <strong>softphone no navegador (WebRTC)</strong> — não é preciso instalar telefone IP. Crie um ramal por atendente e associe-o ao usuário do sistema.</p>
+  <ol class="steps">
+    <li><strong>Telefonia &gt; Ramais &gt; Adicionar.</strong> Use <strong>Sugerir próximo livre</strong> para o número.</li>
+    <li><strong>Senha SIP:</strong> entre 12 e 64 caracteres, com pelo menos três destes: minúscula, maiúscula, número e símbolo; sem espaços e sem <code>, : @ \ " ;</code>. A tela mostra a força da senha e recusa sequências comuns.</li>
+    <li><strong>Nome / CallerID:</strong> o que aparece para quem recebe (ex.: <em>Recepção</em>).</li>
+    <li><strong>Modo:</strong> <strong>Webphone embutido (WebRTC)</strong> para atender pelo sistema; <strong>Aparelho externo</strong> para telefone IP/softphone.</li>
+    <li><strong>Usuário associado (opcional):</strong> vincule o ramal ao usuário do sistema.</li>
+    <li><strong>Destino em caso de falha:</strong> para onde vai a chamada se o ramal não atender (Encerrar, Ramal, Grupo de toque, Fila ou URA).</li>
+    <li><strong>Captura de chamadas:</strong> <em>Grupo de captura</em> (quais ramais este pode capturar) e <em>Grupo deste ramal</em> — útil para recepções.</li>
+    <li><strong>Visão avançada:</strong> permite fixar os <strong>Codecs habilitados</strong> do próprio ramal.</li>
+  </ol>
+  <figure class="figure">
+    <img src="assets/simplepbx/ramal.jpg" alt="Formulário de novo ramal preenchido">
+    <figcaption>Telefonia &gt; Ramais: número, senha SIP forte, nome/CallerID, modo Webphone (WebRTC), destino em caso de falha e grupos de captura.</figcaption>
+  </figure>
+  <div class="callout tip">
+    <strong>Ramais fixos nas filas.</strong> Além do vínculo com o usuário, uma fila de telefonia pode ter seus próprios <strong>ramais fixos</strong>. Eles só existem em filas de telefonia (não em filas de outros canais) e a fila precisa ter um número no PABX.
+  </div>
+
+  <h2 id="rotas-saida">4. Rotas de Saída</h2>
+  <p>Definem por onde saem as chamadas e qual padrão de discagem casa com cada rota. Equivalem às Outbound Routes/Dial Patterns do PABX Fácil.</p>
+  <ol class="steps">
+    <li><strong>Telefonia &gt; Rotas de Saída &gt; Adicionar.</strong></li>
+    <li><strong>Descrição:</strong> ex.: <em>Fixo BR</em>, <em>Celular BR</em>.</li>
+    <li><strong>Padrão de discagem:</strong> aceita os padrões do estilo Asterisk, por exemplo <code>_NXXNXXXXXXX</code> (fixo BR), <code>_9NXXXXXXXX</code> (celular BR), <code>_55X.</code> (com DDI) e <code>_190</code> (número curto, literal).</li>
+    <li><strong>Tronco:</strong> selecione o tronco por onde a rota sai (é preciso ter um tronco cadastrado antes).</li>
+    <li><strong>Política de gravação</strong> e <strong>Adicionar</strong>. A <strong>Prioridade</strong> define a ordem de avaliação entre as rotas.</li>
+  </ol>
+  <figure class="figure">
+    <img src="assets/simplepbx/rota-saida.jpg" alt="Formulário de rota de saída">
+    <figcaption>Rota de saída: descrição, padrão de discagem no estilo Asterisk (ex.: <code>_NXXNXXXXXXX</code>) e o tronco de saída.</figcaption>
+  </figure>
+
+  <h2 id="rotas-entrada">5. Rotas de Entrada</h2>
+  <p>Dizem para onde vai cada chamada que chega, pelo DID (número discado).</p>
+  <ol class="steps">
+    <li><strong>Telefonia &gt; Rotas de Entrada &gt; Adicionar.</strong></li>
+    <li><strong>DID (número discado):</strong> o número de entrada (ex.: <code>1140041000</code>).</li>
+    <li><strong>Descrição:</strong> ex.: <em>Recepção SP</em>.</li>
+    <li><strong>Destino &gt; Tipo de destino:</strong> <strong>Ramal</strong>, <strong>Fila</strong>, <strong>Grupo de toque</strong>, <strong>URA (IVR)</strong> ou <strong>Desligar</strong>. Depois selecione o destino específico. Se o tipo ainda não tiver cadastro, a tela avisa ("Nenhum destino deste tipo cadastrado neste tenant").</li>
+    <li><strong>Política de gravação</strong> e <strong>Adicionar</strong>.</li>
+  </ol>
+  <figure class="figure">
+    <img src="assets/simplepbx/rota-entrada.jpg" alt="Formulário de rota de entrada">
+    <figcaption>Rota de entrada: DID, descrição e o tipo de destino (Ramal, Fila, Grupo de toque, URA ou Desligar).</figcaption>
+  </figure>
+
+  <h2 id="grupos-toque">6. Grupos de Toque</h2>
+  <p>Chamam vários ramais por uma única extensão — para setores que atendem em conjunto.</p>
+  <ol class="steps">
+    <li><strong>Telefonia &gt; Grupos de Toque &gt; Adicionar.</strong></li>
+    <li><strong>Número</strong> (a extensão do grupo) e <strong>Nome</strong>.</li>
+    <li><strong>Estratégia:</strong> <em>Tocar em todos (ringall)</em>, <em>Sequencial (hunt)</em>, <em>Memória (memory)</em> ou <em>Aleatório (random)</em>.</li>
+    <li><strong>Tempo de toque (segundos):</strong> quanto cada ramal toca antes de passar adiante.</li>
+    <li><strong>Membros:</strong> busque e marque os ramais e ajuste a <strong>Ordem de toque</strong>.</li>
+    <li><strong>Destino se ninguém atender (Tipo)</strong> e a <strong>Política de gravação</strong>; clique em <strong>Adicionar</strong>.</li>
+  </ol>
+  <figure class="figure">
+    <img src="assets/simplepbx/grupo-de-toque.jpg" alt="Formulário de grupo de toque">
+    <figcaption>Grupo de toque: número, nome, estratégia (ringall/hunt/memory/random), tempo de toque, membros e destino se ninguém atender.</figcaption>
+  </figure>
+
+  <h2 id="filas-ura">7. Filas de telefonia e URA</h2>
+  <p>A <strong>fila</strong> em si é do sistema (AtenderBem), não do SimplePBX. A chamada chega à fila pelo <strong>destino "Fila"</strong> de uma rota de entrada (ou de um grupo de toque/ramal). Para o fluxo com menu de opções, use o destino <strong>"URA (IVR)"</strong>, apontando para um <strong>Fluxo de Automação e URA</strong>.</p>
+  <ul>
+    <li><strong>Receber direto na fila:</strong> rota de entrada com destino <em>Fila</em> → fila de telefonia.</li>
+    <li><strong>Com menu (URA):</strong> rota de entrada com destino <em>URA (IVR)</em> → automação que, conforme a tecla (DTMF), envia para uma fila, um ramal ou um grupo de toque.</li>
+    <li><strong>Ramais fixos:</strong> a fila de telefonia lista os ramais que devem tocar; em filas de outros canais isso não se aplica.</li>
+    <li><strong>Gravação por etapa:</strong> a política de gravação pode ser definida no tronco, na rota, no ramal ou no grupo — a cascata é <code>não gravar &gt; gravar &gt; indiferente</code>.</li>
+  </ul>
+  <div class="callout tip">
+    <strong>Vindo do PABX Fácil.</strong> Onde hoje existe um Custom Destination/ARI Bridge apontando a chamada para a fila do sistema, no SimplePBX use o destino <strong>Fila</strong> (ou <strong>URA</strong>, quando houver menu) diretamente na rota de entrada.
+  </div>
+
+  <h2 id="gravacoes">8. Gravações e cota</h2>
+  <p>A tela <strong>Telefonia &gt; Gravações</strong> mostra o uso da cota, a próxima e a última execução da limpeza automática, os bytes liberados e permite forçar a limpeza. Abaixo, a lista por período com <strong>Data, Origem, Destino, Duração, Disposition e Áudio</strong> (player e download).</p>
+  <figure class="figure">
+    <img src="assets/simplepbx/gravacoes.jpg" alt="Tela de gravações com cota e fila de limpeza">
+    <figcaption>Gravações: uso da cota, próxima/última execução da limpeza, "Forçar limpeza agora" e a lista com player de áudio.</figcaption>
+  </figure>
+
+  <h2 id="debug">9. Debug SIP</h2>
+  <p>Para investigar registro e chamada, o <strong>Debug SIP</strong> captura o tráfego e permite <strong>Exportar JSON</strong>. Equivale a ligar o logger do Asterisk (<code>pjsip set logger on</code>), porém pela interface.</p>
+  <figure class="figure">
+    <img src="assets/simplepbx/debug-sip.jpg" alt="Tela de Debug SIP">
+    <figcaption>Debug SIP: tipo, ramal, identificador e duração; botões Iniciar captura e Exportar JSON.</figcaption>
+  </figure>
+
+  <h2 id="checklist">10. Conferência final</h2>
+  <ol class="steps">
+    <li><strong>Troncos</strong> cadastrados e com <em>Status</em> conectado (WhatsApp em TLS 5061; operadora com registro enviado).</li>
+    <li><strong>Ramais</strong> criados com senha forte, modo correto (WebRTC/aparelho externo) e usuário associado.</li>
+    <li><strong>Rota de saída</strong> com padrão de discagem e tronco; faça uma chamada de teste.</li>
+    <li><strong>Rota de entrada</strong> apontando para Fila, Grupo de toque ou URA.</li>
+    <li><strong>Fila</strong> com os ramais (fixos) e, se houver menu, a <strong>URA</strong> roteando por DTMF.</li>
+    <li><strong>Gravação</strong> conforme a política desejada; confira a cota em Gravações.</li>
+    <li><strong>Limites e IPs confiáveis</strong> revisados em Geral.</li>
+  </ol>
+
+  <h3 id="erros-comuns">Erros comuns ao configurar</h3>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Sintoma</th><th>Causa provável</th></tr></thead>
+    <tbody>
+      <tr><td>"Nenhum tronco cadastrado" ao criar rota de saída</td><td>Cadastre o tronco em Troncos primeiro.</td></tr>
+      <tr><td>"Nenhum destino deste tipo cadastrado neste tenant" na rota de entrada</td><td>Cadastre o destino (Ramal/Fila/Grupo de toque/URA) antes de escolhê-lo.</td></tr>
+      <tr><td>Senha SIP fraca (recusa ao salvar)</td><td>Use 12–64 caracteres com pelo menos três classes e sem sequências comuns.</td></tr>
+      <tr><td>Aviso de identificação inbound ao usar Autenticação = Nenhum</td><td>Esperado para o canal da Meta; mantenha "Padrão (PJSIP global)".</td></tr>
+      <tr><td>"Volume excedido (limite 1000 linhas)" ao importar</td><td>Divida o arquivo em lotes de até 1.000 linhas.</td></tr>
+      <tr><td>"Telefonia indisponível" em todas as telas</td><td>Serviço de telefonia fora do ar — acione o suporte.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="pagenav">
+    <a href="pabx-simplepbx.html"><span>← Anterior</span> SimplePBX — Telefonia Simplificada</a>
+    <a class="next" href="faq-telefonia-pabx.html"><span>Relacionado →</span> FAQ — Telefonia e PABX</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
