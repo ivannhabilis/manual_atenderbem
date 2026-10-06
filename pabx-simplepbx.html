@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SimplePBX: Telefonia Simplificada — Manual Omnichannel</title>
+<meta name="description" content="SimplePBX (telefonia simplificada): o módulo de telefonia gerenciado dentro da plataforma — ramais, troncos, rotas de entrada e saída, grupos de toque, gravações, Debug SIP, limites, importação/exportação e a API de telefonia.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a class="active" href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="pabx.html">Telefonia (PABX)</a> &rsaquo; SimplePBX</div>
+
+  <h1>SimplePBX — Telefonia Simplificada</h1>
+  <p class="subtitle">A telefonia gerenciada dentro da própria plataforma: ramais, troncos, rotas, grupos de toque, gravações e API — sem administrar um servidor Asterisk por conta própria.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#o-que-e">O que é e quando usar</a></li>
+      <li><a href="#menu">Onde fica no sistema</a></li>
+      <li><a href="#status">Status do módulo e o aviso "Telefonia indisponível"</a></li>
+      <li><a href="#geral">Geral: gravação, limites e IPs confiáveis</a></li>
+      <li class="toc-h3"><a href="#politica-gravacao">Política de gravação padrão</a></li>
+      <li class="toc-h3"><a href="#limites">Limites (salvaguardas)</a></li>
+      <li class="toc-h3"><a href="#ips-confiaveis">IPs confiáveis</a></li>
+      <li><a href="#ramais">Ramais</a></li>
+      <li><a href="#troncos">Troncos</a></li>
+      <li><a href="#rotas">Rotas de entrada e de saída</a></li>
+      <li class="toc-h3"><a href="#rota-entrada">Rotas de entrada</a></li>
+      <li class="toc-h3"><a href="#rota-saida">Rotas de saída</a></li>
+      <li><a href="#grupos-toque">Grupos de Toque</a></li>
+      <li><a href="#gravacoes">Gravações</a></li>
+      <li><a href="#cdr">Relatório de chamadas (CDR e Gravações)</a></li>
+      <li><a href="#debug-sip">Debug SIP</a></li>
+      <li><a href="#import-export">Importar, exportar e API interna</a></li>
+      <li><a href="#api-telefonia">API de telefonia</a></li>
+      <li class="toc-h3"><a href="#api-limites">Limites da API</a></li>
+      <li><a href="#comparativo">SimplePBX x PABX dedicado</a></li>
+      <li><a href="#diagnostico">Diagnóstico por código de erro</a></li>
+      <li><a href="#boas-praticas">Boas práticas</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <div class="callout info">
+    <p>O <strong>SimplePBX</strong> é o módulo de <strong>telefonia simplificada</strong> do AtenderBem: um PABX compartilhado, provisionado e operado pela plataforma. Ele é diferente do <strong>PABX Fácil</strong> (o servidor Asterisk/FreePBX dedicado, documentado nos demais capítulos desta aba): aqui, toda a configuração é feita por telas dentro do sistema, sem acesso ao servidor.</p>
+  </div>
+
+  <h2 id="o-que-e">O que é e quando usar</h2>
+  <p>Com o SimplePBX habilitado na instância, o menu <strong>Telefonia</strong> passa a aparecer e a operação de voz fica embutida no AtenderBem: os atendentes falam pelo <strong>softphone no navegador</strong>, os canais entram por <strong>troncos SIP</strong> cadastrados nas telas do sistema e as chamadas podem ser distribuídas por <strong>grupos de toque</strong> e <strong>filas de telefonia</strong>.</p>
+  <ul>
+    <li><strong>Você quer telefonia sem administrar servidor.</strong> Tudo é configurado e monitorado dentro da plataforma.</li>
+    <li><strong>O atendente atende pelo próprio sistema.</strong> O softphone roda no navegador via WebRTC; não é preciso instalar um telefone IP.</li>
+    <li><strong>Você precisa de ramais, troncos, rotas e gravações</strong> com o mesmo padrão de tela dos demais módulos.</li>
+    <li><strong>Você vai integrar por API.</strong> Origem de chamadas, histórico (CDR) e download de gravações ficam expostos na API de telefonia.</li>
+  </ul>
+
+  <h2 id="menu">Onde fica no sistema</h2>
+  <p>O módulo aparece no menu <strong>Telefonia</strong> e reúne as seguintes telas:</p>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Tela</th><th>Rota</th><th>Para que serve</th></tr></thead>
+    <tbody>
+      <tr><td>Geral</td><td>—</td><td>Tenant, política de gravação padrão, limites de proteção e IPs confiáveis.</td></tr>
+      <tr><td>Ramais</td><td><code>/base/config/pbx-extensions</code></td><td>Cadastro dos ramais SIP usados pelos atendentes e telefones.</td></tr>
+      <tr><td>Troncos</td><td><code>/base/config/pbx-trunks</code></td><td>Conexões com operadoras e demais canais de voz.</td></tr>
+      <tr><td>Rotas de Entrada</td><td><code>/base/config/pbx-inbound-routes</code></td><td>Encaminhamento das chamadas que chegam (por DID).</td></tr>
+      <tr><td>Rotas de Saída</td><td><code>/base/config/pbx-outbound-routes</code></td><td>Como as chamadas saem (padrão de discagem e tronco).</td></tr>
+      <tr><td>Grupos de Toque</td><td><code>/base/config/pbx-ring-groups</code></td><td>Toque simultâneo/sequencial de um conjunto de ramais.</td></tr>
+      <tr><td>Gravações</td><td><code>/base/config/pbx-recordings</code></td><td>Consulta, audição e download das gravações de chamada.</td></tr>
+      <tr><td>Debug SIP</td><td><code>/base/config/pbx-debug</code></td><td>Captura de tráfego SIP para diagnóstico de registro e chamada.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="status">Status do módulo e o aviso "Telefonia indisponível"</h2>
+  <p>As telas de Telefonia só operam quando o módulo está habilitado e o PABX está no ar. Quando a telefonia está desligada para a instância — ou o serviço não subiu — as telas abrem, porém com um aviso <strong>"Telefonia indisponível"</strong> no topo e as grades vazias; nenhuma chamada é processada nesse estado.</p>
+  <ul>
+    <li><strong>Habilitado x indisponível.</strong> O módulo pode estar <em>habilitado</em> na instância e, ainda assim, o PABX aparecer <em>indisponível</em> por falha na inicialização (bootstrap), conexão AMI caída ou reinício pendente.</li>
+    <li><strong>Reinício pendente.</strong> Algumas alterações exigem reinício do serviço de telefonia para valer; a interface sinaliza isso no cabeçalho.</li>
+    <li><strong>Cópia/instantâneo em andamento.</strong> Durante uma sincronização (snapshot) o módulo pode ficar momentaneamente ocupado.</li>
+    <li><strong>Estado do dia a dia.</strong> A plataforma acompanha a conexão do PABX, o status de cada ramal e de cada tronco e as estatísticas das filas de telefonia.</li>
+  </ul>
+  <div class="callout warn">
+    <strong>Não é configuração de tela.</strong> Se o aviso "Telefonia indisponível" persistir, o problema é do próprio serviço de telefonia (bootstrap/AMI) — reaplicar configurações ou reiniciar o navegador não resolve; nesse caso acione o suporte informando a mensagem exibida.
+  </div>
+
+  <h2 id="geral">Geral: gravação, limites e IPs confiáveis</h2>
+  <p>A tela <strong>Telefonia › Geral</strong> concentra as decisões que valem para toda a instância.</p>
+
+  <h3 id="politica-gravacao">Política de gravação padrão</h3>
+  <p>Define o comportamento de gravação quando <strong>não há regra específica</strong> para o ramal, fila, tronco etc. A resolução final segue a cascata <code>não gravar &gt; gravar &gt; indiferente</code> — ou seja, uma regra explícita de "não gravar" sempre prevalece. As opções são:</p>
+  <ul>
+    <li><strong>Gravar por padrão</strong> — grava, salvo onde houver regra em contrário.</li>
+    <li><strong>Indiferente (sem decisão padrão)</strong> — não força gravação; vale o que cada elemento definir.</li>
+    <li><strong>Não gravar por padrão</strong> — não grava, salvo onde houver regra explícita de gravação.</li>
+  </ul>
+
+  <h3 id="limites">Limites (salvaguardas)</h3>
+  <p>São proteções para que um problema de aplicação não consuma todos os recursos do PABX (laços de <em>Originate</em>, aplicações de automação travadas etc.).</p>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Campo</th><th>O que faz</th><th>Padrão sugerido</th></tr></thead>
+    <tbody>
+      <tr><td>Chamadas simultâneas máximas</td><td>Cap de chamadas concorrentes no tenant; acima do limite o sistema recusa novas chamadas.</td><td>50</td></tr>
+      <tr><td>Duração máxima por chamada (segundos)</td><td>Teto absoluto de duração de uma chamada.</td><td>14.400 (4 h)</td></tr>
+      <tr><td>Tempo máximo em automação (segundos)</td><td>Evita canais presos em aplicações de automação travadas.</td><td>900 (15 min)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 id="ips-confiaveis">IPs confiáveis</h3>
+  <p>Endereços listados como confiáveis <strong>não são banidos</strong> por tentativas incorretas de login — útil em escritórios em que vários ramais saem pelo mesmo IP público. A lista é gerenciada na própria tela (com opção de adicionar o IP atual) e tem limite de 256 entradas.</p>
+
+  <h2 id="ramais">Ramais</h2>
+  <p>Os ramais são a ponta da telefonia: cada atendente ou telefone usa um ramal para registrar-se e falar. O softphone do sistema roda no navegador via <strong>WebRTC sobre WSS</strong>; por isso, um ramal sem transporte WSS correto não inicializa o softphone do agente ("Ramal não é WSS — softphone não será inicializado").</p>
+  <ul>
+    <li><strong>Registro SIP.</strong> A instância expõe host público e portas SIP <code>5060</code> (UDP/TCP) e <code>5061</code> (TLS) para os ramais.</li>
+    <li><strong>Senha forte obrigatória.</strong> Senhas fracas são recusadas: exige-se no mínimo <strong>12 caracteres</strong>, com maiúsculas, minúsculas e demais critérios de segurança.</li>
+    <li><strong>Ramais fixos em filas de telefonia.</strong> Uma fila de telefonia pode ter um conjunto de ramais fixos; não é possível configurá-los em fila de outro canal ("Ramais fixos só existem em filas de telefonia"), e há limite de membros por fila.</li>
+  </ul>
+
+  <h2 id="troncos">Troncos</h2>
+  <p>Os troncos conectam a instância às operadoras e canais de voz. A grade mostra, por tronco:</p>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Coluna</th><th>Descrição</th></tr></thead>
+    <tbody>
+      <tr><td>Nome</td><td>Identificação do tronco na instância.</td></tr>
+      <tr><td>Tipo</td><td>Modalidade do tronco.</td></tr>
+      <tr><td>Host</td><td>Endereço de destino/registro do tronco.</td></tr>
+      <tr><td>Status</td><td>Situação atual da conexão do tronco.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="rotas">Rotas de entrada e de saída</h2>
+  <p>As rotas decidem para onde vão as chamadas que chegam e por onde saem as que partem.</p>
+  <h3 id="rota-entrada">Rotas de entrada</h3>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Coluna</th><th>Descrição</th></tr></thead>
+    <tbody>
+      <tr><td>Prioridade</td><td>Ordem de avaliação das regras.</td></tr>
+      <tr><td>DID</td><td>Número de entrada que a rota atende.</td></tr>
+      <tr><td>Descrição</td><td>Rótulo da regra.</td></tr>
+      <tr><td>Destino</td><td>Para onde a chamada é encaminhada (ramal, grupo de toque, fila, automação/URA).</td></tr>
+      <tr><td>Estado</td><td>Ativa ou inativa.</td></tr>
+    </tbody>
+  </table></div>
+  <h3 id="rota-saida">Rotas de saída</h3>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Coluna</th><th>Descrição</th></tr></thead>
+    <tbody>
+      <tr><td>Prioridade</td><td>Ordem de avaliação das regras.</td></tr>
+      <tr><td>Descrição</td><td>Rótulo da regra.</td></tr>
+      <tr><td>Padrão</td><td>Padrão de discagem que casa com a rota.</td></tr>
+      <tr><td>Tronco</td><td>Tronco usado na saída.</td></tr>
+      <tr><td>Tag</td><td>Etiqueta do tronco/rota, usada também pela API de telefonia.</td></tr>
+      <tr><td>Estado</td><td>Ativa ou inativa.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="grupos-toque">Grupos de Toque</h2>
+  <p>Um grupo de toque chama vários ramais ao mesmo tempo (ou em sequência, conforme a estratégia) — útil para setores que atendem em conjunto.</p>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Coluna</th><th>Descrição</th></tr></thead>
+    <tbody>
+      <tr><td>Número</td><td>Ramal/número do grupo.</td></tr>
+      <tr><td>Nome</td><td>Identificação do grupo.</td></tr>
+      <tr><td>Estratégia</td><td>Forma de distribuição do toque entre os membros.</td></tr>
+      <tr><td>Membros</td><td>Ramais que participam do grupo.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="gravacoes">Gravações</h2>
+  <p>A tela <strong>Telefonia › Gravações</strong> permite ouvir e baixar as gravações por período e por origem/destino.</p>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Coluna</th><th>Descrição</th></tr></thead>
+    <tbody>
+      <tr><td>Data</td><td>Data/hora da chamada.</td></tr>
+      <tr><td>Origem</td><td>Ramal ou número que originou.</td></tr>
+      <tr><td>Destino</td><td>Ramal ou número de destino.</td></tr>
+      <tr><td>Duração</td><td>Tempo da chamada.</td></tr>
+      <tr><td>Disposition</td><td>Desfecho da ligação (atendida, ocupada, sem resposta etc.).</td></tr>
+      <tr><td>Áudio</td><td>Player para ouvir e botão de download.</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><strong>Cota de armazenamento.</strong> As gravações ocupam uma cota de espaço contratada na telefonia simplificada (quota total + eventual extra). Quando a cota se aproxima do limite, o sistema faz uma <strong>limpeza automática</strong> das gravações mais antigas.</li>
+    <li><strong>Retenção por espaço, não por prazo fixo.</strong> Uma gravação antiga pode deixar de existir quando o espaço acaba — não há um prazo fixo de guarda.</li>
+    <li><strong>Formato.</strong> Na telefonia simplificada o download da gravação vem em <strong>OGG</strong> (no PABX dedicado, em MP3).</li>
+    <li><strong>Transcrição automática.</strong> O sistema transcreve chamadas automaticamente <em>quando o agente atende pelo aplicativo desktop</em>; ligações atendidas por outro meio (softphone externo, telefone físico) ou conduzidas só por IA não são transcritas automaticamente — nesses casos, baixe a gravação e transcreva fora do sistema.</li>
+  </ul>
+
+  <h2 id="cdr">Relatório de chamadas (CDR e Gravações)</h2>
+  <p>Além da tela de gravações, o relatório <strong>Relatórios › CDR e Gravações</strong> consolida as ligações com filtros de número, protocolo, resultado e período.</p>
+  <ul>
+    <li><strong>Atendidas x abandonadas.</strong> Para ver só as atendidas, selecione <em>Atendidas</em> no filtro <em>Resultado</em>. O relatório de abandonadas conta os abandonos da <em>fila</em> (registrados pelo sistema), enquanto o CDR lista os registros brutos de chamada do PABX — por isso os totais podem divergir mesmo no mesmo período, e isso não é necessariamente erro.</li>
+    <li><strong>Limite por consulta.</strong> A busca do CDR tem um teto de linhas por consulta (da ordem de 5.000 chamadas). Em períodos de muito volume, reduza o intervalo (por semana, por exemplo) em vez de pedir o mês inteiro.</li>
+    <li><strong>Sem acesso direto ao banco.</strong> Não há acesso ao banco de dados do PABX para consultas externas; a integração é feita pela API de telefonia.</li>
+  </ul>
+
+  <h2 id="debug-sip">Debug SIP</h2>
+  <p>O <strong>Debug SIP</strong> captura o tráfego SIP para investigar problemas de registro e de chamada.</p>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Coluna</th><th>Descrição</th></tr></thead>
+    <tbody>
+      <tr><td>Tipo</td><td>Natureza da captura.</td></tr>
+      <tr><td>Ramal</td><td>Ramal envolvido.</td></tr>
+      <tr><td>Identificador</td><td>Identificador da captura/chamada.</td></tr>
+      <tr><td>Duração (segundos)</td><td>Tempo de captura.</td></tr>
+    </tbody>
+  </table></div>
+  <p>A tela oferece <strong>Iniciar captura</strong> e <strong>Exportar JSON</strong> do resultado. Há limite de sessões de debug simultâneas.</p>
+
+  <h2 id="import-export">Importar, exportar e API interna</h2>
+  <p>As telas de Ramais, Troncos, Rotas de Entrada/Saída e Grupos de Toque trazem os botões <strong>Importar/Exportar</strong>, que trabalham com arquivos CSV e usam a <strong>chave de API global</strong> da instância.</p>
+  <ul>
+    <li><strong>Exportação em CSV</strong> por recurso, e importação a partir de arquivo.</li>
+    <li><strong>Limite de volume.</strong> As operações de importação/exportação têm limite de <strong>1.000 linhas</strong> por operação ("Volume excedido (limite 1000 linhas)").</li>
+    <li><strong>Coluna protegida.</strong> A importação recusa colunas que começam com <code>tenant</code> ("Coluna 'tenant*' proibida em import") — esse campo é gerenciado pelo sistema.</li>
+    <li><strong>Exportação sensível.</strong> Há uma exportação específica para dados sensíveis (por exemplo, credenciais), tratada à parte.</li>
+  </ul>
+
+  <h2 id="api-telefonia">API de telefonia</h2>
+  <p>A API pública do sistema expõe três operações de telefonia, que funcionam tanto na telefonia simplificada quanto em instâncias ligadas a um PABX dedicado. Todas usam a <strong>chave de API global</strong> da instância (a chave de uma fila não é aceita) e se conectam pelo identificador da chamada, o <code>linkedid</code>.</p>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Operação</th><th>O que faz</th></tr></thead>
+    <tbody>
+      <tr><td><code>simplepbxOriginate</code> (POST)</td><td>Origina uma chamada: informe o ramal em <code>from</code> e o destino em <code>to</code> (o <code>+</code> do país é removido). O ramal toca primeiro; ao atender, o sistema disca o destino. A resposta traz o <code>linkedid</code>.</td></tr>
+      <tr><td><code>simplepbxCalls</code></td><td>Consulta o histórico (CDR) por período (<code>from</code>/<code>to</code> em AAAA-MM-DD) com paginação. Uma mesma ligação pode ter várias linhas (uma por trecho), todas com o mesmo <code>linkedid</code>; o campo <code>hasRecording</code> indica se há gravação.</td></tr>
+      <tr><td><code>simplepbxRecordingDownload</code></td><td>Baixa a gravação de uma chamada pelo <code>linkedid</code>. O arquivo vem como anexo (OGG na telefonia simplificada).</td></tr>
+    </tbody>
+  </table></div>
+  <h3 id="api-limites">Limites da API</h3>
+  <ul>
+    <li><strong>Histórico:</strong> janela máxima de <strong>31 dias</strong> por consulta e até <strong>500 linhas por página</strong> (100 por padrão). Os limites do dia são interpretados em <strong>UTC</strong>: no horário de Brasília, o dia consultado vai das 21h do dia anterior às 20h59 — amplie a janela em um dia se precisar cobrir o dia local inteiro.</li>
+    <li><strong>Gravações:</strong> até <strong>60 downloads por minuto</strong> e <strong>10 ao mesmo tempo</strong>.</li>
+    <li><strong>Na telefonia simplificada:</strong> o <code>callerId</code> precisa ser um dos números autorizados da conta, e o <code>trunkTag</code> escolhe a rota de saída por etiqueta.</li>
+    <li><strong>No PABX dedicado:</strong> os campos <code>trunkTag</code> e <code>callerId</code> são recusados; o destino aceita somente dígitos; limite de 60 chamadas originadas por minuto.</li>
+  </ul>
+  <div class="callout tip">
+    <strong>A API não empurra dados sozinha.</strong> Ela entrega o histórico e as gravações quando o seu sistema pede. A rotina que consulta periodicamente e grava na sua base (BI, data warehouse) fica do seu lado.
+  </div>
+
+  <h2 id="comparativo">SimplePBX x PABX dedicado</h2>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Aspecto</th><th>SimplePBX (telefonia simplificada)</th><th>PABX dedicado (Asterisk/FreePBX)</th></tr></thead>
+    <tbody>
+      <tr><td>Quem administra</td><td>A plataforma; tudo por telas no sistema.</td><td>Você/parceiro, no servidor Asterisk.</td></tr>
+      <tr><td>Acesso ao servidor</td><td>Não há — a operação é pela interface.</td><td>Sim (FreePBX/CLI).</td></tr>
+      <tr><td>Softphone do agente</td><td>No navegador (WebRTC/WSS).</td><td>No navegador e/ou telefone IP/softphone externo.</td></tr>
+      <tr><td>Gravação (download)</td><td><strong>OGG</strong>.</td><td><strong>MP3</strong>; se a ligação tiver mais de um arquivo, eles vêm emendados em um só.</td></tr>
+      <tr><td>Origem de chamada por API</td><td>Aceita <code>callerId</code> (número autorizado) e <code>trunkTag</code>.</td><td>Recusa <code>callerId</code> e <code>trunkTag</code>; sai pelas rotas do próprio PABX.</td></tr>
+      <tr><td>Cadastro por API</td><td>Exportar/consultar ramais, troncos e rotas e consultar o estado da telefonia.</td><td>Não disponível por esse caminho.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="diagnostico">Diagnóstico por código de erro</h2>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Código / mensagem</th><th>Significado</th></tr></thead>
+    <tbody>
+      <tr><td><code>TELEPHONY_DISABLED</code> (503)</td><td>A instância não tem telefonia habilitada.</td></tr>
+      <tr><td><code>SIMPLEPBX_DISABLED</code> (503)</td><td>A telefonia simplificada está desligada ou falhou ao inicializar.</td></tr>
+      <tr><td><code>CDR_DISABLED</code> (503)</td><td>O PABX dedicado está ligado, mas o acesso ao histórico de chamadas não está configurado — acione o suporte.</td></tr>
+      <tr><td><code>AMI_NOT_CONNECTED</code> (503)</td><td>O sistema está sem conexão com o PABX naquele momento; nenhuma chamada foi feita — é seguro tentar de novo.</td></tr>
+      <tr><td><code>AMI_TIMEOUT</code> (504)</td><td>O PABX demorou a confirmar, mas a chamada <strong>pode ter sido feita</strong>: confira o histórico pelo <code>linkedid</code> antes de repetir.</td></tr>
+      <tr><td><code>CALLERID_NOT_SUPPORTED</code> / <code>TRUNK_TAG_NOT_SUPPORTED</code> (400)</td><td>Retire esses campos quando a instância usa PABX dedicado.</td></tr>
+      <tr><td><code>RECORDING_NOT_FOUND</code> (404)</td><td>A chamada não tem gravação.</td></tr>
+      <tr><td><code>RATE_LIMITED</code> (429)</td><td>Excesso de requisições; espere um minuto e repita.</td></tr>
+      <tr><td>Senha SIP fraca</td><td>A senha não atende aos critérios mínimos (use ao menos 12 caracteres com maiúsculas e minúsculas).</td></tr>
+      <tr><td>Volume excedido (limite 1000 linhas)</td><td>A importação/exportação ultrapassou o limite por operação.</td></tr>
+      <tr><td>Coluna 'tenant*' proibida em import</td><td>A planilha traz uma coluna gerenciada pelo sistema; remova-a.</td></tr>
+      <tr><td>Comando rejeitado</td><td>Comando inválido ou não permitido.</td></tr>
+      <tr><td>Identificador inválido</td><td>O <code>linkedid</code> informado não é válido.</td></tr>
+      <tr><td>Fila sem telefonia / Fila sem número</td><td>Ramais fixos só existem em filas de telefonia, e a fila precisa ter número no PABX.</td></tr>
+      <tr><td>PABX indisponível</td><td>O serviço de telefonia não subiu; acione o suporte com a mensagem exibida.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="boas-praticas">Boas práticas</h2>
+  <ol class="steps">
+    <li><strong>Confirme o estado do módulo antes de tudo.</strong> Se aparecer "Telefonia indisponível", não é problema de cadastro — é o serviço.</li>
+    <li><strong>Ajuste os limites com folga.</strong> Chamadas simultâneas, duração máxima e tempo em automação são salvaguardas; suba conforme a operação cresce, sem desligá-las.</li>
+    <li><strong>Padronize a política de gravação.</strong> Escolha o padrão em Geral e use regras específicas só onde precisar — lembrando a cascata <code>não gravar &gt; gravar &gt; indiferente</code>.</li>
+    <li><strong>Vigie a cota de gravações.</strong> A limpeza é automática e por espaço: se as gravações antigas importam, baixe/arquive antes de a cota apertar.</li>
+    <li><strong>Use a API para levar dados ao BI</strong>, respeitando os limites (31 dias, 500 linhas/página, 60 downloads/min) e ampliando um dia a janela por causa do fuso UTC.</li>
+    <li><strong>Antes de acionar o suporte</strong>, reúna o código de erro exato (o campo costuma identificar a causa), o ramal/tronco envolvido e o horário da ocorrência.</li>
+  </ol>
+
+  <div class="pagenav">
+    <a href="pabx.html"><span>← Voltar</span> PABX Fácil e Telefonia VoIP</a>
+    <a class="next" href="faq-telefonia-pabx.html"><span>Relacionado →</span> FAQ — Telefonia e PABX</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

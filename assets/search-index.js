@@ -3533,6 +3533,10 @@ window.MANUAL_INDEX = [
     "a": "pabx-facil-e-telefonia-voip"
    },
    {
+    "h": "SimplePBX (Telefonia Simplificada)",
+    "a": "simplepbx-telefonia-simplificada"
+   },
+   {
     "h": "Chat Interno",
     "a": "chat-interno"
    },
@@ -3959,6 +3963,10 @@ window.MANUAL_INDEX = [
    {
     "h": "9. Comandos CLI & Resolução de Problemas",
     "a": "9-comandos-cli-resolucao-de-problemas"
+   },
+   {
+    "h": "10. SimplePBX — Telefonia Simplificada",
+    "a": "10-simplepbx-telefonia-simplificada"
    },
    {
     "h": "3. Topologia de Fluxo de Voz",
@@ -4499,6 +4507,100 @@ window.MANUAL_INDEX = [
    {
     "h": "5. DDR e o Roteamento por DID nas Rotas de Entrada",
     "a": "5-ddr-e-o-roteamento-por-did-nas-rotas-de-entrada"
+   }
+  ]
+ },
+ {
+  "t": "SimplePBX: Telefonia Simplificada",
+  "u": "pabx-simplepbx.html",
+  "s": [
+   {
+    "h": "O que é e quando usar",
+    "a": "o-que-e"
+   },
+   {
+    "h": "Onde fica no sistema",
+    "a": "menu"
+   },
+   {
+    "h": "Status do módulo e o aviso \"Telefonia indisponível\"",
+    "a": "status"
+   },
+   {
+    "h": "Geral: gravação, limites e IPs confiáveis",
+    "a": "geral"
+   },
+   {
+    "h": "Política de gravação padrão",
+    "a": "politica-gravacao"
+   },
+   {
+    "h": "Limites (salvaguardas)",
+    "a": "limites"
+   },
+   {
+    "h": "IPs confiáveis",
+    "a": "ips-confiaveis"
+   },
+   {
+    "h": "Ramais",
+    "a": "ramais"
+   },
+   {
+    "h": "Troncos",
+    "a": "troncos"
+   },
+   {
+    "h": "Rotas de entrada e de saída",
+    "a": "rotas"
+   },
+   {
+    "h": "Rotas de entrada",
+    "a": "rota-entrada"
+   },
+   {
+    "h": "Rotas de saída",
+    "a": "rota-saida"
+   },
+   {
+    "h": "Grupos de Toque",
+    "a": "grupos-toque"
+   },
+   {
+    "h": "Gravações",
+    "a": "gravacoes"
+   },
+   {
+    "h": "Relatório de chamadas (CDR e Gravações)",
+    "a": "cdr"
+   },
+   {
+    "h": "Debug SIP",
+    "a": "debug-sip"
+   },
+   {
+    "h": "Importar, exportar e API interna",
+    "a": "import-export"
+   },
+   {
+    "h": "API de telefonia",
+    "a": "api-telefonia"
+   },
+   {
+    "h": "Limites da API",
+    "a": "api-limites"
+   },
+   {
+    "h": "SimplePBX x PABX dedicado",
+    "a": "comparativo"
+   },
+   {
+    "h": "Diagnóstico por código de erro",
+    "a": "diagnostico"
+   },
+   {
+    "h": "Boas práticas",
+    "a": "boas-praticas"
    }
   ]
  },

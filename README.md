@@ -28,6 +28,7 @@ Páginas:
 - `suporte-visual-remoto.html` — Suporte Visual Remoto
 - `suporte-operacional.html` — Playbook de Suporte Operacional
 - `pabx.html` + `pabx-*.html` — PABX Fácil / Telefonia VoIP (troncos, rotas, ramais, filas, URAs, horários, custom, CDR, CLI)
+- `pabx-simplepbx.html` — SimplePBX (Telefonia Simplificada): telefonia gerenciada dentro da plataforma (ramais, troncos, rotas, grupos de toque, gravações, Debug SIP, limites, importação/exportação e API de telefonia)
 - `relatorios.html` — Relatórios (menu principal)
 - `relatorios-personalizados.html` — Relatórios Personalizados (Custom Reports)
 - `configuracoes.html` — Configurações (Filas, Usuários, Pausas, Ajuda)

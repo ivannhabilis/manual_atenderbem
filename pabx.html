@@ -58,6 +58,7 @@
         <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
         <div class="navdropdown">
           <a class="active" href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
           <a href="pabx-troncos.html">Troncos SIP</a>
           <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
           <a href="pabx-ramais.html">Ramais</a>
@@ -129,6 +130,7 @@
       <li class="toc-h3"><a href="#7-custom-destinations-ari-bridge">7. Custom Destinations & ARI Bridge</a></li>
       <li class="toc-h3"><a href="#8-auditoria-de-chamadas-analise-de-cdr">8. Auditoria de Chamadas & Análise de CDR</a></li>
       <li class="toc-h3"><a href="#9-comandos-cli-resolucao-de-problemas">9. Comandos CLI & Resolução de Problemas</a></li>
+      <li class="toc-h3"><a href="#10-simplepbx-telefonia-simplificada">10. SimplePBX — Telefonia Simplificada</a></li>
       <li><a href="#3-topologia-de-fluxo-de-voz">3. Topologia de Fluxo de Voz</a></li>
       <li><a href="#faq">4. FAQ — Perguntas Frequentes (Telefonia e PABX Fácil)</a></li>
       <li class="toc-h3"><a href="#q1-por-que-o-tronco-whatsapp-cloud-api-meta-exige-tls-e-srtp-enquanto-um-tronco-de-operadora-voip-usa-udp-comum">Q1. Por que o Tronco WhatsApp Cloud API (Meta) exige TLS e SRTP, enquanto um tronco de operadora VoIP usa UDP comum?</a></li>
@@ -162,6 +164,10 @@
     <img src="assets/pabx-painel.png" alt="Painel do PABX Fácil">
     <figcaption>Ambiente de administração do PABX Fácil (Incredible PBX / FreePBX) integrado ao AtenderBem.</figcaption>
   </figure>
+
+  <div class="callout info">
+    <strong>Duas modalidades de telefonia.</strong> O <strong>PABX Fácil</strong> é o servidor Asterisk/FreePBX dedicado, com administração no próprio servidor — é o que os capítulos desta aba detalham. O <strong>SimplePBX</strong> é a <em>telefonia simplificada</em>, gerenciada inteiramente dentro da plataforma, sem acesso ao servidor. Veja o capítulo <a href="pabx-simplepbx.html">SimplePBX — Telefonia Simplificada</a>.
+  </div>
 
   <h2 id="1-visao-geral-da-arquitetura">1. Visão Geral da Arquitetura</h2>
   <p>O <strong>PABX Fácil</strong> é o motor de telefonia em nuvem do <strong>AtenderBem</strong>. Ele integra canais telefônicos tradicionais (PSTN / E1 / SIP Trunk) e ligações de voz da <strong>WhatsApp Cloud API Oficial (Meta)</strong> em uma única central inteligente com Webphone integrado no navegador dos atendentes.</p>
@@ -265,6 +271,16 @@
         <span class="tag">Diagnóstico</span>
         <h3 id="9-comandos-cli-resolucao-de-problemas">9. Comandos CLI & Resolução de Problemas</h3>
         <p>Guia de comandos de console traduzidos e solução definitiva para áudio mudo, NAT e queda de chamadas.</p>
+        <div class="more">Acessar capítulo →</div>
+      </div>
+    </a>
+
+    <a class="card" href="pabx-simplepbx.html">
+      <div class="thumb">📞</div>
+      <div class="body">
+        <span class="tag">Telefonia gerenciada</span>
+        <h3 id="10-simplepbx-telefonia-simplificada">10. SimplePBX — Telefonia Simplificada</h3>
+        <p>A telefonia embutida na plataforma: ramais, troncos, rotas, grupos de toque, gravações, limites e API — sem administrar um servidor Asterisk.</p>
         <div class="more">Acessar capítulo →</div>
       </div>
     </a>
