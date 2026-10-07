@@ -32,6 +32,9 @@ Páginas:
 - `pabx-simplepbx.html` — SimplePBX (Telefonia Simplificada): telefonia gerenciada dentro da plataforma (ramais, troncos, rotas, grupos de toque, gravações, Debug SIP, limites, importação/exportação e API de telefonia)
 - `pabx-simplepbx-configuracao.html` — SimplePBX: guia de configuração campo a campo (tronco WhatsApp Cloud API voz, tronco de operadora SIP, ramais WebRTC, rotas, grupos de toque, filas e URA), com capturas de tela
 - `assets/simplepbx/` — capturas de tela do SimplePBX usadas no guia de configuração
+- `links-compartilhamento.html` — índice dos links públicos (raw.githack): entregáveis avulsos, kits de extensão e todos os capítulos por assunto
+- `entrega/extensoes-explicacao.html` — guia guiado avulso: criar sua primeira extensão (imagens embutidas)
+- `entrega/tutorial-modelo-documento.html` — tutorial avulso: gerar documento a partir de um modelo (imagens embutidas)
 - `relatorios.html` — Relatórios (menu principal)
 - `relatorios-personalizados.html` — Relatórios Personalizados (Custom Reports)
 - `configuracoes.html` — Configurações (Filas, Usuários, Pausas, Ajuda)

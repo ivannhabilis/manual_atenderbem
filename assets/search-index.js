@@ -3547,6 +3547,52 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Links de Compartilhamento (raw.githack)",
+  "u": "links-compartilhamento.html",
+  "s": [
+   {
+    "h": "Entregáveis e kits (para enviar a terceiros)",
+    "a": "entregaveis"
+   },
+   {
+    "h": "Operação",
+    "a": "cat-operação"
+   },
+   {
+    "h": "Vendas &amp; CRM",
+    "a": "cat-vendas-crm"
+   },
+   {
+    "h": "Canais &amp; WhatsApp",
+    "a": "cat-canais-whatsapp"
+   },
+   {
+    "h": "IA &amp; Automação",
+    "a": "cat-ia-automação"
+   },
+   {
+    "h": "Suporte &amp; Qualidade",
+    "a": "cat-suporte-qualidade"
+   },
+   {
+    "h": "Telefonia (PABX)",
+    "a": "cat-telefonia-(pabx)"
+   },
+   {
+    "h": "Relatórios &amp; Gestão",
+    "a": "cat-relatórios-gestão"
+   },
+   {
+    "h": "Configurações &amp; Admin",
+    "a": "cat-configurações-admin"
+   },
+   {
+    "h": "Base de Conhecimento",
+    "a": "cat-base-de-conhecimento"
+   }
+  ]
+ },
+ {
   "t": "Manual Omnichannel",
   "u": "index.html",
   "s": [
@@ -3677,6 +3723,10 @@ window.MANUAL_INDEX = [
    {
     "h": "Base de Conhecimento (FAQ)",
     "a": "base-de-conhecimento-faq"
+   },
+   {
+    "h": "Links de Compartilhamento (raw.githack)",
+    "a": "links-de-compartilhamento-rawgithack"
    }
   ]
  },

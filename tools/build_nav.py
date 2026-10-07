@@ -75,6 +75,7 @@ GROUPS = [
         ("tour-guiado-planejamento.html", "Tour Guiado no Sistema (Planejamento)"),
         ("backups.html", "Backups e Restauração"),
         ("novidades-14-2.html", "Novidades da versão 14.2"),
+        ("links-compartilhamento.html", "Links de Compartilhamento"),
     ]),
     ("Base de Conhecimento", [
         ("faq.html", "Base de Conhecimento (FAQ)"),
