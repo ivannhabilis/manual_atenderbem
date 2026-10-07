@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentos a partir de um Modelo — Manual Omnichannel</title>
+<meta name="description" content="Como criar um modelo de documento (.docx) com variáveis e gerar documentos em DOCX ou PDF: cadastro em Configurações &#8250; Cadastros, geração pelo CRM, por tarefa e por automação — passo a passo com telas.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a class="active" href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="crm.html">CRM e Funil de Vendas</a> &rsaquo; Documentos a partir de Modelo</div>
+
+  <h1>Documentos a partir de um Modelo</h1>
+  <p class="subtitle">Crie um modelo do Word (.docx) com variáveis do atendimento e gere documentos em DOCX ou PDF — pelo CRM, por uma tarefa ou dentro de uma automação, inclusive disparando um aviso ao cliente.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#o-que-e">O que é um modelo de documento</a></li>
+      <li><a href="#onde-fica">Onde fica</a></li>
+      <li><a href="#passo-1">Passo 1 — Criar o arquivo-base (.docx) com as variáveis</a></li>
+      <li><a href="#passo-2">Passo 2 — Cadastrar o modelo</a></li>
+      <li><a href="#passo-3">Passo 3 — Gerar o documento</a></li>
+      <li class="toc-h3"><a href="#passo-3-automacao">A) Por automação (atendimento ou URA)</a></li>
+      <li class="toc-h3"><a href="#passo-3-crm">B) Pelo CRM</a></li>
+      <li class="toc-h3"><a href="#passo-3-tarefa">C) Por uma tarefa</a></li>
+      <li><a href="#passo-4">Passo 4 — Testar e conferir</a></li>
+      <li><a href="#variaveis">Variáveis úteis</a></li>
+      <li><a href="#observacoes">Observações e limites</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <div class="callout info">
+    <strong>Funciona só no CRM?</strong> Não exatamente. O <em>cadastro</em> do modelo fica em <strong>Configurações &gt; Cadastros &gt; Modelos de documentos</strong> e só aparece quando o <strong>CRM está habilitado</strong> na instância (e para Administrador ou quem tem a permissão de editar galeria). Já a <em>geração</em> do documento pode ser disparada por três caminhos: uma <strong>oportunidade do CRM</strong>, uma <strong>tarefa</strong> ou uma <strong>automação</strong> (elemento "Gerar documento a partir de um modelo").
+  </div>
+
+  <h2 id="o-que-e">O que é um modelo de documento</h2>
+  <p>É um arquivo do Word (.docx) cadastrado no sistema que serve de molde: dentro dele você escreve o texto e insere <strong>variáveis entre chaves duplas</strong> — por exemplo <code>{{chat_client_name}}</code>. Na hora de gerar, o sistema substitui cada variável pelo dado real e entrega o arquivo no formato escolhido (DOCX ou PDF).</p>
+  <ul>
+    <li><strong>Arquivo-base:</strong> apenas <strong>.docx</strong>, com até <strong>4 MB</strong>.</li>
+    <li><strong>Formato de saída:</strong> DOCX ou PDF. Mesmo escolhendo PDF, o arquivo enviado continua sendo o .docx — o sistema converte depois de preencher.</li>
+    <li><strong>Campos do modelo:</strong> Nome (obrigatório), Descrição (opcional), Formato de geração, Fila para automações (opcional), Automação pós geração (opcional) e o arquivo Documento.</li>
+  </ul>
+
+  <h2 id="onde-fica">Onde fica</h2>
+  <p>A lista de modelos fica em <strong>Configurações &gt; Cadastros &gt; Modelos de documentos</strong>. A grade mostra ID, Nome, Descrição e as Funções (editar e excluir), com o botão <strong>+ Adicionar</strong> no topo.</p>
+  <figure class="figure">
+    <img src="assets/documentos/onde-fica-modelos.jpg" alt="Tela Modelos de documentos com o botão Adicionar">
+    <figcaption>Configurações &gt; Cadastros &gt; Modelos de documentos: lista e botão <strong>+ Adicionar</strong>.</figcaption>
+  </figure>
+
+  <h2 id="passo-1">Passo 1 — Criar o arquivo-base (.docx) com as variáveis</h2>
+  <p>Escreva o documento no Word normalmente e insira as variáveis onde os dados devem aparecer. Para o exemplo de aviso ao cliente, o conteúdo do <code>.docx</code> é este:</p>
+  <pre><code>AVISO DE ATENDIMENTO
+
+Olá, {{chat_client_name}}!
+
+Registramos o seu atendimento sob o protocolo {{chat_protocol}}.
+Confirmamos o contato pelo telefone {{chat_client_number}}.
+
+Este é um documento de teste gerado automaticamente a partir de um modelo.
+Se precisar de algo, basta responder esta mensagem.
+
+Atenciosamente,
+Equipe de Atendimento</code></pre>
+  <p>Variáveis usadas neste exemplo:</p>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Dado</th><th>Variável</th></tr></thead>
+    <tbody>
+      <tr><td>Nome do cliente</td><td><code>{{chat_client_name}}</code> (ou <code>clientName</code>)</td></tr>
+      <tr><td>Número / telefone</td><td><code>{{chat_client_number}}</code> (ou <code>clientNumber</code>)</td></tr>
+      <tr><td>Protocolo do atendimento (ID do chat)</td><td><code>{{chat_protocol}}</code></td></tr>
+    </tbody>
+  </table></div>
+  <p><a href="entrega/exemplos/modelo-aviso-atendimento.docx">Baixar o modelo de exemplo (.docx)</a> — pronto, com as três variáveis, para usar como base.</p>
+
+  <h2 id="passo-2">Passo 2 — Cadastrar o modelo</h2>
+  <ol class="steps">
+    <li><strong>Abra a tela.</strong> Acesse <strong>Configurações &gt; Cadastros &gt; Modelos de documentos</strong> e clique em <strong>+ Adicionar</strong>.</li>
+    <li><strong>Nome.</strong> Um nome para identificar o modelo (ex.: <em>Aviso de atendimento</em>). É obrigatório.</li>
+    <li><strong>Descrição (opcional).</strong> Explique para que o modelo serve.</li>
+    <li><strong>Formato de geração.</strong> Escolha <strong>DOCX</strong> ou <strong>PDF</strong> — o formato em que o documento final será entregue.</li>
+    <li><strong>Fila para automações (opcional).</strong> Só aparece quando o recurso de automações está habilitado; é a fila usada pelas automações vinculadas a este modelo.</li>
+    <li><strong>Automação pós geração (opcional).</strong> Uma automação que roda toda vez que um documento é gerado a partir deste modelo (de forma isolada, apenas com o arquivo pronto).</li>
+    <li><strong>Documento.</strong> Clique em "Clique para selecionar o arquivo..." e escolha o <code>.docx</code> do Passo 1 (máx. 4 MB).</li>
+    <li><strong>Salvar.</strong> O botão <strong>Adicionar</strong> só habilita com o Nome e o arquivo preenchidos.</li>
+  </ol>
+  <figure class="figure">
+    <img src="assets/documentos/form-novo-template.jpg" alt="Formulário Novo Template preenchido">
+    <figcaption>Formulário "Novo Template": Nome, Descrição, Formato de geração, Fila para automações, Automação pós geração e o campo Documento (upload do .docx).</figcaption>
+  </figure>
+
+  <h2 id="passo-3">Passo 3 — Gerar o documento</h2>
+  <h3 id="passo-3-automacao">A) Por automação (atendimento ou URA)</h3>
+  <ol class="steps">
+    <li>Abra <strong>Configurações &gt; Fluxo de Automação e URA</strong> e crie ou abra um fluxo.</li>
+    <li>Adicione o elemento <strong>Gerar documento a partir de um modelo</strong>. Nele, <strong>selecione o modelo</strong> cadastrado no Passo 2 e informe o <strong>nome da variável de resultado</strong> (sem chaves duplas), que vai guardar o ID do arquivo gerado.</li>
+    <li>Adicione o elemento <strong>Enviar mensagem</strong> para levar o aviso ao cliente. O texto aceita variáveis, por exemplo:
+      <pre><code>Olá, {{chat_client_name}}! Seu atendimento ({{chat_protocol}}) foi registrado. Segue o documento.</code></pre>
+      O arquivo gerado pode ser anexado à mensagem pela variável de resultado definida no passo anterior.</li>
+    <li>Salve e publique o fluxo. Quem dispara a geração é o gatilho do próprio fluxo.</li>
+  </ol>
+  <h3 id="passo-3-crm">B) Pelo CRM</h3>
+  <ol class="steps">
+    <li>No formulário do <strong>funil</strong> (aba Geral), marque o modelo em <strong>Templates de Documentos</strong> para que ele apareça nas oportunidades daquele funil.</li>
+    <li>Na tela da <strong>oportunidade</strong>, use a ação de gerar documento — o arquivo é criado a partir dos dados da oportunidade.</li>
+    <li>Se houver <strong>Automação pós geração</strong> configurada no modelo, ela roda em seguida.</li>
+  </ol>
+  <h3 id="passo-3-tarefa">C) Por uma tarefa</h3>
+  <p>A geração também pode partir de uma <strong>tarefa</strong>: o mesmo recurso de modelo é usado, tomando como base os dados da tarefa.</p>
+
+  <h2 id="passo-4">Passo 4 — Testar e conferir</h2>
+  <ol class="steps">
+    <li>Dispare o fluxo (ou gere pela oportunidade/tarefa) em um atendimento de teste.</li>
+    <li>Confira se a mensagem de aviso chegou com o nome, o telefone e o protocolo preenchidos.</li>
+    <li>Se o documento não for gerado, abra o <strong>Visualizador de debug</strong> do fluxo e verifique o elemento <strong>Gerar documento a partir de um modelo</strong> e o valor das variáveis.</li>
+  </ol>
+
+  <h2 id="variaveis">Variáveis úteis</h2>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Dado</th><th>Variável</th></tr></thead>
+    <tbody>
+      <tr><td>Nome do cliente</td><td><code>{{chat_client_name}}</code> (ou <code>clientName</code>)</td></tr>
+      <tr><td>Número / telefone</td><td><code>{{chat_client_number}}</code> (ou <code>clientNumber</code>)</td></tr>
+      <tr><td>E-mail</td><td><code>{{chat_client_email}}</code> (ou <code>clientEmail</code>)</td></tr>
+      <tr><td>Protocolo do atendimento</td><td><code>{{chat_protocol}}</code></td></tr>
+      <tr><td>Nome do contato (via contato)</td><td><code>{{chat_contact.contact_name}}</code></td></tr>
+    </tbody>
+  </table></div>
+  <p>A lista completa e atualizada fica no próprio editor de fluxo, nos botões <strong>Informações de variáveis</strong> (barra do editor) e <strong>Ajuda de variáveis</strong> (dentro de cada elemento).</p>
+
+  <h2 id="observacoes">Observações e limites</h2>
+  <ul>
+    <li>O menu <strong>Modelos de documentos</strong> exige Administrador (ou a permissão de editar galeria) e some quando o <strong>CRM está desabilitado</strong> na instância.</li>
+    <li>Arquivo-base: apenas <strong>.docx</strong>, até <strong>4 MB</strong>; o formato PDF é convertido a partir do .docx preenchido.</li>
+    <li>O <em>cadastro</em> está sob o guarda-chuva do CRM; a <em>geração</em> não — vale por oportunidade, tarefa ou automação.</li>
+    <li>As variáveis de sistema do atendimento são somente leitura: o fluxo lê o valor, mas não o reescreve (há exceções pontuais em campos do cliente).</li>
+    <li>Um modelo só aparece na tela de oportunidades de um funil se tiver sido marcado em <strong>Templates de Documentos</strong> naquele funil.</li>
+  </ul>
+
+  <div class="pagenav">
+    <a href="crm.html"><span>← Anterior</span> CRM e Funil de Vendas</a>
+    <a class="next" href="pesquisas.html"><span>Próximo →</span> Pesquisas e Satisfação</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

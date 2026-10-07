@@ -2405,6 +2405,56 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Documentos a partir de um Modelo",
+  "u": "documentos-a-partir-de-modelo.html",
+  "s": [
+   {
+    "h": "O que é um modelo de documento",
+    "a": "o-que-e"
+   },
+   {
+    "h": "Onde fica",
+    "a": "onde-fica"
+   },
+   {
+    "h": "Passo 1 — Criar o arquivo-base (.docx) com as variáveis",
+    "a": "passo-1"
+   },
+   {
+    "h": "Passo 2 — Cadastrar o modelo",
+    "a": "passo-2"
+   },
+   {
+    "h": "Passo 3 — Gerar o documento",
+    "a": "passo-3"
+   },
+   {
+    "h": "A) Por automação (atendimento ou URA)",
+    "a": "passo-3-automacao"
+   },
+   {
+    "h": "B) Pelo CRM",
+    "a": "passo-3-crm"
+   },
+   {
+    "h": "C) Por uma tarefa",
+    "a": "passo-3-tarefa"
+   },
+   {
+    "h": "Passo 4 — Testar e conferir",
+    "a": "passo-4"
+   },
+   {
+    "h": "Variáveis úteis",
+    "a": "variaveis"
+   },
+   {
+    "h": "Observações e limites",
+    "a": "observacoes"
+   }
+  ]
+ },
+ {
   "t": "Extensões (Micro-Frontends & SDK)",
   "u": "extensoes.html",
   "s": [
@@ -3567,6 +3617,10 @@ window.MANUAL_INDEX = [
    {
     "h": "Catálogo de Produtos",
     "a": "catalogo-de-produtos"
+   },
+   {
+    "h": "Documentos a partir de um Modelo",
+    "a": "documentos-a-partir-de-um-modelo"
    },
    {
     "h": "Extensões (Micro-Frontends &amp; SDK)",

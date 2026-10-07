@@ -19,6 +19,7 @@ Páginas:
 - `crm.html` — CRM e Funil de Vendas
 - `carrinho-sincronizado.html` — Carrinho Sincronizado com CRM
 - `base/config/cataloglist/index.html` — Catálogo de Produtos
+- `documentos-a-partir-de-modelo.html` — Documentos a partir de um Modelo (.docx com variáveis; geração por CRM, tarefa ou automação)
 - `canais-whatsapp-meta.html` — WhatsApp, Cloud API e Meta
 - `ia.html` — IA Básica e IA Avançada (inclui novidades dos assistentes v14.1)
 - `integracoes.html` — Integrações e Automações Externas
