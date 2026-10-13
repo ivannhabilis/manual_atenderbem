@@ -229,7 +229,27 @@
   <p>Uma automação pode ser executada depois da análise. O módulo de origem exemplifica a variável <code>ai_result_score</code>: uma nota baixa pode abrir um atendimento prioritário para retenção, alertar a supervisão ou orientar outra ação; a mesma lógica pode reconhecer avaliações positivas.</p>
 
   <h3 id="2-2-humor-e-risco-de-insatisfacao">2.2 Humor e risco de insatisfação</h3>
-  <p>A avaliação de humor acompanha a escrita recebida e pode disparar automações separadas para um cliente <strong>levemente insatisfeito</strong> ou <strong>muito insatisfeito/nervoso</strong>. Os exemplos do material incluem prevenção, aviso à supervisão e intervenção.</p>
+  <p>A avaliação de humor acompanha as <strong>mensagens recebidas do cliente</strong> — inclusive o conteúdo dos áudios, pela transcrição — e pode disparar automações separadas para um cliente <strong>levemente insatisfeito</strong> ou <strong>muito insatisfeito/nervoso</strong>. Os exemplos do material incluem prevenção, aviso à supervisão e intervenção.</p>
+  <p>O resultado dessa avaliação aparece no sistema como uma <strong>sinalização de insatisfação</strong> (o campo interno <code>aidetectedmood</code>), que assume três níveis:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Nível</th><th>Leitura</th><th>Como aparece</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>Cliente neutro</td><td>Nada é exibido.</td></tr>
+        <tr><td>1</td><td>Cliente insatisfeito</td><td>Sinal laranja, com expressão de desagrado.</td></tr>
+        <tr><td>2</td><td>Cliente muito insatisfeito ou nervoso</td><td>Sinal vermelho, com expressão de raiva.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>A sinalização é por atendimento e aparece em quatro pontos do <strong>Painel de agentes</strong> (na linha do agente, resumindo os atendimentos dele; na lista de atendimentos em andamento; na visão Atendimentos; e nos atendimentos que aguardam na fila). Na linha do agente, o sinal mostra sempre o <strong>pior nível</strong> entre os atendimentos dele. A mesma informação existe como coluna <strong>Cliente insatisfeito</strong> no <strong>Histórico de Chats</strong>, disponível apenas para quem tem perfil de Supervisor.</p>
+  <div class="callout info">
+    <strong>O nível só aumenta.</strong> Se um atendimento foi marcado como muito insatisfeito, o sinal continua vermelho até o encerramento, mesmo que as mensagens seguintes sejam cordiais. A sinalização surge assim que a insatisfação é identificada — inclusive enquanto o atendimento ainda aguarda na fila — e não exige recarregar a tela.
+  </div>
+  <div class="callout warn">
+    <strong>A avaliação em si não se desliga.</strong> Ela faz parte do <em>processamento próprio</em> de IA (servidores da própria plataforma, sem envio do conteúdo a parceiros) e é executada em todos os tipos de fila. A opção da fila escolhe apenas o que acontece <em>além</em> da sinalização: sinalizar sem automação, sinalizar e executar a automação na insatisfação leve, ou só quando o cliente estiver muito insatisfeito ou nervoso. A automação roda uma única vez por nível dentro do mesmo atendimento. Como o processamento é próprio, ele continua funcionando mesmo depois de esgotada a cota mensal de IA, embora o que ele processa entre no contador de tokens.
+  </div>
+  <p>Não confunda essa sinalização em tempo real com a <strong>Avaliação por IA</strong> do atendimento (a nota de satisfação estimada, exibida como coluna própria no Histórico de Chats e nos relatórios): aquela é produzida na <em>análise de encerramento</em>, é opcional por fila, gera também um resumo e uma justificativa da nota, e depende de um mínimo de mensagens trocadas. O sinal de humor do chat, por sua vez, é contínuo, aparece durante a conversa e não depende de configuração da fila para ser exibido.</p>
+  <p>Os critérios finos da avaliação — modelo, limiares e vocabulário considerados — não são publicados nem configuráveis pelo cliente: a plataforma entrega apenas o nível resultante. Na prática, observa-se que a insatisfação leve costuma acompanhar reclamações pontuais (demora, dúvida sem resposta) e que o nível mais alto aparece em casos de problema repetido, escalada ou pedido não atendido dentro da mesma conversa.</p>
 
   <h3 id="2-3-insultos-e-ofensas-enviados-pela-equipe">2.3 Insultos e ofensas enviados pela equipe</h3>
   <div class="table-wrap">
