@@ -268,11 +268,14 @@
     <thead><tr><th>Dado</th><th>Como é contabilizado</th></tr></thead>
     <tbody>
       <tr><td>Atendimentos</td><td>Atendimentos abertos dentro do período selecionado, inclusive os que permaneceram na espera ou foram encerrados automaticamente.</td></tr>
-      <tr><td>Clientes únicos</td><td>Cada cliente é contado uma vez, mesmo que tenha interagido mais de uma vez no recorte.</td></tr>
+      <tr><td>Clientes únicos</td><td>Cada cliente é contado uma vez, mesmo que tenha interagido mais de uma vez no recorte. É por isso que "Clientes únicos" e "Atendimentos" mostram números diferentes na mesma tela, com os dois corretos.</td></tr>
       <tr><td>Mensagens enviadas</td><td>Inclui mensagens manuais e respostas automáticas enviadas pelo sistema.</td></tr>
+      <tr><td>Mensagens recebidas</td><td>Soma tudo o que o cliente enviou no período, inclusive mensagens que chegaram fora do horário e não geraram atendimento.</td></tr>
       <tr><td>TMA</td><td>Considera atendimentos abertos e encerrados integralmente dentro do período filtrado.</td></tr>
       <tr><td>Atendimentos por canal</td><td>Filas do mesmo tipo de canal são agrupadas em um único elemento do gráfico.</td></tr>
-      <tr><td>Linha sem agente</td><td>Pode reunir atendimentos que ficaram somente na espera ou foram encerrados por robô, regra do sistema ou timeout da URA.</td></tr>
+      <tr><td>Linha sem agente</td><td>Reúne tudo o que passou pelo período sem chegar a um atendente: espera, encerramento por robô, regra do sistema ou timeout da URA. Costuma ser a maior linha da tabela e não tem equivalente direto na soma por agente — em um recorte real de 30 dias, ela concentrou 147 de 269 atendimentos.</td></tr>
+      <tr><td>Atribuídos, respondidos e encerrados</td><td>São <strong>três contadores diferentes por agente</strong>: atendimentos atribuídos (chegaram a ele), respondidos (ele respondeu, mesmo sem encerrar) e encerrados (ele fechou). O mesmo atendimento pode entrar em um e não nos outros; nenhum dos três é a "soma" dos demais.</td></tr>
+      <tr><td>Card x soma da tabela</td><td>O cartão de Atendimentos e a soma das linhas da tabela podem divergir em uma ou duas unidades no mesmo recorte, porque a tabela tem a linha sem agente e agrupa por responsável. Divergência de 1 ou 2 no mesmo período é esperada.</td></tr>
     </tbody>
   </table>
 
@@ -280,19 +283,35 @@
   <table class="doc">
     <thead><tr><th>Tela</th><th>Critério principal</th><th>Use para</th></tr></thead>
     <tbody>
-      <tr><td>Dashboard inicial</td><td>Data de abertura</td><td>Medir novas demandas geradas no período.</td></tr>
+      <tr><td>Dashboard inicial</td><td>Data de abertura; soma tudo, com ou sem agente</td><td>Medir novas demandas geradas no período.</td></tr>
+      <tr><td>Tabela de agentes do Dashboard</td><td>Atendimentos por responsável, com a linha "sem agente" separada</td><td>Ver a distribuição por pessoa e quanto ficou sem responsável.</td></tr>
       <tr><td>Painel de Agentes</td><td>Encerramentos realizados pelo agente no dia, independentemente da data de abertura</td><td>Avaliar o ritmo e a produtividade atual da equipe.</td></tr>
-      <tr><td>Histórico de Chats</td><td>Permite alternar o filtro entre data de abertura e data de fechamento</td><td>Auditar e conciliar os totais.</td></tr>
+      <tr><td>Histórico de Chats</td><td>Escolha da <strong>Referência</strong>: data de abertura ou de fechamento</td><td>Auditar e conciliar os totais, linha a linha.</td></tr>
+      <tr><td>Relatório de agentes</td><td>Atribuídos, respondidos e encerrados, cada um com sua regra</td><td>Avaliar desempenho individual com os três contadores separados.</td></tr>
     </tbody>
   </table>
+
+  <p>Quando os números não fecham, quase sempre é um destes sete motivos — na ordem em que vale a pena conferir:</p>
   <ol class="steps">
-    <li>Para validar o total do Dashboard, filtre o Histórico de Chats pela <strong>data de abertura</strong> e use o mesmo período.</li>
-    <li>Para validar chats encerrados pelos agentes, filtre o Histórico pela <strong>data de fechamento</strong>.</li>
-    <li>Separe encerramentos humanos de encerramentos automáticos antes de comparar com a soma dos agentes.</li>
-    <li>Não espere que um chat aberto antes do período, mas fechado hoje, apareça no Dashboard de “Hoje”; ele aparece na produtividade diária do agente.</li>
+    <li><strong>Referência de data diferente.</strong> No Histórico de Chats, "Data de abertura" e "Data de fechamento" respondem a perguntas diferentes: um atendimento aberto no fim do período e fechado depois conta só na abertura; um atendimento antigo resolvido agora conta só no fechamento. Em um recorte real de 30 dias, a abertura listou 269 atendimentos e o fechamento, 261 — os dois certos.</li>
+    <li><strong>Atendimentos ocultos.</strong> O widget <em>terminate</em> da URA/Automação pode marcar atendimentos como ocultos. Eles entram no Dashboard, mas <strong>ficam fora do Histórico de Chats</strong> até marcar "Mostrar ocultos". Sem marcar essa opção, o relatório nunca vai reproduzir o painel.</li>
+    <li><strong>A linha "sem agente".</strong> No Dashboard ela é explícita e costuma ser enorme (espera, robô, timeout). No Histórico esses atendimentos aparecem como linhas sem responsável: se você filtrar por um agente ou somar só as colunas de agente, eles desaparecem da conta.</li>
+    <li><strong>Clientes únicos contra atendimentos.</strong> Uma pessoa que chamou cinco vezes é 1 cliente único e 5 atendimentos. Comparar "Clientes únicos" com o total de linhas do Histórico dá errado por definição.</li>
+    <li><strong>Ativos e passivos.</strong> Ativo é quando o cliente escreveu primeiro; passivo é quando a empresa iniciou (disparo, template, campanha) e o cliente respondeu depois. O Dashboard soma os dois; no Histórico, o filtro "Tipo" permite separá-los — e separá-los muda o total.</li>
+    <li><strong>Atribuído, respondido e encerrado.</strong> São três contadores por agente. Somar "atribuídos" e comparar com a coluna "encerrados" nunca vai bater, nem deveria.</li>
+    <li><strong>Dia em curso.</strong> O período "Hoje" ainda está sendo escrito: cada mensagem trocada muda o número. Para comparar painel e relatório, use um período já encerrado (ontem, semana passada, mês fechado).</li>
   </ol>
+
+  <div class="callout tip">
+    <strong>Receita prática de conciliação.</strong> Escolha um período fechado; no Histórico de Chats, marque "Mostrar ocultos" e selecione a <strong>Referência</strong> igual à do painel (data de abertura, para comparar com o Dashboard); conte a linha "sem agente" junto com os agentes; e compare <strong>atendimentos com atendimentos</strong> e <strong>clientes únicos com clientes únicos</strong>. Se ainda houver diferença, comece pela linha sem agente — é onde ela costuma estar.
+  </div>
+
+  <div class="callout info">
+    <strong>Para explicar ao cliente.</strong> "O painel mostra quantas conversas começaram no período, somando também as que foram atendidas por robô ou encerradas automaticamente. O relatório mostra conversa por conversa, e nele você escolhe se a busca é pela data em que a conversa começou ou pela data em que terminou. Por isso os totais são diferentes entre as telas — e cada um está correto para a pergunta que responde."
+  </div>
+
   <div class="callout warn">
-    <strong>Totais diferentes não indicam necessariamente erro:</strong> primeiro confira data de abertura versus data de fechamento, filas selecionadas e forma de encerramento.
+    <strong>Totais diferentes não indicam necessariamente erro:</strong> confira primeiro a referência de data (abertura x fechamento), o "Mostrar ocultos", a linha sem agente e as filas selecionadas. Não existe hoje um "número único oficial" entre as telas: o Dashboard é um agregado e o Histórico é o registro linha a linha. Para auditar, use o Histórico como fonte de conferência.
   </div>
 
   <div class="pagenav">
