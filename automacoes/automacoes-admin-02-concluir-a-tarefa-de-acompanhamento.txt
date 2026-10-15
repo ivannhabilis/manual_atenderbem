@@ -1,0 +1,4 @@
+retorno: message text="Registrando o retorno do cliente {{chat_client_name}}."
+conclui: markTaskAsDone taskId="36"
+avisa: message text="Tarefa de acompanhamento concluida."
+fim: terminate reason="Tarefa concluida"

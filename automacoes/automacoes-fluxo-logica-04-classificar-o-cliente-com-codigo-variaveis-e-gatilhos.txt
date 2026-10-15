@@ -1,0 +1,23 @@
+identifica_tipo: jscode code="vars[\"tipo_cliente\"] = vars[\"contact_document\"] ? \"cadastrado\" : \"novo\""
+define_fila: newVar variableName="fila_destino" value="{{tipo_cliente == \"cadastrado\" ? \"Clientes\" : \"Novos atendimentos\"}}"
+etiqueta_cadastro: marker markerId="etiqueta-triagem"
+cria_protocolo: protocol type=0
+avisa_protocolo: message text="Atendimento registrado no protocolo {{chat_protocol}}."
+decide_caminho: varCondition value="{{tipo_cliente}}" {
+  case cadastrado conditionOperator="=" conditionValue="cadastrado" {
+    tira_gatilho: removeTrigger
+    aplica_gatilhos: setTriggers triggerSetId=0
+    sincroniza_crm: execAutomation automationId="automacao-crm"
+    avisa_fila: message text="Cadastro localizado. Vou te encaminhar para a fila {{fila_destino}}."
+    encaminha_cadastrado: transfer destinationType=0
+  }
+  case novo_contato conditionOperator="expression" conditionValue="!contact_document" {
+    limpa_gatilhos: removeAllTriggers
+    acolhe_novo: message text="Não encontrei seu cadastro por aqui. Vou te encaminhar para o time de novos clientes para agilizarmos."
+    encaminha_novo: transfer destinationType=2 destinationId="ura-cadastro"
+  }
+  else {
+    sem_classificacao: message text="Vou encaminhar seu atendimento para a equipe responsável."
+    fim_sem_classificacao: terminate reason="Sem classificação automática"
+  }
+}

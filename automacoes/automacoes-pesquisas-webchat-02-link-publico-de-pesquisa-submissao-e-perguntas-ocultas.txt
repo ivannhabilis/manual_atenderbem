@@ -1,0 +1,6 @@
+inicio: message text="Vou gerar o link da sua pesquisa de satisfacao."
+gera: generateSurveyFormLink surveyId=1 varName="survey_form_link" expirationDays=7 chatIdVar="{{chat_id}}" queueIdVar="{{chat_fila}}"
+envia: message text="Responda a pesquisa por este link: {{survey_form_link}}"
+registra: submitSurveyFormResponse surveyId=1 bindings=[{"fk_question":12,"varExpr":"5"},{"fk_question":13,"varExpr":"Atendimento rapido e resolutivo"}] resultVarName="pesquisa_ok" chatIdVar="{{chat_id}}" queueIdVar="{{chat_fila}}"
+ocultas: editSurveyFormResponse responseIdVar="{{pesquisa_ok_response_id}}" bindings=[{"fk_question":21,"valueExpr":"10"},{"fk_question":22,"valueExpr":"Resolvido no primeiro contato"}]
+fim: terminate reason="Pesquisa enviada e registrada"

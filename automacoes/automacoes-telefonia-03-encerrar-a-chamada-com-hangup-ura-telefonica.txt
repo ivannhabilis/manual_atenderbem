@@ -1,0 +1,2 @@
+avisa_fechado: callPlayAudio fileChooseType=1 fileId="{{audio_fora_horario}}" stopOnUserInput=true
+encerra_chamada: callTerminate reason="Fora do horario de atendimento"

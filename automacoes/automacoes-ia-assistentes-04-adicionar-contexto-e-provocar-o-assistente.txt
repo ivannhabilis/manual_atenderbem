@@ -1,0 +1,2 @@
+contexto: aiAddContextToAssistant context="Cliente {{chat_client_name}}, protocolo {{chat_protocol}}, carrinho de {{chat_cart_total}} em {{chat_cart_items_count}} itens."
+provoca: aiProvokeAssistant context="Responda ao cliente confirmando os dados do carrinho e pergunte se pode fechar o pedido." -> end

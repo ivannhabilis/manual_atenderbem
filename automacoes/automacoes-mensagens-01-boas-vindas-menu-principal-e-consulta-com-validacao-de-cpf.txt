@@ -1,0 +1,23 @@
+boas_vindas: message text="Olá, {{chat_client_name}}! Você está falando com a Central de Atendimento."
+nota_triagem: info text="Triagem automática pelo menu principal. O cliente ainda não escolheu uma opção."
+menu_principal: options text="Escolha uma opção para eu te ajudar mais rápido:" type=0 {
+  case pedido text="Consultar um pedido" {
+    pede_cpf: question varName="cpf_cliente" text="Informe o CPF do titular do pedido, apenas os números." validate=1 validateError="CPF inválido. Envie os 11 números, sem pontos nem traços."
+    cpf_recebido: message text="Obrigado! Com o CPF {{cpf_cliente}} eu localizo o pedido e sigo com a consulta."
+    aviso_protocolo: message text="Guardei este atendimento no protocolo {{chat_protocol}}."
+    fim_pedido: terminate reason="Consulta de pedido iniciada"
+  }
+  case boleto text="Segunda via de boleto" {
+    link_boleto: url text="Toque no botão abaixo para abrir a segunda via:" btnText="Abrir segunda via" data="https://financeiro.exemplo.com.br/boleto/{{chat_client_number}}"
+    aviso_boleto: message text="Se o botão não abrir, responda esta conversa que um atendente gera o boleto para você."
+    fim_boleto: terminate reason="Segunda via enviada ao cliente"
+  }
+  case humano text="Falar com um atendente" {
+    aviso_fila: message text="Combinado! Estou te colocando na fila de atendimento humano agora."
+    fim_humano: terminate reason="Cliente pediu atendimento humano"
+  }
+  else {
+    nao_entendi: message text="Não entendi a opção. Sem problema: vou te encaminhar para um atendente para não te deixar esperando."
+    fim_invalido: terminate reason="Opção inválida no menu principal"
+  }
+}

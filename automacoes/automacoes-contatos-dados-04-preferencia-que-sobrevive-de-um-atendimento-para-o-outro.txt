@@ -1,0 +1,13 @@
+busca_preferencia: searchPersistent key="preferencia_horario:{{chat_client_number}}" resultVariableName="preferencia"
+decide: varCondition value="{{preferencia}}" {
+  case tem conditionOperator="not null" {
+    lembra: message text="Que bom te ver de novo! Da ultima vez voce escolheu o periodo da {{preferencia}} para ser atendido."
+    encaminha: transfer destinationType=0 -> end
+  }
+  else {
+    pergunta: question varName="preferencia" text="Qual periodo voce prefere para ser atendido: manha, tarde ou noite?"
+    guarda: addPersistent key="preferencia_horario:{{chat_client_number}}" value="{{preferencia}}"
+    confirma: message text="Anotei sua preferencia: {{preferencia}}. Nos proximos contatos ja vou considerar isso."
+    fim: terminate reason="Preferencia registrada" obs="Valor persistente gravado sem prazo de expiracao (ttl 0)."
+  }
+}

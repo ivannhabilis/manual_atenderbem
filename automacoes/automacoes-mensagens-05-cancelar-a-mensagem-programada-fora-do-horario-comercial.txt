@@ -1,0 +1,10 @@
+checa_envio: businesshoursCheck configId="horario_comercial" {
+  closed {
+    cancela_envio: cancelMessage
+    registra_cancelamento: info text="Envio cancelado: o cliente está fora do horário comercial e a mensagem programada só será retomada no próximo período de atendimento."
+    fim_cancelado: terminate reason="Mensagem programada cancelada fora do horário"
+  }
+}
+libera_envio: info text="Dentro do horário de funcionamento: a mensagem programada seguiu normalmente para o cliente."
+etiqueta_envio: marker markerId="etiqueta-envio-controlado"
+fim_liberado: terminate reason="Mensagem programada liberada"

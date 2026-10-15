@@ -1,0 +1,12 @@
+reconhece: searchContact searchField="number" searchValue="{{chat_client_number}}" resultVariableName="cliente" associateToCurrent=true
+decide: varCondition value="{{cliente}}" {
+  case conhecido conditionOperator="not null" {
+    ola: message text="Ola {{contact_name}}! Reconheci seu numero e ja associei seu cadastro a este atendimento."
+    fim: terminate reason="Contato reconhecido" obs="Contato associado ao atendimento pelo numero."
+  }
+  else {
+    registra: addContact associateToCurrent=true contact.number.enabled=1 contact.number.content="{{chat_client_number}}" contact.free2.enabled=1 contact.free2.content="origem: atendimento {{chat_protocol}}"
+    pronto: message text="Registrei seu numero {{contact_number | phone:\"BR\"}}. Seu cadastro sera usado nos proximos atendimentos."
+    fim_novo: terminate reason="Contato criado na conversa" obs="Numero novo cadastrado e associado."
+  }
+}

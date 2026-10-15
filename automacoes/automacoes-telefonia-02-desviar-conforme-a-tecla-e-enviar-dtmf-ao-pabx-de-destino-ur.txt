@@ -1,0 +1,15 @@
+toca_menu: callPlayAudio fileChooseType=1 fileId="{{audio_menu_principal}}" stopOnUserInput=false
+espera: callWaitClientReply
+decide: varCondition value="{{call_digits}}" {
+  case comercial conditionOperator="=" conditionValue="1" {
+    desvia_comercial: callTransfer destinationNumber="2100"
+  }
+  case financeiro conditionOperator="=" conditionValue="2" {
+    envia_dtmf: sentDTMF
+    desvia_financeiro: callTransfer destinationNumber="2200"
+  }
+  else {
+    despedida: callPlayAudio fileChooseType=1 fileId="{{audio_despedida}}"
+    derruba: callTerminate reason="Opcao invalida"
+  }
+}

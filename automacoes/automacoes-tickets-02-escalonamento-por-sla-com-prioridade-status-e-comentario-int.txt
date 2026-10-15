@@ -1,0 +1,17 @@
+busca_ticket: searchTicket searchField="number" searchValue="{{chat_protocol}}" associateToCurrentChat=true resultVariableName="ticket_buscado"
+checa: varCondition value="{{ticket_buscado_count}}" {
+  case existe conditionOperator=">" conditionValue="0" {
+    prioriza: editTicket ticketId="{{ticket_buscado_list[0].ticket_id}}" ticket.priority.content="4" ticket.tags.content="12,15"
+    em_andamento: changeStatusTicket ticketId="{{ticket_buscado_list[0].ticket_id}}" newStatus="2"
+    nota_interna: addCommentTicket ticketId="{{ticket_buscado_list[0].ticket_id}}" content="Ticket escalado automaticamente pelo fluxo de acompanhamento de SLA." type=1
+    escalona: escalateTicket ticketId="{{ticket_buscado_list[0].ticket_id}}" comment="Encaminhado ao proximo nivel por risco de estouro de SLA."
+    avisa: message text="Seu ticket {{ticket_buscado_list[0].ticket_number}} foi encaminhado ao proximo nivel de atendimento."
+    fim1: terminate
+  }
+  else {
+    cria: addTicket ticket.subject.content="Atendimento sem ticket associado" ticket.description.content="Abertura automatica pelo fluxo de SLA do protocolo {{chat_protocol}}." ticket.associateToCurrentContact.content=true reasonId="{{reason_id}}" resultVariableName="ticket_novo"
+    distribui: assignTicket ticketId="{{ticket_novo.ticket_id}}" assignType=0
+    sem_ticket: message text="Nao localizei um ticket para este protocolo, entao abri um novo: {{ticket_novo.ticket_number}}."
+    fim2: terminate
+  }
+}

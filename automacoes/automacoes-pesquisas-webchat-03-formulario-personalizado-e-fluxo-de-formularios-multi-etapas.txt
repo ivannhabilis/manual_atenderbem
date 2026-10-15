@@ -1,0 +1,7 @@
+abre: message text="Vamos atualizar seu cadastro, {{chat_client_name}}."
+form: sendForm formId=1 bodyText="Toque no botao para preencher seus dados." buttonText="Abrir formulario" headerText="Atualizacao de cadastro" footerText="Leva menos de 1 minuto" preFilledData.telefone="{{chat_client_number}}"
+etapas: sendFormFlow flowId=1 bodyText="Agora complete as etapas restantes." buttonText="Continuar"
+confere: showFormSync type=0 formId=2 resultVariableName="dados_conferidos" timeout=300
+painel: showForm type=2 flowId=1 preFilledData.protocolo="{{chat_protocol}}"
+avisa: message text="Obrigado! Registramos suas informacoes."
+fim: terminate reason="Cadastro atualizado"

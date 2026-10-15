@@ -1,0 +1,25 @@
+menu: options text="O que voce deseja fazer?" type=0 {
+  case ver_vitrine text="Ver os produtos em destaque" {
+    vitrine: sendProductMessage headerText="Ofertas da semana" bodyText="Ola {{chat_client_name}}, confira nossos produtos em destaque!" footerText="Toque em um produto para ver mais detalhes" sectionTitle="Destaques" searchType="id" productIds="101,102,103" presentationFormat="carousel"
+    depois: message text="Quando escolher, me diga o codigo interno do produto para eu consultar preco e estoque."
+    fim1: terminate
+  }
+  case consultar_produto text="Consultar preco e estoque" {
+    pede_codigo: question varName="codigo_produto" text="Informe o codigo interno do produto"
+    consulta: getProductDetails searchType="code" searchValue="{{codigo_produto}}" resultVariableName="produto"
+    checa: varCondition value="{{produto_found}}" {
+      case achou conditionOperator="=" conditionValue="1" {
+        responde: message text="{{produto.product_name}}: R$ {{produto.product_value}}. Estoque disponivel: {{produto.product_qty}} unidades."
+        fim_ok: terminate
+      }
+      else {
+        nao_achou: message text="Nao encontrei esse codigo no catalogo. Confira o codigo e tente novamente."
+        fim_nok: terminate
+      }
+    }
+  }
+  else {
+    nao_entendi: message text="Nao entendi a opcao. Vou transferir para um atendente."
+    fim3: terminate
+  }
+}

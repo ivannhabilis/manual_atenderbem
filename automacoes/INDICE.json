@@ -1,6 +1,7 @@
 [
  {
   "arquivo": "automacoes-admin-01-tarefa-de-acompanhamento-ao-final-do-atendimento-e-alerta-a-.ivr",
+  "arquivo_txt": "automacoes-admin-01-tarefa-de-acompanhamento-ao-final-do-atendimento-e-alerta-a-.txt",
   "titulo": "Tarefa de acompanhamento ao final do atendimento e alerta a supervisao",
   "grupo": "automacoes-admin",
   "tipo": 2,
@@ -9,6 +10,7 @@
  },
  {
   "arquivo": "automacoes-admin-02-concluir-a-tarefa-de-acompanhamento.ivr",
+  "arquivo_txt": "automacoes-admin-02-concluir-a-tarefa-de-acompanhamento.txt",
   "titulo": "Concluir a tarefa de acompanhamento",
   "grupo": "automacoes-admin",
   "tipo": 2,
@@ -17,6 +19,7 @@
  },
  {
   "arquivo": "automacoes-admin-03-provisionar-instancia-de-um-cliente-somente-instancia-de-rev.ivr",
+  "arquivo_txt": "automacoes-admin-03-provisionar-instancia-de-um-cliente-somente-instancia-de-rev.txt",
   "titulo": "Provisionar instancia de um cliente (somente instancia de revenda)",
   "grupo": "automacoes-admin",
   "tipo": 2,
@@ -25,6 +28,7 @@
  },
  {
   "arquivo": "automacoes-admin-04-manutencao-de-instancias-somente-instancia-de-revenda.ivr",
+  "arquivo_txt": "automacoes-admin-04-manutencao-de-instancias-somente-instancia-de-revenda.txt",
   "titulo": "Manutencao de instancias (somente instancia de revenda)",
   "grupo": "automacoes-admin",
   "tipo": 2,
@@ -33,6 +37,7 @@
  },
  {
   "arquivo": "automacoes-atendimento-01-retomar-o-atendimento-em-aberto-pelo-protocolo.ivr",
+  "arquivo_txt": "automacoes-atendimento-01-retomar-o-atendimento-em-aberto-pelo-protocolo.txt",
   "titulo": "Retomar o atendimento em aberto pelo protocolo",
   "grupo": "automacoes-atendimento",
   "tipo": 2,
@@ -41,6 +46,7 @@
  },
  {
   "arquivo": "automacoes-atendimento-02-abrir-um-atendimento-ativo-pelo-telefone.ivr",
+  "arquivo_txt": "automacoes-atendimento-02-abrir-um-atendimento-ativo-pelo-telefone.txt",
   "titulo": "Abrir um atendimento ativo pelo telefone",
   "grupo": "automacoes-atendimento",
   "tipo": 2,
@@ -49,6 +55,7 @@
  },
  {
   "arquivo": "automacoes-atendimento-03-fila-de-espera-com-agente-preferencial-travado.ivr",
+  "arquivo_txt": "automacoes-atendimento-03-fila-de-espera-com-agente-preferencial-travado.txt",
   "titulo": "Fila de espera com agente preferencial travado",
   "grupo": "automacoes-atendimento",
   "tipo": 2,
@@ -57,6 +64,7 @@
  },
  {
   "arquivo": "automacoes-atendimento-04-blindar-o-atendimento-durante-a-coleta-de-dados.ivr",
+  "arquivo_txt": "automacoes-atendimento-04-blindar-o-atendimento-durante-a-coleta-de-dados.txt",
   "titulo": "Blindar o atendimento durante a coleta de dados",
   "grupo": "automacoes-atendimento",
   "tipo": 2,
@@ -65,6 +73,7 @@
  },
  {
   "arquivo": "automacoes-atendimento-05-abrir-atendimento-em-fila-oficial-com-template.ivr",
+  "arquivo_txt": "automacoes-atendimento-05-abrir-atendimento-em-fila-oficial-com-template.txt",
   "titulo": "Abrir atendimento em fila oficial com template",
   "grupo": "automacoes-atendimento",
   "tipo": 2,
@@ -73,6 +82,7 @@
  },
  {
   "arquivo": "automacoes-atendimento-06-alerta-de-fila-acima-do-limite-para-a-supervisao.ivr",
+  "arquivo_txt": "automacoes-atendimento-06-alerta-de-fila-acima-do-limite-para-a-supervisao.txt",
   "titulo": "Alerta de fila acima do limite para a supervisao",
   "grupo": "automacoes-atendimento",
   "tipo": 2,
@@ -81,6 +91,7 @@
  },
  {
   "arquivo": "automacoes-catalogo-pedidos-01-vitrine-em-carrossel-e-consulta-de-produto-por-codigo-intern.ivr",
+  "arquivo_txt": "automacoes-catalogo-pedidos-01-vitrine-em-carrossel-e-consulta-de-produto-por-codigo-intern.txt",
   "titulo": "Vitrine em carrossel e consulta de produto por codigo interno",
   "grupo": "automacoes-catalogo-pedidos",
   "tipo": 2,
@@ -89,6 +100,7 @@
  },
  {
   "arquivo": "automacoes-catalogo-pedidos-02-enviar-pedido-com-pix-e-atualizar-o-status.ivr",
+  "arquivo_txt": "automacoes-catalogo-pedidos-02-enviar-pedido-com-pix-e-atualizar-o-status.txt",
   "titulo": "Enviar pedido com Pix e atualizar o status",
   "grupo": "automacoes-catalogo-pedidos",
   "tipo": 2,
@@ -97,6 +109,7 @@
  },
  {
   "arquivo": "automacoes-catalogo-pedidos-03-baixa-de-estoque-ao-fechar-o-pedido-da-oportunidade.ivr",
+  "arquivo_txt": "automacoes-catalogo-pedidos-03-baixa-de-estoque-ao-fechar-o-pedido-da-oportunidade.txt",
   "titulo": "Baixa de estoque ao fechar o pedido da oportunidade",
   "grupo": "automacoes-catalogo-pedidos",
   "tipo": 2,
@@ -105,6 +118,7 @@
  },
  {
   "arquivo": "automacoes-catalogo-pedidos-04-devolucao-ao-estoque-em-cancelamento-de-item-avulso.ivr",
+  "arquivo_txt": "automacoes-catalogo-pedidos-04-devolucao-ao-estoque-em-cancelamento-de-item-avulso.txt",
   "titulo": "Devolucao ao estoque em cancelamento de item avulso",
   "grupo": "automacoes-catalogo-pedidos",
   "tipo": 2,
@@ -113,6 +127,7 @@
  },
  {
   "arquivo": "automacoes-contatos-dados-01-identificar-o-cliente-pelo-cpf-atualizar-ou-cadastrar.ivr",
+  "arquivo_txt": "automacoes-contatos-dados-01-identificar-o-cliente-pelo-cpf-atualizar-ou-cadastrar.txt",
   "titulo": "Identificar o cliente pelo CPF: atualizar ou cadastrar",
   "grupo": "automacoes-contatos-dados",
   "tipo": 2,
@@ -121,6 +136,7 @@
  },
  {
   "arquivo": "automacoes-contatos-dados-02-reconhecer-quem-esta-falando-pelo-telefone.ivr",
+  "arquivo_txt": "automacoes-contatos-dados-02-reconhecer-quem-esta-falando-pelo-telefone.txt",
   "titulo": "Reconhecer quem esta falando pelo telefone",
   "grupo": "automacoes-contatos-dados",
   "tipo": 2,
@@ -129,6 +145,7 @@
  },
  {
   "arquivo": "automacoes-contatos-dados-03-enriquecer-o-cadastro-com-endereco-e-etiquetas.ivr",
+  "arquivo_txt": "automacoes-contatos-dados-03-enriquecer-o-cadastro-com-endereco-e-etiquetas.txt",
   "titulo": "Enriquecer o cadastro com endereco e etiquetas",
   "grupo": "automacoes-contatos-dados",
   "tipo": 2,
@@ -137,6 +154,7 @@
  },
  {
   "arquivo": "automacoes-contatos-dados-04-preferencia-que-sobrevive-de-um-atendimento-para-o-outro.ivr",
+  "arquivo_txt": "automacoes-contatos-dados-04-preferencia-que-sobrevive-de-um-atendimento-para-o-outro.txt",
   "titulo": "Preferencia que sobrevive de um atendimento para o outro",
   "grupo": "automacoes-contatos-dados",
   "tipo": 2,
@@ -145,6 +163,7 @@
  },
  {
   "arquivo": "automacoes-contatos-dados-05-descadastro-de-campanhas-com-limpeza-da-memoria.ivr",
+  "arquivo_txt": "automacoes-contatos-dados-05-descadastro-de-campanhas-com-limpeza-da-memoria.txt",
   "titulo": "Descadastro de campanhas com limpeza da memoria",
   "grupo": "automacoes-contatos-dados",
   "tipo": 2,
@@ -153,6 +172,7 @@
  },
  {
   "arquivo": "automacoes-crm-carrinho-01-detectar-interesse-criar-oportunidade-e-mover-no-funil.ivr",
+  "arquivo_txt": "automacoes-crm-carrinho-01-detectar-interesse-criar-oportunidade-e-mover-no-funil.txt",
   "titulo": "Detectar interesse, criar oportunidade e mover no funil",
   "grupo": "automacoes-crm-carrinho",
   "tipo": 2,
@@ -161,6 +181,7 @@
  },
  {
   "arquivo": "automacoes-crm-carrinho-02-montar-o-carrinho-e-enviar-o-botao-para-conferencia.ivr",
+  "arquivo_txt": "automacoes-crm-carrinho-02-montar-o-carrinho-e-enviar-o-botao-para-conferencia.txt",
   "titulo": "Montar o carrinho e enviar o botao para conferencia",
   "grupo": "automacoes-crm-carrinho",
   "tipo": 2,
@@ -169,6 +190,7 @@
  },
  {
   "arquivo": "automacoes-crm-carrinho-03-bloquear-o-carrinho-na-conferencia-e-liberar-depois.ivr",
+  "arquivo_txt": "automacoes-crm-carrinho-03-bloquear-o-carrinho-na-conferencia-e-liberar-depois.txt",
   "titulo": "Bloquear o carrinho na conferencia e liberar depois",
   "grupo": "automacoes-crm-carrinho",
   "tipo": 2,
@@ -177,6 +199,7 @@
  },
  {
   "arquivo": "automacoes-crm-carrinho-04-fechar-a-venda-como-ganha-e-reabrir-em-caso-de-arrependiment.ivr",
+  "arquivo_txt": "automacoes-crm-carrinho-04-fechar-a-venda-como-ganha-e-reabrir-em-caso-de-arrependiment.txt",
   "titulo": "Fechar a venda como ganha e reabrir em caso de arrependimento",
   "grupo": "automacoes-crm-carrinho",
   "tipo": 2,
@@ -185,6 +208,7 @@
  },
  {
   "arquivo": "automacoes-crm-carrinho-05-sincronizar-o-carrinho-inteiro-a-partir-de-um-json-de-erp.ivr",
+  "arquivo_txt": "automacoes-crm-carrinho-05-sincronizar-o-carrinho-inteiro-a-partir-de-um-json-de-erp.txt",
   "titulo": "Sincronizar o carrinho inteiro a partir de um JSON de ERP",
   "grupo": "automacoes-crm-carrinho",
   "tipo": 2,
@@ -193,6 +217,7 @@
  },
  {
   "arquivo": "automacoes-crm-carrinho-06-baixa-e-devolucao-de-estoque-ligadas-ao-pedido.ivr",
+  "arquivo_txt": "automacoes-crm-carrinho-06-baixa-e-devolucao-de-estoque-ligadas-ao-pedido.txt",
   "titulo": "Baixa e devolucao de estoque ligadas ao pedido",
   "grupo": "automacoes-crm-carrinho",
   "tipo": 2,
@@ -201,6 +226,7 @@
  },
  {
   "arquivo": "automacoes-crm-carrinho-07-congelar-anexar-contrato-limpar-tarefas-e-transferir-a-oport.ivr",
+  "arquivo_txt": "automacoes-crm-carrinho-07-congelar-anexar-contrato-limpar-tarefas-e-transferir-a-oport.txt",
   "titulo": "Congelar, anexar contrato, limpar tarefas e transferir a oportunidade",
   "grupo": "automacoes-crm-carrinho",
   "tipo": 2,
@@ -209,6 +235,7 @@
  },
  {
   "arquivo": "automacoes-crm-carrinho-08-guardas-do-funil-cancelar-movimentacao-e-ganho-indevidos.ivr",
+  "arquivo_txt": "automacoes-crm-carrinho-08-guardas-do-funil-cancelar-movimentacao-e-ganho-indevidos.txt",
   "titulo": "Guardas do funil: cancelar movimentacao e ganho indevidos",
   "grupo": "automacoes-crm-carrinho",
   "tipo": 2,
@@ -217,6 +244,7 @@
  },
  {
   "arquivo": "automacoes-fluxo-logica-01-triagem-por-horario-de-funcionamento-com-protocolo-e-rodizio.ivr",
+  "arquivo_txt": "automacoes-fluxo-logica-01-triagem-por-horario-de-funcionamento-com-protocolo-e-rodizio.txt",
   "titulo": "Triagem por horário de funcionamento com protocolo e rodízio de plantão",
   "grupo": "automacoes-fluxo-logica",
   "tipo": 2,
@@ -225,6 +253,7 @@
  },
  {
   "arquivo": "automacoes-fluxo-logica-02-resumo-do-carrinho-item-a-item-com-laco-de-repeticao.ivr",
+  "arquivo_txt": "automacoes-fluxo-logica-02-resumo-do-carrinho-item-a-item-com-laco-de-repeticao.txt",
   "titulo": "Resumo do carrinho item a item com laço de repetição",
   "grupo": "automacoes-fluxo-logica",
   "tipo": 2,
@@ -233,6 +262,7 @@
  },
  {
   "arquivo": "automacoes-fluxo-logica-03-orcamento-com-acompanhamento-agendado-e-cancelamento.ivr",
+  "arquivo_txt": "automacoes-fluxo-logica-03-orcamento-com-acompanhamento-agendado-e-cancelamento.txt",
   "titulo": "Orçamento com acompanhamento agendado e cancelamento",
   "grupo": "automacoes-fluxo-logica",
   "tipo": 2,
@@ -241,6 +271,7 @@
  },
  {
   "arquivo": "automacoes-fluxo-logica-04-classificar-o-cliente-com-codigo-variaveis-e-gatilhos.ivr",
+  "arquivo_txt": "automacoes-fluxo-logica-04-classificar-o-cliente-com-codigo-variaveis-e-gatilhos.txt",
   "titulo": "Classificar o cliente com código, variáveis e gatilhos",
   "grupo": "automacoes-fluxo-logica",
   "tipo": 2,
@@ -249,6 +280,7 @@
  },
  {
   "arquivo": "automacoes-fluxo-logica-05-retorno-por-ligacao-oferta-confirmacao-e-desfecho-da-chamada.ivr",
+  "arquivo_txt": "automacoes-fluxo-logica-05-retorno-por-ligacao-oferta-confirmacao-e-desfecho-da-chamada.txt",
   "titulo": "Retorno por ligação: oferta, confirmação e desfecho da chamada",
   "grupo": "automacoes-fluxo-logica",
   "tipo": 2,
@@ -257,6 +289,7 @@
  },
  {
   "arquivo": "automacoes-ia-assistentes-01-entregar-o-atendimento-ao-assistente-de-ia.ivr",
+  "arquivo_txt": "automacoes-ia-assistentes-01-entregar-o-atendimento-ao-assistente-de-ia.txt",
   "titulo": "Entregar o atendimento ao assistente de IA",
   "grupo": "automacoes-ia-assistentes",
   "tipo": 2,
@@ -265,6 +298,7 @@
  },
  {
   "arquivo": "automacoes-ia-assistentes-02-assistente-de-ia-devolve-o-atendimento-ao-humano.ivr",
+  "arquivo_txt": "automacoes-ia-assistentes-02-assistente-de-ia-devolve-o-atendimento-ao-humano.txt",
   "titulo": "Assistente de IA devolve o atendimento ao humano",
   "grupo": "automacoes-ia-assistentes",
   "tipo": 2,
@@ -273,6 +307,7 @@
  },
  {
   "arquivo": "automacoes-ia-assistentes-03-solicitacao-unica-a-um-assistente-especialista.ivr",
+  "arquivo_txt": "automacoes-ia-assistentes-03-solicitacao-unica-a-um-assistente-especialista.txt",
   "titulo": "Solicitacao unica a um assistente especialista",
   "grupo": "automacoes-ia-assistentes",
   "tipo": 2,
@@ -281,6 +316,7 @@
  },
  {
   "arquivo": "automacoes-ia-assistentes-04-adicionar-contexto-e-provocar-o-assistente.ivr",
+  "arquivo_txt": "automacoes-ia-assistentes-04-adicionar-contexto-e-provocar-o-assistente.txt",
   "titulo": "Adicionar contexto e provocar o assistente",
   "grupo": "automacoes-ia-assistentes",
   "tipo": 2,
@@ -289,6 +325,7 @@
  },
  {
   "arquivo": "automacoes-ia-assistentes-05-ler-o-documento-ou-a-imagem-do-cliente-com-ia.ivr",
+  "arquivo_txt": "automacoes-ia-assistentes-05-ler-o-documento-ou-a-imagem-do-cliente-com-ia.txt",
   "titulo": "Ler o documento ou a imagem do cliente com IA",
   "grupo": "automacoes-ia-assistentes",
   "tipo": 2,
@@ -297,6 +334,7 @@
  },
  {
   "arquivo": "automacoes-ia-assistentes-06-fechamento-audio-com-ia-documento-e-auditoria.ivr",
+  "arquivo_txt": "automacoes-ia-assistentes-06-fechamento-audio-com-ia-documento-e-auditoria.txt",
   "titulo": "Fechamento: audio com IA, documento e auditoria",
   "grupo": "automacoes-ia-assistentes",
   "tipo": 2,
@@ -305,6 +343,7 @@
  },
  {
   "arquivo": "automacoes-integracoes-01-consultar-uma-api-externa-decidir-pelo-status-e-avisar-a-ext.ivr",
+  "arquivo_txt": "automacoes-integracoes-01-consultar-uma-api-externa-decidir-pelo-status-e-avisar-a-ext.txt",
   "titulo": "Consultar uma API externa, decidir pelo status e avisar a extensao",
   "grupo": "automacoes-integracoes",
   "tipo": 2,
@@ -313,6 +352,7 @@
  },
  {
   "arquivo": "automacoes-integracoes-02-responder-a-um-webhook-com-json-e-gerar-qr-code-de-um-link.ivr",
+  "arquivo_txt": "automacoes-integracoes-02-responder-a-um-webhook-com-json-e-gerar-qr-code-de-um-link.txt",
   "titulo": "Responder a um webhook com JSON e gerar QR Code de um link",
   "grupo": "automacoes-integracoes",
   "tipo": 2,
@@ -321,6 +361,7 @@
  },
  {
   "arquivo": "automacoes-mensagens-01-boas-vindas-menu-principal-e-consulta-com-validacao-de-cpf.ivr",
+  "arquivo_txt": "automacoes-mensagens-01-boas-vindas-menu-principal-e-consulta-com-validacao-de-cpf.txt",
   "titulo": "Boas-vindas, menu principal e consulta com validação de CPF",
   "grupo": "automacoes-mensagens",
   "tipo": 2,
@@ -329,6 +370,7 @@
  },
  {
   "arquivo": "automacoes-mensagens-02-pesquisa-de-satisfacao-com-a-nota-protegida.ivr",
+  "arquivo_txt": "automacoes-mensagens-02-pesquisa-de-satisfacao-com-a-nota-protegida.txt",
   "titulo": "Pesquisa de satisfação com a nota protegida",
   "grupo": "automacoes-mensagens",
   "tipo": 2,
@@ -337,6 +379,7 @@
  },
  {
   "arquivo": "automacoes-mensagens-03-coleta-de-endereco-com-whatsapp-flow-e-limpeza-do-dado-sensi.ivr",
+  "arquivo_txt": "automacoes-mensagens-03-coleta-de-endereco-com-whatsapp-flow-e-limpeza-do-dado-sensi.txt",
   "titulo": "Coleta de endereço com Whatsapp Flow e limpeza do dado sensível",
   "grupo": "automacoes-mensagens",
   "tipo": 2,
@@ -345,6 +388,7 @@
  },
  {
   "arquivo": "automacoes-mensagens-04-comentario-no-instagram-respondido-e-convertido-em-atendimen.ivr",
+  "arquivo_txt": "automacoes-mensagens-04-comentario-no-instagram-respondido-e-convertido-em-atendimen.txt",
   "titulo": "Comentário no Instagram respondido e convertido em atendimento no direct",
   "grupo": "automacoes-mensagens",
   "tipo": 2,
@@ -353,6 +397,7 @@
  },
  {
   "arquivo": "automacoes-mensagens-05-cancelar-a-mensagem-programada-fora-do-horario-comercial.ivr",
+  "arquivo_txt": "automacoes-mensagens-05-cancelar-a-mensagem-programada-fora-do-horario-comercial.txt",
   "titulo": "Cancelar a mensagem programada fora do horário comercial",
   "grupo": "automacoes-mensagens",
   "tipo": 2,
@@ -361,6 +406,7 @@
  },
  {
   "arquivo": "automacoes-pesquisas-webchat-01-pesquisa-de-satisfacao-na-despedida-do-atendimento.ivr",
+  "arquivo_txt": "automacoes-pesquisas-webchat-01-pesquisa-de-satisfacao-na-despedida-do-atendimento.txt",
   "titulo": "Pesquisa de satisfacao na despedida do atendimento",
   "grupo": "automacoes-pesquisas-webchat",
   "tipo": 2,
@@ -369,6 +415,7 @@
  },
  {
   "arquivo": "automacoes-pesquisas-webchat-02-link-publico-de-pesquisa-submissao-e-perguntas-ocultas.ivr",
+  "arquivo_txt": "automacoes-pesquisas-webchat-02-link-publico-de-pesquisa-submissao-e-perguntas-ocultas.txt",
   "titulo": "Link publico de pesquisa, submissao e perguntas ocultas",
   "grupo": "automacoes-pesquisas-webchat",
   "tipo": 2,
@@ -377,6 +424,7 @@
  },
  {
   "arquivo": "automacoes-pesquisas-webchat-03-formulario-personalizado-e-fluxo-de-formularios-multi-etapas.ivr",
+  "arquivo_txt": "automacoes-pesquisas-webchat-03-formulario-personalizado-e-fluxo-de-formularios-multi-etapas.txt",
   "titulo": "Formulario personalizado e fluxo de formularios multi-etapas",
   "grupo": "automacoes-pesquisas-webchat",
   "tipo": 2,
@@ -385,6 +433,7 @@
  },
  {
   "arquivo": "automacoes-pesquisas-webchat-04-cartao-de-informacao-exibido-e-depois-removido.ivr",
+  "arquivo_txt": "automacoes-pesquisas-webchat-04-cartao-de-informacao-exibido-e-depois-removido.txt",
   "titulo": "Cartao de informacao exibido e depois removido",
   "grupo": "automacoes-pesquisas-webchat",
   "tipo": 2,
@@ -393,6 +442,7 @@
  },
  {
   "arquivo": "automacoes-pesquisas-webchat-05-webchat-v2-notificacoes-push-migracao-e-confirmacao-do-atend.ivr",
+  "arquivo_txt": "automacoes-pesquisas-webchat-05-webchat-v2-notificacoes-push-migracao-e-confirmacao-do-atend.txt",
   "titulo": "WebChat V2: notificacoes push, migracao e confirmacao do atendente",
   "grupo": "automacoes-pesquisas-webchat",
   "tipo": 2,
@@ -401,6 +451,7 @@
  },
  {
   "arquivo": "automacoes-telefonia-01-menu-de-voz-com-audio-e-leitura-do-teclado-ura-telefonica.ivr",
+  "arquivo_txt": "automacoes-telefonia-01-menu-de-voz-com-audio-e-leitura-do-teclado-ura-telefonica.txt",
   "titulo": "Menu de voz com audio e leitura do teclado (URA telefonica)",
   "grupo": "automacoes-telefonia",
   "tipo": 3,
@@ -409,6 +460,7 @@
  },
  {
   "arquivo": "automacoes-telefonia-02-desviar-conforme-a-tecla-e-enviar-dtmf-ao-pabx-de-destino-ur.ivr",
+  "arquivo_txt": "automacoes-telefonia-02-desviar-conforme-a-tecla-e-enviar-dtmf-ao-pabx-de-destino-ur.txt",
   "titulo": "Desviar conforme a tecla e enviar DTMF ao PABX de destino (URA telefonica)",
   "grupo": "automacoes-telefonia",
   "tipo": 3,
@@ -417,6 +469,7 @@
  },
  {
   "arquivo": "automacoes-telefonia-03-encerrar-a-chamada-com-hangup-ura-telefonica.ivr",
+  "arquivo_txt": "automacoes-telefonia-03-encerrar-a-chamada-com-hangup-ura-telefonica.txt",
   "titulo": "Encerrar a chamada com hangup (URA telefonica)",
   "grupo": "automacoes-telefonia",
   "tipo": 3,
@@ -425,6 +478,7 @@
  },
  {
   "arquivo": "automacoes-tickets-01-abertura-automatica-de-ticket-pelo-chat-com-vinculo-do-conta.ivr",
+  "arquivo_txt": "automacoes-tickets-01-abertura-automatica-de-ticket-pelo-chat-com-vinculo-do-conta.txt",
   "titulo": "Abertura automatica de ticket pelo chat com vinculo do contato",
   "grupo": "automacoes-tickets",
   "tipo": 2,
@@ -433,6 +487,7 @@
  },
  {
   "arquivo": "automacoes-tickets-02-escalonamento-por-sla-com-prioridade-status-e-comentario-int.ivr",
+  "arquivo_txt": "automacoes-tickets-02-escalonamento-por-sla-com-prioridade-status-e-comentario-int.txt",
   "titulo": "Escalonamento por SLA com prioridade, status e comentario interno",
   "grupo": "automacoes-tickets",
   "tipo": 2,
@@ -441,6 +496,7 @@
  },
  {
   "arquivo": "automacoes-tickets-03-resolucao-com-comentario-externo-disparando-evento.ivr",
+  "arquivo_txt": "automacoes-tickets-03-resolucao-com-comentario-externo-disparando-evento.txt",
   "titulo": "Resolucao com comentario externo disparando evento",
   "grupo": "automacoes-tickets",
   "tipo": 2,
@@ -449,6 +505,7 @@
  },
  {
   "arquivo": "automacoes-tickets-04-aguardar-cliente-reabrir-e-corrigir-vinculo-do-ticket.ivr",
+  "arquivo_txt": "automacoes-tickets-04-aguardar-cliente-reabrir-e-corrigir-vinculo-do-ticket.txt",
   "titulo": "Aguardar cliente, reabrir e corrigir vinculo do ticket",
   "grupo": "automacoes-tickets",
   "tipo": 2,
