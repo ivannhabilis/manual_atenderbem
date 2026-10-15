@@ -1,3 +1,0 @@
-classifica: aiAssistantSingleRequest assistantId="7" message="Classifique a ultima mensagem do cliente em apenas uma palavra: duvida, reclamacao ou elogio." resultVariableName="categoria_atendimento"
-confirma: message text="Registrei sua solicitacao na categoria {{categoria_atendimento}}. Obrigado!"
-encerra: terminate reason="Classificacao concluida pela IA"

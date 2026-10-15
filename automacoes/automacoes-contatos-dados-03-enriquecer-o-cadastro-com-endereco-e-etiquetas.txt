@@ -1,7 +1,0 @@
-localiza: searchContact searchField="number" searchValue="{{chat_client_number}}" resultVariableName="cliente" associateToCurrent=true
-pede_cep: question varName="cep_entrega" text="Vou atualizar seu endereco de entrega. Informe o CEP, somente numeros." validate=4 validateError="CEP invalido. Digite somente numeros."
-pede_endereco: question varName="endereco_entrega" text="Qual a rua, o numero e o complemento?"
-pede_cidade: question varName="cidade_entrega" text="Qual a cidade e o estado? Exemplo: Sao Paulo/SP."
-grava: editContact id="{{cliente}}" contact.postalcode.enabled=1 contact.postalcode.content="{{cep_entrega}}" contact.address.enabled=1 contact.address.content="{{endereco_entrega}}" contact.city.enabled=1 contact.city.content="{{cidade_entrega}}" contact.tags.enabled=1 contact.tags.content=["endereco_atualizado","cliente_ativo"]
-confirma: message text="Endereco atualizado: {{endereco_entrega}}, CEP {{cep_entrega}}, {{cidade_entrega}}."
-fim: terminate reason="Endereco atualizado" obs="Cadastro enriquecido com endereco e etiquetas."

@@ -154,7 +154,7 @@
 <h3 id="el-addTicket">addTicket</h3>
 <p>Cria um novo ticket no sistema de tickets, com status Aberto.</p>
 <div class="callout info">A fila do ticket é resolvida automaticamente a partir do motivo (reasonId), percorrendo a cadeia de escalonamento de níveis de atendimento (N1 → N2 → N3...). Se a classificação (classificationId) não for informada, ela é obtida automaticamente a partir do motivo configurado no sistema. Os prazos de SLA são calculados automaticamente conforme o motivo e a fila.<br>Opcionalmente o ticket pode ser vinculado ao contato do atendimento atual e/ou associado ao atendimento (chat) atual, além de receber etiquetas (tags).<br>Se resultVariableName for informado, é criada uma variável com esse nome contendo um objeto com os dados do ticket criado, com as propriedades: ticket_id, ticket_number, ticket_subject, ticket_description, ticket_status, ticket_priority, ticket_channel, ticket_classification, ticket_classification_id, ticket_reason, ticket_sub_reason, ticket_queue_code, ticket_agent_id, ticket_agent_name, ticket_created_at, ticket_sla_deadline, ticket_queue_sla_deadline, ticket_is_sla_met, ticket_first_response_at, ticket_resolved_at, ticket_tracking_url, ticket_contacts, ticket_contacts_count, ticket_supervisors, ticket_supervisors_count, ticket_stage_id, ticket_stage_name, ticket_stage_color, ticket_stage_flow_id, ticket_stage_is_initial e ticket_stage_is_final.<br>Em caso de erro (ex: motivo inválido, sem fila correspondente), o ticket não é criado e o fluxo segue normalmente para o próximo elemento.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Criar ticket</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticket":{"subject":{"content":""},"description":{"content":""},"associateToCurrentContact":{"content":false},"associateToCurrentChat":{"content":false}},"classificationId":"","reasonId":"","resultVariableName":"","nextElementId":""}
 Como se escreve: meu_rotulo: addTicket ticket={...} reasonId="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>111</code></p>
@@ -174,7 +174,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-editTicket">editTicket</h3>
 <p>Edita os campos de um ticket existente a partir do seu ID. Podem ser alterados o assunto, a prioridade e o sub-motivo, além de adicionar etiquetas (tags) ao ticket.</p>
 <div class="callout info">Campos vazios são ignorados e não alteram o ticket. As tags informadas são adicionadas às já existentes, sem remover as anteriores.<br>Se o ticket não for encontrado, nenhuma alteração é feita e o fluxo segue normalmente para o próximo elemento.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Editar ticket</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","ticket":{"priority":{"content":""},"subReasonId":{"content":""},"tags":{"content":""}},"nextElementId":""}
 Como se escreve: meu_rotulo: editTicket ticketId="..." ticket={...}
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>112</code></p>
@@ -191,7 +191,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-searchTicket">searchTicket</h3>
 <p>Busca tickets no sistema de tickets. A busca pode ser feita por ID ou número do ticket (busca direta), ou por telefone ou e-mail (busca os contatos correspondentes e retorna os tickets vinculados a eles).</p>
 <div class="callout info">Opcionalmente o resultado pode ser filtrado por classificação e os tickets encontrados podem ser associados ao atendimento (chat) atual.<br>As seguintes variáveis são criadas automaticamente:<br>resultVariableName + _list: Lista com os tickets encontrados. Cada item é um objeto com os dados do ticket (ticket_id, ticket_number, ticket_subject, ticket_description, ticket_status, ticket_priority, ticket_classification, ticket_classification_id, ticket_reason, ticket_sub_reason, ticket_queue_code, ticket_agent_id, ticket_agent_name, ticket_tracking_url, ticket_contacts, ticket_supervisors, entre outras). Exemplo de nome final da variável: "tickets_result_list"<br>resultVariableName + _count: Quantidade de tickets encontrados. Exemplo de nome final da variável: "tickets_result_count"<br>Se a configuração da busca for inválida ou nenhum ticket for encontrado, o fluxo segue normalmente para o próximo elemento (com a lista vazia quando aplicável).</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Buscar ticket</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"searchField":"id","searchValue":"","classificationId":"","associateToCurrentChat":false,"resultVariableName":"","nextElementId":""}
 Como se escreve: meu_rotulo: searchTicket searchField="id" searchValue="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>113</code></p>
@@ -208,7 +208,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-resolveTicket">resolveTicket</h3>
 <p>Marca um ticket como resolvido a partir do seu ID. O ticket tem seu status alterado para Resolvido, a data de resolução registrada e o cumprimento do SLA calculado.</p>
 <div class="callout info">Opcionalmente um comentário (externo ou interno) pode ser adicionado ao ticket antes da resolução.<br>Se o ticket não for encontrado, nada acontece e o fluxo segue normalmente para o próximo elemento.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Resolver ticket</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","comment":"","commentType":0,"nextElementId":""}
 Como se escreve: meu_rotulo: resolveTicket ticketId="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>114</code></p>
@@ -223,7 +223,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-reopenTicket">reopenTicket</h3>
 <p>Reabre um ticket resolvido a partir do seu ID. O ticket volta ao status Aberto e o prazo de SLA é recalculado com base no tempo que restava no momento da resolução.</p>
 <div class="callout info">Opcionalmente um comentário externo com o motivo da reabertura pode ser adicionado ao ticket antes da reabertura.<br>Se o ticket não for encontrado, nada acontece e o fluxo segue normalmente para o próximo elemento.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Reabrir ticket</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","comment":"","nextElementId":""}
 Como se escreve: meu_rotulo: reopenTicket ticketId="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>115</code></p>
@@ -237,7 +237,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-assignTicket">assignTicket</h3>
 <p>Atribui um ticket a um responsável a partir do seu ID. A atribuição pode ser direta para um agente específico (assignType 1) ou por distribuição automática (assignType 0), que segue o método de distribuição configurado na fila do ticket.</p>
 <div class="callout info">Se o ticket não for encontrado, ou se o agente informado não existir, nenhuma atribuição é feita e o fluxo segue normalmente para o próximo elemento.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Atribuir ticket</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","assignType":0,"userId":"","nextElementId":""}
 Como se escreve: meu_rotulo: assignTicket ticketId="..." assignType=0
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>116</code></p>
@@ -252,7 +252,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-escalateTicket">escalateTicket</h3>
 <p>Escala um ticket para o próximo nível de atendimento a partir do seu ID. O ticket é movido para uma fila ativa do próximo nível de escalonamento com o mesmo motivo, perde o agente responsável atual, volta ao status Aberto, tem o SLA da fila recalculado e é distribuído automaticamente na nova fila.</p>
 <div class="callout info">Opcionalmente um comentário externo pode ser adicionado ao ticket antes da escalação.<br>Se não houver próximo nível de escalonamento configurado, se não existir fila ativa no próximo nível para o motivo do ticket, ou se o ticket não for encontrado, nada acontece e o fluxo segue normalmente para o próximo elemento.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Escalar ticket</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","comment":"","nextElementId":""}
 Como se escreve: meu_rotulo: escalateTicket ticketId="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>117</code></p>
@@ -265,7 +265,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-contactClientTicket">contactClientTicket</h3>
 <p>Move um ticket para o status "Aguardando cliente" (3), a partir do ID do ticket. Opcionalmente registra um comentário público no ticket informando o que está sendo solicitado ao cliente. Enquanto o ticket permanece aguardando cliente, a contagem de SLA fica pausada (o tempo pausado é descontado quando o ticket sai desse status).</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Aguardar cliente (ticket)</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","comment":"","nextElementId":""}
 Como se escreve: meu_rotulo: contactClientTicket ticketId="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>118</code></p>
@@ -278,7 +278,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-addCommentTicket">addCommentTicket</h3>
 <p>Adiciona um comentário a um ticket, a partir do ID do ticket. O comentário pode ser externo (público, dispara o evento "commented", que pode acionar automações) ou interno (visível somente para a equipe, não dispara eventos).</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Adicionar comentário ao ticket</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","content":"","type":0,"nextElementId":""}
 Como se escreve: meu_rotulo: addCommentTicket ticketId="..." content="..." type=0
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>119</code></p>
@@ -292,7 +292,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-linkContactTicket">linkContactTicket</h3>
 <p>Vincula um contato a um ticket existente, a partir do ID do ticket. O contato pode ser o contato associado ao atendimento atual ou um contato específico informado por ID.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Vincular contato ao ticket</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","associateToCurrentContact":true,"contactId":"","nextElementId":""}
 Como se escreve: meu_rotulo: linkContactTicket ticketId="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>120</code></p>
@@ -306,7 +306,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-unlinkContactTicket">unlinkContactTicket</h3>
 <p>Remove a vinculação entre um contato e um ticket, a partir do ID do ticket. O contato pode ser o contato associado ao atendimento atual ou um contato específico informado por ID.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Desvincular contato do ticket</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","associateToCurrentContact":false,"contactId":"","nextElementId":""}
 Como se escreve: meu_rotulo: unlinkContactTicket ticketId="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>121</code></p>
@@ -320,7 +320,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-changeStatusTicket">changeStatusTicket</h3>
 <p>Altera o status de um ticket, a partir do ID do ticket. Aceita apenas os status 1 (Aberto), 2 (Em andamento), 4 (Resolvido) e 6 (Aguardando recurso); outros valores são ignorados. Para mover o ticket para "Aguardando cliente" (status 3) deve-se utilizar o elemento contactClientTicket, que registra comentário. A alteração dispara o evento "statusChanged", que pode acionar automações.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Alterar status do ticket</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","newStatus":"","nextElementId":""}
 Como se escreve: meu_rotulo: changeStatusTicket ticketId="..." newStatus="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>122</code></p>
@@ -333,7 +333,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-addTagTicket">addTagTicket</h3>
 <p>Adiciona uma tag previamente cadastrada no sistema a um ticket existente, a partir do ID do ticket e do ID da tag.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Adicionar tag ao ticket</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","tagId":"","nextElementId":""}
 Como se escreve: meu_rotulo: addTagTicket ticketId="..." tagId="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>123</code></p>
@@ -346,7 +346,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-changeStageTicket">changeStageTicket</h3>
 <p>Altera o estágio de um ticket, a partir do ID do ticket e do ID do novo estágio. A transição do estágio atual para o novo precisa estar permitida no fluxo de estágios configurado no sistema; caso contrário a alteração falha e o fluxo apenas segue para o próximo elemento. A alteração dispara o evento "stageChanged" (ou "stageFinal", quando o novo estágio é final), que pode acionar automações.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Alterar estágio do ticket</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","newStageId":"","nextElementId":""}
 Como se escreve: meu_rotulo: changeStageTicket ticketId="..." newStageId="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>124</code></p>

@@ -146,7 +146,7 @@
 <h3 id="el-searchContact">searchContact</h3>
 <p>Busca um contato na base de dados do sistema. O contato pode ser buscado por CPF/CNPJ, telefone ou email.</p>
 <div class="callout info">Se encontrado, o resultado será disponibilizado em uma variável e se desejado pode ser associado ao atendimento atual.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Buscar contato</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"resultVariableName":"","searchField":"number","searchValue":"","associateToCurrent":false,"nextElementId":""}
 Como se escreve: meu_rotulo: searchContact searchField="number" searchValue="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>14</code></p>
@@ -160,7 +160,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-addContact">addContact</h3>
 <p>Adiciona um novo contato na base de dados do sistema.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Adicionar contato</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"contact":{"name":{"enabled":0,"content":""},"number":{"enabled":0,"content":""},"instagram":{"enabled":0,"content":""},"facebook":{"enabled":0,"content":""},"email":{"enabled":0,"content":""},"document":{"enabled":0,"content":""},"birthdate":{"enabled":0,"content":""},"tags":{"enabled":0,"content":[]},"free1":{"enabled":0,"content":""},"free2":{"enabled":0,"content":""},"address":{"enabled":0,"content":""},"city":{"enabled":0,"content":""},"neighborhood":{"enabled":0,"content":""},"postalcode":{"enabled":0,"content":""},"state":{"enabled":0,"content":""},"country":{"enabled":0,"content":""},"housenumber":{"enabled":0,"content":""},"addresscomp":{"enabled":0,"content":""},"preferredagents":{"enabled":0,"content":[]},"groups":{"enabled":0,"content":[]},"extradata":{},"donotdisturb":{"enabled":0,"content":false},"blockmarketingcampaigns":{"enabled":0,"content":false},"blockutilitiescampaigns":{"enabled":0,"content":false}},"associateToCurrent":false,"nextElementId":""}
 Como se escreve: meu_rotulo: addContact contact={...}
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>15</code></p>
@@ -200,7 +200,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-editContact">editContact</h3>
 <p>Edita um contato existente na base de dados do sistema.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Editar contato</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"id":"","contact":{"name":{"enabled":0,"content":""},"number":{"enabled":0,"content":""},"instagram":{"enabled":0,"content":""},"facebook":{"enabled":0,"content":""},"email":{"enabled":0,"content":""},"document":{"enabled":0,"content":""},"birthdate":{"enabled":0,"content":""},"tags":{"enabled":0,"content":[]},"free1":{"enabled":0,"content":""},"free2":{"enabled":0,"content":""},"address":{"enabled":0,"content":""},"city":{"enabled":0,"content":""},"neighborhood":{"enabled":0,"content":""},"postalcode":{"enabled":0,"content":""},"state":{"enabled":0,"content":""},"country":{"enabled":0,"content":""},"housenumber":{"enabled":0,"content":""},"addresscomp":{"enabled":0,"content":""},"preferredagents":{"enabled":0,"content":[]},"groups":{"enabled":0,"content":[]},"extradata":{},"donotdisturb":{"enabled":0,"content":false},"blockmarketingcampaigns":{"enabled":0,"content":false},"blockutilitiescampaigns":{"enabled":0,"content":false}},"nextElementId":""}
 Como se escreve: meu_rotulo: editContact id="..." contact={...}
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>28</code></p>
@@ -241,7 +241,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-addPersistent">addPersistent</h3>
 <p>Adiciona um valor persistente ao banco de dados. Valores persistentes são armazenados no banco de dados e podem ser acessados em qualquer, inclusive por outros atendimentos em outras filas.</p>
 <div class="callout info">Útil para manter registros de informações importantes que devem ser acessadas em diferentes momentos e de forma global, como por exemplo, um contador de atendimentos ou chaves de autenticação dinâmicas em serviços externos.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Adicionar dado persistente</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"key":"","value":"","ttl":0,"nextElementId":""}
 Como se escreve: meu_rotulo: addPersistent key="..." value="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>51</code></p>
@@ -255,7 +255,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-searchPersistent">searchPersistent</h3>
 <p>Busca um valor persistente no banco de dados e disponibiliza seu valor em uma variável.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Buscar dado persistente</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"key":"","resultVariableName":"","nextElementId":""}
 Como se escreve: meu_rotulo: searchPersistent key="..." resultVariableName="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>52</code></p>
@@ -268,7 +268,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-removePersistent">removePersistent</h3>
 <p>Remove um valor persistente do banco de dados.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Remover dado persistente</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"key":"","nextElementId":""}
 Como se escreve: meu_rotulo: removePersistent key="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>53</code></p>

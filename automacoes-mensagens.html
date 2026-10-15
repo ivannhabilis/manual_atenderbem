@@ -154,7 +154,7 @@
 <h3 id="el-message">message</h3>
 <p>Envia uma mensagem para o cliente. Não aguarda resposta e segue para o próximo elemento imediatamente.</p>
 <div class="callout info">Quando utilizado em uma automação, é necessário que um atendimento esteja associado a essa.<br>Caso nenhum atendimento esteja associado a automação, esse elemento será ignorado.<br>Pode acompanhar botões de resposta rápida (campo buttons da MessageConfig). Diferente do elemento options, esses botões NÃO interrompem o fluxo: a mensagem é enviada com os botões e o fluxo segue imediatamente para o próximo elemento, sem aguardar a escolha do cliente. São úteis para enviar respostas rápidas em que não se aguarda retorno, ou cujo retorno virá de forma assíncrona em outro atendimento. Máximo de 3 botões. Os botões só são enviados em filas Webchat, WAGS, WA Cloud API, WA Dialog, WA Dialog Cloud, WA Smarte, FB e IG; nas demais filas apenas o texto é enviado.<br>ENVIO FORA DO ATENDIMENTO DO FLUXO (campos opcionais da MessageConfig; vazios = comportamento acima):<br>- chatId: envia em OUTRO atendimento aberto (por exemplo o aberto por openChat sem associar, ou um item da lista do queueChats). O fluxo não espera resposta dele. Em fila oficial com a janela de 24 horas fechada nada é enviado (WINDOW_CLOSED).<br>- phoneNumber (com countryCode e, opcionalmente, queueId; vazio = fila do fluxo): envia para um NÚMERO sem abrir atendimento. Filas aceitas: WhatsApp não oficial e oficiais; Telegram e demais canais recusam (QUEUE_TYPE_UNSUPPORTED). Se já houver atendimento aberto para o número, actionWhenOpen decide: 0 envia nele, 1 não envia (CHAT_OPEN). Sem atendimento aberto: em fila OFICIAL só envia com a janela de 24 horas do número aberta (senão WINDOW_CLOSED; fora da janela use sendTemplate); em fila NÃO OFICIAL a mensagem entra na fila de disparo (a mesma das mensagens enviadas pela API), que respeita o ritmo de envio e confere se o número tem WhatsApp — ela sai logo depois, não na hora, e isso protege o número contra bloqueio por disparo em massa. Os botões são enviados também sem atendimento.<br>- Fila NÃO OFICIAL que autenticou (conectou ou reconectou) há menos de 5 minutos: nada é enviado nem enfileirado — nem mesmo num atendimento já aberto para o número — e o erro é QUEUE_NOT_READY; trate o erro ou tente de novo mais tarde.<br>- Com chatId ou phoneNumber o elemento roda também em automação sem atendimento associado. Na aba "Testar" nada é enviado (VIRTUAL_CHAT).<br>- resultVariableName (opcional) recebe o ID da mensagem (ou do registro enfileirado), resultVariableName + "_status" recebe SENT ou QUEUED e resultVariableName + "_error" o código da recusa ("" em sucesso). Só recusas locais voltam ao fluxo: uma falha posterior do provedor não volta.<br>VÍNCULO INTERNO COM PRODUTOS (campo opcional productIds): um ID de produto, lista de IDs separados por vírgula ("5,7"), array de números ou variável que resolva para um desses formatos. Os IDs viram o atalho "Ver produto(s)" no painel do atendente, para ele abrir o cadastro do item a partir da conversa. A mensagem enviada ao cliente continua sendo a mensagem de texto comum — não vira mensagem de produto em canal nenhum. Use quando a resposta da automação recomenda produtos que o atendente precisa enxergar (ex.: IDs vindos de um webhook de ERP). IDs inexistentes são descartados com aviso na depuração; se nenhum resolver, a mensagem sai sem vínculo. Vazio/omitido = sem vínculo.<br>Esses campos valem só para o elemento message: info, question e requestLocation não os têm.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Enviar mensagem</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","text":"","fileChooseType":0,"fileId":"","buttons":[]}
 Como se escreve: meu_rotulo: message
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code></code></p>
@@ -168,7 +168,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-info">info</h3>
 <p>Adiciona uma mensagem de informação ao atendimento. A mensagem de informação só poderá ser vista pelo atendente.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Mensagem de informação</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","text":"","fileChooseType":0,"fileId":""}
 Como se escreve: meu_rotulo: info
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>3</code></p>
@@ -182,7 +182,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-question">question</h3>
 <p>Enviar uma mensagem com uma pergunta para o cliente. Interrompe o fluxo de execução da URA até que o cliente envie uma nova mensagem.</p>
 <div class="callout info">Salva o conteúdo da mensagem enviada pelo cliente em uma variável.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Enviar pergunta</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","text":"","fileChooseType":0,"fileId":"","varName":"","validate":0,"validateError":""}
 Como se escreve: meu_rotulo: question varName="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>1</code></p>
@@ -195,7 +195,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-options">options</h3>
 <p>Envia uma mensagem com múltiplas opções para o cliente e segue o fluxo de execução de acordo com a opção escolhida pelo cliente.</p>
 <div class="callout info">Interrompe o fluxo de execução da URA até que o cliente envie uma nova mensagem com uma das opções.<br>Caso nenhum atendimento esteja associado a automação, esse elemento será ignorado.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Enviar múltiplas opções</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","text":"","fileChooseType":0,"fileId":"","type":0,"btnText":"","errorRetryCount":0,"errorRetryMessage":"","options":[]}
 Como se escreve: meu_rotulo: options type=0
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)
@@ -221,7 +221,7 @@ Ramos: cada item de `options` vira um bloco `case`, e a saída padrão do elemen
 </tbody></table></div>
 <h3 id="el-url">url</h3>
 <p>Envia uma mensagem com um botão de ação para o cliente. O botão pode ser uma URL ou um dado para ser copiado. Em fila Telegram vale para o tipo atual (conta + bot) e depende da janela de 24 horas do bot.</p>
-<p class="s10"><strong>Disponível em:</strong> WA Cloud API,Web Chat,Telegram
+<p class="s10"><strong>No editor, escolha:</strong> <em>Enviar URL</em> · <strong>Disponível em:</strong> WA Cloud API,Web Chat,Telegram
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","text":"","fileChooseType":0,"fileId":"","btnText":"","data":""}
 Como se escreve: meu_rotulo: url btnText="..." data="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>9</code></p>
@@ -235,7 +235,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-requestLocation">requestLocation</h3>
 <p>Envia uma mensagem solicitando que o cliente compartilhe sua localização.</p>
-<p class="s10"><strong>Disponível em:</strong> WA Cloud API
+<p class="s10"><strong>No editor, escolha:</strong> <em>Mensagem de solicitação de localização</em> · <strong>Disponível em:</strong> WA Cloud API
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","text":"","fileChooseType":0,"fileId":""}
 Como se escreve: meu_rotulo: requestLocation
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>91</code></p>
@@ -248,7 +248,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-sendMail">sendMail</h3>
 <p>Envia um e-mail para o cliente com base em um modelo pré-cadastrado.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Enviar e-mail</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"mailQueueId":"","modelId":"","mails":"","nextElementId":""}
 Como se escreve: meu_rotulo: sendMail mailQueueId="..." modelId="..." mails="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>32</code></p>
@@ -263,7 +263,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-sendTemplate">sendTemplate</h3>
 <p>Envia um template de mensagem pré aprovada para o cliente.</p>
 <div class="callout info">ENVIO FORA DO ATENDIMENTO DO FLUXO (campos opcionais; vazios = envia no atendimento do fluxo, como sempre):<br>- chatId: envia em OUTRO atendimento aberto, na fila dele (queueId é ignorado); o template precisa ser compatível com essa fila.<br>- phoneNumber (com countryCode e, opcionalmente, queueId; vazio = fila do fluxo): envia para um NÚMERO sem abrir atendimento — é o jeito de mandar um template sem atendimento aberto. Só filas oficiais (QUEUE_TYPE_UNSUPPORTED nas demais). Contato bloqueado para a categoria do template (marketing/utilidade) não recebe (CONTACT_LOCKED). Se já houver atendimento aberto para o número, actionWhenOpen decide: 0 envia nele, 1 não envia (CHAT_OPEN).<br>- Com chatId ou phoneNumber o elemento roda também em automação sem atendimento associado. Na aba "Testar" nada é enviado (VIRTUAL_CHAT).<br>- resultVariableName (opcional) recebe o ID da mensagem enviada e resultVariableName + "_error" o código da recusa ("" em sucesso). Template de outra fila: TEMPLATE_QUEUE_MISMATCH.</div>
-<p class="s10"><strong>Disponível em:</strong> WA Cloud API
+<p class="s10"><strong>No editor, escolha:</strong> <em>Enviar template</em> · <strong>Disponível em:</strong> WA Cloud API
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"templateId":0,"templateData":[],"nextElementId":""}
 Como se escreve: meu_rotulo: sendTemplate templateId=0
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>66</code></p>
@@ -276,7 +276,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-sendFlow">sendFlow</h3>
 <p>Envia uma mensagem com um Whatsapp Flow pré-aprovado para o cliente.</p>
-<p class="s10"><strong>Disponível em:</strong> WA Cloud API
+<p class="s10"><strong>No editor, escolha:</strong> <em>Enviar flow</em> · <strong>Disponível em:</strong> WA Cloud API
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"flowId":"","initialScreenId":"","headerText":"","footerText":"","bodyText":"","btnText":"","flowData":{},"value":[],"nextElementId":""}
 Como se escreve: meu_rotulo: sendFlow flowId="..." initialScreenId="..." bodyText="..." btnText="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>75</code></p>
@@ -295,7 +295,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-clearFlowDataFromMessage">clearFlowDataFromMessage</h3>
 <p>Limpa os dados da resposta de um Whatsapp Flow da mensagem mais recente recebida, excluindo inclusive do banco de dados.</p>
 <div class="callout info">Por padrão, os dados de resposta de um Whatsapp Flow são mantidos na mensagem e salvos no banco de dados, para que possam ser utilizados em elementos subsequentes.<br>Porém podem existir situações onde não se deseja que esses dados permaneçam salvos no banco de dados, como o caso de possuir dados sensíveis ou senhas.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Limpar dados do flow da mensagem</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
 Como se escreve: meu_rotulo: clearFlowDataFromMessage
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>76</code></p>
@@ -306,7 +306,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-changeMessageVisualGroup">changeMessageVisualGroup</h3>
 <p>Altera o grupo de visualização (fk_visualgroup) de uma mensagem do chat atual, restringindo quem pode vê-la. Somente mensagens do próprio atendimento associado ao fluxo podem ser alteradas — se a mensagem não for encontrada no chat atual, o elemento é ignorado e o fluxo segue normalmente. Tipicamente usado para ocultar uma mensagem (por exemplo, uma resposta de pesquisa) de agentes comuns antes de o atendimento ser atribuído; administradores e supervisores continuam vendo. A alteração é aplicada em memória e no banco de dados. Não gera variáveis.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Alterar grupo de visualização da mensagem</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"messageId":"{{message_id}}","visualGroupId":"","nextElementId":""}
 Como se escreve: meu_rotulo: changeMessageVisualGroup messageId="{{message_id}}"
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>129</code></p>
@@ -320,7 +320,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-cancelMessage">cancelMessage</h3>
 <p>Interrompe o envio de uma mensagem que será enviada.</p>
 <div class="callout info">Só possui efeitos em automações que são executadas antes da mensagem ser enviada, como por exemplo, automações executadas por gatilhos de mensagens enviadas.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Cancelar mensagem</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
 Como se escreve: meu_rotulo: cancelMessage
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>23</code></p>
@@ -332,7 +332,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-replyComment">replyComment</h3>
 <p>Responde a um comentário recebido em uma publicação do instagram.</p>
 <div class="callout info">Pode-se identificar se uma mensagem recebida é na verdade um comentário utilizando a variável {{message_is_comment}}.<br>Comentários só podem ser respondidos por esse elemento. O elemento de enviar mensagem na realidade irá enviar um direct para a conta do cliente ao invés de responder o comentário na publicação.</div>
-<p class="s10"><strong>Disponível em:</strong> IG
+<p class="s10"><strong>No editor, escolha:</strong> <em>Responder comentário</em> · <strong>Disponível em:</strong> IG
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"text":"","nextElementId":""}
 Como se escreve: meu_rotulo: replyComment text="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>54</code></p>
@@ -344,7 +344,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-shareContact">shareContact</h3>
 <p>Compartilha um contato com o cliente, enviando seus dados na forma de uma mensagem.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Compartilhar contato</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"contactId":"","nextElementId":""}
 Como se escreve: meu_rotulo: shareContact contactId="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>48</code></p>

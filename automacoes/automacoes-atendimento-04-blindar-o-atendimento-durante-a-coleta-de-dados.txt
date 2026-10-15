@@ -1,8 +1,0 @@
-aviso: message text="Vou proteger este atendimento enquanto coletamos seus dados. Pode ficar tranquilo."
-trava_fim: blockChatManualEnd
-trava_transf: blockChatManualTransfer
-avisa_agente: showSnackNotification message="Coleta de dados em andamento: encerramento e transferencia manual bloqueados." buttonText="Entendi" style="warning" duration=8000
-pede_documento: question varName="documento_cliente" text="Informe seu CPF, somente numeros, para consultarmos seu cadastro." validate=1 validateError="CPF invalido. Digite apenas os numeros do CPF."
-libera_fim: unblockChatManualEnd
-libera_transf: unblockChatManualTransfer
-fim: terminate reason="Coleta concluida" obs="Bloqueios de encerramento e transferencia removidos apos a coleta."

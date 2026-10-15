@@ -1,8 +1,0 @@
-boas_vindas: message text="Ola {{chat_client_name}}! Vou registrar seu atendimento."
-pergunta: question varName="descricao_problema" text="Descreva rapidamente o que esta acontecendo"
-abre_ticket: addTicket ticket.subject.content="Solicitacao de {{chat_client_name}}" ticket.description.content="{{descricao_problema}}" ticket.associateToCurrentContact.content=true ticket.associateToCurrentChat.content=true reasonId="{{reason_id}}" resultVariableName="ticket_novo"
-vincula: linkContactTicket ticketId="{{ticket_novo.ticket_id}}" associateToCurrentContact=true
-etiqueta: addTagTicket ticketId="{{ticket_novo.ticket_id}}" tagId="12"
-distribui: assignTicket ticketId="{{ticket_novo.ticket_id}}" assignType=0
-confirma: message text="Pronto! Seu ticket {{ticket_novo.ticket_number}} foi aberto e ja esta na fila de atendimento."
-fim: terminate

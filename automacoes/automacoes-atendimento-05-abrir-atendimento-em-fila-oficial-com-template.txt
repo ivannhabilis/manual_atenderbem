@@ -1,4 +1,0 @@
-aviso: message text="Vou abrir seu atendimento pelo WhatsApp oficial com a mensagem de autorizacao."
-abre_cloud: openChatCloud countryCode="BR" phoneNumber="{{chat_client_number}}" templateId=7 templateData=["{{chat_client_name}}"]
-confirma: message text="Atendimento {{chat_id}} iniciado na fila oficial. Ja vamos continuar por aqui."
-fim: terminate reason="Atendimento Cloud aberto" obs="Template enviado e atendimento aberto na fila oficial."

@@ -1,6 +1,0 @@
-abre_pesquisa: message text="Antes de encerrar, quero saber como foi este atendimento."
-pede_nota: question varName="nota_atendimento" text="De 0 a 10, que nota você dá para o atendimento de hoje? Responda apenas com o número."
-protege_nota: changeMessageVisualGroup messageId="{{message_id}}" visualGroupId="1"
-nota_interna: info text="Nota informada pelo cliente: {{nota_atendimento}}. A mensagem com a resposta foi movida para o grupo de visualização 1: supervisores e administradores continuam vendo, atendentes comuns não."
-agradece_nota: message text="Obrigado pela avaliação, {{chat_client_name}}! Sua nota {{nota_atendimento}} foi registrada e vai nos ajudar a melhorar."
-fim_pesquisa: terminate reason="Pesquisa de satisfação respondida"

@@ -158,7 +158,7 @@
 <h3 id="el-varCondition">varCondition</h3>
 <p>Controla o fluxo de acordo com o valor de uma variável ou com expressões lógicas. Cada item de options é um ramo; os ramos são testados NA ORDEM e o primeiro que casar define o caminho. Se nenhum casar, o fluxo segue por nextElementId (saída padrão).</p>
 <div class="callout info">Há dois tipos de ramo, que podem ser misturados no mesmo elemento:<br>1) Ramo de OPERADOR (=, !=, &gt;, &gt;=, &lt;, &lt;=, in, not null): compara o resultado de value com conditionValue (ou com a lista conditionArray, no "="). Só é testado quando value resolve para algo não vazio — com value vazio, nenhum ramo de operador casa. "in" verifica se o texto de value CONTÉM o texto de conditionValue (trecho de texto, não pertinência a lista). &gt;, &gt;=, &lt;, &lt;= convertem conditionValue para número: vírgula decimal ("10,5") não é número e o ramo não casa.<br>2) Ramo de EXPRESSÃO (conditionOperator "expression"): conditionValue guarda uma expressão lógica completa, escrita SEM chaves e com as variáveis citadas pelo nome, ex.: pedido_valor &gt; 100 &amp;&amp; cidade == "SP". É avaliada SEMPRE, sem depender de value — que pode ficar vazio ("") quando todos os ramos forem de expressão. Aceita a mesma sintaxe das expressões {{...}}: &amp;&amp; || !, == != &gt; &gt;= &lt; &lt;=, + - * / %, ternário, parênteses, prefixo global. e filtros (ex.: (chat_client_name | toLowerCase) == "maria"). Use conditionArray: [].<br>O ramo de expressão casa quando o resultado é VERDADEIRO no sentido do JavaScript: false, 0, "" (texto vazio), null e variável inexistente são falsos; qualquer texto não vazio é verdadeiro — inclusive "0" e "false".<br>ARMADILHAS da expressão: variáveis costumam chegar como TEXTO — para comparar ou somar números com segurança converta com x * 1 ou +x (ex.: pedido_valor * 1 &gt; 100); não existe Number(), parseInt() nem chamada de método (x.toString()): valem sempre vazio. Vírgula decimal ("10,5") não é número. Variável inexistente não é igual a "" (x == "" dá falso); para "vazia ou inexistente" use !x. Não use atribuição (= isolado; para comparar use ==), ponto e vírgula, nem {{ }} dentro da expressão.<br>Expressão inválida (sintaxe, atribuição, filtro inexistente) é recusada na validação dos elementos. Se a avaliação falhar durante a execução, o ramo vale como falso, o fluxo segue para o ramo seguinte e o passo fica marcado como erro na depuração.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Condição de variável</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","value":"","options":[]}
 Como se escreve: meu_rotulo: varCondition
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)
@@ -178,7 +178,7 @@ Ramos: cada item de `options` vira um bloco `case`, e a saída padrão do elemen
 <h3 id="el-loop">loop</h3>
 <p>Laço de repetição declarado — o jeito certo de repetir um trecho do fluxo (em vez de ligar a saída de um elemento de volta a um elemento anterior). Tem DUAS saídas: bodyNextElementId (porta "body": o primeiro elemento do CORPO, o trecho que se repete) e nextElementId (saída "concluído", seguida quando o laço termina).</p>
 <div class="callout info">COMO MONTAR: ligue bodyNextElementId ao primeiro elemento do corpo e ligue a saída do ÚLTIMO elemento do corpo de volta a ESTE laço — é essa volta que inicia a próxima repetição. Um caminho do corpo que não volte ao laço sai dele. Pelo MCP: automations_connect_element com edge "body" (corpo) e edge "default" (saída "concluído").<br>MODOS: forEach — uma volta por item de list, uma expressão entre chaves que resulta numa lista, ex.: "{{chat_opportunities_list}}" (o texto JSON de uma lista também é aceito). repeat — count voltas: um número inteiro &gt;= 0 ou uma expressão entre chaves, ex.: "3" ou "{{quantidade}}".<br>A cada volta, a variável itemVar (padrão loop_item) recebe o item atual (forEach) ou o número da volta começando em 1 (repeat), e indexVar (padrão loop_index) recebe a posição começando em 0. Use-as no corpo, ex.: {{loop_item.opportunity_title}}. Em laços dentro de laços, use nomes diferentes em cada um. Lista vazia ou contagem 0: nenhuma volta, segue direto pela saída "concluído".<br>TETO POR LAÇO: maxIterations (padrão 100, máximo 1000). Lista ou contagem acima do teto: o laço NÃO executa nenhuma volta (não processa só uma parte) e segue pela saída "concluído" com erro. Para percorrer a lista do elemento queueChats, use maxIterations &gt;= o limit dele.<br>TETO POR TURNO: vale para toda execução, dentro ou fora de laço — por padrão, numa automação, 1.000 elementos, 100 mensagens enviadas, 100 requisições e 10 minutos de execução ativa entre duas esperas pelo cliente (numa URA, 5.000 / 500 / 500 / 24 horas). Estourado, a execução é interrompida (erro na depuração) e a automação é marcada como possível laço.<br>ERRO: a variável &lt;itemVar&gt;_error (ex.: loop_item_error) fica vazia quando o laço começa normalmente e recebe o motivo quando ele não pôde começar — lista inválida, contagem inválida, acima do teto ou corpo não conectado; nesse caso nenhuma volta roda e o fluxo segue pela saída "concluído".<br>Os elementos do trecho repetido (os que voltam ao laço) não sofrem a espera progressiva por repetição enquanto o laço está ativo; um caminho que sai do meio do corpo volta a sofrê-la. Elementos de interação (pergunta, opções) funcionam no corpo de uma URA: a volta continua depois da resposta do cliente.<br>execAutomation NO CORPO: cada volta é uma nova partida da sub-automação e conta no limite de 50 partidas da mesma automação por atendimento a cada 2 minutos — a partir da 51ª ela não é executada e é marcada como possível laço; cada partida também grava uma mensagem de sistema no atendimento. Para muitos itens, faça o trabalho no próprio corpo.<br>Não use o campo options neste elemento.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Laço de repetição</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"mode":"forEach","count":"","list":"","itemVar":"loop_item","indexVar":"loop_index","maxIterations":100,"bodyNextElementId":"","nextElementId":""}
 Como se escreve: meu_rotulo: loop
 Saídas (NÃO se escrevem como campo): bodyNextElementId → o bloco `{ body { ...corpo... } }`; nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>144</code></p>
@@ -195,7 +195,7 @@ Saídas (NÃO se escrevem como campo): bodyNextElementId → o bloco `{ body { .
 </tbody></table></div>
 <h3 id="el-timetable">timetable</h3>
 <p>Controla o fluxo de acordo com a data / horário. Permite que o fluxo de execução siga por caminhos diferentes dependendo do dia e horário.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Tabela de horários</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","options":[]}
 Como se escreve: meu_rotulo: timetable
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)
@@ -219,7 +219,7 @@ Ramos: cada item de `options` vira um bloco `case`, e a saída padrão do elemen
 <h3 id="el-businesshoursCheck">businesshoursCheck</h3>
 <p>Verifica se o momento atual está dentro do horário de funcionamento de uma configuração de horários cadastrada no sistema (considerando horário semanal, feriados e datas especiais).</p>
 <div class="callout info">É um elemento de ramificação com dois caminhos: se estiver dentro do horário (aberto), o fluxo segue para nextElementId; se estiver fora do horário (fechado), o fluxo segue para closedNextElementId.<br>As seguintes variáveis são criadas automaticamente:<br>bh_is_open: true se está dentro do horário de funcionamento, false caso contrário.<br>bh_reason: motivo do resultado. Valores possíveis: "weekly" (horário semanal), "special_date" (data especial), "holiday" (feriado), "holiday_no_config" (feriado sem configuração específica), "day_closed" (dia fechado), "config_inactive" (configuração inativa) e "config_not_found" (configuração não encontrada).<br>bh_reason_label: descrição amigável do motivo.<br>bh_message: mensagem configurada para o período, se houver.<br>bh_description: descrição do período, exemplo: nome do feriado ou da data especial.<br>bh_close_time: horário de fechamento do período atual no formato "HH:MM", quando aberto.<br>bh_minutes_to_close: minutos restantes até o fechamento, quando aberto. Se o funcionamento for 24h sem interrupção prevista, o valor é -1.<br>bh_minutes_to_open: minutos até a próxima abertura, quando fechado.<br>bh_opens_within_24h: 1 se a próxima abertura ocorre em até 24 horas, 0 caso contrário.<br>bh_next_open_date: data/hora da próxima abertura.<br>bh_message_formatted: mensagem configurada com as variáveis de horário já substituídas.<br>Se o configId for inválido ou a configuração não for encontrada, bh_is_open recebe false, bh_reason recebe "config_not_found" e o fluxo segue para closedNextElementId.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Verificar horário de atendimento</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"configId":"","nextElementId":"","closedNextElementId":""}
 Como se escreve: meu_rotulo: businesshoursCheck configId="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo); closedNextElementId → o bloco `{ closed -&gt; destino }` · tipo interno <code>110</code></p>
@@ -232,7 +232,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-sleep">sleep</h3>
 <p>Pausa a execução do fluxo por um determinado período de tempo.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Pausar (Esperar)</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"time":2,"nextElementId":""}
 Como se escreve: meu_rotulo: sleep time=2
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>17</code></p>
@@ -244,7 +244,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-waitMessage">waitMessage</h3>
 <p>Interrompe o fluxo de execução da automação até que o cliente envie uma nova mensagem.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Aguardar mensagem</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
 Como se escreve: meu_rotulo: waitMessage
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>26</code></p>
@@ -256,7 +256,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-terminate">terminate</h3>
 <p>Encerra o atendimento associado, quando este existir. O elemento terminate não possui um próximo elemento, pois ele encerra o fluxo de execução — exceto com chatId de OUTRO atendimento (ver abaixo).</p>
 <div class="callout info">OUTRO ATENDIMENTO (chatId, opcional): com o ID de outro atendimento aberto (por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats), o elemento encerra ESSE atendimento e o fluxo NÃO termina: segue por nextElementId, a saída que o elemento ganha só nesse modo (sem ela, o fluxo termina ali). Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Com chatId vazio, ou com o ID do próprio atendimento do fluxo, vale o comportamento acima e nextElementId é ignorado.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Encerrar atendimento</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"reason":"","obs":"","dontSendEndMsg":false,"reopen":false,"reopenDays":0,"reopenHour":0,"reopenMinute":0,"reopenAutomationId":0,"hidden":false}
 Como se escreve: meu_rotulo: terminate
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>4</code></p>
@@ -273,7 +273,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-transfer">transfer</h3>
 <p>Transfere o atendimento associado, quando este existir. O elemento transfer não possui um próximo elemento, pois ele encerra o fluxo de execução — exceto com chatId de OUTRO atendimento (ver abaixo).</p>
 <div class="callout info">A transferência acontece sempre dentro da fila do atendimento: para colocar um cliente em outra fila, abra um atendimento lá com openChat/openChatCloud (queueId).<br>OUTRO ATENDIMENTO (chatId, opcional): com o ID de outro atendimento aberto (por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats), o elemento transfere ESSE atendimento — destinationType 0 redistribui na fila dele com o filtro calculado pelas variáveis do fluxo, 1 entrega ao atendente (mesmas regras de disponibilidade), 2 inicia nele a URA indicada ou executa sobre ele a automação indicada — e o fluxo NÃO termina: segue por nextElementId, a saída que o elemento ganha só nesse modo (sem ela, o fluxo termina ali). As variáveis do fluxo NÃO são copiadas para o atendimento transferido. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Com chatId vazio, ou com o ID do próprio atendimento do fluxo, vale o comportamento acima e nextElementId é ignorado.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Transferir atendimento</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"destinationType":0,"destinationId":"","filter":[]}
 Como se escreve: meu_rotulo: transfer destinationType=0
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>5</code></p>
@@ -286,7 +286,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-marker">marker</h3>
 <p>Adiciona uma etiqueta de atendimento ao atendimento. As etiquetas são utilizadas para classificar e priorizar os atendimentos, além de fornecer identificação visual do estado do atendimento para os atendentes e supervisores.</p>
 <div class="callout info">Cada atendimento só pode possuir uma etiqueta de atendimento associada. Caso o atendimento já possua uma etiqueta, essa será substituída pela nova.<br>OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Adicionar etiqueta</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","markerId":""}
 Como se escreve: meu_rotulo: marker
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>7</code></p>
@@ -298,7 +298,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-protocol">protocol</h3>
 <p>Associa um protocolo ao atendimento. O protocolo pode ser gerado automaticamente ou pré-definido.</p>
 <div class="callout info">OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Gerar protocolo</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"type":0,"protocol":"","nextElementId":""}
 Como se escreve: meu_rotulo: protocol type=0
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>13</code></p>
@@ -310,7 +310,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-jscode">jscode</h3>
 <p>Executa um código JavaScript no servidor. O código pode ser utilizado para realizar operações complexas que não são possíveis com os elementos padrão.</p>
 <div class="callout info">O código é executado em um sandbox, sem acesso a recursos externos, como bancos de dados ou sistemas de arquivos.<br>Todas as variáveis disponíveis no contexto do atendimento estão disponíveis para serem utilizadas no código através do objeto global vars.<br>Para acessar a variável var1, por exemplo, basta utilizar vars.var1.<br>O código pode criar variáveis novas e alterar as variáveis criadas pelo fluxo editando o objeto vars; o que ficar em vars é aplicado quando o código termina.<br>As variáveis de SISTEMA (as fornecidas pelo sistema, ex.: chat_agent_id, chat_queue_id, general_now_date, message_text) são SOMENTE LEITURA: alterá-las no código não tem efeito e gera um alerta na depuração. Exceção — os dados do cliente do atendimento: chat_client_name (ou clientName), chat_client_number (clientNumber), chat_client_email (clientEmail), chat_client_profile_name (clientProfileName), chat_client_data (clientData) e clientDocument, quando o código muda o valor, são gravados no próprio atendimento.<br>Não é permitido requerer módulos externos ou utilizar funções que possam causar efeitos colaterais, como console.log.<br>Não é permitido realizar requisições HTTP ou acessar recursos externos.<br>O pacote momentjs para manipulação de datas está disponível como um objeto global moment. Exemplo: moment().format('YYYY-MM-DD').<br>Não é necessário encapsular o código em uma função, ele será executado diretamente. Qualquer valor retornado pelo código será ignorado. Não é possível modificar a configuração de elementos do fluxo diretamente pelo código javascript, só é possível manipular variáveis.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Código JavaScript</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"code":"// Escreva seu código aqui\n","nextElementId":""}
 Como se escreve: meu_rotulo: jscode code="// Escreva seu código aqui\n"
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>21</code></p>
@@ -323,7 +323,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-newVar">newVar</h3>
 <p>Cria uma variável com o valor informado, ou altera o valor de uma variável criada pelo fluxo. Com o prefixo "global." no nome, grava uma variável global da fila (compartilhada por todos os fluxos da mesma fila).</p>
 <div class="callout info">As variáveis de SISTEMA (as fornecidas pelo sistema, ex.: chat_agent_id, chat_queue_id, general_now_date, message_text) são SOMENTE LEITURA: gravar num nome de sistema não tem efeito e gera um alerta na depuração. Exceção — os dados do cliente do atendimento: chat_client_name (ou clientName), chat_client_number (clientNumber), chat_client_email (clientEmail), chat_client_profile_name (clientProfileName), chat_client_data (clientData) e clientDocument são gravados no próprio atendimento.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Nova variável</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"variableName":"","value":"","nextElementId":""}
 Como se escreve: meu_rotulo: newVar variableName="..." value="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>20</code></p>
@@ -337,7 +337,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-execAutomation">execAutomation</h3>
 <p>Executa uma automação específica como parte do fluxo. O fluxo de execução será transferido para a automação selecionada.</p>
 <div class="callout info">Ao final da execução da automação, o fluxo de execução retornará para o próximo elemento no fluxograma de origem.<br>Cada execução conta no limite de 50 partidas da mesma automação por atendimento a cada 2 minutos: a partir da 51ª ela não é executada e é marcada como possível laço. Por isso, dentro do corpo de um elemento de laço (loop), cada volta é uma partida.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Executar automação</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"automationId":"","nextElementId":""}
 Como se escreve: meu_rotulo: execAutomation automationId="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>27</code></p>
@@ -350,7 +350,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-setTriggers">setTriggers</h3>
 <p>Aplica um conjunto de gatilhos ao atendimento corrente. Se não houver atendimento associado, esse elemento será ignorado.</p>
 <div class="callout info">OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Definir gatilhos</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"triggerSetId":0,"nextElementId":""}
 Como se escreve: meu_rotulo: setTriggers triggerSetId=0
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>18</code></p>
@@ -362,7 +362,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-removeTrigger">removeTrigger</h3>
 <p>Remove o gatilho que provocou a execução da automação.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Remover gatilho</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
 Como se escreve: meu_rotulo: removeTrigger
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>24</code></p>
@@ -374,7 +374,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-removeAllTriggers">removeAllTriggers</h3>
 <p>Remove todos os gatilhos associados ao atendimento corrente. Se não houver atendimento corrente, esse elemento é ignorado.</p>
 <div class="callout info">OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Remover todos os gatilhos</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
 Como se escreve: meu_rotulo: removeAllTriggers
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>49</code></p>
@@ -385,7 +385,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-scheduleAutomation">scheduleAutomation</h3>
 <p>Agenda a execução de uma automação sobre o atendimento atualmente associado ao fluxo, após o número de segundos informado. O id do agendamento gerado é salvo na variável indicada (pode ser usado posteriormente pelo elemento de cancelamento de agendamento). Caso o fluxo não tenha atendimento associado, o elemento é ignorado e o fluxo segue para o próximo elemento. O agendamento é persistido no banco e executa mesmo após reinício da instância; se o atendimento já estiver encerrado no momento do disparo, a automação não é executada.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Agendar execução de automação</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"automationId":"","delaySeconds":"","resultVariableName":"","nextElementId":""}
 Como se escreve: meu_rotulo: scheduleAutomation automationId="..." delaySeconds="..." resultVariableName="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>130</code></p>
@@ -398,7 +398,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-cancelSchedule">cancelSchedule</h3>
 <p>Cancela um agendamento de execução de automação previamente criado (pelo elemento "Agendar execução de automação"), a partir do id do agendamento. Só tem efeito se o agendamento ainda estiver pendente (ainda não executado nem cancelado).</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Cancelar agendamento</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"scheduleId":"","nextElementId":""}
 Como se escreve: meu_rotulo: cancelSchedule scheduleId="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>131</code></p>

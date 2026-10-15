@@ -143,7 +143,7 @@
 </tbody></table></div>
 <h3 id="el-callPlayAudio">callPlayAudio</h3>
 <p>Toca um áudio na chamada, que pode ou não ser interrompido se o cliente digitar algo, conforme a configuração.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Tocar áudio na chamada</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","fileChooseType":0,"fileId":"","stopOnUserInput":false}
 Como se escreve: meu_rotulo: callPlayAudio
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>86</code></p>
@@ -156,7 +156,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-callWaitClientReply">callWaitClientReply</h3>
 <p>Interrompe o fluxo de automação aguardando uma entrada do usuário pelo teclado numérico.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Aguardar que o cliente digite algo</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","timeout":5}
 Como se escreve: meu_rotulo: callWaitClientReply
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>87</code></p>
@@ -168,13 +168,13 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-sentDTMF">sentDTMF</h3><p>Envia dígitos DTMF para a chamada — o equivalente a "teclar" no destino, usado para navegar em URAs externas ou autenticar em um provedor. O elemento é aceito pelo compilador de fluxos, mas <strong>não aparece na lista de elementos do catálogo da API</strong> desta versão: na prática ele pertence ao repertório da URA telefônica. Escreva-o sem campos, como os outros elementos sem campo obrigatório, ou complete a configuração pela interface.</p><p class="s10"><strong>Como se escreve:</strong> <code>meu_rotulo: sentDTMF</code></p><div class="callout warn">Ao usar, valide o fluxo antes de salvar: a compilação confirma que o elemento é aceito nesta instância.</div>
 <h3 id="el-callTransfer">callTransfer</h3>
 <p>Transfere a chamada para o destino numérico especificado.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Transfere a chamada</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"destinationNumber":""}
 Como se escreve: meu_rotulo: callTransfer · tipo interno <code>89</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: callTransfer</code></p>
 <h3 id="el-callTerminate">callTerminate</h3>
 <p>Encerra a chamada com um hangup.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Encerra a chamada</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"reason":""}
 Como se escreve: meu_rotulo: callTerminate · tipo interno <code>90</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: callTerminate</code></p>

@@ -805,6 +805,10 @@ window.MANUAL_INDEX = [
    {
     "h": "5. Como testar antes de publicar",
     "a": "5-como-testar-antes-de-publicar"
+   },
+   {
+    "h": "6. Do texto ao arquivo .ivr",
+    "a": "6-do-texto-ao-arquivo-ivr"
    }
   ]
  },

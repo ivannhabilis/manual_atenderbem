@@ -1,3 +1,0 @@
-localiza: searchChat searchField="protocol" searchValue="{{chat_protocol}}"
-aviso: message text="Encontrei seu atendimento de protocolo {{chat_protocol}}. Vou continuar do ponto onde paramos."
-volta_fila: transfer destinationType=0 -> end

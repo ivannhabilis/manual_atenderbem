@@ -152,7 +152,7 @@
 <h3 id="el-aiAssistant">aiAssistant</h3>
 <p>Entrega o controle do atendimento para o assistente de IA.</p>
 <div class="callout info">O assistente de IA é um sistema de inteligência artificial, que pode realizar diversas operações, como responder perguntas, realizar buscas, executar automações no sistema, entre outros.<br>O fluxo permanecerá pausado até que o assistente de IA finalize o atendimento ou solicite a transferência.<br>O assistente de IA pode ser configurado para transferir o atendimento para um agente humano em caso de dúvidas ou solicitação do cliente.<br>Caso o assistente de IA transfira o atendimento para um agente humano, o fluxo será retomado. A variável assistant_transfer_reason conterá o motivo da transferência.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Assistente de IA</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"assistantId":"","nextElementId":"","transferNextElementId":""}
 Como se escreve: meu_rotulo: aiAssistant assistantId="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo); transferNextElementId → o bloco `{ transfer -&gt; destino }` · tipo interno <code>77</code></p>
@@ -164,7 +164,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-aiAssistantSingleRequest">aiAssistantSingleRequest</h3>
 <p>Envia uma solicitação única direta a um assistente virtual por IA e aguarda a resposta. Diferente do aiAssistant, esse elemento não guarda contexto e não mantém uma conversa. É útil para operações pontuais onde se deseja obter uma resposta do assistente para uma mensagem específica ou para interações entre diferentes assistentes.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Solicitação única ao assistente</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"assistantId":"","message":"","resultVariableName":"","nextElementId":""}
 Como se escreve: meu_rotulo: aiAssistantSingleRequest assistantId="..." message="..." resultVariableName="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>92</code></p>
@@ -178,7 +178,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-aiAddContextToAssistant">aiAddContextToAssistant</h3>
 <p>Esse elemento adiciona informação ao contexto do assistente de IA.</p>
 <div class="callout info">Pode ser utilizado para informar ao assistente de IA informações importantes sobre o atendimento, como por exemplo, o ID de uma oportunidade, o ID de um cliente, ou qualquer outra informação relevante.<br>Também pode ser utilizado para informar ao assistente sobre o retorno de uma operação realizada no fluxo, como por exemplo, o resultado de uma busca, o resultado de uma operação de banco de dados, requisições HTTP ou qualquer outro resultado relevante.<br>Será tipicamente utilizado para retornar para o assistente o resultado de uma operação quando este solicitar a execução de uma automação, sendo usado no final dessa automação para retornar o resultado ao contexto do assistente.<br>Exemplo: O assistente executa uma automação que realiza uma requisição HTTP a um serviço interno que informa se o cliente possui débito em aberto, o resultado dessa requisição é informado ao assistente para que ele possa tomar decisões baseadas nesse resultado.<br>Esse elemento só terá efeito se for usado em uma automação sendo executada por um assistente. Caso seja utilizado em um fluxo normal, será ignorado.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Adicionar contexto ao assistente de IA</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"context":"","nextElementId":""}
 Como se escreve: meu_rotulo: aiAddContextToAssistant context="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>78</code></p>
@@ -190,7 +190,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-aiProvokeAssistant">aiProvokeAssistant</h3>
 <p>Esse elemento adiciona um contexto ao assistente de IA associado ao atendimento e dispara o processamento do assistente, fazendo-o reagir ativamente, do mesmo modo que reagiria a uma nova mensagem do cliente.</p>
 <div class="callout info">Diferente do elemento aiAddContextToAssistant, que apenas alimenta o contexto e é tipicamente utilizado dentro de automações chamadas pelo próprio assistente, o aiProvokeAssistant é projetado para ser usado em automações externas (capturas de webhook, gatilhos de evento, automações agendadas) que precisam fazer o assistente enviar ativamente uma mensagem ao cliente em resposta a um evento ocorrido fora da conversa.<br>Exemplos de uso:<br>- O assistente envia um link de pagamento, o cliente paga e um webhook executa essa automação que informa ao assistente "Pagamento confirmado" e o provoca a enviar a próxima mensagem;<br>- Um sistema externo confirma um agendamento e a automação informa ao assistente para dar sequência ao atendimento;<br>- Uma alteração de status de oportunidade dispara a automação que informa o assistente sobre a mudança.<br>Esse elemento só funciona quando a automação está associada a um atendimento e esse atendimento possui um assistente de IA ativo (vinculado por uma URA com o elemento aiAssistant). Caso contrário, é ignorado. A execução do assistente é assíncrona: a automação prossegue imediatamente após disparar a provocação.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Provocar assistente de IA</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"context":"","nextElementId":""}
 Como se escreve: meu_rotulo: aiProvokeAssistant context="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>125</code></p>
@@ -202,7 +202,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-aiProcessFile">aiProcessFile</h3>
 <p>Processa um arquivo ou uma informação de texto utilizando uma Inteligência Artificial (LLM, como gpt4o ou similar).</p>
 <div class="callout info">Pode-se ou não anexar um arquivo como parte do processamento.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Processar arquivo por IA</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"model":0,"fileId":"","instruction":"","includeAllMessages":false,"resultVariableName":"","disableSecurity":false,"outputAsJson":false,"nextElementId":""}
 Como se escreve: meu_rotulo: aiProcessFile model=0 instruction="..." resultVariableName="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>79</code></p>
@@ -221,7 +221,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-aiStopAssistant">aiStopAssistant</h3>
 <p>Interrompe a execução do assistente de IA, mesmo que esse não tenha concluído o atendimento nem solicitado o encerramento ou transferência.</p>
 <div class="callout info">Esse elemento só pode ser utilizado em automações executadas por assistentes de IA.<br>Caso esse elemento seja utilizado, o fluxo original que atribuiu o atendimento ao assistente continuará a execução normalmente, saindo como se o atendimento tivesse sido transferido pelo assitente. Neste caso, a variável assistant_transfer_reason conterá "execution_stopped".</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Parar assistente de IA</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
 Como se escreve: meu_rotulo: aiStopAssistant
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>80</code></p>
@@ -233,7 +233,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-aiStopMessage">aiStopMessage</h3>
 <p>Interrompe o envio de uma mensagem gerada pelo assistente de IA.</p>
 <div class="callout info">Esse elemento só tem efeito em automações sendo executadas pela etapa de pós processamento de uma mensagem gerada por um assistente de IA.<br>Ela é útil caso por algum motivo não se deseja permitir o envio da mensagem original gerada por assistente.<br>Um exemplo de uso é caso se vá converter as respostas do assistente, geradas como texto, em áudio, enviando o áudio e impedindo o envio da mensagem original em texto.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Parar mensagem do assistente de IA</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
 Como se escreve: meu_rotulo: aiStopMessage
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>81</code></p>
@@ -244,7 +244,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-aiDefineAssistantResult">aiDefineAssistantResult</h3>
 <p>Define o resultado de um atendimento por assistente virtual por IA (sucesso ou falha), para fins de estatística. Sem assistantId, aplica ao assistente que está no controle do atendimento naquele instante — o que só acontece dentro de uma automação do próprio assistente. Com assistantId, aplica ao vínculo entre aquele assistente e este atendimento mesmo que o assistente já tenha saído, o que permite usar o elemento na URA (inclusive telefônica) depois da saída do assistente para decidir sucesso/falha por lógica do fluxo, em vez das saídas fixas configuradas no assistente. Exige que o assistente indicado tenha realmente atendido este chat/chamada; somente o primeiro resultado aplicado é considerado.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Definir resultado do assistente</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"result":1,"nextElementId":"","assistantId":"","assistantChooseType":0}
 Como se escreve: meu_rotulo: aiDefineAssistantResult result=1
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>94</code></p>
@@ -256,7 +256,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-aiTts">aiTts</h3>
 <p>Converte um texto em um arquivo de áudio utilizando um modelo de Inteligência Artificial (TTS) da OpenAI, do Google ou da OpenRouter.</p>
 <div class="callout info">O provedor é escolhido no campo provider. Vazio ou ausente = OpenAI — é o que todo elemento criado antes da expansão multi-provedor tem, e elementos legados continuam gerando normalmente sem o campo.<br>Cada provedor exige a respectiva chave de IA configurada na instância (OpenAI, Google AI Studio ou OpenRouter) e o recurso de IA Premium habilitado. Na falta da chave do provedor escolhido, o elemento executa sem gerar áudio, registra na depuração e o fluxo segue.<br>Modelos por provedor (a voz informada deve pertencer ao modelo escolhido):<br>- OpenAI: tts-1, tts-1-hd e gpt-4o-mini-tts. Vozes alloy, ash, coral, echo, fable, onyx, nova, sage e shimmer; o gpt-4o-mini-tts acrescenta ballad, verse, marin e cedar, e é o único modelo que aceita o campo instructions (estilo da fala: tom, emoção, entoação).<br>- Google: gemini-3.8-flash-tts e gemini-3.8-flash-lite-tts, com as 30 vozes prebuilt da família Gemini (de Zephyr a Sulafat).<br>- OpenRouter: minimax/speech-2.8-turbo (vozes English_*) e deepgram/aura-2 (vozes aura-2-{nome}-{idioma}; idiomas en, es, de, fr, nl, it e ja). Nenhum dos dois tem voz em português: para texto em pt-BR, prefira OpenAI ou Google.<br>speed (0.25 a 4.0) só tem efeito nos modelos da OpenAI; Google e OpenRouter não possuem controle de velocidade e o valor é ignorado.<br>Formato do arquivo (codec): Opus para envio em filas de WhatsApp e Telegram; MP3 para Instagram (IG), Facebook e WebChat. Os três provedores entregam os três formatos — quando o formato não é nativo do provedor (Google gera WAV e OpenRouter gera MP3), o sistema converte automaticamente.<br>O ID do arquivo gerado vai para a variável de resultVariableName. O fluxo segue sempre para nextElementId, mesmo quando a geração falha — o elemento não interrompe o fluxo.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Gerar áudio com IA</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"text":"","model":"tts-1","voice":"alloy","codec":"opus","speed":1,"resultVariableName":"","nextElementId":""}
 Como se escreve: meu_rotulo: aiTts text="..." model="tts-1" voice="alloy" codec="opus"
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>82</code></p>
@@ -272,7 +272,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-generateDocumentFromTemplate">generateDocumentFromTemplate</h3>
 <p>Gera um documento a partir de um modelo pré cadastrado no sistema. O modelo é um documento com variáveis posicionadas ao longo do conteúdo, que serão substituídas pelas variáveis do fluxo formando o documento final. O ID do arquivo gerado é salvo em uma variável e pode ser utilizado em outras partes do fluxo de execução.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Gerar documento a partir de um modelo</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"resultVariableName":"","templateId":0,"nextElementId":""}
 Como se escreve: meu_rotulo: generateDocumentFromTemplate resultVariableName="..." templateId=0
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>83</code></p>
@@ -285,7 +285,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-pmScreenshot">pmScreenshot</h3>
 <p>Envia um comando para o aplicativo desktop do usuário alvo capturar uma screenshot da tela. Elemento do módulo de monitoramento de produtividade (PM).</p>
 <div class="callout info">A captura é assíncrona: o comando é enviado ao aplicativo desktop do usuário e o fluxo segue imediatamente para o próximo elemento, sem aguardar o resultado da captura. Nenhuma variável é criada por esse elemento.<br>Se o usuário alvo não for encontrado ou não estiver conectado ao sistema, o elemento é ignorado e o fluxo segue normalmente.<br>Projetado para uso em automações disparadas pelo monitoramento de produtividade, que disponibilizam automaticamente as variáveis de contexto pm_user_id, pm_user_name, pm_current_score, pm_current_state, pm_focused_app_name, pm_focused_app_id, pm_idle_count, pm_trigger_reason, pm_trigger_app_id e pm_trigger_titlematch_id. Utilize "{{pm_user_id}}" no campo fk_target_user para capturar o desktop do usuário que disparou a automação.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Captura de tela (PM)</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"fk_target_user":"","nextElementId":""}
 Como se escreve: meu_rotulo: pmScreenshot fk_target_user="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>108</code></p>
@@ -298,7 +298,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-pmVideoCapture">pmVideoCapture</h3>
 <p>Envia um comando para o aplicativo desktop do usuário alvo gravar um vídeo da tela, com a duração configurada. Elemento do módulo de monitoramento de produtividade (PM).</p>
 <div class="callout info">A captura é assíncrona: o comando é enviado ao aplicativo desktop do usuário e o fluxo segue imediatamente para o próximo elemento, sem aguardar o resultado da gravação. Nenhuma variável é criada por esse elemento.<br>Se o usuário alvo não for encontrado ou não estiver conectado ao sistema, o elemento é ignorado e o fluxo segue normalmente.<br>Projetado para uso em automações disparadas pelo monitoramento de produtividade, que disponibilizam automaticamente as variáveis de contexto pm_user_id, pm_user_name, pm_current_score, pm_current_state, pm_focused_app_name, pm_focused_app_id, pm_idle_count, pm_trigger_reason, pm_trigger_app_id e pm_trigger_titlematch_id. Utilize "{{pm_user_id}}" no campo fk_target_user para gravar o desktop do usuário que disparou a automação.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Captura de vídeo (PM)</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"fk_target_user":"","duration":30,"nextElementId":""}
 Como se escreve: meu_rotulo: pmVideoCapture fk_target_user="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>109</code></p>

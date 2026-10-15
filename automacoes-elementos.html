@@ -143,6 +143,7 @@
       <li><a href="#3-a-linguagem-do-fluxo">3. A linguagem do fluxo</a></li>
       <li><a href="#4-indice-dos-elementos">4. Índice dos 144 elementos</a></li>
       <li><a href="#5-como-testar-antes-de-publicar">5. Como testar antes de publicar</a></li>
+      <li><a href="#6-do-texto-ao-arquivo-ivr">6. Do texto ao arquivo .ivr</a></li>
     </ol>
   </nav>
   <!-- /AUTO-TOC -->
@@ -204,6 +205,25 @@
     <li>Só depois grave. Ao gravar, cada versão fica no histórico e pode ser comparada e restaurada.</li>
   </ol>
   <p>Todos os exemplos deste capítulo passaram por essa compilação antes de serem publicados.</p>
+
+  <h2 id="6-do-texto-ao-arquivo-ivr">6. Do texto ao arquivo .ivr</h2>
+  <p>O mesmo fluxo existe em duas formas, e vale entender a diferença para não perder tempo:</p>
+  <div class="table-wrap"><table class="doc"><thead><tr><th>Forma</th><th>Onde aparece</th><th>Para que serve</th></tr></thead><tbody>
+    <tr><td><strong>Linguagem de fluxo</strong> (texto)</td><td>Nos exemplos deste capítulo e nas telas de importação/exportação por API e no histórico de versões.</td><td>Ler, comparar, versionar e criar/atualizar o fluxo por API.</td></tr>
+    <tr><td><strong>Arquivo <code>.ivr</code></strong></td><td>Botão <strong>Exportar</strong> da tela Fluxo de Automação e URA; é o que o botão <strong>Importar</strong> aceita.</td><td>Levar um fluxo pronto de um ambiente para outro, com os elementos já ligados.</td></tr>
+  </tbody></table></div>
+  <p>Por dentro, o <code>.ivr</code> é o <strong>registro do fluxo codificado</strong>: um JSON com os dados do cabeçalho
+  (nome, tipo, timeout) e o campo <code>options</code> com a lista de elementos. Cada elemento tem
+  <code>id</code>, <code>type</code> (o número do tipo), posição na tela (<code>x</code>/<code>y</code>) e
+  <code>config</code> (os campos da ficha). As ligações ficam em <code>config.nextElementId</code>; os ramos de uma
+  condição ficam em <code>config.options</code>, cada um com o seu <code>nextElementId</code>.</p>
+  <div class="callout info">
+    <strong>O número do tipo é o mesmo em todo lugar.</strong> <code>0</code> é Enviar mensagem, <code>4</code> é Encerrar
+    atendimento, <code>5</code> é Transferir atendimento, <code>13</code> é Gerar protocolo e assim por diante — é
+    exatamente o <em>tipo interno</em> mostrado em cada ficha deste capítulo.
+  </div>
+  <p>Todo exemplo deste capítulo tem as duas formas: o texto (para ler e entender) e o arquivo <code>.ivr</code>
+  (para importar e usar).</p>
 
 
   <div class="pagenav">

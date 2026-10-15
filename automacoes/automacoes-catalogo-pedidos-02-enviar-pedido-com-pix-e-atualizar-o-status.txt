@@ -1,6 +1,0 @@
-pede_codigo: question varName="codigo_produto" text="Qual o codigo interno do produto que voce quer pedir?"
-pede_quantidade: question varName="quantidade" text="Quantas unidades voce deseja?"
-envia_pedido: sendOrder orderId="PEDIDO-{{chat_protocol}}" searchType="code" productId="{{codigo_produto}}" quantity="{{quantidade}}" paymentType="pix" pixCode="{{pix_code}}" pixMerchantName="AtenderBem" pixKey="{{pix_key}}" pixKeyType="CNPJ" bodyText="Confira seu pedido e pague com o Pix copia e cola."
-em_processamento: updateOrderStatus orderId="PEDIDO-{{chat_protocol}}" status="processing" bodyText="Recebemos seu pedido e ele ja esta em processamento."
-avisa: message text="Assim que o pagamento for confirmado, enviaremos a confirmacao de envio."
-fim: terminate

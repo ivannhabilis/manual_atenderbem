@@ -1,3 +1,0 @@
-boas_vindas: message text="Ola {{chat_client_name}}! Voce esta na fila {{chat_fila}} e agora vou te ajudar por aqui."
-entrega_ia: aiAssistant assistantId="12"
-encerra: terminate reason="Atendimento conduzido pela IA"

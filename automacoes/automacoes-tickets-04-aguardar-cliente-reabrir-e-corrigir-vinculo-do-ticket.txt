@@ -1,8 +1,0 @@
-abre_espera: contactClientTicket ticketId="{{ticket_id}}" comment="Precisamos de uma foto do comprovante para dar sequencia."
-avisa_cliente: message text="Seu ticket ficou aguardando retorno do cliente. Envie o comprovante por aqui."
-reabre: reopenTicket ticketId="{{ticket_id}}" comment="Cliente retornou com a informacao solicitada."
-volta_estagio: changeStageTicket ticketId="{{ticket_id}}" newStageId="{{stage_id}}"
-volta_status: changeStatusTicket ticketId="{{ticket_id}}" newStatus="2"
-corrige_vinculo: unlinkContactTicket ticketId="{{ticket_id}}" associateToCurrentContact=true
-resumo: message text="Seu ticket voltou para atendimento e esta em andamento de novo."
-fim: terminate

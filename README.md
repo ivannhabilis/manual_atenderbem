@@ -34,7 +34,8 @@ Páginas:
 - `assets/simplepbx/` — capturas de tela do SimplePBX usadas no guia de configuração
 - `automacoes-elementos.html` — catálogo dos 144 elementos do editor de Fluxo de Automação e URA (o que fazem, campos, ramos, exemplos)
 - `automacoes-variaveis.html` — variáveis e expressões do fluxo: sintaxe, operadores, filtros e as 439 variáveis por categoria
-- `automacoes-exemplos.html` — exemplos prontos de fluxos (passo a passo, importáveis e validados pelo compilador do sistema)
+- `automacoes-exemplos.html` — exemplos prontos de fluxos (passo a passo, compilados pelo validador do sistema e com arquivo `.ivr` para importar)
+- `automacoes/*.ivr` — 57 fluxos prontos para importar na tela Fluxo de Automação e URA (índice em `automacoes/INDICE.txt`)
 - `automacoes-*.html` — capítulos por grupo de elementos (mensagens, fluxo/lógica, atendimento, contatos, CRM/carrinho, catálogo/pedidos, tickets, IA, telefonia, pesquisas/WebChat, integrações, tarefas/admin)
 - `assets/automacoes/lista-fluxos.png` — print higienizado da tela Fluxo de Automação e URA
 - `enriquecer_dados/automacoes/` — fonte do capítulo: catálogo, especificações, variáveis, exemplos e geradores

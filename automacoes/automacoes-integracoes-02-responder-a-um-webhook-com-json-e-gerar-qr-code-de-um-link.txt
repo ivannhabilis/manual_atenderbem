@@ -1,4 +1,0 @@
-responde: webhookReply httpStatus=200 contentType="application/json" content="{\"status\":\"ok\",\"protocolo\":\"{{chat_protocol}}\"}"
-qrcode: generateQrCode content="https://exemplo.com/acompanhar/{{chat_protocol}}" resultVariableName="qrcode_file_id"
-envia: message text="Segue o QR Code para acompanhar seu pedido."
-fim: terminate reason="Webhook respondido e QR Code gerado"

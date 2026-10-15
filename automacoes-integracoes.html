@@ -144,7 +144,7 @@
 <h3 id="el-request">request</h3>
 <p>Envia uma requisição HTTP para um servidor externo. O resultado da requisição é salvo em variáveis e pode ser utilizado em outras partes do fluxo de execução.</p>
 <div class="callout info">É feito um parse no retorno da requisição, se este for do tipo JSON ou multipart/form-data, o resultado é convertido para objeto JavaScript e disponibilizado em uma variável.<br>As seguintes variáveis são criadas automaticamente:<br>varPrefix + _httpStatus: Código de status da resposta da requisição. Exemplo de nome final da varíavel com prefixo: "req_response_httpStatus"<br>varPrefix + _rawBody: Corpo bruto da resposta da requisição. Exemplo de nome final da varíavel com prefixo: "req_response_rawBody"<br>varPrefix + _parsedBody: Corpo da resposta da requisição convertido para objeto JavaScript quando possível. Exemplo de nome final da varíavel com prefixo: "req_response_parsedBody"<br>Adicionalmente, se o tipo de resposta (expectedContentType) estiver configurado para 2 (salvar como arquivo), também é criada a variável varPrefix + _fileId com o ID do arquivo gerado com o resultado da requisição.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Requisição HTTP</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"varPrefix":"","dataType":"json","method":"get","retrys":0,"url":"","data":{},"testData":{},"numberFields":[],"dataRaw":"","headers":{},"testHeaders":{},"timeout":0,"expectedContentType":0,"textResponseVariable":"","nextElementId":"","textPreProcessor":0,"textPreProcessorSeparator":"","textPostProcessorSeparator":""}
 Como se escreve: meu_rotulo: request dataType="json" method="get" url="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>12</code></p>
@@ -169,7 +169,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-webhookReply">webhookReply</h3>
 <p>Define a resposta que será enviada quando o fluxo estiver sendo executado como resultado de uma captura de webhook.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Resposta do webhook</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"httpStatus":200,"contentType":"application/json","content":"","nextElementId":""}
 Como se escreve: meu_rotulo: webhookReply httpStatus=200 contentType="application/json" content="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>93</code></p>
@@ -183,7 +183,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-publishToExtension">publishToExtension</h3>
 <p>Publica uma mensagem no CANAL de uma INSTALAÇÃO DE EXTENSÃO, entregue em tempo real às telas dos usuários de destino. Serve para o fluxo avisar a interface de uma extensão de que algo aconteceu no servidor — por exemplo "o título foi pago, busque os dados de novo".</p>
 <div class="callout info">O canal é de MELHOR ESFORÇO e sem retenção de nenhuma espécie: não há ordenação garantida, não há entrega para quem está desconectado, não há repetição e não há confirmação. Quem só começar a ouvir depois da publicação simplesmente não recebe aquela mensagem — a extensão precisa saber buscar o estado atual por conta própria.<br>O ALVO É OBRIGATÓRIO e nunca assume "todos": publicar sem alvo seria transformar uma mensagem dirigida a um usuário em difusão para a instância inteira. Formatos aceitos: "user:{id}" (um usuário), "users:[1,2,3]" (vários), "type:agent" | "type:supervisor" | "type:admin" (por perfil), "queue:{id}" (quem atende ou supervisiona a fila), "group:{id}" (quem está no grupo) e "all" (todos, escolha explícita).<br>A entrega respeita a permissão: só recebe a mensagem quem já recebe aquela instalação da extensão, conforme os filtros configurados na instalação.<br>O PAYLOAD DEVE LEVAR IDENTIFICADORES, NUNCA DADOS. A mensagem atravessa a fronteira de permissão e o servidor não interpreta o conteúdo para filtrar nada: publique {"pedidoId": 4471} e deixe que cada tela busque o pedido com a permissão de quem está logado. Publicar o pedido inteiro entregaria a usuários diferentes um conteúdo que talvez nenhum deles pudesse ver. O tamanho é limitado a 4 KB, justamente para tornar desconfortável publicar dados.<br>Há limite de taxa por instalação. O estouro repetido desliga o canal daquela instalação (disjuntor), e a extensão deixa de receber até que alguém rearme o canal na tela de administração de extensões. Não publique dentro de laços nem a cada mensagem recebida.<br>O elemento nunca interrompe o fluxo: alvo vazio, instalação inexistente, JSON inválido no payload ou recusa do canal são registrados na depuração da automação e o fluxo segue para o próximo elemento.</div>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Publicar no canal da extensão</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"installId":"","topic":"","target":"","payload":"","nextElementId":""}
 Como se escreve: meu_rotulo: publishToExtension installId="..." topic="..." target="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>137</code></p>
@@ -198,7 +198,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-generateQrCode">generateQrCode</h3>
 <p>Gera um código QR a partir de um texto e salva o ID do arquivo gerado em uma variável.</p>
-<p class="s10"><strong>Disponível em:</strong> Todos
+<p class="s10"><strong>No editor, escolha:</strong> <em>Gerar QR Code</em> · <strong>Disponível em:</strong> Todos
 Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"content":"","resultVariableName":"","nextElementId":""}
 Como se escreve: meu_rotulo: generateQrCode content="..." resultVariableName="..."
 Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>106</code></p>

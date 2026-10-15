@@ -1,5 +1,0 @@
-monta: addOrEditProductToOpportunity opportunityId="{{opportunity_id}}" searchType="id" productId="101" quantity="2" conflictStrategy="sum"
-junta: addOrEditProductToOpportunity opportunityId="{{opportunity_id}}" searchType="code" productId="SKU-204" quantity="1" discount="10" conflictStrategy="replace"
-resumo: message text="Seu carrinho esta em {{chat_cart_total}} com {{chat_cart_items_count}} itens."
-botao: sendCartButton bodyText="Confira os itens e o frete antes de finalizar." buttonText="Abrir meu carrinho"
-fim: terminate

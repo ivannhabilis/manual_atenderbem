@@ -1,9 +1,0 @@
-pausa: freezeOpportunity opportunityId="{{opportunity_id}}" freezeUntil="2026-11-30"
-avisa: message text="Oportunidade congelada: ela some da lista do time ate a data informada."
-copia: cloneOpportunity pipelineId=1 stageId=1 opportunityId="{{opportunity_id}}" resultVariableName="opp_renovacao"
-limpa: clearOpportunityTasks opportunityId="{{opportunity_id}}"
-anexa: insertFileOpportunity opportunityId="{{opportunity_id}}" fileId="99001"
-passa: transferOpportunity opportunityId="{{opportunity_id}}" transferType=1 autoTransferStrategy=1 preferOnlineAgents=true
-volta: unfreezeOpportunity opportunityId="{{opportunity_id}}"
-fim: message text="Oportunidade de volta ao funil, com novo responsavel e sem as tarefas antigas."
-fimf: terminate

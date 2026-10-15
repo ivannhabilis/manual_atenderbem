@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Automações: Exemplos Prontos — Manual Omnichannel</title>
-<meta name="description" content="57 fluxos completos, passo a passo, compilados pelo validador do sistema e prontos para importar.">
+<meta name="description" content="57 fluxos completos, passo a passo, compilados pelo validador do sistema e com arquivo .ivr para importar.">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -132,7 +132,7 @@
   <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="automacoes-elementos.html">Automações e URA</a> &rsaquo; Automações: Exemplos Prontos</div>
 
   <h1>Automações: Exemplos Prontos</h1>
-  <p class="subtitle">57 fluxos completos, passo a passo, compilados pelo validador do sistema e prontos para importar.</p>
+  <p class="subtitle">57 fluxos completos, passo a passo, compilados pelo validador do sistema e com arquivo .ivr para importar.</p>
 
   <!-- AUTO-TOC -->
   <nav class="toc" aria-label="Índice do capítulo">
@@ -213,80 +213,91 @@
   <!-- /AUTO-TOC -->
 
 <div class="callout info">
-    <strong>57 exemplos prontos.</strong> Cada exemplo abaixo é um fluxo completo: um objetivo, a sequência de
-    elementos passo a passo, o texto do fluxo e o resultado esperado. <strong>Todos foram compilados pelo validador do
-    próprio sistema</strong> antes de entrar nesta página — nenhum exemplo daqui foi publicado sem passar no compilador.
+    <strong>57 exemplos prontos, todos compilados pelo validador do próprio sistema.</strong>
+    Cada exemplo traz o objetivo, a sequência de elementos passo a passo, o texto do fluxo e o resultado esperado —
+    e vem com um arquivo <code>.ivr</code> para importar direto na tela <strong>Fluxo de Automação e URA</strong>.
   </div>
   <div class="callout tip">
-    <strong>Como usar um exemplo.</strong>
+    <strong>Duas formas de usar um exemplo.</strong>
     <ol class="steps">
-      <li>Escolha o exemplo e copie o texto do fluxo (ou baixe o arquivo <code>.txt</code> ao lado do título).</li>
-      <li>No sistema, abra <strong>Fluxo de Automação e URA</strong> e use <strong>Importar</strong>, escolhendo o arquivo.</li>
-      <li>Troque os identificadores didáticos pelos da sua instância: <code>pipelineId</code>, <code>stageId</code>,
-          <code>queueId</code>, <code>userId</code>, <code>assistantId</code>, <code>templateId</code>, <code>tagId</code>.</li>
-      <li>Valide e ajuste antes de colocar em produção. Os arquivos estão em
-          <code>automacoes/</code> no repositório do manual.</li>
+      <li><strong>Importar pela tela (mais rápido):</strong> baixe o arquivo <code>.ivr</code> ao lado do título e, em
+          <strong>Fluxo de Automação e URA</strong>, clique em <strong>Importar</strong> e escolha esse arquivo. O fluxo entra
+          pronto, com os elementos ligados.</li>
+      <li><strong>Montar no editor (para aprender):</strong> siga os <em>passos</em> do exemplo e escolha cada elemento na
+          paleta pelo nome em português indicado na ficha do elemento (a ficha traz "No editor, escolha:").</li>
     </ol>
+  </div>
+  <div class="callout warn">
+    <strong>Sobre o formato dos arquivos.</strong> O <code>.ivr</code> é o registro do fluxo codificado — o mesmo formato
+    que o botão <strong>Exportar</strong> gera, e o único que o <strong>Importar</strong> aceita. O texto do fluxo mostrado
+    nesta página é a <em>linguagem de fluxo</em>: serve para leitura, para versionamento e para criar ou atualizar o fluxo
+    por API. Os dois representam o mesmo fluxo.
+  </div>
+  <div class="callout warn">
+    <strong>Antes de publicar:</strong> troque os identificadores didáticos pelos da sua instância —
+    <code>pipelineId</code>, <code>stageId</code>, <code>queueId</code>, <code>userId</code>, <code>assistantId</code>,
+    <code>templateId</code>, <code>tagId</code>, <code>fileId</code>. Os exemplos usam valores genéricos justamente para
+    poderem ser importados em qualquer ambiente.
   </div>
   <h2 id="indice-dos-exemplos">Índice dos exemplos</h2>
   <div class="table-wrap"><table class="doc"><thead><tr><th>Grupo</th><th>Exemplo</th><th>Elementos usados</th><th>Arquivo</th></tr></thead><tbody>
-<tr><td>Mensagens e conteúdo</td><td>Boas-vindas, menu principal e consulta com validação de CPF</td><td class="s10">message, info, question, options, url, terminate</td><td><a href="automacoes/automacoes-mensagens-01-boas-vindas-menu-principal-e-consulta-com-validacao-de-cpf.txt">.txt</a></td></tr>
-<tr><td>Mensagens e conteúdo</td><td>Pesquisa de satisfação com a nota protegida</td><td class="s10">message, question, changeMessageVisualGroup, info, terminate</td><td><a href="automacoes/automacoes-mensagens-02-pesquisa-de-satisfacao-com-a-nota-protegida.txt">.txt</a></td></tr>
-<tr><td>Mensagens e conteúdo</td><td>Coleta de endereço com Whatsapp Flow e limpeza do dado sensível</td><td class="s10">sendTemplate, waitMessage, requestLocation, sendFlow, clearFlowDataFromMessage, message, sendMail, terminate</td><td><a href="automacoes/automacoes-mensagens-03-coleta-de-endereco-com-whatsapp-flow-e-limpeza-do-dado-sensi.txt">.txt</a></td></tr>
-<tr><td>Mensagens e conteúdo</td><td>Comentário no Instagram respondido e convertido em atendimento no direct</td><td class="s10">replyComment, message, options, shareContact, info, terminate</td><td><a href="automacoes/automacoes-mensagens-04-comentario-no-instagram-respondido-e-convertido-em-atendimen.txt">.txt</a></td></tr>
-<tr><td>Mensagens e conteúdo</td><td>Cancelar a mensagem programada fora do horário comercial</td><td class="s10">cancelMessage, businesshoursCheck, info, marker, terminate</td><td><a href="automacoes/automacoes-mensagens-05-cancelar-a-mensagem-programada-fora-do-horario-comercial.txt">.txt</a></td></tr>
-<tr><td>Fluxo, lógica e gatilhos</td><td>Triagem por horário de funcionamento com protocolo e rodízio de plantão</td><td class="s10">businesshoursCheck, protocol, marker, message, info, timetable, transfer, terminate</td><td><a href="automacoes/automacoes-fluxo-logica-01-triagem-por-horario-de-funcionamento-com-protocolo-e-rodizio.txt">.txt</a></td></tr>
-<tr><td>Fluxo, lógica e gatilhos</td><td>Resumo do carrinho item a item com laço de repetição</td><td class="s10">newVar, varCondition, jscode, loop, message, sleep, terminate</td><td><a href="automacoes/automacoes-fluxo-logica-02-resumo-do-carrinho-item-a-item-com-laco-de-repeticao.txt">.txt</a></td></tr>
-<tr><td>Fluxo, lógica e gatilhos</td><td>Orçamento com acompanhamento agendado e cancelamento</td><td class="s10">options, message, scheduleAutomation, waitMessage, cancelSchedule, info, sleep, varCondition, transfer, terminate</td><td><a href="automacoes/automacoes-fluxo-logica-03-orcamento-com-acompanhamento-agendado-e-cancelamento.txt">.txt</a></td></tr>
-<tr><td>Fluxo, lógica e gatilhos</td><td>Classificar o cliente com código, variáveis e gatilhos</td><td class="s10">jscode, newVar, marker, protocol, message, varCondition, removeTrigger, setTriggers, execAutomation, removeAllTriggers, transfer, terminate</td><td><a href="automacoes/automacoes-fluxo-logica-04-classificar-o-cliente-com-codigo-variaveis-e-gatilhos.txt">.txt</a></td></tr>
-<tr><td>Fluxo, lógica e gatilhos</td><td>Retorno por ligação: oferta, confirmação e desfecho da chamada</td><td class="s10">startCall, question, varCondition, message, info, sleep, waitMessage, terminate</td><td><a href="automacoes/automacoes-fluxo-logica-05-retorno-por-ligacao-oferta-confirmacao-e-desfecho-da-chamada.txt">.txt</a></td></tr>
-<tr><td>Atendimento, fila e bloqueios</td><td>Retomar o atendimento em aberto pelo protocolo</td><td class="s10">searchChat, message, transfer</td><td><a href="automacoes/automacoes-atendimento-01-retomar-o-atendimento-em-aberto-pelo-protocolo.txt">.txt</a></td></tr>
-<tr><td>Atendimento, fila e bloqueios</td><td>Abrir um atendimento ativo pelo telefone</td><td class="s10">message, openChat, terminate</td><td><a href="automacoes/automacoes-atendimento-02-abrir-um-atendimento-ativo-pelo-telefone.txt">.txt</a></td></tr>
-<tr><td>Atendimento, fila e bloqueios</td><td>Fila de espera com agente preferencial travado</td><td class="s10">message, addToWaitingList, userAvailable, varCondition, removeFromWaitingList, lock, transfer, terminate</td><td><a href="automacoes/automacoes-atendimento-03-fila-de-espera-com-agente-preferencial-travado.txt">.txt</a></td></tr>
-<tr><td>Atendimento, fila e bloqueios</td><td>Blindar o atendimento durante a coleta de dados</td><td class="s10">message, blockChatManualEnd, blockChatManualTransfer, showSnackNotification, question, unblockChatManualEnd, unblockChatManualTransfer, terminate</td><td><a href="automacoes/automacoes-atendimento-04-blindar-o-atendimento-durante-a-coleta-de-dados.txt">.txt</a></td></tr>
-<tr><td>Atendimento, fila e bloqueios</td><td>Abrir atendimento em fila oficial com template</td><td class="s10">message, openChatCloud, terminate</td><td><a href="automacoes/automacoes-atendimento-05-abrir-atendimento-em-fila-oficial-com-template.txt">.txt</a></td></tr>
-<tr><td>Atendimento, fila e bloqueios</td><td>Alerta de fila acima do limite para a supervisao</td><td class="s10">queueChats, varCondition, sendAlert, sendNotification, terminate</td><td><a href="automacoes/automacoes-atendimento-06-alerta-de-fila-acima-do-limite-para-a-supervisao.txt">.txt</a></td></tr>
-<tr><td>Contatos e dados persistentes</td><td>Identificar o cliente pelo CPF: atualizar ou cadastrar</td><td class="s10">question, searchContact, varCondition, editContact, addContact, message, terminate</td><td><a href="automacoes/automacoes-contatos-dados-01-identificar-o-cliente-pelo-cpf-atualizar-ou-cadastrar.txt">.txt</a></td></tr>
-<tr><td>Contatos e dados persistentes</td><td>Reconhecer quem esta falando pelo telefone</td><td class="s10">searchContact, varCondition, addContact, message, terminate</td><td><a href="automacoes/automacoes-contatos-dados-02-reconhecer-quem-esta-falando-pelo-telefone.txt">.txt</a></td></tr>
-<tr><td>Contatos e dados persistentes</td><td>Enriquecer o cadastro com endereco e etiquetas</td><td class="s10">searchContact, question, editContact, message, terminate</td><td><a href="automacoes/automacoes-contatos-dados-03-enriquecer-o-cadastro-com-endereco-e-etiquetas.txt">.txt</a></td></tr>
-<tr><td>Contatos e dados persistentes</td><td>Preferencia que sobrevive de um atendimento para o outro</td><td class="s10">searchPersistent, varCondition, addPersistent, question, message, transfer, terminate</td><td><a href="automacoes/automacoes-contatos-dados-04-preferencia-que-sobrevive-de-um-atendimento-para-o-outro.txt">.txt</a></td></tr>
-<tr><td>Contatos e dados persistentes</td><td>Descadastro de campanhas com limpeza da memoria</td><td class="s10">searchPersistent, varCondition, removePersistent, addPersistent, message, terminate</td><td><a href="automacoes/automacoes-contatos-dados-05-descadastro-de-campanhas-com-limpeza-da-memoria.txt">.txt</a></td></tr>
-<tr><td>CRM, oportunidade e carrinho</td><td>Detectar interesse, criar oportunidade e mover no funil</td><td class="s10">options, question, addOpportunity, moveOpportunity, message, terminate</td><td><a href="automacoes/automacoes-crm-carrinho-01-detectar-interesse-criar-oportunidade-e-mover-no-funil.txt">.txt</a></td></tr>
-<tr><td>CRM, oportunidade e carrinho</td><td>Montar o carrinho e enviar o botao para conferencia</td><td class="s10">addOrEditProductToOpportunity, message, sendCartButton, terminate</td><td><a href="automacoes/automacoes-crm-carrinho-02-montar-o-carrinho-e-enviar-o-botao-para-conferencia.txt">.txt</a></td></tr>
-<tr><td>CRM, oportunidade e carrinho</td><td>Bloquear o carrinho na conferencia e liberar depois</td><td class="s10">message, lockOpportunityCart, varCondition, question, unlockOpportunityCart, terminate</td><td><a href="automacoes/automacoes-crm-carrinho-03-bloquear-o-carrinho-na-conferencia-e-liberar-depois.txt">.txt</a></td></tr>
-<tr><td>CRM, oportunidade e carrinho</td><td>Fechar a venda como ganha e reabrir em caso de arrependimento</td><td class="s10">searchOpportunity, options, winOpportunity, loseOpportunity, reopenOpportunity, message, terminate</td><td><a href="automacoes/automacoes-crm-carrinho-04-fechar-a-venda-como-ganha-e-reabrir-em-caso-de-arrependiment.txt">.txt</a></td></tr>
-<tr><td>CRM, oportunidade e carrinho</td><td>Sincronizar o carrinho inteiro a partir de um JSON de ERP</td><td class="s10">request, varCondition, replaceOpportunityCart, editOpportunity, message, terminate</td><td><a href="automacoes/automacoes-crm-carrinho-05-sincronizar-o-carrinho-inteiro-a-partir-de-um-json-de-erp.txt">.txt</a></td></tr>
-<tr><td>CRM, oportunidade e carrinho</td><td>Baixa e devolucao de estoque ligadas ao pedido</td><td class="s10">request, varCondition, message, options, removeProductFromOpportunity, addOrEditProductToOpportunity, clearProductListOfOpportunity, terminate</td><td><a href="automacoes/automacoes-crm-carrinho-06-baixa-e-devolucao-de-estoque-ligadas-ao-pedido.txt">.txt</a></td></tr>
-<tr><td>CRM, oportunidade e carrinho</td><td>Congelar, anexar contrato, limpar tarefas e transferir a oportunidade</td><td class="s10">freezeOpportunity, message, cloneOpportunity, clearOpportunityTasks, insertFileOpportunity, transferOpportunity, unfreezeOpportunity, terminate</td><td><a href="automacoes/automacoes-crm-carrinho-07-congelar-anexar-contrato-limpar-tarefas-e-transferir-a-oport.txt">.txt</a></td></tr>
-<tr><td>CRM, oportunidade e carrinho</td><td>Guardas do funil: cancelar movimentacao e ganho indevidos</td><td class="s10">varCondition, cancelOpportunityMove, cancelOpportunityWin, message, terminate</td><td><a href="automacoes/automacoes-crm-carrinho-08-guardas-do-funil-cancelar-movimentacao-e-ganho-indevidos.txt">.txt</a></td></tr>
-<tr><td>Catálogo, pedidos e estoque</td><td>Vitrine em carrossel e consulta de produto por codigo interno</td><td class="s10">options, sendProductMessage, getProductDetails, question, varCondition, message, terminate</td><td><a href="automacoes/automacoes-catalogo-pedidos-01-vitrine-em-carrossel-e-consulta-de-produto-por-codigo-intern.txt">.txt</a></td></tr>
-<tr><td>Catálogo, pedidos e estoque</td><td>Enviar pedido com Pix e atualizar o status</td><td class="s10">question, sendOrder, updateOrderStatus, message, terminate</td><td><a href="automacoes/automacoes-catalogo-pedidos-02-enviar-pedido-com-pix-e-atualizar-o-status.txt">.txt</a></td></tr>
-<tr><td>Catálogo, pedidos e estoque</td><td>Baixa de estoque ao fechar o pedido da oportunidade</td><td class="s10">message, decrementProductStock, varCondition, updateOrderStatus, terminate</td><td><a href="automacoes/automacoes-catalogo-pedidos-03-baixa-de-estoque-ao-fechar-o-pedido-da-oportunidade.txt">.txt</a></td></tr>
-<tr><td>Catálogo, pedidos e estoque</td><td>Devolucao ao estoque em cancelamento de item avulso</td><td class="s10">question, getProductDetails, incrementProductStock, updateOrderStatus, message, terminate</td><td><a href="automacoes/automacoes-catalogo-pedidos-04-devolucao-ao-estoque-em-cancelamento-de-item-avulso.txt">.txt</a></td></tr>
-<tr><td>Tickets (mesa de ajuda)</td><td>Abertura automatica de ticket pelo chat com vinculo do contato</td><td class="s10">message, question, addTicket, linkContactTicket, addTagTicket, assignTicket, terminate</td><td><a href="automacoes/automacoes-tickets-01-abertura-automatica-de-ticket-pelo-chat-com-vinculo-do-conta.txt">.txt</a></td></tr>
-<tr><td>Tickets (mesa de ajuda)</td><td>Escalonamento por SLA com prioridade, status e comentario interno</td><td class="s10">searchTicket, varCondition, editTicket, changeStatusTicket, addCommentTicket, escalateTicket, assignTicket, addTicket, message, terminate</td><td><a href="automacoes/automacoes-tickets-02-escalonamento-por-sla-com-prioridade-status-e-comentario-int.txt">.txt</a></td></tr>
-<tr><td>Tickets (mesa de ajuda)</td><td>Resolucao com comentario externo disparando evento</td><td class="s10">searchTicket, varCondition, addCommentTicket, resolveTicket, message, terminate</td><td><a href="automacoes/automacoes-tickets-03-resolucao-com-comentario-externo-disparando-evento.txt">.txt</a></td></tr>
-<tr><td>Tickets (mesa de ajuda)</td><td>Aguardar cliente, reabrir e corrigir vinculo do ticket</td><td class="s10">contactClientTicket, reopenTicket, changeStageTicket, changeStatusTicket, unlinkContactTicket, message, terminate</td><td><a href="automacoes/automacoes-tickets-04-aguardar-cliente-reabrir-e-corrigir-vinculo-do-ticket.txt">.txt</a></td></tr>
-<tr><td>IA e assistentes</td><td>Entregar o atendimento ao assistente de IA</td><td class="s10">message, aiAssistant, terminate</td><td><a href="automacoes/automacoes-ia-assistentes-01-entregar-o-atendimento-ao-assistente-de-ia.txt">.txt</a></td></tr>
-<tr><td>IA e assistentes</td><td>Assistente de IA devolve o atendimento ao humano</td><td class="s10">aiAssistant, aiStopAssistant, aiStopMessage, message, transfer</td><td><a href="automacoes/automacoes-ia-assistentes-02-assistente-de-ia-devolve-o-atendimento-ao-humano.txt">.txt</a></td></tr>
-<tr><td>IA e assistentes</td><td>Solicitacao unica a um assistente especialista</td><td class="s10">aiAssistantSingleRequest, message, terminate</td><td><a href="automacoes/automacoes-ia-assistentes-03-solicitacao-unica-a-um-assistente-especialista.txt">.txt</a></td></tr>
-<tr><td>IA e assistentes</td><td>Adicionar contexto e provocar o assistente</td><td class="s10">aiAddContextToAssistant, aiProvokeAssistant</td><td><a href="automacoes/automacoes-ia-assistentes-04-adicionar-contexto-e-provocar-o-assistente.txt">.txt</a></td></tr>
-<tr><td>IA e assistentes</td><td>Ler o documento ou a imagem do cliente com IA</td><td class="s10">aiProcessFile, varCondition, message, terminate</td><td><a href="automacoes/automacoes-ia-assistentes-05-ler-o-documento-ou-a-imagem-do-cliente-com-ia.txt">.txt</a></td></tr>
-<tr><td>IA e assistentes</td><td>Fechamento: audio com IA, documento e auditoria</td><td class="s10">aiTts, message, generateDocumentFromTemplate, aiDefineAssistantResult, pmScreenshot, pmVideoCapture, terminate</td><td><a href="automacoes/automacoes-ia-assistentes-06-fechamento-audio-com-ia-documento-e-auditoria.txt">.txt</a></td></tr>
-<tr><td>Telefonia (URA telefônica)</td><td>Menu de voz com audio e leitura do teclado (URA telefonica)</td><td class="s10">callPlayAudio, callWaitClientReply, varCondition, callTransfer, callTerminate</td><td><a href="automacoes/automacoes-telefonia-01-menu-de-voz-com-audio-e-leitura-do-teclado-ura-telefonica.txt">.txt</a></td></tr>
-<tr><td>Telefonia (URA telefônica)</td><td>Desviar conforme a tecla e enviar DTMF ao PABX de destino (URA telefonica)</td><td class="s10">callPlayAudio, callWaitClientReply, sentDTMF, callTransfer, callTerminate</td><td><a href="automacoes/automacoes-telefonia-02-desviar-conforme-a-tecla-e-enviar-dtmf-ao-pabx-de-destino-ur.txt">.txt</a></td></tr>
-<tr><td>Telefonia (URA telefônica)</td><td>Encerrar a chamada com hangup (URA telefonica)</td><td class="s10">callPlayAudio, callTerminate</td><td><a href="automacoes/automacoes-telefonia-03-encerrar-a-chamada-com-hangup-ura-telefonica.txt">.txt</a></td></tr>
-<tr><td>Pesquisas, formulários e WebChat</td><td>Pesquisa de satisfacao na despedida do atendimento</td><td class="s10">sendSurveyFormMessage, message, terminate</td><td><a href="automacoes/automacoes-pesquisas-webchat-01-pesquisa-de-satisfacao-na-despedida-do-atendimento.txt">.txt</a></td></tr>
-<tr><td>Pesquisas, formulários e WebChat</td><td>Link publico de pesquisa, submissao e perguntas ocultas</td><td class="s10">generateSurveyFormLink, submitSurveyFormResponse, editSurveyFormResponse, message, terminate</td><td><a href="automacoes/automacoes-pesquisas-webchat-02-link-publico-de-pesquisa-submissao-e-perguntas-ocultas.txt">.txt</a></td></tr>
-<tr><td>Pesquisas, formulários e WebChat</td><td>Formulario personalizado e fluxo de formularios multi-etapas</td><td class="s10">sendForm, sendFormFlow, showForm, showFormSync, message, terminate</td><td><a href="automacoes/automacoes-pesquisas-webchat-03-formulario-personalizado-e-fluxo-de-formularios-multi-etapas.txt">.txt</a></td></tr>
-<tr><td>Pesquisas, formulários e WebChat</td><td>Cartao de informacao exibido e depois removido</td><td class="s10">addInformationCard, sendInformationCard, addInformationCardToMessage, removeInformationCardFromMessage, removeInformationCard, showInformationDialog, </td><td><a href="automacoes/automacoes-pesquisas-webchat-04-cartao-de-informacao-exibido-e-depois-removido.txt">.txt</a></td></tr>
-<tr><td>Pesquisas, formulários e WebChat</td><td>WebChat V2: notificacoes push, migracao e confirmacao do atendente</td><td class="s10">requestPushPermission, generateWebchatMigrationLink, showConfirmationDialogSync, message, terminate</td><td><a href="automacoes/automacoes-pesquisas-webchat-05-webchat-v2-notificacoes-push-migracao-e-confirmacao-do-atend.txt">.txt</a></td></tr>
-<tr><td>Integrações, webhooks e extensões</td><td>Consultar uma API externa, decidir pelo status e avisar a extensao</td><td class="s10">request, varCondition, publishToExtension, message, terminate</td><td><a href="automacoes/automacoes-integracoes-01-consultar-uma-api-externa-decidir-pelo-status-e-avisar-a-ext.txt">.txt</a></td></tr>
-<tr><td>Integrações, webhooks e extensões</td><td>Responder a um webhook com JSON e gerar QR Code de um link</td><td class="s10">webhookReply, generateQrCode, message, terminate</td><td><a href="automacoes/automacoes-integracoes-02-responder-a-um-webhook-com-json-e-gerar-qr-code-de-um-link.txt">.txt</a></td></tr>
-<tr><td>Tarefas, instâncias e administração</td><td>Tarefa de acompanhamento ao final do atendimento e alerta a supervisao</td><td class="s10">createTask, message, terminate</td><td><a href="automacoes/automacoes-admin-01-tarefa-de-acompanhamento-ao-final-do-atendimento-e-alerta-a-.txt">.txt</a></td></tr>
-<tr><td>Tarefas, instâncias e administração</td><td>Concluir a tarefa de acompanhamento</td><td class="s10">markTaskAsDone, message, terminate</td><td><a href="automacoes/automacoes-admin-02-concluir-a-tarefa-de-acompanhamento.txt">.txt</a></td></tr>
-<tr><td>Tarefas, instâncias e administração</td><td>Provisionar instancia de um cliente (somente instancia de revenda)</td><td class="s10">createInstance, updateInstance, editInstanceContactDetails, message, terminate</td><td><a href="automacoes/automacoes-admin-03-provisionar-instancia-de-um-cliente-somente-instancia-de-rev.txt">.txt</a></td></tr>
-<tr><td>Tarefas, instâncias e administração</td><td>Manutencao de instancias (somente instancia de revenda)</td><td class="s10">searchInstance, blockInstance, restartInstance, restartInstanceContainer, unblockInstance, markInstanceForExclusion, reactivateInstance, terminate</td><td><a href="automacoes/automacoes-admin-04-manutencao-de-instancias-somente-instancia-de-revenda.txt">.txt</a></td></tr>
+<tr><td>Mensagens e conteúdo</td><td>Boas-vindas, menu principal e consulta com validação de CPF</td><td class="s10">message, info, question, options, url, terminate</td><td><a href="automacoes/automacoes-mensagens-01-boas-vindas-menu-principal-e-consulta-com-validacao-de-cpf.ivr">.ivr</a></td></tr>
+<tr><td>Mensagens e conteúdo</td><td>Pesquisa de satisfação com a nota protegida</td><td class="s10">message, question, changeMessageVisualGroup, info, terminate</td><td><a href="automacoes/automacoes-mensagens-02-pesquisa-de-satisfacao-com-a-nota-protegida.ivr">.ivr</a></td></tr>
+<tr><td>Mensagens e conteúdo</td><td>Coleta de endereço com Whatsapp Flow e limpeza do dado sensível</td><td class="s10">sendTemplate, waitMessage, requestLocation, sendFlow, clearFlowDataFromMessage, message, sendMail, terminate</td><td><a href="automacoes/automacoes-mensagens-03-coleta-de-endereco-com-whatsapp-flow-e-limpeza-do-dado-sensi.ivr">.ivr</a></td></tr>
+<tr><td>Mensagens e conteúdo</td><td>Comentário no Instagram respondido e convertido em atendimento no direct</td><td class="s10">replyComment, message, options, shareContact, info, terminate</td><td><a href="automacoes/automacoes-mensagens-04-comentario-no-instagram-respondido-e-convertido-em-atendimen.ivr">.ivr</a></td></tr>
+<tr><td>Mensagens e conteúdo</td><td>Cancelar a mensagem programada fora do horário comercial</td><td class="s10">cancelMessage, businesshoursCheck, info, marker, terminate</td><td><a href="automacoes/automacoes-mensagens-05-cancelar-a-mensagem-programada-fora-do-horario-comercial.ivr">.ivr</a></td></tr>
+<tr><td>Fluxo, lógica e gatilhos</td><td>Triagem por horário de funcionamento com protocolo e rodízio de plantão</td><td class="s10">businesshoursCheck, protocol, marker, message, info, timetable, transfer, terminate</td><td><a href="automacoes/automacoes-fluxo-logica-01-triagem-por-horario-de-funcionamento-com-protocolo-e-rodizio.ivr">.ivr</a></td></tr>
+<tr><td>Fluxo, lógica e gatilhos</td><td>Resumo do carrinho item a item com laço de repetição</td><td class="s10">newVar, varCondition, jscode, loop, message, sleep, terminate</td><td><a href="automacoes/automacoes-fluxo-logica-02-resumo-do-carrinho-item-a-item-com-laco-de-repeticao.ivr">.ivr</a></td></tr>
+<tr><td>Fluxo, lógica e gatilhos</td><td>Orçamento com acompanhamento agendado e cancelamento</td><td class="s10">options, message, scheduleAutomation, waitMessage, cancelSchedule, info, sleep, varCondition, transfer, terminate</td><td><a href="automacoes/automacoes-fluxo-logica-03-orcamento-com-acompanhamento-agendado-e-cancelamento.ivr">.ivr</a></td></tr>
+<tr><td>Fluxo, lógica e gatilhos</td><td>Classificar o cliente com código, variáveis e gatilhos</td><td class="s10">jscode, newVar, marker, protocol, message, varCondition, removeTrigger, setTriggers, execAutomation, removeAllTriggers, transfer, terminate</td><td><a href="automacoes/automacoes-fluxo-logica-04-classificar-o-cliente-com-codigo-variaveis-e-gatilhos.ivr">.ivr</a></td></tr>
+<tr><td>Fluxo, lógica e gatilhos</td><td>Retorno por ligação: oferta, confirmação e desfecho da chamada</td><td class="s10">startCall, question, varCondition, message, info, sleep, waitMessage, terminate</td><td><a href="automacoes/automacoes-fluxo-logica-05-retorno-por-ligacao-oferta-confirmacao-e-desfecho-da-chamada.ivr">.ivr</a></td></tr>
+<tr><td>Atendimento, fila e bloqueios</td><td>Retomar o atendimento em aberto pelo protocolo</td><td class="s10">searchChat, message, transfer</td><td><a href="automacoes/automacoes-atendimento-01-retomar-o-atendimento-em-aberto-pelo-protocolo.ivr">.ivr</a></td></tr>
+<tr><td>Atendimento, fila e bloqueios</td><td>Abrir um atendimento ativo pelo telefone</td><td class="s10">message, openChat, terminate</td><td><a href="automacoes/automacoes-atendimento-02-abrir-um-atendimento-ativo-pelo-telefone.ivr">.ivr</a></td></tr>
+<tr><td>Atendimento, fila e bloqueios</td><td>Fila de espera com agente preferencial travado</td><td class="s10">message, addToWaitingList, userAvailable, varCondition, removeFromWaitingList, lock, transfer, terminate</td><td><a href="automacoes/automacoes-atendimento-03-fila-de-espera-com-agente-preferencial-travado.ivr">.ivr</a></td></tr>
+<tr><td>Atendimento, fila e bloqueios</td><td>Blindar o atendimento durante a coleta de dados</td><td class="s10">message, blockChatManualEnd, blockChatManualTransfer, showSnackNotification, question, unblockChatManualEnd, unblockChatManualTransfer, terminate</td><td><a href="automacoes/automacoes-atendimento-04-blindar-o-atendimento-durante-a-coleta-de-dados.ivr">.ivr</a></td></tr>
+<tr><td>Atendimento, fila e bloqueios</td><td>Abrir atendimento em fila oficial com template</td><td class="s10">message, openChatCloud, terminate</td><td><a href="automacoes/automacoes-atendimento-05-abrir-atendimento-em-fila-oficial-com-template.ivr">.ivr</a></td></tr>
+<tr><td>Atendimento, fila e bloqueios</td><td>Alerta de fila acima do limite para a supervisao</td><td class="s10">queueChats, varCondition, sendAlert, sendNotification, terminate</td><td><a href="automacoes/automacoes-atendimento-06-alerta-de-fila-acima-do-limite-para-a-supervisao.ivr">.ivr</a></td></tr>
+<tr><td>Contatos e dados persistentes</td><td>Identificar o cliente pelo CPF: atualizar ou cadastrar</td><td class="s10">question, searchContact, varCondition, editContact, addContact, message, terminate</td><td><a href="automacoes/automacoes-contatos-dados-01-identificar-o-cliente-pelo-cpf-atualizar-ou-cadastrar.ivr">.ivr</a></td></tr>
+<tr><td>Contatos e dados persistentes</td><td>Reconhecer quem esta falando pelo telefone</td><td class="s10">searchContact, varCondition, addContact, message, terminate</td><td><a href="automacoes/automacoes-contatos-dados-02-reconhecer-quem-esta-falando-pelo-telefone.ivr">.ivr</a></td></tr>
+<tr><td>Contatos e dados persistentes</td><td>Enriquecer o cadastro com endereco e etiquetas</td><td class="s10">searchContact, question, editContact, message, terminate</td><td><a href="automacoes/automacoes-contatos-dados-03-enriquecer-o-cadastro-com-endereco-e-etiquetas.ivr">.ivr</a></td></tr>
+<tr><td>Contatos e dados persistentes</td><td>Preferencia que sobrevive de um atendimento para o outro</td><td class="s10">searchPersistent, varCondition, addPersistent, question, message, transfer, terminate</td><td><a href="automacoes/automacoes-contatos-dados-04-preferencia-que-sobrevive-de-um-atendimento-para-o-outro.ivr">.ivr</a></td></tr>
+<tr><td>Contatos e dados persistentes</td><td>Descadastro de campanhas com limpeza da memoria</td><td class="s10">searchPersistent, varCondition, removePersistent, addPersistent, message, terminate</td><td><a href="automacoes/automacoes-contatos-dados-05-descadastro-de-campanhas-com-limpeza-da-memoria.ivr">.ivr</a></td></tr>
+<tr><td>CRM, oportunidade e carrinho</td><td>Detectar interesse, criar oportunidade e mover no funil</td><td class="s10">options, question, addOpportunity, moveOpportunity, message, terminate</td><td><a href="automacoes/automacoes-crm-carrinho-01-detectar-interesse-criar-oportunidade-e-mover-no-funil.ivr">.ivr</a></td></tr>
+<tr><td>CRM, oportunidade e carrinho</td><td>Montar o carrinho e enviar o botao para conferencia</td><td class="s10">addOrEditProductToOpportunity, message, sendCartButton, terminate</td><td><a href="automacoes/automacoes-crm-carrinho-02-montar-o-carrinho-e-enviar-o-botao-para-conferencia.ivr">.ivr</a></td></tr>
+<tr><td>CRM, oportunidade e carrinho</td><td>Bloquear o carrinho na conferencia e liberar depois</td><td class="s10">message, lockOpportunityCart, varCondition, question, unlockOpportunityCart, terminate</td><td><a href="automacoes/automacoes-crm-carrinho-03-bloquear-o-carrinho-na-conferencia-e-liberar-depois.ivr">.ivr</a></td></tr>
+<tr><td>CRM, oportunidade e carrinho</td><td>Fechar a venda como ganha e reabrir em caso de arrependimento</td><td class="s10">searchOpportunity, options, winOpportunity, loseOpportunity, reopenOpportunity, message, terminate</td><td><a href="automacoes/automacoes-crm-carrinho-04-fechar-a-venda-como-ganha-e-reabrir-em-caso-de-arrependiment.ivr">.ivr</a></td></tr>
+<tr><td>CRM, oportunidade e carrinho</td><td>Sincronizar o carrinho inteiro a partir de um JSON de ERP</td><td class="s10">request, varCondition, replaceOpportunityCart, editOpportunity, message, terminate</td><td><a href="automacoes/automacoes-crm-carrinho-05-sincronizar-o-carrinho-inteiro-a-partir-de-um-json-de-erp.ivr">.ivr</a></td></tr>
+<tr><td>CRM, oportunidade e carrinho</td><td>Baixa e devolucao de estoque ligadas ao pedido</td><td class="s10">request, varCondition, message, options, removeProductFromOpportunity, addOrEditProductToOpportunity, clearProductListOfOpportunity, terminate</td><td><a href="automacoes/automacoes-crm-carrinho-06-baixa-e-devolucao-de-estoque-ligadas-ao-pedido.ivr">.ivr</a></td></tr>
+<tr><td>CRM, oportunidade e carrinho</td><td>Congelar, anexar contrato, limpar tarefas e transferir a oportunidade</td><td class="s10">freezeOpportunity, message, cloneOpportunity, clearOpportunityTasks, insertFileOpportunity, transferOpportunity, unfreezeOpportunity, terminate</td><td><a href="automacoes/automacoes-crm-carrinho-07-congelar-anexar-contrato-limpar-tarefas-e-transferir-a-oport.ivr">.ivr</a></td></tr>
+<tr><td>CRM, oportunidade e carrinho</td><td>Guardas do funil: cancelar movimentacao e ganho indevidos</td><td class="s10">varCondition, cancelOpportunityMove, cancelOpportunityWin, message, terminate</td><td><a href="automacoes/automacoes-crm-carrinho-08-guardas-do-funil-cancelar-movimentacao-e-ganho-indevidos.ivr">.ivr</a></td></tr>
+<tr><td>Catálogo, pedidos e estoque</td><td>Vitrine em carrossel e consulta de produto por codigo interno</td><td class="s10">options, sendProductMessage, getProductDetails, question, varCondition, message, terminate</td><td><a href="automacoes/automacoes-catalogo-pedidos-01-vitrine-em-carrossel-e-consulta-de-produto-por-codigo-intern.ivr">.ivr</a></td></tr>
+<tr><td>Catálogo, pedidos e estoque</td><td>Enviar pedido com Pix e atualizar o status</td><td class="s10">question, sendOrder, updateOrderStatus, message, terminate</td><td><a href="automacoes/automacoes-catalogo-pedidos-02-enviar-pedido-com-pix-e-atualizar-o-status.ivr">.ivr</a></td></tr>
+<tr><td>Catálogo, pedidos e estoque</td><td>Baixa de estoque ao fechar o pedido da oportunidade</td><td class="s10">message, decrementProductStock, varCondition, updateOrderStatus, terminate</td><td><a href="automacoes/automacoes-catalogo-pedidos-03-baixa-de-estoque-ao-fechar-o-pedido-da-oportunidade.ivr">.ivr</a></td></tr>
+<tr><td>Catálogo, pedidos e estoque</td><td>Devolucao ao estoque em cancelamento de item avulso</td><td class="s10">question, getProductDetails, incrementProductStock, updateOrderStatus, message, terminate</td><td><a href="automacoes/automacoes-catalogo-pedidos-04-devolucao-ao-estoque-em-cancelamento-de-item-avulso.ivr">.ivr</a></td></tr>
+<tr><td>Tickets (mesa de ajuda)</td><td>Abertura automatica de ticket pelo chat com vinculo do contato</td><td class="s10">message, question, addTicket, linkContactTicket, addTagTicket, assignTicket, terminate</td><td><a href="automacoes/automacoes-tickets-01-abertura-automatica-de-ticket-pelo-chat-com-vinculo-do-conta.ivr">.ivr</a></td></tr>
+<tr><td>Tickets (mesa de ajuda)</td><td>Escalonamento por SLA com prioridade, status e comentario interno</td><td class="s10">searchTicket, varCondition, editTicket, changeStatusTicket, addCommentTicket, escalateTicket, assignTicket, addTicket, message, terminate</td><td><a href="automacoes/automacoes-tickets-02-escalonamento-por-sla-com-prioridade-status-e-comentario-int.ivr">.ivr</a></td></tr>
+<tr><td>Tickets (mesa de ajuda)</td><td>Resolucao com comentario externo disparando evento</td><td class="s10">searchTicket, varCondition, addCommentTicket, resolveTicket, message, terminate</td><td><a href="automacoes/automacoes-tickets-03-resolucao-com-comentario-externo-disparando-evento.ivr">.ivr</a></td></tr>
+<tr><td>Tickets (mesa de ajuda)</td><td>Aguardar cliente, reabrir e corrigir vinculo do ticket</td><td class="s10">contactClientTicket, reopenTicket, changeStageTicket, changeStatusTicket, unlinkContactTicket, message, terminate</td><td><a href="automacoes/automacoes-tickets-04-aguardar-cliente-reabrir-e-corrigir-vinculo-do-ticket.ivr">.ivr</a></td></tr>
+<tr><td>IA e assistentes</td><td>Entregar o atendimento ao assistente de IA</td><td class="s10">message, aiAssistant, terminate</td><td><a href="automacoes/automacoes-ia-assistentes-01-entregar-o-atendimento-ao-assistente-de-ia.ivr">.ivr</a></td></tr>
+<tr><td>IA e assistentes</td><td>Assistente de IA devolve o atendimento ao humano</td><td class="s10">aiAssistant, aiStopAssistant, aiStopMessage, message, transfer</td><td><a href="automacoes/automacoes-ia-assistentes-02-assistente-de-ia-devolve-o-atendimento-ao-humano.ivr">.ivr</a></td></tr>
+<tr><td>IA e assistentes</td><td>Solicitacao unica a um assistente especialista</td><td class="s10">aiAssistantSingleRequest, message, terminate</td><td><a href="automacoes/automacoes-ia-assistentes-03-solicitacao-unica-a-um-assistente-especialista.ivr">.ivr</a></td></tr>
+<tr><td>IA e assistentes</td><td>Adicionar contexto e provocar o assistente</td><td class="s10">aiAddContextToAssistant, aiProvokeAssistant</td><td><a href="automacoes/automacoes-ia-assistentes-04-adicionar-contexto-e-provocar-o-assistente.ivr">.ivr</a></td></tr>
+<tr><td>IA e assistentes</td><td>Ler o documento ou a imagem do cliente com IA</td><td class="s10">aiProcessFile, varCondition, message, terminate</td><td><a href="automacoes/automacoes-ia-assistentes-05-ler-o-documento-ou-a-imagem-do-cliente-com-ia.ivr">.ivr</a></td></tr>
+<tr><td>IA e assistentes</td><td>Fechamento: audio com IA, documento e auditoria</td><td class="s10">aiTts, message, generateDocumentFromTemplate, aiDefineAssistantResult, pmScreenshot, pmVideoCapture, terminate</td><td><a href="automacoes/automacoes-ia-assistentes-06-fechamento-audio-com-ia-documento-e-auditoria.ivr">.ivr</a></td></tr>
+<tr><td>Telefonia (URA telefônica)</td><td>Menu de voz com audio e leitura do teclado (URA telefonica)</td><td class="s10">callPlayAudio, callWaitClientReply, varCondition, callTransfer, callTerminate</td><td><a href="automacoes/automacoes-telefonia-01-menu-de-voz-com-audio-e-leitura-do-teclado-ura-telefonica.ivr">.ivr</a></td></tr>
+<tr><td>Telefonia (URA telefônica)</td><td>Desviar conforme a tecla e enviar DTMF ao PABX de destino (URA telefonica)</td><td class="s10">callPlayAudio, callWaitClientReply, sentDTMF, callTransfer, callTerminate</td><td><a href="automacoes/automacoes-telefonia-02-desviar-conforme-a-tecla-e-enviar-dtmf-ao-pabx-de-destino-ur.ivr">.ivr</a></td></tr>
+<tr><td>Telefonia (URA telefônica)</td><td>Encerrar a chamada com hangup (URA telefonica)</td><td class="s10">callPlayAudio, callTerminate</td><td><a href="automacoes/automacoes-telefonia-03-encerrar-a-chamada-com-hangup-ura-telefonica.ivr">.ivr</a></td></tr>
+<tr><td>Pesquisas, formulários e WebChat</td><td>Pesquisa de satisfacao na despedida do atendimento</td><td class="s10">sendSurveyFormMessage, message, terminate</td><td><a href="automacoes/automacoes-pesquisas-webchat-01-pesquisa-de-satisfacao-na-despedida-do-atendimento.ivr">.ivr</a></td></tr>
+<tr><td>Pesquisas, formulários e WebChat</td><td>Link publico de pesquisa, submissao e perguntas ocultas</td><td class="s10">generateSurveyFormLink, submitSurveyFormResponse, editSurveyFormResponse, message, terminate</td><td><a href="automacoes/automacoes-pesquisas-webchat-02-link-publico-de-pesquisa-submissao-e-perguntas-ocultas.ivr">.ivr</a></td></tr>
+<tr><td>Pesquisas, formulários e WebChat</td><td>Formulario personalizado e fluxo de formularios multi-etapas</td><td class="s10">sendForm, sendFormFlow, showForm, showFormSync, message, terminate</td><td><a href="automacoes/automacoes-pesquisas-webchat-03-formulario-personalizado-e-fluxo-de-formularios-multi-etapas.ivr">.ivr</a></td></tr>
+<tr><td>Pesquisas, formulários e WebChat</td><td>Cartao de informacao exibido e depois removido</td><td class="s10">addInformationCard, sendInformationCard, addInformationCardToMessage, removeInformationCardFromMessage, removeInformationCard, showInformationDialog, </td><td><a href="automacoes/automacoes-pesquisas-webchat-04-cartao-de-informacao-exibido-e-depois-removido.ivr">.ivr</a></td></tr>
+<tr><td>Pesquisas, formulários e WebChat</td><td>WebChat V2: notificacoes push, migracao e confirmacao do atendente</td><td class="s10">requestPushPermission, generateWebchatMigrationLink, showConfirmationDialogSync, message, terminate</td><td><a href="automacoes/automacoes-pesquisas-webchat-05-webchat-v2-notificacoes-push-migracao-e-confirmacao-do-atend.ivr">.ivr</a></td></tr>
+<tr><td>Integrações, webhooks e extensões</td><td>Consultar uma API externa, decidir pelo status e avisar a extensao</td><td class="s10">request, varCondition, publishToExtension, message, terminate</td><td><a href="automacoes/automacoes-integracoes-01-consultar-uma-api-externa-decidir-pelo-status-e-avisar-a-ext.ivr">.ivr</a></td></tr>
+<tr><td>Integrações, webhooks e extensões</td><td>Responder a um webhook com JSON e gerar QR Code de um link</td><td class="s10">webhookReply, generateQrCode, message, terminate</td><td><a href="automacoes/automacoes-integracoes-02-responder-a-um-webhook-com-json-e-gerar-qr-code-de-um-link.ivr">.ivr</a></td></tr>
+<tr><td>Tarefas, instâncias e administração</td><td>Tarefa de acompanhamento ao final do atendimento e alerta a supervisao</td><td class="s10">createTask, message, terminate</td><td><a href="automacoes/automacoes-admin-01-tarefa-de-acompanhamento-ao-final-do-atendimento-e-alerta-a-.ivr">.ivr</a></td></tr>
+<tr><td>Tarefas, instâncias e administração</td><td>Concluir a tarefa de acompanhamento</td><td class="s10">markTaskAsDone, message, terminate</td><td><a href="automacoes/automacoes-admin-02-concluir-a-tarefa-de-acompanhamento.ivr">.ivr</a></td></tr>
+<tr><td>Tarefas, instâncias e administração</td><td>Provisionar instancia de um cliente (somente instancia de revenda)</td><td class="s10">createInstance, updateInstance, editInstanceContactDetails, message, terminate</td><td><a href="automacoes/automacoes-admin-03-provisionar-instancia-de-um-cliente-somente-instancia-de-rev.ivr">.ivr</a></td></tr>
+<tr><td>Tarefas, instâncias e administração</td><td>Manutencao de instancias (somente instancia de revenda)</td><td class="s10">searchInstance, blockInstance, restartInstance, restartInstanceContainer, unblockInstance, markInstanceForExclusion, reactivateInstance, terminate</td><td><a href="automacoes/automacoes-admin-04-manutencao-de-instancias-somente-instancia-de-revenda.ivr">.ivr</a></td></tr>
 </tbody></table></div>
 <h2 id="ex-automacoes-mensagens">Mensagens e conteúdo</h2>
 <p class="s10">5 exemplo(s) · <a href="automacoes-mensagens.html">ver as fichas dos elementos deste grupo</a></p>
@@ -326,7 +337,7 @@ menu_principal: options text="Escolha uma opção para eu te ajudar mais rápido
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente vê a saudação, toca em uma opção e recebe a confirmação (com o link do boleto ou o pedido de CPF validado); cada caminho encerra o atendimento com um motivo registrado.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-mensagens-01-boas-vindas-menu-principal-e-consulta-com-validacao-de-cpf.txt"><code>automacoes-mensagens-01-boas-vindas-menu-principal-e-consulta-com-validacao-de-cpf.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-mensagens-01-boas-vindas-menu-principal-e-consulta-com-validacao-de-cpf.ivr"><code>automacoes-mensagens-01-boas-vindas-menu-principal-e-consulta-com-validacao-de-cpf.ivr</code></a></p>
 <h3 id="exemplo-automacoes-mensagens-2">2. Pesquisa de satisfação com a nota protegida <span class="badge">compilado</span></h3>
 <p>Colher a nota do cliente no fim do atendimento e esconder a resposta dele dos atendentes comuns, deixando-a visível só para supervisores.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>message</code> · <code>question</code> · <code>changeMessageVisualGroup</code> · <code>info</code> · <code>terminate</code></p>
@@ -344,7 +355,7 @@ nota_interna: info text="Nota informada pelo cliente: {{nota_atendimento}}. A me
 agradece_nota: message text="Obrigado pela avaliação, {{chat_client_name}}! Sua nota {{nota_atendimento}} foi registrada e vai nos ajudar a melhorar."
 fim_pesquisa: terminate reason="Pesquisa de satisfação respondida"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente responde uma única pergunta e recebe o agradecimento; o atendente comum não vê a nota na conversa, mas o supervisor e o administrador continuam vendo.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-mensagens-02-pesquisa-de-satisfacao-com-a-nota-protegida.txt"><code>automacoes-mensagens-02-pesquisa-de-satisfacao-com-a-nota-protegida.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-mensagens-02-pesquisa-de-satisfacao-com-a-nota-protegida.ivr"><code>automacoes-mensagens-02-pesquisa-de-satisfacao-com-a-nota-protegida.ivr</code></a></p>
 <h3 id="exemplo-automacoes-mensagens-3">3. Coleta de endereço com Whatsapp Flow e limpeza do dado sensível <span class="badge">compilado</span></h3>
 <p>Pedir o endereço de entrega em um formulário nativo do WhatsApp, usar a localização compartilhada como conferência e apagar o conteúdo do Flow logo depois.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>sendTemplate</code> · <code>waitMessage</code> · <code>requestLocation</code> · <code>sendFlow</code> · <code>clearFlowDataFromMessage</code> · <code>message</code> · <code>sendMail</code> · <code>terminate</code></p>
@@ -367,7 +378,7 @@ confirma_recebimento: message text="Prontinho, {{chat_client_name}}! Recebemos s
 confirma_por_email: sendMail mailQueueId="fila-email-transacional" modelId="modelo-endereco-confirmado" mails="{{chat_client_email}}"
 fim_endereco: terminate reason="Endereço coletado pelo Whatsapp Flow"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente preenche o endereço dentro do WhatsApp, recebe a confirmação no chat e o e-mail; os dados do formulário deixam de ficar guardados na conversa.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-mensagens-03-coleta-de-endereco-com-whatsapp-flow-e-limpeza-do-dado-sensi.txt"><code>automacoes-mensagens-03-coleta-de-endereco-com-whatsapp-flow-e-limpeza-do-dado-sensi.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-mensagens-03-coleta-de-endereco-com-whatsapp-flow-e-limpeza-do-dado-sensi.ivr"><code>automacoes-mensagens-03-coleta-de-endereco-com-whatsapp-flow-e-limpeza-do-dado-sensi.ivr</code></a></p>
 <h3 id="exemplo-automacoes-mensagens-4">4. Comentário no Instagram respondido e convertido em atendimento no direct <span class="badge">compilado</span></h3>
 <p>Responder o comentário na publicação, chamar o cliente no direct e oferecer um menu com o contato do consultor para quem quer falar de planos.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>replyComment</code> · <code>message</code> · <code>options</code> · <code>shareContact</code> · <code>info</code> · <code>terminate</code></p>
@@ -399,7 +410,7 @@ menu_direct: options text="Me diga sobre o que você quer falar:" type=0 errorRe
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> Quem comentou recebe uma resposta pública e é atendido no direct; quem quer falar de planos sai da conversa com o contato do consultor salvo no aparelho.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-mensagens-04-comentario-no-instagram-respondido-e-convertido-em-atendimen.txt"><code>automacoes-mensagens-04-comentario-no-instagram-respondido-e-convertido-em-atendimen.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-mensagens-04-comentario-no-instagram-respondido-e-convertido-em-atendimen.ivr"><code>automacoes-mensagens-04-comentario-no-instagram-respondido-e-convertido-em-atendimen.ivr</code></a></p>
 <h3 id="exemplo-automacoes-mensagens-5">5. Cancelar a mensagem programada fora do horário comercial <span class="badge">compilado</span></h3>
 <p>Impedir que uma mensagem programada chegue ao cliente fora do horário de funcionamento, cancelando o envio e deixando o registro para o próximo dia útil.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>cancelMessage</code> · <code>businesshoursCheck</code> · <code>info</code> · <code>marker</code> · <code>terminate</code></p>
@@ -421,7 +432,7 @@ libera_envio: info text="Dentro do horário de funcionamento: a mensagem program
 etiqueta_envio: marker markerId="etiqueta-envio-controlado"
 fim_liberado: terminate reason="Mensagem programada liberada"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente só recebe a mensagem em horário comercial; fora dele o envio é cancelado e fica registrado no atendimento com etiqueta e motivo do encerramento.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-mensagens-05-cancelar-a-mensagem-programada-fora-do-horario-comercial.txt"><code>automacoes-mensagens-05-cancelar-a-mensagem-programada-fora-do-horario-comercial.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-mensagens-05-cancelar-a-mensagem-programada-fora-do-horario-comercial.ivr"><code>automacoes-mensagens-05-cancelar-a-mensagem-programada-fora-do-horario-comercial.ivr</code></a></p>
 <h2 id="ex-automacoes-fluxo-logica">Fluxo, lógica e gatilhos</h2>
 <p class="s10">5 exemplo(s) · <a href="automacoes-fluxo-logica.html">ver as fichas dos elementos deste grupo</a></p>
 <h3 id="exemplo-automacoes-fluxo-logica-1">1. Triagem por horário de funcionamento com protocolo e rodízio de plantão <span class="badge">compilado</span></h3>
@@ -462,7 +473,7 @@ rodizio_plantao: timetable {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> Quem escreve dentro do horário ganha protocolo e etiqueta e vai para a fila ou para o plantão conforme o dia e a hora; quem escreve fora do horário recebe o aviso e o atendimento é encerrado com o motivo registrado.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-fluxo-logica-01-triagem-por-horario-de-funcionamento-com-protocolo-e-rodizio.txt"><code>automacoes-fluxo-logica-01-triagem-por-horario-de-funcionamento-com-protocolo-e-rodizio.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-fluxo-logica-01-triagem-por-horario-de-funcionamento-com-protocolo-e-rodizio.ivr"><code>automacoes-fluxo-logica-01-triagem-por-horario-de-funcionamento-com-protocolo-e-rodizio.ivr</code></a></p>
 <h3 id="exemplo-automacoes-fluxo-logica-2">2. Resumo do carrinho item a item com laço de repetição <span class="badge">compilado</span></h3>
 <p>Percorrer as linhas do carrinho sincronizado com um laço, enviando uma mensagem por item com uma pequena pausa entre elas, e fechar com o total.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>newVar</code> · <code>varCondition</code> · <code>jscode</code> · <code>loop</code> · <code>message</code> · <code>sleep</code> · <code>terminate</code></p>
@@ -495,7 +506,7 @@ confere_carrinho: varCondition value="{{chat_cart_items_count}}" {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente recebe uma lista organizada, com um item por mensagem e o total no fim; com o carrinho vazio, recebe o aviso e o atendimento encerra.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-fluxo-logica-02-resumo-do-carrinho-item-a-item-com-laco-de-repeticao.txt"><code>automacoes-fluxo-logica-02-resumo-do-carrinho-item-a-item-com-laco-de-repeticao.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-fluxo-logica-02-resumo-do-carrinho-item-a-item-com-laco-de-repeticao.ivr"><code>automacoes-fluxo-logica-02-resumo-do-carrinho-item-a-item-com-laco-de-repeticao.ivr</code></a></p>
 <h3 id="exemplo-automacoes-fluxo-logica-3">3. Orçamento com acompanhamento agendado e cancelamento <span class="badge">compilado</span></h3>
 <p>Perguntar quando o cliente quer receber o orçamento, agendar a execução de uma automação de retorno e cancelar esse agendamento se o cliente responder antes.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>options</code> · <code>message</code> · <code>scheduleAutomation</code> · <code>waitMessage</code> · <code>cancelSchedule</code> · <code>info</code> · <code>sleep</code> · <code>varCondition</code> · <code>transfer</code> · <code>terminate</code></p>
@@ -540,7 +551,7 @@ confere_carrinho: varCondition value="{{chat_cart_items_count}}" {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente escolhe quando quer o orçamento; ou o retorno automático fica agendado, ou é cancelado porque ele respondeu antes, e o atendimento encerra com o motivo certo.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-fluxo-logica-03-orcamento-com-acompanhamento-agendado-e-cancelamento.txt"><code>automacoes-fluxo-logica-03-orcamento-com-acompanhamento-agendado-e-cancelamento.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-fluxo-logica-03-orcamento-com-acompanhamento-agendado-e-cancelamento.ivr"><code>automacoes-fluxo-logica-03-orcamento-com-acompanhamento-agendado-e-cancelamento.ivr</code></a></p>
 <h3 id="exemplo-automacoes-fluxo-logica-4">4. Classificar o cliente com código, variáveis e gatilhos <span class="badge">compilado</span></h3>
 <p>Descobrir no início do atendimento se o cliente já é cadastrado, gravar a fila de destino em uma variável e usar gatilhos para que a automação pare de se repetir em quem já foi classificado.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>jscode</code> · <code>newVar</code> · <code>marker</code> · <code>protocol</code> · <code>message</code> · <code>varCondition</code> · <code>removeTrigger</code> · <code>setTriggers</code> · <code>execAutomation</code> · <code>removeAllTriggers</code> · <code>transfer</code> · <code>terminate</code></p>
@@ -582,7 +593,7 @@ decide_caminho: varCondition value="{{tipo_cliente}}" {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente cadastrado cai na fila certa com a etiqueta e o protocolo e sem a automação repetindo o trabalho; o cliente novo vai para a URA de cadastro; o resto é encerrado com o motivo registrado.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-fluxo-logica-04-classificar-o-cliente-com-codigo-variaveis-e-gatilhos.txt"><code>automacoes-fluxo-logica-04-classificar-o-cliente-com-codigo-variaveis-e-gatilhos.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-fluxo-logica-04-classificar-o-cliente-com-codigo-variaveis-e-gatilhos.ivr"><code>automacoes-fluxo-logica-04-classificar-o-cliente-com-codigo-variaveis-e-gatilhos.ivr</code></a></p>
 <h3 id="exemplo-automacoes-fluxo-logica-5">5. Retorno por ligação: oferta, confirmação e desfecho da chamada <span class="badge">compilado</span></h3>
 <p>Oferecer um retorno por telefone num fluxo por mensagem e tratar o que acontece depois da chamada (que é disparada pelo elemento de discagem e devolve o desfecho numa automação de fim de ligação).</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>startCall</code> · <code>question</code> · <code>varCondition</code> · <code>message</code> · <code>info</code> · <code>sleep</code> · <code>waitMessage</code> · <code>terminate</code></p>
@@ -613,7 +624,7 @@ decide_retorno: varCondition value="{{quer_ligacao | toUpperCase}}" {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente que aceita recebe a confirmação e tem o pedido de ligação registrado; quem prefere continuar escrevendo segue no chat. Nos dois casos o atendimento encerra com o motivo registrado.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-fluxo-logica-05-retorno-por-ligacao-oferta-confirmacao-e-desfecho-da-chamada.txt"><code>automacoes-fluxo-logica-05-retorno-por-ligacao-oferta-confirmacao-e-desfecho-da-chamada.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-fluxo-logica-05-retorno-por-ligacao-oferta-confirmacao-e-desfecho-da-chamada.ivr"><code>automacoes-fluxo-logica-05-retorno-por-ligacao-oferta-confirmacao-e-desfecho-da-chamada.ivr</code></a></p>
 <h2 id="ex-automacoes-atendimento">Atendimento, fila e bloqueios</h2>
 <p class="s10">6 exemplo(s) · <a href="automacoes-atendimento.html">ver as fichas dos elementos deste grupo</a></p>
 <h3 id="exemplo-automacoes-atendimento-1">1. Retomar o atendimento em aberto pelo protocolo <span class="badge">compilado</span></h3>
@@ -628,7 +639,7 @@ decide_retorno: varCondition value="{{quer_ligacao | toUpperCase}}" {
 aviso: message text="Encontrei seu atendimento de protocolo {{chat_protocol}}. Vou continuar do ponto onde paramos."
 volta_fila: transfer destinationType=0 -&gt; end</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente ve a mensagem de retomada e o atendimento volta para a fila para ser distribuido a um agente.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-atendimento-01-retomar-o-atendimento-em-aberto-pelo-protocolo.txt"><code>automacoes-atendimento-01-retomar-o-atendimento-em-aberto-pelo-protocolo.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-atendimento-01-retomar-o-atendimento-em-aberto-pelo-protocolo.ivr"><code>automacoes-atendimento-01-retomar-o-atendimento-em-aberto-pelo-protocolo.ivr</code></a></p>
 <h3 id="exemplo-automacoes-atendimento-2">2. Abrir um atendimento ativo pelo telefone <span class="badge">compilado</span></h3>
 <p>Criar um atendimento novo a partir do numero informado e deixar o cliente aguardando um agente dentro da propria fila do fluxo.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>message</code> · <code>openChat</code> · <code>terminate</code></p>
@@ -642,7 +653,7 @@ abre: openChat countryCode="BR" phoneNumber="{{chat_client_number}}"
 confirma: message text="Atendimento aberto. Protocolo {{chat_protocol}}, chat {{chat_id}}."
 fim: terminate reason="Atendimento aberto pelo fluxo" obs="Numero com canal ativo: atendimento criado e aguardando distribuicao."</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente recebe a confirmacao com protocolo e chat, e entra na fila do fluxo esperando um agente.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-atendimento-02-abrir-um-atendimento-ativo-pelo-telefone.txt"><code>automacoes-atendimento-02-abrir-um-atendimento-ativo-pelo-telefone.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-atendimento-02-abrir-um-atendimento-ativo-pelo-telefone.ivr"><code>automacoes-atendimento-02-abrir-um-atendimento-ativo-pelo-telefone.ivr</code></a></p>
 <h3 id="exemplo-automacoes-atendimento-3">3. Fila de espera com agente preferencial travado <span class="badge">compilado</span></h3>
 <p>Colocar o cliente na fila de espera, checar se o agente preferencial esta livre e, se estiver, travar o atendimento para ele.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>message</code> · <code>addToWaitingList</code> · <code>userAvailable</code> · <code>varCondition</code> · <code>removeFromWaitingList</code> · <code>lock</code> · <code>transfer</code> · <code>terminate</code></p>
@@ -672,7 +683,7 @@ decide: varCondition value="{{agente}}" {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> Se o agente estiver livre, o cliente ve o nome de quem vai atender e o atendimento chega travado na mao dele; se nao, o cliente permanece na fila de espera.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-atendimento-03-fila-de-espera-com-agente-preferencial-travado.txt"><code>automacoes-atendimento-03-fila-de-espera-com-agente-preferencial-travado.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-atendimento-03-fila-de-espera-com-agente-preferencial-travado.ivr"><code>automacoes-atendimento-03-fila-de-espera-com-agente-preferencial-travado.ivr</code></a></p>
 <h3 id="exemplo-automacoes-atendimento-4">4. Blindar o atendimento durante a coleta de dados <span class="badge">compilado</span></h3>
 <p>Impedir que um agente encerre ou transfira o atendimento no meio de uma coleta de dado sensivel, avisando o agente na tela, e liberar tudo depois.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>message</code> · <code>blockChatManualEnd</code> · <code>blockChatManualTransfer</code> · <code>showSnackNotification</code> · <code>question</code> · <code>unblockChatManualEnd</code> · <code>unblockChatManualTransfer</code> · <code>terminate</code></p>
@@ -695,7 +706,7 @@ libera_fim: unblockChatManualEnd
 libera_transf: unblockChatManualTransfer
 fim: terminate reason="Coleta concluida" obs="Bloqueios de encerramento e transferencia removidos apos a coleta."</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> Durante a coleta o agente nao consegue encerrar nem transferir o atendimento e ve o aviso na tela; ao final tudo volta ao normal e o fluxo encerra.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-atendimento-04-blindar-o-atendimento-durante-a-coleta-de-dados.txt"><code>automacoes-atendimento-04-blindar-o-atendimento-durante-a-coleta-de-dados.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-atendimento-04-blindar-o-atendimento-durante-a-coleta-de-dados.ivr"><code>automacoes-atendimento-04-blindar-o-atendimento-durante-a-coleta-de-dados.ivr</code></a></p>
 <h3 id="exemplo-automacoes-atendimento-5">5. Abrir atendimento em fila oficial com template <span class="badge">compilado</span></h3>
 <p>Iniciar um atendimento em fila WA Cloud API enviando um template aprovado e seguir a conversa no atendimento aberto.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>message</code> · <code>openChatCloud</code> · <code>terminate</code></p>
@@ -709,7 +720,7 @@ abre_cloud: openChatCloud countryCode="BR" phoneNumber="{{chat_client_number}}" 
 confirma: message text="Atendimento {{chat_id}} iniciado na fila oficial. Ja vamos continuar por aqui."
 fim: terminate reason="Atendimento Cloud aberto" obs="Template enviado e atendimento aberto na fila oficial."</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente recebe o template no WhatsApp oficial e a conversa continua no atendimento {{chat_id}}, na fila oficial.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-atendimento-05-abrir-atendimento-em-fila-oficial-com-template.txt"><code>automacoes-atendimento-05-abrir-atendimento-em-fila-oficial-com-template.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-atendimento-05-abrir-atendimento-em-fila-oficial-com-template.ivr"><code>automacoes-atendimento-05-abrir-atendimento-em-fila-oficial-com-template.ivr</code></a></p>
 <h3 id="exemplo-automacoes-atendimento-6">6. Alerta de fila acima do limite para a supervisao <span class="badge">compilado</span></h3>
 <p>Ler quantos atendimentos estao aguardando agente numa fila e avisar a supervisao somente quando a fila passa do limite.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>queueChats</code> · <code>varCondition</code> · <code>sendAlert</code> · <code>sendNotification</code> · <code>terminate</code></p>
@@ -733,7 +744,7 @@ checa: varCondition {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> A supervisao recebe um alerta e uma notificacao apenas quando a fila passa de 5 aguardando; abaixo disso chega so um aviso informativo.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-atendimento-06-alerta-de-fila-acima-do-limite-para-a-supervisao.txt"><code>automacoes-atendimento-06-alerta-de-fila-acima-do-limite-para-a-supervisao.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-atendimento-06-alerta-de-fila-acima-do-limite-para-a-supervisao.ivr"><code>automacoes-atendimento-06-alerta-de-fila-acima-do-limite-para-a-supervisao.ivr</code></a></p>
 <h2 id="ex-automacoes-contatos-dados">Contatos e dados persistentes</h2>
 <p class="s10">5 exemplo(s) · <a href="automacoes-contatos-dados.html">ver as fichas dos elementos deste grupo</a></p>
 <h3 id="exemplo-automacoes-contatos-dados-1">1. Identificar o cliente pelo CPF: atualizar ou cadastrar <span class="badge">compilado</span></h3>
@@ -763,7 +774,7 @@ decide: varCondition value="{{contato}}" {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente e reconhecido pelo CPF (ou passa a existir na base) e o atendimento segue com o contato associado.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-contatos-dados-01-identificar-o-cliente-pelo-cpf-atualizar-ou-cadastrar.txt"><code>automacoes-contatos-dados-01-identificar-o-cliente-pelo-cpf-atualizar-ou-cadastrar.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-contatos-dados-01-identificar-o-cliente-pelo-cpf-atualizar-ou-cadastrar.ivr"><code>automacoes-contatos-dados-01-identificar-o-cliente-pelo-cpf-atualizar-ou-cadastrar.ivr</code></a></p>
 <h3 id="exemplo-automacoes-contatos-dados-2">2. Reconhecer quem esta falando pelo telefone <span class="badge">compilado</span></h3>
 <p>Descobrir se o numero que esta na conversa ja e um contato conhecido e, se nao for, registrar na hora.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>searchContact</code> · <code>varCondition</code> · <code>addContact</code> · <code>message</code> · <code>terminate</code></p>
@@ -787,7 +798,7 @@ decide: varCondition value="{{cliente}}" {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O atendimento fica associado a um contato conhecido ou a um contato recem-criado, e o cliente ve esse resultado na conversa.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-contatos-dados-02-reconhecer-quem-esta-falando-pelo-telefone.txt"><code>automacoes-contatos-dados-02-reconhecer-quem-esta-falando-pelo-telefone.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-contatos-dados-02-reconhecer-quem-esta-falando-pelo-telefone.ivr"><code>automacoes-contatos-dados-02-reconhecer-quem-esta-falando-pelo-telefone.ivr</code></a></p>
 <h3 id="exemplo-automacoes-contatos-dados-3">3. Enriquecer o cadastro com endereco e etiquetas <span class="badge">compilado</span></h3>
 <p>Aproveitar a conversa para completar o endereco de entrega do contato e marcar etiquetas de classificacao.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>searchContact</code> · <code>question</code> · <code>editContact</code> · <code>message</code> · <code>terminate</code></p>
@@ -806,7 +817,7 @@ grava: editContact id="{{cliente}}" contact.postalcode.enabled=1 contact.postalc
 confirma: message text="Endereco atualizado: {{endereco_entrega}}, CEP {{cep_entrega}}, {{cidade_entrega}}."
 fim: terminate reason="Endereco atualizado" obs="Cadastro enriquecido com endereco e etiquetas."</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O contato passa a ter endereco completo e as etiquetas de classificacao gravadas, e o cliente ouve a confirmacao do que foi salvo.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-contatos-dados-03-enriquecer-o-cadastro-com-endereco-e-etiquetas.txt"><code>automacoes-contatos-dados-03-enriquecer-o-cadastro-com-endereco-e-etiquetas.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-contatos-dados-03-enriquecer-o-cadastro-com-endereco-e-etiquetas.ivr"><code>automacoes-contatos-dados-03-enriquecer-o-cadastro-com-endereco-e-etiquetas.ivr</code></a></p>
 <h3 id="exemplo-automacoes-contatos-dados-4">4. Preferencia que sobrevive de um atendimento para o outro <span class="badge">compilado</span></h3>
 <p>Lembrar o periodo de atendimento preferido do cliente gravando um valor persistente que qualquer atendimento, em qualquer fila, pode ler.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>searchPersistent</code> · <code>varCondition</code> · <code>addPersistent</code> · <code>question</code> · <code>message</code> · <code>transfer</code> · <code>terminate</code></p>
@@ -832,7 +843,7 @@ decide: varCondition value="{{preferencia}}" {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> Na primeira vez a preferencia e perguntada e gravada; nas vezes seguintes o fluxo se lembra e ja encaminha o cliente sem perguntar de novo.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-contatos-dados-04-preferencia-que-sobrevive-de-um-atendimento-para-o-outro.txt"><code>automacoes-contatos-dados-04-preferencia-que-sobrevive-de-um-atendimento-para-o-outro.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-contatos-dados-04-preferencia-que-sobrevive-de-um-atendimento-para-o-outro.ivr"><code>automacoes-contatos-dados-04-preferencia-que-sobrevive-de-um-atendimento-para-o-outro.ivr</code></a></p>
 <h3 id="exemplo-automacoes-contatos-dados-5">5. Descadastro de campanhas com limpeza da memoria <span class="badge">compilado</span></h3>
 <p>Atender o pedido de sair das campanhas: remover a marca de opt-in, registrar o opt-out e confirmar para o cliente.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>searchPersistent</code> · <code>varCondition</code> · <code>removePersistent</code> · <code>addPersistent</code> · <code>message</code> · <code>terminate</code></p>
@@ -858,7 +869,7 @@ decide: varCondition value="{{opt_in}}" {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente inscrito sai das campanhas, a decisao fica registrada em uma chave persistente de opt-out e ele recebe a confirmacao.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-contatos-dados-05-descadastro-de-campanhas-com-limpeza-da-memoria.txt"><code>automacoes-contatos-dados-05-descadastro-de-campanhas-com-limpeza-da-memoria.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-contatos-dados-05-descadastro-de-campanhas-com-limpeza-da-memoria.ivr"><code>automacoes-contatos-dados-05-descadastro-de-campanhas-com-limpeza-da-memoria.ivr</code></a></p>
 <h2 id="ex-automacoes-crm-carrinho">CRM, oportunidade e carrinho</h2>
 <p class="s10">8 exemplo(s) · <a href="automacoes-crm-carrinho.html">ver as fichas dos elementos deste grupo</a></p>
 <h3 id="exemplo-automacoes-crm-carrinho-1">1. Detectar interesse, criar oportunidade e mover no funil <span class="badge">compilado</span></h3>
@@ -890,7 +901,7 @@ decide: varCondition value="{{opt_in}}" {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente ve a confirmacao do interesse e o time encontra a oportunidade ja criada na etapa de negociacao do funil.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-crm-carrinho-01-detectar-interesse-criar-oportunidade-e-mover-no-funil.txt"><code>automacoes-crm-carrinho-01-detectar-interesse-criar-oportunidade-e-mover-no-funil.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-crm-carrinho-01-detectar-interesse-criar-oportunidade-e-mover-no-funil.ivr"><code>automacoes-crm-carrinho-01-detectar-interesse-criar-oportunidade-e-mover-no-funil.ivr</code></a></p>
 <h3 id="exemplo-automacoes-crm-carrinho-2">2. Montar o carrinho e enviar o botao para conferencia <span class="badge">compilado</span></h3>
 <p>Lanca os produtos que o cliente pediu no carrinho do atendimento e entrega a ele o botao que abre o carrinho para conferir.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>addOrEditProductToOpportunity</code> · <code>message</code> · <code>sendCartButton</code> · <code>terminate</code></p>
@@ -907,7 +918,7 @@ resumo: message text="Seu carrinho esta em {{chat_cart_total}} com {{chat_cart_i
 botao: sendCartButton bodyText="Confira os itens e o frete antes de finalizar." buttonText="Abrir meu carrinho"
 fim: terminate</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente recebe o resumo do total e o botao Abrir meu carrinho para revisar o pedido antes de finalizar.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-crm-carrinho-02-montar-o-carrinho-e-enviar-o-botao-para-conferencia.txt"><code>automacoes-crm-carrinho-02-montar-o-carrinho-e-enviar-o-botao-para-conferencia.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-crm-carrinho-02-montar-o-carrinho-e-enviar-o-botao-para-conferencia.ivr"><code>automacoes-crm-carrinho-02-montar-o-carrinho-e-enviar-o-botao-para-conferencia.ivr</code></a></p>
 <h3 id="exemplo-automacoes-crm-carrinho-3">3. Bloquear o carrinho na conferencia e liberar depois <span class="badge">compilado</span></h3>
 <p>Trava o carrinho de um pedido em conferencia para ninguem alterar itens ou frete e o libera quando a conferencia termina.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>message</code> · <code>lockOpportunityCart</code> · <code>varCondition</code> · <code>question</code> · <code>unlockOpportunityCart</code> · <code>terminate</code></p>
@@ -935,7 +946,7 @@ checa: varCondition value="{{opportunity_cart_locked}}" {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> Enquanto a conferencia dura, ninguem edita o carrinho; ao terminar, o carrinho volta editavel e o pedido pode ser ajustado. Em fila WebChat V2 com carrinho sincronizado, bloqueie sempre depois do fechamento do pedido.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-crm-carrinho-03-bloquear-o-carrinho-na-conferencia-e-liberar-depois.txt"><code>automacoes-crm-carrinho-03-bloquear-o-carrinho-na-conferencia-e-liberar-depois.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-crm-carrinho-03-bloquear-o-carrinho-na-conferencia-e-liberar-depois.ivr"><code>automacoes-crm-carrinho-03-bloquear-o-carrinho-na-conferencia-e-liberar-depois.ivr</code></a></p>
 <h3 id="exemplo-automacoes-crm-carrinho-4">4. Fechar a venda como ganha e reabrir em caso de arrependimento <span class="badge">compilado</span></h3>
 <p>Recupera a oportunidade do cliente no CRM e, conforme o desfecho, marca ganha, marca perdida ou reabre o negocio.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>searchOpportunity</code> · <code>options</code> · <code>winOpportunity</code> · <code>loseOpportunity</code> · <code>reopenOpportunity</code> · <code>message</code> · <code>terminate</code></p>
@@ -970,7 +981,7 @@ menu: options text="Como esta o negocio {{opportunity_title}}?" type=0 {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O desfecho do negocio fica refletido no CRM: ganho, perdido ou de volta ao funil quando o cliente se arrepende. Nao aponte winOpportunity nem loseOpportunity para a oportunidade que serve de carrinho do atendimento em fila com carrinho sincronizado.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-crm-carrinho-04-fechar-a-venda-como-ganha-e-reabrir-em-caso-de-arrependiment.txt"><code>automacoes-crm-carrinho-04-fechar-a-venda-como-ganha-e-reabrir-em-caso-de-arrependiment.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-crm-carrinho-04-fechar-a-venda-como-ganha-e-reabrir-em-caso-de-arrependiment.ivr"><code>automacoes-crm-carrinho-04-fechar-a-venda-como-ganha-e-reabrir-em-caso-de-arrependiment.ivr</code></a></p>
 <h3 id="exemplo-automacoes-crm-carrinho-5">5. Sincronizar o carrinho inteiro a partir de um JSON de ERP <span class="badge">compilado</span></h3>
 <p>Le a resposta de um ERP e reescreve de uma vez toda a lista de itens do carrinho, ajustando total e frete.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>request</code> · <code>varCondition</code> · <code>replaceOpportunityCart</code> · <code>editOpportunity</code> · <code>message</code> · <code>terminate</code></p>
@@ -996,7 +1007,7 @@ checa: varCondition {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O carrinho passa a refletir exatamente o pedido do ERP; se a consulta falha, o cliente segue com o carrinho que ja tinha.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-crm-carrinho-05-sincronizar-o-carrinho-inteiro-a-partir-de-um-json-de-erp.txt"><code>automacoes-crm-carrinho-05-sincronizar-o-carrinho-inteiro-a-partir-de-um-json-de-erp.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-crm-carrinho-05-sincronizar-o-carrinho-inteiro-a-partir-de-um-json-de-erp.ivr"><code>automacoes-crm-carrinho-05-sincronizar-o-carrinho-inteiro-a-partir-de-um-json-de-erp.ivr</code></a></p>
 <h3 id="exemplo-automacoes-crm-carrinho-6">6. Baixa e devolucao de estoque ligadas ao pedido <span class="badge">compilado</span></h3>
 <p>Da baixa de estoque no ERP quando o pedido e confirmado e trata devolucao parcial ou total ajustando o carrinho.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>request</code> · <code>varCondition</code> · <code>message</code> · <code>options</code> · <code>removeProductFromOpportunity</code> · <code>addOrEditProductToOpportunity</code> · <code>clearProductListOfOpportunity</code> · <code>terminate</code></p>
@@ -1038,7 +1049,7 @@ checa: varCondition {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O estoque e baixado no ERP junto do pedido e cada devolucao ajusta o carrinho: parcial troca o item, total esvazia o pedido.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-crm-carrinho-06-baixa-e-devolucao-de-estoque-ligadas-ao-pedido.txt"><code>automacoes-crm-carrinho-06-baixa-e-devolucao-de-estoque-ligadas-ao-pedido.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-crm-carrinho-06-baixa-e-devolucao-de-estoque-ligadas-ao-pedido.ivr"><code>automacoes-crm-carrinho-06-baixa-e-devolucao-de-estoque-ligadas-ao-pedido.ivr</code></a></p>
 <h3 id="exemplo-automacoes-crm-carrinho-7">7. Congelar, anexar contrato, limpar tarefas e transferir a oportunidade <span class="badge">compilado</span></h3>
 <p>Faz a manutencao de uma oportunidade parada: esconde do time, clona para renovacao, limpa tarefas, anexa o contrato e troca o responsavel.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>freezeOpportunity</code> · <code>message</code> · <code>cloneOpportunity</code> · <code>clearOpportunityTasks</code> · <code>insertFileOpportunity</code> · <code>transferOpportunity</code> · <code>unfreezeOpportunity</code> · <code>terminate</code></p>
@@ -1061,7 +1072,7 @@ volta: unfreezeOpportunity opportunityId="{{opportunity_id}}"
 fim: message text="Oportunidade de volta ao funil, com novo responsavel e sem as tarefas antigas."
 fimf: terminate</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> A oportunidade volta ao funil com novo responsavel, contrato anexado e sem as tarefas antigas; a copia de renovacao fica criada.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-crm-carrinho-07-congelar-anexar-contrato-limpar-tarefas-e-transferir-a-oport.txt"><code>automacoes-crm-carrinho-07-congelar-anexar-contrato-limpar-tarefas-e-transferir-a-oport.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-crm-carrinho-07-congelar-anexar-contrato-limpar-tarefas-e-transferir-a-oport.ivr"><code>automacoes-crm-carrinho-07-congelar-anexar-contrato-limpar-tarefas-e-transferir-a-oport.ivr</code></a></p>
 <h3 id="exemplo-automacoes-crm-carrinho-8">8. Guardas do funil: cancelar movimentacao e ganho indevidos <span class="badge">compilado</span></h3>
 <p>Em automacoes disparadas por mudanca de etapa ou por ganho, cancela o movimento ou o ganho quando a regra de negocio nao e atendida.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>varCondition</code> · <code>cancelOpportunityMove</code> · <code>cancelOpportunityWin</code> · <code>message</code> · <code>terminate</code></p>
@@ -1085,7 +1096,7 @@ fimf: terminate</pre></div>
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O time recebe o aviso de que a movimentacao ou o ganho foram cancelados e a oportunidade continua onde estava. Na pratica, cada cancelador fica na automacao do seu proprio gatilho.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-crm-carrinho-08-guardas-do-funil-cancelar-movimentacao-e-ganho-indevidos.txt"><code>automacoes-crm-carrinho-08-guardas-do-funil-cancelar-movimentacao-e-ganho-indevidos.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-crm-carrinho-08-guardas-do-funil-cancelar-movimentacao-e-ganho-indevidos.ivr"><code>automacoes-crm-carrinho-08-guardas-do-funil-cancelar-movimentacao-e-ganho-indevidos.ivr</code></a></p>
 <h2 id="ex-automacoes-catalogo-pedidos">Catálogo, pedidos e estoque</h2>
 <p class="s10">4 exemplo(s) · <a href="automacoes-catalogo-pedidos.html">ver as fichas dos elementos deste grupo</a></p>
 <h3 id="exemplo-automacoes-catalogo-pedidos-1">1. Vitrine em carrossel e consulta de produto por codigo interno <span class="badge">compilado</span></h3>
@@ -1126,7 +1137,7 @@ fimf: terminate</pre></div>
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente ve a vitrine no chat e, informando o codigo, recebe na hora nome, preco e estoque do produto.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-catalogo-pedidos-01-vitrine-em-carrossel-e-consulta-de-produto-por-codigo-intern.txt"><code>automacoes-catalogo-pedidos-01-vitrine-em-carrossel-e-consulta-de-produto-por-codigo-intern.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-catalogo-pedidos-01-vitrine-em-carrossel-e-consulta-de-produto-por-codigo-intern.ivr"><code>automacoes-catalogo-pedidos-01-vitrine-em-carrossel-e-consulta-de-produto-por-codigo-intern.ivr</code></a></p>
 <h3 id="exemplo-automacoes-catalogo-pedidos-2">2. Enviar pedido com Pix e atualizar o status <span class="badge">compilado</span></h3>
 <p>Montar o pedido a partir do codigo e da quantidade, enviar com pagamento Pix e comunicar o processamento.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>question</code> · <code>sendOrder</code> · <code>updateOrderStatus</code> · <code>message</code> · <code>terminate</code></p>
@@ -1145,7 +1156,7 @@ em_processamento: updateOrderStatus orderId="PEDIDO-{{chat_protocol}}" status="p
 avisa: message text="Assim que o pagamento for confirmado, enviaremos a confirmacao de envio."
 fim: terminate</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente recebe o cartao de pedido com o Pix, e a mesma mensagem passa a mostrar o pedido em processamento.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-catalogo-pedidos-02-enviar-pedido-com-pix-e-atualizar-o-status.txt"><code>automacoes-catalogo-pedidos-02-enviar-pedido-com-pix-e-atualizar-o-status.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-catalogo-pedidos-02-enviar-pedido-com-pix-e-atualizar-o-status.ivr"><code>automacoes-catalogo-pedidos-02-enviar-pedido-com-pix-e-atualizar-o-status.ivr</code></a></p>
 <h3 id="exemplo-automacoes-catalogo-pedidos-3">3. Baixa de estoque ao fechar o pedido da oportunidade <span class="badge">compilado</span></h3>
 <p>Ao converter, baixar do cadastro os itens vendidos no carrinho da oportunidade e tratar a falta de estoque.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>message</code> · <code>decrementProductStock</code> · <code>varCondition</code> · <code>updateOrderStatus</code> · <code>terminate</code></p>
@@ -1171,7 +1182,7 @@ checa_falta: varCondition value="{{baixa_estoque_shortfall}}" {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O estoque do cadastro cai conforme o que foi vendido, o pedido vira Concluido e a falta de estoque (se houver) e sinalizada.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-catalogo-pedidos-03-baixa-de-estoque-ao-fechar-o-pedido-da-oportunidade.txt"><code>automacoes-catalogo-pedidos-03-baixa-de-estoque-ao-fechar-o-pedido-da-oportunidade.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-catalogo-pedidos-03-baixa-de-estoque-ao-fechar-o-pedido-da-oportunidade.ivr"><code>automacoes-catalogo-pedidos-03-baixa-de-estoque-ao-fechar-o-pedido-da-oportunidade.ivr</code></a></p>
 <h3 id="exemplo-automacoes-catalogo-pedidos-4">4. Devolucao ao estoque em cancelamento de item avulso <span class="badge">compilado</span></h3>
 <p>Devolver ao cadastro as unidades canceladas de um produto avulso e atualizar o pedido para Cancelado.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>question</code> · <code>getProductDetails</code> · <code>incrementProductStock</code> · <code>updateOrderStatus</code> · <code>message</code> · <code>terminate</code></p>
@@ -1192,7 +1203,7 @@ atualiza_pedido: updateOrderStatus orderId="{{order_id}}" status="canceled" body
 avisa_cliente: message text="Cancelamento registrado. {{produto_cancelado.product_name}} voltou a ficar disponivel no catalogo."
 fim: terminate</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> As unidades canceladas voltam ao estoque do cadastro, o produto pode ficar disponivel de novo e o pedido aparece como Cancelado.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-catalogo-pedidos-04-devolucao-ao-estoque-em-cancelamento-de-item-avulso.txt"><code>automacoes-catalogo-pedidos-04-devolucao-ao-estoque-em-cancelamento-de-item-avulso.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-catalogo-pedidos-04-devolucao-ao-estoque-em-cancelamento-de-item-avulso.ivr"><code>automacoes-catalogo-pedidos-04-devolucao-ao-estoque-em-cancelamento-de-item-avulso.ivr</code></a></p>
 <h2 id="ex-automacoes-tickets">Tickets (mesa de ajuda)</h2>
 <p class="s10">4 exemplo(s) · <a href="automacoes-tickets.html">ver as fichas dos elementos deste grupo</a></p>
 <h3 id="exemplo-automacoes-tickets-1">1. Abertura automatica de ticket pelo chat com vinculo do contato <span class="badge">compilado</span></h3>
@@ -1217,7 +1228,7 @@ distribui: assignTicket ticketId="{{ticket_novo.ticket_id}}" assignType=0
 confirma: message text="Pronto! Seu ticket {{ticket_novo.ticket_number}} foi aberto e ja esta na fila de atendimento."
 fim: terminate</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente sai do chat com um numero de ticket e a equipe recebe o ticket na fila correta, ligado ao contato.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-tickets-01-abertura-automatica-de-ticket-pelo-chat-com-vinculo-do-conta.txt"><code>automacoes-tickets-01-abertura-automatica-de-ticket-pelo-chat-com-vinculo-do-conta.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-tickets-01-abertura-automatica-de-ticket-pelo-chat-com-vinculo-do-conta.ivr"><code>automacoes-tickets-01-abertura-automatica-de-ticket-pelo-chat-com-vinculo-do-conta.ivr</code></a></p>
 <h3 id="exemplo-automacoes-tickets-2">2. Escalonamento por SLA com prioridade, status e comentario interno <span class="badge">compilado</span></h3>
 <p>Buscar o ticket do atendimento; se existir e houver risco de estouro de SLA, prioriza, comenta internamente e escala; se nao existir, abre um.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>searchTicket</code> · <code>varCondition</code> · <code>editTicket</code> · <code>changeStatusTicket</code> · <code>addCommentTicket</code> · <code>escalateTicket</code> · <code>assignTicket</code> · <code>addTicket</code> · <code>message</code> · <code>terminate</code></p>
@@ -1250,7 +1261,7 @@ checa: varCondition value="{{ticket_buscado_count}}" {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> Tickets em risco de SLA sobem de nivel automaticamente; quando nao ha ticket para o protocolo, um novo e aberto e distribuido.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-tickets-02-escalonamento-por-sla-com-prioridade-status-e-comentario-int.txt"><code>automacoes-tickets-02-escalonamento-por-sla-com-prioridade-status-e-comentario-int.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-tickets-02-escalonamento-por-sla-com-prioridade-status-e-comentario-int.ivr"><code>automacoes-tickets-02-escalonamento-por-sla-com-prioridade-status-e-comentario-int.ivr</code></a></p>
 <h3 id="exemplo-automacoes-tickets-3">3. Resolucao com comentario externo disparando evento <span class="badge">compilado</span></h3>
 <p>Resolve o ticket do contato com um comentario publico que dispara o evento commented para outras automacoes.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>searchTicket</code> · <code>varCondition</code> · <code>addCommentTicket</code> · <code>resolveTicket</code> · <code>message</code> · <code>terminate</code></p>
@@ -1276,7 +1287,7 @@ trata: varCondition value="{{tickets_contato_count}}" {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O ticket fica Resolvido com o comentario publico registrado, e o evento commented pode acionar a automacao configurada.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-tickets-03-resolucao-com-comentario-externo-disparando-evento.txt"><code>automacoes-tickets-03-resolucao-com-comentario-externo-disparando-evento.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-tickets-03-resolucao-com-comentario-externo-disparando-evento.ivr"><code>automacoes-tickets-03-resolucao-com-comentario-externo-disparando-evento.ivr</code></a></p>
 <h3 id="exemplo-automacoes-tickets-4">4. Aguardar cliente, reabrir e corrigir vinculo do ticket <span class="badge">compilado</span></h3>
 <p>Pergunta algo ao cliente (SLA pausado), reabre o ticket quando ele responde, corrige estagio/status e ajusta o vinculo do contato.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>contactClientTicket</code> · <code>reopenTicket</code> · <code>changeStageTicket</code> · <code>changeStatusTicket</code> · <code>unlinkContactTicket</code> · <code>message</code> · <code>terminate</code></p>
@@ -1298,7 +1309,7 @@ corrige_vinculo: unlinkContactTicket ticketId="{{ticket_id}}" associateToCurrent
 resumo: message text="Seu ticket voltou para atendimento e esta em andamento de novo."
 fim: terminate</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O ticket sai de aguardando cliente, volta a Em andamento no estagio correto e sem vinculo indevido de contato.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-tickets-04-aguardar-cliente-reabrir-e-corrigir-vinculo-do-ticket.txt"><code>automacoes-tickets-04-aguardar-cliente-reabrir-e-corrigir-vinculo-do-ticket.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-tickets-04-aguardar-cliente-reabrir-e-corrigir-vinculo-do-ticket.ivr"><code>automacoes-tickets-04-aguardar-cliente-reabrir-e-corrigir-vinculo-do-ticket.ivr</code></a></p>
 <h2 id="ex-automacoes-ia-assistentes">IA e assistentes</h2>
 <p class="s10">6 exemplo(s) · <a href="automacoes-ia-assistentes.html">ver as fichas dos elementos deste grupo</a></p>
 <h3 id="exemplo-automacoes-ia-assistentes-1">1. Entregar o atendimento ao assistente de IA <span class="badge">compilado</span></h3>
@@ -1313,7 +1324,7 @@ fim: terminate</pre></div>
 entrega_ia: aiAssistant assistantId="12"
 encerra: terminate reason="Atendimento conduzido pela IA"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> Quem responde ao cliente passa a ser o assistente de IA; se ele concluir sozinho, o atendimento e encerrado com o motivo registrado.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-ia-assistentes-01-entregar-o-atendimento-ao-assistente-de-ia.txt"><code>automacoes-ia-assistentes-01-entregar-o-atendimento-ao-assistente-de-ia.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-ia-assistentes-01-entregar-o-atendimento-ao-assistente-de-ia.ivr"><code>automacoes-ia-assistentes-01-entregar-o-atendimento-ao-assistente-de-ia.ivr</code></a></p>
 <h3 id="exemplo-automacoes-ia-assistentes-2">2. Assistente de IA devolve o atendimento ao humano <span class="badge">compilado</span></h3>
 <p>Deixar a IA atender e, quando ela pedir ajuda, interromper e mandar a conversa para um atendente humano.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>aiAssistant</code> · <code>aiStopAssistant</code> · <code>aiStopMessage</code> · <code>message</code> · <code>transfer</code></p>
@@ -1331,7 +1342,7 @@ volta_humano: aiStopMessage
 avisa_cliente: message text="Um instante, {{chat_client_name}}. Vou te encaminhar para um atendente humano continuar."
 vai_para_humano: transfer destinationType=2 destinationId="5"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> Se a IA resolver, o atendimento termina registrado; se ela pedir transferencia, a mensagem pendente e cancelada e o cliente cai na fila humana com aviso.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-ia-assistentes-02-assistente-de-ia-devolve-o-atendimento-ao-humano.txt"><code>automacoes-ia-assistentes-02-assistente-de-ia-devolve-o-atendimento-ao-humano.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-ia-assistentes-02-assistente-de-ia-devolve-o-atendimento-ao-humano.ivr"><code>automacoes-ia-assistentes-02-assistente-de-ia-devolve-o-atendimento-ao-humano.ivr</code></a></p>
 <h3 id="exemplo-automacoes-ia-assistentes-3">3. Solicitacao unica a um assistente especialista <span class="badge">compilado</span></h3>
 <p>Pedir uma unica resposta a um assistente de IA, sem manter conversa, e usar o texto devolvido no fluxo.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>aiAssistantSingleRequest</code> · <code>message</code> · <code>terminate</code></p>
@@ -1344,7 +1355,7 @@ vai_para_humano: transfer destinationType=2 destinationId="5"</pre></div>
 confirma: message text="Registrei sua solicitacao na categoria {{categoria_atendimento}}. Obrigado!"
 encerra: terminate reason="Classificacao concluida pela IA"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente ve a classificacao gerada na hora e a variavel categoria_atendimento fica disponivel para o resto do fluxo.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-ia-assistentes-03-solicitacao-unica-a-um-assistente-especialista.txt"><code>automacoes-ia-assistentes-03-solicitacao-unica-a-um-assistente-especialista.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-ia-assistentes-03-solicitacao-unica-a-um-assistente-especialista.ivr"><code>automacoes-ia-assistentes-03-solicitacao-unica-a-um-assistente-especialista.ivr</code></a></p>
 <h3 id="exemplo-automacoes-ia-assistentes-4">4. Adicionar contexto e provocar o assistente <span class="badge">compilado</span></h3>
 <p>Enriquecer o contexto do assistente e faze-lo reagir como se o cliente tivesse mandado uma nova mensagem.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>aiAddContextToAssistant</code> · <code>aiProvokeAssistant</code></p>
@@ -1355,7 +1366,7 @@ encerra: terminate reason="Classificacao concluida pela IA"</pre></div>
 <div class="table-wrap"><pre class="flow">contexto: aiAddContextToAssistant context="Cliente {{chat_client_name}}, protocolo {{chat_protocol}}, carrinho de {{chat_cart_total}} em {{chat_cart_items_count}} itens."
 provoca: aiProvokeAssistant context="Responda ao cliente confirmando os dados do carrinho e pergunte se pode fechar o pedido." -&gt; end</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> A automacao termina aqui e o assistente, ja com o contexto enriquecido, responde ao cliente sozinho.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-ia-assistentes-04-adicionar-contexto-e-provocar-o-assistente.txt"><code>automacoes-ia-assistentes-04-adicionar-contexto-e-provocar-o-assistente.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-ia-assistentes-04-adicionar-contexto-e-provocar-o-assistente.ivr"><code>automacoes-ia-assistentes-04-adicionar-contexto-e-provocar-o-assistente.ivr</code></a></p>
 <h3 id="exemplo-automacoes-ia-assistentes-5">5. Ler o documento ou a imagem do cliente com IA <span class="badge">compilado</span></h3>
 <p>Interpretar um arquivo enviado pelo cliente com IA e usar o resultado para decidir o que responder.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>aiProcessFile</code> · <code>varCondition</code> · <code>message</code> · <code>terminate</code></p>
@@ -1377,7 +1388,7 @@ avalia: varCondition value="{{dados_documento}}" {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> Com documento legivel o cliente recebe os dados extraidos pela IA; caso contrario e convidado a reenviar. A variavel dados_documento pode ser reutilizada depois.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-ia-assistentes-05-ler-o-documento-ou-a-imagem-do-cliente-com-ia.txt"><code>automacoes-ia-assistentes-05-ler-o-documento-ou-a-imagem-do-cliente-com-ia.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-ia-assistentes-05-ler-o-documento-ou-a-imagem-do-cliente-com-ia.ivr"><code>automacoes-ia-assistentes-05-ler-o-documento-ou-a-imagem-do-cliente-com-ia.ivr</code></a></p>
 <h3 id="exemplo-automacoes-ia-assistentes-6">6. Fechamento: audio com IA, documento e auditoria <span class="badge">compilado</span></h3>
 <p>No fim do atendimento, gerar a despedida em audio, montar o resumo em documento, gravar o resultado para relatorios e pedir captura de tela e video do agente.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>aiTts</code> · <code>message</code> · <code>generateDocumentFromTemplate</code> · <code>aiDefineAssistantResult</code> · <code>pmScreenshot</code> · <code>pmVideoCapture</code> · <code>terminate</code></p>
@@ -1398,7 +1409,7 @@ captura_tela: pmScreenshot fk_target_user="10"
 grava_video: pmVideoCapture fk_target_user="10" duration=30
 encerra: terminate reason="Atendimento concluido pela IA"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente recebe a despedida em audio, o comprovante fica salvo, o atendimento ganha resultado "sucesso" nos relatorios e o app do agente registra captura e video de 30 segundos.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-ia-assistentes-06-fechamento-audio-com-ia-documento-e-auditoria.txt"><code>automacoes-ia-assistentes-06-fechamento-audio-com-ia-documento-e-auditoria.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-ia-assistentes-06-fechamento-audio-com-ia-documento-e-auditoria.ivr"><code>automacoes-ia-assistentes-06-fechamento-audio-com-ia-documento-e-auditoria.ivr</code></a></p>
 <h2 id="ex-automacoes-telefonia">Telefonia (URA telefônica)</h2>
 <p class="s10">3 exemplo(s) · <a href="automacoes-telefonia.html">ver as fichas dos elementos deste grupo</a></p>
 <h3 id="exemplo-automacoes-telefonia-1">1. Menu de voz com audio e leitura do teclado (URA telefonica) <span class="badge">compilado</span></h3>
@@ -1426,7 +1437,7 @@ le_tecla: varCondition value="{{call_digits}}" {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> Digitando 1 ou 2 o cliente e desviado para o ramal certo; qualquer outra tecla toca um aviso e a chamada e encerrada com hangup.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-telefonia-01-menu-de-voz-com-audio-e-leitura-do-teclado-ura-telefonica.txt"><code>automacoes-telefonia-01-menu-de-voz-com-audio-e-leitura-do-teclado-ura-telefonica.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-telefonia-01-menu-de-voz-com-audio-e-leitura-do-teclado-ura-telefonica.ivr"><code>automacoes-telefonia-01-menu-de-voz-com-audio-e-leitura-do-teclado-ura-telefonica.ivr</code></a></p>
 <h3 id="exemplo-automacoes-telefonia-2">2. Desviar conforme a tecla e enviar DTMF ao PABX de destino (URA telefonica) <span class="badge">compilado</span></h3>
 <p>Na URA telefonica, ler a tecla, repassar um DTMF para o PABX de destino e so depois completar a chamada.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>callPlayAudio</code> · <code>callWaitClientReply</code> · <code>sentDTMF</code> · <code>callTransfer</code> · <code>callTerminate</code></p>
@@ -1453,7 +1464,7 @@ decide: varCondition value="{{call_digits}}" {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> A tecla 1 desvia direto para o comercial; a tecla 2 envia o DTMF e desvia para o financeiro; sem escolha valida a chamada e derrubada.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-telefonia-02-desviar-conforme-a-tecla-e-enviar-dtmf-ao-pabx-de-destino-ur.txt"><code>automacoes-telefonia-02-desviar-conforme-a-tecla-e-enviar-dtmf-ao-pabx-de-destino-ur.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-telefonia-02-desviar-conforme-a-tecla-e-enviar-dtmf-ao-pabx-de-destino-ur.ivr"><code>automacoes-telefonia-02-desviar-conforme-a-tecla-e-enviar-dtmf-ao-pabx-de-destino-ur.ivr</code></a></p>
 <h3 id="exemplo-automacoes-telefonia-3">3. Encerrar a chamada com hangup (URA telefonica) <span class="badge">compilado</span></h3>
 <p>Na URA telefonica, tocar um aviso e encerrar a ligacao com hangup.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>callPlayAudio</code> · <code>callTerminate</code></p>
@@ -1464,7 +1475,7 @@ decide: varCondition value="{{call_digits}}" {
 <div class="table-wrap"><pre class="flow">avisa_fechado: callPlayAudio fileChooseType=1 fileId="{{audio_fora_horario}}" stopOnUserInput=true
 encerra_chamada: callTerminate reason="Fora do horario de atendimento"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente ouve o aviso e a ligacao e encerrada imediatamente com hangup.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-telefonia-03-encerrar-a-chamada-com-hangup-ura-telefonica.txt"><code>automacoes-telefonia-03-encerrar-a-chamada-com-hangup-ura-telefonica.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-telefonia-03-encerrar-a-chamada-com-hangup-ura-telefonica.ivr"><code>automacoes-telefonia-03-encerrar-a-chamada-com-hangup-ura-telefonica.ivr</code></a></p>
 <h2 id="ex-automacoes-pesquisas-webchat">Pesquisas, formulários e WebChat</h2>
 <p class="s10">5 exemplo(s) · <a href="automacoes-pesquisas-webchat.html">ver as fichas dos elementos deste grupo</a></p>
 <h3 id="exemplo-automacoes-pesquisas-webchat-1">1. Pesquisa de satisfacao na despedida do atendimento <span class="badge">compilado</span></h3>
@@ -1479,7 +1490,7 @@ encerra_chamada: callTerminate reason="Fora do horario de atendimento"</pre></di
 convite: sendSurveyFormMessage surveyId=1 text="Sua opiniao e muito importante para melhorarmos. Pode avaliar o atendimento?" buttonText="Responder pesquisa" expirationDays=7
 fim: terminate reason="Atendimento finalizado com convite de pesquisa"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente ve a mensagem de despedida e, logo abaixo, o cartao da pesquisa com o botao Responder pesquisa.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-pesquisas-webchat-01-pesquisa-de-satisfacao-na-despedida-do-atendimento.txt"><code>automacoes-pesquisas-webchat-01-pesquisa-de-satisfacao-na-despedida-do-atendimento.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-pesquisas-webchat-01-pesquisa-de-satisfacao-na-despedida-do-atendimento.ivr"><code>automacoes-pesquisas-webchat-01-pesquisa-de-satisfacao-na-despedida-do-atendimento.ivr</code></a></p>
 <h3 id="exemplo-automacoes-pesquisas-webchat-2">2. Link publico de pesquisa, submissao e perguntas ocultas <span class="badge">compilado</span></h3>
 <p>Gerar o link publico da pesquisa, envia-lo ao cliente e registrar/complementar a resposta com dados internos.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>generateSurveyFormLink</code> · <code>submitSurveyFormResponse</code> · <code>editSurveyFormResponse</code> · <code>message</code> · <code>terminate</code></p>
@@ -1498,7 +1509,7 @@ registra: submitSurveyFormResponse surveyId=1 bindings=[{"fk_question":12,"varEx
 ocultas: editSurveyFormResponse responseIdVar="{{pesquisa_ok_response_id}}" bindings=[{"fk_question":21,"valueExpr":"10"},{"fk_question":22,"valueExpr":"Resolvido no primeiro contato"}]
 fim: terminate reason="Pesquisa enviada e registrada"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente recebe o link publico; a resposta e registrada e as perguntas ocultas (nota interna e classificacao) ficam preenchidas para o time.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-pesquisas-webchat-02-link-publico-de-pesquisa-submissao-e-perguntas-ocultas.txt"><code>automacoes-pesquisas-webchat-02-link-publico-de-pesquisa-submissao-e-perguntas-ocultas.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-pesquisas-webchat-02-link-publico-de-pesquisa-submissao-e-perguntas-ocultas.ivr"><code>automacoes-pesquisas-webchat-02-link-publico-de-pesquisa-submissao-e-perguntas-ocultas.ivr</code></a></p>
 <h3 id="exemplo-automacoes-pesquisas-webchat-3">3. Formulario personalizado e fluxo de formularios multi-etapas <span class="badge">compilado</span></h3>
 <p>Enviar ao visitante do WebChat um formulario personalizado e um fluxo multi-etapas, e apoiar o atendente com formularios.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>sendForm</code> · <code>sendFormFlow</code> · <code>showForm</code> · <code>showFormSync</code> · <code>message</code> · <code>terminate</code></p>
@@ -1519,7 +1530,7 @@ painel: showForm type=2 flowId=1 preFilledData.protocolo="{{chat_protocol}}"
 avisa: message text="Obrigado! Registramos suas informacoes."
 fim: terminate reason="Cadastro atualizado"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O visitante preenche o formulario e o fluxo multi-etapas; o atendente confere os dados num formulario antes de finalizar.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-pesquisas-webchat-03-formulario-personalizado-e-fluxo-de-formularios-multi-etapas.txt"><code>automacoes-pesquisas-webchat-03-formulario-personalizado-e-fluxo-de-formularios-multi-etapas.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-pesquisas-webchat-03-formulario-personalizado-e-fluxo-de-formularios-multi-etapas.ivr"><code>automacoes-pesquisas-webchat-03-formulario-personalizado-e-fluxo-de-formularios-multi-etapas.ivr</code></a></p>
 <h3 id="exemplo-automacoes-pesquisas-webchat-4">4. Cartao de informacao exibido e depois removido <span class="badge">compilado</span></h3>
 <p>Abrir um cartao de informacao para o atendimento, anexa-lo a uma mensagem e remove-lo em seguida.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>addInformationCard</code> · <code>sendInformationCard</code> · <code>addInformationCardToMessage</code> · <code>removeInformationCardFromMessage</code> · <code>removeInformationCard</code> · <code>showInformationDialog</code> · <code>message</code> · <code>terminate</code></p>
@@ -1542,7 +1553,7 @@ desanexa: removeInformationCardFromMessage messageId="{{chat_id}}"
 remove: removeInformationCard cardId="resumo_pedido" sessionId="{{chat_id}}"
 fim: terminate reason="Cartao exibido e removido"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O cliente ve o cartao ao lado da conversa e o atendente recebe o aviso; ao final o cartao e a anexacao sao removidos.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-pesquisas-webchat-04-cartao-de-informacao-exibido-e-depois-removido.txt"><code>automacoes-pesquisas-webchat-04-cartao-de-informacao-exibido-e-depois-removido.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-pesquisas-webchat-04-cartao-de-informacao-exibido-e-depois-removido.ivr"><code>automacoes-pesquisas-webchat-04-cartao-de-informacao-exibido-e-depois-removido.ivr</code></a></p>
 <h3 id="exemplo-automacoes-pesquisas-webchat-5">5. WebChat V2: notificacoes push, migracao e confirmacao do atendente <span class="badge">compilado</span></h3>
 <p>Pedir permissao de notificacao push, gerar o link de migracao para o WebChat V2 e confirmar o encerramento com o atendente.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>requestPushPermission</code> · <code>generateWebchatMigrationLink</code> · <code>showConfirmationDialogSync</code> · <code>message</code> · <code>terminate</code></p>
@@ -1559,7 +1570,7 @@ envia: message text="Continue seu atendimento pelo nosso WebChat: {{webchat_migr
 confirma: showConfirmationDialogSync title="Confirmar migracao" text="O cliente foi convidado a migrar para o WebChat V2. Podemos encerrar este atendimento?" cancelButtonText="Nao" confirmButtonText="Sim" confirmButtonColor="success" resultVariableName="migracao_confirmada" timeout=300
 fim: terminate reason="Convidado a migrar para o WebChat V2"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> O visitante ativa (ou nao) as notificacoes, recebe o link de migracao e o atendente confirma o encerramento.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-pesquisas-webchat-05-webchat-v2-notificacoes-push-migracao-e-confirmacao-do-atend.txt"><code>automacoes-pesquisas-webchat-05-webchat-v2-notificacoes-push-migracao-e-confirmacao-do-atend.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-pesquisas-webchat-05-webchat-v2-notificacoes-push-migracao-e-confirmacao-do-atend.ivr"><code>automacoes-pesquisas-webchat-05-webchat-v2-notificacoes-push-migracao-e-confirmacao-do-atend.ivr</code></a></p>
 <h2 id="ex-automacoes-integracoes">Integrações, webhooks e extensões</h2>
 <p class="s10">2 exemplo(s) · <a href="automacoes-integracoes.html">ver as fichas dos elementos deste grupo</a></p>
 <h3 id="exemplo-automacoes-integracoes-1">1. Consultar uma API externa, decidir pelo status e avisar a extensao <span class="badge">compilado</span></h3>
@@ -1585,7 +1596,7 @@ checa: varCondition {
   }
 }</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> Se a API responde 200, o cliente ve a confirmacao e a extensao painel-pedidos recebe o aviso; senao o cliente e orientado.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-integracoes-01-consultar-uma-api-externa-decidir-pelo-status-e-avisar-a-ext.txt"><code>automacoes-integracoes-01-consultar-uma-api-externa-decidir-pelo-status-e-avisar-a-ext.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-integracoes-01-consultar-uma-api-externa-decidir-pelo-status-e-avisar-a-ext.ivr"><code>automacoes-integracoes-01-consultar-uma-api-externa-decidir-pelo-status-e-avisar-a-ext.ivr</code></a></p>
 <h3 id="exemplo-automacoes-integracoes-2">2. Responder a um webhook com JSON e gerar QR Code de um link <span class="badge">compilado</span></h3>
 <p>Responder a uma captura de webhook com um JSON de confirmacao e gerar o QR Code de um link de acompanhamento.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>webhookReply</code> · <code>generateQrCode</code> · <code>message</code> · <code>terminate</code></p>
@@ -1600,7 +1611,7 @@ qrcode: generateQrCode content="https://exemplo.com/acompanhar/{{chat_protocol}}
 envia: message text="Segue o QR Code para acompanhar seu pedido."
 fim: terminate reason="Webhook respondido e QR Code gerado"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> Quem chamou o webhook recebe o JSON {"status":"ok",...} e o cliente recebe o QR Code do link de acompanhamento.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-integracoes-02-responder-a-um-webhook-com-json-e-gerar-qr-code-de-um-link.txt"><code>automacoes-integracoes-02-responder-a-um-webhook-com-json-e-gerar-qr-code-de-um-link.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-integracoes-02-responder-a-um-webhook-com-json-e-gerar-qr-code-de-um-link.ivr"><code>automacoes-integracoes-02-responder-a-um-webhook-com-json-e-gerar-qr-code-de-um-link.ivr</code></a></p>
 <h2 id="ex-automacoes-admin">Tarefas, instâncias e administração</h2>
 <p class="s10">4 exemplo(s) · <a href="automacoes-admin.html">ver as fichas dos elementos deste grupo</a></p>
 <h3 id="exemplo-automacoes-admin-1">1. Tarefa de acompanhamento ao final do atendimento e alerta a supervisao <span class="badge">compilado</span></h3>
@@ -1617,7 +1628,7 @@ tarefa: createTask action=1 title="Retornar ligacao ao cliente {{chat_client_nam
 monitoria: createTask action=0 title="Monitorar atendimento {{chat_protocol}}" description="Alerta a supervisao: revisar este atendimento." dueDate=0 selectionMode=1 responsiblesIds=["15","18"] watchersIds=["10"] tags=["monitoria"]
 fim: terminate reason="Tarefas de acompanhamento e alerta criadas"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> Ficam criadas a tarefa de retorno (para o atendente) e a tarefa de monitoria (para a supervisao).</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-admin-01-tarefa-de-acompanhamento-ao-final-do-atendimento-e-alerta-a-.txt"><code>automacoes-admin-01-tarefa-de-acompanhamento-ao-final-do-atendimento-e-alerta-a-.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-admin-01-tarefa-de-acompanhamento-ao-final-do-atendimento-e-alerta-a-.ivr"><code>automacoes-admin-01-tarefa-de-acompanhamento-ao-final-do-atendimento-e-alerta-a-.ivr</code></a></p>
 <h3 id="exemplo-automacoes-admin-2">2. Concluir a tarefa de acompanhamento <span class="badge">compilado</span></h3>
 <p>Marcar como concluida a tarefa de acompanhamento quando o cliente retorna o contato.</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>markTaskAsDone</code> · <code>message</code> · <code>terminate</code></p>
@@ -1632,7 +1643,7 @@ conclui: markTaskAsDone taskId="36"
 avisa: message text="Tarefa de acompanhamento concluida."
 fim: terminate reason="Tarefa concluida"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> A tarefa de acompanhamento sai da lista de pendentes.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-admin-02-concluir-a-tarefa-de-acompanhamento.txt"><code>automacoes-admin-02-concluir-a-tarefa-de-acompanhamento.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-admin-02-concluir-a-tarefa-de-acompanhamento.ivr"><code>automacoes-admin-02-concluir-a-tarefa-de-acompanhamento.ivr</code></a></p>
 <h3 id="exemplo-automacoes-admin-3">3. Provisionar instancia de um cliente (somente instancia de revenda) <span class="badge">compilado</span></h3>
 <p>Criar a instancia de um cliente, atualizar o plano e os dados de contato. So existe em instancia de revenda (parceiro).</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>createInstance</code> · <code>updateInstance</code> · <code>editInstanceContactDetails</code> · <code>message</code> · <code>terminate</code></p>
@@ -1648,7 +1659,7 @@ plano: updateInstance instanceId="4321" planId="enterprise" extraAgents="5" extr
 contato: editInstanceContactDetails instanceId="4321" contact.clientName="{{chat_client_name}}" contact.contactPhone1="{{chat_client_number}}" contact.contactMail1="{{chat_client_email}}"
 fim: terminate reason="Instancia provisionada"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> A instancia do cliente fica criada, com plano e contatos atualizados. Recurso exclusivo de instancia de revenda.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-admin-03-provisionar-instancia-de-um-cliente-somente-instancia-de-rev.txt"><code>automacoes-admin-03-provisionar-instancia-de-um-cliente-somente-instancia-de-rev.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-admin-03-provisionar-instancia-de-um-cliente-somente-instancia-de-rev.ivr"><code>automacoes-admin-03-provisionar-instancia-de-um-cliente-somente-instancia-de-rev.ivr</code></a></p>
 <h3 id="exemplo-automacoes-admin-4">4. Manutencao de instancias (somente instancia de revenda) <span class="badge">compilado</span></h3>
 <p>Localizar uma instancia e executar as rotinas de bloqueio, reinicio, desbloqueio, exclusao e reativacao. So existe em instancia de revenda (parceiro).</p>
 <p class="s10"><strong>Elementos usados:</strong> <code>searchInstance</code> · <code>blockInstance</code> · <code>restartInstance</code> · <code>restartInstanceContainer</code> · <code>unblockInstance</code> · <code>markInstanceForExclusion</code> · <code>reactivateInstance</code> · <code>terminate</code></p>
@@ -1671,7 +1682,7 @@ exclui: markInstanceForExclusion instanceId="4321"
 reativa: reactivateInstance instanceId="4321"
 fim: terminate reason="Manutencao de instancia concluida"</pre></div>
 <div class="callout tip"><strong>Resultado:</strong> A instancia passa pelas rotinas de manutencao e volta ativa. Recurso exclusivo de instancia de revenda.</div>
-<p class="s10">Arquivo importável: <a href="automacoes/automacoes-admin-04-manutencao-de-instancias-somente-instancia-de-revenda.txt"><code>automacoes-admin-04-manutencao-de-instancias-somente-instancia-de-revenda.txt</code></a></p>
+<p class="s10">Arquivo para importar: <a href="automacoes/automacoes-admin-04-manutencao-de-instancias-somente-instancia-de-revenda.ivr"><code>automacoes-admin-04-manutencao-de-instancias-somente-instancia-de-revenda.ivr</code></a></p>
 
   <div class="pagenav">
     <a href="automacoes-elementos.html"><span>←</span> Catálogo de elementos</a>

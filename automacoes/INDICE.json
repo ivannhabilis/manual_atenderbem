@@ -1,0 +1,458 @@
+[
+ {
+  "arquivo": "automacoes-admin-01-tarefa-de-acompanhamento-ao-final-do-atendimento-e-alerta-a-.ivr",
+  "titulo": "Tarefa de acompanhamento ao final do atendimento e alerta a supervisao",
+  "grupo": "automacoes-admin",
+  "tipo": 2,
+  "elementos": 4,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-admin-02-concluir-a-tarefa-de-acompanhamento.ivr",
+  "titulo": "Concluir a tarefa de acompanhamento",
+  "grupo": "automacoes-admin",
+  "tipo": 2,
+  "elementos": 4,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-admin-03-provisionar-instancia-de-um-cliente-somente-instancia-de-rev.ivr",
+  "titulo": "Provisionar instancia de um cliente (somente instancia de revenda)",
+  "grupo": "automacoes-admin",
+  "tipo": 2,
+  "elementos": 5,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-admin-04-manutencao-de-instancias-somente-instancia-de-revenda.ivr",
+  "titulo": "Manutencao de instancias (somente instancia de revenda)",
+  "grupo": "automacoes-admin",
+  "tipo": 2,
+  "elementos": 8,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-atendimento-01-retomar-o-atendimento-em-aberto-pelo-protocolo.ivr",
+  "titulo": "Retomar o atendimento em aberto pelo protocolo",
+  "grupo": "automacoes-atendimento",
+  "tipo": 2,
+  "elementos": 3,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-atendimento-02-abrir-um-atendimento-ativo-pelo-telefone.ivr",
+  "titulo": "Abrir um atendimento ativo pelo telefone",
+  "grupo": "automacoes-atendimento",
+  "tipo": 2,
+  "elementos": 4,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-atendimento-03-fila-de-espera-com-agente-preferencial-travado.ivr",
+  "titulo": "Fila de espera com agente preferencial travado",
+  "grupo": "automacoes-atendimento",
+  "tipo": 2,
+  "elementos": 8,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-atendimento-04-blindar-o-atendimento-durante-a-coleta-de-dados.ivr",
+  "titulo": "Blindar o atendimento durante a coleta de dados",
+  "grupo": "automacoes-atendimento",
+  "tipo": 2,
+  "elementos": 8,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-atendimento-05-abrir-atendimento-em-fila-oficial-com-template.ivr",
+  "titulo": "Abrir atendimento em fila oficial com template",
+  "grupo": "automacoes-atendimento",
+  "tipo": 2,
+  "elementos": 4,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-atendimento-06-alerta-de-fila-acima-do-limite-para-a-supervisao.ivr",
+  "titulo": "Alerta de fila acima do limite para a supervisao",
+  "grupo": "automacoes-atendimento",
+  "tipo": 2,
+  "elementos": 5,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-catalogo-pedidos-01-vitrine-em-carrossel-e-consulta-de-produto-por-codigo-intern.ivr",
+  "titulo": "Vitrine em carrossel e consulta de produto por codigo interno",
+  "grupo": "automacoes-catalogo-pedidos",
+  "tipo": 2,
+  "elementos": 4,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-catalogo-pedidos-02-enviar-pedido-com-pix-e-atualizar-o-status.ivr",
+  "titulo": "Enviar pedido com Pix e atualizar o status",
+  "grupo": "automacoes-catalogo-pedidos",
+  "tipo": 2,
+  "elementos": 6,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-catalogo-pedidos-03-baixa-de-estoque-ao-fechar-o-pedido-da-oportunidade.ivr",
+  "titulo": "Baixa de estoque ao fechar o pedido da oportunidade",
+  "grupo": "automacoes-catalogo-pedidos",
+  "tipo": 2,
+  "elementos": 5,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-catalogo-pedidos-04-devolucao-ao-estoque-em-cancelamento-de-item-avulso.ivr",
+  "titulo": "Devolucao ao estoque em cancelamento de item avulso",
+  "grupo": "automacoes-catalogo-pedidos",
+  "tipo": 2,
+  "elementos": 7,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-contatos-dados-01-identificar-o-cliente-pelo-cpf-atualizar-ou-cadastrar.ivr",
+  "titulo": "Identificar o cliente pelo CPF: atualizar ou cadastrar",
+  "grupo": "automacoes-contatos-dados",
+  "tipo": 2,
+  "elementos": 6,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-contatos-dados-02-reconhecer-quem-esta-falando-pelo-telefone.ivr",
+  "titulo": "Reconhecer quem esta falando pelo telefone",
+  "grupo": "automacoes-contatos-dados",
+  "tipo": 2,
+  "elementos": 4,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-contatos-dados-03-enriquecer-o-cadastro-com-endereco-e-etiquetas.ivr",
+  "titulo": "Enriquecer o cadastro com endereco e etiquetas",
+  "grupo": "automacoes-contatos-dados",
+  "tipo": 2,
+  "elementos": 7,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-contatos-dados-04-preferencia-que-sobrevive-de-um-atendimento-para-o-outro.ivr",
+  "titulo": "Preferencia que sobrevive de um atendimento para o outro",
+  "grupo": "automacoes-contatos-dados",
+  "tipo": 2,
+  "elementos": 4,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-contatos-dados-05-descadastro-de-campanhas-com-limpeza-da-memoria.ivr",
+  "titulo": "Descadastro de campanhas com limpeza da memoria",
+  "grupo": "automacoes-contatos-dados",
+  "tipo": 2,
+  "elementos": 6,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-crm-carrinho-01-detectar-interesse-criar-oportunidade-e-mover-no-funil.ivr",
+  "titulo": "Detectar interesse, criar oportunidade e mover no funil",
+  "grupo": "automacoes-crm-carrinho",
+  "tipo": 2,
+  "elementos": 6,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-crm-carrinho-02-montar-o-carrinho-e-enviar-o-botao-para-conferencia.ivr",
+  "titulo": "Montar o carrinho e enviar o botao para conferencia",
+  "grupo": "automacoes-crm-carrinho",
+  "tipo": 2,
+  "elementos": 5,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-crm-carrinho-03-bloquear-o-carrinho-na-conferencia-e-liberar-depois.ivr",
+  "titulo": "Bloquear o carrinho na conferencia e liberar depois",
+  "grupo": "automacoes-crm-carrinho",
+  "tipo": 2,
+  "elementos": 8,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-crm-carrinho-04-fechar-a-venda-como-ganha-e-reabrir-em-caso-de-arrependiment.ivr",
+  "titulo": "Fechar a venda como ganha e reabrir em caso de arrependimento",
+  "grupo": "automacoes-crm-carrinho",
+  "tipo": 2,
+  "elementos": 5,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-crm-carrinho-05-sincronizar-o-carrinho-inteiro-a-partir-de-um-json-de-erp.ivr",
+  "titulo": "Sincronizar o carrinho inteiro a partir de um JSON de ERP",
+  "grupo": "automacoes-crm-carrinho",
+  "tipo": 2,
+  "elementos": 6,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-crm-carrinho-06-baixa-e-devolucao-de-estoque-ligadas-ao-pedido.ivr",
+  "titulo": "Baixa e devolucao de estoque ligadas ao pedido",
+  "grupo": "automacoes-crm-carrinho",
+  "tipo": 2,
+  "elementos": 11,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-crm-carrinho-07-congelar-anexar-contrato-limpar-tarefas-e-transferir-a-oport.ivr",
+  "titulo": "Congelar, anexar contrato, limpar tarefas e transferir a oportunidade",
+  "grupo": "automacoes-crm-carrinho",
+  "tipo": 2,
+  "elementos": 9,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-crm-carrinho-08-guardas-do-funil-cancelar-movimentacao-e-ganho-indevidos.ivr",
+  "titulo": "Guardas do funil: cancelar movimentacao e ganho indevidos",
+  "grupo": "automacoes-crm-carrinho",
+  "tipo": 2,
+  "elementos": 4,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-fluxo-logica-01-triagem-por-horario-de-funcionamento-com-protocolo-e-rodizio.ivr",
+  "titulo": "Triagem por horário de funcionamento com protocolo e rodízio de plantão",
+  "grupo": "automacoes-fluxo-logica",
+  "tipo": 2,
+  "elementos": 4,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-fluxo-logica-02-resumo-do-carrinho-item-a-item-com-laco-de-repeticao.ivr",
+  "titulo": "Resumo do carrinho item a item com laço de repetição",
+  "grupo": "automacoes-fluxo-logica",
+  "tipo": 2,
+  "elementos": 4,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-fluxo-logica-03-orcamento-com-acompanhamento-agendado-e-cancelamento.ivr",
+  "titulo": "Orçamento com acompanhamento agendado e cancelamento",
+  "grupo": "automacoes-fluxo-logica",
+  "tipo": 2,
+  "elementos": 7,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-fluxo-logica-04-classificar-o-cliente-com-codigo-variaveis-e-gatilhos.ivr",
+  "titulo": "Classificar o cliente com código, variáveis e gatilhos",
+  "grupo": "automacoes-fluxo-logica",
+  "tipo": 2,
+  "elementos": 11,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-fluxo-logica-05-retorno-por-ligacao-oferta-confirmacao-e-desfecho-da-chamada.ivr",
+  "titulo": "Retorno por ligação: oferta, confirmação e desfecho da chamada",
+  "grupo": "automacoes-fluxo-logica",
+  "tipo": 2,
+  "elementos": 9,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-ia-assistentes-01-entregar-o-atendimento-ao-assistente-de-ia.ivr",
+  "titulo": "Entregar o atendimento ao assistente de IA",
+  "grupo": "automacoes-ia-assistentes",
+  "tipo": 2,
+  "elementos": 3,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-ia-assistentes-02-assistente-de-ia-devolve-o-atendimento-ao-humano.ivr",
+  "titulo": "Assistente de IA devolve o atendimento ao humano",
+  "grupo": "automacoes-ia-assistentes",
+  "tipo": 2,
+  "elementos": 6,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-ia-assistentes-03-solicitacao-unica-a-um-assistente-especialista.ivr",
+  "titulo": "Solicitacao unica a um assistente especialista",
+  "grupo": "automacoes-ia-assistentes",
+  "tipo": 2,
+  "elementos": 3,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-ia-assistentes-04-adicionar-contexto-e-provocar-o-assistente.ivr",
+  "titulo": "Adicionar contexto e provocar o assistente",
+  "grupo": "automacoes-ia-assistentes",
+  "tipo": 2,
+  "elementos": 2,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-ia-assistentes-05-ler-o-documento-ou-a-imagem-do-cliente-com-ia.ivr",
+  "titulo": "Ler o documento ou a imagem do cliente com IA",
+  "grupo": "automacoes-ia-assistentes",
+  "tipo": 2,
+  "elementos": 4,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-ia-assistentes-06-fechamento-audio-com-ia-documento-e-auditoria.ivr",
+  "titulo": "Fechamento: audio com IA, documento e auditoria",
+  "grupo": "automacoes-ia-assistentes",
+  "tipo": 2,
+  "elementos": 7,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-integracoes-01-consultar-uma-api-externa-decidir-pelo-status-e-avisar-a-ext.ivr",
+  "titulo": "Consultar uma API externa, decidir pelo status e avisar a extensao",
+  "grupo": "automacoes-integracoes",
+  "tipo": 2,
+  "elementos": 5,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-integracoes-02-responder-a-um-webhook-com-json-e-gerar-qr-code-de-um-link.ivr",
+  "titulo": "Responder a um webhook com JSON e gerar QR Code de um link",
+  "grupo": "automacoes-integracoes",
+  "tipo": 2,
+  "elementos": 4,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-mensagens-01-boas-vindas-menu-principal-e-consulta-com-validacao-de-cpf.ivr",
+  "titulo": "Boas-vindas, menu principal e consulta com validação de CPF",
+  "grupo": "automacoes-mensagens",
+  "tipo": 2,
+  "elementos": 7,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-mensagens-02-pesquisa-de-satisfacao-com-a-nota-protegida.ivr",
+  "titulo": "Pesquisa de satisfação com a nota protegida",
+  "grupo": "automacoes-mensagens",
+  "tipo": 2,
+  "elementos": 6,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-mensagens-03-coleta-de-endereco-com-whatsapp-flow-e-limpeza-do-dado-sensi.ivr",
+  "titulo": "Coleta de endereço com Whatsapp Flow e limpeza do dado sensível",
+  "grupo": "automacoes-mensagens",
+  "tipo": 2,
+  "elementos": 8,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-mensagens-04-comentario-no-instagram-respondido-e-convertido-em-atendimen.ivr",
+  "titulo": "Comentário no Instagram respondido e convertido em atendimento no direct",
+  "grupo": "automacoes-mensagens",
+  "tipo": 2,
+  "elementos": 7,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-mensagens-05-cancelar-a-mensagem-programada-fora-do-horario-comercial.ivr",
+  "titulo": "Cancelar a mensagem programada fora do horário comercial",
+  "grupo": "automacoes-mensagens",
+  "tipo": 2,
+  "elementos": 4,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-pesquisas-webchat-01-pesquisa-de-satisfacao-na-despedida-do-atendimento.ivr",
+  "titulo": "Pesquisa de satisfacao na despedida do atendimento",
+  "grupo": "automacoes-pesquisas-webchat",
+  "tipo": 2,
+  "elementos": 3,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-pesquisas-webchat-02-link-publico-de-pesquisa-submissao-e-perguntas-ocultas.ivr",
+  "titulo": "Link publico de pesquisa, submissao e perguntas ocultas",
+  "grupo": "automacoes-pesquisas-webchat",
+  "tipo": 2,
+  "elementos": 6,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-pesquisas-webchat-03-formulario-personalizado-e-fluxo-de-formularios-multi-etapas.ivr",
+  "titulo": "Formulario personalizado e fluxo de formularios multi-etapas",
+  "grupo": "automacoes-pesquisas-webchat",
+  "tipo": 2,
+  "elementos": 7,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-pesquisas-webchat-04-cartao-de-informacao-exibido-e-depois-removido.ivr",
+  "titulo": "Cartao de informacao exibido e depois removido",
+  "grupo": "automacoes-pesquisas-webchat",
+  "tipo": 2,
+  "elementos": 8,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-pesquisas-webchat-05-webchat-v2-notificacoes-push-migracao-e-confirmacao-do-atend.ivr",
+  "titulo": "WebChat V2: notificacoes push, migracao e confirmacao do atendente",
+  "grupo": "automacoes-pesquisas-webchat",
+  "tipo": 2,
+  "elementos": 5,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-telefonia-01-menu-de-voz-com-audio-e-leitura-do-teclado-ura-telefonica.ivr",
+  "titulo": "Menu de voz com audio e leitura do teclado (URA telefonica)",
+  "grupo": "automacoes-telefonia",
+  "tipo": 3,
+  "elementos": 4,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-telefonia-02-desviar-conforme-a-tecla-e-enviar-dtmf-ao-pabx-de-destino-ur.ivr",
+  "titulo": "Desviar conforme a tecla e enviar DTMF ao PABX de destino (URA telefonica)",
+  "grupo": "automacoes-telefonia",
+  "tipo": 3,
+  "elementos": 4,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-telefonia-03-encerrar-a-chamada-com-hangup-ura-telefonica.ivr",
+  "titulo": "Encerrar a chamada com hangup (URA telefonica)",
+  "grupo": "automacoes-telefonia",
+  "tipo": 3,
+  "elementos": 2,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-tickets-01-abertura-automatica-de-ticket-pelo-chat-com-vinculo-do-conta.ivr",
+  "titulo": "Abertura automatica de ticket pelo chat com vinculo do contato",
+  "grupo": "automacoes-tickets",
+  "tipo": 2,
+  "elementos": 8,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-tickets-02-escalonamento-por-sla-com-prioridade-status-e-comentario-int.ivr",
+  "titulo": "Escalonamento por SLA com prioridade, status e comentario interno",
+  "grupo": "automacoes-tickets",
+  "tipo": 2,
+  "elementos": 8,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-tickets-03-resolucao-com-comentario-externo-disparando-evento.ivr",
+  "titulo": "Resolucao com comentario externo disparando evento",
+  "grupo": "automacoes-tickets",
+  "tipo": 2,
+  "elementos": 6,
+  "validado_no_compilador": true
+ },
+ {
+  "arquivo": "automacoes-tickets-04-aguardar-cliente-reabrir-e-corrigir-vinculo-do-ticket.ivr",
+  "titulo": "Aguardar cliente, reabrir e corrigir vinculo do ticket",
+  "grupo": "automacoes-tickets",
+  "tipo": 2,
+  "elementos": 8,
+  "validado_no_compilador": true
+ }
+]

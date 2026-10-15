@@ -1,4 +1,0 @@
-saudacao: message text="Ola {{chat_client_name}}! Vou abrir seu atendimento agora."
-abre: openChat countryCode="BR" phoneNumber="{{chat_client_number}}"
-confirma: message text="Atendimento aberto. Protocolo {{chat_protocol}}, chat {{chat_id}}."
-fim: terminate reason="Atendimento aberto pelo fluxo" obs="Numero com canal ativo: atendimento criado e aguardando distribuicao."

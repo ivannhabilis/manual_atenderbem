@@ -1,8 +1,0 @@
-prepara: addInformationCard type=0 cardId="resumo_pedido" sessionId="{{chat_id}}" sessionName="Resumo do pedido"
-mostra: sendInformationCard type=0 cardId="resumo_pedido"
-contexto: message text="Confira o resumo do seu pedido no cartao ao lado."
-avisaAgente: showInformationDialog title="Cartao exibido" text="O cartao Resumo do pedido foi aberto para o atendimento {{chat_protocol}}."
-anexa: addInformationCardToMessage messageId="{{chat_id}}" dynamicCardVarName="{{dynamic_card_data}}"
-desanexa: removeInformationCardFromMessage messageId="{{chat_id}}"
-remove: removeInformationCard cardId="resumo_pedido" sessionId="{{chat_id}}"
-fim: terminate reason="Cartao exibido e removido"
