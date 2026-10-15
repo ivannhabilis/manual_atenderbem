@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contatos e dados persistentes — Manual Omnichannel</title>
+<meta name="description" content="Cadastro do cliente e memória que sobrevive ao atendimento. (6 elementos)">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a class="active" href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="automacoes-elementos.html">Automações e URA</a> &rsaquo; Contatos e dados persistentes</div>
+
+  <h1>Contatos e dados persistentes</h1>
+  <p class="subtitle">Cadastro do cliente e memória que sobrevive ao atendimento. (6 elementos)</p>
+
+<p>Cadastro do cliente e memória que sobrevive ao atendimento.</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Elemento</th><th>O que faz</th></tr></thead><tbody>
+<tr><td><a href="#el-searchContact">searchContact</a></td><td>Busca um contato na base de dados do sistema. O contato pode ser buscado por CPF/CNPJ, telefone ou email.</td></tr>
+<tr><td><a href="#el-addContact">addContact</a></td><td>Adiciona um novo contato na base de dados do sistema.</td></tr>
+<tr><td><a href="#el-editContact">editContact</a></td><td>Edita um contato existente na base de dados do sistema.</td></tr>
+<tr><td><a href="#el-addPersistent">addPersistent</a></td><td>Adiciona um valor persistente ao banco de dados. Valores persistentes são armazenados no banco de dados e podem ser acessados em qualquer, i</td></tr>
+<tr><td><a href="#el-searchPersistent">searchPersistent</a></td><td>Busca um valor persistente no banco de dados e disponibiliza seu valor em uma variável.</td></tr>
+<tr><td><a href="#el-removePersistent">removePersistent</a></td><td>Remove um valor persistente do banco de dados.</td></tr>
+</tbody></table></div>
+<h3 id="el-searchContact">searchContact</h3>
+<p>Busca um contato na base de dados do sistema. O contato pode ser buscado por CPF/CNPJ, telefone ou email.</p>
+<div class="callout info">Se encontrado, o resultado será disponibilizado em uma variável e se desejado pode ser associado ao atendimento atual.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"resultVariableName":"","searchField":"number","searchValue":"","associateToCurrent":false,"nextElementId":""}
+Como se escreve: meu_rotulo: searchContact searchField="number" searchValue="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>14</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: searchContact searchField="number" searchValue="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td></td><td>Nome da variável que receberá o resultado da busca. Adicionar somente o nome da variável, sem o prefixo. Exemplo: "contact_result"</td></tr>
+<tr><td><code>searchField</code></td><td><code>"number" | "email" | "document" | "free1" | "free2" | "instagram" | "facebook" | "id"</code></td><td>sim</td><td>Nome do campo que será utilizado para buscar o contato.</td></tr>
+<tr><td><code>searchValue</code></td><td><code>string</code></td><td>sim</td><td>Valor que será utilizado para buscar o contato. Esse valor será comparado com o valor do campo especificado em searchField. Pode-se utilizar variáveis no conteúdo, exemplo: "{{search_value}}"</td></tr>
+<tr><td><code>associateToCurrent</code></td><td><code>boolean</code></td><td></td><td>Se true, o contato encontrado será associado ao atendimento atual.</td></tr>
+</tbody></table></div>
+<h3 id="el-addContact">addContact</h3>
+<p>Adiciona um novo contato na base de dados do sistema.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"contact":{"name":{"enabled":0,"content":""},"number":{"enabled":0,"content":""},"instagram":{"enabled":0,"content":""},"facebook":{"enabled":0,"content":""},"email":{"enabled":0,"content":""},"document":{"enabled":0,"content":""},"birthdate":{"enabled":0,"content":""},"tags":{"enabled":0,"content":[]},"free1":{"enabled":0,"content":""},"free2":{"enabled":0,"content":""},"address":{"enabled":0,"content":""},"city":{"enabled":0,"content":""},"neighborhood":{"enabled":0,"content":""},"postalcode":{"enabled":0,"content":""},"state":{"enabled":0,"content":""},"country":{"enabled":0,"content":""},"housenumber":{"enabled":0,"content":""},"addresscomp":{"enabled":0,"content":""},"preferredagents":{"enabled":0,"content":[]},"groups":{"enabled":0,"content":[]},"extradata":{},"donotdisturb":{"enabled":0,"content":false},"blockmarketingcampaigns":{"enabled":0,"content":false},"blockutilitiescampaigns":{"enabled":0,"content":false}},"associateToCurrent":false,"nextElementId":""}
+Como se escreve: meu_rotulo: addContact contact={...}
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>15</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: addContact contact={...}</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>contact</code></td><td><code>ContactConfig</code></td><td>sim</td><td>Dados para adição do contato.</td></tr>
+<tr><td><code>associateToCurrent</code></td><td><code>boolean</code></td><td></td><td>Se true, o novo contato criado encontrado será associado ao atendimento atual.</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado após o contato ser adicionado</td></tr>
+<tr><td><code>name</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Nome do contato</td></tr>
+<tr><td><code>number</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Telefone do contato</td></tr>
+<tr><td><code>instagram</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Instagram do contato</td></tr>
+<tr><td><code>facebook</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Facebook do contato</td></tr>
+<tr><td><code>email</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Email do contato</td></tr>
+<tr><td><code>document</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Documento do contato (Exemplo: CPF/CNPJ)</td></tr>
+<tr><td><code>birthdate</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Data de nascimento do contato</td></tr>
+<tr><td><code>gbid</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>DEPRECATED, não utilizar</td></tr>
+<tr><td><code>tags</code></td><td><code>ArrayObjectAddEditConfig</code></td><td></td><td>Lista de etiquetas do contato</td></tr>
+<tr><td><code>free1</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Campo livre 1 do contato</td></tr>
+<tr><td><code>free2</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Campo livre 2 do contato</td></tr>
+<tr><td><code>address</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Endereço do contato</td></tr>
+<tr><td><code>city</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Cidade do contato</td></tr>
+<tr><td><code>neighborhood</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Bairro do contato</td></tr>
+<tr><td><code>postalcode</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>CEP do contato</td></tr>
+<tr><td><code>state</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Estado do contato</td></tr>
+<tr><td><code>country</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>País do contato</td></tr>
+<tr><td><code>housenumber</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Número do endereço do contato</td></tr>
+<tr><td><code>addresscomp</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Complemento do endereço do contato</td></tr>
+<tr><td><code>preferredagents</code></td><td><code>ArrayObjectAddEditConfig</code></td><td></td><td>Lista de IDs dos atendentes preferidos do contato</td></tr>
+<tr><td><code>groups</code></td><td><code>ArrayObjectAddEditConfig</code></td><td></td><td>Lista de IDs dos grupos aos quais o contato pertence</td></tr>
+<tr><td><code>extradata</code></td><td><code>{ [key: string]: StringObjectAddEditConfig }</code></td><td></td><td>Objeto contendo campos extras personalizados do contato. Pode-se utilizar variáveis no conteúdo, exemplo: {"custom_field_1": {enabled: true, content: "{{custom_field_1_content}}"}}.</td></tr>
+<tr><td><code>donotdisturb</code></td><td><code>BooleanObjectAddEditConfig</code></td><td></td><td>Se true, não será permitido iniciar um atendimento ativo com esse contato. A comunicação com ele deverá sempre ser passiva, ou seja, o contato precisa iniciar o atendimento.</td></tr>
+<tr><td><code>blockmarketingcampaigns</code></td><td><code>BooleanObjectAddEditConfig</code></td><td></td><td>Se true, o contato não receberá campanhas de marketing do sistema</td></tr>
+<tr><td><code>enabled</code></td><td><code>number</code></td><td></td><td>Só é utilizado em operações de edição. Se 1, o campo será editado. Se 0, o campo será mantido igual, sem edição e o valor de content será ignorado.</td></tr>
+<tr><td><code>enabled</code></td><td><code>number</code></td><td></td><td>Só é utilizado em operações de edição. Se 1, o campo será editado. Se 0, o campo será mantido igual, sem edição e o valor de content será ignorado.</td></tr>
+<tr><td><code>enabled</code></td><td><code>number</code></td><td></td><td>Só é utilizado em operações de edição. Se 1, o campo será editado. Se 0, o campo será mantido igual, sem edição e o valor de content será ignorado.</td></tr>
+</tbody></table></div>
+<h3 id="el-editContact">editContact</h3>
+<p>Edita um contato existente na base de dados do sistema.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"id":"","contact":{"name":{"enabled":0,"content":""},"number":{"enabled":0,"content":""},"instagram":{"enabled":0,"content":""},"facebook":{"enabled":0,"content":""},"email":{"enabled":0,"content":""},"document":{"enabled":0,"content":""},"birthdate":{"enabled":0,"content":""},"tags":{"enabled":0,"content":[]},"free1":{"enabled":0,"content":""},"free2":{"enabled":0,"content":""},"address":{"enabled":0,"content":""},"city":{"enabled":0,"content":""},"neighborhood":{"enabled":0,"content":""},"postalcode":{"enabled":0,"content":""},"state":{"enabled":0,"content":""},"country":{"enabled":0,"content":""},"housenumber":{"enabled":0,"content":""},"addresscomp":{"enabled":0,"content":""},"preferredagents":{"enabled":0,"content":[]},"groups":{"enabled":0,"content":[]},"extradata":{},"donotdisturb":{"enabled":0,"content":false},"blockmarketingcampaigns":{"enabled":0,"content":false},"blockutilitiescampaigns":{"enabled":0,"content":false}},"nextElementId":""}
+Como se escreve: meu_rotulo: editContact id="..." contact={...}
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>28</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: editContact id="..." contact={...}</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>id</code></td><td><code>string</code></td><td>sim</td><td>ID do contato que será editado na base de dados do sistema. Pode-se utilizar variáveis no conteúdo, exemplo: "{{contact_id}}"</td></tr>
+<tr><td><code>contact</code></td><td><code>ContactConfig</code></td><td>sim</td><td>Dados para edição do contato.</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado após o contato ser editado</td></tr>
+<tr><td><code>name</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Nome do contato</td></tr>
+<tr><td><code>number</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Telefone do contato</td></tr>
+<tr><td><code>instagram</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Instagram do contato</td></tr>
+<tr><td><code>facebook</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Facebook do contato</td></tr>
+<tr><td><code>email</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Email do contato</td></tr>
+<tr><td><code>document</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Documento do contato (Exemplo: CPF/CNPJ)</td></tr>
+<tr><td><code>birthdate</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Data de nascimento do contato</td></tr>
+<tr><td><code>gbid</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>DEPRECATED, não utilizar</td></tr>
+<tr><td><code>tags</code></td><td><code>ArrayObjectAddEditConfig</code></td><td></td><td>Lista de etiquetas do contato</td></tr>
+<tr><td><code>free1</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Campo livre 1 do contato</td></tr>
+<tr><td><code>free2</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Campo livre 2 do contato</td></tr>
+<tr><td><code>address</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Endereço do contato</td></tr>
+<tr><td><code>city</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Cidade do contato</td></tr>
+<tr><td><code>neighborhood</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Bairro do contato</td></tr>
+<tr><td><code>postalcode</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>CEP do contato</td></tr>
+<tr><td><code>state</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Estado do contato</td></tr>
+<tr><td><code>country</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>País do contato</td></tr>
+<tr><td><code>housenumber</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Número do endereço do contato</td></tr>
+<tr><td><code>addresscomp</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Complemento do endereço do contato</td></tr>
+<tr><td><code>preferredagents</code></td><td><code>ArrayObjectAddEditConfig</code></td><td></td><td>Lista de IDs dos atendentes preferidos do contato</td></tr>
+<tr><td><code>groups</code></td><td><code>ArrayObjectAddEditConfig</code></td><td></td><td>Lista de IDs dos grupos aos quais o contato pertence</td></tr>
+<tr><td><code>extradata</code></td><td><code>{ [key: string]: StringObjectAddEditConfig }</code></td><td></td><td>Objeto contendo campos extras personalizados do contato. Pode-se utilizar variáveis no conteúdo, exemplo: {"custom_field_1": {enabled: true, content: "{{custom_field_1_content}}"}}.</td></tr>
+<tr><td><code>donotdisturb</code></td><td><code>BooleanObjectAddEditConfig</code></td><td></td><td>Se true, não será permitido iniciar um atendimento ativo com esse contato. A comunicação com ele deverá sempre ser passiva, ou seja, o contato precisa iniciar o atendimento.</td></tr>
+<tr><td><code>blockmarketingcampaigns</code></td><td><code>BooleanObjectAddEditConfig</code></td><td></td><td>Se true, o contato não receberá campanhas de marketing do sistema</td></tr>
+<tr><td><code>enabled</code></td><td><code>number</code></td><td></td><td>Só é utilizado em operações de edição. Se 1, o campo será editado. Se 0, o campo será mantido igual, sem edição e o valor de content será ignorado.</td></tr>
+<tr><td><code>enabled</code></td><td><code>number</code></td><td></td><td>Só é utilizado em operações de edição. Se 1, o campo será editado. Se 0, o campo será mantido igual, sem edição e o valor de content será ignorado.</td></tr>
+<tr><td><code>enabled</code></td><td><code>number</code></td><td></td><td>Só é utilizado em operações de edição. Se 1, o campo será editado. Se 0, o campo será mantido igual, sem edição e o valor de content será ignorado.</td></tr>
+</tbody></table></div>
+<h3 id="el-addPersistent">addPersistent</h3>
+<p>Adiciona um valor persistente ao banco de dados. Valores persistentes são armazenados no banco de dados e podem ser acessados em qualquer, inclusive por outros atendimentos em outras filas.</p>
+<div class="callout info">Útil para manter registros de informações importantes que devem ser acessadas em diferentes momentos e de forma global, como por exemplo, um contador de atendimentos ou chaves de autenticação dinâmicas em serviços externos.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"key":"","value":"","ttl":0,"nextElementId":""}
+Como se escreve: meu_rotulo: addPersistent key="..." value="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>51</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: addPersistent key="..." value="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>key</code></td><td><code>string</code></td><td>sim</td><td>Chave que será utilizada para acessar o valor persistente. Pode-se utilizar variáveis no conteúdo, exemplo: "{{persistent_key}}"</td></tr>
+<tr><td><code>value</code></td><td><code>string</code></td><td>sim</td><td>Valor persistente que será armazenado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{persistent_value}}"</td></tr>
+<tr><td><code>ttl</code></td><td><code>number</code></td><td></td><td>Tempo em segundos que o valor persistente ficará armazenado. Se 0, o valor persistente será armazenado indefinidamente.</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-searchPersistent">searchPersistent</h3>
+<p>Busca um valor persistente no banco de dados e disponibiliza seu valor em uma variável.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"key":"","resultVariableName":"","nextElementId":""}
+Como se escreve: meu_rotulo: searchPersistent key="..." resultVariableName="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>52</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: searchPersistent key="..." resultVariableName="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>key</code></td><td><code>string</code></td><td>sim</td><td>Chave que será utilizada para acessar o valor persistente. Pode-se utilizar variáveis no conteúdo, exemplo: "{{persistent_key}}"</td></tr>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável que receberá o valor persistente encontrado. Adicionar somente o nome da variável, sem chaves. Exemplo: "persistent_result"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-removePersistent">removePersistent</h3>
+<p>Remove um valor persistente do banco de dados.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"key":"","nextElementId":""}
+Como se escreve: meu_rotulo: removePersistent key="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>53</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: removePersistent key="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>key</code></td><td><code>string</code></td><td>sim</td><td>Chave que será utilizada para identificar o valor persistente que deve ser removido. Pode-se utilizar variáveis no conteúdo, exemplo: "{{persistent_key}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h2 id="exemplos-do-grupo">Exemplos de uso</h2>
+<p>Fluxos completos que usam os elementos deste grupo. Cada exemplo foi compilado pelo próprio sistema antes de entrar aqui.</p>
+<h3 id="ex-automacoes-contatos-dados-1">Identificar o cliente pelo CPF: atualizar ou cadastrar</h3>
+<p>Perguntar o CPF, procurar o contato na base e atualizar quem ja existe ou cadastrar quem ainda nao esta na base.</p>
+<ol class="steps">
+<li><strong><code>question</code></strong> — pede o CPF com validate=1 (validacao de CPF/CNPJ) e so segue quando a resposta for valida, guardando em cpf_cliente.</li>
+<li><strong><code>searchContact</code></strong> — busca o contato pelo campo document usando {{cpf_cliente}}, grava o resultado em contato e associa o contato ao atendimento atual (associateToCurrent=true).</li>
+<li><strong><code>varCondition</code></strong> — com value="{{contato}}" e o operador not null, separa quem foi encontrado (ramo achou) de quem nao existe na base (else).</li>
+<li><strong><code>editContact</code></strong> — no ramo dos encontrados, edita o contato pelo id e grava o ultimo protocolo no campo livre free1.</li>
+<li><strong><code>addContact</code></strong> — no ramo dos novos, cria o contato com nome, numero e documento e ja o associa ao atendimento atual.</li>
+<li><strong><code>message</code></strong> — confirma para o cliente se o cadastro ja existia ou se acabou de ser criado.</li>
+<li><strong><code>terminate</code></strong> — encerra o fluxo em cada ramo.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">pede_cpf: question varName="cpf_cliente" text="Para localizar seu cadastro, informe o CPF com somente numeros." validate=1 validateError="CPF invalido. Digite apenas os numeros do CPF."
+busca: searchContact searchField="document" searchValue="{{cpf_cliente}}" resultVariableName="contato" associateToCurrent=true
+decide: varCondition value="{{contato}}" {
+  case achou conditionOperator="not null" {
+    atualiza: editContact id="{{contato}}" contact.free1.enabled=1 contact.free1.content="ultimo atendimento: {{chat_protocol}}"
+    ola: message text="Bem-vindo de volta, {{contact_name}}! Ja localizei seu cadastro pelo CPF."
+    fim: terminate reason="Cliente identificado pelo CPF" obs="Contato encontrado e atualizado."
+  }
+  else {
+    cadastra: addContact associateToCurrent=true contact.name.enabled=1 contact.name.content="{{chat_client_name}}" contact.number.enabled=1 contact.number.content="{{chat_client_number}}" contact.document.enabled=1 contact.document.content="{{cpf_cliente}}"
+    boas_vindas: message text="Cadastro criado com sucesso, {{chat_client_name}}. Agora ja consigo te reconhecer."
+    fim_novo: terminate reason="Novo contato cadastrado" obs="Contato criado e associado ao atendimento."
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente e reconhecido pelo CPF (ou passa a existir na base) e o atendimento segue com o contato associado.</div>
+<h3 id="ex-automacoes-contatos-dados-2">Reconhecer quem esta falando pelo telefone</h3>
+<p>Descobrir se o numero que esta na conversa ja e um contato conhecido e, se nao for, registrar na hora.</p>
+<ol class="steps">
+<li><strong><code>searchContact</code></strong> — busca o contato pelo campo number com o telefone {{chat_client_number}}, grava em cliente e associa o contato ao atendimento.</li>
+<li><strong><code>varCondition</code></strong> — decide pelo resultado da busca: ramo conhecido quando {{cliente}} nao e nulo, else quando o numero nao esta na base.</li>
+<li><strong><code>addContact</code></strong> — no else, cria o contato com o numero da conversa e com a origem gravada no campo livre free2; tambem associa ao atendimento atual.</li>
+<li><strong><code>message</code></strong> — cumprimenta o cliente pelo nome no ramo conhecido e confirma a criacao no ramo novo, mostrando o numero com o filtro de formatacao.</li>
+<li><strong><code>terminate</code></strong> — encerra o fluxo nos dois ramos.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">reconhece: searchContact searchField="number" searchValue="{{chat_client_number}}" resultVariableName="cliente" associateToCurrent=true
+decide: varCondition value="{{cliente}}" {
+  case conhecido conditionOperator="not null" {
+    ola: message text="Ola {{contact_name}}! Reconheci seu numero e ja associei seu cadastro a este atendimento."
+    fim: terminate reason="Contato reconhecido" obs="Contato associado ao atendimento pelo numero."
+  }
+  else {
+    registra: addContact associateToCurrent=true contact.number.enabled=1 contact.number.content="{{chat_client_number}}" contact.free2.enabled=1 contact.free2.content="origem: atendimento {{chat_protocol}}"
+    pronto: message text="Registrei seu numero {{contact_number | phone:\"BR\"}}. Seu cadastro sera usado nos proximos atendimentos."
+    fim_novo: terminate reason="Contato criado na conversa" obs="Numero novo cadastrado e associado."
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O atendimento fica associado a um contato conhecido ou a um contato recem-criado, e o cliente ve esse resultado na conversa.</div>
+<h3 id="ex-automacoes-contatos-dados-3">Enriquecer o cadastro com endereco e etiquetas</h3>
+<p>Aproveitar a conversa para completar o endereco de entrega do contato e marcar etiquetas de classificacao.</p>
+<ol class="steps">
+<li><strong><code>searchContact</code></strong> — localiza o contato pelo telefone e associa ao atendimento, guardando o contato em cliente (a variavel e usada como id na edicao).</li>
+<li><strong><code>question</code></strong> — coleta CEP, endereco e cidade em tres perguntas, validando o CEP com validate=4 (validacao de numero).</li>
+<li><strong><code>editContact</code></strong> — edita o contato gravando postalcode, address e city pelo caminho pontilhado dos campos do objeto contact e envia a lista inteira de tags (endereco_atualizado e cliente_ativo).</li>
+<li><strong><code>message</code></strong> — devolve ao cliente o endereco como ficou gravado.</li>
+<li><strong><code>terminate</code></strong> — encerra o fluxo com o cadastro enriquecido.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">localiza: searchContact searchField="number" searchValue="{{chat_client_number}}" resultVariableName="cliente" associateToCurrent=true
+pede_cep: question varName="cep_entrega" text="Vou atualizar seu endereco de entrega. Informe o CEP, somente numeros." validate=4 validateError="CEP invalido. Digite somente numeros."
+pede_endereco: question varName="endereco_entrega" text="Qual a rua, o numero e o complemento?"
+pede_cidade: question varName="cidade_entrega" text="Qual a cidade e o estado? Exemplo: Sao Paulo/SP."
+grava: editContact id="{{cliente}}" contact.postalcode.enabled=1 contact.postalcode.content="{{cep_entrega}}" contact.address.enabled=1 contact.address.content="{{endereco_entrega}}" contact.city.enabled=1 contact.city.content="{{cidade_entrega}}" contact.tags.enabled=1 contact.tags.content=["endereco_atualizado","cliente_ativo"]
+confirma: message text="Endereco atualizado: {{endereco_entrega}}, CEP {{cep_entrega}}, {{cidade_entrega}}."
+fim: terminate reason="Endereco atualizado" obs="Cadastro enriquecido com endereco e etiquetas."</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O contato passa a ter endereco completo e as etiquetas de classificacao gravadas, e o cliente ouve a confirmacao do que foi salvo.</div>
+<h3 id="ex-automacoes-contatos-dados-4">Preferencia que sobrevive de um atendimento para o outro</h3>
+<p>Lembrar o periodo de atendimento preferido do cliente gravando um valor persistente que qualquer atendimento, em qualquer fila, pode ler.</p>
+<ol class="steps">
+<li><strong><code>searchPersistent</code></strong> — procura a chave persistente preferencia_horario:{{chat_client_number}} e disponibiliza o valor na variavel preferencia.</li>
+<li><strong><code>varCondition</code></strong> — se a preferencia ja existe (not null), lembra o cliente do que ele escolheu antes; no else, coleta a preferencia e grava.</li>
+<li><strong><code>question</code></strong> — pergunta o periodo preferido e guarda a resposta na variavel preferencia.</li>
+<li><strong><code>addPersistent</code></strong> — grava a chave preferencia_horario:{{chat_client_number}} com o valor informado; sem ttl (padrao 0), o valor fica guardado indefinidamente e vale para outros atendimentos e outras filas.</li>
+<li><strong><code>transfer</code></strong> — no ramo de quem ja tinha preferencia, devolve o atendimento para a fila (destinationType=0), encerrando o fluxo.</li>
+<li><strong><code>terminate</code></strong> — encerra o fluxo depois de gravar e confirmar a preferencia.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">busca_preferencia: searchPersistent key="preferencia_horario:{{chat_client_number}}" resultVariableName="preferencia"
+decide: varCondition value="{{preferencia}}" {
+  case tem conditionOperator="not null" {
+    lembra: message text="Que bom te ver de novo! Da ultima vez voce escolheu o periodo da {{preferencia}} para ser atendido."
+    encaminha: transfer destinationType=0 -&gt; end
+  }
+  else {
+    pergunta: question varName="preferencia" text="Qual periodo voce prefere para ser atendido: manha, tarde ou noite?"
+    guarda: addPersistent key="preferencia_horario:{{chat_client_number}}" value="{{preferencia}}"
+    confirma: message text="Anotei sua preferencia: {{preferencia}}. Nos proximos contatos ja vou considerar isso."
+    fim: terminate reason="Preferencia registrada" obs="Valor persistente gravado sem prazo de expiracao (ttl 0)."
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> Na primeira vez a preferencia e perguntada e gravada; nas vezes seguintes o fluxo se lembra e ja encaminha o cliente sem perguntar de novo.</div>
+<h3 id="ex-automacoes-contatos-dados-5">Descadastro de campanhas com limpeza da memoria</h3>
+<p>Atender o pedido de sair das campanhas: remover a marca de opt-in, registrar o opt-out e confirmar para o cliente.</p>
+<ol class="steps">
+<li><strong><code>searchPersistent</code></strong> — le a chave persistente opt_in_campanhas:{{chat_client_number}} e deixa o valor em opt_in.</li>
+<li><strong><code>varCondition</code></strong> — ramo inscrito quando {{opt_in}} nao e nulo; else quando o cliente nao estava inscrito.</li>
+<li><strong><code>removePersistent</code></strong> — apaga a chave de opt-in, tirando o cliente das campanhas.</li>
+<li><strong><code>addPersistent</code></strong> — grava a chave opt_out_campanhas:{{chat_client_number}} com valor sim e ttl=0, para que outros fluxos respeitem a decisao.</li>
+<li><strong><code>message</code></strong> — confirma o descadastro, ou avisa que nao havia inscricao ativa no ramo else.</li>
+<li><strong><code>terminate</code></strong> — encerra o fluxo em cada ramo.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">busca_optin: searchPersistent key="opt_in_campanhas:{{chat_client_number}}" resultVariableName="opt_in"
+decide: varCondition value="{{opt_in}}" {
+  case inscrito conditionOperator="not null" {
+    remove_marca: removePersistent key="opt_in_campanhas:{{chat_client_number}}"
+    registra_saida: addPersistent key="opt_out_campanhas:{{chat_client_number}}" value="sim" ttl=0
+    confirma: message text="Pronto: removi seu cadastro das campanhas de marketing. Se mudar de ideia, e so avisar."
+    fim_saida: terminate reason="Descadastro de campanhas" obs="Chave persistente de opt-in removida e opt-out registrado."
+  }
+  else {
+    nada: message text="Voce nao estava inscrito nas campanhas de marketing. Nao ha o que remover."
+    fim_nada: terminate reason="Sem inscricao ativa" obs="Nada foi alterado no cadastro."
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente inscrito sai das campanhas, a decisao fica registrada em uma chave persistente de opt-out e ele recebe a confirmacao.</div>
+
+  <div class="pagenav">
+    <a href="automacoes-elementos.html"><span>←</span> Catálogo de elementos</a>
+    <a class="next" href="automacoes-exemplos.html"><span>Ver também →</span> Exemplos prontos</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

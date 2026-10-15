@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mensagens e conteúdo — Manual Omnichannel</title>
+<meta name="description" content="O que o cliente vê: textos, perguntas, botões e listas. (14 elementos)">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a class="active" href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="automacoes-elementos.html">Automações e URA</a> &rsaquo; Mensagens e conteúdo</div>
+
+  <h1>Mensagens e conteúdo</h1>
+  <p class="subtitle">O que o cliente vê: textos, perguntas, botões e listas. (14 elementos)</p>
+
+<p>O que o cliente vê: textos, perguntas, botões e listas.</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Elemento</th><th>O que faz</th></tr></thead><tbody>
+<tr><td><a href="#el-message">message</a></td><td>Envia uma mensagem para o cliente. Não aguarda resposta e segue para o próximo elemento imediatamente.</td></tr>
+<tr><td><a href="#el-info">info</a></td><td>Adiciona uma mensagem de informação ao atendimento. A mensagem de informação só poderá ser vista pelo atendente.</td></tr>
+<tr><td><a href="#el-question">question</a></td><td>Enviar uma mensagem com uma pergunta para o cliente. Interrompe o fluxo de execução da URA até que o cliente envie uma nova mensagem.</td></tr>
+<tr><td><a href="#el-options">options</a></td><td>Envia uma mensagem com múltiplas opções para o cliente e segue o fluxo de execução de acordo com a opção escolhida pelo cliente.</td></tr>
+<tr><td><a href="#el-url">url</a></td><td>Envia uma mensagem com um botão de ação para o cliente. O botão pode ser uma URL ou um dado para ser copiado. Em fila Telegram vale para o t</td></tr>
+<tr><td><a href="#el-requestLocation">requestLocation</a></td><td>Envia uma mensagem solicitando que o cliente compartilhe sua localização.</td></tr>
+<tr><td><a href="#el-sendMail">sendMail</a></td><td>Envia um e-mail para o cliente com base em um modelo pré-cadastrado.</td></tr>
+<tr><td><a href="#el-sendTemplate">sendTemplate</a></td><td>Envia um template de mensagem pré aprovada para o cliente.</td></tr>
+<tr><td><a href="#el-sendFlow">sendFlow</a></td><td>Envia uma mensagem com um Whatsapp Flow pré-aprovado para o cliente.</td></tr>
+<tr><td><a href="#el-clearFlowDataFromMessage">clearFlowDataFromMessage</a></td><td>Limpa os dados da resposta de um Whatsapp Flow da mensagem mais recente recebida, excluindo inclusive do banco de dados.</td></tr>
+<tr><td><a href="#el-changeMessageVisualGroup">changeMessageVisualGroup</a></td><td>Altera o grupo de visualização (fk_visualgroup) de uma mensagem do chat atual, restringindo quem pode vê-la. Somente mensagens do próprio at</td></tr>
+<tr><td><a href="#el-cancelMessage">cancelMessage</a></td><td>Interrompe o envio de uma mensagem que será enviada.</td></tr>
+<tr><td><a href="#el-replyComment">replyComment</a></td><td>Responde a um comentário recebido em uma publicação do instagram.</td></tr>
+<tr><td><a href="#el-shareContact">shareContact</a></td><td>Compartilha um contato com o cliente, enviando seus dados na forma de uma mensagem.</td></tr>
+</tbody></table></div>
+<h3 id="el-message">message</h3>
+<p>Envia uma mensagem para o cliente. Não aguarda resposta e segue para o próximo elemento imediatamente.</p>
+<div class="callout info">Quando utilizado em uma automação, é necessário que um atendimento esteja associado a essa.<br>Caso nenhum atendimento esteja associado a automação, esse elemento será ignorado.<br>Pode acompanhar botões de resposta rápida (campo buttons da MessageConfig). Diferente do elemento options, esses botões NÃO interrompem o fluxo: a mensagem é enviada com os botões e o fluxo segue imediatamente para o próximo elemento, sem aguardar a escolha do cliente. São úteis para enviar respostas rápidas em que não se aguarda retorno, ou cujo retorno virá de forma assíncrona em outro atendimento. Máximo de 3 botões. Os botões só são enviados em filas Webchat, WAGS, WA Cloud API, WA Dialog, WA Dialog Cloud, WA Smarte, FB e IG; nas demais filas apenas o texto é enviado.<br>ENVIO FORA DO ATENDIMENTO DO FLUXO (campos opcionais da MessageConfig; vazios = comportamento acima):<br>- chatId: envia em OUTRO atendimento aberto (por exemplo o aberto por openChat sem associar, ou um item da lista do queueChats). O fluxo não espera resposta dele. Em fila oficial com a janela de 24 horas fechada nada é enviado (WINDOW_CLOSED).<br>- phoneNumber (com countryCode e, opcionalmente, queueId; vazio = fila do fluxo): envia para um NÚMERO sem abrir atendimento. Filas aceitas: WhatsApp não oficial e oficiais; Telegram e demais canais recusam (QUEUE_TYPE_UNSUPPORTED). Se já houver atendimento aberto para o número, actionWhenOpen decide: 0 envia nele, 1 não envia (CHAT_OPEN). Sem atendimento aberto: em fila OFICIAL só envia com a janela de 24 horas do número aberta (senão WINDOW_CLOSED; fora da janela use sendTemplate); em fila NÃO OFICIAL a mensagem entra na fila de disparo (a mesma das mensagens enviadas pela API), que respeita o ritmo de envio e confere se o número tem WhatsApp — ela sai logo depois, não na hora, e isso protege o número contra bloqueio por disparo em massa. Os botões são enviados também sem atendimento.<br>- Fila NÃO OFICIAL que autenticou (conectou ou reconectou) há menos de 5 minutos: nada é enviado nem enfileirado — nem mesmo num atendimento já aberto para o número — e o erro é QUEUE_NOT_READY; trate o erro ou tente de novo mais tarde.<br>- Com chatId ou phoneNumber o elemento roda também em automação sem atendimento associado. Na aba "Testar" nada é enviado (VIRTUAL_CHAT).<br>- resultVariableName (opcional) recebe o ID da mensagem (ou do registro enfileirado), resultVariableName + "_status" recebe SENT ou QUEUED e resultVariableName + "_error" o código da recusa ("" em sucesso). Só recusas locais voltam ao fluxo: uma falha posterior do provedor não volta.<br>VÍNCULO INTERNO COM PRODUTOS (campo opcional productIds): um ID de produto, lista de IDs separados por vírgula ("5,7"), array de números ou variável que resolva para um desses formatos. Os IDs viram o atalho "Ver produto(s)" no painel do atendente, para ele abrir o cadastro do item a partir da conversa. A mensagem enviada ao cliente continua sendo a mensagem de texto comum — não vira mensagem de produto em canal nenhum. Use quando a resposta da automação recomenda produtos que o atendente precisa enxergar (ex.: IDs vindos de um webhook de ERP). IDs inexistentes são descartados com aviso na depuração; se nenhum resolver, a mensagem sai sem vínculo. Vazio/omitido = sem vínculo.<br>Esses campos valem só para o elemento message: info, question e requestLocation não os têm.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","text":"","fileChooseType":0,"fileId":"","buttons":[]}
+Como se escreve: meu_rotulo: message
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code></code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: message</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma</td></tr>
+<tr><td><code>text</code></td><td><code>string</code></td><td></td><td>Texto da mensagem que será enviada. Pode-se utilizar variáveis no conteúdo, exemplo: "Olá {{chat_client_name}}, como posso ajudar?"</td></tr>
+<tr><td><code>fileChooseType</code></td><td><code>0 | 1</code></td><td></td><td>Tipo de processo de escolha do arquivo pelo usuário durante a configuração do elemento. 0 - Será apresentada uma lista de seleção de arquivos com os arquivos da galeria, 1 - Caixa de texto, para que digite o ID ou variável contendo o ID.</td></tr>
+<tr><td><code>text</code></td><td><code>string</code></td><td>sim</td><td>Texto exibido no botão de resposta rápida. Pode-se utilizar variáveis, exemplo: "Falar com {{chat_agent_name}}". Tamanho máximo de 30 caracteres.</td></tr>
+</tbody></table></div>
+<h3 id="el-info">info</h3>
+<p>Adiciona uma mensagem de informação ao atendimento. A mensagem de informação só poderá ser vista pelo atendente.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","text":"","fileChooseType":0,"fileId":""}
+Como se escreve: meu_rotulo: info
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>3</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: info</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma</td></tr>
+<tr><td><code>text</code></td><td><code>string</code></td><td></td><td>Texto da mensagem que será enviada. Pode-se utilizar variáveis no conteúdo, exemplo: "Olá {{chat_client_name}}, como posso ajudar?"</td></tr>
+<tr><td><code>fileChooseType</code></td><td><code>0 | 1</code></td><td></td><td>Tipo de processo de escolha do arquivo pelo usuário durante a configuração do elemento. 0 - Será apresentada uma lista de seleção de arquivos com os arquivos da galeria, 1 - Caixa de texto, para que digite o ID ou variável contendo o ID.</td></tr>
+</tbody></table></div>
+<h3 id="el-question">question</h3>
+<p>Enviar uma mensagem com uma pergunta para o cliente. Interrompe o fluxo de execução da URA até que o cliente envie uma nova mensagem.</p>
+<div class="callout info">Salva o conteúdo da mensagem enviada pelo cliente em uma variável.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","text":"","fileChooseType":0,"fileId":"","varName":"","validate":0,"validateError":""}
+Como se escreve: meu_rotulo: question varName="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>1</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: question varName="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>varName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável que irá armazenar a resposta do cliente</td></tr>
+<tr><td><code>validate</code></td><td><code>0 | 1 | 2 | 3 | 4</code></td><td></td><td>Se a resposta do cliente deve ser validada. 0 - Não validar, 1 - Validar CPF / CNPJ, 2 - Validar e-mail, 3 - Validar telefone, 4 - Validar número</td></tr>
+</tbody></table></div>
+<h3 id="el-options">options</h3>
+<p>Envia uma mensagem com múltiplas opções para o cliente e segue o fluxo de execução de acordo com a opção escolhida pelo cliente.</p>
+<div class="callout info">Interrompe o fluxo de execução da URA até que o cliente envie uma nova mensagem com uma das opções.<br>Caso nenhum atendimento esteja associado a automação, esse elemento será ignorado.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","text":"","fileChooseType":0,"fileId":"","type":0,"btnText":"","errorRetryCount":0,"errorRetryMessage":"","options":[]}
+Como se escreve: meu_rotulo: options type=0
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)
+Ramos: cada item de `options` vira um bloco `case`, e a saída padrão do elemento vira `else`:
+  meu_rotulo: options { case id_do_ramo text="..." -&gt; destino  else -&gt; destino_padrao } · tipo interno <code>2</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: options type=0</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) Ramos: cada item de `options` vira um bloco `case`, e a saída padrão do elemento vira `else`: meu_rotulo: options { case id_do_ramo text="..." -&gt; destino else -&gt; destino_padrao }</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma quando a resposta do usuário não corresponder a nenhuma opção e o número de retentativas for excedido</td></tr>
+<tr><td><code>type</code></td><td><code>OptionsConfigType</code></td><td>sim</td><td>Tipo de opções que serão enviadas para o cliente</td></tr>
+<tr><td><code>btnText</code></td><td><code>string</code></td><td></td><td>Texto do botão de exibição da lista de opções. Só deve ser preenchido quando o type for 2 (list). Pode-se utilizar variáveis no conteúdo do botão, exemplo: "Selecione uma opção {{chat_client_name}}"</td></tr>
+<tr><td><code>errorRetryCount</code></td><td><code>number</code></td><td></td><td>Número de tentativas que o cliente tem para enviar uma resposta válida. Caso o cliente não envie uma resposta válida após o número de tentativas, o fluxo seguirá para o nextElementId. Se 0 ou negativo, o fluxo seguirá para o nextElementId após a primeira resposta inválida.</td></tr>
+<tr><td><code>errorRetryMessage</code></td><td><code>string</code></td><td></td><td>Mensagem que será enviada ao cliente caso a resposta não seja válida. Pode-se utilizar variáveis no conteúdo, exemplo: "Por favor, selecione uma opção válida {{chat_client_name}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma</td></tr>
+<tr><td><code>text</code></td><td><code>string</code></td><td></td><td>Texto da mensagem que será enviada. Pode-se utilizar variáveis no conteúdo, exemplo: "Olá {{chat_client_name}}, como posso ajudar?"</td></tr>
+<tr><td><code>fileChooseType</code></td><td><code>0 | 1</code></td><td></td><td>Tipo de processo de escolha do arquivo pelo usuário durante a configuração do elemento. 0 - Será apresentada uma lista de seleção de arquivos com os arquivos da galeria, 1 - Caixa de texto, para que digite o ID ou variável contendo o ID.</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>sim</td><td>ID da opção</td></tr>
+<tr><td><code>text</code></td><td><code>string</code></td><td>sim</td><td>Texto da opção que será exibido para o cliente. Pode-se utilizar variáveis no conteúdo, exemplo: "Opção 1 - {{chat_client_name}}". Se o elemento for do tipo text, esse mesmo texto deve ser repetido no corpo da mensagem. Se for do tipo button, o tamanho máximo desse texto é 30 caracteres.</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td><td>Descrição da opção. Só deve ser preenchido caso o type seja 2 (list). Pode-se utilizar variáveis no conteúdo, exemplo: "Descrição da opção 1 - {{chat_client_name}}"</td></tr>
+<tr><td><code>buttonId</code></td><td><code>string</code></td><td></td><td>ID da opção que será enviado para o cliente. O ID da opção selecionada pelo cliente será disponibilizado como uma variável caso o cliente pressione algum botão. Pode-se utilizar variáveis no conteúdo, exemplo: "{{option_id}}"</td></tr>
+<tr><td><code>alternativeTexts</code></td><td><code>string[]</code></td><td></td><td>Lista de textos alternativos que o cliente pode enviar para selecionar essa opção. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado caso essa opção seja selecionada</td></tr>
+</tbody></table></div>
+<h3 id="el-url">url</h3>
+<p>Envia uma mensagem com um botão de ação para o cliente. O botão pode ser uma URL ou um dado para ser copiado. Em fila Telegram vale para o tipo atual (conta + bot) e depende da janela de 24 horas do bot.</p>
+<p class="s10"><strong>Disponível em:</strong> WA Cloud API,Web Chat,Telegram
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","text":"","fileChooseType":0,"fileId":"","btnText":"","data":""}
+Como se escreve: meu_rotulo: url btnText="..." data="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>9</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: url btnText="..." data="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>btnText</code></td><td><code>string</code></td><td>sim</td><td>Texto do botão de ação. Pode-se utilizar variáveis no conteúdo, exemplo: "Copiar {{tipo_do_dado}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma</td></tr>
+<tr><td><code>text</code></td><td><code>string</code></td><td></td><td>Texto da mensagem que será enviada. Pode-se utilizar variáveis no conteúdo, exemplo: "Olá {{chat_client_name}}, como posso ajudar?"</td></tr>
+<tr><td><code>fileChooseType</code></td><td><code>0 | 1</code></td><td></td><td>Tipo de processo de escolha do arquivo pelo usuário durante a configuração do elemento. 0 - Será apresentada uma lista de seleção de arquivos com os arquivos da galeria, 1 - Caixa de texto, para que digite o ID ou variável contendo o ID.</td></tr>
+</tbody></table></div>
+<h3 id="el-requestLocation">requestLocation</h3>
+<p>Envia uma mensagem solicitando que o cliente compartilhe sua localização.</p>
+<p class="s10"><strong>Disponível em:</strong> WA Cloud API
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","text":"","fileChooseType":0,"fileId":""}
+Como se escreve: meu_rotulo: requestLocation
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>91</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: requestLocation</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma</td></tr>
+<tr><td><code>text</code></td><td><code>string</code></td><td></td><td>Texto da mensagem que será enviada. Pode-se utilizar variáveis no conteúdo, exemplo: "Olá {{chat_client_name}}, como posso ajudar?"</td></tr>
+<tr><td><code>fileChooseType</code></td><td><code>0 | 1</code></td><td></td><td>Tipo de processo de escolha do arquivo pelo usuário durante a configuração do elemento. 0 - Será apresentada uma lista de seleção de arquivos com os arquivos da galeria, 1 - Caixa de texto, para que digite o ID ou variável contendo o ID.</td></tr>
+</tbody></table></div>
+<h3 id="el-sendMail">sendMail</h3>
+<p>Envia um e-mail para o cliente com base em um modelo pré-cadastrado.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"mailQueueId":"","modelId":"","mails":"","nextElementId":""}
+Como se escreve: meu_rotulo: sendMail mailQueueId="..." modelId="..." mails="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>32</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: sendMail mailQueueId="..." modelId="..." mails="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>mailQueueId</code></td><td><code>string</code></td><td>sim</td><td>ID da fila de e-mail que será utilizada para envio do email. Pode-se utilizar variáveis no conteúdo, exemplo: "{{mail_queue_id}}"</td></tr>
+<tr><td><code>modelId</code></td><td><code>string</code></td><td>sim</td><td>ID do modelo de e-mail que será enviado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{model_id}}"</td></tr>
+<tr><td><code>mails</code></td><td><code>string</code></td><td>sim</td><td>Lista de e-mails dos destinatários, separas por vírgula. Pode-se utilizar variáveis no conteúdo, exemplo: "{{mail1}}, {{mail2}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-sendTemplate">sendTemplate</h3>
+<p>Envia um template de mensagem pré aprovada para o cliente.</p>
+<div class="callout info">ENVIO FORA DO ATENDIMENTO DO FLUXO (campos opcionais; vazios = envia no atendimento do fluxo, como sempre):<br>- chatId: envia em OUTRO atendimento aberto, na fila dele (queueId é ignorado); o template precisa ser compatível com essa fila.<br>- phoneNumber (com countryCode e, opcionalmente, queueId; vazio = fila do fluxo): envia para um NÚMERO sem abrir atendimento — é o jeito de mandar um template sem atendimento aberto. Só filas oficiais (QUEUE_TYPE_UNSUPPORTED nas demais). Contato bloqueado para a categoria do template (marketing/utilidade) não recebe (CONTACT_LOCKED). Se já houver atendimento aberto para o número, actionWhenOpen decide: 0 envia nele, 1 não envia (CHAT_OPEN).<br>- Com chatId ou phoneNumber o elemento roda também em automação sem atendimento associado. Na aba "Testar" nada é enviado (VIRTUAL_CHAT).<br>- resultVariableName (opcional) recebe o ID da mensagem enviada e resultVariableName + "_error" o código da recusa ("" em sucesso). Template de outra fila: TEMPLATE_QUEUE_MISMATCH.</div>
+<p class="s10"><strong>Disponível em:</strong> WA Cloud API
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"templateId":0,"templateData":[],"nextElementId":""}
+Como se escreve: meu_rotulo: sendTemplate templateId=0
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>66</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: sendTemplate templateId=0</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>templateId</code></td><td><code>number</code></td><td>sim</td><td>ID do template de mensagem pré-aprovado que será enviado ao cliente.</td></tr>
+<tr><td><code>templateData</code></td><td><code>string[]</code></td><td></td><td>Lista de dados que serão utilizados para preencher o template de mensagem. Pode-se utilizar variáveis no conteúdo, exemplo: ["{{data1}}", "{{data2}}"]</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-sendFlow">sendFlow</h3>
+<p>Envia uma mensagem com um Whatsapp Flow pré-aprovado para o cliente.</p>
+<p class="s10"><strong>Disponível em:</strong> WA Cloud API
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"flowId":"","initialScreenId":"","headerText":"","footerText":"","bodyText":"","btnText":"","flowData":{},"value":[],"nextElementId":""}
+Como se escreve: meu_rotulo: sendFlow flowId="..." initialScreenId="..." bodyText="..." btnText="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>75</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: sendFlow flowId="..." initialScreenId="..." bodyText="..." btnText="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>flowId</code></td><td><code>string</code></td><td>sim</td><td>ID do Whatsapp Flow pré-aprovado que será enviado ao cliente. Pode-se utilizar variáveis no conteúdo, exemplo: "{{flow_id}}"</td></tr>
+<tr><td><code>initialScreenId</code></td><td><code>string</code></td><td>sim</td><td>ID da tela inicial do Whatsapp Flow que será enviada ao cliente. Pode-se utilizar variáveis no conteúdo, exemplo: "{{initial_screen_id}}"</td></tr>
+<tr><td><code>headerText</code></td><td><code>string</code></td><td></td><td>Texto que será exibido no cabeçalho do Whatsapp Flow. Pode-se utilizar variáveis no conteúdo, exemplo: "{{header_text}}"</td></tr>
+<tr><td><code>footerText</code></td><td><code>string</code></td><td></td><td>Texto que será exibido no rodapé do Whatsapp Flow. Pode-se utilizar variáveis no conteúdo, exemplo: "{{footer_text}}"</td></tr>
+<tr><td><code>bodyText</code></td><td><code>string</code></td><td>sim</td><td>Texto que será exibido no corpo do Whatsapp Flow. Pode-se utilizar variáveis no conteúdo, exemplo: "{{body_text}}"</td></tr>
+<tr><td><code>btnText</code></td><td><code>string</code></td><td>sim</td><td>Texto que será exibido no botão de ação do Whatsapp Flow. Pode-se utilizar variáveis no conteúdo, exemplo: "{{btn_text}}"</td></tr>
+<tr><td><code>value</code></td><td><code>string }[]</code></td><td></td><td>Lista de dados que serão utilizados para preencher o Whatsapp Flow. Necessário só quando o flow esperar dados. Pode-se utilizar variáveis no conteúdo, exemplo: [{key: "{{data1}}", value: "{{data2}}"]</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-clearFlowDataFromMessage">clearFlowDataFromMessage</h3>
+<p>Limpa os dados da resposta de um Whatsapp Flow da mensagem mais recente recebida, excluindo inclusive do banco de dados.</p>
+<div class="callout info">Por padrão, os dados de resposta de um Whatsapp Flow são mantidos na mensagem e salvos no banco de dados, para que possam ser utilizados em elementos subsequentes.<br>Porém podem existir situações onde não se deseja que esses dados permaneçam salvos no banco de dados, como o caso de possuir dados sensíveis ou senhas.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
+Como se escreve: meu_rotulo: clearFlowDataFromMessage
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>76</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: clearFlowDataFromMessage</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-changeMessageVisualGroup">changeMessageVisualGroup</h3>
+<p>Altera o grupo de visualização (fk_visualgroup) de uma mensagem do chat atual, restringindo quem pode vê-la. Somente mensagens do próprio atendimento associado ao fluxo podem ser alteradas — se a mensagem não for encontrada no chat atual, o elemento é ignorado e o fluxo segue normalmente. Tipicamente usado para ocultar uma mensagem (por exemplo, uma resposta de pesquisa) de agentes comuns antes de o atendimento ser atribuído; administradores e supervisores continuam vendo. A alteração é aplicada em memória e no banco de dados. Não gera variáveis.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"messageId":"{{message_id}}","visualGroupId":"","nextElementId":""}
+Como se escreve: meu_rotulo: changeMessageVisualGroup messageId="{{message_id}}"
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>129</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: changeMessageVisualGroup messageId="{{message_id}}"</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>messageId</code></td><td><code>string</code></td><td>sim</td><td>ID da mensagem do chat atual que terá o grupo de visualização alterado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{message_id}}"</td></tr>
+<tr><td><code>visualGroupId</code></td><td><code>string</code></td><td></td><td>ID do grupo de visualização que poderá ver a mensagem. "0" torna a mensagem visível para todos. Pode-se utilizar variáveis no conteúdo</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-cancelMessage">cancelMessage</h3>
+<p>Interrompe o envio de uma mensagem que será enviada.</p>
+<div class="callout info">Só possui efeitos em automações que são executadas antes da mensagem ser enviada, como por exemplo, automações executadas por gatilhos de mensagens enviadas.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
+Como se escreve: meu_rotulo: cancelMessage
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>23</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: cancelMessage</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-replyComment">replyComment</h3>
+<p>Responde a um comentário recebido em uma publicação do instagram.</p>
+<div class="callout info">Pode-se identificar se uma mensagem recebida é na verdade um comentário utilizando a variável {{message_is_comment}}.<br>Comentários só podem ser respondidos por esse elemento. O elemento de enviar mensagem na realidade irá enviar um direct para a conta do cliente ao invés de responder o comentário na publicação.</div>
+<p class="s10"><strong>Disponível em:</strong> IG
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"text":"","nextElementId":""}
+Como se escreve: meu_rotulo: replyComment text="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>54</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: replyComment text="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>text</code></td><td><code>string</code></td><td>sim</td><td>Texto da resposta ao comentário. Pode-se utilizar variáveis no conteúdo, exemplo: "Resposta ao comentário: {{comment_text}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-shareContact">shareContact</h3>
+<p>Compartilha um contato com o cliente, enviando seus dados na forma de uma mensagem.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"contactId":"","nextElementId":""}
+Como se escreve: meu_rotulo: shareContact contactId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>48</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: shareContact contactId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>contactId</code></td><td><code>string</code></td><td>sim</td><td>ID do contato que será compartilhado com o cliente. Não se pode utilizar variáveis.</td></tr>
+</tbody></table></div>
+<h2 id="exemplos-do-grupo">Exemplos de uso</h2>
+<p>Fluxos completos que usam os elementos deste grupo. Cada exemplo foi compilado pelo próprio sistema antes de entrar aqui.</p>
+<h3 id="ex-automacoes-mensagens-1">Boas-vindas, menu principal e consulta com validação de CPF</h3>
+<p>Receber o cliente no primeiro contato, oferecer as opções da central em um menu tocável e só pedir o CPF quando ele escolhe consultar um pedido.</p>
+<ol class="steps">
+<li><strong><code>message</code></strong> — cumprimenta o cliente pelo nome e avisa que ele falou com a central de atendimento.</li>
+<li><strong><code>info</code></strong> — grava uma nota interna (só o atendente vê) dizendo que o cliente está sendo triado pelo menu.</li>
+<li><strong><code>options</code></strong> — apresenta o menu com três caminhos (consultar pedido, segunda via e falar com atendente) e um else para a escolha que não existe.</li>
+<li><strong><code>question</code></strong> — no caminho do pedido, pede o CPF do titular e valida o formato antes de seguir; se vier inválido, usa o texto de validateError.</li>
+<li><strong><code>message</code></strong> — confirma o CPF recebido e mostra o protocolo do atendimento.</li>
+<li><strong><code>url</code></strong> — no caminho da segunda via, envia um botão de ação com o link do boleto montado com o telefone do cliente.</li>
+<li><strong><code>terminate</code></strong> — fecha cada caminho com o motivo correspondente.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">boas_vindas: message text="Olá, {{chat_client_name}}! Você está falando com a Central de Atendimento."
+nota_triagem: info text="Triagem automática pelo menu principal. O cliente ainda não escolheu uma opção."
+menu_principal: options text="Escolha uma opção para eu te ajudar mais rápido:" type=0 {
+  case pedido text="Consultar um pedido" {
+    pede_cpf: question varName="cpf_cliente" text="Informe o CPF do titular do pedido, apenas os números." validate=1 validateError="CPF inválido. Envie os 11 números, sem pontos nem traços."
+    cpf_recebido: message text="Obrigado! Com o CPF {{cpf_cliente}} eu localizo o pedido e sigo com a consulta."
+    aviso_protocolo: message text="Guardei este atendimento no protocolo {{chat_protocol}}."
+    fim_pedido: terminate reason="Consulta de pedido iniciada"
+  }
+  case boleto text="Segunda via de boleto" {
+    link_boleto: url text="Toque no botão abaixo para abrir a segunda via:" btnText="Abrir segunda via" data="https://financeiro.exemplo.com.br/boleto/{{chat_client_number}}"
+    aviso_boleto: message text="Se o botão não abrir, responda esta conversa que um atendente gera o boleto para você."
+    fim_boleto: terminate reason="Segunda via enviada ao cliente"
+  }
+  case humano text="Falar com um atendente" {
+    aviso_fila: message text="Combinado! Estou te colocando na fila de atendimento humano agora."
+    fim_humano: terminate reason="Cliente pediu atendimento humano"
+  }
+  else {
+    nao_entendi: message text="Não entendi a opção. Sem problema: vou te encaminhar para um atendente para não te deixar esperando."
+    fim_invalido: terminate reason="Opção inválida no menu principal"
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente vê a saudação, toca em uma opção e recebe a confirmação (com o link do boleto ou o pedido de CPF validado); cada caminho encerra o atendimento com um motivo registrado.</div>
+<h3 id="ex-automacoes-mensagens-2">Pesquisa de satisfação com a nota protegida</h3>
+<p>Colher a nota do cliente no fim do atendimento e esconder a resposta dele dos atendentes comuns, deixando-a visível só para supervisores.</p>
+<ol class="steps">
+<li><strong><code>message</code></strong> — avisa que o atendimento está terminando e que vem uma pergunta rápida.</li>
+<li><strong><code>question</code></strong> — pergunta a nota de 0 a 10 e guarda a resposta na variável nota_atendimento, esperando a resposta do cliente.</li>
+<li><strong><code>changeMessageVisualGroup</code></strong> — move a mensagem mais recente ({{message_id}}) para o grupo de visualização 1, restringindo quem pode vê-la.</li>
+<li><strong><code>info</code></strong> — deixa a nota registrada como informação interna para quem pode ver a mensagem.</li>
+<li><strong><code>terminate</code></strong> — encerra o atendimento com o motivo pesquisa respondida.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">abre_pesquisa: message text="Antes de encerrar, quero saber como foi este atendimento."
+pede_nota: question varName="nota_atendimento" text="De 0 a 10, que nota você dá para o atendimento de hoje? Responda apenas com o número."
+protege_nota: changeMessageVisualGroup messageId="{{message_id}}" visualGroupId="1"
+nota_interna: info text="Nota informada pelo cliente: {{nota_atendimento}}. A mensagem com a resposta foi movida para o grupo de visualização 1: supervisores e administradores continuam vendo, atendentes comuns não."
+agradece_nota: message text="Obrigado pela avaliação, {{chat_client_name}}! Sua nota {{nota_atendimento}} foi registrada e vai nos ajudar a melhorar."
+fim_pesquisa: terminate reason="Pesquisa de satisfação respondida"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente responde uma única pergunta e recebe o agradecimento; o atendente comum não vê a nota na conversa, mas o supervisor e o administrador continuam vendo.</div>
+<h3 id="ex-automacoes-mensagens-3">Coleta de endereço com Whatsapp Flow e limpeza do dado sensível</h3>
+<p>Pedir o endereço de entrega em um formulário nativo do WhatsApp, usar a localização compartilhada como conferência e apagar o conteúdo do Flow logo depois.</p>
+<ol class="steps">
+<li><strong><code>sendTemplate</code></strong> — abre a conversa com um template pré-aprovado (exemplo para fila WA Cloud API).</li>
+<li><strong><code>waitMessage</code></strong> — espera o cliente mandar a primeira mensagem antes de pedir dados.</li>
+<li><strong><code>requestLocation</code></strong> — envia o pedido de localização para conferir a região da entrega.</li>
+<li><strong><code>sendFlow</code></strong> — manda o Whatsapp Flow de endereço, com cabeçalho, corpo, rodapé e o texto do botão.</li>
+<li><strong><code>clearFlowDataFromMessage</code></strong> — limpa a resposta do Flow da última mensagem recebida, inclusive no banco de dados.</li>
+<li><strong><code>message</code></strong> — confirma o recebimento dos dados e avisa que o frete será calculado.</li>
+<li><strong><code>sendMail</code></strong> — envia o e-mail de confirmação de endereço usando o modelo cadastrado.</li>
+<li><strong><code>terminate</code></strong> — encerra o atendimento com o motivo endereço coletado.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">abre_confirmacao: sendTemplate templateId=0
+aguarda_cliente: waitMessage
+pede_localizacao: requestLocation text="Para calcular o frete, toque em Anexar e compartilhe sua localização."
+form_endereco: sendFlow flowId="flow-endereco-entrega" initialScreenId="ENDERECO_ENTREGA" headerText="Dados de entrega" bodyText="Confirme o endereço de entrega do pedido {{chat_protocol}}." footerText="Leva menos de um minuto." btnText="Preencher endereço"
+limpa_dados_flow: clearFlowDataFromMessage
+confirma_recebimento: message text="Prontinho, {{chat_client_name}}! Recebemos seus dados com segurança e o frete já vai ser calculado."
+confirma_por_email: sendMail mailQueueId="fila-email-transacional" modelId="modelo-endereco-confirmado" mails="{{chat_client_email}}"
+fim_endereco: terminate reason="Endereço coletado pelo Whatsapp Flow"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente preenche o endereço dentro do WhatsApp, recebe a confirmação no chat e o e-mail; os dados do formulário deixam de ficar guardados na conversa.</div>
+<h3 id="ex-automacoes-mensagens-4">Comentário no Instagram respondido e convertido em atendimento no direct</h3>
+<p>Responder o comentário na publicação, chamar o cliente no direct e oferecer um menu com o contato do consultor para quem quer falar de planos.</p>
+<ol class="steps">
+<li><strong><code>replyComment</code></strong> — responde publicamente o comentário recebido na publicação (exemplo para fila IG).</li>
+<li><strong><code>message</code></strong> — continua a conversa no direct, já com o nome do contato.</li>
+<li><strong><code>options</code></strong> — mostra o menu com preços, suporte técnico e um else para quem escreve outro assunto; erra duas vezes e reapresenta com errorRetryMessage.</li>
+<li><strong><code>shareContact</code></strong> — no caminho de preços, compartilha o cartão de contato do consultor da região.</li>
+<li><strong><code>info</code></strong> — registra, no caminho sem escolha, que o comentário virou atendimento no direct.</li>
+<li><strong><code>terminate</code></strong> — fecha cada caminho com o motivo do encerramento.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">responde_comentario: replyComment text="Oi, {{contact_name}}! Trouxe a conversa para o direct para te ajudar por lá."
+boas_vindas_direct: message text="Vi seu comentário na publicação e vim falar com você por aqui. Como posso ajudar?"
+menu_direct: options text="Me diga sobre o que você quer falar:" type=0 errorRetryCount=2 errorRetryMessage="Não entendi. Por favor, toque em uma das opções acima." {
+  case precos text="Preços e planos" {
+    resumo_precos: message text="Nossos planos incluem implantação assistida e suporte em horário comercial. Vou te passar o contato do consultor."
+    contato_consultor: shareContact contactId="consultor-regiao-sul"
+    orienta_contato: message text="Salve o contato acima: ele é o consultor responsável pela sua região e fala com você pelo WhatsApp."
+    fim_precos: terminate reason="Comentário do Instagram atendido - planos"
+  }
+  case suporte text="Suporte técnico" {
+    encaminha_suporte: message text="Certo! Vou te encaminhar para o time de suporte técnico, que responde em horário comercial."
+    fim_suporte: terminate reason="Comentário do Instagram atendido - suporte"
+  }
+  else {
+    outro_assunto: message text="Sem problema! Escreva aqui o que você precisa que eu sigo com você."
+    nota_comentario: info text="Comentário do Instagram respondido e convertido em atendimento no direct; o cliente não escolheu uma opção do menu."
+    fim_outros: terminate reason="Comentário do Instagram atendido - outros assuntos"
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> Quem comentou recebe uma resposta pública e é atendido no direct; quem quer falar de planos sai da conversa com o contato do consultor salvo no aparelho.</div>
+<h3 id="ex-automacoes-mensagens-5">Cancelar a mensagem programada fora do horário comercial</h3>
+<p>Impedir que uma mensagem programada chegue ao cliente fora do horário de funcionamento, cancelando o envio e deixando o registro para o próximo dia útil.</p>
+<ol class="steps">
+<li><strong><code>businesshoursCheck</code></strong> — consulta a configuração de horário de funcionamento: dentro do horário o fluxo segue no caminho aberto, fora dele cai no bloco closed.</li>
+<li><strong><code>cancelMessage</code></strong> — no caminho fechado, interrompe o envio da mensagem programada.</li>
+<li><strong><code>info</code></strong> — explica no atendimento por que o envio foi interrompido e quando ele será retomado.</li>
+<li><strong><code>marker</code></strong> — no caminho aberto, etiqueta o atendimento para o controle de envios.</li>
+<li><strong><code>terminate</code></strong> — encerra os dois caminhos, cada um com o seu motivo.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">checa_envio: businesshoursCheck configId="horario_comercial" {
+  closed {
+    cancela_envio: cancelMessage
+    registra_cancelamento: info text="Envio cancelado: o cliente está fora do horário comercial e a mensagem programada só será retomada no próximo período de atendimento."
+    fim_cancelado: terminate reason="Mensagem programada cancelada fora do horário"
+  }
+}
+libera_envio: info text="Dentro do horário de funcionamento: a mensagem programada seguiu normalmente para o cliente."
+etiqueta_envio: marker markerId="etiqueta-envio-controlado"
+fim_liberado: terminate reason="Mensagem programada liberada"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente só recebe a mensagem em horário comercial; fora dele o envio é cancelado e fica registrado no atendimento com etiqueta e motivo do encerramento.</div>
+
+  <div class="pagenav">
+    <a href="automacoes-elementos.html"><span>←</span> Catálogo de elementos</a>
+    <a class="next" href="automacoes-exemplos.html"><span>Ver também →</span> Exemplos prontos</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+despedida: message text="Obrigado pelo contato, {{chat_client_name}}! Seu atendimento {{chat_protocol}} foi finalizado."
+convite: sendSurveyFormMessage surveyId=1 text="Sua opiniao e muito importante para melhorarmos. Pode avaliar o atendimento?" buttonText="Responder pesquisa" expirationDays=7
+fim: terminate reason="Atendimento finalizado com convite de pesquisa"

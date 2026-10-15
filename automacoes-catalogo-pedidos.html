@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo, pedidos e estoque — Manual Omnichannel</title>
+<meta name="description" content="Vitrine, pedido enviado ao cliente e baixa de estoque. (6 elementos)">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a class="active" href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="automacoes-elementos.html">Automações e URA</a> &rsaquo; Catálogo, pedidos e estoque</div>
+
+  <h1>Catálogo, pedidos e estoque</h1>
+  <p class="subtitle">Vitrine, pedido enviado ao cliente e baixa de estoque. (6 elementos)</p>
+
+<p>Vitrine, pedido enviado ao cliente e baixa de estoque.</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Elemento</th><th>O que faz</th></tr></thead><tbody>
+<tr><td><a href="#el-sendProductMessage">sendProductMessage</a></td><td>Envia uma mensagem de catálogo de produtos para o cliente. Permite enviar um ou mais produtos do catálogo da empresa; com vários, pode-se ap</td></tr>
+<tr><td><a href="#el-getProductDetails">getProductDetails</a></td><td>Busca um produto no catálogo do sistema, pelo ID ou pelo código interno, e disponibiliza seus detalhes em variáveis.</td></tr>
+<tr><td><a href="#el-sendOrder">sendOrder</a></td><td>Envia uma mensagem de pedido (order) para o cliente. Funciona em filas WhatsApp Cloud API (cartão de pedido nativo) e também em filas de Web</td></tr>
+<tr><td><a href="#el-updateOrderStatus">updateOrderStatus</a></td><td>Atualiza o status de um pedido (order) enviado para o cliente. Funciona em filas WhatsApp Cloud API (status de pedido nativo) e também em fi</td></tr>
+<tr><td><a href="#el-decrementProductStock">decrementProductStock</a></td><td>Diminui a "Quantidade em estoque" do CADASTRO de cada produto — não mexe no carrinho. Serve para o chatcommerce: ao fechar o pedido (por exe</td></tr>
+<tr><td><a href="#el-incrementProductStock">incrementProductStock</a></td><td>Aumenta a "Quantidade em estoque" do CADASTRO de cada produto — não mexe no carrinho. Serve para devolver ao estoque o que foi baixado por d</td></tr>
+</tbody></table></div>
+<h3 id="el-sendProductMessage">sendProductMessage</h3>
+<p>Envia uma mensagem de catálogo de produtos para o cliente. Permite enviar um ou mais produtos do catálogo da empresa; com vários, pode-se apresentar como lista ou como carrossel.</p>
+<div class="callout info">Como a mensagem chega depende da fila:<br>- WebChat V2: vitrine desenhada dentro do próprio chat (lista ou carrossel).<br>- WhatsApp Cloud API com catálogo da Meta: mensagem nativa de produto ou de lista de produtos.<br>- Filas com Catálogo sincronizado local (Facebook, Telegram, WhatsApp não oficial (WAMD 2 e WAMD 3), WhatsApp Cloud API, Instagram e Genérica 2): a mensagem é convertida automaticamente em um BOTÃO DE URL que abre o catálogo da empresa já no produto, ou na vitrine filtrada com exatamente esses itens. Com um único produto que tenha foto, a imagem vai junto onde o canal permite.<br>Nessas filas o Catálogo sincronizado local SUBSTITUI o catálogo da Meta: enquanto estiver ligado, as mensagens de produto deixam de referenciar o catálogo da Meta.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"bodyText":"","headerText":"","footerText":"","sectionTitle":"","searchType":"id","productIds":"","nextElementId":"","presentationFormat":"list"}
+Como se escreve: meu_rotulo: sendProductMessage bodyText="..." searchType="id" productIds="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>95</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: sendProductMessage bodyText="..." searchType="id" productIds="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>bodyText</code></td><td><code>string</code></td><td>sim</td><td>Texto do corpo da mensagem que será enviada junto com os produtos. Pode-se utilizar variáveis no conteúdo, exemplo: "Olá {{chat_client_name}}, confira nossos produtos!"</td></tr>
+<tr><td><code>headerText</code></td><td><code>string</code></td><td></td><td>Texto do cabeçalho da mensagem. Opcional. Pode-se utilizar variáveis no conteúdo, exemplo: "{{header_text}}"</td></tr>
+<tr><td><code>footerText</code></td><td><code>string</code></td><td></td><td>Texto do rodapé da mensagem. Opcional. Pode-se utilizar variáveis no conteúdo, exemplo: "{{footer_text}}"</td></tr>
+<tr><td><code>sectionTitle</code></td><td><code>string</code></td><td></td><td>Título da seção de produtos. Opcional. Esse campo só tem efeito se mais de um produto estiver sendo enviado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{section_title}}"</td></tr>
+<tr><td><code>searchType</code></td><td><code>'id' | 'code'</code></td><td>sim</td><td>Tipo de busca para localizar os produtos. 'id' para buscar pelo ID do produto no sistema, 'code' para buscar pelo código interno do produto.</td></tr>
+<tr><td><code>productIds</code></td><td><code>string</code></td><td>sim</td><td>ID(s) ou código(s) interno(s) do(s) produto(s) que serão enviados, separados por vírgula quando mais de um. Pode-se utilizar variáveis no conteúdo, exemplo: "{{product_id}}" ou "123,456,789"</td></tr>
+</tbody></table></div>
+<h3 id="el-getProductDetails">getProductDetails</h3>
+<p>Busca um produto no catálogo do sistema, pelo ID ou pelo código interno, e disponibiliza seus detalhes em variáveis.</p>
+<div class="callout info">As seguintes variáveis são criadas automaticamente (o prefixo é o nome definido em resultVariableName, padrão "product"):<br>resultVariableName: objeto com os detalhes do produto, ou null se o produto não for encontrado. Os campos podem ser acessados com notação de ponto, exemplo: "{{product_details.product_name}}".<br>resultVariableName + "_found": 1 se o produto foi encontrado, 0 caso contrário. Exemplo de nome final: "product_details_found".<br>Campos disponíveis no objeto do produto: product_id, product_name, product_description, product_url, product_internal_code, product_gtin, product_measurement_unit, product_value (preço que VALE para o item, em reais: o promocional em vigor quando houver, senão o de tabela — é o mesmo preço que o carrinho e o cartão de pedido cobram), product_value_cents (preço de TABELA em centavos, sem o promocional), product_recurrent_value, product_recurrent_value_cents, product_quantity, product_discount, product_recurrent_discount, product_total_value, product_total_recurrent_value, product_max_discount, product_max_recurrent_discount, product_commission, product_available, product_currency, product_condition, product_brand, product_sale_price, product_sale_price_cents, product_status, product_gender, product_size, product_age_group, product_mpn, product_qty, product_category, product_color, product_material, product_item_group_id, product_observations (observações internas do cadastro do produto, texto livre de até 500 caracteres), product_external, product_hidden_from_clients, product_add_to_queues, product_queues, product_groups, product_photos, product_files, product_associated_forms, product_photo_id, product_photo_auth e product_photo_url.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"searchType":"id","searchValue":"","resultVariableName":"","nextElementId":""}
+Como se escreve: meu_rotulo: getProductDetails searchType="id" searchValue="..." resultVariableName="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>107</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: getProductDetails searchType="id" searchValue="..." resultVariableName="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>searchType</code></td><td><code>'id' | 'code'</code></td><td>sim</td><td>Tipo de busca para localizar o produto. 'id' - busca pelo ID do produto no sistema (padrão), 'code' - busca pelo código interno do produto</td></tr>
+<tr><td><code>searchValue</code></td><td><code>string</code></td><td>sim</td><td>Valor da busca, ID ou código interno do produto conforme o searchType. Pode-se utilizar variáveis no conteúdo, exemplo: "{{product_id}}"</td></tr>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável que receberá os detalhes do produto. Adicionar somente o nome da variável, sem chaves. Exemplo: "product_details". Se vazio, será utilizado o nome "product"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-sendOrder">sendOrder</h3>
+<p>Envia uma mensagem de pedido (order) para o cliente. Funciona em filas WhatsApp Cloud API (cartão de pedido nativo) e também em filas de WebChat V2, que renderizam o mesmo cartão — as formas de pagamento "none" e "both" são exclusivas do WebChat V2. Em fila Telegram — o tipo atual, com conta e bot, e não as filas antigas TG e TG Bot — o pedido chega como uma mensagem organizada com os itens e os totais, com o código Pix num botão de copiar e o link de pagamento como botão; e só pode ser enviado dentro da janela de 24 horas do bot (ver a variável de atendimento chatRichMessageAllowed). Em fila de WebChat V2 com CARRINHO SINCRONIZADO, este elemento apenas ENVIA um cartão de pedido ao cliente: ele não fecha o pedido do carrinho, não move a oportunidade de etapa e não trava o carrinho. Para fechar de verdade, deixe que o cliente, o agente ou o assistente de IA finalize o carrinho — a fila pode ser configurada para enviar essa mensagem sozinha na conversão.</p>
+<p class="s10"><strong>Disponível em:</strong> WA Cloud API,WebChat V2,Telegram
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"phoneNumber":"","orderId":"","searchType":"id","productId":"","quantity":"","names":"","prices":"","expiration":"","taxes":"","discount":"","shipping":"","paymentType":"payment_link","paymentData":"","pixCode":"","pixMerchantName":"","pixKey":"","pixKeyType":"CPF","headerImageChooseType":0,"headerImageId":"","bodyText":"","nextElementId":""}
+Como se escreve: meu_rotulo: sendOrder orderId="..." searchType="id" productId="..." quantity="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>99</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: sendOrder orderId="..." searchType="id" productId="..." quantity="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>phoneNumber</code></td><td><code>string</code></td><td></td><td>Número de telefone para onde o pedido será enviado. Obrigatório se o fluxo está sendo executado sem atendimento associado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{chat_client_number}}"</td></tr>
+<tr><td><code>orderId</code></td><td><code>string</code></td><td>sim</td><td>ID do pedido. Pode-se utilizar variáveis no conteúdo, exemplo: "{{order_id}}"</td></tr>
+<tr><td><code>searchType</code></td><td><code>'id' | 'code'</code></td><td>sim</td><td>Tipo de busca para localizar o produto. 'id' para buscar pelo ID do produto no sistema, 'code' para buscar pelo código interno do produto.</td></tr>
+<tr><td><code>productId</code></td><td><code>string</code></td><td>sim</td><td>Lista de códigos internos dos produtos que compõem o pedido, separados por vírgula quando mais de um. Pode-se utilizar variáveis no conteúdo, exemplo: "{{product_ids}}" ou "123,456,789"</td></tr>
+<tr><td><code>quantity</code></td><td><code>string</code></td><td>sim</td><td>Lista de quantidades dos produtos que compõem o pedido, separados por vírgula quando mais de um. Deve estar na mesma ordem dos productId. Pode-se utilizar variáveis no conteúdo, exemplo: "{{quantities}}" ou "2,1,5"</td></tr>
+<tr><td><code>names</code></td><td><code>string</code></td><td></td><td>Lista de nomes dos produtos que compõem o pedido, separados por vírgula e encapsulados por "". Pode-se utilizar variáveis no conteúdo, exemplo: "{{product_names}}" ou '"Produto 1","Produto 2","Produto 3"'. Obrigatório se os produtos não estiverem cadastrados no sistema.</td></tr>
+<tr><td><code>prices</code></td><td><code>string</code></td><td></td><td>Lista de preços unitários dos produtos que compõem o pedido, separados por vírgula quando mais de um. Se não informado os preços base dos produtos será utilizado. Deve estar na mesma ordem dos productId. Pode-se utilizar variáveis no conteúdo, exemplo: "{{prices}}" ou "2.5,1.2,5". Obrigatório se os produtos não estiverem cadastrados no sistema.</td></tr>
+<tr><td><code>expiration</code></td><td><code>string</code></td><td></td><td>Prazo em segundos para que expire o pedido. Pode-se utilizar variáveis no conteúdo, exemplo: "{{expiration_time}}"</td></tr>
+<tr><td><code>taxes</code></td><td><code>string</code></td><td></td><td>Valor total de impostos aplicados ao pedido. Pode-se utilizar variáveis no conteúdo, exemplo: "{{taxes}}" ou "3.5"</td></tr>
+<tr><td><code>discount</code></td><td><code>string</code></td><td></td><td>Valor total de desconto aplicado ao pedido. Pode-se utilizar variáveis no conteúdo, exemplo: "{{discount}}" ou "3.5"</td></tr>
+<tr><td><code>shipping</code></td><td><code>string</code></td><td></td><td>Custo total de envio aplicado ao pedido. Pode-se utilizar variáveis no conteúdo, exemplo: "{{shipping_cost}}" ou "3.5"</td></tr>
+<tr><td><code>paymentType</code></td><td><code>'none' | 'payment_link' | 'pix' | 'both'</code></td><td>sim</td><td>Tipo de pagamento. 'payment_link' para link de pagamento, 'pix' para código Pix. 'none' (sem pagamento) e 'both' (link E Pix) só funcionam em filas WebChat V2 (tipo 26).</td></tr>
+<tr><td><code>paymentData</code></td><td><code>string</code></td><td></td><td>Link de pagamento se paymentType === 'payment_link' ou 'both'. Pode-se utilizar variáveis, exemplo: "{{payment_link}}"</td></tr>
+<tr><td><code>pixCode</code></td><td><code>string</code></td><td></td><td>Código Pix copia-e-cola (BR Code). No WebChat V2 gera o QR e é o texto copiado. Obrigatório se paymentType === 'pix' ou 'both'. Pode-se utilizar variáveis, exemplo: "{{pix_code}}"</td></tr>
+<tr><td><code>pixMerchantName</code></td><td><code>string</code></td><td></td><td>Nome do recebedor do Pix. Obrigatório se paymentType === 'pix' ou 'both'. Pode-se utilizar variáveis, exemplo: "{{merchant_name}}"</td></tr>
+<tr><td><code>pixKey</code></td><td><code>string</code></td><td></td><td>Chave Pix. Obrigatório se paymentType === 'pix' ou 'both'. Pode-se utilizar variáveis, exemplo: "{{pix_key}}"</td></tr>
+<tr><td><code>pixKeyType</code></td><td><code>'CPF' | 'CNPJ' | 'EMAIL' | 'PHONE' | 'EVP'</code></td><td></td><td>Tipo da chave Pix. Obrigatório se paymentType === 'pix' ou 'both'.</td></tr>
+<tr><td><code>headerImageChooseType</code></td><td><code>0 | 1</code></td><td></td><td>Tipo de escolha da imagem do cabeçalho. 0 - Selecionar da galeria, 1 - Informar ID ou variável.</td></tr>
+<tr><td><code>headerImageId</code></td><td><code>string</code></td><td></td><td>ID da imagem do cabeçalho. Pode-se utilizar variáveis, exemplo: "{{image_id}}"</td></tr>
+<tr><td><code>bodyText</code></td><td><code>string</code></td><td>sim</td><td>Texto do corpo da mensagem. Pode-se utilizar variáveis no conteúdo, exemplo: "Olá {{chat_client_name}}, segue seu pedido!"</td></tr>
+</tbody></table></div>
+<h3 id="el-updateOrderStatus">updateOrderStatus</h3>
+<p>Atualiza o status de um pedido (order) enviado para o cliente. Funciona em filas WhatsApp Cloud API (status de pedido nativo) e também em filas de WebChat V2, que renderizam a mesma atualização. Em fila Telegram — o tipo atual, com conta e bot, e não as filas antigas TG e TG Bot — a atualização chega como mensagem de texto, porque o canal não tem cartão de pedido nativo. Atualiza apenas a mensagem de pedido já enviada: não altera a oportunidade nem a etapa dela no funil.</p>
+<p class="s10"><strong>Disponível em:</strong> WA Cloud API,WebChat V2,Telegram
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"phoneNumber":"","orderId":"","status":"pending","statusDescription":"","newPaymentStatus":"","headerImageChooseType":0,"headerImageId":"","bodyText":"","nextElementId":""}
+Como se escreve: meu_rotulo: updateOrderStatus orderId="..." status="pending" bodyText="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>100</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: updateOrderStatus orderId="..." status="pending" bodyText="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>phoneNumber</code></td><td><code>string</code></td><td></td><td>Número de telefone para onde a atualização será enviada. Obrigatório se o fluxo está sendo executado sem atendimento associado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{chat_client_number}}"</td></tr>
+<tr><td><code>orderId</code></td><td><code>string</code></td><td>sim</td><td>ID do pedido que está sendo atualizado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{order_id}}"</td></tr>
+<tr><td><code>status</code></td><td><code>'pending' | 'processing' | 'partially-shipped' | 'shipped' | 'completed' | 'canceled'</code></td><td>sim</td><td>Novo status do pedido.</td></tr>
+<tr><td><code>statusDescription</code></td><td><code>string</code></td><td></td><td>Descrição do novo estado com informações adicionais úteis ao cliente. Preenchimento opcional. Pode-se utilizar variáveis no conteúdo, exemplo: "{{status_description}}"</td></tr>
+<tr><td><code>newPaymentStatus</code></td><td><code>'' | 'pending' | 'captured' | 'failed'</code></td><td></td><td>Novo estado do pagamento. Deixar vazio para não atualizar o status do pagamento.</td></tr>
+<tr><td><code>headerImageChooseType</code></td><td><code>0 | 1</code></td><td></td><td>Tipo de escolha da imagem do cabeçalho. 0 - Selecionar da galeria, 1 - Informar ID ou variável.</td></tr>
+<tr><td><code>headerImageId</code></td><td><code>string</code></td><td></td><td>ID da imagem do cabeçalho. Pode-se utilizar variáveis, exemplo: "{{image_id}}"</td></tr>
+<tr><td><code>bodyText</code></td><td><code>string</code></td><td>sim</td><td>Texto do corpo da mensagem. Pode-se utilizar variáveis no conteúdo, exemplo: "Seu pedido foi atualizado!"</td></tr>
+</tbody></table></div>
+<h3 id="el-decrementProductStock">decrementProductStock</h3>
+<p>Diminui a "Quantidade em estoque" do CADASTRO de cada produto — não mexe no carrinho. Serve para o chatcommerce: ao fechar o pedido (por exemplo, na automação da etapa de pedido), baixe do estoque o que foi vendido. O estoque PARA EM ZERO: se o carrinho pedir mais do que há, o estoque fica em 0 e a diferença é informada em &lt;nome&gt;_shortfall; um produto que já estava com estoque 0 ou negativo não é alterado. Com setUnavailableAtZero (padrão true), o produto cujo estoque ESTE elemento levou a zero é marcado como INDISPONÍVEL — sai do catálogo do cliente e deixa de poder ser incluído pelo cliente, pelo atendente ou pelo assistente no carrinho sincronizado (os elementos de produto do fluxo e a tela da oportunidade continuam podendo incluí-lo); a linha dele que já estiver num carrinho sincronizado só pode ser removida. ALVO (stockTarget): "opportunity" (padrão) = os itens do carrinho da oportunidade em opportunityId — vale também para oportunidade já GANHA ou PERDIDA, o uso típico é a automação de etapa/ganho com opportunityId "{{opportunity_id}}"; "chat" = os itens do carrinho sincronizado de um atendimento (chatId vazio = o do fluxo; preenchido = outro atendimento aberto; nunca cria carrinho, e depois que o carrinho vira pedido use "opportunity"); "product" = um produto avulso (productId por id ou, com searchType "code", pelo código interno; quantity, padrão 1). Linhas repetidas do mesmo produto são somadas; quantidade fracionária (0,5 kg) sobe para o próximo inteiro, porque o estoque é inteiro. NÃO há proteção contra repetição: cada execução aplica de novo — se a automação de etapa puder rodar mais de uma vez para o mesmo carrinho, controle isso no fluxo. Nada interrompe o fluxo: alvo não encontrado, carrinho vazio ou produto inexistente só ficam registrados na depuração. RESULTADO (resultVariableName, opcional): a variável recebe a lista por produto ({productId, name, units, before, after, shortfall, available}), &lt;nome&gt;_error o código da falha (vazio em sucesso; OPPORTUNITY_NOT_FOUND, CART_NOT_FOUND, PRODUCT_NOT_FOUND, INVALID_QUANTITY, EMPTY_CART, VIRTUAL_CHAT — na aba "Testar" o estoque real nunca é alterado) e &lt;nome&gt;_shortfall as unidades que faltaram. Uma importação/sincronização de catálogo que traga a quantidade em estoque (a coluna quantity_to_sell_on_facebook, do formato Meta) sobrescreve o estoque com o valor do arquivo (e a disponibilidade também é reescrita pela importação); o formato Google não traz estoque. EXEMPLOS: carrinho da oportunidade → stockTarget "opportunity" + opportunityId "{{opportunity_id}}"; carrinho do atendimento do fluxo → stockTarget "chat" (chatId vazio); produto avulso → stockTarget "product" + productId "123" + quantity "2". Campos de um modo preenchidos em outro são recusados na gravação.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"stockTarget":"opportunity","nextElementId":"","opportunityId":"","setUnavailableAtZero":true}
+Como se escreve: meu_rotulo: decrementProductStock stockTarget="opportunity" opportunityId="{{opportunity_id}}"
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>148</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: decrementProductStock stockTarget="opportunity" opportunityId="{{opportunity_id}}"</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>stockTarget</code></td><td><code>'opportunity' | 'chat' | 'product'</code></td><td>sim</td><td>De onde vêm os produtos. 'opportunity' (padrão): os itens do carrinho da oportunidade em opportunityId (também oportunidade ganha ou perdida). 'chat': os itens do carrinho sincronizado do atendimento em chatId. 'product': um produto avulso, em productId + quantity.</td></tr>
+</tbody></table></div>
+<h3 id="el-incrementProductStock">incrementProductStock</h3>
+<p>Aumenta a "Quantidade em estoque" do CADASTRO de cada produto — não mexe no carrinho. Serve para devolver ao estoque o que foi baixado por decrementProductStock, por exemplo quando o pedido é cancelado ou perdido. Atenção: se o decremento parou em zero por falta de estoque, devolver a quantidade inteira do carrinho devolve mais do que foi baixado — para desfazer exatamente, use a lista da variável de resultado do decremento (before − after de cada produto) no modo "product". Com setAvailableWhenRestocked (padrão true), o produto volta a ficar DISPONÍVEL apenas se a indisponibilidade era por falta de estoque — o estoque estava em 0 ou menos e passou a ficar acima de zero; um produto desativado à mão com estoque positivo continua indisponível. ALVO (stockTarget): "opportunity" (padrão) = os itens do carrinho da oportunidade em opportunityId — vale também para oportunidade já GANHA ou PERDIDA, o uso típico é a automação de etapa/ganho com opportunityId "{{opportunity_id}}"; "chat" = os itens do carrinho sincronizado de um atendimento (chatId vazio = o do fluxo; preenchido = outro atendimento aberto; nunca cria carrinho, e depois que o carrinho vira pedido use "opportunity"); "product" = um produto avulso (productId por id ou, com searchType "code", pelo código interno; quantity, padrão 1). Linhas repetidas do mesmo produto são somadas; quantidade fracionária (0,5 kg) sobe para o próximo inteiro, porque o estoque é inteiro. NÃO há proteção contra repetição: cada execução aplica de novo — se a automação de etapa puder rodar mais de uma vez para o mesmo carrinho, controle isso no fluxo. Nada interrompe o fluxo: alvo não encontrado, carrinho vazio ou produto inexistente só ficam registrados na depuração. RESULTADO (resultVariableName, opcional): a variável recebe a lista por produto ({productId, name, units, before, after, shortfall, available}), &lt;nome&gt;_error o código da falha (vazio em sucesso; OPPORTUNITY_NOT_FOUND, CART_NOT_FOUND, PRODUCT_NOT_FOUND, INVALID_QUANTITY, EMPTY_CART, VIRTUAL_CHAT — na aba "Testar" o estoque real nunca é alterado) e &lt;nome&gt;_shortfall as unidades que faltaram. Uma importação/sincronização de catálogo que traga a quantidade em estoque (a coluna quantity_to_sell_on_facebook, do formato Meta) sobrescreve o estoque com o valor do arquivo (e a disponibilidade também é reescrita pela importação); o formato Google não traz estoque. EXEMPLOS: carrinho da oportunidade → stockTarget "opportunity" + opportunityId "{{opportunity_id}}"; carrinho do atendimento do fluxo → stockTarget "chat" (chatId vazio); produto avulso → stockTarget "product" + productId "123" + quantity "2". Campos de um modo preenchidos em outro são recusados na gravação.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"stockTarget":"opportunity","nextElementId":"","opportunityId":"","setAvailableWhenRestocked":true}
+Como se escreve: meu_rotulo: incrementProductStock stockTarget="opportunity" opportunityId="{{opportunity_id}}"
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>149</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: incrementProductStock stockTarget="opportunity" opportunityId="{{opportunity_id}}"</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>stockTarget</code></td><td><code>'opportunity' | 'chat' | 'product'</code></td><td>sim</td><td>De onde vêm os produtos. 'opportunity' (padrão): os itens do carrinho da oportunidade em opportunityId (também oportunidade ganha ou perdida). 'chat': os itens do carrinho sincronizado do atendimento em chatId. 'product': um produto avulso, em productId + quantity.</td></tr>
+</tbody></table></div>
+<h2 id="exemplos-do-grupo">Exemplos de uso</h2>
+<p>Fluxos completos que usam os elementos deste grupo. Cada exemplo foi compilado pelo próprio sistema antes de entrar aqui.</p>
+<h3 id="ex-automacoes-catalogo-pedidos-1">Vitrine em carrossel e consulta de produto por codigo interno</h3>
+<p>Apresentar a vitrine de produtos e responder preco e estoque de um item quando o cliente informa o codigo interno.</p>
+<ol class="steps">
+<li><strong><code>options</code></strong> — oferece ao cliente as opcoes ver vitrine ou consultar produto</li>
+<li><strong><code>sendProductMessage</code></strong> — envia a vitrine com tres produtos em carrossel, com cabecalho, titulo de secao e rodape</li>
+<li><strong><code>question</code></strong> — pede o codigo interno do produto e guarda em codigo_produto</li>
+<li><strong><code>getProductDetails</code></strong> — busca o produto pelo codigo interno (searchType=code) e grava os detalhes em produto</li>
+<li><strong><code>varCondition</code></strong> — usa produto_found para saber se o produto existe antes de responder</li>
+<li><strong><code>message</code></strong> — responde com nome, preco que vale para o item e quantidade disponivel</li>
+<li><strong><code>terminate</code></strong> — encerra cada ramo do fluxo</li>
+</ol>
+<div class="table-wrap"><pre class="flow">menu: options text="O que voce deseja fazer?" type=0 {
+  case ver_vitrine text="Ver os produtos em destaque" {
+    vitrine: sendProductMessage headerText="Ofertas da semana" bodyText="Ola {{chat_client_name}}, confira nossos produtos em destaque!" footerText="Toque em um produto para ver mais detalhes" sectionTitle="Destaques" searchType="id" productIds="101,102,103" presentationFormat="carousel"
+    depois: message text="Quando escolher, me diga o codigo interno do produto para eu consultar preco e estoque."
+    fim1: terminate
+  }
+  case consultar_produto text="Consultar preco e estoque" {
+    pede_codigo: question varName="codigo_produto" text="Informe o codigo interno do produto"
+    consulta: getProductDetails searchType="code" searchValue="{{codigo_produto}}" resultVariableName="produto"
+    checa: varCondition value="{{produto_found}}" {
+      case achou conditionOperator="=" conditionValue="1" {
+        responde: message text="{{produto.product_name}}: R$ {{produto.product_value}}. Estoque disponivel: {{produto.product_qty}} unidades."
+        fim_ok: terminate
+      }
+      else {
+        nao_achou: message text="Nao encontrei esse codigo no catalogo. Confira o codigo e tente novamente."
+        fim_nok: terminate
+      }
+    }
+  }
+  else {
+    nao_entendi: message text="Nao entendi a opcao. Vou transferir para um atendente."
+    fim3: terminate
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente ve a vitrine no chat e, informando o codigo, recebe na hora nome, preco e estoque do produto.</div>
+<h3 id="ex-automacoes-catalogo-pedidos-2">Enviar pedido com Pix e atualizar o status</h3>
+<p>Montar o pedido a partir do codigo e da quantidade, enviar com pagamento Pix e comunicar o processamento.</p>
+<ol class="steps">
+<li><strong><code>question</code></strong> — pergunta o codigo interno do produto desejado</li>
+<li><strong><code>question</code></strong> — pergunta quantas unidades o cliente quer</li>
+<li><strong><code>sendOrder</code></strong> — envia o cartao de pedido com ordem derivada do protocolo, produto por codigo e pagamento Pix (codigo, recebedor e chave)</li>
+<li><strong><code>updateOrderStatus</code></strong> — atualiza a mensagem de pedido para Em processamento (status=processing)</li>
+<li><strong><code>message</code></strong> — avisa que um novo aviso virara quando o pagamento for confirmado</li>
+<li><strong><code>terminate</code></strong> — encerra o fluxo</li>
+</ol>
+<div class="table-wrap"><pre class="flow">pede_codigo: question varName="codigo_produto" text="Qual o codigo interno do produto que voce quer pedir?"
+pede_quantidade: question varName="quantidade" text="Quantas unidades voce deseja?"
+envia_pedido: sendOrder orderId="PEDIDO-{{chat_protocol}}" searchType="code" productId="{{codigo_produto}}" quantity="{{quantidade}}" paymentType="pix" pixCode="{{pix_code}}" pixMerchantName="AtenderBem" pixKey="{{pix_key}}" pixKeyType="CNPJ" bodyText="Confira seu pedido e pague com o Pix copia e cola."
+em_processamento: updateOrderStatus orderId="PEDIDO-{{chat_protocol}}" status="processing" bodyText="Recebemos seu pedido e ele ja esta em processamento."
+avisa: message text="Assim que o pagamento for confirmado, enviaremos a confirmacao de envio."
+fim: terminate</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente recebe o cartao de pedido com o Pix, e a mesma mensagem passa a mostrar o pedido em processamento.</div>
+<h3 id="ex-automacoes-catalogo-pedidos-3">Baixa de estoque ao fechar o pedido da oportunidade</h3>
+<p>Ao converter, baixar do cadastro os itens vendidos no carrinho da oportunidade e tratar a falta de estoque.</p>
+<ol class="steps">
+<li><strong><code>message</code></strong> — avisa que o pedido sera fechado e o estoque atualizado</li>
+<li><strong><code>decrementProductStock</code></strong> — baixa do cadastro os itens do carrinho da oportunidade e grava a lista em baixa_estoque</li>
+<li><strong><code>varCondition</code></strong> — verifica baixa_estoque_shortfall para saber se faltou estoque</li>
+<li><strong><code>updateOrderStatus</code></strong> — no caminho normal, marca a mensagem de pedido como Concluido (status=completed)</li>
+<li><strong><code>message</code></strong> — avisa o cliente do resultado, com ou sem falta de estoque</li>
+<li><strong><code>terminate</code></strong> — encerra cada ramo do fluxo</li>
+</ol>
+<div class="table-wrap"><pre class="flow">fecha_pedido: message text="Vou fechar o pedido da oportunidade e dar baixa no estoque dos itens vendidos."
+baixa_oportunidade: decrementProductStock stockTarget="opportunity" opportunityId="{{opportunity_id}}" setUnavailableAtZero=true resultVariableName="baixa_estoque"
+checa_falta: varCondition value="{{baixa_estoque_shortfall}}" {
+  case faltou conditionOperator="&gt;" conditionValue="0" {
+    avisa_falta: message text="Parte do pedido ficou sem estoque suficiente e sera combinada com o atendente."
+    fim1: terminate
+  }
+  else {
+    conclui_pedido: updateOrderStatus orderId="{{order_id}}" status="completed" bodyText="Pedido concluido e estoque dos itens atualizado."
+    avisa_ok: message text="Tudo certo! Seu pedido foi concluido e o estoque foi baixado."
+    fim2: terminate
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O estoque do cadastro cai conforme o que foi vendido, o pedido vira Concluido e a falta de estoque (se houver) e sinalizada.</div>
+<h3 id="ex-automacoes-catalogo-pedidos-4">Devolucao ao estoque em cancelamento de item avulso</h3>
+<p>Devolver ao cadastro as unidades canceladas de um produto avulso e atualizar o pedido para Cancelado.</p>
+<ol class="steps">
+<li><strong><code>question</code></strong> — pede o codigo interno do produto cancelado</li>
+<li><strong><code>question</code></strong> — pede quantas unidades foram canceladas</li>
+<li><strong><code>getProductDetails</code></strong> — busca o produto pelo codigo interno e grava os detalhes em produto_cancelado</li>
+<li><strong><code>incrementProductStock</code></strong> — devolve ao cadastro as unidades do produto avulso (searchType=code) e reabilita a disponibilidade quando era por estoque zerado</li>
+<li><strong><code>updateOrderStatus</code></strong> — atualiza a mensagem de pedido para Cancelado (status=canceled)</li>
+<li><strong><code>message</code></strong> — confirma ao cliente o cancelamento e o retorno do produto ao catalogo</li>
+<li><strong><code>terminate</code></strong> — encerra o fluxo</li>
+</ol>
+<div class="table-wrap"><pre class="flow">pede_codigo: question varName="codigo_produto" text="Informe o codigo interno do produto cancelado"
+pede_quantidade: question varName="quantidade" text="Quantas unidades foram canceladas?"
+consulta_item: getProductDetails searchType="code" searchValue="{{codigo_produto}}" resultVariableName="produto_cancelado"
+devolve_estoque: incrementProductStock stockTarget="product" productId="{{codigo_produto}}" searchType="code" quantity="{{quantidade}}" setAvailableWhenRestocked=true resultVariableName="devolucao_estoque"
+atualiza_pedido: updateOrderStatus orderId="{{order_id}}" status="canceled" bodyText="Seu pedido foi cancelado e os itens voltaram ao estoque."
+avisa_cliente: message text="Cancelamento registrado. {{produto_cancelado.product_name}} voltou a ficar disponivel no catalogo."
+fim: terminate</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> As unidades canceladas voltam ao estoque do cadastro, o produto pode ficar disponivel de novo e o pedido aparece como Cancelado.</div>
+
+  <div class="pagenav">
+    <a href="automacoes-elementos.html"><span>←</span> Catálogo de elementos</a>
+    <a class="next" href="automacoes-exemplos.html"><span>Ver também →</span> Exemplos prontos</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

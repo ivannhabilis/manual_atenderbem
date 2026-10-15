@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fluxo, lógica e gatilhos — Manual Omnichannel</title>
+<meta name="description" content="Decidir, repetir, esperar, encerrar e disparar. (18 elementos)">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a class="active" href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="automacoes-elementos.html">Automações e URA</a> &rsaquo; Fluxo, lógica e gatilhos</div>
+
+  <h1>Fluxo, lógica e gatilhos</h1>
+  <p class="subtitle">Decidir, repetir, esperar, encerrar e disparar. (18 elementos)</p>
+
+<p>Decidir, repetir, esperar, encerrar e disparar.</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Elemento</th><th>O que faz</th></tr></thead><tbody>
+<tr><td><a href="#el-varCondition">varCondition</a></td><td>Controla o fluxo de acordo com o valor de uma variável ou com expressões lógicas. Cada item de options é um ramo; os ramos são testados NA O</td></tr>
+<tr><td><a href="#el-loop">loop</a></td><td>Laço de repetição declarado — o jeito certo de repetir um trecho do fluxo (em vez de ligar a saída de um elemento de volta a um elemento ant</td></tr>
+<tr><td><a href="#el-timetable">timetable</a></td><td>Controla o fluxo de acordo com a data / horário. Permite que o fluxo de execução siga por caminhos diferentes dependendo do dia e horário.</td></tr>
+<tr><td><a href="#el-businesshoursCheck">businesshoursCheck</a></td><td>Verifica se o momento atual está dentro do horário de funcionamento de uma configuração de horários cadastrada no sistema (considerando horá</td></tr>
+<tr><td><a href="#el-sleep">sleep</a></td><td>Pausa a execução do fluxo por um determinado período de tempo.</td></tr>
+<tr><td><a href="#el-waitMessage">waitMessage</a></td><td>Interrompe o fluxo de execução da automação até que o cliente envie uma nova mensagem.</td></tr>
+<tr><td><a href="#el-terminate">terminate</a></td><td>Encerra o atendimento associado, quando este existir. O elemento terminate não possui um próximo elemento, pois ele encerra o fluxo de execu</td></tr>
+<tr><td><a href="#el-transfer">transfer</a></td><td>Transfere o atendimento associado, quando este existir. O elemento transfer não possui um próximo elemento, pois ele encerra o fluxo de exec</td></tr>
+<tr><td><a href="#el-marker">marker</a></td><td>Adiciona uma etiqueta de atendimento ao atendimento. As etiquetas são utilizadas para classificar e priorizar os atendimentos, além de forne</td></tr>
+<tr><td><a href="#el-protocol">protocol</a></td><td>Associa um protocolo ao atendimento. O protocolo pode ser gerado automaticamente ou pré-definido.</td></tr>
+<tr><td><a href="#el-jscode">jscode</a></td><td>Executa um código JavaScript no servidor. O código pode ser utilizado para realizar operações complexas que não são possíveis com os element</td></tr>
+<tr><td><a href="#el-newVar">newVar</a></td><td>Cria uma variável com o valor informado, ou altera o valor de uma variável criada pelo fluxo. Com o prefixo "global." no nome, grava uma var</td></tr>
+<tr><td><a href="#el-execAutomation">execAutomation</a></td><td>Executa uma automação específica como parte do fluxo. O fluxo de execução será transferido para a automação selecionada.</td></tr>
+<tr><td><a href="#el-setTriggers">setTriggers</a></td><td>Aplica um conjunto de gatilhos ao atendimento corrente. Se não houver atendimento associado, esse elemento será ignorado.</td></tr>
+<tr><td><a href="#el-removeTrigger">removeTrigger</a></td><td>Remove o gatilho que provocou a execução da automação.</td></tr>
+<tr><td><a href="#el-removeAllTriggers">removeAllTriggers</a></td><td>Remove todos os gatilhos associados ao atendimento corrente. Se não houver atendimento corrente, esse elemento é ignorado.</td></tr>
+<tr><td><a href="#el-scheduleAutomation">scheduleAutomation</a></td><td>Agenda a execução de uma automação sobre o atendimento atualmente associado ao fluxo, após o número de segundos informado. O id do agendamen</td></tr>
+<tr><td><a href="#el-cancelSchedule">cancelSchedule</a></td><td>Cancela um agendamento de execução de automação previamente criado (pelo elemento "Agendar execução de automação"), a partir do id do agenda</td></tr>
+</tbody></table></div>
+<h3 id="el-varCondition">varCondition</h3>
+<p>Controla o fluxo de acordo com o valor de uma variável ou com expressões lógicas. Cada item de options é um ramo; os ramos são testados NA ORDEM e o primeiro que casar define o caminho. Se nenhum casar, o fluxo segue por nextElementId (saída padrão).</p>
+<div class="callout info">Há dois tipos de ramo, que podem ser misturados no mesmo elemento:<br>1) Ramo de OPERADOR (=, !=, &gt;, &gt;=, &lt;, &lt;=, in, not null): compara o resultado de value com conditionValue (ou com a lista conditionArray, no "="). Só é testado quando value resolve para algo não vazio — com value vazio, nenhum ramo de operador casa. "in" verifica se o texto de value CONTÉM o texto de conditionValue (trecho de texto, não pertinência a lista). &gt;, &gt;=, &lt;, &lt;= convertem conditionValue para número: vírgula decimal ("10,5") não é número e o ramo não casa.<br>2) Ramo de EXPRESSÃO (conditionOperator "expression"): conditionValue guarda uma expressão lógica completa, escrita SEM chaves e com as variáveis citadas pelo nome, ex.: pedido_valor &gt; 100 &amp;&amp; cidade == "SP". É avaliada SEMPRE, sem depender de value — que pode ficar vazio ("") quando todos os ramos forem de expressão. Aceita a mesma sintaxe das expressões {{...}}: &amp;&amp; || !, == != &gt; &gt;= &lt; &lt;=, + - * / %, ternário, parênteses, prefixo global. e filtros (ex.: (chat_client_name | toLowerCase) == "maria"). Use conditionArray: [].<br>O ramo de expressão casa quando o resultado é VERDADEIRO no sentido do JavaScript: false, 0, "" (texto vazio), null e variável inexistente são falsos; qualquer texto não vazio é verdadeiro — inclusive "0" e "false".<br>ARMADILHAS da expressão: variáveis costumam chegar como TEXTO — para comparar ou somar números com segurança converta com x * 1 ou +x (ex.: pedido_valor * 1 &gt; 100); não existe Number(), parseInt() nem chamada de método (x.toString()): valem sempre vazio. Vírgula decimal ("10,5") não é número. Variável inexistente não é igual a "" (x == "" dá falso); para "vazia ou inexistente" use !x. Não use atribuição (= isolado; para comparar use ==), ponto e vírgula, nem {{ }} dentro da expressão.<br>Expressão inválida (sintaxe, atribuição, filtro inexistente) é recusada na validação dos elementos. Se a avaliação falhar durante a execução, o ramo vale como falso, o fluxo segue para o ramo seguinte e o passo fica marcado como erro na depuração.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","value":"","options":[]}
+Como se escreve: meu_rotulo: varCondition
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)
+Ramos: cada item de `options` vira um bloco `case`, e a saída padrão do elemento vira `else`:
+  meu_rotulo: varCondition { case id_do_ramo conditionOperator="=" -&gt; destino  else -&gt; destino_padrao } · tipo interno <code>11</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: varCondition</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) Ramos: cada item de `options` vira um bloco `case`, e a saída padrão do elemento vira `else`: meu_rotulo: varCondition { case id_do_ramo conditionOperator="=" -&gt; destino else -&gt; destino_padrao }</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma como destino padrão. Esse será o destino se nenhuma das opções for satisfeita.</td></tr>
+<tr><td><code>value</code></td><td><code>string</code></td><td></td><td>Valor comparado pelos ramos de OPERADOR (todos, exceto "expression"). Pode-se utilizar variáveis no conteúdo, exemplo: "{{variavel}}". Necessário quando houver ramo de operador (vazio = nenhum ramo de operador casa); pode ficar vazio ("") quando todos os ramos forem "expression"</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>sim</td><td>ID da opção de comparação</td></tr>
+<tr><td><code>conditionOperator</code></td><td><code>"=" | "!=" | "&gt;" | "&gt;=" | "&lt;" | "&lt;=" | "in" | "not null" | "expression"</code></td><td>sim</td><td>Comparador que será utilizado para verificar a condição. "expression" = a condição é a expressão lógica de conditionValue, avaliada sem usar o value do elemento</td></tr>
+<tr><td><code>conditionValue</code></td><td><code>string</code></td><td></td><td>Valor para comparação com o valor da variável. Pode-se utilizar variáveis no conteúdo, exemplo: "{{valor}}". Utilizar essa propriedade sempre que o conditionOperator for diferente de "=" e "not null". Com "expression", guarda a expressão lógica SEM chaves, com as variáveis pelo nome, exemplo: 'pedido_valor * 1 &gt; 100 &amp;&amp; cidade == "SP"' (sem atribuição, sem ";" e sem {{ }} dentro); a condição vale quando o resultado é verdadeiro</td></tr>
+<tr><td><code>conditionArray</code></td><td><code>string[]</code></td><td></td><td>Array de valores para comparação com o valor da variável. Pode-se utilizar variáveis no conteúdo, exemplo: ["{{valor1}}", "{{valor2}}"]. Essa propriedade só é utilizada exclusivamente quando o conditionOperator for "=", para todos os outros operadores ela será ignorada e a conditionValue deve ser utilizada. Com "expression", use []</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado caso essa condição seja verdadeira</td></tr>
+</tbody></table></div>
+<h3 id="el-loop">loop</h3>
+<p>Laço de repetição declarado — o jeito certo de repetir um trecho do fluxo (em vez de ligar a saída de um elemento de volta a um elemento anterior). Tem DUAS saídas: bodyNextElementId (porta "body": o primeiro elemento do CORPO, o trecho que se repete) e nextElementId (saída "concluído", seguida quando o laço termina).</p>
+<div class="callout info">COMO MONTAR: ligue bodyNextElementId ao primeiro elemento do corpo e ligue a saída do ÚLTIMO elemento do corpo de volta a ESTE laço — é essa volta que inicia a próxima repetição. Um caminho do corpo que não volte ao laço sai dele. Pelo MCP: automations_connect_element com edge "body" (corpo) e edge "default" (saída "concluído").<br>MODOS: forEach — uma volta por item de list, uma expressão entre chaves que resulta numa lista, ex.: "{{chat_opportunities_list}}" (o texto JSON de uma lista também é aceito). repeat — count voltas: um número inteiro &gt;= 0 ou uma expressão entre chaves, ex.: "3" ou "{{quantidade}}".<br>A cada volta, a variável itemVar (padrão loop_item) recebe o item atual (forEach) ou o número da volta começando em 1 (repeat), e indexVar (padrão loop_index) recebe a posição começando em 0. Use-as no corpo, ex.: {{loop_item.opportunity_title}}. Em laços dentro de laços, use nomes diferentes em cada um. Lista vazia ou contagem 0: nenhuma volta, segue direto pela saída "concluído".<br>TETO POR LAÇO: maxIterations (padrão 100, máximo 1000). Lista ou contagem acima do teto: o laço NÃO executa nenhuma volta (não processa só uma parte) e segue pela saída "concluído" com erro. Para percorrer a lista do elemento queueChats, use maxIterations &gt;= o limit dele.<br>TETO POR TURNO: vale para toda execução, dentro ou fora de laço — por padrão, numa automação, 1.000 elementos, 100 mensagens enviadas, 100 requisições e 10 minutos de execução ativa entre duas esperas pelo cliente (numa URA, 5.000 / 500 / 500 / 24 horas). Estourado, a execução é interrompida (erro na depuração) e a automação é marcada como possível laço.<br>ERRO: a variável &lt;itemVar&gt;_error (ex.: loop_item_error) fica vazia quando o laço começa normalmente e recebe o motivo quando ele não pôde começar — lista inválida, contagem inválida, acima do teto ou corpo não conectado; nesse caso nenhuma volta roda e o fluxo segue pela saída "concluído".<br>Os elementos do trecho repetido (os que voltam ao laço) não sofrem a espera progressiva por repetição enquanto o laço está ativo; um caminho que sai do meio do corpo volta a sofrê-la. Elementos de interação (pergunta, opções) funcionam no corpo de uma URA: a volta continua depois da resposta do cliente.<br>execAutomation NO CORPO: cada volta é uma nova partida da sub-automação e conta no limite de 50 partidas da mesma automação por atendimento a cada 2 minutos — a partir da 51ª ela não é executada e é marcada como possível laço; cada partida também grava uma mensagem de sistema no atendimento. Para muitos itens, faça o trabalho no próprio corpo.<br>Não use o campo options neste elemento.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"mode":"forEach","count":"","list":"","itemVar":"loop_item","indexVar":"loop_index","maxIterations":100,"bodyNextElementId":"","nextElementId":""}
+Como se escreve: meu_rotulo: loop
+Saídas (NÃO se escrevem como campo): bodyNextElementId → o bloco `{ body { ...corpo... } }`; nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>144</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: loop</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> bodyNextElementId → o bloco `{ body { ...corpo... } }`; nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>mode</code></td><td><code>"forEach" | "repeat"</code></td><td></td><td>forEach = uma volta por item da lista; repeat = N vezes</td></tr>
+<tr><td><code>count</code></td><td><code>string</code></td><td></td><td>(repeat) número de voltas: número literal ou {{expressão}} que resolve para inteiro &gt;= 0</td></tr>
+<tr><td><code>list</code></td><td><code>string</code></td><td></td><td>(forEach) {{expressão}} que resolve para uma lista, ex.: {{chat_opportunities_list}}; texto JSON de lista também é aceito</td></tr>
+<tr><td><code>itemVar</code></td><td><code>string</code></td><td></td><td>variável que recebe o item da volta (forEach) ou o número da volta começando em 1 (repeat). Padrão loop_item</td></tr>
+<tr><td><code>indexVar</code></td><td><code>string</code></td><td></td><td>variável com o índice da volta começando em 0. Padrão loop_index</td></tr>
+<tr><td><code>maxIterations</code></td><td><code>number</code></td><td></td><td>teto de voltas deste laço (padrão 100, máximo 1000). Lista ou contagem acima do teto: o laço não roda nenhuma volta e segue pela saída</td></tr>
+<tr><td><code>bodyNextElementId</code></td><td><code>string</code></td><td></td><td>primeiro elemento do corpo; o último elemento do corpo deve apontar de volta para este laço</td></tr>
+</tbody></table></div>
+<h3 id="el-timetable">timetable</h3>
+<p>Controla o fluxo de acordo com a data / horário. Permite que o fluxo de execução siga por caminhos diferentes dependendo do dia e horário.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","options":[]}
+Como se escreve: meu_rotulo: timetable
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)
+Ramos: cada item de `options` vira um bloco `case`, e a saída padrão do elemento vira `else`:
+  meu_rotulo: timetable { case id_do_ramo type=0 -&gt; destino  else -&gt; destino_padrao } · tipo interno <code>8</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: timetable</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) Ramos: cada item de `options` vira um bloco `case`, e a saída padrão do elemento vira `else`: meu_rotulo: timetable { case id_do_ramo type=0 -&gt; destino else -&gt; destino_padrao }</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma como destino padrão. Esse será o destino se nenhuma das opções da timetable for satisfeita.</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>sim</td><td>ID de identificação do item</td></tr>
+<tr><td><code>type</code></td><td><code>0 | 1 | 2</code></td><td>sim</td><td>Tipo de controle de horário. 0 - Por dia da semana, 1 - Data específica, 2 - Feriados</td></tr>
+<tr><td><code>weekDayBegin</code></td><td><code>number</code></td><td></td><td>Caso o type seja 0, dia da semana em que o controle de horário começa. 0 - Domingo, 1 - Segunda, 2 - Terça, 3 - Quarta, 4 - Quinta, 5 - Sexta, 6 - Sábado</td></tr>
+<tr><td><code>weekDayEnd</code></td><td><code>number</code></td><td></td><td>Caso o type seja 0, dia da semana em que o controle de horário termina. 0 - Domingo, 1 - Segunda, 2 - Terça, 3 - Quarta, 4 - Quinta, 5 - Sexta, 6 - Sábado</td></tr>
+<tr><td><code>specificDate</code></td><td><code>Date</code></td><td></td><td>Caso o type seja 1, data específica em que o controle de horário será aplicado. Formato: "YYYY-MM-DD"</td></tr>
+<tr><td><code>hourBegin</code></td><td><code>number</code></td><td></td><td>Hora do dia em que o controle de horário começa, nos dias em que o controle de horário é aplicado</td></tr>
+<tr><td><code>minuteBegin</code></td><td><code>number</code></td><td></td><td>Minuto da hora em que o controle de horário começa, nos dias em que o controle de horário é aplicado</td></tr>
+<tr><td><code>hourEnd</code></td><td><code>number</code></td><td></td><td>Hora do dia em que o controle de horário termina, nos dias em que o controle de horário é aplicado</td></tr>
+<tr><td><code>minuteEnd</code></td><td><code>number</code></td><td></td><td>Minuto da hora em que o controle de horário termina, nos dias em que o controle de horário é aplicado</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma caso esse horário for o selecionado.</td></tr>
+</tbody></table></div>
+<h3 id="el-businesshoursCheck">businesshoursCheck</h3>
+<p>Verifica se o momento atual está dentro do horário de funcionamento de uma configuração de horários cadastrada no sistema (considerando horário semanal, feriados e datas especiais).</p>
+<div class="callout info">É um elemento de ramificação com dois caminhos: se estiver dentro do horário (aberto), o fluxo segue para nextElementId; se estiver fora do horário (fechado), o fluxo segue para closedNextElementId.<br>As seguintes variáveis são criadas automaticamente:<br>bh_is_open: true se está dentro do horário de funcionamento, false caso contrário.<br>bh_reason: motivo do resultado. Valores possíveis: "weekly" (horário semanal), "special_date" (data especial), "holiday" (feriado), "holiday_no_config" (feriado sem configuração específica), "day_closed" (dia fechado), "config_inactive" (configuração inativa) e "config_not_found" (configuração não encontrada).<br>bh_reason_label: descrição amigável do motivo.<br>bh_message: mensagem configurada para o período, se houver.<br>bh_description: descrição do período, exemplo: nome do feriado ou da data especial.<br>bh_close_time: horário de fechamento do período atual no formato "HH:MM", quando aberto.<br>bh_minutes_to_close: minutos restantes até o fechamento, quando aberto. Se o funcionamento for 24h sem interrupção prevista, o valor é -1.<br>bh_minutes_to_open: minutos até a próxima abertura, quando fechado.<br>bh_opens_within_24h: 1 se a próxima abertura ocorre em até 24 horas, 0 caso contrário.<br>bh_next_open_date: data/hora da próxima abertura.<br>bh_message_formatted: mensagem configurada com as variáveis de horário já substituídas.<br>Se o configId for inválido ou a configuração não for encontrada, bh_is_open recebe false, bh_reason recebe "config_not_found" e o fluxo segue para closedNextElementId.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"configId":"","nextElementId":"","closedNextElementId":""}
+Como se escreve: meu_rotulo: businesshoursCheck configId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo); closedNextElementId → o bloco `{ closed -&gt; destino }` · tipo interno <code>110</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: businesshoursCheck configId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo); closedNextElementId → o bloco `{ closed -&gt; destino }`</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>configId</code></td><td><code>string</code></td><td>sim</td><td>ID da configuração de horário de funcionamento cadastrada no sistema. Pode-se utilizar variáveis no conteúdo, exemplo: "{{config_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado quando estiver DENTRO do horário de funcionamento (aberto)</td></tr>
+<tr><td><code>closedNextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado quando estiver FORA do horário de funcionamento (fechado). Ao conectar elementos via automations_connect_element, utilize o edge 'closed' para esse caminho</td></tr>
+</tbody></table></div>
+<h3 id="el-sleep">sleep</h3>
+<p>Pausa a execução do fluxo por um determinado período de tempo.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"time":2,"nextElementId":""}
+Como se escreve: meu_rotulo: sleep time=2
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>17</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: sleep time=2</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>time</code></td><td><code>number</code></td><td>sim</td><td>Tempo em segundos que o fluxo ficará pausado</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-waitMessage">waitMessage</h3>
+<p>Interrompe o fluxo de execução da automação até que o cliente envie uma nova mensagem.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
+Como se escreve: meu_rotulo: waitMessage
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>26</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: waitMessage</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-terminate">terminate</h3>
+<p>Encerra o atendimento associado, quando este existir. O elemento terminate não possui um próximo elemento, pois ele encerra o fluxo de execução — exceto com chatId de OUTRO atendimento (ver abaixo).</p>
+<div class="callout info">OUTRO ATENDIMENTO (chatId, opcional): com o ID de outro atendimento aberto (por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats), o elemento encerra ESSE atendimento e o fluxo NÃO termina: segue por nextElementId, a saída que o elemento ganha só nesse modo (sem ela, o fluxo termina ali). Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Com chatId vazio, ou com o ID do próprio atendimento do fluxo, vale o comportamento acima e nextElementId é ignorado.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"reason":"","obs":"","dontSendEndMsg":false,"reopen":false,"reopenDays":0,"reopenHour":0,"reopenMinute":0,"reopenAutomationId":0,"hidden":false}
+Como se escreve: meu_rotulo: terminate
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>4</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: terminate</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>reason</code></td><td><code>string</code></td><td></td><td>Motivo do encerramento do atendimento. Pode-se utilizar variáveis no conteúdo, exemplo: "Atendimento encerrado por {{chat_client_name}}"</td></tr>
+<tr><td><code>obs</code></td><td><code>string</code></td><td></td><td>Observações adicionais sobre o encerramento do atendimento. Pode-se utilizar variáveis no conteúdo, exemplo: "Atendimento encerrado por {{chat_client_name}}",</td></tr>
+<tr><td><code>reopen</code></td><td><code>boolean</code></td><td></td><td>Se true, o atendimento será agendada a reabertura automática desse atendimento em uma data futuro</td></tr>
+<tr><td><code>reopenDays</code></td><td><code>number</code></td><td></td><td>Quantidade de dias para agendamento da reabertura do atendimento</td></tr>
+<tr><td><code>reopenHour</code></td><td><code>number</code></td><td></td><td>Se agendada a reabertura, hora do dia em que o atendimento deverá ser reaberto</td></tr>
+<tr><td><code>reopenMinute</code></td><td><code>number</code></td><td></td><td>Se agendada a reabertura, minuto da hora em que o atendimento deverá ser reaberto</td></tr>
+</tbody></table></div>
+<h3 id="el-transfer">transfer</h3>
+<p>Transfere o atendimento associado, quando este existir. O elemento transfer não possui um próximo elemento, pois ele encerra o fluxo de execução — exceto com chatId de OUTRO atendimento (ver abaixo).</p>
+<div class="callout info">A transferência acontece sempre dentro da fila do atendimento: para colocar um cliente em outra fila, abra um atendimento lá com openChat/openChatCloud (queueId).<br>OUTRO ATENDIMENTO (chatId, opcional): com o ID de outro atendimento aberto (por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats), o elemento transfere ESSE atendimento — destinationType 0 redistribui na fila dele com o filtro calculado pelas variáveis do fluxo, 1 entrega ao atendente (mesmas regras de disponibilidade), 2 inicia nele a URA indicada ou executa sobre ele a automação indicada — e o fluxo NÃO termina: segue por nextElementId, a saída que o elemento ganha só nesse modo (sem ela, o fluxo termina ali). As variáveis do fluxo NÃO são copiadas para o atendimento transferido. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Com chatId vazio, ou com o ID do próprio atendimento do fluxo, vale o comportamento acima e nextElementId é ignorado.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"destinationType":0,"destinationId":"","filter":[]}
+Como se escreve: meu_rotulo: transfer destinationType=0
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>5</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: transfer destinationType=0</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>destinationType</code></td><td><code>0 | 1 | 2</code></td><td>sim</td><td>Tipo de destino para onde o atendimento será transferido. 0 - Para a fila de atendimento para distribuição automática, 1 - Para um atendente específico, 2 - Para uma URA específica</td></tr>
+<tr><td><code>destinationId</code></td><td><code>string</code></td><td></td><td>ID do destino para onde o atendimento será transferido. Pode-se utilizar variáveis no conteúdo, exemplo: "{{ura_id}}". Só é utilizado caso o destinationType seja 1 ou 2. Caso o ID seja inválido, o atendimento será transferido para a fila.</td></tr>
+</tbody></table></div>
+<h3 id="el-marker">marker</h3>
+<p>Adiciona uma etiqueta de atendimento ao atendimento. As etiquetas são utilizadas para classificar e priorizar os atendimentos, além de fornecer identificação visual do estado do atendimento para os atendentes e supervisores.</p>
+<div class="callout info">Cada atendimento só pode possuir uma etiqueta de atendimento associada. Caso o atendimento já possua uma etiqueta, essa será substituída pela nova.<br>OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","markerId":""}
+Como se escreve: meu_rotulo: marker
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>7</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: marker</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma</td></tr>
+</tbody></table></div>
+<h3 id="el-protocol">protocol</h3>
+<p>Associa um protocolo ao atendimento. O protocolo pode ser gerado automaticamente ou pré-definido.</p>
+<div class="callout info">OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"type":0,"protocol":"","nextElementId":""}
+Como se escreve: meu_rotulo: protocol type=0
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>13</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: protocol type=0</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>type</code></td><td><code>0 | 1</code></td><td>sim</td><td>Forma de aplicação do protocolo ao atendimento. 0 - Gerar protocolo automaticamente, 1 - Usar protocolo pré-definido</td></tr>
+</tbody></table></div>
+<h3 id="el-jscode">jscode</h3>
+<p>Executa um código JavaScript no servidor. O código pode ser utilizado para realizar operações complexas que não são possíveis com os elementos padrão.</p>
+<div class="callout info">O código é executado em um sandbox, sem acesso a recursos externos, como bancos de dados ou sistemas de arquivos.<br>Todas as variáveis disponíveis no contexto do atendimento estão disponíveis para serem utilizadas no código através do objeto global vars.<br>Para acessar a variável var1, por exemplo, basta utilizar vars.var1.<br>O código pode criar variáveis novas e alterar as variáveis criadas pelo fluxo editando o objeto vars; o que ficar em vars é aplicado quando o código termina.<br>As variáveis de SISTEMA (as fornecidas pelo sistema, ex.: chat_agent_id, chat_queue_id, general_now_date, message_text) são SOMENTE LEITURA: alterá-las no código não tem efeito e gera um alerta na depuração. Exceção — os dados do cliente do atendimento: chat_client_name (ou clientName), chat_client_number (clientNumber), chat_client_email (clientEmail), chat_client_profile_name (clientProfileName), chat_client_data (clientData) e clientDocument, quando o código muda o valor, são gravados no próprio atendimento.<br>Não é permitido requerer módulos externos ou utilizar funções que possam causar efeitos colaterais, como console.log.<br>Não é permitido realizar requisições HTTP ou acessar recursos externos.<br>O pacote momentjs para manipulação de datas está disponível como um objeto global moment. Exemplo: moment().format('YYYY-MM-DD').<br>Não é necessário encapsular o código em uma função, ele será executado diretamente. Qualquer valor retornado pelo código será ignorado. Não é possível modificar a configuração de elementos do fluxo diretamente pelo código javascript, só é possível manipular variáveis.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"code":"// Escreva seu código aqui\n","nextElementId":""}
+Como se escreve: meu_rotulo: jscode code="// Escreva seu código aqui\n"
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>21</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: jscode code="// Escreva seu código aqui\n"</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>code</code></td><td><code>string</code></td><td>sim</td><td>Código JavaScript que será executado no servidor. Exemplo: "vars.var1 = 1 + 1;". O código javascript não consegue acessar ou modificar o objeto JSON de configuração diretamente, somente acessar o objeto vars com as variáveis. Variáveis de sistema são somente leitura, exceto os dados do cliente do atendimento (ver a descrição do elemento).</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-newVar">newVar</h3>
+<p>Cria uma variável com o valor informado, ou altera o valor de uma variável criada pelo fluxo. Com o prefixo "global." no nome, grava uma variável global da fila (compartilhada por todos os fluxos da mesma fila).</p>
+<div class="callout info">As variáveis de SISTEMA (as fornecidas pelo sistema, ex.: chat_agent_id, chat_queue_id, general_now_date, message_text) são SOMENTE LEITURA: gravar num nome de sistema não tem efeito e gera um alerta na depuração. Exceção — os dados do cliente do atendimento: chat_client_name (ou clientName), chat_client_number (clientNumber), chat_client_email (clientEmail), chat_client_profile_name (clientProfileName), chat_client_data (clientData) e clientDocument são gravados no próprio atendimento.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"variableName":"","value":"","nextElementId":""}
+Como se escreve: meu_rotulo: newVar variableName="..." value="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>20</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: newVar variableName="..." value="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>variableName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável que será criada ou alterada. Adicionar somente o nome da variável, sem chaves. Exemplo: "new_var". Com o prefixo "global." grava uma variável global da fila. Variável de sistema é somente leitura (a gravação é ignorada e aparece como alerta na depuração), exceto os dados do cliente do atendimento: chat_client_name, chat_client_number, chat_client_email, chat_client_profile_name, chat_client_data (ou clientName, clientNumber, clientEmail, clientProfileName, clientData) e clientDocument, gravados no próprio atendimento</td></tr>
+<tr><td><code>value</code></td><td><code>string</code></td><td>sim</td><td>Valor inicial da variável. Pode-se utilizar variáveis no conteúdo, exemplo: "{{value}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-execAutomation">execAutomation</h3>
+<p>Executa uma automação específica como parte do fluxo. O fluxo de execução será transferido para a automação selecionada.</p>
+<div class="callout info">Ao final da execução da automação, o fluxo de execução retornará para o próximo elemento no fluxograma de origem.<br>Cada execução conta no limite de 50 partidas da mesma automação por atendimento a cada 2 minutos: a partir da 51ª ela não é executada e é marcada como possível laço. Por isso, dentro do corpo de um elemento de laço (loop), cada volta é uma partida.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"automationId":"","nextElementId":""}
+Como se escreve: meu_rotulo: execAutomation automationId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>27</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: execAutomation automationId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>automationId</code></td><td><code>string</code></td><td>sim</td><td>ID da automação que será executada. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado, após a execução da automação</td></tr>
+</tbody></table></div>
+<h3 id="el-setTriggers">setTriggers</h3>
+<p>Aplica um conjunto de gatilhos ao atendimento corrente. Se não houver atendimento associado, esse elemento será ignorado.</p>
+<div class="callout info">OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"triggerSetId":0,"nextElementId":""}
+Como se escreve: meu_rotulo: setTriggers triggerSetId=0
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>18</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: setTriggers triggerSetId=0</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>triggerSetId</code></td><td><code>number</code></td><td>sim</td><td>ID do conjunto de gatilhos que será aplicado ao atendimento. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-removeTrigger">removeTrigger</h3>
+<p>Remove o gatilho que provocou a execução da automação.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
+Como se escreve: meu_rotulo: removeTrigger
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>24</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: removeTrigger</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-removeAllTriggers">removeAllTriggers</h3>
+<p>Remove todos os gatilhos associados ao atendimento corrente. Se não houver atendimento corrente, esse elemento é ignorado.</p>
+<div class="callout info">OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
+Como se escreve: meu_rotulo: removeAllTriggers
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>49</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: removeAllTriggers</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-scheduleAutomation">scheduleAutomation</h3>
+<p>Agenda a execução de uma automação sobre o atendimento atualmente associado ao fluxo, após o número de segundos informado. O id do agendamento gerado é salvo na variável indicada (pode ser usado posteriormente pelo elemento de cancelamento de agendamento). Caso o fluxo não tenha atendimento associado, o elemento é ignorado e o fluxo segue para o próximo elemento. O agendamento é persistido no banco e executa mesmo após reinício da instância; se o atendimento já estiver encerrado no momento do disparo, a automação não é executada.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"automationId":"","delaySeconds":"","resultVariableName":"","nextElementId":""}
+Como se escreve: meu_rotulo: scheduleAutomation automationId="..." delaySeconds="..." resultVariableName="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>130</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: scheduleAutomation automationId="..." delaySeconds="..." resultVariableName="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>automationId</code></td><td><code>string</code></td><td>sim</td><td>ID da automação (fluxo do tipo automação) a ser agendada. Pode-se utilizar variáveis, exemplo: "{{automation_id}}"</td></tr>
+<tr><td><code>delaySeconds</code></td><td><code>string</code></td><td>sim</td><td>Tempo em segundos até a execução da automação. Pode-se utilizar variáveis, exemplo: "300" ou "{{delay}}"</td></tr>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável que receberá o id do agendamento gerado. Somente o nome, sem chaves. Exemplo: "schedule_id"</td></tr>
+</tbody></table></div>
+<h3 id="el-cancelSchedule">cancelSchedule</h3>
+<p>Cancela um agendamento de execução de automação previamente criado (pelo elemento "Agendar execução de automação"), a partir do id do agendamento. Só tem efeito se o agendamento ainda estiver pendente (ainda não executado nem cancelado).</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"scheduleId":"","nextElementId":""}
+Como se escreve: meu_rotulo: cancelSchedule scheduleId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>131</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: cancelSchedule scheduleId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>scheduleId</code></td><td><code>string</code></td><td>sim</td><td>ID do agendamento a ser cancelado (o valor salvo pelo elemento de agendamento). Pode-se utilizar variáveis, exemplo: "{{schedule_id}}"</td></tr>
+</tbody></table></div>
+<h3 id="el-startCall">startCall</h3><p>Inicia uma chamada telefônica de saída. O elemento existe no editor e é reconhecido pelo compilador, mas depende de um recurso que <strong>não está habilitado nesta instância</strong> — a validação responde "O elemento startCall depende de um recurso não habilitado nesta instância". Em contas que têm o recurso de chamadas de saída liberado, ele aparece com a configuração de número de destino.</p><p class="s10"><strong>Como se escreve:</strong> <code>meu_rotulo: startCall phoneNumber="55DDDNUMERO"</code></p><div class="callout warn">Antes de contar com este elemento, confirme com o suporte se o recurso de chamada de saída está liberado para a conta.</div>
+<h2 id="exemplos-do-grupo">Exemplos de uso</h2>
+<p>Fluxos completos que usam os elementos deste grupo. Cada exemplo foi compilado pelo próprio sistema antes de entrar aqui.</p>
+<h3 id="ex-automacoes-fluxo-logica-1">Triagem por horário de funcionamento com protocolo e rodízio de plantão</h3>
+<p>Separar quem chega dentro e fora do horário de funcionamento, registrar o protocolo e a etiqueta do atendimento e encaminhar por dia e hora (domingo, plantão noturno ou fila normal).</p>
+<ol class="steps">
+<li><strong><code>businesshoursCheck</code></strong> — testa o momento atual contra a configuração horario_comercial: dentro do horário segue na queda para a saudação, fora dele cai no bloco closed, que avisa o cliente, registra a informação interna e encerra.</li>
+<li><strong><code>message</code></strong> — cumprimenta o cliente pelo nome quando o atendimento está dentro do horário.</li>
+<li><strong><code>protocol</code></strong> — gera o protocolo automático do atendimento.</li>
+<li><strong><code>marker</code></strong> — aplica a etiqueta de triagem no atendimento.</li>
+<li><strong><code>info</code></strong> — registra na conversa que o cliente chegou fora do horário comercial.</li>
+<li><strong><code>timetable</code></strong> — decide pelo dia e pela hora: domingo inteiro, dias úteis das 18h às 23h59 no plantão e o restante no else.</li>
+<li><strong><code>transfer</code></strong> — encaminha o atendimento para a URA de plantão (destinationType=2) ou para a distribuição normal da fila (destinationType=0).</li>
+<li><strong><code>terminate</code></strong> — encerra o caminho de domingo e o caminho fora do horário, cada um com o seu motivo.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">checa_expediente: businesshoursCheck configId="horario_comercial" {
+  closed {
+    fora_aviso: message text="No momento estamos fora do horário de atendimento. Funcionamos de segunda a sexta, das 8h às 18h."
+    fora_registro: info text="Cliente chegou fora do horário comercial. Aviso automático enviado e atendimento encerrado sem agente."
+    fora_fim: terminate reason="Fora do horário de atendimento"
+  }
+}
+saudacao: message text="Olá, {{chat_client_name}}! Estamos em horário de atendimento e você já vai ser atendido."
+cria_protocolo: protocol type=0
+etiqueta_triagem: marker markerId="etiqueta-triagem"
+avisa_protocolo: message text="Seu atendimento está registrado no protocolo {{chat_protocol}}."
+rodizio_plantao: timetable {
+  case domingo type=0 weekDayBegin=0 weekDayEnd=0 hourBegin=0 minuteBegin=0 hourEnd=23 minuteEnd=59 {
+    aviso_domingo: message text="Aos domingos atendemos apenas por mensagem, sem atendente de plantão."
+    protocolo_domingo: protocol type=0
+    fim_domingo: terminate reason="Atendimento de domingo"
+  }
+  case plantao_noturno type=0 weekDayBegin=1 weekDayEnd=5 hourBegin=18 minuteBegin=0 hourEnd=23 minuteEnd=59 {
+    vai_plantao: transfer destinationType=2 destinationId="ura-plantao"
+  }
+  else {
+    distribui_fila: transfer destinationType=0
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> Quem escreve dentro do horário ganha protocolo e etiqueta e vai para a fila ou para o plantão conforme o dia e a hora; quem escreve fora do horário recebe o aviso e o atendimento é encerrado com o motivo registrado.</div>
+<h3 id="ex-automacoes-fluxo-logica-2">Resumo do carrinho item a item com laço de repetição</h3>
+<p>Percorrer as linhas do carrinho sincronizado com um laço, enviando uma mensagem por item com uma pequena pausa entre elas, e fechar com o total.</p>
+<ol class="steps">
+<li><strong><code>newVar</code></strong> — cria a variável resumo_carrinho já vazia, para ser preenchida mais adiante no fluxo.</li>
+<li><strong><code>varCondition</code></strong> — compara a quantidade de itens do carrinho com 1: o ramo carrinho_vazio avisa e encerra, o else segue com o resumo.</li>
+<li><strong><code>jscode</code></strong> — monta o texto de abertura do resumo com a contagem de itens do carrinho.</li>
+<li><strong><code>loop</code></strong> — percorre a lista do carrinho: a cada volta, o item cai em item e a posição em posicao; o corpo devolve o fluxo ao laço e a volta seguinte começa.</li>
+<li><strong><code>message</code></strong> — mostra a linha do item atual (posição, produto, quantidade e valor) e depois o total do carrinho.</li>
+<li><strong><code>sleep</code></strong> — espera um segundo entre uma linha e outra do carrinho, para as mensagens não chegarem todas de uma vez.</li>
+<li><strong><code>terminate</code></strong> — encerra o atendimento depois do resumo (ou avisa o carrinho vazio).</li>
+</ol>
+<div class="table-wrap"><pre class="flow">comeca_resumo: newVar variableName="resumo_carrinho" value=""
+confere_carrinho: varCondition value="{{chat_cart_items_count}}" {
+  case carrinho_vazio conditionOperator="&lt;" conditionValue="1" {
+    sem_itens: message text="Seu carrinho está vazio no momento, {{chat_client_name}}. Quer ver as novidades da loja?"
+    fim_sem_itens: terminate reason="Carrinho vazio"
+  }
+  else {
+    cabecalho: message text="Confira o que já está no seu carrinho:"
+    prepara_titulo: jscode code="vars[\"resumo_carrinho\"] = \"Carrinho com \" + vars[\"chat_cart_items_count\"] + \" itens\""
+    laco_itens: loop mode="forEach" list="{{chat_cart_lines}}" itemVar="item" indexVar="posicao" {
+      body {
+        mostra_item: message text="{{posicao}}. {{item.product_name}} - quantidade {{item.product_quantity}} - valor unitário {{item.product_value}}"
+        pausa_envio: sleep time=1 -&gt; laco_itens
+      }
+    }
+    mostra_total: message text="{{resumo_carrinho}}. Total: {{chat_cart_total}}."
+    fim_com_itens: terminate reason="Resumo do carrinho enviado"
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente recebe uma lista organizada, com um item por mensagem e o total no fim; com o carrinho vazio, recebe o aviso e o atendimento encerra.</div>
+<h3 id="ex-automacoes-fluxo-logica-3">Orçamento com acompanhamento agendado e cancelamento</h3>
+<p>Perguntar quando o cliente quer receber o orçamento, agendar a execução de uma automação de retorno e cancelar esse agendamento se o cliente responder antes.</p>
+<ol class="steps">
+<li><strong><code>options</code></strong> — pergunta se o cliente quer o orçamento agora ou amanhã e tenta de novo (duas vezes) quando não entende a resposta.</li>
+<li><strong><code>message</code></strong> — confirma a escolha do cliente e explica o que vai acontecer em cada caminho.</li>
+<li><strong><code>scheduleAutomation</code></strong> — agenda a automação de orçamento para 10 minutos depois (ou a de acompanhamento para 24 horas) e guarda o id do agendamento em uma variável.</li>
+<li><strong><code>waitMessage</code></strong> — para o fluxo até o cliente enviar uma nova mensagem.</li>
+<li><strong><code>cancelSchedule</code></strong> — cancela o agendamento pendente pelo id guardado, porque o cliente respondeu antes.</li>
+<li><strong><code>info</code></strong> — registra no atendimento o id do agendamento criado.</li>
+<li><strong><code>sleep</code></strong> — dá uma pequena pausa antes de encerrar o caminho do amanhã, para o cliente ler a confirmação.</li>
+<li><strong><code>varCondition</code></strong> — no caminho sem escolha, verifica se a fila do atendimento comercial cuida do assunto (operador in) para encaminhar via transfer; senão encerra.</li>
+<li><strong><code>transfer</code></strong> — encaminha para a distribuição normal da fila no caminho de fallback.</li>
+<li><strong><code>terminate</code></strong> — encerra os caminhos do agora, do amanhã e da falta de escolha.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">pergunta_quando: options text="Posso te mandar o orçamento agora ou prefere que eu retome amanhã?" type=0 errorRetryCount=2 errorRetryMessage="Não entendi. Toque em uma das opções acima, por favor." {
+  case agora text="Quero agora" {
+    manda_agora: message text="Perfeito! Estou montando o orçamento e te envio por aqui em instantes."
+    agenda_retorno: scheduleAutomation automationId="automacao-orcamento" delaySeconds="600" resultVariableName="agendamento_orcamento"
+    aguarda_cliente: waitMessage
+    cancela_retorno: cancelSchedule scheduleId="{{agendamento_orcamento}}"
+    cliente_respondeu: message text="Recebi sua mensagem, {{chat_client_name}}! O acompanhamento automático foi cancelado e eu sigo com você por aqui."
+    fim_agora: terminate reason="Cliente respondeu antes do retorno programado"
+  }
+  case amanha text="Prefiro amanhã" {
+    combinado: message text="Combinado! Vou retomar este assunto amanhã pela manhã por aqui mesmo."
+    agenda_manha: scheduleAutomation automationId="automacao-followup" delaySeconds="86400" resultVariableName="agendamento_followup"
+    registro_agenda: info text="Retorno agendado para daqui a 24 horas. Id do agendamento: {{agendamento_followup}}."
+    respira: sleep time=2
+    fim_amanha: terminate reason="Retorno agendado pelo cliente"
+  }
+  else {
+    sem_escolha: varCondition value="{{chat_fila}}" {
+      case fila_comercial conditionOperator="in" conditionValue="Comercial" {
+        encaminha_fila: transfer destinationType=0
+      }
+      else {
+        sem_encaminhamento: message text="Vou encerrar por aqui, mas você pode escrever de novo a qualquer momento."
+        fim_sem_escolha: terminate reason="Cliente não escolheu uma opção"
+      }
+    }
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente escolhe quando quer o orçamento; ou o retorno automático fica agendado, ou é cancelado porque ele respondeu antes, e o atendimento encerra com o motivo certo.</div>
+<h3 id="ex-automacoes-fluxo-logica-4">Classificar o cliente com código, variáveis e gatilhos</h3>
+<p>Descobrir no início do atendimento se o cliente já é cadastrado, gravar a fila de destino em uma variável e usar gatilhos para que a automação pare de se repetir em quem já foi classificado.</p>
+<ol class="steps">
+<li><strong><code>jscode</code></strong> — roda um trecho de JavaScript que olha o documento do contato e grava cadastrado ou novo na variável tipo_cliente.</li>
+<li><strong><code>newVar</code></strong> — grava o nome da fila de destino na variável fila_destino, escolhendo entre Clientes e Novos atendimentos.</li>
+<li><strong><code>marker</code></strong> — etiqueta o atendimento para a triagem visual na fila.</li>
+<li><strong><code>protocol</code></strong> — gera o protocolo automático do atendimento antes de qualquer desvio.</li>
+<li><strong><code>message</code></strong> — informa o protocolo ao cliente.</li>
+<li><strong><code>varCondition</code></strong> — usa um ramo de operador (=) para o cliente cadastrado e um ramo de expressão (!contact_document) para o cliente novo, deixando o else para os casos que não casarem.</li>
+<li><strong><code>removeTrigger</code></strong> — no caminho do cadastrado, remove o gatilho que provocou a execução, para a automação não se repetir na mesma mensagem.</li>
+<li><strong><code>setTriggers</code></strong> — aplica o conjunto de gatilhos do atendimento já classificado.</li>
+<li><strong><code>removeAllTriggers</code></strong> — no caminho do cliente novo, limpa todos os gatilhos do atendimento antes de encaminhar.</li>
+<li><strong><code>execAutomation</code></strong> — dispara a automação que sincroniza os dados do cliente no CRM antes do encaminhamento.</li>
+<li><strong><code>transfer</code></strong> — encaminha para a fila de clientes (distribuição normal) ou para a URA de cadastro (destinationType=2).</li>
+<li><strong><code>terminate</code></strong> — encerra o caminho de quem não entrou em nenhuma classificação.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">identifica_tipo: jscode code="vars[\"tipo_cliente\"] = vars[\"contact_document\"] ? \"cadastrado\" : \"novo\""
+define_fila: newVar variableName="fila_destino" value="{{tipo_cliente == \"cadastrado\" ? \"Clientes\" : \"Novos atendimentos\"}}"
+etiqueta_cadastro: marker markerId="etiqueta-triagem"
+cria_protocolo: protocol type=0
+avisa_protocolo: message text="Atendimento registrado no protocolo {{chat_protocol}}."
+decide_caminho: varCondition value="{{tipo_cliente}}" {
+  case cadastrado conditionOperator="=" conditionValue="cadastrado" {
+    tira_gatilho: removeTrigger
+    aplica_gatilhos: setTriggers triggerSetId=0
+    sincroniza_crm: execAutomation automationId="automacao-crm"
+    avisa_fila: message text="Cadastro localizado. Vou te encaminhar para a fila {{fila_destino}}."
+    encaminha_cadastrado: transfer destinationType=0
+  }
+  case novo_contato conditionOperator="expression" conditionValue="!contact_document" {
+    limpa_gatilhos: removeAllTriggers
+    acolhe_novo: message text="Não encontrei seu cadastro por aqui. Vou te encaminhar para o time de novos clientes para agilizarmos."
+    encaminha_novo: transfer destinationType=2 destinationId="ura-cadastro"
+  }
+  else {
+    sem_classificacao: message text="Vou encaminhar seu atendimento para a equipe responsável."
+    fim_sem_classificacao: terminate reason="Sem classificação automática"
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente cadastrado cai na fila certa com a etiqueta e o protocolo e sem a automação repetindo o trabalho; o cliente novo vai para a URA de cadastro; o resto é encerrado com o motivo registrado.</div>
+<h3 id="ex-automacoes-fluxo-logica-5">Retorno por ligação: oferta, confirmação e desfecho da chamada</h3>
+<p>Oferecer um retorno por telefone num fluxo por mensagem e tratar o que acontece depois da chamada (que é disparada pelo elemento de discagem e devolve o desfecho numa automação de fim de ligação).</p>
+<ol class="steps">
+<li><strong><code>startCall</code></strong> — é o elemento de voz que disca para o telefone do atendimento; o exemplo usa o pedido por mensagem e, na automação de voz, o startCall aponta no campo endAutomationId a automação de fim de ligação que trata o desfecho (atendeu, não atendeu, ocupado) — aqui ele é citado como o passo que faz a ponte entre a conversa e a chamada.</li>
+<li><strong><code>message</code></strong> — oferece o retorno por telefone antes de pedir qualquer dado.</li>
+<li><strong><code>question</code></strong> — pergunta se o cliente quer receber a ligação e guarda o SIM ou NAO na variável quer_ligacao.</li>
+<li><strong><code>varCondition</code></strong> — compara a resposta em maiúsculas (filtro toUpperCase) procurando o texto SIM no ramo decide_retorno.</li>
+<li><strong><code>info</code></strong> — registra internamente que o cliente aceitou o retorno por telefone.</li>
+<li><strong><code>sleep</code></strong> — espera dois segundos antes de seguir, para o cliente ler a confirmação.</li>
+<li><strong><code>waitMessage</code></strong> — para o fluxo até o cliente escrever de novo, o que acontece quando a ligação termina.</li>
+<li><strong><code>terminate</code></strong> — encerra o atendimento nos dois caminhos, com o motivo da escolha do cliente.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">oferece_ligacao: message text="Se preferir, eu peço para te ligarmos e resolvemos por telefone."
+confirma_ligacao: question varName="quer_ligacao" text="Responda SIM para receber a ligação ou NAO para continuar por mensagem."
+decide_retorno: varCondition value="{{quer_ligacao | toUpperCase}}" {
+  case aceita conditionOperator="in" conditionValue="SIM" {
+    confirma_retorno: message text="Combinado! Registrei o pedido de ligação para o número {{chat_client_number}}."
+    registra_pedido: info text="Cliente aceitou o retorno por telefone. O pedido fica registrado para a discagem pela automação de voz."
+    pausa: sleep time=2
+    aguarda_cliente: waitMessage
+    apos_ligacao: message text="Se a ligação não completou, escreva aqui que eu sigo com você por mensagem."
+    fim_retorno: terminate reason="Retorno por telefone solicitado"
+  }
+  else {
+    continua_chat: message text="Sem problema! Seguimos por aqui. Escreva o que você precisa que eu te ajudo."
+    fim_chat: terminate reason="Cliente preferiu continuar por mensagem"
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente que aceita recebe a confirmação e tem o pedido de ligação registrado; quem prefere continuar escrevendo segue no chat. Nos dois casos o atendimento encerra com o motivo registrado.</div>
+
+  <div class="pagenav">
+    <a href="automacoes-elementos.html"><span>←</span> Catálogo de elementos</a>
+    <a class="next" href="automacoes-exemplos.html"><span>Ver também →</span> Exemplos prontos</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

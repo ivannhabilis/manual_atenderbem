@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integrações, webhooks e extensões — Manual Omnichannel</title>
+<meta name="description" content="Conversar com sistemas externos e com extensões instaladas. (4 elementos)">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a class="active" href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="automacoes-elementos.html">Automações e URA</a> &rsaquo; Integrações, webhooks e extensões</div>
+
+  <h1>Integrações, webhooks e extensões</h1>
+  <p class="subtitle">Conversar com sistemas externos e com extensões instaladas. (4 elementos)</p>
+
+<p>Conversar com sistemas externos e com extensões instaladas.</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Elemento</th><th>O que faz</th></tr></thead><tbody>
+<tr><td><a href="#el-request">request</a></td><td>Envia uma requisição HTTP para um servidor externo. O resultado da requisição é salvo em variáveis e pode ser utilizado em outras partes do </td></tr>
+<tr><td><a href="#el-webhookReply">webhookReply</a></td><td>Define a resposta que será enviada quando o fluxo estiver sendo executado como resultado de uma captura de webhook.</td></tr>
+<tr><td><a href="#el-publishToExtension">publishToExtension</a></td><td>Publica uma mensagem no CANAL de uma INSTALAÇÃO DE EXTENSÃO, entregue em tempo real às telas dos usuários de destino. Serve para o fluxo avi</td></tr>
+<tr><td><a href="#el-generateQrCode">generateQrCode</a></td><td>Gera um código QR a partir de um texto e salva o ID do arquivo gerado em uma variável.</td></tr>
+</tbody></table></div>
+<h3 id="el-request">request</h3>
+<p>Envia uma requisição HTTP para um servidor externo. O resultado da requisição é salvo em variáveis e pode ser utilizado em outras partes do fluxo de execução.</p>
+<div class="callout info">É feito um parse no retorno da requisição, se este for do tipo JSON ou multipart/form-data, o resultado é convertido para objeto JavaScript e disponibilizado em uma variável.<br>As seguintes variáveis são criadas automaticamente:<br>varPrefix + _httpStatus: Código de status da resposta da requisição. Exemplo de nome final da varíavel com prefixo: "req_response_httpStatus"<br>varPrefix + _rawBody: Corpo bruto da resposta da requisição. Exemplo de nome final da varíavel com prefixo: "req_response_rawBody"<br>varPrefix + _parsedBody: Corpo da resposta da requisição convertido para objeto JavaScript quando possível. Exemplo de nome final da varíavel com prefixo: "req_response_parsedBody"<br>Adicionalmente, se o tipo de resposta (expectedContentType) estiver configurado para 2 (salvar como arquivo), também é criada a variável varPrefix + _fileId com o ID do arquivo gerado com o resultado da requisição.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"varPrefix":"","dataType":"json","method":"get","retrys":0,"url":"","data":{},"testData":{},"numberFields":[],"dataRaw":"","headers":{},"testHeaders":{},"timeout":0,"expectedContentType":0,"textResponseVariable":"","nextElementId":"","textPreProcessor":0,"textPreProcessorSeparator":"","textPostProcessorSeparator":""}
+Como se escreve: meu_rotulo: request dataType="json" method="get" url="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>12</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: request dataType="json" method="get" url="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>varPrefix</code></td><td><code>string</code></td><td></td><td>Prefixo das variáveis que receberão o resultado da requisição. Exemplo: "req_response". Todas as variáveis criadas por esse elemento durante a requisição terão esse prefixo.</td></tr>
+<tr><td><code>dataType</code></td><td><code>"json" | "jsonraw" | "urlencoded"</code></td><td>sim</td><td>Tipo de conteúdo da requisição</td></tr>
+<tr><td><code>method</code></td><td><code>"get" | "post" | "put" | "delete" | "patch"</code></td><td>sim</td><td>Método HTTP que será utilizado para fazer a requisição,</td></tr>
+<tr><td><code>retrys</code></td><td><code>number</code></td><td></td><td>Número de tentativas de requisição antes de considerar que a requisição falhou. Se 0 ou negativo, apenas uma única tentativa será realizada.</td></tr>
+<tr><td><code>url</code></td><td><code>string</code></td><td>sim</td><td>URL completa da requisição. Pode-se utilizar variáveis no conteúdo, exemplo: "{{url}}"}</td></tr>
+<tr><td><code>data</code></td><td><code>{ [key: string]: any }</code></td><td></td><td>Dados que serão enviados na requisição. A chave da propriedade será o nome do campo que será enviado na requisição. Pode-se utilizar variáveis no conteúdo, porém não como chave, exemplo: {"name": "{{field_name}}", "document": "{{field_document}}"}. Esse campo só é utilizado caso o contentType seja json ou urlencoded. Os dados aqui serão convertidos para o formato adequado antes do envio. Para requisições GET essa propriedade será ignorada, os parâmetros devem ser passados via query params na URL.</td></tr>
+<tr><td><code>testData</code></td><td><code>{ [key: string]: any }</code></td><td></td><td>Dados que serão enviados na requisição de testes, onde variáveis não estão disponíveis e não está em produção. As chaves devem ser as mesmas do sentData porém com dados de teste da requisição, se houverem</td></tr>
+<tr><td><code>numberFields</code></td><td><code>string[]</code></td><td></td><td>Lista com as propriedades do sentData e sentDataTestData que devem ser tratadas como campos numéricos e convertidas para número antes de enviar</td></tr>
+<tr><td><code>dataRaw</code></td><td><code>string</code></td><td></td><td>Dados brutos que serão enviados na requisição. Pode-se utilizar variáveis no conteúdo, exemplo: '{"name": "{{field_name}}", "value": "{{field_value}}"}'. Esse campo só é utilizado caso o contentType seja jsonraw.</td></tr>
+<tr><td><code>headers</code></td><td><code>{ [key: string]: any }</code></td><td></td><td>Headers da requisição: objeto em que a chave é o nome do cabeçalho e o valor é o conteúdo. Pode-se utilizar variáveis no valor, porém não no nome, exemplo: {"Authorization": "Bearer {{token}}", "X-Pedido": "{{pedido_id}}"}</td></tr>
+<tr><td><code>testHeaders</code></td><td><code>{ [key: string]: any }</code></td><td></td><td>Cabeçalhos que serão enviados na requisição de testes, onde variáveis não estão disponíveis e não está em produção. As chaves devem ser as mesmas do headersData porém com dados de teste da requisição, se houverem</td></tr>
+<tr><td><code>timeout</code></td><td><code>number</code></td><td></td><td>Tempo limite para a requisição. Após esse tempo, a requisição será cancelada e considerada como falha. Se 0 ou negativo, o limite padrão de 10 segundos será utilizado.</td></tr>
+<tr><td><code>expectedContentType</code></td><td><code>0 | 1 | 2</code></td><td></td><td>Tipo de conteúdo esperado na resposta da requisição. 0 - JSON, 1 - Somente texto, 2 - Binário, salvar como arquivo</td></tr>
+<tr><td><code>textResponseVariable</code></td><td><code>string</code></td><td></td><td>Variável onde será salvo o resultado da requisição caso o expectedContentType seja 1 (somente texto). Adicionar somente o nome da variável, sem o prefixo: o texto fica em varPrefix + "_" + textResponseVariable (vazio = varPrefix + "_body"). Exemplo: "response_text"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado após a requisição ser concluída</td></tr>
+</tbody></table></div>
+<h3 id="el-webhookReply">webhookReply</h3>
+<p>Define a resposta que será enviada quando o fluxo estiver sendo executado como resultado de uma captura de webhook.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"httpStatus":200,"contentType":"application/json","content":"","nextElementId":""}
+Como se escreve: meu_rotulo: webhookReply httpStatus=200 contentType="application/json" content="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>93</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: webhookReply httpStatus=200 contentType="application/json" content="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>httpStatus</code></td><td><code>number</code></td><td>sim</td><td>Código de status HTTP da resposta. Exemplos: 200, 301, 302, 400, 401, 403, 404, 500</td></tr>
+<tr><td><code>contentType</code></td><td><code>string</code></td><td>sim</td><td>Tipo de conteúdo da resposta (Content-Type). Exemplos: "application/json", "text/html", "text/plain"</td></tr>
+<tr><td><code>content</code></td><td><code>string</code></td><td>sim</td><td>Conteúdo da resposta do webhook. Pode-se utilizar variáveis no conteúdo, exemplo: "{{response_body}}"</td></tr>
+</tbody></table></div>
+<h3 id="el-publishToExtension">publishToExtension</h3>
+<p>Publica uma mensagem no CANAL de uma INSTALAÇÃO DE EXTENSÃO, entregue em tempo real às telas dos usuários de destino. Serve para o fluxo avisar a interface de uma extensão de que algo aconteceu no servidor — por exemplo "o título foi pago, busque os dados de novo".</p>
+<div class="callout info">O canal é de MELHOR ESFORÇO e sem retenção de nenhuma espécie: não há ordenação garantida, não há entrega para quem está desconectado, não há repetição e não há confirmação. Quem só começar a ouvir depois da publicação simplesmente não recebe aquela mensagem — a extensão precisa saber buscar o estado atual por conta própria.<br>O ALVO É OBRIGATÓRIO e nunca assume "todos": publicar sem alvo seria transformar uma mensagem dirigida a um usuário em difusão para a instância inteira. Formatos aceitos: "user:{id}" (um usuário), "users:[1,2,3]" (vários), "type:agent" | "type:supervisor" | "type:admin" (por perfil), "queue:{id}" (quem atende ou supervisiona a fila), "group:{id}" (quem está no grupo) e "all" (todos, escolha explícita).<br>A entrega respeita a permissão: só recebe a mensagem quem já recebe aquela instalação da extensão, conforme os filtros configurados na instalação.<br>O PAYLOAD DEVE LEVAR IDENTIFICADORES, NUNCA DADOS. A mensagem atravessa a fronteira de permissão e o servidor não interpreta o conteúdo para filtrar nada: publique {"pedidoId": 4471} e deixe que cada tela busque o pedido com a permissão de quem está logado. Publicar o pedido inteiro entregaria a usuários diferentes um conteúdo que talvez nenhum deles pudesse ver. O tamanho é limitado a 4 KB, justamente para tornar desconfortável publicar dados.<br>Há limite de taxa por instalação. O estouro repetido desliga o canal daquela instalação (disjuntor), e a extensão deixa de receber até que alguém rearme o canal na tela de administração de extensões. Não publique dentro de laços nem a cada mensagem recebida.<br>O elemento nunca interrompe o fluxo: alvo vazio, instalação inexistente, JSON inválido no payload ou recusa do canal são registrados na depuração da automação e o fluxo segue para o próximo elemento.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"installId":"","topic":"","target":"","payload":"","nextElementId":""}
+Como se escreve: meu_rotulo: publishToExtension installId="..." topic="..." target="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>137</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: publishToExtension installId="..." topic="..." target="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>installId</code></td><td><code>string</code></td><td>sim</td><td>ID da INSTALAÇÃO da extensão (não o id do manifest) que receberá a publicação. O editor visual lista as extensões instaladas nesta instância. Aceita variável, exemplo: "{{extension_install_id}}". Vazio ou inexistente: nada é publicado e o fluxo segue</td></tr>
+<tr><td><code>topic</code></td><td><code>string</code></td><td>sim</td><td>Nome do tópico, definido pela própria extensão, exemplo: "titulo-pago". O servidor coloca a instalação no espaço de nomes automaticamente. Pode-se utilizar variáveis no conteúdo</td></tr>
+<tr><td><code>target</code></td><td><code>string</code></td><td>sim</td><td>Quem recebe. NUNCA assume "todos" — vazio significa não publicar. Formatos: "user:{id}", "users:[1,2,3]", "type:agent", "type:supervisor", "type:admin", "queue:{id}", "group:{id}" ou "all". Pode-se utilizar variáveis, exemplo: "user:{{chat_agent_id}}". Só recebe quem já recebe a instalação da extensão pelos filtros configurados</td></tr>
+<tr><td><code>payload</code></td><td><code>string</code></td><td></td><td>Conteúdo da mensagem, escrito como TEXTO JSON e podendo conter variáveis, exemplo: {"pedidoId": {{order_id}}}. LEVE IDENTIFICADORES, NUNCA DADOS: quem recebe deve buscar o conteúdo com a própria permissão. Máximo de 4 KB. Vazio equivale a um objeto vazio. JSON inválido após a substituição das variáveis não publica e é registrado na depuração</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-generateQrCode">generateQrCode</h3>
+<p>Gera um código QR a partir de um texto e salva o ID do arquivo gerado em uma variável.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"content":"","resultVariableName":"","nextElementId":""}
+Como se escreve: meu_rotulo: generateQrCode content="..." resultVariableName="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>106</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: generateQrCode content="..." resultVariableName="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>content</code></td><td><code>string</code></td><td>sim</td><td>Conteúdo que será codificado no QR Code. Pode-se utilizar variáveis no conteúdo, exemplo: "{{qr_content}}"</td></tr>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável que receberá o ID do arquivo gerado. Adicionar somente o nome da variável, sem chaves. Exemplo: "qrcode_file_id"</td></tr>
+</tbody></table></div>
+<h2 id="exemplos-do-grupo">Exemplos de uso</h2>
+<p>Fluxos completos que usam os elementos deste grupo. Cada exemplo foi compilado pelo próprio sistema antes de entrar aqui.</p>
+<h3 id="ex-automacoes-integracoes-1">Consultar uma API externa, decidir pelo status e avisar a extensao</h3>
+<p>Consultar o status de um pedido numa API externa, ramificar pelo codigo HTTP e publicar o resultado no canal de uma extensao instalada.</p>
+<ol class="steps">
+<li><strong><code>request</code></strong> — faz um GET no endpoint externo e guarda a resposta em variaveis com o prefixo pedido (pedido_status, pedido.*).</li>
+<li><strong><code>varCondition</code></strong> — ramifica por expressao: se pedido_status == 200 segue o caminho de sucesso, senao o de falha.</li>
+<li><strong><code>message</code></strong> — confirma ao cliente que o pedido foi consultado.</li>
+<li><strong><code>publishToExtension</code></strong> — publica no canal da extensao painel-pedidos, no topico pedido_atualizado, avisando os agentes para recarregar os dados.</li>
+<li><strong><code>terminate</code></strong> — encerra o atendimento pelos dois caminhos.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">consulta: request dataType="json" method="get" url="https://api.exemplo.com/pedidos/{{chat_protocol}}" varPrefix="pedido"
+checa: varCondition {
+  case ok conditionOperator="expression" conditionValue="pedido_status == 200" {
+    bom: message text="Seu pedido foi consultado com sucesso."
+    avisa: publishToExtension installId="painel-pedidos" topic="pedido_atualizado" target="type:agent" payload="{\"chatId\": \"{{chat_id}}\"}"
+    f1: terminate reason="Pedido consultado"
+  }
+  else {
+    ruim: message text="Nao consegui consultar seu pedido agora. Vou encaminhar para um atendente."
+    f2: terminate reason="Falha na consulta"
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> Se a API responde 200, o cliente ve a confirmacao e a extensao painel-pedidos recebe o aviso; senao o cliente e orientado.</div>
+<h3 id="ex-automacoes-integracoes-2">Responder a um webhook com JSON e gerar QR Code de um link</h3>
+<p>Responder a uma captura de webhook com um JSON de confirmacao e gerar o QR Code de um link de acompanhamento.</p>
+<ol class="steps">
+<li><strong><code>webhookReply</code></strong> — define a resposta HTTP enviada a quem chamou o webhook: status 200 e um JSON de confirmacao com o protocolo.</li>
+<li><strong><code>generateQrCode</code></strong> — gera o QR Code do link de acompanhamento e guarda o ID do arquivo em qrcode_file_id.</li>
+<li><strong><code>message</code></strong> — avisa o cliente que o QR Code foi enviado.</li>
+<li><strong><code>terminate</code></strong> — encerra o atendimento.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">responde: webhookReply httpStatus=200 contentType="application/json" content="{\"status\":\"ok\",\"protocolo\":\"{{chat_protocol}}\"}"
+qrcode: generateQrCode content="https://exemplo.com/acompanhar/{{chat_protocol}}" resultVariableName="qrcode_file_id"
+envia: message text="Segue o QR Code para acompanhar seu pedido."
+fim: terminate reason="Webhook respondido e QR Code gerado"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> Quem chamou o webhook recebe o JSON {"status":"ok",...} e o cliente recebe o QR Code do link de acompanhamento.</div>
+
+  <div class="pagenav">
+    <a href="automacoes-elementos.html"><span>←</span> Catálogo de elementos</a>
+    <a class="next" href="automacoes-exemplos.html"><span>Ver também →</span> Exemplos prontos</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

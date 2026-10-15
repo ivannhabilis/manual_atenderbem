@@ -1,0 +1,13 @@
+fecha_pedido: message text="Vou fechar o pedido da oportunidade e dar baixa no estoque dos itens vendidos."
+baixa_oportunidade: decrementProductStock stockTarget="opportunity" opportunityId="{{opportunity_id}}" setUnavailableAtZero=true resultVariableName="baixa_estoque"
+checa_falta: varCondition value="{{baixa_estoque_shortfall}}" {
+  case faltou conditionOperator=">" conditionValue="0" {
+    avisa_falta: message text="Parte do pedido ficou sem estoque suficiente e sera combinada com o atendente."
+    fim1: terminate
+  }
+  else {
+    conclui_pedido: updateOrderStatus orderId="{{order_id}}" status="completed" bodyText="Pedido concluido e estoque dos itens atualizado."
+    avisa_ok: message text="Tudo certo! Seu pedido foi concluido e o estoque foi baixado."
+    fim2: terminate
+  }
+}

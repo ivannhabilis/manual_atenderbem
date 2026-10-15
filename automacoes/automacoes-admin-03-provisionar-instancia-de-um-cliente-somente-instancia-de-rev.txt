@@ -1,0 +1,5 @@
+aviso: message text="Provisionando a instancia do cliente {{chat_client_name}}."
+cria: createInstance instance.name="Cliente {{chat_client_name}}" instance.document="{{contact_document}}" instance.planId="profissional" instance.contact.clientName="{{chat_client_name}}" instance.contact.contactPhone1="{{chat_client_number}}" instance.contact.contactMail1="{{chat_client_email}}" resultVariablePrefix="nova"
+plano: updateInstance instanceId="4321" planId="enterprise" extraAgents="5" extraStorage="10"
+contato: editInstanceContactDetails instanceId="4321" contact.clientName="{{chat_client_name}}" contact.contactPhone1="{{chat_client_number}}" contact.contactMail1="{{chat_client_email}}"
+fim: terminate reason="Instancia provisionada"

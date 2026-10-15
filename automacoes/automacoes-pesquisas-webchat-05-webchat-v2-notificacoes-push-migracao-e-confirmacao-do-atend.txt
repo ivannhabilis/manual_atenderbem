@@ -1,0 +1,5 @@
+push: requestPushPermission bodyText="Quer receber o andamento do seu pedido por notificacao?" buttonText="Ativar notificacoes"
+gera: generateWebchatMigrationLink queueId=26 varName="webchat_migration_link" ttlMinutes=60
+envia: message text="Continue seu atendimento pelo nosso WebChat: {{webchat_migration_link}}"
+confirma: showConfirmationDialogSync title="Confirmar migracao" text="O cliente foi convidado a migrar para o WebChat V2. Podemos encerrar este atendimento?" cancelButtonText="Nao" confirmButtonText="Sim" confirmButtonColor="success" resultVariableName="migracao_confirmada" timeout=300
+fim: terminate reason="Convidado a migrar para o WebChat V2"

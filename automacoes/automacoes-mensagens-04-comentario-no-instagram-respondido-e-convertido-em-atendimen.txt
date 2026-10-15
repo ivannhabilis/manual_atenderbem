@@ -1,0 +1,19 @@
+responde_comentario: replyComment text="Oi, {{contact_name}}! Trouxe a conversa para o direct para te ajudar por lá."
+boas_vindas_direct: message text="Vi seu comentário na publicação e vim falar com você por aqui. Como posso ajudar?"
+menu_direct: options text="Me diga sobre o que você quer falar:" type=0 errorRetryCount=2 errorRetryMessage="Não entendi. Por favor, toque em uma das opções acima." {
+  case precos text="Preços e planos" {
+    resumo_precos: message text="Nossos planos incluem implantação assistida e suporte em horário comercial. Vou te passar o contato do consultor."
+    contato_consultor: shareContact contactId="consultor-regiao-sul"
+    orienta_contato: message text="Salve o contato acima: ele é o consultor responsável pela sua região e fala com você pelo WhatsApp."
+    fim_precos: terminate reason="Comentário do Instagram atendido - planos"
+  }
+  case suporte text="Suporte técnico" {
+    encaminha_suporte: message text="Certo! Vou te encaminhar para o time de suporte técnico, que responde em horário comercial."
+    fim_suporte: terminate reason="Comentário do Instagram atendido - suporte"
+  }
+  else {
+    outro_assunto: message text="Sem problema! Escreva aqui o que você precisa que eu sigo com você."
+    nota_comentario: info text="Comentário do Instagram respondido e convertido em atendimento no direct; o cliente não escolheu uma opção do menu."
+    fim_outros: terminate reason="Comentário do Instagram atendido - outros assuntos"
+  }
+}

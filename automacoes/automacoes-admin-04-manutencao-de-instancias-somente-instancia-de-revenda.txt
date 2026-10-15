@@ -1,0 +1,8 @@
+localiza: searchInstance searchField="id" searchValue="4321" resultVariablePrefix="inst"
+bloqueia: blockInstance instanceId="4321"
+reinicia: restartInstance instanceId="4321"
+container: restartInstanceContainer instanceId="4321"
+desbloqueia: unblockInstance instanceId="4321"
+exclui: markInstanceForExclusion instanceId="4321"
+reativa: reactivateInstance instanceId="4321"
+fim: terminate reason="Manutencao de instancia concluida"

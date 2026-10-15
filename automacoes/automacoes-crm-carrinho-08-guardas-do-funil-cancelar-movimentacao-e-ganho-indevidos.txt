@@ -1,0 +1,12 @@
+guarda: varCondition value="{{opportunity_stage_name}}" {
+  case sem_pagamento conditionOperator="=" conditionValue="Revisao de credito" {
+    cancela_move: cancelOpportunityMove
+    avisa: message text="Etapa nao liberada sem pagamento confirmado. Movimentacao cancelada."
+    fim: terminate
+  }
+  else {
+    cancela_ganho: cancelOpportunityWin
+    ok: message text="Ganho automatico cancelado: a negociacao continua no funil."
+    okf: terminate
+  }
+}

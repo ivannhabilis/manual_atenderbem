@@ -1,0 +1,28 @@
+pergunta_quando: options text="Posso te mandar o orçamento agora ou prefere que eu retome amanhã?" type=0 errorRetryCount=2 errorRetryMessage="Não entendi. Toque em uma das opções acima, por favor." {
+  case agora text="Quero agora" {
+    manda_agora: message text="Perfeito! Estou montando o orçamento e te envio por aqui em instantes."
+    agenda_retorno: scheduleAutomation automationId="automacao-orcamento" delaySeconds="600" resultVariableName="agendamento_orcamento"
+    aguarda_cliente: waitMessage
+    cancela_retorno: cancelSchedule scheduleId="{{agendamento_orcamento}}"
+    cliente_respondeu: message text="Recebi sua mensagem, {{chat_client_name}}! O acompanhamento automático foi cancelado e eu sigo com você por aqui."
+    fim_agora: terminate reason="Cliente respondeu antes do retorno programado"
+  }
+  case amanha text="Prefiro amanhã" {
+    combinado: message text="Combinado! Vou retomar este assunto amanhã pela manhã por aqui mesmo."
+    agenda_manha: scheduleAutomation automationId="automacao-followup" delaySeconds="86400" resultVariableName="agendamento_followup"
+    registro_agenda: info text="Retorno agendado para daqui a 24 horas. Id do agendamento: {{agendamento_followup}}."
+    respira: sleep time=2
+    fim_amanha: terminate reason="Retorno agendado pelo cliente"
+  }
+  else {
+    sem_escolha: varCondition value="{{chat_fila}}" {
+      case fila_comercial conditionOperator="in" conditionValue="Comercial" {
+        encaminha_fila: transfer destinationType=0
+      }
+      else {
+        sem_encaminhamento: message text="Vou encerrar por aqui, mas você pode escrever de novo a qualquer momento."
+        fim_sem_escolha: terminate reason="Cliente não escolheu uma opção"
+      }
+    }
+  }
+}

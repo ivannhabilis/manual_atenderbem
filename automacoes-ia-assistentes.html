@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA e assistentes — Manual Omnichannel</title>
+<meta name="description" content="Entregar o atendimento à IA, processar arquivos, gerar áudio e documentos. (12 elementos)">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a class="active" href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="automacoes-elementos.html">Automações e URA</a> &rsaquo; IA e assistentes</div>
+
+  <h1>IA e assistentes</h1>
+  <p class="subtitle">Entregar o atendimento à IA, processar arquivos, gerar áudio e documentos. (12 elementos)</p>
+
+<p>Entregar o atendimento à IA, processar arquivos, gerar áudio e documentos.</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Elemento</th><th>O que faz</th></tr></thead><tbody>
+<tr><td><a href="#el-aiAssistant">aiAssistant</a></td><td>Entrega o controle do atendimento para o assistente de IA.</td></tr>
+<tr><td><a href="#el-aiAssistantSingleRequest">aiAssistantSingleRequest</a></td><td>Envia uma solicitação única direta a um assistente virtual por IA e aguarda a resposta. Diferente do aiAssistant, esse elemento não guarda c</td></tr>
+<tr><td><a href="#el-aiAddContextToAssistant">aiAddContextToAssistant</a></td><td>Esse elemento adiciona informação ao contexto do assistente de IA.</td></tr>
+<tr><td><a href="#el-aiProvokeAssistant">aiProvokeAssistant</a></td><td>Esse elemento adiciona um contexto ao assistente de IA associado ao atendimento e dispara o processamento do assistente, fazendo-o reagir at</td></tr>
+<tr><td><a href="#el-aiProcessFile">aiProcessFile</a></td><td>Processa um arquivo ou uma informação de texto utilizando uma Inteligência Artificial (LLM, como gpt4o ou similar).</td></tr>
+<tr><td><a href="#el-aiStopAssistant">aiStopAssistant</a></td><td>Interrompe a execução do assistente de IA, mesmo que esse não tenha concluído o atendimento nem solicitado o encerramento ou transferência.</td></tr>
+<tr><td><a href="#el-aiStopMessage">aiStopMessage</a></td><td>Interrompe o envio de uma mensagem gerada pelo assistente de IA.</td></tr>
+<tr><td><a href="#el-aiDefineAssistantResult">aiDefineAssistantResult</a></td><td>Define o resultado de um atendimento por assistente virtual por IA (sucesso ou falha), para fins de estatística. Sem assistantId, aplica ao </td></tr>
+<tr><td><a href="#el-aiTts">aiTts</a></td><td>Converte um texto em um arquivo de áudio utilizando um modelo de Inteligência Artificial (TTS) da OpenAI, do Google ou da OpenRouter.</td></tr>
+<tr><td><a href="#el-generateDocumentFromTemplate">generateDocumentFromTemplate</a></td><td>Gera um documento a partir de um modelo pré cadastrado no sistema. O modelo é um documento com variáveis posicionadas ao longo do conteúdo, </td></tr>
+<tr><td><a href="#el-pmScreenshot">pmScreenshot</a></td><td>Envia um comando para o aplicativo desktop do usuário alvo capturar uma screenshot da tela. Elemento do módulo de monitoramento de produtivi</td></tr>
+<tr><td><a href="#el-pmVideoCapture">pmVideoCapture</a></td><td>Envia um comando para o aplicativo desktop do usuário alvo gravar um vídeo da tela, com a duração configurada. Elemento do módulo de monitor</td></tr>
+</tbody></table></div>
+<h3 id="el-aiAssistant">aiAssistant</h3>
+<p>Entrega o controle do atendimento para o assistente de IA.</p>
+<div class="callout info">O assistente de IA é um sistema de inteligência artificial, que pode realizar diversas operações, como responder perguntas, realizar buscas, executar automações no sistema, entre outros.<br>O fluxo permanecerá pausado até que o assistente de IA finalize o atendimento ou solicite a transferência.<br>O assistente de IA pode ser configurado para transferir o atendimento para um agente humano em caso de dúvidas ou solicitação do cliente.<br>Caso o assistente de IA transfira o atendimento para um agente humano, o fluxo será retomado. A variável assistant_transfer_reason conterá o motivo da transferência.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"assistantId":"","nextElementId":"","transferNextElementId":""}
+Como se escreve: meu_rotulo: aiAssistant assistantId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo); transferNextElementId → o bloco `{ transfer -&gt; destino }` · tipo interno <code>77</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: aiAssistant assistantId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo); transferNextElementId → o bloco `{ transfer -&gt; destino }`</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>assistantId</code></td><td><code>string</code></td><td>sim</td><td>ID do assistente de IA que será utilizado para o atendimento. Pode-se utilizar variáveis no conteúdo, exemplo: "{{assistant_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado caso o assistente solicite que o atendimento seja encerrado</td></tr>
+</tbody></table></div>
+<h3 id="el-aiAssistantSingleRequest">aiAssistantSingleRequest</h3>
+<p>Envia uma solicitação única direta a um assistente virtual por IA e aguarda a resposta. Diferente do aiAssistant, esse elemento não guarda contexto e não mantém uma conversa. É útil para operações pontuais onde se deseja obter uma resposta do assistente para uma mensagem específica ou para interações entre diferentes assistentes.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"assistantId":"","message":"","resultVariableName":"","nextElementId":""}
+Como se escreve: meu_rotulo: aiAssistantSingleRequest assistantId="..." message="..." resultVariableName="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>92</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: aiAssistantSingleRequest assistantId="..." message="..." resultVariableName="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>assistantId</code></td><td><code>string</code></td><td>sim</td><td>ID do assistente de IA que será utilizado para processar a solicitação. Pode-se utilizar variáveis no conteúdo, exemplo: "{{assistant_id}}"</td></tr>
+<tr><td><code>message</code></td><td><code>string</code></td><td>sim</td><td>Mensagem que será enviada ao assistente. Pode-se utilizar variáveis no conteúdo, exemplo: "{{user_message}}"</td></tr>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável que receberá a resposta do assistente. Adicionar somente o nome da variável, sem chaves. Exemplo: "assistant_response"</td></tr>
+</tbody></table></div>
+<h3 id="el-aiAddContextToAssistant">aiAddContextToAssistant</h3>
+<p>Esse elemento adiciona informação ao contexto do assistente de IA.</p>
+<div class="callout info">Pode ser utilizado para informar ao assistente de IA informações importantes sobre o atendimento, como por exemplo, o ID de uma oportunidade, o ID de um cliente, ou qualquer outra informação relevante.<br>Também pode ser utilizado para informar ao assistente sobre o retorno de uma operação realizada no fluxo, como por exemplo, o resultado de uma busca, o resultado de uma operação de banco de dados, requisições HTTP ou qualquer outro resultado relevante.<br>Será tipicamente utilizado para retornar para o assistente o resultado de uma operação quando este solicitar a execução de uma automação, sendo usado no final dessa automação para retornar o resultado ao contexto do assistente.<br>Exemplo: O assistente executa uma automação que realiza uma requisição HTTP a um serviço interno que informa se o cliente possui débito em aberto, o resultado dessa requisição é informado ao assistente para que ele possa tomar decisões baseadas nesse resultado.<br>Esse elemento só terá efeito se for usado em uma automação sendo executada por um assistente. Caso seja utilizado em um fluxo normal, será ignorado.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"context":"","nextElementId":""}
+Como se escreve: meu_rotulo: aiAddContextToAssistant context="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>78</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: aiAddContextToAssistant context="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>context</code></td><td><code>string</code></td><td>sim</td><td>Contexto que será adicionado ao assistente de IA. Pode-se utilizar variáveis no conteúdo, exemplo: "{{request_result}}"</td></tr>
+</tbody></table></div>
+<h3 id="el-aiProvokeAssistant">aiProvokeAssistant</h3>
+<p>Esse elemento adiciona um contexto ao assistente de IA associado ao atendimento e dispara o processamento do assistente, fazendo-o reagir ativamente, do mesmo modo que reagiria a uma nova mensagem do cliente.</p>
+<div class="callout info">Diferente do elemento aiAddContextToAssistant, que apenas alimenta o contexto e é tipicamente utilizado dentro de automações chamadas pelo próprio assistente, o aiProvokeAssistant é projetado para ser usado em automações externas (capturas de webhook, gatilhos de evento, automações agendadas) que precisam fazer o assistente enviar ativamente uma mensagem ao cliente em resposta a um evento ocorrido fora da conversa.<br>Exemplos de uso:<br>- O assistente envia um link de pagamento, o cliente paga e um webhook executa essa automação que informa ao assistente "Pagamento confirmado" e o provoca a enviar a próxima mensagem;<br>- Um sistema externo confirma um agendamento e a automação informa ao assistente para dar sequência ao atendimento;<br>- Uma alteração de status de oportunidade dispara a automação que informa o assistente sobre a mudança.<br>Esse elemento só funciona quando a automação está associada a um atendimento e esse atendimento possui um assistente de IA ativo (vinculado por uma URA com o elemento aiAssistant). Caso contrário, é ignorado. A execução do assistente é assíncrona: a automação prossegue imediatamente após disparar a provocação.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"context":"","nextElementId":""}
+Como se escreve: meu_rotulo: aiProvokeAssistant context="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>125</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: aiProvokeAssistant context="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>context</code></td><td><code>string</code></td><td>sim</td><td>Contexto que será adicionado ao assistente de IA antes de provocar sua reação. Pode-se utilizar variáveis no conteúdo, exemplo: "Pagamento da oportunidade {{opportunity_id}} confirmado em {{general_now_date}}"</td></tr>
+</tbody></table></div>
+<h3 id="el-aiProcessFile">aiProcessFile</h3>
+<p>Processa um arquivo ou uma informação de texto utilizando uma Inteligência Artificial (LLM, como gpt4o ou similar).</p>
+<div class="callout info">Pode-se ou não anexar um arquivo como parte do processamento.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"model":0,"fileId":"","instruction":"","includeAllMessages":false,"resultVariableName":"","disableSecurity":false,"outputAsJson":false,"nextElementId":""}
+Como se escreve: meu_rotulo: aiProcessFile model=0 instruction="..." resultVariableName="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>79</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: aiProcessFile model=0 instruction="..." resultVariableName="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>model</code></td><td><code>AiModels</code></td><td>sim</td><td>Modelo de IA que será utilizado para processar o arquivo ou texto</td></tr>
+<tr><td><code>fileId</code></td><td><code>string</code></td><td></td><td>ID do arquivo que será processado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{file_id}}". Não é obrigatório que haja um arquivo.</td></tr>
+<tr><td><code>instruction</code></td><td><code>string</code></td><td>sim</td><td>Instrução que está sendo enviada para a IA. Pode-se utilizar variáveis no conteúdo, exemplo: "{{instruction}}"</td></tr>
+<tr><td><code>includeAllMessages</code></td><td><code>boolean</code></td><td></td><td>Indica se todas as mensagens do atendimento devem ser enviadas para a IA junto com a instrução. Caso seja false, somente a instrução será enviada, junto com o arquivo, se este existir.</td></tr>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável que receberá o resultado do processamento. Adicionar somente o nome da variável, sem chaves. Exemplo: "ai_result"</td></tr>
+<tr><td><code>disableSecurity</code></td><td><code>boolean</code></td><td></td><td>Se true, desabilita a segurança do modelo de IA. Pode ser utilizado para modelos que necessitam de permissões especiais.</td></tr>
+<tr><td><code>outputAsJson</code></td><td><code>boolean</code></td><td></td><td>Se true, o resultado será retornado como um objeto JSON. Caso contrário, será retornado como texto.</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-aiStopAssistant">aiStopAssistant</h3>
+<p>Interrompe a execução do assistente de IA, mesmo que esse não tenha concluído o atendimento nem solicitado o encerramento ou transferência.</p>
+<div class="callout info">Esse elemento só pode ser utilizado em automações executadas por assistentes de IA.<br>Caso esse elemento seja utilizado, o fluxo original que atribuiu o atendimento ao assistente continuará a execução normalmente, saindo como se o atendimento tivesse sido transferido pelo assitente. Neste caso, a variável assistant_transfer_reason conterá "execution_stopped".</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
+Como se escreve: meu_rotulo: aiStopAssistant
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>80</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: aiStopAssistant</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-aiStopMessage">aiStopMessage</h3>
+<p>Interrompe o envio de uma mensagem gerada pelo assistente de IA.</p>
+<div class="callout info">Esse elemento só tem efeito em automações sendo executadas pela etapa de pós processamento de uma mensagem gerada por um assistente de IA.<br>Ela é útil caso por algum motivo não se deseja permitir o envio da mensagem original gerada por assistente.<br>Um exemplo de uso é caso se vá converter as respostas do assistente, geradas como texto, em áudio, enviando o áudio e impedindo o envio da mensagem original em texto.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
+Como se escreve: meu_rotulo: aiStopMessage
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>81</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: aiStopMessage</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-aiDefineAssistantResult">aiDefineAssistantResult</h3>
+<p>Define o resultado de um atendimento por assistente virtual por IA (sucesso ou falha), para fins de estatística. Sem assistantId, aplica ao assistente que está no controle do atendimento naquele instante — o que só acontece dentro de uma automação do próprio assistente. Com assistantId, aplica ao vínculo entre aquele assistente e este atendimento mesmo que o assistente já tenha saído, o que permite usar o elemento na URA (inclusive telefônica) depois da saída do assistente para decidir sucesso/falha por lógica do fluxo, em vez das saídas fixas configuradas no assistente. Exige que o assistente indicado tenha realmente atendido este chat/chamada; somente o primeiro resultado aplicado é considerado.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"result":1,"nextElementId":"","assistantId":"","assistantChooseType":0}
+Como se escreve: meu_rotulo: aiDefineAssistantResult result=1
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>94</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: aiDefineAssistantResult result=1</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>result</code></td><td><code>number</code></td><td>sim</td><td>Resultado do atendimento. 1 = Sucesso, 2 = Falha</td></tr>
+</tbody></table></div>
+<h3 id="el-aiTts">aiTts</h3>
+<p>Converte um texto em um arquivo de áudio utilizando um modelo de Inteligência Artificial (TTS) da OpenAI, do Google ou da OpenRouter.</p>
+<div class="callout info">O provedor é escolhido no campo provider. Vazio ou ausente = OpenAI — é o que todo elemento criado antes da expansão multi-provedor tem, e elementos legados continuam gerando normalmente sem o campo.<br>Cada provedor exige a respectiva chave de IA configurada na instância (OpenAI, Google AI Studio ou OpenRouter) e o recurso de IA Premium habilitado. Na falta da chave do provedor escolhido, o elemento executa sem gerar áudio, registra na depuração e o fluxo segue.<br>Modelos por provedor (a voz informada deve pertencer ao modelo escolhido):<br>- OpenAI: tts-1, tts-1-hd e gpt-4o-mini-tts. Vozes alloy, ash, coral, echo, fable, onyx, nova, sage e shimmer; o gpt-4o-mini-tts acrescenta ballad, verse, marin e cedar, e é o único modelo que aceita o campo instructions (estilo da fala: tom, emoção, entoação).<br>- Google: gemini-3.8-flash-tts e gemini-3.8-flash-lite-tts, com as 30 vozes prebuilt da família Gemini (de Zephyr a Sulafat).<br>- OpenRouter: minimax/speech-2.8-turbo (vozes English_*) e deepgram/aura-2 (vozes aura-2-{nome}-{idioma}; idiomas en, es, de, fr, nl, it e ja). Nenhum dos dois tem voz em português: para texto em pt-BR, prefira OpenAI ou Google.<br>speed (0.25 a 4.0) só tem efeito nos modelos da OpenAI; Google e OpenRouter não possuem controle de velocidade e o valor é ignorado.<br>Formato do arquivo (codec): Opus para envio em filas de WhatsApp e Telegram; MP3 para Instagram (IG), Facebook e WebChat. Os três provedores entregam os três formatos — quando o formato não é nativo do provedor (Google gera WAV e OpenRouter gera MP3), o sistema converte automaticamente.<br>O ID do arquivo gerado vai para a variável de resultVariableName. O fluxo segue sempre para nextElementId, mesmo quando a geração falha — o elemento não interrompe o fluxo.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"text":"","model":"tts-1","voice":"alloy","codec":"opus","speed":1,"resultVariableName":"","nextElementId":""}
+Como se escreve: meu_rotulo: aiTts text="..." model="tts-1" voice="alloy" codec="opus"
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>82</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: aiTts text="..." model="tts-1" voice="alloy" codec="opus"</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>text</code></td><td><code>string</code></td><td>sim</td><td>Texto que será convertido em áudio. Pode-se utilizar variáveis no conteúdo, exemplo: "{{tts_text}}"</td></tr>
+<tr><td><code>model</code></td><td><code>'tts-1' | 'tts-1-hd' | 'gpt-4o-mini-tts' | 'gemini-3.8-flash-tts' | 'gemini-3.8-flash-lite-tts' | 'minimax/speech-2.8-turbo' | 'deepgram/aura-2'</code></td><td>sim</td><td>Modelo de TTS que será utilizado para a conversão do texto em áudio. Deve pertencer ao provedor escolhido em provider (provider vazio/ausente = modelos OpenAI: tts-1, tts-1-hd e gpt-4o-mini-tts).</td></tr>
+<tr><td><code>voice</code></td><td><code>'alloy' | 'ash' | 'coral' | 'echo' | 'fable' | 'onyx' | 'nova' | 'sage' | 'shimmer' | 'ballad' | 'verse' | 'marin' | 'cedar' | 'Zephyr' | 'Puck' | 'Charon' | 'Kore' | 'Fenrir' | 'Leda' | 'Orus' | 'Aoede' | 'Callirrhoe' | 'Autonoe' | 'Enceladus' | 'Iapetus' | 'Umbriel' | 'Algieba' | 'Despina' | 'Erinome' | 'Algenib' | 'Rasalgethi' | 'Laomedeia' | 'Achernar' | 'Alnilam' | 'Schedar' | 'Gacrux' | 'Pulcherrima' | 'Achird' | 'Zubenelgenubi' | 'Vindemiatrix' | 'Sadachbia' | 'Sadaltager' | 'Sulafat' | 'English_expressive_narrator' | 'English_radiant_girl' | 'English_magnetic_voiced_man' | 'English_compelling_lady1' | 'English_Aussie_Bloke' | 'English_captivating_female1' | 'English_Upbeat_Woman' | 'English_Trustworth_Man' | 'English_CalmWoman' | 'English_UpsetGirl' | 'English_Gentle-voiced_man' | 'English_Whispering_girl' | 'English_Diligent_Man' | 'English_Graceful_Lady' | 'English_ReservedYoungMan' | 'English_PlayfulGirl' | 'English_ManWithDeepVoice' | 'English_MaturePartner' | 'English_FriendlyPerson' | 'English_MatureBoss' | 'English_Debator' | 'English_LovelyGirl' | 'English_Steadymentor' | 'English_Deep-VoicedGentleman' | 'English_Wiselady' | 'English_CaptivatingStoryteller' | 'English_DecentYoungMan' | 'English_SentimentalLady' | 'English_ImposingManner' | 'English_SadTeen' | 'English_PassionateWarrior' | 'English_WiseScholar' | 'English_Soft-spokenGirl' | 'English_SereneWoman' | 'English_ConfidentWoman' | 'English_PatientMan' | 'English_Comedian' | 'English_BossyLeader' | 'English_Strong-WilledBoy' | 'English_StressedLady' | 'English_AssertiveQueen' | 'English_AnimeCharacter' | 'English_Jovialman' | 'English_WhimsicalGirl' | 'English_Kind-heartedGirl' | 'aura-2-thalia-en' | 'aura-2-agathe-fr' | 'aura-2-agustina-es' | 'aura-2-alvaro-es' | 'aura-2-ama-ja' | 'aura-2-amalthea-en' | 'aura-2-andromeda-en' | 'aura-2-antonia-es' | 'aura-2-apollo-en' | 'aura-2-aquila-es' | 'aura-2-arcas-en' | 'aura-2-aries-en' | 'aura-2-asteria-en' | 'aura-2-athena-en' | 'aura-2-atlas-en' | 'aura-2-aurelia-de' | 'aura-2-aurora-en' | 'aura-2-beatrix-nl' | 'aura-2-callista-en' | 'aura-2-carina-es' | 'aura-2-celeste-es' | 'aura-2-cesare-it' | 'aura-2-cinzia-it' | 'aura-2-cora-en' | 'aura-2-cordelia-en' | 'aura-2-cornelia-nl' | 'aura-2-daphne-nl' | 'aura-2-delia-en' | 'aura-2-demetra-it' | 'aura-2-diana-es' | 'aura-2-dionisio-it' | 'aura-2-draco-en' | 'aura-2-ebisu-ja' | 'aura-2-elara-de' | 'aura-2-electra-en' | 'aura-2-elio-it' | 'aura-2-estrella-es' | 'aura-2-fabian-de' | 'aura-2-flavio-it' | 'aura-2-fujin-ja' | 'aura-2-gloria-es' | 'aura-2-harmonia-en' | 'aura-2-hector-fr' | 'aura-2-helena-en' | 'aura-2-hera-en' | 'aura-2-hermes-en' | 'aura-2-hestia-nl' | 'aura-2-hyperion-en' | 'aura-2-iris-en' | 'aura-2-izanami-ja' | 'aura-2-janus-en' | 'aura-2-javier-es' | 'aura-2-julius-de' | 'aura-2-kara-de' | 'aura-2-lara-de' | 'aura-2-lars-nl' | 'aura-2-leda-nl' | 'aura-2-livia-it' | 'aura-2-luciano-es' | 'aura-2-luna-en' | 'aura-2-maia-it' | 'aura-2-mars-en' | 'aura-2-melia-it' | 'aura-2-minerva-en' | 'aura-2-neptune-en' | 'aura-2-nestor-es' | 'aura-2-odysseus-en' | 'aura-2-olivia-es' | 'aura-2-ophelia-en' | 'aura-2-orion-en' | 'aura-2-orpheus-en' | 'aura-2-pandora-en' | 'aura-2-phoebe-en' | 'aura-2-pluto-en' | 'aura-2-rhea-nl' | 'aura-2-roman-nl' | 'aura-2-sander-nl' | 'aura-2-saturn-en' | 'aura-2-selena-es' | 'aura-2-selene-en' | 'aura-2-silvia-es' | 'aura-2-sirio-es' | 'aura-2-theia-en' | 'aura-2-uzume-ja' | 'aura-2-valerio-es' | 'aura-2-vesta-en' | 'aura-2-viktoria-de' | 'aura-2-zeus-en'</code></td><td>sim</td><td>Voz que será utilizada para a conversão do texto em áudio. Deve ser uma voz do catálogo do MODELO escolhido: OpenAI tts-1/tts-1-hd e vozes alloy/ash/coral/echo/fable/onyx/nova/sage/shimmer (o gpt-4o-mini-tts acrescenta ballad/verse/marin/cedar); Google e OpenRouter têm catálogos próprios.</td></tr>
+<tr><td><code>codec</code></td><td><code>'mp3' | 'opus' | 'wav'</code></td><td>sim</td><td>Formato do arquivo de áudio gerado. Utilizar Opus para enviar áudios para o Whatsapp e Telegram e MP3 para enviar áudios para filas Instagram (IG), Facebook, WebChat. Válido nos três provedores: quando o formato não é nativo do provedor (Google gera WAV; OpenRouter gera MP3), o sistema converte automaticamente.</td></tr>
+<tr><td><code>speed</code></td><td><code>number</code></td><td></td><td>Velocidade da fala. Valores entre 0.25 e 4.0. 1.0 é a velocidade padrão. Não permite variáveis. Aplicado SOMENTE pelos modelos da OpenAI; Google e OpenRouter não possuem controle de velocidade e ignoram o valor.</td></tr>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável que receberá o ID do arquivo de áudio gerado. Adicionar somente o nome da variável, sem chaves. Exemplo: "tts_audio"</td></tr>
+</tbody></table></div>
+<h3 id="el-generateDocumentFromTemplate">generateDocumentFromTemplate</h3>
+<p>Gera um documento a partir de um modelo pré cadastrado no sistema. O modelo é um documento com variáveis posicionadas ao longo do conteúdo, que serão substituídas pelas variáveis do fluxo formando o documento final. O ID do arquivo gerado é salvo em uma variável e pode ser utilizado em outras partes do fluxo de execução.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"resultVariableName":"","templateId":0,"nextElementId":""}
+Como se escreve: meu_rotulo: generateDocumentFromTemplate resultVariableName="..." templateId=0
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>83</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: generateDocumentFromTemplate resultVariableName="..." templateId=0</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável que receberá o id do arquivo gerado. Adicionar somente o nome da variável. Exemplo: "document_id"</td></tr>
+<tr><td><code>templateId</code></td><td><code>number</code></td><td>sim</td><td>Id do modelo que será utilizado para gerar o documento. As variáveis disponíveis para o modelo serão as variáveis do fluxo.</td></tr>
+</tbody></table></div>
+<h3 id="el-pmScreenshot">pmScreenshot</h3>
+<p>Envia um comando para o aplicativo desktop do usuário alvo capturar uma screenshot da tela. Elemento do módulo de monitoramento de produtividade (PM).</p>
+<div class="callout info">A captura é assíncrona: o comando é enviado ao aplicativo desktop do usuário e o fluxo segue imediatamente para o próximo elemento, sem aguardar o resultado da captura. Nenhuma variável é criada por esse elemento.<br>Se o usuário alvo não for encontrado ou não estiver conectado ao sistema, o elemento é ignorado e o fluxo segue normalmente.<br>Projetado para uso em automações disparadas pelo monitoramento de produtividade, que disponibilizam automaticamente as variáveis de contexto pm_user_id, pm_user_name, pm_current_score, pm_current_state, pm_focused_app_name, pm_focused_app_id, pm_idle_count, pm_trigger_reason, pm_trigger_app_id e pm_trigger_titlematch_id. Utilize "{{pm_user_id}}" no campo fk_target_user para capturar o desktop do usuário que disparou a automação.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"fk_target_user":"","nextElementId":""}
+Como se escreve: meu_rotulo: pmScreenshot fk_target_user="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>108</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: pmScreenshot fk_target_user="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>fk_target_user</code></td><td><code>string</code></td><td>sim</td><td>ID do usuário (agente) cujo desktop será capturado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{pm_user_id}}" (usuário do contexto da automação de monitoramento). Se vazio, ou se o usuário não for encontrado ou não estiver conectado, a captura não é realizada e o fluxo segue normalmente</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-pmVideoCapture">pmVideoCapture</h3>
+<p>Envia um comando para o aplicativo desktop do usuário alvo gravar um vídeo da tela, com a duração configurada. Elemento do módulo de monitoramento de produtividade (PM).</p>
+<div class="callout info">A captura é assíncrona: o comando é enviado ao aplicativo desktop do usuário e o fluxo segue imediatamente para o próximo elemento, sem aguardar o resultado da gravação. Nenhuma variável é criada por esse elemento.<br>Se o usuário alvo não for encontrado ou não estiver conectado ao sistema, o elemento é ignorado e o fluxo segue normalmente.<br>Projetado para uso em automações disparadas pelo monitoramento de produtividade, que disponibilizam automaticamente as variáveis de contexto pm_user_id, pm_user_name, pm_current_score, pm_current_state, pm_focused_app_name, pm_focused_app_id, pm_idle_count, pm_trigger_reason, pm_trigger_app_id e pm_trigger_titlematch_id. Utilize "{{pm_user_id}}" no campo fk_target_user para gravar o desktop do usuário que disparou a automação.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"fk_target_user":"","duration":30,"nextElementId":""}
+Como se escreve: meu_rotulo: pmVideoCapture fk_target_user="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>109</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: pmVideoCapture fk_target_user="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>fk_target_user</code></td><td><code>string</code></td><td>sim</td><td>ID do usuário (agente) cujo desktop será gravado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{pm_user_id}}" (usuário do contexto da automação de monitoramento). Se vazio, ou se o usuário não for encontrado ou não estiver conectado, a gravação não é realizada e o fluxo segue normalmente</td></tr>
+<tr><td><code>duration</code></td><td><code>number</code></td><td></td><td>Duração da gravação em segundos. Padrão 30 se não informado, máximo 120 (valores maiores são limitados a 120)</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h2 id="exemplos-do-grupo">Exemplos de uso</h2>
+<p>Fluxos completos que usam os elementos deste grupo. Cada exemplo foi compilado pelo próprio sistema antes de entrar aqui.</p>
+<h3 id="ex-automacoes-ia-assistentes-1">Entregar o atendimento ao assistente de IA</h3>
+<p>Passar a conversa para o assistente de IA assim que a triagem inicial termina.</p>
+<ol class="steps">
+<li><strong><code>message</code></strong> — avisa o cliente que a IA vai assumir o atendimento a partir dali.</li>
+<li><strong><code>aiAssistant</code></strong> — entrega o controle do atendimento ao assistente indicado em assistantId.</li>
+<li><strong><code>terminate</code></strong> — caminho padrao caso o assistente conclua sem pedir transferencia.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">boas_vindas: message text="Ola {{chat_client_name}}! Voce esta na fila {{chat_fila}} e agora vou te ajudar por aqui."
+entrega_ia: aiAssistant assistantId="12"
+encerra: terminate reason="Atendimento conduzido pela IA"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> Quem responde ao cliente passa a ser o assistente de IA; se ele concluir sozinho, o atendimento e encerrado com o motivo registrado.</div>
+<h3 id="ex-automacoes-ia-assistentes-2">Assistente de IA devolve o atendimento ao humano</h3>
+<p>Deixar a IA atender e, quando ela pedir ajuda, interromper e mandar a conversa para um atendente humano.</p>
+<ol class="steps">
+<li><strong><code>aiAssistant</code></strong> — entrega o atendimento ao assistente e usa a porta transfer para devolver ao humano.</li>
+<li><strong><code>aiStopAssistant</code></strong> — interrompe a execucao do assistente quando ele mesmo conclui o atendimento.</li>
+<li><strong><code>aiStopMessage</code></strong> — cancela a mensagem que a IA estava prestes a enviar antes de passar para o humano.</li>
+<li><strong><code>message</code></strong> — avisa o cliente que um atendente humano vai continuar a conversa.</li>
+<li><strong><code>transfer</code></strong> — encaminha o atendimento para a fila humana.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">entrega_ia: aiAssistant assistantId="12" { transfer -&gt; volta_humano }
+ia_concluiu: aiStopAssistant
+fim_ia: terminate reason="Assistente concluiu"
+volta_humano: aiStopMessage
+avisa_cliente: message text="Um instante, {{chat_client_name}}. Vou te encaminhar para um atendente humano continuar."
+vai_para_humano: transfer destinationType=2 destinationId="5"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> Se a IA resolver, o atendimento termina registrado; se ela pedir transferencia, a mensagem pendente e cancelada e o cliente cai na fila humana com aviso.</div>
+<h3 id="ex-automacoes-ia-assistentes-3">Solicitacao unica a um assistente especialista</h3>
+<p>Pedir uma unica resposta a um assistente de IA, sem manter conversa, e usar o texto devolvido no fluxo.</p>
+<ol class="steps">
+<li><strong><code>aiAssistantSingleRequest</code></strong> — envia uma solicitacao pontual a um assistente e guarda a resposta em categoria_atendimento.</li>
+<li><strong><code>message</code></strong> — devolve ao cliente a classificacao recebida, mostrando que a resposta da IA foi usada.</li>
+<li><strong><code>terminate</code></strong> — encerra a automacao com o motivo registrado.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">classifica: aiAssistantSingleRequest assistantId="7" message="Classifique a ultima mensagem do cliente em apenas uma palavra: duvida, reclamacao ou elogio." resultVariableName="categoria_atendimento"
+confirma: message text="Registrei sua solicitacao na categoria {{categoria_atendimento}}. Obrigado!"
+encerra: terminate reason="Classificacao concluida pela IA"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente ve a classificacao gerada na hora e a variavel categoria_atendimento fica disponivel para o resto do fluxo.</div>
+<h3 id="ex-automacoes-ia-assistentes-4">Adicionar contexto e provocar o assistente</h3>
+<p>Enriquecer o contexto do assistente e faze-lo reagir como se o cliente tivesse mandado uma nova mensagem.</p>
+<ol class="steps">
+<li><strong><code>aiAddContextToAssistant</code></strong> — coloca dados do atendimento e do carrinho dentro do contexto do assistente.</li>
+<li><strong><code>aiProvokeAssistant</code></strong> — acrescenta uma instrucao ao contexto e dispara o processamento do assistente, como se fosse uma mensagem nova.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">contexto: aiAddContextToAssistant context="Cliente {{chat_client_name}}, protocolo {{chat_protocol}}, carrinho de {{chat_cart_total}} em {{chat_cart_items_count}} itens."
+provoca: aiProvokeAssistant context="Responda ao cliente confirmando os dados do carrinho e pergunte se pode fechar o pedido." -&gt; end</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> A automacao termina aqui e o assistente, ja com o contexto enriquecido, responde ao cliente sozinho.</div>
+<h3 id="ex-automacoes-ia-assistentes-5">Ler o documento ou a imagem do cliente com IA</h3>
+<p>Interpretar um arquivo enviado pelo cliente com IA e usar o resultado para decidir o que responder.</p>
+<ol class="steps">
+<li><strong><code>aiProcessFile</code></strong> — manda o arquivo (ou o texto) para a IA com uma instrucao e guarda o retorno em dados_documento.</li>
+<li><strong><code>varCondition</code></strong> — testa se a IA devolveu algum dado, comparando a variavel com vazio.</li>
+<li><strong><code>message</code></strong> — confirma ao cliente o dado extraido ou pede um novo envio.</li>
+<li><strong><code>terminate</code></strong> — encerra o atendimento em cada um dos ramos.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">le_documento: aiProcessFile model=0 instruction="Leia o documento enviado pelo cliente e responda em uma unica linha com o valor total e a data de vencimento." resultVariableName="dados_documento"
+avalia: varCondition value="{{dados_documento}}" {
+  case leu conditionOperator="!=" conditionValue="" {
+    confirma: message text="Recebi seu documento. Identifiquei: {{dados_documento}}"
+    encerra_ok: terminate reason="Documento processado pela IA"
+  }
+  else {
+    pede_novo: message text="Nao consegui ler o documento. Pode enviar de novo em uma foto mais nitida?"
+    encerra_falha: terminate reason="Documento nao legivel"
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> Com documento legivel o cliente recebe os dados extraidos pela IA; caso contrario e convidado a reenviar. A variavel dados_documento pode ser reutilizada depois.</div>
+<h3 id="ex-automacoes-ia-assistentes-6">Fechamento: audio com IA, documento e auditoria</h3>
+<p>No fim do atendimento, gerar a despedida em audio, montar o resumo em documento, gravar o resultado para relatorios e pedir captura de tela e video do agente.</p>
+<ol class="steps">
+<li><strong><code>aiTts</code></strong> — converte o texto de despedida em audio e guarda o ID do arquivo em audio_despedida.</li>
+<li><strong><code>message</code></strong> — envia a mensagem com o audio gerado anexado, usando a variavel do arquivo.</li>
+<li><strong><code>generateDocumentFromTemplate</code></strong> — gera o documento do atendimento a partir de um modelo e guarda o ID em comprovante_id.</li>
+<li><strong><code>aiDefineAssistantResult</code></strong> — grava o resultado do atendimento da IA para estatistica (1 = sucesso).</li>
+<li><strong><code>pmScreenshot</code></strong> — pede ao app do agente uma captura da tela.</li>
+<li><strong><code>pmVideoCapture</code></strong> — pede ao app do agente uma gravacao de 30 segundos da tela.</li>
+<li><strong><code>terminate</code></strong> — encerra o atendimento com o motivo registrado.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">despedida_audio: aiTts text="Obrigado por falar com a gente, {{chat_client_name}}. Seu protocolo e {{chat_protocol}}. Ate a proxima!" model="tts-1" voice="alloy" codec="opus" resultVariableName="audio_despedida"
+envia_audio: message text="Segue em audio o resumo do seu atendimento:" fileChooseType=1 fileId="{{audio_despedida}}"
+gera_doc: generateDocumentFromTemplate resultVariableName="comprovante_id" templateId=3
+marca_resultado: aiDefineAssistantResult result=1
+captura_tela: pmScreenshot fk_target_user="10"
+grava_video: pmVideoCapture fk_target_user="10" duration=30
+encerra: terminate reason="Atendimento concluido pela IA"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente recebe a despedida em audio, o comprovante fica salvo, o atendimento ganha resultado "sucesso" nos relatorios e o app do agente registra captura e video de 30 segundos.</div>
+
+  <div class="pagenav">
+    <a href="automacoes-elementos.html"><span>←</span> Catálogo de elementos</a>
+    <a class="next" href="automacoes-exemplos.html"><span>Ver também →</span> Exemplos prontos</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

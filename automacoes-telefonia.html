@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Telefonia (URA telefônica) — Manual Omnichannel</title>
+<meta name="description" content="Elementos que só existem na telefonia: áudio, DTMF e desvio de chamada. (4 elementos)">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a class="active" href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="automacoes-elementos.html">Automações e URA</a> &rsaquo; Telefonia (URA telefônica)</div>
+
+  <h1>Telefonia (URA telefônica)</h1>
+  <p class="subtitle">Elementos que só existem na telefonia: áudio, DTMF e desvio de chamada. (4 elementos)</p>
+
+<p>Elementos que só existem na telefonia: áudio, DTMF e desvio de chamada.</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Elemento</th><th>O que faz</th></tr></thead><tbody>
+<tr><td><a href="#el-callPlayAudio">callPlayAudio</a></td><td>Toca um áudio na chamada, que pode ou não ser interrompido se o cliente digitar algo, conforme a configuração.</td></tr>
+<tr><td><a href="#el-callWaitClientReply">callWaitClientReply</a></td><td>Interrompe o fluxo de automação aguardando uma entrada do usuário pelo teclado numérico.</td></tr>
+<tr><td><a href="#el-callTransfer">callTransfer</a></td><td>Transfere a chamada para o destino numérico especificado.</td></tr>
+<tr><td><a href="#el-callTerminate">callTerminate</a></td><td>Encerra a chamada com um hangup.</td></tr>
+</tbody></table></div>
+<h3 id="el-callPlayAudio">callPlayAudio</h3>
+<p>Toca um áudio na chamada, que pode ou não ser interrompido se o cliente digitar algo, conforme a configuração.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","fileChooseType":0,"fileId":"","stopOnUserInput":false}
+Como se escreve: meu_rotulo: callPlayAudio
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>86</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: callPlayAudio</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma</td></tr>
+<tr><td><code>fileChooseType</code></td><td><code>0 | 1</code></td><td></td><td>Tipo de processo de escolha do arquivo pelo usuário durante a configuração do elemento. 0 - Será apresentada uma lista de seleção de arquivos com os arquivos da galeria, 1 - Caixa de texto, para que digite o ID ou variável contendo o ID.</td></tr>
+<tr><td><code>fileId</code></td><td><code>string</code></td><td></td><td>ID do arquivo de áudio. Pode-se utilizar variáveis contendo o ID do arquivo, exemplo: "{{file_id}}"</td></tr>
+</tbody></table></div>
+<h3 id="el-callWaitClientReply">callWaitClientReply</h3>
+<p>Interrompe o fluxo de automação aguardando uma entrada do usuário pelo teclado numérico.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","timeout":5}
+Como se escreve: meu_rotulo: callWaitClientReply
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>87</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: callWaitClientReply</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma quando a resposta do usuário não corresponder a nenhuma opção</td></tr>
+</tbody></table></div>
+<h3 id="el-sentDTMF">sentDTMF</h3><p>Envia dígitos DTMF para a chamada — o equivalente a "teclar" no destino, usado para navegar em URAs externas ou autenticar em um provedor. O elemento é aceito pelo compilador de fluxos, mas <strong>não aparece na lista de elementos do catálogo da API</strong> desta versão: na prática ele pertence ao repertório da URA telefônica. Escreva-o sem campos, como os outros elementos sem campo obrigatório, ou complete a configuração pela interface.</p><p class="s10"><strong>Como se escreve:</strong> <code>meu_rotulo: sentDTMF</code></p><div class="callout warn">Ao usar, valide o fluxo antes de salvar: a compilação confirma que o elemento é aceito nesta instância.</div>
+<h3 id="el-callTransfer">callTransfer</h3>
+<p>Transfere a chamada para o destino numérico especificado.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"destinationNumber":""}
+Como se escreve: meu_rotulo: callTransfer · tipo interno <code>89</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: callTransfer</code></p>
+<h3 id="el-callTerminate">callTerminate</h3>
+<p>Encerra a chamada com um hangup.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"reason":""}
+Como se escreve: meu_rotulo: callTerminate · tipo interno <code>90</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: callTerminate</code></p>
+<h2 id="exemplos-do-grupo">Exemplos de uso</h2>
+<p>Fluxos completos que usam os elementos deste grupo. Cada exemplo foi compilado pelo próprio sistema antes de entrar aqui.</p>
+<h3 id="ex-automacoes-telefonia-1">Menu de voz com audio e leitura do teclado (URA telefonica)</h3>
+<p>Na URA telefonica, tocar um menu em audio, esperar a tecla do cliente e desviar a chamada conforme a escolha.</p>
+<ol class="steps">
+<li><strong><code>callPlayAudio</code></strong> — toca o audio do menu de opcoes e pode ser interrompido pela digitacao do cliente.</li>
+<li><strong><code>callWaitClientReply</code></strong> — para a automacao e aguarda a tecla digitada no telefone.</li>
+<li><strong><code>varCondition</code></strong> — avalia os digitos recebidos em call_digits e cria um ramo por opcao.</li>
+<li><strong><code>callTransfer</code></strong> — desvia a chamada para o numero correspondente a tecla pressionada.</li>
+<li><strong><code>callTerminate</code></strong> — derruba a chamada com hangup quando a opcao nao existe.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">toca_menu: callPlayAudio fileChooseType=1 fileId="{{audio_menu_principal}}" stopOnUserInput=true
+espera_tecla: callWaitClientReply
+le_tecla: varCondition value="{{call_digits}}" {
+  case vendas conditionOperator="=" conditionValue="1" {
+    desvia_vendas: callTransfer destinationNumber="2001"
+  }
+  case suporte conditionOperator="=" conditionValue="2" {
+    desvia_suporte: callTransfer destinationNumber="2002"
+  }
+  else {
+    opcao_invalida: callPlayAudio fileChooseType=1 fileId="{{audio_opcao_invalida}}"
+    derruba: callTerminate reason="Opcao invalida"
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> Digitando 1 ou 2 o cliente e desviado para o ramal certo; qualquer outra tecla toca um aviso e a chamada e encerrada com hangup.</div>
+<h3 id="ex-automacoes-telefonia-2">Desviar conforme a tecla e enviar DTMF ao PABX de destino (URA telefonica)</h3>
+<p>Na URA telefonica, ler a tecla, repassar um DTMF para o PABX de destino e so depois completar a chamada.</p>
+<ol class="steps">
+<li><strong><code>callPlayAudio</code></strong> — toca o audio do menu e (por nao ser interrompivel) deixa a mensagem terminar.</li>
+<li><strong><code>callWaitClientReply</code></strong> — aguarda a tecla digitada pelo cliente.</li>
+<li><strong><code>sentDTMF</code></strong> — envia o DTMF configurado no elemento, guiando o menu do PABX de destino antes de completar a chamada.</li>
+<li><strong><code>callTransfer</code></strong> — desvia a chamada para o destino conforme a tecla.</li>
+<li><strong><code>callTerminate</code></strong> — encerra a chamada com hangup no ramo de opcao invalida.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">toca_menu: callPlayAudio fileChooseType=1 fileId="{{audio_menu_principal}}" stopOnUserInput=false
+espera: callWaitClientReply
+decide: varCondition value="{{call_digits}}" {
+  case comercial conditionOperator="=" conditionValue="1" {
+    desvia_comercial: callTransfer destinationNumber="2100"
+  }
+  case financeiro conditionOperator="=" conditionValue="2" {
+    envia_dtmf: sentDTMF
+    desvia_financeiro: callTransfer destinationNumber="2200"
+  }
+  else {
+    despedida: callPlayAudio fileChooseType=1 fileId="{{audio_despedida}}"
+    derruba: callTerminate reason="Opcao invalida"
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> A tecla 1 desvia direto para o comercial; a tecla 2 envia o DTMF e desvia para o financeiro; sem escolha valida a chamada e derrubada.</div>
+<h3 id="ex-automacoes-telefonia-3">Encerrar a chamada com hangup (URA telefonica)</h3>
+<p>Na URA telefonica, tocar um aviso e encerrar a ligacao com hangup.</p>
+<ol class="steps">
+<li><strong><code>callPlayAudio</code></strong> — toca o audio de fora do horario na chamada.</li>
+<li><strong><code>callTerminate</code></strong> — encerra a chamada com hangup e registra o motivo.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">avisa_fechado: callPlayAudio fileChooseType=1 fileId="{{audio_fora_horario}}" stopOnUserInput=true
+encerra_chamada: callTerminate reason="Fora do horario de atendimento"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente ouve o aviso e a ligacao e encerrada imediatamente com hangup.</div>
+
+  <div class="pagenav">
+    <a href="automacoes-elementos.html"><span>←</span> Catálogo de elementos</a>
+    <a class="next" href="automacoes-exemplos.html"><span>Ver também →</span> Exemplos prontos</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

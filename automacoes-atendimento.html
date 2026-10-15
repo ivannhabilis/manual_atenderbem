@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atendimento, fila e bloqueios — Manual Omnichannel</title>
+<meta name="description" content="Abrir, localizar, distribuir, travar e liberar o atendimento. (15 elementos)">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a class="active" href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="automacoes-elementos.html">Automações e URA</a> &rsaquo; Atendimento, fila e bloqueios</div>
+
+  <h1>Atendimento, fila e bloqueios</h1>
+  <p class="subtitle">Abrir, localizar, distribuir, travar e liberar o atendimento. (15 elementos)</p>
+
+<p>Abrir, localizar, distribuir, travar e liberar o atendimento.</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Elemento</th><th>O que faz</th></tr></thead><tbody>
+<tr><td><a href="#el-openChat">openChat</a></td><td>Abre um novo atendimento com base no número de telefone informado. Em fila Telegram, o número é resolvido para a conta correspondente no Tel</td></tr>
+<tr><td><a href="#el-openChatCloud">openChatCloud</a></td><td>Abre um novo atendimento com base no número de telefone informado.</td></tr>
+<tr><td><a href="#el-searchChat">searchChat</a></td><td>Busca um atendimento atualmente em aberto, em andamento, com base no dado informado e associa-o ao fluxo corrente.</td></tr>
+<tr><td><a href="#el-queueChats">queueChats</a></td><td>Lista os atendimentos ABERTOS de uma fila no momento da execução e grava o resultado em variáveis, sem alterar nada. Só leitura; tem saída ú</td></tr>
+<tr><td><a href="#el-addToWaitingList">addToWaitingList</a></td><td>Envia o atendimento associado ao fluxo para a fila de espera.</td></tr>
+<tr><td><a href="#el-removeFromWaitingList">removeFromWaitingList</a></td><td>Remove o atendimento associado ao fluxo da fila de espera.</td></tr>
+<tr><td><a href="#el-lock">lock</a></td><td>Aplica um bloqueio ao atendimento associado, vinculando a um agente específico, de forma que o atendimento não possa ser</td></tr>
+<tr><td><a href="#el-blockChatManualEnd">blockChatManualEnd</a></td><td>Impede que o atendimento associado ao fluxo seja encerrado manualmente por um agente humano. Se nenhum atendimento associado estiver disponí</td></tr>
+<tr><td><a href="#el-unblockChatManualEnd">unblockChatManualEnd</a></td><td>Remove o impedimento de encerramento manual por um agente humano do atendimento associado ao fluxo. Se nenhum atendimento associado estiver </td></tr>
+<tr><td><a href="#el-blockChatManualTransfer">blockChatManualTransfer</a></td><td>Impede que o atendimento associado ao fluxo seja transferido manualmente por um agente humano — para outro agente, para a fila ou por filtro</td></tr>
+<tr><td><a href="#el-unblockChatManualTransfer">unblockChatManualTransfer</a></td><td>Remove o impedimento de transferência manual por um agente humano do atendimento associado ao fluxo. Se nenhum atendimento associado estiver</td></tr>
+<tr><td><a href="#el-userAvailable">userAvailable</a></td><td>Verifica o estado de um agente de atendimento com base em seu ID, salvando o resultado em uma variável.</td></tr>
+<tr><td><a href="#el-sendNotification">sendNotification</a></td><td>Envia uma notificação para um ou mais usuários do sistema (agentes, supervisores ou administradores).</td></tr>
+<tr><td><a href="#el-sendAlert">sendAlert</a></td><td>Envia um alerta para um conjunto de usuários do sistema.</td></tr>
+<tr><td><a href="#el-showSnackNotification">showSnackNotification</a></td><td>Exibe uma notificação de snack para o agente responsável pelo atendimento associado ao fluxo.</td></tr>
+</tbody></table></div>
+<h3 id="el-openChat">openChat</h3>
+<p>Abre um novo atendimento com base no número de telefone informado. Em fila Telegram, o número é resolvido para a conta correspondente no Telegram antes de abrir o atendimento; se a pessoa não tiver Telegram, ou não permitir ser encontrada pelo telefone, o atendimento não é aberto (NOT_ON_WHATSAPP, o mesmo código do número sem WhatsApp numa fila WAMD). Vale apenas para o tipo de fila Telegram atual (conta + bot), e não para as filas antigas TG e TG Bot, que não abrem atendimento ativo.</p>
+<div class="callout info">FILA E ASSOCIAÇÃO (queueId, opcional; vazio = a fila do fluxo): sem queueId, destinationType, destinationId e resultVariableName, é o elemento de sempre — o atendimento aberto é ASSOCIADO ao fluxo. Com qualquer um desses campos preenchido (destinationType diferente de 0): se a fila (a informada, ou a do fluxo quando queueId está vazio) for a própria fila do fluxo e o fluxo ainda não tiver atendimento, associa do mesmo jeito; em QUALQUER outro caso (fila diferente, ou fluxo que já tem atendimento) o atendimento é aberto SEM associar — o fluxo continua no seu contexto, os elementos seguintes NÃO agem sobre o novo atendimento (para agir nele use o campo chatId de message, sendTemplate, marker, transfer, terminate etc. com a variável de resultado), e as variáveis de usuário do fluxo são copiadas para ele sem sobrescrever as dele. Nesse modo o elemento roda também em automação que já tem atendimento. resultVariableName (vale com ou sem queueId) recebe o ID do atendimento e resultVariableName + "_error" o código da recusa ("" em sucesso). Na aba "Testar" nada é aberto sem associar (VIRTUAL_CHAT).<br>DESTINO (destinationType/destinationId, opcional; vale com ou sem queueId, associando ou não, e só para atendimento RECÉM-aberto): 0 distribuição normal da fila; 1 um atendente específico (precisa estar disponível, poder receber atendimentos e estar vinculado à fila; senão distribuição normal com USER_UNAVAILABLE); 2 um fluxo — uma URA recebe o atendimento sem passar por atendente (um assistente de IA é uma URA com o elemento de assistente), uma automação roda sobre ele depois da distribuição normal. Se já havia atendimento aberto para o número ele é reaproveitado sem aplicar o destino e, no modo sem associar, o erro é CHAT_OPEN.</div>
+<p class="s10"><strong>Disponível em:</strong> WAMD,Telegram
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"countryCode":"","phoneNumber":"","nextElementId":""}
+Como se escreve: meu_rotulo: openChat countryCode="..." phoneNumber="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>29</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: openChat countryCode="..." phoneNumber="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>countryCode</code></td><td><code>string</code></td><td>sim</td><td>O código do país de onde o número de telefone pertence. Deve ser informado no formato ISO 3166-1 alpha-2 (ex: BR, US, ES, etc). Informar DNV se não houver correspondência ou a informação não estiver disponível. Pode-se utilizar variáveis.</td></tr>
+<tr><td><code>phoneNumber</code></td><td><code>string</code></td><td>sim</td><td>O número de telefone do destinatário para abertura do atendimento. Deve ser informado no formato internacional sem o + (ex: 5511987654321).</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-openChatCloud">openChatCloud</h3>
+<p>Abre um novo atendimento com base no número de telefone informado.</p>
+<div class="callout info">Esse elemento deve ser utilizado em filas do tipo WA Cloud API enquanto o openChat deve ser utilizado em filas WAMD.<br>FILA E ASSOCIAÇÃO (queueId, opcional; vazio = a fila do fluxo): sem queueId, destinationType, destinationId e resultVariableName, é o elemento de sempre — o atendimento aberto é ASSOCIADO ao fluxo. Com qualquer um desses campos preenchido (destinationType diferente de 0): se a fila (a informada, ou a do fluxo quando queueId está vazio) for a própria fila do fluxo e o fluxo ainda não tiver atendimento, associa do mesmo jeito; em QUALQUER outro caso (fila diferente, ou fluxo que já tem atendimento) o atendimento é aberto SEM associar — o fluxo continua no seu contexto, os elementos seguintes NÃO agem sobre o novo atendimento (para agir nele use o campo chatId de message, sendTemplate, marker, transfer, terminate etc. com a variável de resultado), e as variáveis de usuário do fluxo são copiadas para ele sem sobrescrever as dele. Nesse modo o elemento roda também em automação que já tem atendimento. resultVariableName (vale com ou sem queueId) recebe o ID do atendimento e resultVariableName + "_error" o código da recusa ("" em sucesso). Na aba "Testar" nada é aberto sem associar (VIRTUAL_CHAT).<br>DESTINO (destinationType/destinationId, opcional; vale com ou sem queueId, associando ou não, e só para atendimento RECÉM-aberto): 0 distribuição normal da fila; 1 um atendente específico (precisa estar disponível, poder receber atendimentos e estar vinculado à fila; senão distribuição normal com USER_UNAVAILABLE); 2 um fluxo — uma URA recebe o atendimento sem passar por atendente (um assistente de IA é uma URA com o elemento de assistente), uma automação roda sobre ele depois da distribuição normal. Se já havia atendimento aberto para o número ele é reaproveitado sem aplicar o destino e, no modo sem associar, o erro é CHAT_OPEN.<br>No openChatCloud, a URA de destino só é iniciada DEPOIS do envio bem-sucedido do template, então o primeiro elemento dela deve ESPERAR a resposta do cliente (question, options ou waitMessage). No modo sem associar, se já houver atendimento aberto para o número, o template NÃO é enviado. O template precisa ser da fila escolhida (TEMPLATE_QUEUE_MISMATCH). Para só enviar um template, sem abrir atendimento, use sendTemplate com phoneNumber.</div>
+<p class="s10"><strong>Disponível em:</strong> WA Cloud API
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"countryCode":"","phoneNumber":"","templateId":0,"templateData":[],"nextElementId":""}
+Como se escreve: meu_rotulo: openChatCloud countryCode="..." phoneNumber="..." templateId=0
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>31</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: openChatCloud countryCode="..." phoneNumber="..." templateId=0</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>countryCode</code></td><td><code>string</code></td><td>sim</td><td>O código do país de onde o número de telefone pertence. Deve ser informado no formato ISO 3166-1 alpha-2 (ex: BR, US, ES, etc). Informar DNV se não houver correspondência ou a informação não estiver disponível. Pode-se utilizar variáveis.</td></tr>
+<tr><td><code>phoneNumber</code></td><td><code>string</code></td><td>sim</td><td>O número de telefone do destinatário para abertura do atendimento. Deve ser informado no formato internacional sem o + (ex: 5511987654321).</td></tr>
+<tr><td><code>templateId</code></td><td><code>number</code></td><td>sim</td><td>ID do template de mensagem pré-aprovado que será enviado ao cliente para abertura do atendimento. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>templateData</code></td><td><code>string[]</code></td><td></td><td>Lista de dados que serão utilizados para preencher o template de mensagem. Pode-se utilizar variáveis no conteúdo, exemplo: ["{{data1}}", "{{data2}}"]</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-searchChat">searchChat</h3>
+<p>Busca um atendimento atualmente em aberto, em andamento, com base no dado informado e associa-o ao fluxo corrente.</p>
+<div class="callout info">Caso o fluxo de execução já esteja associado a um atendimento, esse elemento será ignorado.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"searchField":"clientNumber","searchValue":"","nextElementId":""}
+Como se escreve: meu_rotulo: searchChat searchField="clientNumber" searchValue="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>30</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: searchChat searchField="clientNumber" searchValue="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>searchField</code></td><td><code>"clientNumber" | "protocol" | "id" | "clientId" | "clientDocument" | "clientData" | "clientProfileName" | "clientEmail"</code></td><td>sim</td><td>Campo que será utilizado para buscar o atendimento. clientNumber - Número de telefone do cliente, protocol - Protocolo do atendimento, id - ID do atendimento, clientId - ID do cliente no serviço de mensageria, clientDocument - Documento do cliente conforme cadastrado no contato, clientData - Dado livre do cliente, clientProfileName - Nome do perfil do cliente, clientEmail - Email do cliente conforme cadastrado no contato associado</td></tr>
+<tr><td><code>searchValue</code></td><td><code>string</code></td><td>sim</td><td>Valor que será utilizado para buscar o atendimento. Esse valor será comparado com o valor do campo especificado em searchField. Pode-se utilizar variáveis no conteúdo, exemplo: "{{search_value}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-queueChats">queueChats</h3>
+<p>Lista os atendimentos ABERTOS de uma fila no momento da execução e grava o resultado em variáveis, sem alterar nada. Só leitura; tem saída única.</p>
+<div class="callout info">FILA: queueId (ID da fila, aceita variável). Vazio = a fila do fluxo — numa automação ela costuma ser a fila TÉCNICA em que a automação roda (a fila de automações do funil, do contato etc.), e não a que você quer observar: informe a fila explicitamente. Fila inexistente ou desativada: lista vazia, contadores 0 e o código do erro em resultVariableName + "_error" (QUEUE_NOT_FOUND ou QUEUE_DISABLED; o terceiro código possível é FLOW_TYPE_UNSUPPORTED, fora de automação).<br>ESTADOS (status), exclusivos entre si nesta ordem de precedência: 4 - em URA (inclui atendimento com assistente de IA; uma automação rodando sobre o atendimento NÃO conta como URA), 3 - na sala de espera, 2 - com atendente (inclui atendente robô), 1 - aguardando atendente na fila (inclui o recém-aberto ainda não distribuído), 0 - todos os abertos. O "aguardando" daqui não inclui URA nem sala de espera, diferente do indicador "Aguardando atendimento na fila" dos relatórios de SLA.<br>ORDEM: com status 1, a ordem real de distribuição da fila (prioridade, depois antiguidade); nos demais, do mais antigo para o mais novo.<br>VARIÁVEIS criadas (resultVariableName = nome escolhido): resultVariableName: lista (até limit itens, padrão 100, máximo 500) de objetos com id (ID do atendimento — use no campo chatId dos outros elementos), protocol, client_name, client_number, client_id, contact_id, agent_id, agent_name, on_ivr (0/1), ivr_id (0 fora de URA), on_waiting_room (0/1), marker_id, begin_time e wait_seconds (segundos desde a ABERTURA do atendimento, não desde a entrada na fila); resultVariableName + "_count": total do estado pedido, SEM o limite; resultVariableName + "_open", "_waiting", "_assigned", "_waiting_room" e "_on_ivr": contadores de cada estado; resultVariableName + "_error": "" em sucesso ou o código do erro.<br>PARA PERCORRER A LISTA use o elemento loop (type 144) em modo forEach com list "{{nome}}" e maxIterations &gt;= limit (acima do teto o laço não executa nenhuma volta). Valem os tetos por turno da automação (1.000 elementos e 100 mensagens por padrão): uma lista grande com envio de mensagem a cada item estoura o turno.<br>Para só saber QUANTOS atendimentos há na fila do atendimento, sem lista, use as variáveis de sistema chat_queue_open_count, chat_queue_waiting_count, chat_queue_assigned_count, chat_queue_waiting_room_count e chat_queue_on_ivr_count (categoria chat).<br>Só existe em AUTOMAÇÕES: a lista traz dados de outros clientes, que não podem ficar ao alcance de um atendimento de URA. Numa URA (ou URA telefônica) a gravação do fluxo recusa o elemento e, se ele estiver lá mesmo assim, NÃO executa: lista vazia, contadores 0 e resultVariableName + "_error" = FLOW_TYPE_UNSUPPORTED, e o fluxo segue. Na aba "Testar" a fila é simulada: lista vazia e contadores 0.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"status":0,"resultVariableName":"","nextElementId":"","queueId":"","limit":100}
+Como se escreve: meu_rotulo: queueChats status=0 resultVariableName="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>145</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: queueChats status=0 resultVariableName="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>status</code></td><td><code>0 | 1 | 2 | 3 | 4</code></td><td>sim</td><td>Estado dos atendimentos listados. 0 - todos os abertos, 1 - aguardando atendente, 2 - com atendente, 3 - na sala de espera, 4 - em URA (inclui assistente de IA)</td></tr>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável (sem chaves) que recebe a lista. Também são criadas resultVariableName + "_count", "_open", "_waiting", "_assigned", "_waiting_room", "_on_ivr" e "_error" ("" em sucesso ou QUEUE_NOT_FOUND, QUEUE_DISABLED, FLOW_TYPE_UNSUPPORTED — fora de automação). Só letras sem acento, números e _, começando por letra ou _, até 80 caracteres; nem o nome nem os derivados podem ser variável de sistema. Exemplo: "fila_aguardando"</td></tr>
+</tbody></table></div>
+<h3 id="el-addToWaitingList">addToWaitingList</h3>
+<p>Envia o atendimento associado ao fluxo para a fila de espera.</p>
+<div class="callout info">Atendimentos na fila de espera não são distribuídos automaticamente para os agentes, sendo necessário que um agente manualmente puxe o atendimento.<br>Caso o fluxo não possua um atendimento associado esse elemento é ignorado.<br>OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
+Como se escreve: meu_rotulo: addToWaitingList
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>68</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: addToWaitingList</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-removeFromWaitingList">removeFromWaitingList</h3>
+<p>Remove o atendimento associado ao fluxo da fila de espera.</p>
+<div class="callout info">Caso o fluxo não possua um atendimento associado esse elemento é ignorado.<br>OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
+Como se escreve: meu_rotulo: removeFromWaitingList
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>69</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: removeFromWaitingList</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-lock">lock</h3>
+<p>Aplica um bloqueio ao atendimento associado, vinculando a um agente específico, de forma que o atendimento não possa ser</p>
+<div class="callout info">recebido por outro atendente até que a trava seja removida.<br>Só pode existir um bloqueio por atendimento. Se um novo bloqueio for aplicado, o anterior será removido.<br>OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"userId":"","lockTime":0,"nextElementId":""}
+Como se escreve: meu_rotulo: lock userId="..." lockTime=0
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>25</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: lock userId="..." lockTime=0</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>userId</code></td><td><code>string</code></td><td>sim</td><td>ID do agente ao qual o atendimento será vinculado. Somente esse agente poderá receber o atendimento até que ele seja desbloqueado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{user_id}}"</td></tr>
+<tr><td><code>lockTime</code></td><td><code>number</code></td><td>sim</td><td>Tempo em segundos que o atendimento ficará bloqueado. Se 0, o atendimento será desbloqueado imediatamente, inclusive se ele possuir outro bloqueio anterior aplicado. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-blockChatManualEnd">blockChatManualEnd</h3>
+<p>Impede que o atendimento associado ao fluxo seja encerrado manualmente por um agente humano. Se nenhum atendimento associado estiver disponível, esse elemento será ignorado. Após a execução desse elemento, o atendimento não poderá ser encerrado manualmente por um agente humano, somente poderá ser encerrado por automação ou por um supervisor / administrador. Não afeta a transferência manual, que tem o seu próprio elemento (blockChatManualTransfer).</p>
+<div class="callout info">OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
+Como se escreve: meu_rotulo: blockChatManualEnd
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>84</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: blockChatManualEnd</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-unblockChatManualEnd">unblockChatManualEnd</h3>
+<p>Remove o impedimento de encerramento manual por um agente humano do atendimento associado ao fluxo. Se nenhum atendimento associado estiver disponível, esse elemento será ignorado. Após a execução desse elemento, o atendimento poderá novamente ser encerrado manualmente por um agente humano caso este estivesse bloqueado. Caso o atendimento não possuísse bloqueio de encerramento, esse elemento será ignorado. Não afeta o impedimento de transferência manual (unblockChatManualTransfer).</p>
+<div class="callout info">OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
+Como se escreve: meu_rotulo: unblockChatManualEnd
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>85</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: unblockChatManualEnd</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-blockChatManualTransfer">blockChatManualTransfer</h3>
+<p>Impede que o atendimento associado ao fluxo seja transferido manualmente por um agente humano — para outro agente, para a fila ou por filtro de distribuição. Se nenhum atendimento associado estiver disponível, esse elemento será ignorado. Após a execução desse elemento, o atendimento não poderá ser transferido manualmente por um agente humano; somente poderá ser transferido pelo próprio fluxo (elemento transfer, assistente de IA) ou por um supervisor / administrador. O impedimento acompanha o atendimento até ser removido pelo unblockChatManualTransfer ou até o atendimento ser encerrado, inclusive se ele for transferido pelo fluxo ou por um supervisor. Não afeta o encerramento manual, que tem o seu próprio elemento (blockChatManualEnd).</p>
+<div class="callout info">OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
+Como se escreve: meu_rotulo: blockChatManualTransfer
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>146</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: blockChatManualTransfer</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-unblockChatManualTransfer">unblockChatManualTransfer</h3>
+<p>Remove o impedimento de transferência manual por um agente humano do atendimento associado ao fluxo. Se nenhum atendimento associado estiver disponível, esse elemento será ignorado. Após a execução desse elemento, o atendimento poderá novamente ser transferido manualmente por um agente humano caso este estivesse bloqueado. Caso o atendimento não possuísse bloqueio de transferência, esse elemento será ignorado. Não afeta o impedimento de encerramento manual (unblockChatManualEnd).</p>
+<div class="callout info">OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
+Como se escreve: meu_rotulo: unblockChatManualTransfer
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>147</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: unblockChatManualTransfer</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-userAvailable">userAvailable</h3>
+<p>Verifica o estado de um agente de atendimento com base em seu ID, salvando o resultado em uma variável.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"variableName":"","userId":"","nextElementId":""}
+Como se escreve: meu_rotulo: userAvailable variableName="..." userId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>16</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: userAvailable variableName="..." userId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>variableName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável que será criada e receberá o resultado da verificação. Se o agente for encontrado, a variável conterá um objeto com todas as variáveis de agente como propriedades. Adicionar somente o nome da variável, sem chaves. Exemplo: "user_available"</td></tr>
+<tr><td><code>userId</code></td><td><code>string</code></td><td>sim</td><td>ID do agente de atendimento que será verificado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{user_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-sendNotification">sendNotification</h3>
+<p>Envia uma notificação para um ou mais usuários do sistema (agentes, supervisores ou administradores).</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"selectionMode":0,"userId":"","usersIds":[],"text":"","type":0,"nextElementId":""}
+Como se escreve: meu_rotulo: sendNotification selectionMode=0 text="..." type=0
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>33</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: sendNotification selectionMode=0 text="..." type=0</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>selectionMode</code></td><td><code>0 | 1</code></td><td>sim</td><td>Usuários selecionados a partir de uma lista, cujos IDs ficam salvos na lista usersIds, 0 - Um único usuário especificado pela variável userId</td></tr>
+<tr><td><code>userId</code></td><td><code>string</code></td><td></td><td>ID do usuário de destino. Pode-se utilizar variáveis, exemplo: "{{user_id}}". Só é utilizando caso sendTo seja 0.</td></tr>
+<tr><td><code>usersIds</code></td><td><code>string[]</code></td><td></td><td>Lista de IDs dos usuários que receberão a notificação. Não se pode utilizar variáveis. Só é utilizando caso sendTo seja 1. Ao menos um usuário deve ser informado.</td></tr>
+<tr><td><code>type</code></td><td><code>0 | 1 | 2 | 3</code></td><td>sim</td><td>Tipo da notificação. 0 - Informação, 1 - Sucesso, 2 - Alerta, 3 - Erro</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-sendAlert">sendAlert</h3>
+<p>Envia um alerta para um conjunto de usuários do sistema.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","text":"","fileChooseType":0,"fileId":"","usersIds":[]}
+Como se escreve: meu_rotulo: sendAlert usersIds=[]
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>22</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: sendAlert usersIds=[]</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>usersIds</code></td><td><code>string[]</code></td><td>sim</td><td>Lista de IDs dos usuários que receberão o alerta. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma</td></tr>
+<tr><td><code>text</code></td><td><code>string</code></td><td></td><td>Texto da mensagem que será enviada. Pode-se utilizar variáveis no conteúdo, exemplo: "Olá {{chat_client_name}}, como posso ajudar?"</td></tr>
+<tr><td><code>fileChooseType</code></td><td><code>0 | 1</code></td><td></td><td>Tipo de processo de escolha do arquivo pelo usuário durante a configuração do elemento. 0 - Será apresentada uma lista de seleção de arquivos com os arquivos da galeria, 1 - Caixa de texto, para que digite o ID ou variável contendo o ID.</td></tr>
+</tbody></table></div>
+<h3 id="el-showSnackNotification">showSnackNotification</h3>
+<p>Exibe uma notificação de snack para o agente responsável pelo atendimento associado ao fluxo.</p>
+<div class="callout info">Caso o fluxo não possua um atendimento associado ou o atendimento não possua um agente esse elemento é ignorado.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"message":"","duration":0,"buttonText":"","style":"default","nextElementId":""}
+Como se escreve: meu_rotulo: showSnackNotification message="..." buttonText="..." style="default"
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>72</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: showSnackNotification message="..." buttonText="..." style="default"</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>message</code></td><td><code>string</code></td><td>sim</td><td>Mensagem que será exibida na notificação de snack. Pode-se utilizar variáveis no conteúdo, exemplo: "Nova notificação: {{notification_message}}"</td></tr>
+<tr><td><code>duration</code></td><td><code>number</code></td><td></td><td>Duração em milliseconds que a notificação de snack será exibida. Não se pode utilizar variáveis. Exemplo: 2000 para 2 segundos.</td></tr>
+<tr><td><code>buttonText</code></td><td><code>string</code></td><td>sim</td><td>Texto do botão que será exibido na notificação de snack. Pode-se utilizar variáveis no conteúdo, exemplo: "Fechar {{notification_type}}"</td></tr>
+<tr><td><code>style</code></td><td><code>"default" | "info" | "success" | "alert" | "warning" | "danger"</code></td><td>sim</td><td>Estilo visual da notificação de snack.</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h2 id="exemplos-do-grupo">Exemplos de uso</h2>
+<p>Fluxos completos que usam os elementos deste grupo. Cada exemplo foi compilado pelo próprio sistema antes de entrar aqui.</p>
+<h3 id="ex-automacoes-atendimento-1">Retomar o atendimento em aberto pelo protocolo</h3>
+<p>Quando o cliente volta a falar, localizar o atendimento que ja esta aberto pelo protocolo e devolve-lo a fila do proprio atendimento.</p>
+<ol class="steps">
+<li><strong><code>searchChat</code></strong> — procura um atendimento em aberto pelo campo protocol e o associa ao fluxo corrente; se o fluxo ja tem atendimento associado, o elemento e ignorado.</li>
+<li><strong><code>message</code></strong> — avisa o cliente que o atendimento {{chat_protocol}} foi localizado e que a conversa vai continuar de onde parou.</li>
+<li><strong><code>transfer</code></strong> — com destinationType=0 devolve o atendimento para a fila, na distribuicao automatica (o filtro da fila vale se existir); o fluxo termina aqui.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">localiza: searchChat searchField="protocol" searchValue="{{chat_protocol}}"
+aviso: message text="Encontrei seu atendimento de protocolo {{chat_protocol}}. Vou continuar do ponto onde paramos."
+volta_fila: transfer destinationType=0 -&gt; end</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente ve a mensagem de retomada e o atendimento volta para a fila para ser distribuido a um agente.</div>
+<h3 id="ex-automacoes-atendimento-2">Abrir um atendimento ativo pelo telefone</h3>
+<p>Criar um atendimento novo a partir do numero informado e deixar o cliente aguardando um agente dentro da propria fila do fluxo.</p>
+<ol class="steps">
+<li><strong><code>message</code></strong> — sauda o cliente e avisa que o atendimento sera aberto.</li>
+<li><strong><code>openChat</code></strong> — abre um atendimento com countryCode=BR e o telefone {{chat_client_number}}; sem queueId nem resultVariableName, o atendimento aberto fica associado ao fluxo. Em fila Telegram o numero precisa ter conta no Telegram (senao nada e aberto, com o codigo NOT_ON_WHATSAPP, o mesmo de numero sem WhatsApp em fila WAMD).</li>
+<li><strong><code>terminate</code></strong> — encerra a execucao do fluxo registrando o motivo e a observacao; o atendimento segue aberto e aguardando distribuicao.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">saudacao: message text="Ola {{chat_client_name}}! Vou abrir seu atendimento agora."
+abre: openChat countryCode="BR" phoneNumber="{{chat_client_number}}"
+confirma: message text="Atendimento aberto. Protocolo {{chat_protocol}}, chat {{chat_id}}."
+fim: terminate reason="Atendimento aberto pelo fluxo" obs="Numero com canal ativo: atendimento criado e aguardando distribuicao."</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente recebe a confirmacao com protocolo e chat, e entra na fila do fluxo esperando um agente.</div>
+<h3 id="ex-automacoes-atendimento-3">Fila de espera com agente preferencial travado</h3>
+<p>Colocar o cliente na fila de espera, checar se o agente preferencial esta livre e, se estiver, travar o atendimento para ele.</p>
+<ol class="steps">
+<li><strong><code>message</code></strong> — avisa o cliente que a disponibilidade de um agente sera verificada.</li>
+<li><strong><code>addToWaitingList</code></strong> — manda o atendimento associado para a fila de espera, onde ele nao e distribuido automaticamente.</li>
+<li><strong><code>userAvailable</code></strong> — verifica o agente de id 4 e grava o resultado na variavel agente (quando encontrado, a variavel traz as variaveis do agente, como agent_full_name).</li>
+<li><strong><code>varCondition</code></strong> — com value="{{agente}}" e o operador not null, decide entre entregar ao agente (ramo livre) ou manter o cliente esperando (else).</li>
+<li><strong><code>removeFromWaitingList</code></strong> — tira o atendimento da fila de espera antes de entrega-lo.</li>
+<li><strong><code>lock</code></strong> — trava o atendimento para o usuario 4 por 300 segundos, de forma que nenhum outro agente possa recebe-lo ate a trava cair.</li>
+<li><strong><code>transfer</code></strong> — com destinationType=1 e destinationId=4 entrega o atendimento direto ao agente travado e encerra o fluxo.</li>
+<li><strong><code>terminate</code></strong> — no ramo else, encerra o fluxo mantendo o cliente na fila de espera.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">aviso: message text="Vou verificar se ha um agente livre para te atender agora."
+espera: addToWaitingList
+checa: userAvailable variableName="agente" userId="4"
+decide: varCondition value="{{agente}}" {
+  case livre conditionOperator="not null" {
+    sai_espera: removeFromWaitingList
+    trava: lock userId="4" lockTime=300
+    avisa_cliente: message text="Pronto! {{agente.agent_full_name}} vai assumir seu atendimento. Aguarde um instante."
+    entrega: transfer destinationType=1 destinationId="4" -&gt; end
+  }
+  else {
+    mantem: message text="Todos os agentes estao ocupados. Voce ficou na fila de espera e sera chamado assim que alguem liberar."
+    fim: terminate reason="Cliente na fila de espera" obs="Nenhum agente disponivel agora: atendimento mantido na fila de espera."
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> Se o agente estiver livre, o cliente ve o nome de quem vai atender e o atendimento chega travado na mao dele; se nao, o cliente permanece na fila de espera.</div>
+<h3 id="ex-automacoes-atendimento-4">Blindar o atendimento durante a coleta de dados</h3>
+<p>Impedir que um agente encerre ou transfira o atendimento no meio de uma coleta de dado sensivel, avisando o agente na tela, e liberar tudo depois.</p>
+<ol class="steps">
+<li><strong><code>message</code></strong> — avisa o cliente que o atendimento sera protegido durante a coleta.</li>
+<li><strong><code>blockChatManualEnd</code></strong> — impede o encerramento manual do atendimento por um agente humano (supervisor e administrador continuam podendo, e a automacao tambem).</li>
+<li><strong><code>blockChatManualTransfer</code></strong> — impede a transferencia manual do atendimento pelo agente (o fluxo, um assistente de IA ou um supervisor ainda podem transferir).</li>
+<li><strong><code>showSnackNotification</code></strong> — mostra um aviso em snack na tela do agente responsavel, com botao Entendi e estilo de alerta, explicando os bloqueios.</li>
+<li><strong><code>question</code></strong> — pede o CPF com validate=1 (validacao de CPF/CNPJ) e repete a pergunta enquanto a resposta for invalida.</li>
+<li><strong><code>unblockChatManualEnd</code></strong> — devolve ao agente o direito de encerrar o atendimento manualmente.</li>
+<li><strong><code>unblockChatManualTransfer</code></strong> — devolve ao agente o direito de transferir o atendimento manualmente.</li>
+<li><strong><code>terminate</code></strong> — encerra o fluxo depois de tudo liberado.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">aviso: message text="Vou proteger este atendimento enquanto coletamos seus dados. Pode ficar tranquilo."
+trava_fim: blockChatManualEnd
+trava_transf: blockChatManualTransfer
+avisa_agente: showSnackNotification message="Coleta de dados em andamento: encerramento e transferencia manual bloqueados." buttonText="Entendi" style="warning" duration=8000
+pede_documento: question varName="documento_cliente" text="Informe seu CPF, somente numeros, para consultarmos seu cadastro." validate=1 validateError="CPF invalido. Digite apenas os numeros do CPF."
+libera_fim: unblockChatManualEnd
+libera_transf: unblockChatManualTransfer
+fim: terminate reason="Coleta concluida" obs="Bloqueios de encerramento e transferencia removidos apos a coleta."</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> Durante a coleta o agente nao consegue encerrar nem transferir o atendimento e ve o aviso na tela; ao final tudo volta ao normal e o fluxo encerra.</div>
+<h3 id="ex-automacoes-atendimento-5">Abrir atendimento em fila oficial com template</h3>
+<p>Iniciar um atendimento em fila WA Cloud API enviando um template aprovado e seguir a conversa no atendimento aberto.</p>
+<ol class="steps">
+<li><strong><code>message</code></strong> — avisa o cliente que o atendimento sera aberto no canal oficial com a mensagem de autorizacao.</li>
+<li><strong><code>openChatCloud</code></strong> — abre o atendimento com countryCode=BR, o telefone {{chat_client_number}} e templateId=7, preenchendo o template com templateData=["{{chat_client_name}}"]. Sem queueId nem resultVariableName, o atendimento aberto fica associado ao fluxo. O template precisa pertencer a fila (senao TEMPLATE_QUEUE_MISMATCH).</li>
+<li><strong><code>terminate</code></strong> — encerra o fluxo registrando o motivo, deixando o atendimento aberto e aguardando atendimento.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">aviso: message text="Vou abrir seu atendimento pelo WhatsApp oficial com a mensagem de autorizacao."
+abre_cloud: openChatCloud countryCode="BR" phoneNumber="{{chat_client_number}}" templateId=7 templateData=["{{chat_client_name}}"]
+confirma: message text="Atendimento {{chat_id}} iniciado na fila oficial. Ja vamos continuar por aqui."
+fim: terminate reason="Atendimento Cloud aberto" obs="Template enviado e atendimento aberto na fila oficial."</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente recebe o template no WhatsApp oficial e a conversa continua no atendimento {{chat_id}}, na fila oficial.</div>
+<h3 id="ex-automacoes-atendimento-6">Alerta de fila acima do limite para a supervisao</h3>
+<p>Ler quantos atendimentos estao aguardando agente numa fila e avisar a supervisao somente quando a fila passa do limite.</p>
+<ol class="steps">
+<li><strong><code>queueChats</code></strong> — le os atendimentos da fila 3 no estado 1 (aguardando atendente), guarda a lista em aguardando (ate 100 itens) e cria os contadores derivados, entre eles aguardando_count.</li>
+<li><strong><code>varCondition</code></strong> — sem value (todos os ramos sao de expressao), usa o ramo expression aguardando_count * 1 &gt; 5: a conversao com * 1 e necessaria porque os contadores chegam como texto.</li>
+<li><strong><code>sendAlert</code></strong> — no ramo acima do limite, manda um alerta para os usuarios da lista usersIds (o campo nao aceita variaveis) com o total de aguardando.</li>
+<li><strong><code>sendNotification</code></strong> — tambem envia uma notificacao para o supervisor: tipo 2 (alerta) quando a fila esta cheia, tipo 0 (informacao) quando esta sob controle.</li>
+<li><strong><code>terminate</code></strong> — encerra o fluxo em cada ramo, registrando o motivo.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">le_fila: queueChats status=1 resultVariableName="aguardando" queueId="3" limit=100
+checa: varCondition {
+  case acima conditionOperator="expression" conditionValue="aguardando_count * 1 &gt; 5" {
+    alerta: sendAlert usersIds=["supervisor_plantao"] text="Fila de suporte acima do limite: {{aguardando_count}} atendimento(s) aguardando agente."
+    notifica: sendNotification selectionMode=0 userId="supervisor_plantao" text="Verifique a fila de suporte: {{aguardando_count}} aguardando atendente." type=2
+    fim_alerta: terminate reason="Fila acima do limite" obs="Alerta enviado a supervisao."
+  }
+  else {
+    tranquilo: sendNotification selectionMode=0 userId="supervisor_plantao" text="Fila de suporte sob controle: {{aguardando_count}} aguardando atendente." type=0
+    fim_ok: terminate reason="Fila sob controle" obs="Nenhum alerta necessario."
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> A supervisao recebe um alerta e uma notificacao apenas quando a fila passa de 5 aguardando; abaixo disso chega so um aviso informativo.</div>
+
+  <div class="pagenav">
+    <a href="automacoes-elementos.html"><span>←</span> Catálogo de elementos</a>
+    <a class="next" href="automacoes-exemplos.html"><span>Ver também →</span> Exemplos prontos</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

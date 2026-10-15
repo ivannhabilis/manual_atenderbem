@@ -1,0 +1,27 @@
+baixa: request dataType="json" method="post" url="https://erp.exemplo.com/estoque/baixa?pedido={{chat_id}}" varPrefix="baixa"
+checa: varCondition {
+  case ok conditionOperator="expression" conditionValue="baixa_status == 200" {
+    confirma: message text="Baixa de estoque enviada para o pedido {{chat_id}}."
+    menu: options text="O cliente devolveu algum item?" type=0 {
+      case parcial text="Devolucao parcial" {
+        tira: removeProductFromOpportunity opportunityId="{{opportunity_id}}" searchType="code" productId="SKU-204"
+        troca: addOrEditProductToOpportunity opportunityId="{{opportunity_id}}" searchType="id" productId="102" quantity="1" conflictStrategy="sum"
+        avisa: message text="O item devolvido saiu do pedido e o item de troca foi lancado."
+        fim: terminate
+      }
+      case total text="Devolucao total" {
+        zera: clearProductListOfOpportunity opportunityId="{{opportunity_id}}"
+        avisa2: message text="Pedido zerado e itens recolocados em estoque."
+        fim2: terminate
+      }
+      else {
+        nada: message text="Sem devolucao. O pedido segue normal."
+        fim3: terminate
+      }
+    }
+  }
+  else {
+    falha: message text="Falha ao dar baixa no estoque; chamando o time de logistica."
+    transfere: terminate
+  }
+}

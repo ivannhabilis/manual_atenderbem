@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesquisas, formulários e WebChat — Manual Omnichannel</title>
+<meta name="description" content="Formulários, pesquisas de satisfação e recursos do WebChat 2.0. (17 elementos)">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a class="active" href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="automacoes-elementos.html">Automações e URA</a> &rsaquo; Pesquisas, formulários e WebChat</div>
+
+  <h1>Pesquisas, formulários e WebChat</h1>
+  <p class="subtitle">Formulários, pesquisas de satisfação e recursos do WebChat 2.0. (17 elementos)</p>
+
+<p>Formulários, pesquisas de satisfação e recursos do WebChat 2.0.</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Elemento</th><th>O que faz</th></tr></thead><tbody>
+<tr><td><a href="#el-sendForm">sendForm</a></td><td>Envia um formulário personalizado (pré cadastrado no sistema) para o visitante do WebChat (V2).</td></tr>
+<tr><td><a href="#el-sendFormFlow">sendFormFlow</a></td><td>Envia um fluxo de formulários (multi-etapas, pré cadastrado no sistema) para o visitante do WebChat (V2).</td></tr>
+<tr><td><a href="#el-showForm">showForm</a></td><td>Exibe um formulário pré cadastrado para que o agente possa preencher.</td></tr>
+<tr><td><a href="#el-showFormSync">showFormSync</a></td><td>Exibe um formulário para o atendente preencher e aguarda o preenchimento antes de continuar o fluxo. Diferente do showForm, esse elemento in</td></tr>
+<tr><td><a href="#el-showConfirmationDialogSync">showConfirmationDialogSync</a></td><td>Exibe uma caixa de diálogo de confirmação para o atendente e aguarda a resposta antes de continuar o fluxo. O resultado (positivo ou negativ</td></tr>
+<tr><td><a href="#el-showInformationDialog">showInformationDialog</a></td><td>Exibe uma caixa de diálogo de informação para o atendente. Esse elemento não aguarda resposta, apenas exibe a informação.</td></tr>
+<tr><td><a href="#el-generateSurveyFormLink">generateSurveyFormLink</a></td><td>Gera um link público de pesquisa do módulo Pesquisas e grava a URL gerada em variáveis do fluxo. A pesquisa precisa estar publicada. O link </td></tr>
+<tr><td><a href="#el-submitSurveyFormResponse">submitSurveyFormResponse</a></td><td>Submete uma resposta de pesquisa do módulo Pesquisas diretamente, sem que o cliente precise acessar o link público. A pesquisa precisa estar</td></tr>
+<tr><td><a href="#el-editSurveyFormResponse">editSurveyFormResponse</a></td><td>Preenche perguntas ocultas (marcadas como is_hidden na pesquisa) de uma resposta de pesquisa já submetida, com valores vindos de variáveis d</td></tr>
+<tr><td><a href="#el-sendSurveyFormMessage">sendSurveyFormMessage</a></td><td>Envia ao cliente do atendimento atual uma MENSAGEM DE PESQUISA do módulo Pesquisas. A pesquisa precisa estar publicada.</td></tr>
+<tr><td><a href="#el-sendInformationCard">sendInformationCard</a></td><td>Envia uma MENSAGEM de cartão de informação para o visitante do WebChat V2 (type 26). A própria mensagem é o cartão, renderizado no design do</td></tr>
+<tr><td><a href="#el-addInformationCard">addInformationCard</a></td><td>Adiciona um cartão de informações ao atendimento associado ao fluxo.</td></tr>
+<tr><td><a href="#el-removeInformationCard">removeInformationCard</a></td><td>Remove um cartão de informações do atendimento associado ao fluxo.</td></tr>
+<tr><td><a href="#el-addInformationCardToMessage">addInformationCardToMessage</a></td><td>Adiciona um cartão de informações a uma mensagem.</td></tr>
+<tr><td><a href="#el-removeInformationCardFromMessage">removeInformationCardFromMessage</a></td><td>Remove um cartão de informações associado a uma mensagem.</td></tr>
+<tr><td><a href="#el-requestPushPermission">requestPushPermission</a></td><td>Envia ao visitante do WebChat V2 (type 26) uma MENSAGEM com um botão que abre o diálogo de notificações do cliente, onde ele pode ativar (su</td></tr>
+<tr><td><a href="#el-generateWebchatMigrationLink">generateWebchatMigrationLink</a></td><td>Gera um link EFÊMERO DE USO ÚNICO para MIGRAR o atendimento atual para uma fila WebChat V2 (type 26), e grava a URL gerada numa variável do </td></tr>
+</tbody></table></div>
+<h3 id="el-sendForm">sendForm</h3>
+<p>Envia um formulário personalizado (pré cadastrado no sistema) para o visitante do WebChat (V2).</p>
+<div class="callout info">É assíncrono: envia o formulário e segue o fluxo, sem aguardar a resposta.<br>A resposta do visitante retorna depois como uma nova mensagem e dispara os gatilhos de resposta de flow (tipo 6), exatamente como um Whatsapp Flow. Cada campo preenchido fica disponível como a variável message_flow_&lt;idDoCampo&gt;.<br>Só funciona em filas de WebChat (V2).</div>
+<p class="s10"><strong>Disponível em:</strong> Webchat
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"formId":0,"bodyText":"","buttonText":"","headerText":"","footerText":"","preFilledData":{},"nextElementId":""}
+Como se escreve: meu_rotulo: sendForm formId=0 bodyText="..." buttonText="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>132</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: sendForm formId=0 bodyText="..." buttonText="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>formId</code></td><td><code>number</code></td><td>sim</td><td>ID do formulário personalizado (pré cadastrado no sistema) que será enviado ao visitante do WebChat.</td></tr>
+<tr><td><code>bodyText</code></td><td><code>string</code></td><td>sim</td><td>Texto exibido no corpo da mensagem, junto ao botão que abre o formulário. Pode-se utilizar variáveis no conteúdo, exemplo: "{{body_text}}"</td></tr>
+<tr><td><code>buttonText</code></td><td><code>string</code></td><td>sim</td><td>Texto do botão que abre o formulário no WebChat. Pode-se utilizar variáveis no conteúdo, exemplo: "{{button_text}}"</td></tr>
+<tr><td><code>headerText</code></td><td><code>string</code></td><td></td><td>Texto opcional exibido no cabeçalho do cartão do formulário. Pode-se utilizar variáveis no conteúdo.</td></tr>
+<tr><td><code>footerText</code></td><td><code>string</code></td><td></td><td>Texto opcional exibido no rodapé do cartão do formulário. Pode-se utilizar variáveis no conteúdo.</td></tr>
+<tr><td><code>preFilledData</code></td><td><code>{ [fieldId: string]: string }</code></td><td></td><td>Dados pré-preenchidos por id de campo. A chave é o ID do campo e o valor o que será preenchido. Pode-se utilizar variáveis nos valores, exemplo: {"field_id": "{{field_value}}"}</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-sendFormFlow">sendFormFlow</h3>
+<p>Envia um fluxo de formulários (multi-etapas, pré cadastrado no sistema) para o visitante do WebChat (V2).</p>
+<div class="callout info">É assíncrono: envia o fluxo e segue, sem aguardar a resposta.<br>A resposta do visitante retorna depois como uma nova mensagem e dispara os gatilhos de resposta de flow (tipo 6), exatamente como um Whatsapp Flow. Cada campo preenchido fica disponível como a variável message_flow_&lt;idDoCampo&gt;.<br>Só funciona em filas de WebChat (V2).</div>
+<p class="s10"><strong>Disponível em:</strong> Webchat
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"flowId":0,"bodyText":"","buttonText":"","headerText":"","footerText":"","preFilledData":{},"nextElementId":""}
+Como se escreve: meu_rotulo: sendFormFlow flowId=0 bodyText="..." buttonText="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>133</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: sendFormFlow flowId=0 bodyText="..." buttonText="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>flowId</code></td><td><code>number</code></td><td>sim</td><td>ID do fluxo de formulários (multi-etapas, pré cadastrado no sistema) que será enviado ao visitante do WebChat.</td></tr>
+<tr><td><code>bodyText</code></td><td><code>string</code></td><td>sim</td><td>Texto exibido no corpo da mensagem, junto ao botão que abre o formulário. Pode-se utilizar variáveis no conteúdo, exemplo: "{{body_text}}"</td></tr>
+<tr><td><code>buttonText</code></td><td><code>string</code></td><td>sim</td><td>Texto do botão que abre o formulário no WebChat. Pode-se utilizar variáveis no conteúdo, exemplo: "{{button_text}}"</td></tr>
+<tr><td><code>headerText</code></td><td><code>string</code></td><td></td><td>Texto opcional exibido no cabeçalho do cartão do formulário. Pode-se utilizar variáveis no conteúdo.</td></tr>
+<tr><td><code>footerText</code></td><td><code>string</code></td><td></td><td>Texto opcional exibido no rodapé do cartão do formulário. Pode-se utilizar variáveis no conteúdo.</td></tr>
+<tr><td><code>preFilledData</code></td><td><code>{ [fieldId: string]: string }</code></td><td></td><td>Dados pré-preenchidos por id de campo. A chave é o ID do campo e o valor o que será preenchido. Pode-se utilizar variáveis nos valores, exemplo: {"field_id": "{{field_value}}"}</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-showForm">showForm</h3>
+<p>Exibe um formulário pré cadastrado para que o agente possa preencher.</p>
+<div class="callout info">O formulário é exibido para o agente responsável pelo atendimento associado ao fluxo no momento e por isso esse elemento só pode ser utilizado em automações.<br>Se o fluxo não possuir um atendimento associado ou o atendimento não possuir agente responsável esse elemento é ignorado.<br>Após preenchido esse formulário inicia a execução da automação configurada, tendo os valores preenchidos disponíveis como variáveis.<br>Também é possível selecionar uma automação para ser executada caso o agente cancele o preenchimento do formulário.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"type":0,"formId":0,"flowId":0,"dynamicFlowVarName":"","preFilledData":{},"dynamicFormVarName":"","successAutomationId":0,"cancelAutomationId":0,"nextElementId":""}
+Como se escreve: meu_rotulo: showForm type=0
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>44</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: showForm type=0</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>type</code></td><td><code>0 | 1 | 2 | 3</code></td><td>sim</td><td>O que será exibido. 0 - Formulário pré cadastrado, 1 - Formulário dinâmico, 2 - Fluxo de formulários pré cadastrado, 3 - Fluxo de formulários por variável (ID)</td></tr>
+<tr><td><code>formId</code></td><td><code>number</code></td><td></td><td>[OBRIGATÓRIO se type 0] ID do formulário pré cadastrado que será exibido. Só é utilizado caso o type seja 0. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>flowId</code></td><td><code>number</code></td><td></td><td>[OBRIGATÓRIO se type 2] ID do fluxo de formulários pré cadastrado que será exibido. Só é utilizado caso o type seja 2. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>dynamicFlowVarName</code></td><td><code>string</code></td><td></td><td>[OBRIGATÓRIO se type 3] Nome da variável que contém o ID do fluxo de formulários a ser exibido. Só é utilizado caso o type seja 3. Exemplo: "{{flow_id}}".</td></tr>
+<tr><td><code>preFilledData</code></td><td><code>{ [key: string]: string }</code></td><td></td><td>Dados que serão preenchidos automaticamente no formulário. A chave é o ID do campo do formulário e o valor é o valor que será preenchido. Pode-se utilizar variáveis no conteúdo, exemplo: {"field_id": "{{field_value}}"}</td></tr>
+<tr><td><code>dynamicFormVarName</code></td><td><code>string</code></td><td></td><td>Nome da variável que contém o objeto com as configurações do formulário dinâmico. Só é utilizado caso o type seja 1. Exemplo: "{{dynamic_form_var_name}}". A variável deve conter um objeto JSON com uma estrutura válida de formulário.</td></tr>
+<tr><td><code>successAutomationId</code></td><td><code>number</code></td><td></td><td>ID da automação que será executada após o preenchimento do formulário. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>cancelAutomationId</code></td><td><code>number</code></td><td></td><td>ID da automação que será executada caso o agente cancele o preenchimento do formulário. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-showFormSync">showFormSync</h3>
+<p>Exibe um formulário para o atendente preencher e aguarda o preenchimento antes de continuar o fluxo. Diferente do showForm, esse elemento interrompe o fluxo até que o formulário seja preenchido ou o timeout seja atingido. O resultado do preenchimento é salvo em uma variável.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"type":0,"formId":0,"flowId":0,"dynamicFlowVarName":"","dynamicFormVarName":"","preFilledData":{},"resultVariableName":"","timeout":300,"nextElementId":""}
+Como se escreve: meu_rotulo: showFormSync type=0 resultVariableName="..." timeout=300
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>101</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: showFormSync type=0 resultVariableName="..." timeout=300</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>type</code></td><td><code>0 | 1 | 2 | 3</code></td><td>sim</td><td>O que será exibido. 0 - Formulário pré cadastrado, 1 - Formulário dinâmico, 2 - Fluxo de formulários pré cadastrado, 3 - Fluxo de formulários por variável (ID)</td></tr>
+<tr><td><code>formId</code></td><td><code>number</code></td><td></td><td>ID do formulário pré cadastrado. Só é utilizado caso o type seja 0. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>flowId</code></td><td><code>number</code></td><td></td><td>ID do fluxo de formulários pré cadastrado. Só é utilizado caso o type seja 2. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>dynamicFlowVarName</code></td><td><code>string</code></td><td></td><td>[OBRIGATÓRIO se type 3] Nome da variável que contém o ID do fluxo de formulários. Só é utilizado caso o type seja 3.</td></tr>
+<tr><td><code>dynamicFormVarName</code></td><td><code>string</code></td><td></td><td>Nome da variável que contém o objeto com as configurações do formulário dinâmico. Só é utilizado caso o type seja 1.</td></tr>
+<tr><td><code>preFilledData</code></td><td><code>{ [key: string]: string }</code></td><td></td><td>Dados que serão preenchidos automaticamente no formulário.</td></tr>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável que receberá os dados preenchidos do formulário. Adicionar somente o nome da variável, sem chaves. Exemplo: "form_result"</td></tr>
+<tr><td><code>timeout</code></td><td><code>number</code></td><td>sim</td><td>Tempo em segundos para timeout do preenchimento. Após esse tempo, o fluxo seguirá sem os dados do formulário.</td></tr>
+</tbody></table></div>
+<h3 id="el-showConfirmationDialogSync">showConfirmationDialogSync</h3>
+<p>Exibe uma caixa de diálogo de confirmação para o atendente e aguarda a resposta antes de continuar o fluxo. O resultado (positivo ou negativo) é salvo em uma variável.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"title":"","text":"","cancelButtonText":"","confirmButtonText":"","confirmButtonColor":"success","resultVariableName":"","timeout":0,"nextElementId":""}
+Como se escreve: meu_rotulo: showConfirmationDialogSync title="..." text="..." cancelButtonText="..." confirmButtonText="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>102</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: showConfirmationDialogSync title="..." text="..." cancelButtonText="..." confirmButtonText="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>title</code></td><td><code>string</code></td><td>sim</td><td>Título da caixa de diálogo. Pode-se utilizar variáveis no conteúdo, exemplo: "{{dialog_title}}"</td></tr>
+<tr><td><code>text</code></td><td><code>string</code></td><td>sim</td><td>Texto principal da caixa de diálogo. Pode-se utilizar variáveis no conteúdo, exemplo: "{{dialog_text}}"</td></tr>
+<tr><td><code>cancelButtonText</code></td><td><code>string</code></td><td>sim</td><td>Texto do botão de cancelar. Pode-se utilizar variáveis no conteúdo.</td></tr>
+<tr><td><code>confirmButtonText</code></td><td><code>string</code></td><td>sim</td><td>Texto do botão de confirmar. Pode-se utilizar variáveis no conteúdo.</td></tr>
+<tr><td><code>confirmButtonColor</code></td><td><code>'success' | 'info' | 'warning' | 'danger'</code></td><td>sim</td><td>Cor do botão de confirmar.</td></tr>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável que receberá o resultado (true/false). Adicionar somente o nome da variável, sem chaves. Exemplo: "confirmation_result"</td></tr>
+<tr><td><code>timeout</code></td><td><code>number</code></td><td>sim</td><td>Tempo em segundos para timeout. Após esse tempo, o fluxo seguirá com resultado negativo.</td></tr>
+</tbody></table></div>
+<h3 id="el-showInformationDialog">showInformationDialog</h3>
+<p>Exibe uma caixa de diálogo de informação para o atendente. Esse elemento não aguarda resposta, apenas exibe a informação.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"title":"","text":"","nextElementId":""}
+Como se escreve: meu_rotulo: showInformationDialog title="..." text="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>103</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: showInformationDialog title="..." text="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>title</code></td><td><code>string</code></td><td>sim</td><td>Título da caixa de diálogo. Pode-se utilizar variáveis no conteúdo, exemplo: "{{dialog_title}}"</td></tr>
+<tr><td><code>text</code></td><td><code>string</code></td><td>sim</td><td>Texto da caixa de diálogo. Pode-se utilizar variáveis no conteúdo, exemplo: "{{dialog_text}}"</td></tr>
+</tbody></table></div>
+<h3 id="el-generateSurveyFormLink">generateSurveyFormLink</h3>
+<p>Gera um link público de pesquisa do módulo Pesquisas e grava a URL gerada em variáveis do fluxo. A pesquisa precisa estar publicada. O link recebe uma data de expiração calculada a partir da quantidade de dias configurada e pode carregar vínculos opcionais (chat, chamada, fila, empresa, contato, atendente, assistente de IA, ticket, fila de tickets, oportunidade e funil). Todos os vínculos são informados explicitamente via variáveis do fluxo — nada é preenchido automaticamente a partir do contexto do atendimento; para vincular o atendimento atual, use variáveis como "{{chatId}}" e "{{chatQueueId}}" (ou o elemento sendSurveyFormMessage, que preenche os vínculos do atendimento sozinho e já envia a mensagem). Os vínculos informados são filtrados pelas associações habilitadas na pesquisa.</p>
+<div class="callout info">As seguintes variáveis são criadas automaticamente (varName = nome configurado no campo varName):<br>varName: URL pública do link gerado<br>varName + _id: ID do link gerado<br>varName + _uuid: UUID do link gerado<br>Em caso de erro na geração, varName recebe string vazia, varName + _id recebe 0, varName + _uuid recebe string vazia e o fluxo segue normalmente para o próximo elemento.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"surveyId":0,"varName":"survey_form_link","expirationDays":7,"nextElementId":""}
+Como se escreve: meu_rotulo: generateSurveyFormLink surveyId=0 varName="survey_form_link" expirationDays=7
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>126</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: generateSurveyFormLink surveyId=0 varName="survey_form_link" expirationDays=7</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>surveyId</code></td><td><code>number</code></td><td>sim</td><td>ID numérico da pesquisa publicada que receberá as respostas via esse link. Utilize o ID literal (o editor visual usa um seletor de pesquisas e não exibe valores com variáveis).</td></tr>
+<tr><td><code>varName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável onde a URL gerada será armazenada. Também são criadas as variáveis varName + "_id" e varName + "_uuid"</td></tr>
+<tr><td><code>expirationDays</code></td><td><code>number</code></td><td>sim</td><td>Quantidade de dias até o link expirar. Número fixo, não aceita variáveis. Mínimo 1; se inválido, assume 7</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-submitSurveyFormResponse">submitSurveyFormResponse</h3>
+<p>Submete uma resposta de pesquisa do módulo Pesquisas diretamente, sem que o cliente precise acessar o link público. A pesquisa precisa estar publicada. Para cada pergunta da pesquisa mapeia-se uma expressão (variável ou literal) com o valor da resposta, conforme o tipo da pergunta: texto curto/longo recebem o texto literal; escala recebe um número; avaliação recebe uma nota inteira de 1 a 5; data e data/hora recebem data em formato ISO (exemplo: "2026-05-19T14:30:00"); escolha única e lista suspensa recebem o "valor" da opção; múltipla escolha recebe os valores das opções separados por vírgula (CSV). Perguntas obrigatórias sem valor mapeado fazem a submissão falhar. O contexto da resposta (chat, chamada, fila, empresa, contato, atendente, assistente de IA, ticket, fila de tickets, oportunidade, funil) é informado explicitamente via variáveis do fluxo — nada é preenchido automaticamente — e é filtrado pelas associações habilitadas na pesquisa.</p>
+<div class="callout info">Se resultVarName for informado, as seguintes variáveis são criadas automaticamente:<br>resultVarName: "ok" em caso de sucesso ou "error" em caso de falha<br>resultVarName + _response_id: ID da resposta criada (apenas em sucesso)<br>resultVarName + _answers_count: quantidade de respostas gravadas (apenas em sucesso)<br>resultVarName + _error: mensagem de erro (apenas em falha)<br>Em caso de falha o fluxo segue normalmente para o próximo elemento.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"surveyId":0,"bindings":[],"nextElementId":""}
+Como se escreve: meu_rotulo: submitSurveyFormResponse surveyId=0 bindings=[]
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>127</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: submitSurveyFormResponse surveyId=0 bindings=[]</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>surveyId</code></td><td><code>number</code></td><td>sim</td><td>ID numérico da pesquisa publicada. Utilize o ID literal (o editor visual usa um seletor de pesquisas e não exibe valores com variáveis).</td></tr>
+<tr><td><code>bindings</code></td><td><code>SubmitSurveyFormResponseBinding[]</code></td><td>sim</td><td>Mapeamento pergunta -&gt; valor da resposta. Perguntas obrigatórias da pesquisa precisam ter valor mapeado</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+<tr><td><code>fk_question</code></td><td><code>number</code></td><td>sim</td><td>ID da pergunta da pesquisa</td></tr>
+<tr><td><code>varExpr</code></td><td><code>string</code></td><td></td><td>Expressão com o valor da resposta. Pode-se utilizar variáveis no conteúdo, exemplo: "{{nota_atendimento}}". Formato conforme o tipo da pergunta: texto literal (texto curto/longo), número (escala), nota inteira de 1 a 5 (avaliação), data ISO como "2026-05-19T14:30:00" (data/data e hora), "valor" da opção (escolha única/lista suspensa) ou valores separados por vírgula (múltipla escolha)</td></tr>
+</tbody></table></div>
+<h3 id="el-editSurveyFormResponse">editSurveyFormResponse</h3>
+<p>Preenche perguntas ocultas (marcadas como is_hidden na pesquisa) de uma resposta de pesquisa já submetida, com valores vindos de variáveis do fluxo. Perguntas visíveis são rejeitadas com erro — o elemento não altera as respostas reais do usuário; serve para complementar a resposta com dados internos ou calculados (score, classificação etc.). Para cada pergunta alvo, os valores existentes são apagados e reinseridos (operação idempotente). Os formatos de valor por tipo de pergunta são os mesmos do elemento submitSurveyFormResponse: texto literal, número para escala, nota inteira de 1 a 5 para avaliação, data ISO, "valor" da opção para escolha única/lista suspensa e CSV de valores para múltipla escolha. Bindings cujo valor resolvido fica vazio são ignorados. Tipicamente usado em automações disparadas após a submissão, onde a variável "{{survey_form_response_id}}" contém o ID da resposta que disparou a automação.</p>
+<div class="callout info">Se resultVarName for informado, as seguintes variáveis são criadas automaticamente:<br>resultVarName: "ok" em sucesso, "error" em falha ou "skipped" quando não há resposta alvo ou nenhum valor a preencher<br>resultVarName + _updated_count: quantidade de perguntas atualizadas (apenas em sucesso)<br>resultVarName + _error: mensagem de erro (apenas em falha)<br>Em caso de falha o fluxo segue normalmente para o próximo elemento.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"surveyId":0,"responseIdVar":"{{survey_form_response_id}}","bindings":[],"nextElementId":""}
+Como se escreve: meu_rotulo: editSurveyFormResponse responseIdVar="{{survey_form_response_id}}" bindings=[]
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>128</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: editSurveyFormResponse responseIdVar="{{survey_form_response_id}}" bindings=[]</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>surveyId</code></td><td><code>number</code></td><td></td><td>ID da pesquisa. Usado apenas pelo editor visual para listar as perguntas ocultas; em execução a pesquisa é obtida da própria resposta</td></tr>
+<tr><td><code>responseIdVar</code></td><td><code>string</code></td><td>sim</td><td>Variável (ou ID literal) com o ID da resposta a complementar, exemplo: "{{survey_form_response_id}}"</td></tr>
+<tr><td><code>bindings</code></td><td><code>EditSurveyFormResponseBinding[]</code></td><td>sim</td><td>Valores para as perguntas ocultas. Bindings com valor vazio após a resolução das variáveis são ignorados</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+<tr><td><code>fk_question</code></td><td><code>number</code></td><td>sim</td><td>ID da pergunta oculta (is_hidden) da pesquisa</td></tr>
+<tr><td><code>valueExpr</code></td><td><code>string</code></td><td></td><td>Expressão com o valor a gravar. Pode-se utilizar variáveis no conteúdo, exemplo: "{{score_calculado}}". Formato conforme o tipo da pergunta (mesmos formatos do submitSurveyFormResponse). Vazio = pergunta não é preenchida</td></tr>
+</tbody></table></div>
+<h3 id="el-sendSurveyFormMessage">sendSurveyFormMessage</h3>
+<p>Envia ao cliente do atendimento atual uma MENSAGEM DE PESQUISA do módulo Pesquisas. A pesquisa precisa estar publicada.</p>
+<div class="callout info">Gera um link de resposta de uso único, com validade em dias, e preenche AUTOMATICAMENTE os vínculos do próprio atendimento: chat, fila, contato, empresa do contato, atendente (o atual ou, se não houver, o último atendente humano deste atendimento) e assistente de IA (o atual ou o último que atuou neste atendimento). Só ficam gravados os vínculos habilitados nas associações da pesquisa. Ticket, fila de tickets, oportunidade, funil e ligação NUNCA são preenchidos por este elemento — para eles use generateSurveyFormLink.<br>Entrega conforme o canal:<br>- WebChat V2: a mensagem chega com um botão que abre a pesquisa dentro do próprio chat; depois de respondida, o botão passa a indicar "Pesquisa respondida".<br>- Filas que suportam botão de URL (WhatsApp MD, WhatsApp Cloud API, Baileys, WhatsMeow, Telegram, Facebook, Instagram oficial, WebChat V1 e Genérica 2): texto + botão de URL que abre a página da pesquisa. Na fila Telegram híbrida o botão só é usado dentro da janela de 24h do bot; fora dela vai o texto com o link.<br>- Demais filas (ex.: Dialog360, Smarte, Gupshup, Instagram não oficial, e-mail): o texto com o link no fim.<br>Em filas de WhatsApp com número conhecido, a página da pesquisa oferece "Voltar ao WhatsApp" após a resposta.<br>No painel, o atendente vê a mensagem com o estado "Aguardando resposta" ou "Respondida".<br>Se o fluxo não possuir atendimento real associado (ex.: automações de ticket, de CRM ou a automação disparada pela resposta de uma pesquisa), nada é enviado. No chat de teste (aba "Testar") a mensagem é enviada normalmente e a fila vinculada é a fila base do teste. O elemento tem saída única: erros (pesquisa inexistente ou não publicada, atendimento ausente, falha no envio) são apenas registrados no depurador e o fluxo segue para o próximo elemento.<br>A automação de resposta (responseAutomationId) roda quando o cliente envia a resposta pelo link (página pública ou janela do WebChat V2), precisa ser uma automação (não URA) e recebe as variáveis da categoria "survey" (get_vars / automations_get_variables).<br>EXIGE o módulo Pesquisas habilitado na instância; sem ele o elemento não é oferecido.<br>Se varName for informado, as seguintes variáveis são criadas:<br>varName: URL pública do link gerado<br>varName + _id: ID do link gerado<br>varName + _uuid: UUID do link gerado<br>Se o link não puder ser gerado (ou não houver atendimento), varName recebe string vazia, varName + _id recebe 0 e varName + _uuid recebe string vazia.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"surveyId":0,"text":"","buttonText":"Responder pesquisa","expirationDays":7,"nextElementId":"","responseAutomationId":0,"varName":""}
+Como se escreve: meu_rotulo: sendSurveyFormMessage surveyId=0 text="..." buttonText="Responder pesquisa" expirationDays=7
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>143</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: sendSurveyFormMessage surveyId=0 text="..." buttonText="Responder pesquisa" expirationDays=7</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>surveyId</code></td><td><code>number</code></td><td>sim</td><td>ID numérico (maior que 0) de uma pesquisa PUBLICADA — descubra com get_system_data ["surveys"]. Utilize o ID literal (o editor visual usa um seletor de pesquisas)</td></tr>
+<tr><td><code>text</code></td><td><code>string</code></td><td>sim</td><td>Texto da mensagem enviada junto com o botão; não pode ser vazio. Pode-se utilizar variáveis no conteúdo, exemplo: "{{general_salutation}}! Avalie nosso atendimento". Se as variáveis resultarem em texto vazio na execução, é usado o título da pesquisa</td></tr>
+<tr><td><code>buttonText</code></td><td><code>string</code></td><td>sim</td><td>Texto do botão, entre 1 e 20 caracteres. Padrão "Responder pesquisa". Pode-se utilizar variáveis no conteúdo; o texto resolvido é cortado em 20 caracteres</td></tr>
+<tr><td><code>expirationDays</code></td><td><code>number</code></td><td>sim</td><td>Quantidade de dias até o link expirar: número inteiro, mínimo 1. Padrão 7. Número fixo, não aceita variáveis</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-sendInformationCard">sendInformationCard</h3>
+<p>Envia uma MENSAGEM de cartão de informação para o visitante do WebChat V2 (type 26). A própria mensagem é o cartão, renderizado no design do cliente de WebChat.</p>
+<div class="callout info">Só funciona em atendimentos de fila WebChat V2: caso o fluxo não possua atendimento associado ou o atendimento não seja de WebChat V2, o elemento é ignorado e o fluxo segue.<br>Aceita cartões pré cadastrados (type 0, informe cardId) ou cartões dinâmicos (type 1, informe dynamicCardVarName com o JSON do cartão). Somente cartões no formato V2 (structure.version = 1) são enviados.<br>O cartão é enviado com placeholders {{webcard_&lt;nome&gt;}} NÃO resolvidos: o cliente resolve ao vivo contra as variáveis do atendimento prefixadas por webcard_ (subconjunto exclusivo do visitante, separado do cards_ do agente). Ao alterar uma variável webcard_ (ex.: pelo elemento de definir variável), o cartão já exibido no cliente é atualizado automaticamente.</div>
+<p class="s10"><strong>Disponível em:</strong> Webchat
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"type":0,"cardId":"","dynamicCardVarName":"","nextElementId":""}
+Como se escreve: meu_rotulo: sendInformationCard type=0
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>134</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: sendInformationCard type=0</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>type</code></td><td><code>0 | 1</code></td><td>sim</td><td>Origem do cartão. 0 - Cartão pré cadastrado (informe cardId), 1 - Cartão dinâmico (informe dynamicCardVarName)</td></tr>
+<tr><td><code>cardId</code></td><td><code>string</code></td><td></td><td>ID do cartão de informação pré cadastrado que será enviado ao visitante. Só é utilizado caso type seja 0. Pode-se utilizar variáveis, exemplo: "{{card_id}}"</td></tr>
+<tr><td><code>dynamicCardVarName</code></td><td><code>string</code></td><td></td><td>Nome da variável que contém o objeto (JSON) do cartão dinâmico. Só é utilizado caso type seja 1. A variável deve conter um cartão no formato V2 (structure.version = 1). Exemplo: "{{dynamic_card_var_name}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-addInformationCard">addInformationCard</h3>
+<p>Adiciona um cartão de informações ao atendimento associado ao fluxo.</p>
+<div class="callout info">Cartões de informações são exibidos no painel de atendimento e podem conter informações importantes sobre o atendimento.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"type":0,"cardId":"","dynamicCardVarName":"","sessionId":"","sessionName":"","nextElementId":""}
+Como se escreve: meu_rotulo: addInformationCard type=0 sessionId="..." sessionName="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>70</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: addInformationCard type=0 sessionId="..." sessionName="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>type</code></td><td><code>0 | 1</code></td><td>sim</td><td>Tipo do cartão de informações. 0 - Cartão de informações pré cadastrado, 1 - Cartão de informações dinâmico</td></tr>
+<tr><td><code>cardId</code></td><td><code>string</code></td><td></td><td>ID do cartão de informações pré cadastrado que será exibido. Só é utilizado caso o type seja 0. Pode-se utilizar variáveis no conteúdo, exemplo: "{{card_id}}"</td></tr>
+<tr><td><code>dynamicCardVarName</code></td><td><code>string</code></td><td></td><td>Nome da variável que contém o objeto com as configurações do cartão de informações dinâmico. Só é utilizado caso o type seja 1. Exemplo: "{{dynamic_card_var_name}}". A variável deve conter um objeto JSON com uma estrutura válida de cartão de informações.</td></tr>
+<tr><td><code>sessionId</code></td><td><code>string</code></td><td>sim</td><td>ID da sessão onde o cartão será exibido. Pode-se haver várias sessões com cartões. A sessão serve apenas para organização da exibição dos cartões. Pode-se utilizar variáveis no conteúdo, exemplo: "{{session_id}}"</td></tr>
+<tr><td><code>sessionName</code></td><td><code>string</code></td><td>sim</td><td>Nome da sessão onde o cartão será exibido. Pode-se utilizar variáveis no conteúdo, exemplo: "{{session_name}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-removeInformationCard">removeInformationCard</h3>
+<p>Remove um cartão de informações do atendimento associado ao fluxo.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"cardId":"","sessionId":"","nextElementId":""}
+Como se escreve: meu_rotulo: removeInformationCard cardId="..." sessionId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>71</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: removeInformationCard cardId="..." sessionId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>cardId</code></td><td><code>string</code></td><td>sim</td><td>ID do cartão de informações que será removido. Pode-se utilizar variáveis no conteúdo, exemplo: "{{card_id}}"</td></tr>
+<tr><td><code>sessionId</code></td><td><code>string</code></td><td>sim</td><td>ID da sessão onde o cartão que será removido está. Pode-se utilizar variáveis no conteúdo, exemplo: "{{session_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-addInformationCardToMessage">addInformationCardToMessage</h3>
+<p>Adiciona um cartão de informações a uma mensagem.</p>
+<div class="callout info">Cartões de informações são exibidos no painel de atendimento e podem conter informações importantes sobre o atendimento.<br>Esse elemento associa o cartão de informação a uma mensagem específica, sendo exibido junto a mensagem, ao invés de no painel de cartões.<br>Para cartões de informação associados a mensagens, somente cartões dinâmicos são permitidos.<br>Uma mensagem só pode possuir um único cartão de informação associado, caso um novo cartão seja associado, o anterior é removido.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"messageId":"","dynamicCardVarName":"","nextElementId":""}
+Como se escreve: meu_rotulo: addInformationCardToMessage messageId="..." dynamicCardVarName="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>73</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: addInformationCardToMessage messageId="..." dynamicCardVarName="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>messageId</code></td><td><code>string</code></td><td>sim</td><td>ID da mensagem que terá o cartão de informações associado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{message_id}}"</td></tr>
+<tr><td><code>dynamicCardVarName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável que contém o objeto com as configurações do cartão de informações dinâmico. Exemplo: "{{dynamic_card_var_name}}". A variável deve conter um objeto JSON com uma estrutura válida de cartão de informações.</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-removeInformationCardFromMessage">removeInformationCardFromMessage</h3>
+<p>Remove um cartão de informações associado a uma mensagem.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"messageId":"","nextElementId":""}
+Como se escreve: meu_rotulo: removeInformationCardFromMessage messageId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>74</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: removeInformationCardFromMessage messageId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>messageId</code></td><td><code>string</code></td><td>sim</td><td>ID da mensagem que terá o cartão de informações removido. Pode-se utilizar variáveis no conteúdo, exemplo: "{{message_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-requestPushPermission">requestPushPermission</h3>
+<p>Envia ao visitante do WebChat V2 (type 26) uma MENSAGEM com um botão que abre o diálogo de notificações do cliente, onde ele pode ativar (subscrever) ou desativar as notificações push e escolher receber comunicações de "Relacionamento" (Utilidade) e/ou "Ofertas" (Marketing).</p>
+<div class="callout info">Só funciona em atendimentos de fila WebChat V2 QUE POSSUAM um contato associado — pois a subscrição de push e as preferências são salvas NO CONTATO. Se o fluxo não possuir atendimento associado, o atendimento não for WebChat V2 ou não houver contato associado, o elemento é ignorado e o fluxo segue.<br>O estado da subscrição (aceite) é salvo no campo pushreg do contato; as preferências determinam blockutilitiescampaigns (Relacionamento) e blockmarketingcampaigns (Ofertas).<br>Observação: no iPhone, notificações só funcionam quando o WebChat está instalado como app (PWA) na tela de início.</div>
+<p class="s10"><strong>Disponível em:</strong> Webchat
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"bodyText":"","buttonText":"","nextElementId":""}
+Como se escreve: meu_rotulo: requestPushPermission bodyText="..." buttonText="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>135</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: requestPushPermission bodyText="..." buttonText="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>bodyText</code></td><td><code>string</code></td><td>sim</td><td>Texto exibido no corpo da mensagem, junto ao botão que abre o diálogo de notificações. Pode-se utilizar variáveis no conteúdo, exemplo: "{{body_text}}"</td></tr>
+<tr><td><code>buttonText</code></td><td><code>string</code></td><td>sim</td><td>Texto do botão que abre o diálogo de notificações no WebChat. Pode-se utilizar variáveis no conteúdo, exemplo: "{{button_text}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-generateWebchatMigrationLink">generateWebchatMigrationLink</h3>
+<p>Gera um link EFÊMERO DE USO ÚNICO para MIGRAR o atendimento atual para uma fila WebChat V2 (type 26), e grava a URL gerada numa variável do fluxo. Serve para levar um cliente atendido em outra fila (Cloud API, WAMD, etc.) para o WebChat V2 já reconhecido: quem estiver configurando envia essa URL ao cliente (por mensagem, e-mail, etc.).</p>
+<div class="callout info">Como funciona: o elemento gera um código curto, aleatório e de uso único, vinculado ao UUID imutável do contato associado ao atendimento e à fila WebChat V2 de destino, e monta a URL no formato https://{dominio}/webchat/getv2?q={fila}&amp;k={codigo}. Ao abrir o WebChat V2 por esse link, o cliente resgata o código pelo websocket (uma única vez) e adota o UUID do contato como sua identidade — assim o atendimento de WebChat V2 já nasce vinculado ao contato correto e, nas próximas aberturas do mesmo navegador, continua reconhecido automaticamente.<br>Só age quando o fluxo POSSUI atendimento associado, o atendimento NÃO é WebChat V2 (senão não há o que migrar) e HÁ um contato associado (chat.fk_contact) — caso contrário o elemento é IGNORADO e o fluxo segue normalmente. A fila de destino informada precisa existir e ser do tipo WebChat V2.<br>O código é de USO ÚNICO: se o link for compartilhado, apenas o PRIMEIRO que abrir realiza o vínculo. A chave também expira conforme a validade configurada (ttlMinutes, padrão 60 minutos).<br>Variáveis criadas automaticamente (varName = nome configurado):<br>varName: a URL de migração gerada (string vazia se o elemento foi ignorado ou houve erro)<br>varName + _key: o código curto gerado (string vazia se não gerado)<br>O fluxo sempre segue para o próximo elemento.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"queueId":0,"varName":"webchat_migration_link","ttlMinutes":60,"nextElementId":""}
+Como se escreve: meu_rotulo: generateWebchatMigrationLink queueId=0 varName="webchat_migration_link"
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>136</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: generateWebchatMigrationLink queueId=0 varName="webchat_migration_link"</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>queueId</code></td><td><code>number</code></td><td>sim</td><td>ID da fila WebChat V2 (type 26) de DESTINO para onde o atendimento será migrado. O editor visual usa um seletor de filas WebChat V2. Aceita variável, exemplo: "{{target_queue_id}}"</td></tr>
+<tr><td><code>varName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável (sem chaves) onde a URL de migração gerada será armazenada. Também é criada a variável varName + "_key" com o código curto gerado</td></tr>
+<tr><td><code>ttlMinutes</code></td><td><code>number</code></td><td></td><td>Validade do link em minutos. Número fixo, não aceita variáveis. Mínimo 1; se inválido, assume 60</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h2 id="exemplos-do-grupo">Exemplos de uso</h2>
+<p>Fluxos completos que usam os elementos deste grupo. Cada exemplo foi compilado pelo próprio sistema antes de entrar aqui.</p>
+<h3 id="ex-automacoes-pesquisas-webchat-1">Pesquisa de satisfacao na despedida do atendimento</h3>
+<p>Encerrar o atendimento e enviar ao cliente a pesquisa de satisfacao com um botao de resposta.</p>
+<ol class="steps">
+<li><strong><code>message</code></strong> — agradece o contato e informa que o atendimento foi finalizado.</li>
+<li><strong><code>sendSurveyFormMessage</code></strong> — envia a mensagem de pesquisa vinculada ao atendimento atual, com o botao Responder pesquisa e validade de 7 dias.</li>
+<li><strong><code>terminate</code></strong> — encerra o atendimento.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">despedida: message text="Obrigado pelo contato, {{chat_client_name}}! Seu atendimento {{chat_protocol}} foi finalizado."
+convite: sendSurveyFormMessage surveyId=1 text="Sua opiniao e muito importante para melhorarmos. Pode avaliar o atendimento?" buttonText="Responder pesquisa" expirationDays=7
+fim: terminate reason="Atendimento finalizado com convite de pesquisa"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente ve a mensagem de despedida e, logo abaixo, o cartao da pesquisa com o botao Responder pesquisa.</div>
+<h3 id="ex-automacoes-pesquisas-webchat-2">Link publico de pesquisa, submissao e perguntas ocultas</h3>
+<p>Gerar o link publico da pesquisa, envia-lo ao cliente e registrar/complementar a resposta com dados internos.</p>
+<ol class="steps">
+<li><strong><code>message</code></strong> — avisa que vai gerar o link da pesquisa.</li>
+<li><strong><code>generateSurveyFormLink</code></strong> — gera a URL publica da pesquisa publicada e grava em survey_form_link, vinculando o atendimento ({{chat_id}}) e a fila ({{chat_fila}}).</li>
+<li><strong><code>message</code></strong> — envia o link ao cliente.</li>
+<li><strong><code>submitSurveyFormResponse</code></strong> — registra a resposta direto pelo fluxo, mapeando as perguntas 12 e 13, sem o cliente abrir o link.</li>
+<li><strong><code>editSurveyFormResponse</code></strong> — preenche as perguntas ocultas (nota interna 21 e classificacao 22) da resposta recem-criada.</li>
+<li><strong><code>terminate</code></strong> — encerra o atendimento.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">inicio: message text="Vou gerar o link da sua pesquisa de satisfacao."
+gera: generateSurveyFormLink surveyId=1 varName="survey_form_link" expirationDays=7 chatIdVar="{{chat_id}}" queueIdVar="{{chat_fila}}"
+envia: message text="Responda a pesquisa por este link: {{survey_form_link}}"
+registra: submitSurveyFormResponse surveyId=1 bindings=[{"fk_question":12,"varExpr":"5"},{"fk_question":13,"varExpr":"Atendimento rapido e resolutivo"}] resultVarName="pesquisa_ok" chatIdVar="{{chat_id}}" queueIdVar="{{chat_fila}}"
+ocultas: editSurveyFormResponse responseIdVar="{{pesquisa_ok_response_id}}" bindings=[{"fk_question":21,"valueExpr":"10"},{"fk_question":22,"valueExpr":"Resolvido no primeiro contato"}]
+fim: terminate reason="Pesquisa enviada e registrada"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente recebe o link publico; a resposta e registrada e as perguntas ocultas (nota interna e classificacao) ficam preenchidas para o time.</div>
+<h3 id="ex-automacoes-pesquisas-webchat-3">Formulario personalizado e fluxo de formularios multi-etapas</h3>
+<p>Enviar ao visitante do WebChat um formulario personalizado e um fluxo multi-etapas, e apoiar o atendente com formularios.</p>
+<ol class="steps">
+<li><strong><code>message</code></strong> — abre a conversa pedindo a atualizacao do cadastro.</li>
+<li><strong><code>sendForm</code></strong> — envia um formulario personalizado ao visitante, com o telefone ja pre-preenchido.</li>
+<li><strong><code>sendFormFlow</code></strong> — envia um fluxo de formularios multi-etapas para completar os dados.</li>
+<li><strong><code>showFormSync</code></strong> — exibe ao atendente o formulario de conferencia e aguarda o preenchimento (ate 300s), gravando o resultado em dados_conferidos.</li>
+<li><strong><code>showForm</code></strong> — mostra ao atendente o fluxo de formularios pre-cadastrado para o ajuste final.</li>
+<li><strong><code>message</code></strong> — agradece e confirma o registro.</li>
+<li><strong><code>terminate</code></strong> — encerra o atendimento.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">abre: message text="Vamos atualizar seu cadastro, {{chat_client_name}}."
+form: sendForm formId=1 bodyText="Toque no botao para preencher seus dados." buttonText="Abrir formulario" headerText="Atualizacao de cadastro" footerText="Leva menos de 1 minuto" preFilledData.telefone="{{chat_client_number}}"
+etapas: sendFormFlow flowId=1 bodyText="Agora complete as etapas restantes." buttonText="Continuar"
+confere: showFormSync type=0 formId=2 resultVariableName="dados_conferidos" timeout=300
+painel: showForm type=2 flowId=1 preFilledData.protocolo="{{chat_protocol}}"
+avisa: message text="Obrigado! Registramos suas informacoes."
+fim: terminate reason="Cadastro atualizado"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O visitante preenche o formulario e o fluxo multi-etapas; o atendente confere os dados num formulario antes de finalizar.</div>
+<h3 id="ex-automacoes-pesquisas-webchat-4">Cartao de informacao exibido e depois removido</h3>
+<p>Abrir um cartao de informacao para o atendimento, anexa-lo a uma mensagem e remove-lo em seguida.</p>
+<ol class="steps">
+<li><strong><code>addInformationCard</code></strong> — adiciona a lateral do atendimento o cartao Resumo do pedido.</li>
+<li><strong><code>sendInformationCard</code></strong> — envia a mensagem de cartao de informacao ao visitante do WebChat V2.</li>
+<li><strong><code>message</code></strong> — orienta o cliente a conferir o cartao.</li>
+<li><strong><code>showInformationDialog</code></strong> — avisa o atendente (sem esperar resposta) de que o cartao foi exibido.</li>
+<li><strong><code>addInformationCardToMessage</code></strong> — anexa um cartao dinamico a mensagem do atendimento.</li>
+<li><strong><code>removeInformationCardFromMessage</code></strong> — remove o cartao anexado aquela mensagem.</li>
+<li><strong><code>removeInformationCard</code></strong> — remove o cartao da lateral do atendimento.</li>
+<li><strong><code>terminate</code></strong> — encerra o atendimento.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">prepara: addInformationCard type=0 cardId="resumo_pedido" sessionId="{{chat_id}}" sessionName="Resumo do pedido"
+mostra: sendInformationCard type=0 cardId="resumo_pedido"
+contexto: message text="Confira o resumo do seu pedido no cartao ao lado."
+avisaAgente: showInformationDialog title="Cartao exibido" text="O cartao Resumo do pedido foi aberto para o atendimento {{chat_protocol}}."
+anexa: addInformationCardToMessage messageId="{{chat_id}}" dynamicCardVarName="{{dynamic_card_data}}"
+desanexa: removeInformationCardFromMessage messageId="{{chat_id}}"
+remove: removeInformationCard cardId="resumo_pedido" sessionId="{{chat_id}}"
+fim: terminate reason="Cartao exibido e removido"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente ve o cartao ao lado da conversa e o atendente recebe o aviso; ao final o cartao e a anexacao sao removidos.</div>
+<h3 id="ex-automacoes-pesquisas-webchat-5">WebChat V2: notificacoes push, migracao e confirmacao do atendente</h3>
+<p>Pedir permissao de notificacao push, gerar o link de migracao para o WebChat V2 e confirmar o encerramento com o atendente.</p>
+<ol class="steps">
+<li><strong><code>requestPushPermission</code></strong> — envia ao visitante um botao que abre o dialogo de notificacoes (Relacionamento e Ofertas).</li>
+<li><strong><code>generateWebchatMigrationLink</code></strong> — gera um link efemero de uso unico para migrar o atendimento para a fila WebChat V2 e grava em webchat_migration_link (validade 60 min).</li>
+<li><strong><code>message</code></strong> — envia o link de migracao ao cliente.</li>
+<li><strong><code>showConfirmationDialogSync</code></strong> — pergunta ao atendente se pode encerrar e grava a resposta em migracao_confirmada.</li>
+<li><strong><code>terminate</code></strong> — encerra o atendimento.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">push: requestPushPermission bodyText="Quer receber o andamento do seu pedido por notificacao?" buttonText="Ativar notificacoes"
+gera: generateWebchatMigrationLink queueId=26 varName="webchat_migration_link" ttlMinutes=60
+envia: message text="Continue seu atendimento pelo nosso WebChat: {{webchat_migration_link}}"
+confirma: showConfirmationDialogSync title="Confirmar migracao" text="O cliente foi convidado a migrar para o WebChat V2. Podemos encerrar este atendimento?" cancelButtonText="Nao" confirmButtonText="Sim" confirmButtonColor="success" resultVariableName="migracao_confirmada" timeout=300
+fim: terminate reason="Convidado a migrar para o WebChat V2"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O visitante ativa (ou nao) as notificacoes, recebe o link de migracao e o atendente confirma o encerramento.</div>
+
+  <div class="pagenav">
+    <a href="automacoes-elementos.html"><span>←</span> Catálogo de elementos</a>
+    <a class="next" href="automacoes-exemplos.html"><span>Ver também →</span> Exemplos prontos</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

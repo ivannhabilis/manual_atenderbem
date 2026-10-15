@@ -1,0 +1,8 @@
+abre_confirmacao: sendTemplate templateId=0
+aguarda_cliente: waitMessage
+pede_localizacao: requestLocation text="Para calcular o frete, toque em Anexar e compartilhe sua localização."
+form_endereco: sendFlow flowId="flow-endereco-entrega" initialScreenId="ENDERECO_ENTREGA" headerText="Dados de entrega" bodyText="Confirme o endereço de entrega do pedido {{chat_protocol}}." footerText="Leva menos de um minuto." btnText="Preencher endereço"
+limpa_dados_flow: clearFlowDataFromMessage
+confirma_recebimento: message text="Prontinho, {{chat_client_name}}! Recebemos seus dados com segurança e o frete já vai ser calculado."
+confirma_por_email: sendMail mailQueueId="fila-email-transacional" modelId="modelo-endereco-confirmado" mails="{{chat_client_email}}"
+fim_endereco: terminate reason="Endereço coletado pelo Whatsapp Flow"

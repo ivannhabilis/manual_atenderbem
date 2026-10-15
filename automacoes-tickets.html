@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tickets (mesa de ajuda) — Manual Omnichannel</title>
+<meta name="description" content="Abrir, classificar, escalar e resolver tickets por fluxo. (14 elementos)">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a class="active" href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="automacoes-elementos.html">Automações e URA</a> &rsaquo; Tickets (mesa de ajuda)</div>
+
+  <h1>Tickets (mesa de ajuda)</h1>
+  <p class="subtitle">Abrir, classificar, escalar e resolver tickets por fluxo. (14 elementos)</p>
+
+<p>Abrir, classificar, escalar e resolver tickets por fluxo.</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Elemento</th><th>O que faz</th></tr></thead><tbody>
+<tr><td><a href="#el-addTicket">addTicket</a></td><td>Cria um novo ticket no sistema de tickets, com status Aberto.</td></tr>
+<tr><td><a href="#el-editTicket">editTicket</a></td><td>Edita os campos de um ticket existente a partir do seu ID. Podem ser alterados o assunto, a prioridade e o sub-motivo, além de adicionar eti</td></tr>
+<tr><td><a href="#el-searchTicket">searchTicket</a></td><td>Busca tickets no sistema de tickets. A busca pode ser feita por ID ou número do ticket (busca direta), ou por telefone ou e-mail (busca os c</td></tr>
+<tr><td><a href="#el-resolveTicket">resolveTicket</a></td><td>Marca um ticket como resolvido a partir do seu ID. O ticket tem seu status alterado para Resolvido, a data de resolução registrada e o cumpr</td></tr>
+<tr><td><a href="#el-reopenTicket">reopenTicket</a></td><td>Reabre um ticket resolvido a partir do seu ID. O ticket volta ao status Aberto e o prazo de SLA é recalculado com base no tempo que restava </td></tr>
+<tr><td><a href="#el-assignTicket">assignTicket</a></td><td>Atribui um ticket a um responsável a partir do seu ID. A atribuição pode ser direta para um agente específico (assignType 1) ou por distribu</td></tr>
+<tr><td><a href="#el-escalateTicket">escalateTicket</a></td><td>Escala um ticket para o próximo nível de atendimento a partir do seu ID. O ticket é movido para uma fila ativa do próximo nível de escalonam</td></tr>
+<tr><td><a href="#el-contactClientTicket">contactClientTicket</a></td><td>Move um ticket para o status "Aguardando cliente" (3), a partir do ID do ticket. Opcionalmente registra um comentário público no ticket info</td></tr>
+<tr><td><a href="#el-addCommentTicket">addCommentTicket</a></td><td>Adiciona um comentário a um ticket, a partir do ID do ticket. O comentário pode ser externo (público, dispara o evento "commented", que pode</td></tr>
+<tr><td><a href="#el-linkContactTicket">linkContactTicket</a></td><td>Vincula um contato a um ticket existente, a partir do ID do ticket. O contato pode ser o contato associado ao atendimento atual ou um contat</td></tr>
+<tr><td><a href="#el-unlinkContactTicket">unlinkContactTicket</a></td><td>Remove a vinculação entre um contato e um ticket, a partir do ID do ticket. O contato pode ser o contato associado ao atendimento atual ou u</td></tr>
+<tr><td><a href="#el-changeStatusTicket">changeStatusTicket</a></td><td>Altera o status de um ticket, a partir do ID do ticket. Aceita apenas os status 1 (Aberto), 2 (Em andamento), 4 (Resolvido) e 6 (Aguardando </td></tr>
+<tr><td><a href="#el-addTagTicket">addTagTicket</a></td><td>Adiciona uma tag previamente cadastrada no sistema a um ticket existente, a partir do ID do ticket e do ID da tag.</td></tr>
+<tr><td><a href="#el-changeStageTicket">changeStageTicket</a></td><td>Altera o estágio de um ticket, a partir do ID do ticket e do ID do novo estágio. A transição do estágio atual para o novo precisa estar perm</td></tr>
+</tbody></table></div>
+<h3 id="el-addTicket">addTicket</h3>
+<p>Cria um novo ticket no sistema de tickets, com status Aberto.</p>
+<div class="callout info">A fila do ticket é resolvida automaticamente a partir do motivo (reasonId), percorrendo a cadeia de escalonamento de níveis de atendimento (N1 → N2 → N3...). Se a classificação (classificationId) não for informada, ela é obtida automaticamente a partir do motivo configurado no sistema. Os prazos de SLA são calculados automaticamente conforme o motivo e a fila.<br>Opcionalmente o ticket pode ser vinculado ao contato do atendimento atual e/ou associado ao atendimento (chat) atual, além de receber etiquetas (tags).<br>Se resultVariableName for informado, é criada uma variável com esse nome contendo um objeto com os dados do ticket criado, com as propriedades: ticket_id, ticket_number, ticket_subject, ticket_description, ticket_status, ticket_priority, ticket_channel, ticket_classification, ticket_classification_id, ticket_reason, ticket_sub_reason, ticket_queue_code, ticket_agent_id, ticket_agent_name, ticket_created_at, ticket_sla_deadline, ticket_queue_sla_deadline, ticket_is_sla_met, ticket_first_response_at, ticket_resolved_at, ticket_tracking_url, ticket_contacts, ticket_contacts_count, ticket_supervisors, ticket_supervisors_count, ticket_stage_id, ticket_stage_name, ticket_stage_color, ticket_stage_flow_id, ticket_stage_is_initial e ticket_stage_is_final.<br>Em caso de erro (ex: motivo inválido, sem fila correspondente), o ticket não é criado e o fluxo segue normalmente para o próximo elemento.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticket":{"subject":{"content":""},"description":{"content":""},"associateToCurrentContact":{"content":false},"associateToCurrentChat":{"content":false}},"classificationId":"","reasonId":"","resultVariableName":"","nextElementId":""}
+Como se escreve: meu_rotulo: addTicket ticket={...} reasonId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>111</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: addTicket ticket={...} reasonId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>ticket</code></td><td><code>AddTicketTicketConfig</code></td><td>sim</td><td>Dados do ticket que será criado</td></tr>
+<tr><td><code>classificationId</code></td><td><code>string</code></td><td></td><td>ID da classificação do ticket. Se vazio, a classificação será obtida automaticamente a partir do motivo configurado no sistema. Pode-se utilizar variáveis no conteúdo, exemplo: "{{classification_id}}"</td></tr>
+<tr><td><code>reasonId</code></td><td><code>string</code></td><td>sim</td><td>ID do motivo do ticket. A fila do ticket é resolvida automaticamente a partir do motivo, percorrendo a cadeia de escalonamento de níveis. Se o motivo não resolver uma fila válida, o ticket não será criado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{reason_id}}"</td></tr>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td></td><td>Nome da variável que receberá um objeto com os dados do ticket criado. Adicionar somente o nome da variável, sem chaves. Exemplo: "novo_ticket"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+<tr><td><code>subject</code></td><td><code>{ content: string }</code></td><td>sim</td><td>Assunto do ticket. Pode-se utilizar variáveis no conteúdo, exemplo: "Solicitação de {{chat_client_name}}"</td></tr>
+<tr><td><code>description</code></td><td><code>{ content: string }</code></td><td></td><td>Descrição do ticket. Pode-se utilizar variáveis no conteúdo, exemplo: "{{descricao_problema}}"</td></tr>
+<tr><td><code>associateToCurrentContact</code></td><td><code>{ content: boolean }</code></td><td></td><td>Se true, o contato do atendimento atual será vinculado ao ticket criado. Só tem efeito se houver um atendimento com contato associado ao fluxo.</td></tr>
+<tr><td><code>associateToCurrentChat</code></td><td><code>{ content: boolean }</code></td><td></td><td>Se true, o ticket criado será associado ao atendimento (chat) atual. Só tem efeito se houver um atendimento associado ao fluxo.</td></tr>
+</tbody></table></div>
+<h3 id="el-editTicket">editTicket</h3>
+<p>Edita os campos de um ticket existente a partir do seu ID. Podem ser alterados o assunto, a prioridade e o sub-motivo, além de adicionar etiquetas (tags) ao ticket.</p>
+<div class="callout info">Campos vazios são ignorados e não alteram o ticket. As tags informadas são adicionadas às já existentes, sem remover as anteriores.<br>Se o ticket não for encontrado, nenhuma alteração é feita e o fluxo segue normalmente para o próximo elemento.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","ticket":{"priority":{"content":""},"subReasonId":{"content":""},"tags":{"content":""}},"nextElementId":""}
+Como se escreve: meu_rotulo: editTicket ticketId="..." ticket={...}
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>112</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: editTicket ticketId="..." ticket={...}</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>ticketId</code></td><td><code>string</code></td><td>sim</td><td>ID do ticket que será editado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{ticket_id}}"</td></tr>
+<tr><td><code>ticket</code></td><td><code>EditTicketTicketConfig</code></td><td>sim</td><td>Campos do ticket que serão editados. Campos vazios serão ignorados e não alterarão o ticket.</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+<tr><td><code>content</code></td><td><code>string }</code></td><td></td><td>Novo assunto do ticket. Campo opcional (o editor visual ainda não o expõe). Pode-se utilizar variáveis no conteúdo, exemplo: "{{novo_assunto}}". Vazio = não alterar.</td></tr>
+<tr><td><code>priority</code></td><td><code>{ content: string }</code></td><td></td><td>Nova prioridade do ticket. 1 - Baixa, 2 - Média, 3 - Alta, 4 - Urgente. Pode-se utilizar variáveis no conteúdo, exemplo: "{{prioridade}}". Vazio = não alterar.</td></tr>
+<tr><td><code>subReasonId</code></td><td><code>{ content: string }</code></td><td></td><td>ID do novo sub-motivo do ticket. Pode-se utilizar variáveis no conteúdo, exemplo: "{{sub_reason_id}}". Vazio = não alterar.</td></tr>
+</tbody></table></div>
+<h3 id="el-searchTicket">searchTicket</h3>
+<p>Busca tickets no sistema de tickets. A busca pode ser feita por ID ou número do ticket (busca direta), ou por telefone ou e-mail (busca os contatos correspondentes e retorna os tickets vinculados a eles).</p>
+<div class="callout info">Opcionalmente o resultado pode ser filtrado por classificação e os tickets encontrados podem ser associados ao atendimento (chat) atual.<br>As seguintes variáveis são criadas automaticamente:<br>resultVariableName + _list: Lista com os tickets encontrados. Cada item é um objeto com os dados do ticket (ticket_id, ticket_number, ticket_subject, ticket_description, ticket_status, ticket_priority, ticket_classification, ticket_classification_id, ticket_reason, ticket_sub_reason, ticket_queue_code, ticket_agent_id, ticket_agent_name, ticket_tracking_url, ticket_contacts, ticket_supervisors, entre outras). Exemplo de nome final da variável: "tickets_result_list"<br>resultVariableName + _count: Quantidade de tickets encontrados. Exemplo de nome final da variável: "tickets_result_count"<br>Se a configuração da busca for inválida ou nenhum ticket for encontrado, o fluxo segue normalmente para o próximo elemento (com a lista vazia quando aplicável).</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"searchField":"id","searchValue":"","classificationId":"","associateToCurrentChat":false,"resultVariableName":"","nextElementId":""}
+Como se escreve: meu_rotulo: searchTicket searchField="id" searchValue="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>113</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: searchTicket searchField="id" searchValue="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>searchField</code></td><td><code>"id" | "number" | "phone" | "email"</code></td><td>sim</td><td>Campo que será utilizado para buscar os tickets. "id" e "number" buscam o ticket diretamente; "phone" e "email" buscam os contatos correspondentes e retornam os tickets vinculados a eles.</td></tr>
+<tr><td><code>searchValue</code></td><td><code>string</code></td><td>sim</td><td>Valor que será utilizado na busca. Pode-se utilizar variáveis no conteúdo, exemplo: "{{ticket_id}}" ou "{{chat_client_number}}"</td></tr>
+<tr><td><code>classificationId</code></td><td><code>string</code></td><td></td><td>ID de classificação para filtrar os resultados. Se preenchido, somente tickets dessa classificação serão retornados. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>associateToCurrentChat</code></td><td><code>boolean</code></td><td></td><td>Se true, os tickets encontrados serão associados ao atendimento (chat) atual</td></tr>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td></td><td>Prefixo das variáveis que receberão o resultado da busca. Adicionar somente o nome da variável, sem chaves. Exemplo: "tickets_result"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-resolveTicket">resolveTicket</h3>
+<p>Marca um ticket como resolvido a partir do seu ID. O ticket tem seu status alterado para Resolvido, a data de resolução registrada e o cumprimento do SLA calculado.</p>
+<div class="callout info">Opcionalmente um comentário (externo ou interno) pode ser adicionado ao ticket antes da resolução.<br>Se o ticket não for encontrado, nada acontece e o fluxo segue normalmente para o próximo elemento.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","comment":"","commentType":0,"nextElementId":""}
+Como se escreve: meu_rotulo: resolveTicket ticketId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>114</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: resolveTicket ticketId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>ticketId</code></td><td><code>string</code></td><td>sim</td><td>ID do ticket que será resolvido. Pode-se utilizar variáveis no conteúdo, exemplo: "{{ticket_id}}"</td></tr>
+<tr><td><code>comment</code></td><td><code>string</code></td><td></td><td>Comentário que será adicionado ao ticket antes de resolvê-lo. Pode ser obrigatório caso a configuração do sistema de tickets exija comentário ao finalizar. Pode-se utilizar variáveis no conteúdo, exemplo: "Resolvido automaticamente: {{motivo}}"</td></tr>
+<tr><td><code>commentType</code></td><td><code>0 | 1</code></td><td></td><td>Tipo do comentário. 0 - Externo (visível para o cliente), 1 - Interno (visível somente para a equipe)</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-reopenTicket">reopenTicket</h3>
+<p>Reabre um ticket resolvido a partir do seu ID. O ticket volta ao status Aberto e o prazo de SLA é recalculado com base no tempo que restava no momento da resolução.</p>
+<div class="callout info">Opcionalmente um comentário externo com o motivo da reabertura pode ser adicionado ao ticket antes da reabertura.<br>Se o ticket não for encontrado, nada acontece e o fluxo segue normalmente para o próximo elemento.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","comment":"","nextElementId":""}
+Como se escreve: meu_rotulo: reopenTicket ticketId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>115</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: reopenTicket ticketId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>ticketId</code></td><td><code>string</code></td><td>sim</td><td>ID do ticket que será reaberto. Pode-se utilizar variáveis no conteúdo, exemplo: "{{ticket_id}}"</td></tr>
+<tr><td><code>comment</code></td><td><code>string</code></td><td></td><td>Comentário externo com o motivo da reabertura, adicionado ao ticket antes de reabri-lo. Pode-se utilizar variáveis no conteúdo, exemplo: "Reaberto a pedido de {{chat_client_name}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-assignTicket">assignTicket</h3>
+<p>Atribui um ticket a um responsável a partir do seu ID. A atribuição pode ser direta para um agente específico (assignType 1) ou por distribuição automática (assignType 0), que segue o método de distribuição configurado na fila do ticket.</p>
+<div class="callout info">Se o ticket não for encontrado, ou se o agente informado não existir, nenhuma atribuição é feita e o fluxo segue normalmente para o próximo elemento.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","assignType":0,"userId":"","nextElementId":""}
+Como se escreve: meu_rotulo: assignTicket ticketId="..." assignType=0
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>116</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: assignTicket ticketId="..." assignType=0</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>ticketId</code></td><td><code>string</code></td><td>sim</td><td>ID do ticket que será atribuído. Pode-se utilizar variáveis no conteúdo, exemplo: "{{ticket_id}}"</td></tr>
+<tr><td><code>assignType</code></td><td><code>0 | 1</code></td><td>sim</td><td>Tipo de atribuição. 0 - Distribuição automática conforme o método de distribuição configurado na fila do ticket, 1 - Atribuição direta a um agente específico</td></tr>
+<tr><td><code>userId</code></td><td><code>string</code></td><td></td><td>ID do agente que receberá o ticket. Só é utilizado caso o assignType seja 1. Se o agente não for encontrado, nenhuma atribuição será feita. Pode-se utilizar variáveis no conteúdo, exemplo: "{{user_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-escalateTicket">escalateTicket</h3>
+<p>Escala um ticket para o próximo nível de atendimento a partir do seu ID. O ticket é movido para uma fila ativa do próximo nível de escalonamento com o mesmo motivo, perde o agente responsável atual, volta ao status Aberto, tem o SLA da fila recalculado e é distribuído automaticamente na nova fila.</p>
+<div class="callout info">Opcionalmente um comentário externo pode ser adicionado ao ticket antes da escalação.<br>Se não houver próximo nível de escalonamento configurado, se não existir fila ativa no próximo nível para o motivo do ticket, ou se o ticket não for encontrado, nada acontece e o fluxo segue normalmente para o próximo elemento.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","comment":"","nextElementId":""}
+Como se escreve: meu_rotulo: escalateTicket ticketId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>117</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: escalateTicket ticketId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>ticketId</code></td><td><code>string</code></td><td>sim</td><td>ID do ticket que será escalado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{ticket_id}}"</td></tr>
+<tr><td><code>comment</code></td><td><code>string</code></td><td></td><td>Comentário externo que será adicionado ao ticket antes de escalá-lo. Pode-se utilizar variáveis no conteúdo, exemplo: "Escalado automaticamente para o próximo nível"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-contactClientTicket">contactClientTicket</h3>
+<p>Move um ticket para o status "Aguardando cliente" (3), a partir do ID do ticket. Opcionalmente registra um comentário público no ticket informando o que está sendo solicitado ao cliente. Enquanto o ticket permanece aguardando cliente, a contagem de SLA fica pausada (o tempo pausado é descontado quando o ticket sai desse status).</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","comment":"","nextElementId":""}
+Como se escreve: meu_rotulo: contactClientTicket ticketId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>118</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: contactClientTicket ticketId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>ticketId</code></td><td><code>string</code></td><td>sim</td><td>ID do ticket que será movido para "Aguardando cliente". Pode-se utilizar variáveis no conteúdo, exemplo: "{{ticket_id}}"</td></tr>
+<tr><td><code>comment</code></td><td><code>string</code></td><td></td><td>Comentário público registrado no ticket ao movê-lo para aguardando cliente, informando ao cliente o que está sendo solicitado. Recomendado preencher; se vazio, apenas o status é alterado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{mensagem}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-addCommentTicket">addCommentTicket</h3>
+<p>Adiciona um comentário a um ticket, a partir do ID do ticket. O comentário pode ser externo (público, dispara o evento "commented", que pode acionar automações) ou interno (visível somente para a equipe, não dispara eventos).</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","content":"","type":0,"nextElementId":""}
+Como se escreve: meu_rotulo: addCommentTicket ticketId="..." content="..." type=0
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>119</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: addCommentTicket ticketId="..." content="..." type=0</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>ticketId</code></td><td><code>string</code></td><td>sim</td><td>ID do ticket que receberá o comentário. Pode-se utilizar variáveis no conteúdo, exemplo: "{{ticket_id}}"</td></tr>
+<tr><td><code>content</code></td><td><code>string</code></td><td>sim</td><td>Conteúdo do comentário. Pode-se utilizar variáveis no conteúdo, exemplo: "{{comentario}}"</td></tr>
+<tr><td><code>type</code></td><td><code>0 | 1</code></td><td>sim</td><td>Tipo do comentário. 0 - Externo (público, dispara o evento "commented" para automações), 1 - Interno (visível somente para a equipe). Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-linkContactTicket">linkContactTicket</h3>
+<p>Vincula um contato a um ticket existente, a partir do ID do ticket. O contato pode ser o contato associado ao atendimento atual ou um contato específico informado por ID.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","associateToCurrentContact":true,"contactId":"","nextElementId":""}
+Como se escreve: meu_rotulo: linkContactTicket ticketId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>120</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: linkContactTicket ticketId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>ticketId</code></td><td><code>string</code></td><td>sim</td><td>ID do ticket ao qual o contato será vinculado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{ticket_id}}"</td></tr>
+<tr><td><code>associateToCurrentContact</code></td><td><code>boolean</code></td><td></td><td>Se true, vincula o contato associado ao atendimento (chat) atual, ignorando o campo contactId.</td></tr>
+<tr><td><code>contactId</code></td><td><code>string</code></td><td></td><td>ID do contato que será vinculado ao ticket. Obrigatório quando associateToCurrentContact for false. Pode-se utilizar variáveis no conteúdo, exemplo: "{{contact_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-unlinkContactTicket">unlinkContactTicket</h3>
+<p>Remove a vinculação entre um contato e um ticket, a partir do ID do ticket. O contato pode ser o contato associado ao atendimento atual ou um contato específico informado por ID.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","associateToCurrentContact":false,"contactId":"","nextElementId":""}
+Como se escreve: meu_rotulo: unlinkContactTicket ticketId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>121</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: unlinkContactTicket ticketId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>ticketId</code></td><td><code>string</code></td><td>sim</td><td>ID do ticket do qual o contato será desvinculado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{ticket_id}}"</td></tr>
+<tr><td><code>associateToCurrentContact</code></td><td><code>boolean</code></td><td></td><td>Se true, desvincula o contato associado ao atendimento (chat) atual, ignorando o campo contactId.</td></tr>
+<tr><td><code>contactId</code></td><td><code>string</code></td><td></td><td>ID do contato que será desvinculado do ticket. Obrigatório quando associateToCurrentContact for false. Pode-se utilizar variáveis no conteúdo, exemplo: "{{contact_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-changeStatusTicket">changeStatusTicket</h3>
+<p>Altera o status de um ticket, a partir do ID do ticket. Aceita apenas os status 1 (Aberto), 2 (Em andamento), 4 (Resolvido) e 6 (Aguardando recurso); outros valores são ignorados. Para mover o ticket para "Aguardando cliente" (status 3) deve-se utilizar o elemento contactClientTicket, que registra comentário. A alteração dispara o evento "statusChanged", que pode acionar automações.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","newStatus":"","nextElementId":""}
+Como se escreve: meu_rotulo: changeStatusTicket ticketId="..." newStatus="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>122</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: changeStatusTicket ticketId="..." newStatus="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>ticketId</code></td><td><code>string</code></td><td>sim</td><td>ID do ticket que terá o status alterado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{ticket_id}}"</td></tr>
+<tr><td><code>newStatus</code></td><td><code>string</code></td><td>sim</td><td>Novo status do ticket. Valores aceitos: "1" (Aberto), "2" (Em andamento), "4" (Resolvido) ou "6" (Aguardando recurso); outros valores são ignorados. Para "Aguardando cliente" (3) utilize o elemento contactClientTicket. Pode-se utilizar variáveis no conteúdo, exemplo: "{{novo_status}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-addTagTicket">addTagTicket</h3>
+<p>Adiciona uma tag previamente cadastrada no sistema a um ticket existente, a partir do ID do ticket e do ID da tag.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","tagId":"","nextElementId":""}
+Como se escreve: meu_rotulo: addTagTicket ticketId="..." tagId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>123</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: addTagTicket ticketId="..." tagId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>ticketId</code></td><td><code>string</code></td><td>sim</td><td>ID do ticket que receberá a tag. Pode-se utilizar variáveis no conteúdo, exemplo: "{{ticket_id}}"</td></tr>
+<tr><td><code>tagId</code></td><td><code>string</code></td><td>sim</td><td>ID da tag, previamente cadastrada no sistema, que será adicionada ao ticket. Pode-se utilizar variáveis no conteúdo, exemplo: "{{tag_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-changeStageTicket">changeStageTicket</h3>
+<p>Altera o estágio de um ticket, a partir do ID do ticket e do ID do novo estágio. A transição do estágio atual para o novo precisa estar permitida no fluxo de estágios configurado no sistema; caso contrário a alteração falha e o fluxo apenas segue para o próximo elemento. A alteração dispara o evento "stageChanged" (ou "stageFinal", quando o novo estágio é final), que pode acionar automações.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"ticketId":"","newStageId":"","nextElementId":""}
+Como se escreve: meu_rotulo: changeStageTicket ticketId="..." newStageId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>124</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: changeStageTicket ticketId="..." newStageId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>ticketId</code></td><td><code>string</code></td><td>sim</td><td>ID do ticket que terá o estágio alterado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{ticket_id}}"</td></tr>
+<tr><td><code>newStageId</code></td><td><code>string</code></td><td>sim</td><td>ID do novo estágio do ticket. O ID pode ser encontrado na tela de configuração de estágios. A transição do estágio atual para o novo deve ser permitida no fluxo de estágios. Pode-se utilizar variáveis no conteúdo, exemplo: "{{stage_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h2 id="exemplos-do-grupo">Exemplos de uso</h2>
+<p>Fluxos completos que usam os elementos deste grupo. Cada exemplo foi compilado pelo próprio sistema antes de entrar aqui.</p>
+<h3 id="ex-automacoes-tickets-1">Abertura automatica de ticket pelo chat com vinculo do contato</h3>
+<p>Registrar um ticket a partir da conversa, vincular o contato do atendimento e distribuir automaticamente.</p>
+<ol class="steps">
+<li><strong><code>message</code></strong> — da boas-vindas ao cliente pelo nome do atendimento</li>
+<li><strong><code>question</code></strong> — pergunta o que esta acontecendo e guarda o relato em descricao_problema</li>
+<li><strong><code>addTicket</code></strong> — cria o ticket com assunto e descricao, vincula ao contato e ao atendimento atuais e devolve o objeto em ticket_novo</li>
+<li><strong><code>linkContactTicket</code></strong> — confirma o vinculo do contato do atendimento ao ticket criado</li>
+<li><strong><code>addTagTicket</code></strong> — marca o ticket com a etiqueta de origem (atendimento no chat)</li>
+<li><strong><code>assignTicket</code></strong> — distribui o ticket pela regra automatica da fila (assignType=0)</li>
+<li><strong><code>message</code></strong> — informa ao cliente o numero do ticket aberto</li>
+<li><strong><code>terminate</code></strong> — encerra a cadeia do fluxo</li>
+</ol>
+<div class="table-wrap"><pre class="flow">boas_vindas: message text="Ola {{chat_client_name}}! Vou registrar seu atendimento."
+pergunta: question varName="descricao_problema" text="Descreva rapidamente o que esta acontecendo"
+abre_ticket: addTicket ticket.subject.content="Solicitacao de {{chat_client_name}}" ticket.description.content="{{descricao_problema}}" ticket.associateToCurrentContact.content=true ticket.associateToCurrentChat.content=true reasonId="{{reason_id}}" resultVariableName="ticket_novo"
+vincula: linkContactTicket ticketId="{{ticket_novo.ticket_id}}" associateToCurrentContact=true
+etiqueta: addTagTicket ticketId="{{ticket_novo.ticket_id}}" tagId="12"
+distribui: assignTicket ticketId="{{ticket_novo.ticket_id}}" assignType=0
+confirma: message text="Pronto! Seu ticket {{ticket_novo.ticket_number}} foi aberto e ja esta na fila de atendimento."
+fim: terminate</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente sai do chat com um numero de ticket e a equipe recebe o ticket na fila correta, ligado ao contato.</div>
+<h3 id="ex-automacoes-tickets-2">Escalonamento por SLA com prioridade, status e comentario interno</h3>
+<p>Buscar o ticket do atendimento; se existir e houver risco de estouro de SLA, prioriza, comenta internamente e escala; se nao existir, abre um.</p>
+<ol class="steps">
+<li><strong><code>searchTicket</code></strong> — busca o ticket pelo numero do protocolo do atendimento e grava a lista e a contagem em ticket_buscado</li>
+<li><strong><code>varCondition</code></strong> — decide pelos ramos conforme a quantidade de tickets encontrados (ticket_buscado_count)</li>
+<li><strong><code>editTicket</code></strong> — sobe a prioridade para 4 (Urgente) e adiciona as etiquetas do caso</li>
+<li><strong><code>changeStatusTicket</code></strong> — move o ticket para Em andamento (newStatus=2)</li>
+<li><strong><code>addCommentTicket</code></strong> — registra um comentario interno (type=1) explicando o escalonamento</li>
+<li><strong><code>escalateTicket</code></strong> — escala o ticket ao proximo nivel com o mesmo motivo, recalculando o SLA da nova fila</li>
+<li><strong><code>assignTicket</code></strong> — no ramo alternativo, distribui o ticket novo pela regra da fila</li>
+<li><strong><code>message</code></strong> — avisa o cliente do encaminhamento e o numero do ticket</li>
+<li><strong><code>terminate</code></strong> — encerra cada ramo do fluxo</li>
+</ol>
+<div class="table-wrap"><pre class="flow">busca_ticket: searchTicket searchField="number" searchValue="{{chat_protocol}}" associateToCurrentChat=true resultVariableName="ticket_buscado"
+checa: varCondition value="{{ticket_buscado_count}}" {
+  case existe conditionOperator="&gt;" conditionValue="0" {
+    prioriza: editTicket ticketId="{{ticket_buscado_list[0].ticket_id}}" ticket.priority.content="4" ticket.tags.content="12,15"
+    em_andamento: changeStatusTicket ticketId="{{ticket_buscado_list[0].ticket_id}}" newStatus="2"
+    nota_interna: addCommentTicket ticketId="{{ticket_buscado_list[0].ticket_id}}" content="Ticket escalado automaticamente pelo fluxo de acompanhamento de SLA." type=1
+    escalona: escalateTicket ticketId="{{ticket_buscado_list[0].ticket_id}}" comment="Encaminhado ao proximo nivel por risco de estouro de SLA."
+    avisa: message text="Seu ticket {{ticket_buscado_list[0].ticket_number}} foi encaminhado ao proximo nivel de atendimento."
+    fim1: terminate
+  }
+  else {
+    cria: addTicket ticket.subject.content="Atendimento sem ticket associado" ticket.description.content="Abertura automatica pelo fluxo de SLA do protocolo {{chat_protocol}}." ticket.associateToCurrentContact.content=true reasonId="{{reason_id}}" resultVariableName="ticket_novo"
+    distribui: assignTicket ticketId="{{ticket_novo.ticket_id}}" assignType=0
+    sem_ticket: message text="Nao localizei um ticket para este protocolo, entao abri um novo: {{ticket_novo.ticket_number}}."
+    fim2: terminate
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> Tickets em risco de SLA sobem de nivel automaticamente; quando nao ha ticket para o protocolo, um novo e aberto e distribuido.</div>
+<h3 id="ex-automacoes-tickets-3">Resolucao com comentario externo disparando evento</h3>
+<p>Resolve o ticket do contato com um comentario publico que dispara o evento commented para outras automacoes.</p>
+<ol class="steps">
+<li><strong><code>searchTicket</code></strong> — busca tickets pelo telefone do contato e grava a lista e a contagem em tickets_contato</li>
+<li><strong><code>varCondition</code></strong> — ramifica conforme existirem tickets vinculados ao contato (tickets_contato_count)</li>
+<li><strong><code>addCommentTicket</code></strong> — adiciona um comentario externo (type=0), que dispara o evento commented</li>
+<li><strong><code>resolveTicket</code></strong> — marca o ticket como Resolvido com comentario externo (commentType=0), registrando data e SLA</li>
+<li><strong><code>message</code></strong> — confirma ao cliente que o ticket foi resolvido</li>
+<li><strong><code>terminate</code></strong> — encerra o fluxo</li>
+</ol>
+<div class="table-wrap"><pre class="flow">busca_contato: searchTicket searchField="phone" searchValue="{{contact_number}}" associateToCurrentChat=true resultVariableName="tickets_contato"
+trata: varCondition value="{{tickets_contato_count}}" {
+  case tem_ticket conditionOperator="&gt;" conditionValue="0" {
+    comenta: addCommentTicket ticketId="{{tickets_contato_list[0].ticket_id}}" content="Atualizacao registrada pelo atendimento no chat." type=0
+    resolve: resolveTicket ticketId="{{tickets_contato_list[0].ticket_id}}" comment="Problema resolvido durante o atendimento. Obrigado pelo contato!" commentType=0
+    avisa: message text="Seu ticket {{tickets_contato_list[0].ticket_number}} foi marcado como resolvido."
+    fim1: terminate
+  }
+  else {
+    nada: message text="Nao encontrei tickets vinculados ao seu contato."
+    fim2: terminate
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O ticket fica Resolvido com o comentario publico registrado, e o evento commented pode acionar a automacao configurada.</div>
+<h3 id="ex-automacoes-tickets-4">Aguardar cliente, reabrir e corrigir vinculo do ticket</h3>
+<p>Pergunta algo ao cliente (SLA pausado), reabre o ticket quando ele responde, corrige estagio/status e ajusta o vinculo do contato.</p>
+<ol class="steps">
+<li><strong><code>contactClientTicket</code></strong> — move o ticket para Aguardando cliente (status 3) com comentario publico, pausando o SLA</li>
+<li><strong><code>reopenTicket</code></strong> — reabre o ticket resolvido, recalculando o prazo com o tempo que restava</li>
+<li><strong><code>changeStageTicket</code></strong> — move o ticket para o estagio informado em stage_id (dispara stageChanged)</li>
+<li><strong><code>changeStatusTicket</code></strong> — coloca o ticket de volta em Em andamento (newStatus=2)</li>
+<li><strong><code>unlinkContactTicket</code></strong> — remove o vinculo do contato atual quando ele estava incorreto</li>
+<li><strong><code>message</code></strong> — avisa o cliente que o ticket voltou a andar</li>
+<li><strong><code>terminate</code></strong> — encerra o fluxo</li>
+</ol>
+<div class="table-wrap"><pre class="flow">abre_espera: contactClientTicket ticketId="{{ticket_id}}" comment="Precisamos de uma foto do comprovante para dar sequencia."
+avisa_cliente: message text="Seu ticket ficou aguardando retorno do cliente. Envie o comprovante por aqui."
+reabre: reopenTicket ticketId="{{ticket_id}}" comment="Cliente retornou com a informacao solicitada."
+volta_estagio: changeStageTicket ticketId="{{ticket_id}}" newStageId="{{stage_id}}"
+volta_status: changeStatusTicket ticketId="{{ticket_id}}" newStatus="2"
+corrige_vinculo: unlinkContactTicket ticketId="{{ticket_id}}" associateToCurrentContact=true
+resumo: message text="Seu ticket voltou para atendimento e esta em andamento de novo."
+fim: terminate</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O ticket sai de aguardando cliente, volta a Em andamento no estagio correto e sem vinculo indevido de contato.</div>
+
+  <div class="pagenav">
+    <a href="automacoes-elementos.html"><span>←</span> Catálogo de elementos</a>
+    <a class="next" href="automacoes-exemplos.html"><span>Ver também →</span> Exemplos prontos</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

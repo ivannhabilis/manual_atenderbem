@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variáveis e Expressões do Fluxo — Manual Omnichannel</title>
+<meta name="description" content="Como escrever {{expressões}}: sintaxe, operadores, filtros e as 439 variáveis do sistema, por categoria.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a class="active" href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="automacoes-elementos.html">Automações e URA</a> &rsaquo; Variáveis e Expressões do Fluxo</div>
+
+  <h1>Variáveis e Expressões do Fluxo</h1>
+  <p class="subtitle">Como escrever {{expressões}}: sintaxe, operadores, filtros e as 439 variáveis do sistema, por categoria.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-sintaxe-das-expressoes">1. Sintaxe das expressões</a></li>
+      <li><a href="#2-operadores">2. Operadores</a></li>
+      <li><a href="#3-filtros-pipes">3. Filtros (pipes)</a></li>
+      <li><a href="#4-expressao-avaliada-como-valor">4. Expressão avaliada como valor</a></li>
+      <li><a href="#5-variaveis-do-sistema-sao-somente-leitura">5. Variáveis do sistema são somente leitura</a></li>
+      <li><a href="#6-armadilhas">6. Armadilhas</a></li>
+      <li><a href="#7-catalogo-de-variaveis">7. Catálogo de variáveis por categoria</a></li>
+      <li class="toc-h3"><a href="#var-general">Gerais (sempre disponíveis) 4</a></li>
+      <li class="toc-h3"><a href="#var-contact">Contato 28</a></li>
+      <li class="toc-h3"><a href="#var-chat">Atendimento (chat) 57</a></li>
+      <li class="toc-h3"><a href="#var-message">Mensagem 25</a></li>
+      <li class="toc-h3"><a href="#var-call">Chamada 29</a></li>
+      <li class="toc-h3"><a href="#var-call_end">Fim de chamada 16</a></li>
+      <li class="toc-h3"><a href="#var-pbx">PABX (telefonia) 18</a></li>
+      <li class="toc-h3"><a href="#var-opportunity">Oportunidade (CRM) 64</a></li>
+      <li class="toc-h3"><a href="#var-product">Produto 23</a></li>
+      <li class="toc-h3"><a href="#var-task">Tarefa 18</a></li>
+      <li class="toc-h3"><a href="#var-ticket">Ticket 36</a></li>
+      <li class="toc-h3"><a href="#var-survey">Pesquisa de satisfação 14</a></li>
+      <li class="toc-h3"><a href="#var-ai_result">Resultado de IA 10</a></li>
+      <li class="toc-h3"><a href="#var-agent">Agente/usuário 19</a></li>
+      <li class="toc-h3"><a href="#var-file">Arquivo 6</a></li>
+      <li class="toc-h3"><a href="#var-schedule">Agendamento 8</a></li>
+      <li class="toc-h3"><a href="#var-webapp">WebApp/WebChat 6</a></li>
+      <li class="toc-h3"><a href="#var-extension">Extensão 5</a></li>
+      <li class="toc-h3"><a href="#var-instance">Instância 53</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+<div class="callout info">
+    <strong>O que é uma variável.</strong> Praticamente todo campo de um fluxo aceita <code>{{expressão}}</code>.
+    O caso mais simples é <code>{{nome_da_variavel}}</code>, que devolve o valor daquela variável no momento
+    da execução. Este capítulo reúne as variáveis que o sistema oferece e as expressões que se pode montar com elas.
+  </div>
+
+  <h2 id="1-sintaxe-das-expressoes">1. Sintaxe das expressões</h2>
+  <div class="table-wrap"><table class="doc"><thead><tr><th>Regra</th><th>Exemplo</th></tr></thead><tbody>
+    <tr><td>Tudo entre chaves duplas é uma expressão avaliada.</td><td><code>{{chat_client_name}}</code></td></tr>
+    <tr><td>Texto entre aspas, concatenado com <code>+</code>.</td><td><code>{{"Olá, " + contact_name + "!"}}</code></td></tr>
+    <tr><td>Acesso a propriedade de objeto e a item de lista.</td><td><code>{{chat_contact.contact_name}}</code> · <code>{{chat_opportunities_list[0].opportunity_title}}</code></td></tr>
+    <tr><td>Não é permitido chamar método nem função — a chamada devolve vazio. Para converter texto em número use <code>x * 1</code>.</td><td><code>{{pedido_valor * 1 + 10}}</code></td></tr>
+    <tr><td>Variável global vale em todos os fluxos da mesma fila e usa o prefixo <code>global.</code>.</td><td><code>{{global.contador}}</code></td></tr>
+  </tbody></table></div>
+  <div class="callout warn"><strong>As variáveis vivem em memória.</strong> Elas se perdem se o serviço for reiniciado — para guardar algo que precisa durar, use o banco de valores persistentes.</div>
+
+  <h2 id="2-operadores">2. Operadores</h2>
+  <div class="table-wrap"><table class="doc"><thead><tr><th>Tipo</th><th>Operadores</th><th>Exemplo</th></tr></thead><tbody>
+    <tr><td>Aritméticos</td><td><code>+ - * / %</code></td><td><code>{{product_quantity * product_value}}</code></td></tr>
+    <tr><td>Comparação</td><td><code>== != &gt; &gt;= &lt; &lt;=</code></td><td><code>{{opportunity_value &gt; 1000}}</code></td></tr>
+    <tr><td>Lógicos</td><td><code>&amp;&amp; || !</code></td><td><code>{{opportunity_value &gt; 0 &amp;&amp; contact_email != ""}}</code></td></tr>
+    <tr><td>Ternário</td><td><code>condição ? "se verdadeiro" : "se falso"</code></td><td><code>{{opportunity_value &gt;= 1000 ? "VIP" : "Padrão"}}</code></td></tr>
+    <tr><td>Agrupamento</td><td>parênteses</td><td><code>{{(opportunity_products_subtotal - opportunity_products_discount_total) * 1.1}}</code></td></tr>
+  </tbody></table></div>
+
+  <h2 id="3-filtros-pipes">3. Filtros (pipes)</h2>
+  <p>Sintaxe <code>{{valor | filtro:param1:param2}}</code>, encadeáveis da esquerda para a direita.</p>
+  <div class="table-wrap"><table class="doc"><thead><tr><th>Filtro</th><th>O que faz</th></tr></thead><tbody>
+    <tr><td><code>toUpperCase</code> / <code>toLowerCase</code></td><td>Caixa alta / caixa baixa.</td></tr>
+    <tr><td><code>capitalize</code></td><td>Primeira letra de cada palavra em maiúscula.</td></tr>
+    <tr><td><code>truncate:tamanho[:sufixo]</code></td><td>Limita o texto (sufixo padrão "...").</td></tr>
+    <tr><td><code>default:"alternativa"</code></td><td>Devolve a alternativa quando o valor é vazio, nulo ou indefinido.</td></tr>
+    <tr><td><code>phone:"BR"|"US"</code></td><td>Formata telefone (o BR aceita com ou sem DDI 55).</td></tr>
+    <tr><td><code>split:"separador"[:indice]</code></td><td>Quebra o texto; sem índice devolve a lista, com índice devolve só aquele trecho (base 0; negativo conta do fim).</td></tr>
+    <tr><td><code>substring:inicio[:tamanho]</code></td><td>Extrai um trecho do texto.</td></tr>
+    <tr><td><code>toFixed:casas</code></td><td>Fixa as casas decimais.</td></tr>
+    <tr><td><code>currency:"MOEDA":casas</code></td><td>Formata como moeda (BRL, USD, EUR, GBP e outras).</td></tr>
+    <tr><td><code>formatDate:"DD/MM/YYYY"</code></td><td>Formata data (padrões do moment).</td></tr>
+    <tr><td><code>addToDate:qtd:"unidade"</code> / <code>subtractToDate</code></td><td>Soma/subtrai tempo (seconds, minutes, hours, days, weeks, months, years).</td></tr>
+    <tr><td><code>sortBy:"campo"</code></td><td>Ordena uma lista de objetos.</td></tr>
+    <tr><td><code>where:"expressao"</code></td><td>Filtra uma lista de objetos — <code>{{opportunity_products_list | where:"product_quantity &gt; 1"}}</code></td></tr>
+  </tbody></table></div>
+  <div class="callout tip"><strong>Exemplos úteis:</strong> <code>{{general_now_date | addToDate:1:"days" | formatDate:"DD/MM/YYYY"}}</code> · <code>{{(opportunity_products_subtotal + opportunity_freight) | toFixed:2 | currency:"BRL":2}}</code> · <code>{{contact_name | default:"cliente" | capitalize}}</code></div>
+
+  <h2 id="4-expressao-avaliada-como-valor">4. Expressão avaliada como valor</h2>
+  <p>Vale para o ramo <code>expression</code> da condição e para a lista/contagem do laço. Aqui a expressão é pura, sem chaves, com as variáveis pelo nome.</p>
+  <ul>
+    <li><code>conditionValue="pedido_valor * 1 &gt; 100 &amp;&amp; cidade == "SP""</code> — o ramo vale quando o resultado é verdadeiro.</li>
+    <li><code>list="{{chat_opportunities_list}}"</code> e <code>count="{{quantidade}}"</code> no laço.</li>
+    <li>O resultado não vira texto: a lista chega como lista e a condição vale no sentido do JavaScript — <code>false</code>, <code>0</code>, <code>""</code>, <code>null</code> e variável inexistente são falsos; qualquer texto não vazio é verdadeiro, inclusive <code>"0"</code>. Para checar número, compare <code>x * 1 &gt; 0</code>.</li>
+    <li>Variável inexistente não é igual a <code>""</code>: para "vazia ou inexistente" use <code>!x</code>.</li>
+    <li>Não é permitido: atribuição, mais de um comando, chaves dentro da expressão, função ou método.</li>
+  </ul>
+
+  <h2 id="5-variaveis-do-sistema-sao-somente-leitura">5. Variáveis do sistema são somente leitura</h2>
+  <p>As variáveis que o sistema fornece — as que descrevem o atendimento, a mensagem, a fila e o momento — refletem o estado atual e <strong>não podem ser gravadas</strong> pelo fluxo. Gravar num nome de sistema (com <code>newVar</code>, no retorno do <code>jscode</code>, no <code>varName</code> de uma pergunta ou no <code>itemVar</code> de um laço) não tem efeito: o valor continua o do sistema, e a gravação ignorada aparece como alerta na depuração do elemento.</p>
+  <p><strong>Exceção — dados do cliente do atendimento</strong>, graváveis apenas pelo elemento <code>newVar</code> ou pelo retorno do <code>jscode</code>, que os gravam no próprio atendimento: <code>chat_client_name</code>, <code>chat_client_number</code>, <code>chat_client_email</code>, <code>chat_client_profile_name</code>, <code>chat_client_data</code> e <code>clientDocument</code>.</p>
+  <p>Para os seus próprios dados, use nomes próprios (ex.: <code>pedido_total</code>, <code>cliente_cpf</code>) — esses são variáveis do fluxo, livres para gravar e regravar.</p>
+
+  <h2 id="6-armadilhas">6. Armadilhas</h2>
+  <ul>
+    <li><strong>Expressão que falha vira texto vazio, silenciosamente.</strong> Vazio no resultado é sinal de expressão errada, não de valor ausente.</li>
+    <li><strong><code>toFixed</code> e <code>currency</code> só operam sobre número.</strong> Aplicados a texto derrubam a expressão inteira; e com o valor 0 devolvem 0 sem formatar.</li>
+    <li><strong>O filtro tem precedência menor que o ternário:</strong> <code>{{x ? "a" : "b" | toUpperCase}}</code> aplica o filtro só ao "b". Use parênteses.</li>
+    <li><strong>Vírgula decimal não é número:</strong> converta antes de somar ou comparar.</li>
+  </ul>
+
+  <h2 id="7-catalogo-de-variaveis">7. Catálogo de variáveis por categoria</h2>
+  <p>As 19 categorias abaixo são as que o próprio sistema oferece ao escrever um fluxo.</p>
+<h3 id="var-general">Gerais (sempre disponíveis) <span class="badge">4</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>general_salutation</code></td><td><code>string</code></td><td>Saudação padrão (Bom dia, Boa tarde, Boa noite)</td></tr>
+<tr><td><code>general_salutation_lower_case</code></td><td><code>string</code></td><td>Saudação em minúsculo</td></tr>
+<tr><td><code>general_now_date</code></td><td><code>date</code></td><td>Data e hora atual</td></tr>
+<tr><td><code>general_now_timestamp</code></td><td><code>number</code></td><td>Timestamp atual</td></tr>
+</tbody></table></div>
+<h3 id="var-contact">Contato <span class="badge">28</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>contact_id</code></td><td><code>number</code></td><td>ID do contato</td></tr>
+<tr><td><code>contact_name</code></td><td><code>string</code></td><td>Nome</td></tr>
+<tr><td><code>contact_number</code></td><td><code>number</code></td><td>Telefone</td></tr>
+<tr><td><code>contact_facebook</code></td><td><code>string</code></td><td>Facebook</td></tr>
+<tr><td><code>contact_instagram</code></td><td><code>string</code></td><td>Instagram</td></tr>
+<tr><td><code>contact_gbid</code></td><td><code>string</code></td><td>Identificador do Google Business Messages</td></tr>
+<tr><td><code>contact_email</code></td><td><code>string</code></td><td>E-mail</td></tr>
+<tr><td><code>contact_external</code></td><td><code>string</code></td><td>ID externo</td></tr>
+<tr><td><code>contact_address</code></td><td><code>string</code></td><td>Endereço</td></tr>
+<tr><td><code>contact_city</code></td><td><code>string</code></td><td>Cidade</td></tr>
+<tr><td><code>contact_housenumber</code></td><td><code>string</code></td><td>Número</td></tr>
+<tr><td><code>contact_house_number</code></td><td><code>string</code></td><td>Número (mesmo valor de contact_housenumber — as duas grafias existem desde sempre e as duas são entregues)</td></tr>
+<tr><td><code>contact_addresscomp</code></td><td><code>string</code></td><td>Complemento</td></tr>
+<tr><td><code>contact_neighborhood</code></td><td><code>string</code></td><td>Bairro</td></tr>
+<tr><td><code>contact_postal_code</code></td><td><code>string</code></td><td>CEP</td></tr>
+<tr><td><code>contact_state</code></td><td><code>string</code></td><td>Estado</td></tr>
+<tr><td><code>contact_country</code></td><td><code>string</code></td><td>País</td></tr>
+<tr><td><code>contact_document</code></td><td><code>string</code></td><td>Documento</td></tr>
+<tr><td><code>contact_free1</code></td><td><code>string</code></td><td>Campo livre 1</td></tr>
+<tr><td><code>contact_free2</code></td><td><code>string</code></td><td>Campo livre 2</td></tr>
+<tr><td><code>contact_birth_date</code></td><td><code>date</code></td><td>Data de nascimento</td></tr>
+<tr><td><code>contact_birth_date_YYYYMMDD</code></td><td><code>string</code></td><td>Data de nascimento no formato YYYYMMDD</td></tr>
+<tr><td><code>contact_birth_date_MMDD</code></td><td><code>string</code></td><td>Data de nascimento no formato MMDD</td></tr>
+<tr><td><code>contact_dot_not_disturb</code></td><td><code>number</code></td><td>Não perturbe (0/1)</td></tr>
+<tr><td><code>contact_preferred_agents_array</code></td><td><code>list</code></td><td>IDs agentes preferidos</td></tr>
+<tr><td><code>contact_preferred_agent</code></td><td><code>number</code></td><td>ID agente preferencial</td></tr>
+<tr><td><code>contact_tags</code></td><td><code>string</code></td><td>Tags separadas por vírgula</td></tr>
+<tr><td><code>contact_extradata</code></td><td><code>object</code></td><td>Dados extras</td></tr>
+</tbody></table></div>
+<h3 id="var-chat">Atendimento (chat) <span class="badge">57</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>chat_id</code></td><td><code>number</code></td><td>ID do atendimento</td></tr>
+<tr><td><code>chat_remote_id</code></td><td><code>string</code></td><td>ID no serviço de mensageria</td></tr>
+<tr><td><code>chat_on_waiting_room</code></td><td><code>number</code></td><td>Na sala de espera (0/1)</td></tr>
+<tr><td><code>chat_assistant_id</code></td><td><code>number</code></td><td>ID do assistente de IA (0 se não houver)</td></tr>
+<tr><td><code>chat_client_id</code></td><td><code>string</code></td><td>ID do cliente</td></tr>
+<tr><td><code>chat_page_id</code></td><td><code>string</code></td><td>ID da página</td></tr>
+<tr><td><code>chat_page_name</code></td><td><code>string</code></td><td>Nome da página</td></tr>
+<tr><td><code>chat_client_name</code></td><td><code>string</code></td><td>Nome do cliente</td></tr>
+<tr><td><code>chat_client_number</code></td><td><code>string</code></td><td>Número do cliente</td></tr>
+<tr><td><code>chat_client_profile_name</code></td><td><code>string</code></td><td>Nome do perfil</td></tr>
+<tr><td><code>chat_client_data</code></td><td><code>object</code></td><td>Dados do cliente</td></tr>
+<tr><td><code>chat_client_email</code></td><td><code>string</code></td><td>E-mail do cliente</td></tr>
+<tr><td><code>chat_agent_id</code></td><td><code>number</code></td><td>ID do agente atribuído</td></tr>
+<tr><td><code>chat_agent</code></td><td><code>object</code></td><td>Dados do agente</td></tr>
+<tr><td><code>chat_contact_id</code></td><td><code>number</code></td><td>ID do contato</td></tr>
+<tr><td><code>chat_contact</code></td><td><code>object</code></td><td>Dados do contato</td></tr>
+<tr><td><code>chat_protocol</code></td><td><code>string</code></td><td>Protocolo</td></tr>
+<tr><td><code>chat_last_chat_ai_score</code></td><td><code>number</code></td><td>Nota IA último atendimento</td></tr>
+<tr><td><code>chat_last_chat_ai_summary</code></td><td><code>string</code></td><td>Resumo IA</td></tr>
+<tr><td><code>chat_last_chat_ai_suggestion</code></td><td><code>string</code></td><td>Sugestões IA</td></tr>
+<tr><td><code>chat_last_agent_id</code></td><td><code>number</code></td><td>ID último agente</td></tr>
+<tr><td><code>chat_last_agent</code></td><td><code>object</code></td><td>Dados último agente</td></tr>
+<tr><td><code>chat_recent_agent_id</code></td><td><code>number</code></td><td>ID do atendente humano atual; se não houver, o do último atendente humano que esteve associado a ESTE atendimento (0 se nunca houve). Diferente de chat_last_agent_id, que vem do atendimento anterior do cliente</td></tr>
+<tr><td><code>chat_recent_assistant_id</code></td><td><code>number</code></td><td>ID do assistente de IA atual; se não houver, o do último assistente que atuou neste atendimento (0 se nunca houve)</td></tr>
+<tr><td><code>chat_responded</code></td><td><code>number</code></td><td>Foi respondido (0/1)</td></tr>
+<tr><td><code>chat_responded_by_agent</code></td><td><code>number</code></td><td>Respondido por agente (0/1)</td></tr>
+<tr><td><code>chat_locked</code></td><td><code>number</code></td><td>Bloqueado (0/1)</td></tr>
+<tr><td><code>chat_locked_agent_id</code></td><td><code>number</code></td><td>ID agente bloqueado</td></tr>
+<tr><td><code>chat_open_time_seconds</code></td><td><code>number</code></td><td>Tempo aberto em segundos</td></tr>
+<tr><td><code>chat_open_time_minutes</code></td><td><code>number</code></td><td>Tempo aberto em minutos</td></tr>
+<tr><td><code>chat_open_time_formatted</code></td><td><code>string</code></td><td>Tempo formatado</td></tr>
+<tr><td><code>chat_begin_timestamp</code></td><td><code>number</code></td><td>Timestamp abertura</td></tr>
+<tr><td><code>chat_queue_id</code></td><td><code>number</code></td><td>ID da fila</td></tr>
+<tr><td><code>chat_queue_type</code></td><td><code>string</code></td><td>Tipo da fila</td></tr>
+<tr><td><code>chat_queue_name</code></td><td><code>string</code></td><td>Nome da fila</td></tr>
+<tr><td><code>chat_queue_open_count</code></td><td><code>number</code></td><td>Atendimentos ABERTOS agora na fila do atendimento (todos os estados abaixo somados). Contadores ao vivo, sem lista; para a lista, use o elemento queueChats (só em automações). Numa automação sem atendimento, a fila é a fila técnica em que ela roda. Na aba "Testar" valem 0</td></tr>
+<tr><td><code>chat_queue_waiting_count</code></td><td><code>number</code></td><td>Aguardando atendente na fila (sem atendente, fora da URA e da sala de espera; inclui o recém-aberto ainda não distribuído). Diferente do "Aguardando atendimento na fila" do SLA, que conta também a URA</td></tr>
+<tr><td><code>chat_queue_assigned_count</code></td><td><code>number</code></td><td>Com atendente (inclui atendente robô), fora da URA e da sala de espera</td></tr>
+<tr><td><code>chat_queue_waiting_room_count</code></td><td><code>number</code></td><td>Na sala de espera, fora da URA</td></tr>
+<tr><td><code>chat_queue_on_ivr_count</code></td><td><code>number</code></td><td>Em URA (inclui atendimento com assistente de IA; automação rodando sobre o atendimento não conta)</td></tr>
+<tr><td><code>chat_from_comment</code></td><td><code>number</code></td><td>Aberto por comentário (0/1)</td></tr>
+<tr><td><code>chat_session_locked</code></td><td><code>number</code></td><td>Sessão bloqueada (0/1)</td></tr>
+<tr><td><code>chat_opportunities_count</code></td><td><code>number</code></td><td>Quantidade de oportunidades</td></tr>
+<tr><td><code>chat_opportunities_list</code></td><td><code>list</code></td><td>Lista de oportunidades</td></tr>
+<tr><td><code>chat_cart_active</code></td><td><code>number</code></td><td>A fila do atendimento tem o Carrinho sincronizado ativo e configurado (0/1). É o que distingue "esta fila não trabalha com carrinho" de "o carrinho ainda não nasceu". Vale 0 numa automação executada sem atendimento real, ainda que a fila esteja configurada; o atendimento de teste da aba "Testar" conta como real</td></tr>
+<tr><td><code>chat_cart_id</code></td><td><code>number</code></td><td>ID da oportunidade que É o carrinho sincronizado neste atendimento, 0 se não houver. ATALHO DIRETO — dispensa procurar o carrinho dentro de chat_opportunities_list, o que com mais de uma oportunidade associada acertava por sorte. Segue exatamente o que o painel do agente e a tela do cliente reconhecem como carrinho: volta a 0 se a oportunidade sair da etapa de carrinho (arrastada no kanban, ou já convertida em pedido) ou se o atendimento passar para uma fila cujo carrinho aponta para outro funil. NÃO serve para ler o carrinho ABANDONADO na automação de fim de atendimento: quando ela roda, o carrinho já foi fechado ou excluído e as chaves valem 0 — para esse caso existe o aviso próprio de carrinho abandonado</td></tr>
+<tr><td><code>chat_cart_items_count</code></td><td><code>number</code></td><td>Total de itens no carrinho (soma das quantidades de todas as linhas), 0 sem carrinho</td></tr>
+<tr><td><code>chat_cart_lines_count</code></td><td><code>number</code></td><td>Produtos distintos (linhas) no carrinho, 0 sem carrinho</td></tr>
+<tr><td><code>chat_cart_subtotal</code></td><td><code>number</code></td><td>Preço x quantidade dos itens, SEM desconto e SEM frete, 0 sem carrinho</td></tr>
+<tr><td><code>chat_cart_discount</code></td><td><code>number</code></td><td>Total de descontos dos itens, 0 sem carrinho</td></tr>
+<tr><td><code>chat_cart_freight</code></td><td><code>number</code></td><td>Frete do carrinho, 0 sem carrinho ou sem frete informado</td></tr>
+<tr><td><code>chat_cart_total</code></td><td><code>number</code></td><td>Subtotal - descontos + frete. É o número que o atendente e o cliente veem, 0 sem carrinho</td></tr>
+<tr><td><code>chat_cart_recurrent_total</code></td><td><code>number</code></td><td>Total recorrente (mensalidades) já com descontos recorrentes, sem frete, 0 sem carrinho</td></tr>
+<tr><td><code>chat_cart_locked</code></td><td><code>number</code></td><td>Carrinho bloqueado para edição pelos usuários (0/1). Ver opportunity_cart_locked</td></tr>
+<tr><td><code>chat_cart_converted_count</code></td><td><code>number</code></td><td>Pedidos já fechados neste atendimento a partir do carrinho, 0 enquanto nenhum foi fechado</td></tr>
+<tr><td><code>chat_end_reason</code></td><td><code>string</code></td><td>Motivo fechamento</td></tr>
+<tr><td><code>chat_end_reason_obs</code></td><td><code>string</code></td><td>Observações fechamento</td></tr>
+</tbody></table></div>
+<h3 id="var-message">Mensagem <span class="badge">25</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>message_id</code></td><td><code>number</code></td><td>ID da mensagem</td></tr>
+<tr><td><code>message_client_id</code></td><td><code>string</code></td><td>ID do cliente</td></tr>
+<tr><td><code>message_file</code></td><td><code>object</code></td><td>Dados do arquivo anexo</td></tr>
+<tr><td><code>message_service_id</code></td><td><code>string</code></td><td>ID no serviço</td></tr>
+<tr><td><code>message_system_id</code></td><td><code>string</code></td><td>ID no sistema</td></tr>
+<tr><td><code>message_text</code></td><td><code>string</code></td><td>Texto</td></tr>
+<tr><td><code>message_subject</code></td><td><code>string</code></td><td>Assunto (e-mail)</td></tr>
+<tr><td><code>message_footer_info</code></td><td><code>string</code></td><td>Informações de rodapé</td></tr>
+<tr><td><code>message_direction</code></td><td><code>string</code></td><td>Direção (in/out/comments/etc)</td></tr>
+<tr><td><code>message_ad_url</code></td><td><code>string</code></td><td>URL do anúncio</td></tr>
+<tr><td><code>message_ad_title</code></td><td><code>string</code></td><td>Título do anúncio</td></tr>
+<tr><td><code>message_ad_body</code></td><td><code>string</code></td><td>Corpo do anúncio</td></tr>
+<tr><td><code>message_button_id</code></td><td><code>string</code></td><td>ID botão clicado</td></tr>
+<tr><td><code>message_is_comment</code></td><td><code>number</code></td><td>É comentário (0/1)</td></tr>
+<tr><td><code>message_location_latitude</code></td><td><code>number</code></td><td>Latitude</td></tr>
+<tr><td><code>message_location_longitude</code></td><td><code>number</code></td><td>Longitude</td></tr>
+<tr><td><code>message_audio_transcription</code></td><td><code>string</code></td><td>Transcrição áudio</td></tr>
+<tr><td><code>message_cart</code></td><td><code>list</code></td><td>Carrinho de produtos</td></tr>
+<tr><td><code>message_cart_count</code></td><td><code>number</code></td><td>Itens no carrinho</td></tr>
+<tr><td><code>message_cart_internalcodes</code></td><td><code>string</code></td><td>Códigos internos</td></tr>
+<tr><td><code>message_cart_qtys</code></td><td><code>string</code></td><td>Quantidades</td></tr>
+<tr><td><code>message_catalog_cart_add</code></td><td><code>number</code></td><td>1 quando o atendimento foi ABERTO porque o cliente adicionou um item ao carrinho pelo catálogo aberto por link (catálogo sincronizado local). Use para ramificar e tratar a intenção de compra logo na entrada, em vez de tratar a mensagem como texto comum</td></tr>
+<tr><td><code>message_catalog_product_id</code></td><td><code>number</code></td><td>ID do produto que o cliente acrescentou ao carrinho pelo catálogo</td></tr>
+<tr><td><code>message_catalog_product_name</code></td><td><code>string</code></td><td>Nome desse produto</td></tr>
+<tr><td><code>message_catalog_product_qty</code></td><td><code>number</code></td><td>Quantidade acrescentada</td></tr>
+</tbody></table></div>
+<h3 id="var-call">Chamada <span class="badge">29</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>call_id</code></td><td><code>string</code></td><td>ID da chamada no PABX</td></tr>
+<tr><td><code>call_protocol</code></td><td><code>string</code></td><td>Protocolo</td></tr>
+<tr><td><code>call_src</code></td><td><code>string</code></td><td>Número de origem</td></tr>
+<tr><td><code>call_src_user_id</code></td><td><code>number</code></td><td>ID usuário origem</td></tr>
+<tr><td><code>call_src_contact_id</code></td><td><code>number</code></td><td>ID contato origem</td></tr>
+<tr><td><code>call_src_contact</code></td><td><code>object</code></td><td>Dados contato origem</td></tr>
+<tr><td><code>call_dst</code></td><td><code>string</code></td><td>Número destino</td></tr>
+<tr><td><code>call_dst_user_id</code></td><td><code>number</code></td><td>ID usuário destino</td></tr>
+<tr><td><code>call_answered</code></td><td><code>number</code></td><td>Atendida (0/1)</td></tr>
+<tr><td><code>call_dst_contact_id</code></td><td><code>number</code></td><td>ID contato destino</td></tr>
+<tr><td><code>call_dst_contact</code></td><td><code>object</code></td><td>Dados contato destino</td></tr>
+<tr><td><code>call_assistant_id</code></td><td><code>number</code></td><td>ID assistente IA</td></tr>
+<tr><td><code>call_queue_id</code></td><td><code>number</code></td><td>ID da fila</td></tr>
+<tr><td><code>call_queue_name</code></td><td><code>string</code></td><td>Nome da fila</td></tr>
+<tr><td><code>call_linkedid</code></td><td><code>string</code></td><td>LinkedId PABX</td></tr>
+<tr><td><code>call_opportunities_count</code></td><td><code>number</code></td><td>Quantidade oportunidades</td></tr>
+<tr><td><code>call_opportunities_list</code></td><td><code>list</code></td><td>Lista oportunidades</td></tr>
+<tr><td><code>call_cart_active</code></td><td><code>number</code></td><td>A fila DONA do carrinho (a primeira por onde a chamada passou com a função ativa, e que continua valendo depois de a ligação sair dela) tem o Carrinho sincronizado ativo e configurado (0/1). É o que distingue "esta fila não trabalha com carrinho" de "o carrinho ainda não nasceu". Vale 0 numa automação executada sem atendimento real, ainda que a fila esteja configurada; o atendimento de teste da aba "Testar" conta como real</td></tr>
+<tr><td><code>call_cart_id</code></td><td><code>number</code></td><td>ID da oportunidade que É o carrinho sincronizado nesta chamada, 0 se não houver. ATALHO DIRETO — dispensa procurar o carrinho dentro de call_opportunities_list, o que com mais de uma oportunidade associada acertava por sorte. Segue exatamente o que o painel do agente e a tela do cliente reconhecem como carrinho: volta a 0 se a oportunidade sair da etapa de carrinho (arrastada no kanban, ou já convertida em pedido) ou se o atendimento passar para uma fila cujo carrinho aponta para outro funil. NÃO serve para ler o carrinho ABANDONADO na automação de fim de atendimento: quando ela roda, o carrinho já foi fechado ou excluído e as chaves valem 0 — para esse caso existe o aviso próprio de carrinho abandonado</td></tr>
+<tr><td><code>call_cart_items_count</code></td><td><code>number</code></td><td>Total de itens no carrinho (soma das quantidades de todas as linhas), 0 sem carrinho</td></tr>
+<tr><td><code>call_cart_lines_count</code></td><td><code>number</code></td><td>Produtos distintos (linhas) no carrinho, 0 sem carrinho</td></tr>
+<tr><td><code>call_cart_subtotal</code></td><td><code>number</code></td><td>Preço x quantidade dos itens, SEM desconto e SEM frete, 0 sem carrinho</td></tr>
+<tr><td><code>call_cart_discount</code></td><td><code>number</code></td><td>Total de descontos dos itens, 0 sem carrinho</td></tr>
+<tr><td><code>call_cart_freight</code></td><td><code>number</code></td><td>Frete do carrinho, 0 sem carrinho ou sem frete informado</td></tr>
+<tr><td><code>call_cart_total</code></td><td><code>number</code></td><td>Subtotal - descontos + frete. É o número que o atendente vê no carrinho do telefone, 0 sem carrinho</td></tr>
+<tr><td><code>call_cart_recurrent_total</code></td><td><code>number</code></td><td>Total recorrente (mensalidades) já com descontos recorrentes, sem frete, 0 sem carrinho</td></tr>
+<tr><td><code>call_cart_locked</code></td><td><code>number</code></td><td>Carrinho bloqueado para edição pelos usuários (0/1). Ver opportunity_cart_locked</td></tr>
+<tr><td><code>call_cart_converted_count</code></td><td><code>number</code></td><td>Pedidos já fechados nesta chamada a partir do carrinho, 0 enquanto nenhum foi fechado</td></tr>
+<tr><td><code>call_digits</code></td><td><code>string</code></td><td>Dígitos recebidos</td></tr>
+</tbody></table></div>
+<h3 id="var-call_end">Fim de chamada <span class="badge">16</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>call_end_answered</code></td><td><code>number</code></td><td>O número discado atendeu (0/1)</td></tr>
+<tr><td><code>call_end_status</code></td><td><code>string</code></td><td>ANSWERED (atendeu), NO_ANSWER (não atendeu), BUSY (ocupado), FAILED (falha) ou UNKNOWN (desfecho não determinado). BUSY e FAILED só são confiáveis quando a chamada sai por um tronco escolhido (trunkName); sem ele, costumam aparecer como NO_ANSWER</td></tr>
+<tr><td><code>call_end_reason</code></td><td><code>string</code></td><td>Código bruto do PABX para o desfecho (ex.: "5" ocupado, "8" falha, "3" tempo de toque esgotado) ou "TIMEOUT"</td></tr>
+<tr><td><code>call_end_duration</code></td><td><code>number</code></td><td>Segundos do envio da chamada até o fim</td></tr>
+<tr><td><code>call_end_connected_time</code></td><td><code>number</code></td><td>Segundos do atendimento até o fim, incluindo o tempo na fila/URA do destino; 0 se não atendeu</td></tr>
+<tr><td><code>call_end_ring_time</code></td><td><code>number</code></td><td>Segundos do envio até o atendimento (ou até a falha)</td></tr>
+<tr><td><code>call_end_begin_time</code></td><td><code>date</code></td><td>Momento do envio da chamada</td></tr>
+<tr><td><code>call_end_answer_time</code></td><td><code>date</code></td><td>Momento em que o número atendeu; vazio se não atendeu</td></tr>
+<tr><td><code>call_end_end_time</code></td><td><code>date</code></td><td>Momento do fim. Se a conexão com o PABX caiu e voltou durante a ligação, é o momento da reconexão</td></tr>
+<tr><td><code>call_end_number</code></td><td><code>string</code></td><td>Número discado</td></tr>
+<tr><td><code>call_end_destination_type</code></td><td><code>string</code></td><td>Tipo do destino (ramal, fila, ivr ou grupo_toque)</td></tr>
+<tr><td><code>call_end_destination_id</code></td><td><code>string</code></td><td>Número discável do destino</td></tr>
+<tr><td><code>call_end_linkedid</code></td><td><code>string</code></td><td>Identificador (linkedid) real da chamada no PABX</td></tr>
+<tr><td><code>call_end_origin_chat_id</code></td><td><code>string</code></td><td>ID do atendimento do fluxo que originou a chamada, como texto (ex.: "123"). Vazio quando o fluxo de origem não tinha atendimento (automação sem atendimento) ou era uma URA telefônica</td></tr>
+<tr><td><code>call_end_origin_automation_id</code></td><td><code>number</code></td><td>ID do fluxo que originou a chamada</td></tr>
+<tr><td><code>call_end_chain_depth</code></td><td><code>number</code></td><td>Nível na cadeia de chamadas originadas por automações de fim de ligação (1 na primeira). A partir de 5 o fim de uma nova chamada não é mais acompanhado</td></tr>
+</tbody></table></div>
+<h3 id="var-pbx">PABX (telefonia) <span class="badge">18</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>pbx_id</code></td><td><code>number</code></td><td>ID do PABX</td></tr>
+<tr><td><code>pbx_name</code></td><td><code>string</code></td><td>Nome</td></tr>
+<tr><td><code>pbx_online</code></td><td><code>number</code></td><td>Online (0/1)</td></tr>
+<tr><td><code>pbx_status_code</code></td><td><code>number</code></td><td>Status</td></tr>
+<tr><td><code>pbx_ociid</code></td><td><code>string</code></td><td>Identificador do PABX na nuvem</td></tr>
+<tr><td><code>pbx_public_ip</code></td><td><code>string</code></td><td>IP público</td></tr>
+<tr><td><code>pbx_private_ip</code></td><td><code>string</code></td><td>IP privado</td></tr>
+<tr><td><code>pbx_instance_id</code></td><td><code>number</code></td><td>ID da instância vinculada (0 quando não houver)</td></tr>
+<tr><td><code>pbx_instance_name</code></td><td><code>string</code></td><td>Nome da instância vinculada (vazio quando não houver)</td></tr>
+<tr><td><code>pbx_plan_id</code></td><td><code>number</code></td><td>ID do plano (0 quando não houver)</td></tr>
+<tr><td><code>pbx_plan_name</code></td><td><code>string</code></td><td>Nome do plano (vazio quando não houver)</td></tr>
+<tr><td><code>pbx_activation_date</code></td><td><code>date</code></td><td>Data de ativação</td></tr>
+<tr><td><code>pbx_deactivation_date</code></td><td><code>date</code></td><td>Data de desativação</td></tr>
+<tr><td><code>pbx_end_of_trial_date</code></td><td><code>date</code></td><td>Data de término do trial</td></tr>
+<tr><td><code>pbx_extensions</code></td><td><code>number</code></td><td>Ramais</td></tr>
+<tr><td><code>pbx_db_used</code></td><td><code>number</code></td><td>Espaço de banco de dados utilizado, em GB</td></tr>
+<tr><td><code>pbx_extra_monthly_charge</code></td><td><code>number</code></td><td>Cobrança mensal extra</td></tr>
+<tr><td><code>pbx_monthly_cost</code></td><td><code>number</code></td><td>Custo mensal</td></tr>
+</tbody></table></div>
+<h3 id="var-opportunity">Oportunidade (CRM) <span class="badge">64</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>opportunity_id</code></td><td><code>number</code></td><td>ID da oportunidade</td></tr>
+<tr><td><code>opportunity_title</code></td><td><code>string</code></td><td>Título</td></tr>
+<tr><td><code>opportunity_stage_id</code></td><td><code>number</code></td><td>ID da etapa atual</td></tr>
+<tr><td><code>opportunity_stage_name</code></td><td><code>string</code></td><td>Nome da etapa atual</td></tr>
+<tr><td><code>opportunity_new_stage_id</code></td><td><code>number</code></td><td>ID da nova etapa</td></tr>
+<tr><td><code>opportunity_new_stage_name</code></td><td><code>string</code></td><td>Nome da nova etapa</td></tr>
+<tr><td><code>opportunity_old_stage_id</code></td><td><code>number</code></td><td>ID da etapa anterior</td></tr>
+<tr><td><code>opportunity_old_stage_name</code></td><td><code>string</code></td><td>Nome da etapa anterior</td></tr>
+<tr><td><code>opportunity_responsable_id</code></td><td><code>number</code></td><td>ID do responsável</td></tr>
+<tr><td><code>opportunity_responsible_id</code></td><td><code>number</code></td><td>ID do responsável (mesmo valor de opportunity_responsable_id — as duas grafias existem desde sempre e as duas são entregues)</td></tr>
+<tr><td><code>opportunity_responsable_name</code></td><td><code>string</code></td><td>Nome do responsável</td></tr>
+<tr><td><code>opportunity_responsible_name</code></td><td><code>string</code></td><td>Nome do responsável (mesmo valor de opportunity_responsable_name)</td></tr>
+<tr><td><code>opportunity_responsible</code></td><td><code>object</code></td><td>Objeto do usuário responsável (os mesmos campos de chat_agent); objeto vazio quando não há responsável</td></tr>
+<tr><td><code>opportunity_clientid</code></td><td><code>string</code></td><td>ID do cliente</td></tr>
+<tr><td><code>opportunity_main_phone</code></td><td><code>string</code></td><td>Telefone principal</td></tr>
+<tr><td><code>opportunity_main_mail</code></td><td><code>string</code></td><td>E-mail principal</td></tr>
+<tr><td><code>opportunity_value</code></td><td><code>number</code></td><td>Valor</td></tr>
+<tr><td><code>opportunity_recurrent_value</code></td><td><code>number</code></td><td>Valor recorrente</td></tr>
+<tr><td><code>opportunity_probability</code></td><td><code>number</code></td><td>Probabilidade de fechamento</td></tr>
+<tr><td><code>opportunity_pipeline_id</code></td><td><code>number</code></td><td>ID do funil</td></tr>
+<tr><td><code>opportunity_pipeline_name</code></td><td><code>string</code></td><td>Nome do funil</td></tr>
+<tr><td><code>opportunity_stage_begin_timestamp</code></td><td><code>number</code></td><td>Timestamp entrada na etapa</td></tr>
+<tr><td><code>opportunity_expected_close_date</code></td><td><code>date</code></td><td>Data de fechamento esperada</td></tr>
+<tr><td><code>opportunity_expected_close_date_timestamp</code></td><td><code>number</code></td><td>Timestamp fechamento esperado</td></tr>
+<tr><td><code>opportunity_expected_close_date_YYYYMMDD</code></td><td><code>string</code></td><td>Data de fechamento esperada no formato YYYYMMDD</td></tr>
+<tr><td><code>opportunity_expected_close_date_MMDD</code></td><td><code>string</code></td><td>Data de fechamento esperada no formato MMDD</td></tr>
+<tr><td><code>opportunity_expected_close_date_moment</code></td><td><code>object</code></td><td>Objeto Momentjs da data de fechamento esperada</td></tr>
+<tr><td><code>opportunity_expected_close_date_iso</code></td><td><code>string</code></td><td>Data fechamento ISO</td></tr>
+<tr><td><code>opportunity_status</code></td><td><code>number</code></td><td>Estado (0=aberta, 1=ganha, 2=perdida)</td></tr>
+<tr><td><code>opportunity_tags</code></td><td><code>string</code></td><td>Tags separadas por vírgula</td></tr>
+<tr><td><code>opportunity_tags_count</code></td><td><code>number</code></td><td>Quantidade de tags</td></tr>
+<tr><td><code>opportunity_tags_ids</code></td><td><code>string</code></td><td>IDs das tags separados por vírgula</td></tr>
+<tr><td><code>opportunity_tags_ids_list</code></td><td><code>list</code></td><td>Lista de IDs das tags</td></tr>
+<tr><td><code>opportunity_tags_list</code></td><td><code>list</code></td><td>Lista de nomes das tags</td></tr>
+<tr><td><code>opportunity_products_list</code></td><td><code>list</code></td><td>Lista de produtos</td></tr>
+<tr><td><code>opportunity_products_count</code></td><td><code>number</code></td><td>Quantidade de LINHAS de produto da oportunidade</td></tr>
+<tr><td><code>opportunity_close_reason</code></td><td><code>string</code></td><td>Motivo da perda</td></tr>
+<tr><td><code>opportunity_close_value</code></td><td><code>number</code></td><td>Valor de fechamento</td></tr>
+<tr><td><code>opportunity_close_recurrent_value</code></td><td><code>number</code></td><td>Valor recorrente fechamento</td></tr>
+<tr><td><code>opportunity_close_obs</code></td><td><code>string</code></td><td>Observações fechamento</td></tr>
+<tr><td><code>opportunity_closed_by_id</code></td><td><code>number</code></td><td>ID de quem fechou</td></tr>
+<tr><td><code>opportunity_closed_by_name</code></td><td><code>string</code></td><td>Nome de quem fechou</td></tr>
+<tr><td><code>opportunity_closed_at_date</code></td><td><code>date</code></td><td>Data de fechamento</td></tr>
+<tr><td><code>opportunity_closed_at_date_timestamp</code></td><td><code>number</code></td><td>Timestamp fechamento</td></tr>
+<tr><td><code>opportunity_closed_at_date_YYYYMMDD</code></td><td><code>string</code></td><td>Data de fechamento no formato YYYYMMDD</td></tr>
+<tr><td><code>opportunity_closed_at_date_MMDD</code></td><td><code>string</code></td><td>Data de fechamento no formato MMDD</td></tr>
+<tr><td><code>opportunity_closed_at_date_moment</code></td><td><code>object</code></td><td>Objeto Momentjs da data de fechamento</td></tr>
+<tr><td><code>opportunity_contacts_count</code></td><td><code>number</code></td><td>Quantidade de contatos</td></tr>
+<tr><td><code>opportunity_contacts_list</code></td><td><code>list</code></td><td>Lista de contatos</td></tr>
+<tr><td><code>opportunity_files_count</code></td><td><code>number</code></td><td>Quantidade de arquivos</td></tr>
+<tr><td><code>opportunity_files_list</code></td><td><code>list</code></td><td>Lista de arquivos</td></tr>
+<tr><td><code>opportunity_extradata</code></td><td><code>object</code></td><td>Dados de formulários personalizados</td></tr>
+<tr><td><code>opportunity_products_internalcodes</code></td><td><code>string</code></td><td>Códigos internos dos produtos</td></tr>
+<tr><td><code>opportunity_products_qtys</code></td><td><code>string</code></td><td>Quantidades dos produtos</td></tr>
+<tr><td><code>opportunity_products_names</code></td><td><code>string</code></td><td>Nomes dos produtos</td></tr>
+<tr><td><code>opportunity_products_prices</code></td><td><code>string</code></td><td>Preços dos produtos</td></tr>
+<tr><td><code>opportunity_products_subtotal</code></td><td><code>number</code></td><td>Subtotal dos produtos</td></tr>
+<tr><td><code>opportunity_products_discount_total</code></td><td><code>number</code></td><td>Desconto total</td></tr>
+<tr><td><code>opportunity_products_total_value</code></td><td><code>number</code></td><td>Valor total dos produtos, já com quantidades e descontos</td></tr>
+<tr><td><code>opportunity_products_total_recurrent_value</code></td><td><code>number</code></td><td>Valor recorrente total dos produtos, já com quantidades e descontos</td></tr>
+<tr><td><code>opportunity_campaign_id</code></td><td><code>number</code></td><td>ID da campanha de disparo que originou a oportunidade (0 quando não houver)</td></tr>
+<tr><td><code>opportunity_campaign_name</code></td><td><code>string</code></td><td>Nome da campanha de disparo que originou a oportunidade (vazio quando não houver)</td></tr>
+<tr><td><code>opportunity_freight</code></td><td><code>number</code></td><td>Valor do frete do carrinho</td></tr>
+<tr><td><code>opportunity_cart_locked</code></td><td><code>number</code></td><td>Carrinho bloqueado para edição pelos usuários (0/1). Definida pelos elementos lockOpportunityCart / unlockOpportunityCart. Quando 1, a lista de produtos e o frete ficam somente leitura na interface, mas os elementos de produto da URA/automação seguem alterando o carrinho normalmente. Bloquear também CONGELA os preços dos itens (desbloquear descongela) e, em fila de WebChat V2 com Carrinho sincronizado, IMPEDE o fechamento do pedido pelo cliente</td></tr>
+</tbody></table></div>
+<h3 id="var-product">Produto <span class="badge">23</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>product_id</code></td><td><code>number</code></td><td>ID do produto</td></tr>
+<tr><td><code>product_name</code></td><td><code>string</code></td><td>Nome</td></tr>
+<tr><td><code>product_url</code></td><td><code>string</code></td><td>URL</td></tr>
+<tr><td><code>product_description</code></td><td><code>string</code></td><td>Descrição</td></tr>
+<tr><td><code>product_internal_code</code></td><td><code>string</code></td><td>Código interno</td></tr>
+<tr><td><code>product_gtin</code></td><td><code>string</code></td><td>GTIN</td></tr>
+<tr><td><code>product_measurement_unit</code></td><td><code>string</code></td><td>Unidade de medida</td></tr>
+<tr><td><code>product_value</code></td><td><code>number</code></td><td>Preço que vale para o item — o promocional em vigor quando houver, senão o de tabela</td></tr>
+<tr><td><code>product_recurrent_value</code></td><td><code>number</code></td><td>Valor recorrente</td></tr>
+<tr><td><code>product_quantity</code></td><td><code>number</code></td><td>Quantidade</td></tr>
+<tr><td><code>product_discount</code></td><td><code>number</code></td><td>Desconto EFETIVO da linha, em percentual — a soma do desconto concedido pelo atendente com o desconto do sistema, com teto de 100%. É este que define o total da linha</td></tr>
+<tr><td><code>product_recurrent_discount</code></td><td><code>number</code></td><td>Desconto efetivo recorrente, mesma composição</td></tr>
+<tr><td><code>product_user_discount</code></td><td><code>number</code></td><td>Parcela do desconto concedida pelo ATENDENTE (limitada pelo desconto máximo do cadastro do produto)</td></tr>
+<tr><td><code>product_system_discount</code></td><td><code>number</code></td><td>Parcela do desconto concedida pelo SISTEMA — automação, extensão, API ou assistente de IA. NÃO é limitada pelo desconto máximo do produto e o atendente não a altera pela tela. Some com a parcela do atendente</td></tr>
+<tr><td><code>product_user_recurrent_discount</code></td><td><code>number</code></td><td>Idem, sobre o valor recorrente</td></tr>
+<tr><td><code>product_system_recurrent_discount</code></td><td><code>number</code></td><td>Idem, sobre o valor recorrente</td></tr>
+<tr><td><code>product_disable_users_discount</code></td><td><code>number</code></td><td>1 quando o desconto manual do atendente está bloqueado nesta linha (o desconto dele é zerado e o botão some do painel)</td></tr>
+<tr><td><code>product_cart_notes</code></td><td><code>string</code></td><td>Observação interna da linha, escrita por automação ou extensão. Aparece só no carrinho do atendente, nunca no catálogo do cliente</td></tr>
+<tr><td><code>product_offer_text</code></td><td><code>string</code></td><td>Texto de oferta/campanha do cadastro do produto (ex.: "Leve 3 pague 2"), exibido nos cards para o atendente e para o cliente</td></tr>
+<tr><td><code>product_alternative_products</code></td><td><code>string</code></td><td>Códigos internos dos produtos alternativos cadastrados para este item (os que o substituem de forma direta), separados por vírgula</td></tr>
+<tr><td><code>product_observations</code></td><td><code>string</code></td><td>Observações do cadastro do produto (texto livre interno, até 500 caracteres). Não confundir com product_cart_notes, que é a observação da LINHA do carrinho</td></tr>
+<tr><td><code>product_total_value</code></td><td><code>number</code></td><td>Valor total</td></tr>
+<tr><td><code>product_total_recurrent_value</code></td><td><code>number</code></td><td>Valor recorrente total</td></tr>
+</tbody></table></div>
+<h3 id="var-task">Tarefa <span class="badge">18</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>task_id</code></td><td><code>number</code></td><td>ID da tarefa</td></tr>
+<tr><td><code>task_title</code></td><td><code>string</code></td><td>Título</td></tr>
+<tr><td><code>task_description</code></td><td><code>string</code></td><td>Descrição</td></tr>
+<tr><td><code>task_owner_id</code></td><td><code>number</code></td><td>ID responsável</td></tr>
+<tr><td><code>task_owner_name</code></td><td><code>string</code></td><td>Nome responsável</td></tr>
+<tr><td><code>task_priority</code></td><td><code>number</code></td><td>Prioridade</td></tr>
+<tr><td><code>task_duedate</code></td><td><code>date</code></td><td>Data vencimento</td></tr>
+<tr><td><code>task_status</code></td><td><code>number</code></td><td>Status (0=parada, 1=execução, 2=concluída)</td></tr>
+<tr><td><code>task_finishdate</code></td><td><code>date</code></td><td>Data conclusão</td></tr>
+<tr><td><code>task_progress</code></td><td><code>number</code></td><td>Progresso</td></tr>
+<tr><td><code>task_opportunity_id</code></td><td><code>number</code></td><td>ID oportunidade</td></tr>
+<tr><td><code>task_opportunity_object</code></td><td><code>object</code></td><td>Dados da oportunidade</td></tr>
+<tr><td><code>task_schedule_begin</code></td><td><code>date</code></td><td>Início agendamento</td></tr>
+<tr><td><code>task_schedule_end</code></td><td><code>date</code></td><td>Fim agendamento</td></tr>
+<tr><td><code>task_action_id</code></td><td><code>number</code></td><td>ID ação personalizada</td></tr>
+<tr><td><code>task_action_data</code></td><td><code>string</code></td><td>Dados da ação personalizada (o conteúdo que a ação gravou na tarefa)</td></tr>
+<tr><td><code>task_contacts_list</code></td><td><code>list</code></td><td>Lista de contatos</td></tr>
+<tr><td><code>task_contacts_count</code></td><td><code>number</code></td><td>Quantidade contatos</td></tr>
+</tbody></table></div>
+<h3 id="var-ticket">Ticket <span class="badge">36</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>ticket_id</code></td><td><code>number</code></td><td>ID do ticket</td></tr>
+<tr><td><code>ticket_number</code></td><td><code>string</code></td><td>Número do ticket</td></tr>
+<tr><td><code>ticket_subject</code></td><td><code>string</code></td><td>Assunto</td></tr>
+<tr><td><code>ticket_description</code></td><td><code>string</code></td><td>Descrição</td></tr>
+<tr><td><code>ticket_status</code></td><td><code>number</code></td><td>Status</td></tr>
+<tr><td><code>ticket_priority</code></td><td><code>number</code></td><td>Prioridade</td></tr>
+<tr><td><code>ticket_channel</code></td><td><code>number</code></td><td>Canal de origem</td></tr>
+<tr><td><code>ticket_classification</code></td><td><code>string</code></td><td>Nome da classificação (vazio quando não houver)</td></tr>
+<tr><td><code>ticket_classification_id</code></td><td><code>number</code></td><td>ID da classificação (vazio quando não houver)</td></tr>
+<tr><td><code>ticket_reason</code></td><td><code>string</code></td><td>Nome do motivo (vazio quando não houver)</td></tr>
+<tr><td><code>ticket_sub_reason</code></td><td><code>string</code></td><td>Nome do submotivo (vazio quando não houver)</td></tr>
+<tr><td><code>ticket_queue_code</code></td><td><code>string</code></td><td>Código da fila de tickets</td></tr>
+<tr><td><code>ticket_agent_id</code></td><td><code>number</code></td><td>ID do atendente responsável (vazio quando não houver)</td></tr>
+<tr><td><code>ticket_agent_name</code></td><td><code>string</code></td><td>Nome do atendente responsável (vazio quando não houver)</td></tr>
+<tr><td><code>ticket_created_at</code></td><td><code>date</code></td><td>Data de criação</td></tr>
+<tr><td><code>ticket_sla_deadline</code></td><td><code>date</code></td><td>Prazo de SLA do ticket</td></tr>
+<tr><td><code>ticket_queue_sla_deadline</code></td><td><code>date</code></td><td>Prazo de SLA da fila</td></tr>
+<tr><td><code>ticket_is_sla_met</code></td><td><code>number</code></td><td>SLA cumprido (0/1; vazio enquanto indefinido — 0 é valor válido)</td></tr>
+<tr><td><code>ticket_first_response_at</code></td><td><code>date</code></td><td>Data da primeira resposta</td></tr>
+<tr><td><code>ticket_resolved_at</code></td><td><code>date</code></td><td>Data de resolução</td></tr>
+<tr><td><code>ticket_tracking_url</code></td><td><code>string</code></td><td>URL pública de acompanhamento</td></tr>
+<tr><td><code>ticket_contacts</code></td><td><code>list</code></td><td>Contatos vinculados (objetos com id, nome, telefone, e-mail...)</td></tr>
+<tr><td><code>ticket_contacts_count</code></td><td><code>number</code></td><td>Quantidade de contatos vinculados</td></tr>
+<tr><td><code>ticket_supervisors</code></td><td><code>list</code></td><td>Supervisores da fila de tickets</td></tr>
+<tr><td><code>ticket_supervisors_count</code></td><td><code>number</code></td><td>Quantidade de supervisores</td></tr>
+<tr><td><code>ticket_stage_id</code></td><td><code>number</code></td><td>ID da etapa (vazio quando não houver)</td></tr>
+<tr><td><code>ticket_stage_name</code></td><td><code>string</code></td><td>Nome da etapa (vazio quando não houver)</td></tr>
+<tr><td><code>ticket_stage_color</code></td><td><code>string</code></td><td>Cor da etapa (vazio quando não houver)</td></tr>
+<tr><td><code>ticket_stage_flow_id</code></td><td><code>number</code></td><td>ID do fluxo de etapas (vazio quando não houver)</td></tr>
+<tr><td><code>ticket_stage_is_initial</code></td><td><code>number</code></td><td>A etapa é a inicial (0/1; vazio quando não houver etapa)</td></tr>
+<tr><td><code>ticket_stage_is_final</code></td><td><code>number</code></td><td>A etapa é final (0/1; vazio quando não houver etapa)</td></tr>
+<tr><td><code>ticket_created_by_id</code></td><td><code>number</code></td><td>[evento] ID de quem CRIOU o ticket — só na automação de criação, e gravável</td></tr>
+<tr><td><code>ticket_created_by_name</code></td><td><code>string</code></td><td>[evento] Nome de quem CRIOU o ticket — só na automação de criação, e gravável</td></tr>
+<tr><td><code>sla_alert_id</code></td><td><code>number</code></td><td>[evento] ID do alerta de SLA — só na automação de alerta de SLA, e gravável</td></tr>
+<tr><td><code>sla_alert_threshold_percent</code></td><td><code>number</code></td><td>[evento] Percentual do limiar atingido — só na automação de alerta de SLA, e gravável</td></tr>
+<tr><td><code>sla_alert_fired_level</code></td><td><code>number</code></td><td>[evento] Nível do limiar disparado — só na automação de alerta de SLA, e gravável</td></tr>
+</tbody></table></div>
+<h3 id="var-survey">Pesquisa de satisfação <span class="badge">14</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>survey_form_id</code></td><td><code>number</code></td><td>ID da pesquisa respondida</td></tr>
+<tr><td><code>survey_form_link_id</code></td><td><code>number</code></td><td>ID do link que originou a resposta</td></tr>
+<tr><td><code>survey_form_response_id</code></td><td><code>number</code></td><td>ID da resposta criada — use em responseIdVar do elemento editSurveyFormResponse</td></tr>
+<tr><td><code>survey_chat_id</code></td><td><code>number|string</code></td><td>ID do chat vinculado ao link; vazio se não houver o vínculo ou a pesquisa não tiver a associação "chat" habilitada</td></tr>
+<tr><td><code>survey_call_id</code></td><td><code>number|string</code></td><td>ID da ligação vinculada ao link; vazio sem o vínculo</td></tr>
+<tr><td><code>survey_chat_queue_id</code></td><td><code>number|string</code></td><td>ID da fila de chat vinculada ao link; vazio sem o vínculo</td></tr>
+<tr><td><code>survey_tickets_queue_id</code></td><td><code>number|string</code></td><td>ID da fila de tickets vinculada ao link; vazio sem o vínculo</td></tr>
+<tr><td><code>survey_ticket_id</code></td><td><code>number|string</code></td><td>ID do ticket vinculado ao link; vazio sem o vínculo</td></tr>
+<tr><td><code>survey_opportunity_id</code></td><td><code>number|string</code></td><td>ID da oportunidade vinculada ao link; vazio sem o vínculo</td></tr>
+<tr><td><code>survey_pipeline_id</code></td><td><code>number|string</code></td><td>ID do funil vinculado ao link; vazio sem o vínculo</td></tr>
+<tr><td><code>survey_company_id</code></td><td><code>number|string</code></td><td>ID da empresa vinculada ao link; vazio sem o vínculo</td></tr>
+<tr><td><code>survey_contact_id</code></td><td><code>number|string</code></td><td>ID do contato vinculado ao link; vazio sem o vínculo</td></tr>
+<tr><td><code>survey_agent_id</code></td><td><code>number|string</code></td><td>ID do atendente que gerou o link; vazio sem o vínculo</td></tr>
+<tr><td><code>survey_assistant_id</code></td><td><code>number|string</code></td><td>ID do assistente de IA vinculado ao link; vazio sem o vínculo</td></tr>
+</tbody></table></div>
+<h3 id="var-ai_result">Resultado de IA <span class="badge">10</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>ai_result_chat_id</code></td><td><code>number</code></td><td>ID do atendimento</td></tr>
+<tr><td><code>ai_result_chat_client_id</code></td><td><code>string</code></td><td>ID do cliente</td></tr>
+<tr><td><code>ai_result_chat_client_name</code></td><td><code>string</code></td><td>Nome do cliente</td></tr>
+<tr><td><code>ai_result_chat_client_number</code></td><td><code>string</code></td><td>Número do cliente</td></tr>
+<tr><td><code>ai_result_chat_contact_id</code></td><td><code>number</code></td><td>ID do contato</td></tr>
+<tr><td><code>ai_result_chat_protocol</code></td><td><code>string</code></td><td>Protocolo</td></tr>
+<tr><td><code>ai_result_chat_end_reason</code></td><td><code>string</code></td><td>Motivo fechamento</td></tr>
+<tr><td><code>ai_result_score</code></td><td><code>number</code></td><td>Pontuação</td></tr>
+<tr><td><code>ai_result_resume</code></td><td><code>string</code></td><td>Resumo</td></tr>
+<tr><td><code>ai_result_suggestions</code></td><td><code>string</code></td><td>Sugestões</td></tr>
+</tbody></table></div>
+<h3 id="var-agent">Agente/usuário <span class="badge">19</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>agent_id</code></td><td><code>number</code></td><td>ID do agente</td></tr>
+<tr><td><code>agent_full_name</code></td><td><code>string</code></td><td>Nome completo</td></tr>
+<tr><td><code>agent_user_name</code></td><td><code>string</code></td><td>Nome de usuário</td></tr>
+<tr><td><code>agent_sip_number</code></td><td><code>string</code></td><td>Número do ramal</td></tr>
+<tr><td><code>agent_available</code></td><td><code>number</code></td><td>Disponível (0/1)</td></tr>
+<tr><td><code>agent_logged</code></td><td><code>number</code></td><td>Logado (0/1)</td></tr>
+<tr><td><code>agent_paused</code></td><td><code>number</code></td><td>Em pausa (0/1)</td></tr>
+<tr><td><code>agent_pause_reason_id</code></td><td><code>number</code></td><td>ID motivo pausa</td></tr>
+<tr><td><code>agent_pause_begin_timestamp</code></td><td><code>number</code></td><td>Timestamp início pausa</td></tr>
+<tr><td><code>agent_chats_count</code></td><td><code>number</code></td><td>Quantidade atendimentos</td></tr>
+<tr><td><code>agent_filters</code></td><td><code>string</code></td><td>Filtros</td></tr>
+<tr><td><code>agent_filters_count</code></td><td><code>number</code></td><td>Quantidade filtros</td></tr>
+<tr><td><code>agent_filters_list</code></td><td><code>list</code></td><td>Lista filtros</td></tr>
+<tr><td><code>agent_chats_today</code></td><td><code>number</code></td><td>Atendimentos hoje</td></tr>
+<tr><td><code>agent_calls_today</code></td><td><code>number</code></td><td>Ligações hoje</td></tr>
+<tr><td><code>agent_in_call</code></td><td><code>number</code></td><td>Em ligação (0/1)</td></tr>
+<tr><td><code>agent_idle</code></td><td><code>number</code></td><td>Ocioso (0/1)</td></tr>
+<tr><td><code>agent_ext_id</code></td><td><code>string</code></td><td>ID externo</td></tr>
+<tr><td><code>agent_ext_data</code></td><td><code>string</code></td><td>Dados extras</td></tr>
+</tbody></table></div>
+<h3 id="var-file">Arquivo <span class="badge">6</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>file_id</code></td><td><code>number</code></td><td>ID do arquivo</td></tr>
+<tr><td><code>file_name</code></td><td><code>string</code></td><td>Nome</td></tr>
+<tr><td><code>file_mimetype</code></td><td><code>string</code></td><td>Mimetype</td></tr>
+<tr><td><code>file_hash</code></td><td><code>string</code></td><td>Hash</td></tr>
+<tr><td><code>file_length</code></td><td><code>number</code></td><td>Tamanho</td></tr>
+<tr><td><code>file_url</code></td><td><code>string</code></td><td>URL</td></tr>
+</tbody></table></div>
+<h3 id="var-schedule">Agendamento <span class="badge">8</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>schedule_id</code></td><td><code>string</code></td><td>ID do agendamento que disparou a execução</td></tr>
+<tr><td><code>schedule_name</code></td><td><code>string</code></td><td>Nome do agendamento</td></tr>
+<tr><td><code>schedule_origin</code></td><td><code>string</code></td><td>Como a execução começou: "scheduled" (na hora planejada), "manual" (botão "Executar agora" ou MCP) ou "recovery" (recuperação de uma ocorrência atrasada, executada UMA vez dentro da carência de atraso)</td></tr>
+<tr><td><code>schedule_planned_at</code></td><td><code>string</code></td><td>Instante PLANEJADO da ocorrência, ISO 8601 em UTC (ex.: 2026-10-05T12:00:00.000Z). Numa execução manual é o instante do disparo</td></tr>
+<tr><td><code>schedule_planned_at_local</code></td><td><code>string</code></td><td>O mesmo instante no fuso do agendamento, formato DD/MM/AAAA HH:mm (ex.: 05/10/2026 09:00)</td></tr>
+<tr><td><code>schedule_run_number</code></td><td><code>string</code></td><td>Número da execução agendada (1 na primeira). Numa execução manual é a quantidade de execuções agendadas já feitas</td></tr>
+<tr><td><code>schedule_timezone</code></td><td><code>string</code></td><td>Fuso horário do agendamento (IANA, ex.: America/Sao_Paulo)</td></tr>
+<tr><td><code>schedule_vars</code></td><td><code>object</code></td><td>Todas as variáveis estáticas do agendamento, como objeto {nome: texto}</td></tr>
+</tbody></table></div>
+<h3 id="var-webapp">WebApp/WebChat <span class="badge">6</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>webapp_payload</code></td><td><code>object</code></td><td>Objeto JSON enviado pela página, higienizado e tratado como DADO, nunca avaliado. Limite de 64 KB. Trate como message_text: valide antes de levar a variável de sistema, a URL ou a outro atendimento</td></tr>
+<tr><td><code>webapp_id</code></td><td><code>string</code></td><td>Identificador global do webapp (ex.: "acme.pedidos"). Não vazio ⇔ a execução veio de um webapp</td></tr>
+<tr><td><code>webapp_install_id</code></td><td><code>number</code></td><td>Id da instalação do webapp nesta instância</td></tr>
+<tr><td><code>webapp_alias</code></td><td><code>string</code></td><td>Alias da ação que a página pediu (o administrador liga alias -&gt; automação na instalação)</td></tr>
+<tr><td><code>webapp_run_id</code></td><td><code>string</code></td><td>Id único desta execução</td></tr>
+<tr><td><code>webapp_response</code></td><td><code>any</code></td><td>ESCRITA do fluxo. O que a automação deixar aqui volta ao navegador do cliente como "result" (JSON, até 32 KB); não coloque dado interno</td></tr>
+</tbody></table></div>
+<h3 id="var-extension">Extensão <span class="badge">5</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>extension_payload</code></td><td><code>object</code></td><td>Objeto JSON arbitrário entregue pela extensão. É a forma ESTRUTURADA — use nos elementos que leem objeto, como "Substituir carrinho da oportunidade". Limite de 256 KB</td></tr>
+<tr><td><code>extension_payload_json</code></td><td><code>string</code></td><td>O mesmo objeto serializado. Use em condição de variável, texto de mensagem e requisição HTTP, que trabalham com string</td></tr>
+<tr><td><code>extension_id</code></td><td><code>string</code></td><td>Identificador da extensão que disparou (ex.: "acme.financeiro")</td></tr>
+<tr><td><code>extension_install_id</code></td><td><code>number</code></td><td>Id da instalação da extensão nesta instância</td></tr>
+<tr><td><code>extension_label</code></td><td><code>string</code></td><td>Rótulo dado à instalação pelo administrador — distingue duas instalações da MESMA extensão</td></tr>
+</tbody></table></div>
+<h3 id="var-instance">Instância <span class="badge">53</span></h3>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Variável</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>instance_id</code></td><td><code>number</code></td><td>ID da instância</td></tr>
+<tr><td><code>instance_name</code></td><td><code>string</code></td><td>Nome</td></tr>
+<tr><td><code>instance_online</code></td><td><code>number</code></td><td>Online (0/1)</td></tr>
+<tr><td><code>instance_status_code</code></td><td><code>number</code></td><td>Status (0=aviso, 1=trial, 2=ativa, 3=cancelada)</td></tr>
+<tr><td><code>instance_server_name</code></td><td><code>string</code></td><td>Nome do servidor que hospeda a instância</td></tr>
+<tr><td><code>instance_document</code></td><td><code>string</code></td><td>Documento</td></tr>
+<tr><td><code>instance_client_name</code></td><td><code>string</code></td><td>Nome do cliente</td></tr>
+<tr><td><code>instance_contact1_name</code></td><td><code>string</code></td><td>Nome do primeiro contato da instância</td></tr>
+<tr><td><code>instance_contact1_phone</code></td><td><code>string</code></td><td>Telefone do primeiro contato</td></tr>
+<tr><td><code>instance_contact1_mail</code></td><td><code>string</code></td><td>E-mail do primeiro contato</td></tr>
+<tr><td><code>instance_contact2_name</code></td><td><code>string</code></td><td>Nome do segundo contato da instância</td></tr>
+<tr><td><code>instance_contact2_phone</code></td><td><code>string</code></td><td>Telefone do segundo contato</td></tr>
+<tr><td><code>instance_contact2_mail</code></td><td><code>string</code></td><td>E-mail do segundo contato</td></tr>
+<tr><td><code>instance_plan_id</code></td><td><code>number</code></td><td>ID do plano</td></tr>
+<tr><td><code>instance_plan_name</code></td><td><code>string</code></td><td>Nome do plano</td></tr>
+<tr><td><code>instance_plan_included_agents</code></td><td><code>number</code></td><td>Agentes incluídos no plano</td></tr>
+<tr><td><code>instance_plan_included_quota</code></td><td><code>number</code></td><td>Cota de armazenamento incluída no plano, em GB</td></tr>
+<tr><td><code>instance_activation_date</code></td><td><code>date</code></td><td>Data ativação</td></tr>
+<tr><td><code>instance_deactivation_date</code></td><td><code>date</code></td><td>Data de desativação</td></tr>
+<tr><td><code>instance_end_of_trial_date</code></td><td><code>date</code></td><td>Data de término do trial</td></tr>
+<tr><td><code>instance_locked</code></td><td><code>number</code></td><td>Bloqueada (0/1)</td></tr>
+<tr><td><code>instance_total_chat_agents</code></td><td><code>number</code></td><td>Total agentes (plano + extras)</td></tr>
+<tr><td><code>instance_extra_chat_agents</code></td><td><code>number</code></td><td>Agentes de chat extras contratados</td></tr>
+<tr><td><code>instance_extra_supervisors</code></td><td><code>number</code></td><td>Supervisores extras contratados</td></tr>
+<tr><td><code>instance_extra_wa_queues</code></td><td><code>number</code></td><td>Filas de WhatsApp extras contratadas</td></tr>
+<tr><td><code>instance_extra_remote_support</code></td><td><code>number</code></td><td>Sessões de suporte remoto extras contratadas</td></tr>
+<tr><td><code>instance_basic_ai</code></td><td><code>boolean</code></td><td>IA básica habilitada (pelo plano ou por contratação)</td></tr>
+<tr><td><code>instance_advanced_ai</code></td><td><code>boolean</code></td><td>IA avançada habilitada (pelo plano ou por contratação)</td></tr>
+<tr><td><code>instance_custom_reports</code></td><td><code>boolean</code></td><td>Relatórios personalizados habilitados</td></tr>
+<tr><td><code>instance_disable_crm</code></td><td><code>number</code></td><td>CRM desabilitado</td></tr>
+<tr><td><code>instance_disable_tickets</code></td><td><code>number</code></td><td>Tickets desabilitados</td></tr>
+<tr><td><code>instance_disable_survey_forms</code></td><td><code>number</code></td><td>Pesquisas desabilitadas</td></tr>
+<tr><td><code>instance_extra_quotas</code></td><td><code>number</code></td><td>Cota de armazenamento extra, em GB</td></tr>
+<tr><td><code>instance_used_agents</code></td><td><code>number</code></td><td>Agentes utilizados</td></tr>
+<tr><td><code>instance_wa_queues</code></td><td><code>number</code></td><td>Filas de WhatsApp em uso</td></tr>
+<tr><td><code>instance_fb_queues</code></td><td><code>number</code></td><td>Filas de Facebook em uso</td></tr>
+<tr><td><code>instance_ig_queues</code></td><td><code>number</code></td><td>Filas de Instagram em uso</td></tr>
+<tr><td><code>instance_gb_queues</code></td><td><code>number</code></td><td>Filas de Google Business em uso</td></tr>
+<tr><td><code>instance_tg_queues</code></td><td><code>number</code></td><td>Filas de Telegram em uso</td></tr>
+<tr><td><code>instance_em_queues</code></td><td><code>number</code></td><td>Filas de e-mail em uso</td></tr>
+<tr><td><code>instance_we_queues</code></td><td><code>number</code></td><td>Filas de WebChat em uso</td></tr>
+<tr><td><code>instance_db_size</code></td><td><code>number</code></td><td>Tamanho do banco de dados, em GB</td></tr>
+<tr><td><code>instance_db_used</code></td><td><code>number</code></td><td>Espaço de banco de dados utilizado, em GB</td></tr>
+<tr><td><code>instance_medium_monthly_cost</code></td><td><code>number</code></td><td>Custo mensal médio</td></tr>
+<tr><td><code>instance_daily_cost</code></td><td><code>number</code></td><td>Custo diário</td></tr>
+<tr><td><code>instance_has_pbx</code></td><td><code>number</code></td><td>A instância tem PABX vinculado (0/1)</td></tr>
+<tr><td><code>instance_pbx_id</code></td><td><code>number</code></td><td>ID do PABX vinculado (0 quando não houver)</td></tr>
+<tr><td><code>instance_pbx_name</code></td><td><code>string</code></td><td>Nome do PABX vinculado (vazio quando não houver)</td></tr>
+<tr><td><code>instance_pbx_online</code></td><td><code>number</code></td><td>PABX vinculado online (0/1)</td></tr>
+<tr><td><code>instance_old_plan_id</code></td><td><code>number</code></td><td>[evento] ID do plano ANTERIOR — só na automação de troca de plano, e gravável</td></tr>
+<tr><td><code>instance_old_plan_name</code></td><td><code>string</code></td><td>[evento] Nome do plano ANTERIOR — só na automação de troca de plano, e gravável</td></tr>
+<tr><td><code>instance_old_plan_included_agents</code></td><td><code>number</code></td><td>[evento] Agentes incluídos no plano ANTERIOR — só na automação de troca de plano, e gravável</td></tr>
+<tr><td><code>instance_old_plan_included_quota</code></td><td><code>number</code></td><td>[evento] Cota incluída no plano ANTERIOR, em GB — só na automação de troca de plano, e gravável</td></tr>
+</tbody></table></div>
+
+  <div class="pagenav">
+    <a href="automacoes-elementos.html"><span>←</span> Catálogo de elementos</a>
+    <a class="next" href="automacoes-exemplos.html"><span>Ver também →</span> Exemplos prontos</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

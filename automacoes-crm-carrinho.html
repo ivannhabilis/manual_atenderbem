@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRM, oportunidade e carrinho — Manual Omnichannel</title>
+<meta name="description" content="Funil de vendas, produtos da oportunidade e carrinho sincronizado. (22 elementos)">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a class="active" href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="automacoes-elementos.html">Automações e URA</a> &rsaquo; CRM, oportunidade e carrinho</div>
+
+  <h1>CRM, oportunidade e carrinho</h1>
+  <p class="subtitle">Funil de vendas, produtos da oportunidade e carrinho sincronizado. (22 elementos)</p>
+
+<p>Funil de vendas, produtos da oportunidade e carrinho sincronizado.</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Elemento</th><th>O que faz</th></tr></thead><tbody>
+<tr><td><a href="#el-addOpportunity">addOpportunity</a></td><td>Adiciona uma nova oportunidade no sistema.</td></tr>
+<tr><td><a href="#el-editOpportunity">editOpportunity</a></td><td>Edita uma oportunidade existente no sistema.</td></tr>
+<tr><td><a href="#el-searchOpportunity">searchOpportunity</a></td><td>Busca uma oportunidade na base de dados do sistema e disponibiliza seus dados em uma variável.</td></tr>
+<tr><td><a href="#el-cloneOpportunity">cloneOpportunity</a></td><td>Clona uma oportunidade existente, criando uma nova oportunidade com os mesmos dados da oportunidade original.</td></tr>
+<tr><td><a href="#el-moveOpportunity">moveOpportunity</a></td><td>Move uma oportunidade existente para um novo estágio do funil de vendas. Em fila de WebChat V2 com CARRINHO SINCRONIZADO, NÃO use este eleme</td></tr>
+<tr><td><a href="#el-winOpportunity">winOpportunity</a></td><td>Encerra uma oportunidade existente marcando-a como ganha. Se o estágio onde a oportunidade está associada não for um estágio que permite o g</td></tr>
+<tr><td><a href="#el-loseOpportunity">loseOpportunity</a></td><td>Encerra uma oportunidade existente marcando-a como perdida. Em fila de WebChat V2 com CARRINHO SINCRONIZADO, não aponte este elemento para a</td></tr>
+<tr><td><a href="#el-reopenOpportunity">reopenOpportunity</a></td><td>Reabre uma oportunidade que foi fechada anteriormente.</td></tr>
+<tr><td><a href="#el-transferOpportunity">transferOpportunity</a></td><td>Transfere uma oportunidade para um novo responsável.</td></tr>
+<tr><td><a href="#el-freezeOpportunity">freezeOpportunity</a></td><td>Congela uma oportunidade, ocultando ela da visualização do agente.</td></tr>
+<tr><td><a href="#el-unfreezeOpportunity">unfreezeOpportunity</a></td><td>Descongela uma oportunidade congelada.</td></tr>
+<tr><td><a href="#el-clearOpportunityTasks">clearOpportunityTasks</a></td><td>Limpa todas as tarefas associadas a uma oportunidade. As tarefas são excluídas.</td></tr>
+<tr><td><a href="#el-insertFileOpportunity">insertFileOpportunity</a></td><td>Associa um arquivo a uma oportunidade do sistema.</td></tr>
+<tr><td><a href="#el-cancelOpportunityMove">cancelOpportunityMove</a></td><td>Cancela o movimento de etapa de uma oportunidade que estava em andamento. Esse elemento só tem efeito quando executado em uma automação disp</td></tr>
+<tr><td><a href="#el-cancelOpportunityWin">cancelOpportunityWin</a></td><td>Cancela o processo de ganho de uma oportunidade que estava em andamento. Esse elemento só tem efeito quando executado em uma automação dispa</td></tr>
+<tr><td><a href="#el-lockOpportunityCart">lockOpportunityCart</a></td><td>Bloqueia o carrinho de uma oportunidade do CRM: a lista de produtos e o valor do frete passam a ser somente leitura para TODOS os usuários d</td></tr>
+<tr><td><a href="#el-unlockOpportunityCart">unlockOpportunityCart</a></td><td>Desfaz o bloqueio aplicado por lockOpportunityCart: a lista de produtos e o valor do frete voltam a ser editáveis pelos usuários no formulár</td></tr>
+<tr><td><a href="#el-replaceOpportunityCart">replaceOpportunityCart</a></td><td>Substitui o carrinho INTEIRO de uma oportunidade pelo conteúdo de um objeto JSON. Serve para reescrever a lista de itens de uma vez a partir</td></tr>
+<tr><td><a href="#el-sendCartButton">sendCartButton</a></td><td>Envia ao cliente uma MENSAGEM com um botão que ABRE O CARRINHO dele para conferência.</td></tr>
+<tr><td><a href="#el-addOrEditProductToOpportunity">addOrEditProductToOpportunity</a></td><td>Adiciona ou modifica um produto a uma oportunidade no CRM do sistema. Permite definir quantidade, desconto e estratégia de conflito quando o</td></tr>
+<tr><td><a href="#el-removeProductFromOpportunity">removeProductFromOpportunity</a></td><td>Remove um produto de uma oportunidade no CRM do sistema. O produto é completamente removido da lista de produtos da oportunidade.</td></tr>
+<tr><td><a href="#el-clearProductListOfOpportunity">clearProductListOfOpportunity</a></td><td>Limpa completamente a lista de produtos associados a uma oportunidade no CRM do sistema. Todos os produtos serão removidos da oportunidade.</td></tr>
+</tbody></table></div>
+<h3 id="el-addOpportunity">addOpportunity</h3>
+<p>Adiciona uma nova oportunidade no sistema.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"pipelineId":0,"stageId":0,"resultVariableName":"","opportunity":{"title":{"enabled":0,"content":""},"mainphone":{"enabled":0,"content":""},"mainmail":{"enabled":0,"content":""},"origin":{"enabled":0,"content":""},"value":{"enabled":0,"content":""},"recurrentvalue":{"enabled":0,"content":""},"probability":{"enabled":0,"content":""},"tags":{"enabled":0,"content":[]},"description":{"enabled":0,"content":""},"associateToCurrentChat":{"enabled":0,"content":false},"associateToCurrentContact":{"enabled":0,"content":false},"products":{"enabled":0,"content":[]},"customFormsData":{},"freight":{"enabled":0,"content":""}},"nextElementId":""}
+Como se escreve: meu_rotulo: addOpportunity pipelineId=0 stageId=0 opportunity={...}
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>35</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: addOpportunity pipelineId=0 stageId=0 opportunity={...}</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>pipelineId</code></td><td><code>number</code></td><td>sim</td><td>ID do funil de vendas ao qual a oportunidade será associada. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>stageId</code></td><td><code>number</code></td><td>sim</td><td>ID do estágio do funil de vendas ao qual a oportunidade será associada. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td></td><td>Nome da variável que receberá o objeto com as variáveis da nova oportunidade criada. Adicionar somente o nome da variável, sem chaves. Exemplo: "opportunity_result"</td></tr>
+<tr><td><code>opportunity</code></td><td><code>OpportunityConfig</code></td><td>sim</td><td>Dados para adição da oportunidade</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+<tr><td><code>title</code></td><td><code>StringObjectAddEditConfig</code></td><td>sim</td><td>Título da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_title}}"</td></tr>
+<tr><td><code>mainphone</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Telefone principal da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_phone}}"</td></tr>
+<tr><td><code>mainmail</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Email principal da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_email}}"</td></tr>
+<tr><td><code>origin</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>ID da origem da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_origin}}"</td></tr>
+<tr><td><code>value</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Valor da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_value}}"</td></tr>
+<tr><td><code>recurrentvalue</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Valor recorrente da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_recurrent_value}}"</td></tr>
+<tr><td><code>probability</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Probabilidade de fechamento da oportunidade, entre 0 e 100. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_probability}}"</td></tr>
+<tr><td><code>tags</code></td><td><code>ArrayObjectAddEditConfig</code></td><td></td><td>Lista de IDs das etiquetas associadas da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: ["{{tag_id}}"]</td></tr>
+<tr><td><code>description</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Descrição da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_description}}"</td></tr>
+<tr><td><code>associateToCurrentChat</code></td><td><code>BooleanObjectAddEditConfig</code></td><td></td><td>Se true, a oportunidade será associada ao atendimento atual.</td></tr>
+<tr><td><code>associateToCurrentContact</code></td><td><code>BooleanObjectAddEditConfig</code></td><td></td><td>Se true, a oportunidade será associada ao contato atual do atendimento, se houver.</td></tr>
+<tr><td><code>content</code></td><td><code>ProductCartConfig[] }</code></td><td></td><td>Lista de produtos associados à oportunidade.</td></tr>
+<tr><td><code>customFormsData</code></td><td><code>{ [key: string]: StringObjectAddEditConfig }</code></td><td></td><td>Objeto contando o conteúdo dos campos dos formulários personalizados associados ao funil da oportunidade. Contém o ID do campo personalizado como chave e o valor do campo como valor. Pode-se utilizar variáveis no conteúdo, exemplo: {"custom_field_1": {enabled: true, content: "{{custom_field_1_content}}"}}.</td></tr>
+<tr><td><code>id</code></td><td><code>number</code></td><td>sim</td><td>ID do produto. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>qty</code></td><td><code>number</code></td><td>sim</td><td>Quantidade do produto. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>discount</code></td><td><code>number</code></td><td></td><td>Desconto aplicado ao valor produto. Não se pode utilizar variáveis.</td></tr>
+</tbody></table></div>
+<h3 id="el-editOpportunity">editOpportunity</h3>
+<p>Edita uma oportunidade existente no sistema.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"pipelineId":0,"opportunityId":"","opportunity":{"title":{"enabled":0,"content":""},"mainphone":{"enabled":0,"content":""},"mainmail":{"enabled":0,"content":""},"origin":{"enabled":0,"content":""},"value":{"enabled":0,"content":""},"recurrentvalue":{"enabled":0,"content":""},"probability":{"enabled":0,"content":""},"tags":{"enabled":0,"content":[]},"description":{"enabled":0,"content":""},"associateToCurrentChat":{"enabled":0,"content":false},"associateToCurrentContact":{"enabled":0,"content":false},"products":{"enabled":0,"content":[]},"customFormsData":{},"freight":{"enabled":0,"content":""}},"nextElementId":""}
+Como se escreve: meu_rotulo: editOpportunity pipelineId=0 opportunityId="..." opportunity={...}
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>38</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: editOpportunity pipelineId=0 opportunityId="..." opportunity={...}</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>pipelineId</code></td><td><code>number</code></td><td>sim</td><td>ID do funil do CRM onde a oportunidade está associada. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td>sim</td><td>ID da oportunidade que será editada. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}"</td></tr>
+<tr><td><code>opportunity</code></td><td><code>OpportunityConfig</code></td><td>sim</td><td>Dados para edição da oportunidade</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+<tr><td><code>title</code></td><td><code>StringObjectAddEditConfig</code></td><td>sim</td><td>Título da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_title}}"</td></tr>
+<tr><td><code>mainphone</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Telefone principal da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_phone}}"</td></tr>
+<tr><td><code>mainmail</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Email principal da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_email}}"</td></tr>
+<tr><td><code>origin</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>ID da origem da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_origin}}"</td></tr>
+<tr><td><code>value</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Valor da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_value}}"</td></tr>
+<tr><td><code>recurrentvalue</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Valor recorrente da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_recurrent_value}}"</td></tr>
+<tr><td><code>probability</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Probabilidade de fechamento da oportunidade, entre 0 e 100. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_probability}}"</td></tr>
+<tr><td><code>tags</code></td><td><code>ArrayObjectAddEditConfig</code></td><td></td><td>Lista de IDs das etiquetas associadas da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: ["{{tag_id}}"]</td></tr>
+<tr><td><code>description</code></td><td><code>StringObjectAddEditConfig</code></td><td></td><td>Descrição da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_description}}"</td></tr>
+<tr><td><code>associateToCurrentChat</code></td><td><code>BooleanObjectAddEditConfig</code></td><td></td><td>Se true, a oportunidade será associada ao atendimento atual.</td></tr>
+<tr><td><code>associateToCurrentContact</code></td><td><code>BooleanObjectAddEditConfig</code></td><td></td><td>Se true, a oportunidade será associada ao contato atual do atendimento, se houver.</td></tr>
+<tr><td><code>content</code></td><td><code>ProductCartConfig[] }</code></td><td></td><td>Lista de produtos associados à oportunidade.</td></tr>
+<tr><td><code>customFormsData</code></td><td><code>{ [key: string]: StringObjectAddEditConfig }</code></td><td></td><td>Objeto contando o conteúdo dos campos dos formulários personalizados associados ao funil da oportunidade. Contém o ID do campo personalizado como chave e o valor do campo como valor. Pode-se utilizar variáveis no conteúdo, exemplo: {"custom_field_1": {enabled: true, content: "{{custom_field_1_content}}"}}.</td></tr>
+<tr><td><code>id</code></td><td><code>number</code></td><td>sim</td><td>ID do produto. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>qty</code></td><td><code>number</code></td><td>sim</td><td>Quantidade do produto. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>discount</code></td><td><code>number</code></td><td></td><td>Desconto aplicado ao valor produto. Não se pode utilizar variáveis.</td></tr>
+</tbody></table></div>
+<h3 id="el-searchOpportunity">searchOpportunity</h3>
+<p>Busca uma oportunidade na base de dados do sistema e disponibiliza seus dados em uma variável.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"resultVariableName":"","searchField":"id","searchValue":"","pipelineId":0,"associateToCurrentChat":false,"nextElementId":""}
+Como se escreve: meu_rotulo: searchOpportunity resultVariableName="..." searchField="id" searchValue="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>41</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: searchOpportunity resultVariableName="..." searchField="id" searchValue="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável que receberá o resultado da busca. Adicionar somente o nome da variável, sem chaves. Exemplo: "opportunity_result"</td></tr>
+<tr><td><code>searchField</code></td><td><code>"id" | "mainphone" | "mainmail"</code></td><td>sim</td><td>Campo que será utilizado para buscar a oportunidade.</td></tr>
+<tr><td><code>searchValue</code></td><td><code>string</code></td><td>sim</td><td>Valor que será utilizado para buscar a oportunidade. Esse valor será comparado com o valor do campo especificado em searchField. Pode-se utilizar variáveis no conteúdo, exemplo: "{{search_value}}"</td></tr>
+<tr><td><code>pipelineId</code></td><td><code>number</code></td><td></td><td>Se desejar, pode-se buscar somente oportunidades de um funil específico. Se 0, buscará em todos os funis, se preenchido, só buscará oportunidades do funil especificado. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>associateToCurrentChat</code></td><td><code>boolean</code></td><td></td><td>Se true, a oportunidade encontrada será associada ao atendimento atual.</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-cloneOpportunity">cloneOpportunity</h3>
+<p>Clona uma oportunidade existente, criando uma nova oportunidade com os mesmos dados da oportunidade original.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"pipelineId":0,"stageId":0,"opportunityId":"","resultVariableName":"","associateToCurrentChat":false,"allowViewParent":false,"nextElementId":""}
+Como se escreve: meu_rotulo: cloneOpportunity pipelineId=0 stageId=0 opportunityId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>39</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: cloneOpportunity pipelineId=0 stageId=0 opportunityId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>pipelineId</code></td><td><code>number</code></td><td>sim</td><td>ID do funil do CRM onde a nova oportunidade será associada. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>stageId</code></td><td><code>number</code></td><td>sim</td><td>ID do estágio do funil de vendas ao qual a nova oportunidade será associada. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td>sim</td><td>ID da oportunidade que será clonada. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}"</td></tr>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td></td><td>Nome da variável que receberá o objeto com as variáveis da nova oportunidade criada. Adicionar somente o nome da variável, sem chaves. Exemplo: "opportunity_result"</td></tr>
+<tr><td><code>associateToCurrentChat</code></td><td><code>boolean</code></td><td></td><td>Se true, a nova oportunidade será associada ao atendimento atual.</td></tr>
+<tr><td><code>allowViewParent</code></td><td><code>boolean</code></td><td></td><td>Se true, usuários que puderem visualizar a nova oportunidade (o clone) também poderão visualizar a oportunidade de origem, mesmo que não tenham acesso ao funil da oportunidade de origem nem sejam responsáveis/seguidores dela. Útil para que o responsável pela oportunidade clonada consiga acompanhar a oportunidade que a originou.</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-moveOpportunity">moveOpportunity</h3>
+<p>Move uma oportunidade existente para um novo estágio do funil de vendas. Em fila de WebChat V2 com CARRINHO SINCRONIZADO, NÃO use este elemento para fechar o pedido do carrinho: mover a oportunidade-carrinho para a etapa de pedido por aqui a desconecta do atendimento sem executar o fechamento — o carrinho não é travado, a mensagem de pedido não é enviada, e na alteração seguinte o cliente ganha um carrinho novo e vazio. O fechamento do pedido é feito pelo próprio cliente, pelo agente no painel ou pelo assistente de IA do atendimento, e é ele que executa a movimentação junto com o resto. Pela mesma razão, evite mover essa oportunidade para qualquer outra etapa enquanto o atendimento estiver aberto.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"opportunityId":"","stageId":0,"pipelineId":0,"nextElementId":""}
+Como se escreve: meu_rotulo: moveOpportunity opportunityId="..." stageId=0 pipelineId=0
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>40</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: moveOpportunity opportunityId="..." stageId=0 pipelineId=0</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td>sim</td><td>ID da oportunidade que será movida. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}"</td></tr>
+<tr><td><code>stageId</code></td><td><code>number</code></td><td>sim</td><td>ID do estágio do funil de vendas ao qual a oportunidade será movida. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>pipelineId</code></td><td><code>number</code></td><td>sim</td><td>ID do funil de vendas ao qual a oportunidade está associada. Não se pode utilizar variáveis.</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-winOpportunity">winOpportunity</h3>
+<p>Encerra uma oportunidade existente marcando-a como ganha. Se o estágio onde a oportunidade está associada não for um estágio que permite o ganho, esse elemento será ignorado. Em fila de WebChat V2 com CARRINHO SINCRONIZADO, não aponte este elemento para a oportunidade que está servindo de carrinho do atendimento: encerrá-la a desconecta do atendimento, o cliente fica com um carrinho que não sincroniza mais e um carrinho novo e vazio nasce na alteração seguinte. O sistema já encerra essa oportunidade sozinho quando o atendimento termina, conforme a política configurada na fila.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"opportunityId":"","value":"","recurrentValue":"","nextElementId":""}
+Como se escreve: meu_rotulo: winOpportunity opportunityId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>36</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: winOpportunity opportunityId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td>sim</td><td>ID da oportunidade que será encerrada. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}"</td></tr>
+<tr><td><code>value</code></td><td><code>string</code></td><td></td><td>Valor de fechamento da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_value}}"</td></tr>
+<tr><td><code>recurrentValue</code></td><td><code>string</code></td><td></td><td>Valor recorrente de fechamento da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_recurrent_value}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-loseOpportunity">loseOpportunity</h3>
+<p>Encerra uma oportunidade existente marcando-a como perdida. Em fila de WebChat V2 com CARRINHO SINCRONIZADO, não aponte este elemento para a oportunidade que está servindo de carrinho do atendimento: encerrá-la a desconecta do atendimento, o cliente fica com um carrinho que não sincroniza mais e um carrinho novo e vazio nasce na alteração seguinte. O sistema já encerra essa oportunidade sozinho quando o atendimento termina, conforme a política configurada na fila.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"opportunityId":"","reason":"","obs":"","nextElementId":""}
+Como se escreve: meu_rotulo: loseOpportunity opportunityId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>37</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: loseOpportunity opportunityId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td>sim</td><td>ID da oportunidade que será encerrada. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}"</td></tr>
+<tr><td><code>reason</code></td><td><code>string</code></td><td></td><td>Motivo pelo qual a oportunidade foi perdida. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_lose_reason}}"</td></tr>
+<tr><td><code>obs</code></td><td><code>string</code></td><td></td><td>Observações sobre a perda da oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_lose_obs}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-reopenOpportunity">reopenOpportunity</h3>
+<p>Reabre uma oportunidade que foi fechada anteriormente.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"opportunityId":"","nextElementId":""}
+Como se escreve: meu_rotulo: reopenOpportunity opportunityId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>50</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: reopenOpportunity opportunityId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td>sim</td><td>ID da oportunidade que será reaberta. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-transferOpportunity">transferOpportunity</h3>
+<p>Transfere uma oportunidade para um novo responsável.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"opportunityId":"","transferType":0,"autoTransferStrategy":0,"agentsFilters":[],"preferOnlineAgents":false,"responsibleId":"","nextElementId":""}
+Como se escreve: meu_rotulo: transferOpportunity opportunityId="..." transferType=0 autoTransferStrategy=0
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>42</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: transferOpportunity opportunityId="..." transferType=0 autoTransferStrategy=0</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td>sim</td><td>ID da oportunidade que será transferida. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}"</td></tr>
+<tr><td><code>transferType</code></td><td><code>0 | 1</code></td><td>sim</td><td>Tipo de transferência. 0 - Transferir selecionando o usuário automaticamente com base nos filtros, 1 - Transferência para um usuário específico</td></tr>
+<tr><td><code>autoTransferStrategy</code></td><td><code>0 | 1 | 2</code></td><td>sim</td><td>Estratégia de transferência automática. Somente se transferType for 0. 0 - Transferir para o usuário com menos oportunidades associadas, 1 - Transferência circular, 2 - Selecionar um usuário de forma aleatória</td></tr>
+<tr><td><code>agentsFilters</code></td><td><code>string[]</code></td><td></td><td>Lista de filtros para seleção do novo responsável. Somente agentes que possuem ao menos um dos itens da lista serão selecionados. Somente se transferType for 0. Pode-se utilizar variáveis no conteúdo, exemplo: ["{{filter1}}", "{{filter2}}"]</td></tr>
+<tr><td><code>preferOnlineAgents</code></td><td><code>boolean</code></td><td></td><td>Se true, a transferência será preferencialmente para agentes online no momento da transferência. Somente se transferType for 0.</td></tr>
+<tr><td><code>responsibleId</code></td><td><code>string</code></td><td></td><td>ID do novo responsável pela oportunidade. Somente se transferType for 1. Pode-se utilizar variáveis no conteúdo, exemplo: "{{user_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-freezeOpportunity">freezeOpportunity</h3>
+<p>Congela uma oportunidade, ocultando ela da visualização do agente.</p>
+<div class="callout info">Uma tarefa pode ser congelada por um período de tempo, após o qual ela será descongelada automaticamente.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"opportunityId":"","freezeUntil":"","nextElementId":""}
+Como se escreve: meu_rotulo: freezeOpportunity opportunityId="..." freezeUntil="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>46</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: freezeOpportunity opportunityId="..." freezeUntil="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td>sim</td><td>ID da oportunidade que será congelada. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}"</td></tr>
+<tr><td><code>freezeUntil</code></td><td><code>string</code></td><td>sim</td><td>String no formato "YYYY-MM-DD" que representa a data até a qual a oportunidade ficará congelada. Pode-se utilizar variáveis no conteúdo, exemplo: "{{freeze_until}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-unfreezeOpportunity">unfreezeOpportunity</h3>
+<p>Descongela uma oportunidade congelada.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"opportunityId":"","nextElementId":""}
+Como se escreve: meu_rotulo: unfreezeOpportunity opportunityId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>47</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: unfreezeOpportunity opportunityId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td>sim</td><td>ID da oportunidade que será descongelada. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-clearOpportunityTasks">clearOpportunityTasks</h3>
+<p>Limpa todas as tarefas associadas a uma oportunidade. As tarefas são excluídas.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"opportunityId":"","nextElementId":""}
+Como se escreve: meu_rotulo: clearOpportunityTasks opportunityId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>45</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: clearOpportunityTasks opportunityId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td>sim</td><td>ID da oportunidade que terá suas tarefas excluídas. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-insertFileOpportunity">insertFileOpportunity</h3>
+<p>Associa um arquivo a uma oportunidade do sistema.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"opportunityId":"","fileId":"","nextElementId":""}
+Como se escreve: meu_rotulo: insertFileOpportunity opportunityId="..." fileId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>43</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: insertFileOpportunity opportunityId="..." fileId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td>sim</td><td>ID da oportunidade que receberá o arquivo. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}"</td></tr>
+<tr><td><code>fileId</code></td><td><code>string</code></td><td>sim</td><td>ID do arquivo que será associado a oportunidade. Pode-se utilizar variáveis no conteúdo, exemplo: "{{file_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-cancelOpportunityMove">cancelOpportunityMove</h3>
+<p>Cancela o movimento de etapa de uma oportunidade que estava em andamento. Esse elemento só tem efeito quando executado em uma automação disparada por um gatilho de movimento de oportunidade.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
+Como se escreve: meu_rotulo: cancelOpportunityMove
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>104</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: cancelOpportunityMove</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<h3 id="el-cancelOpportunityWin">cancelOpportunityWin</h3>
+<p>Cancela o processo de ganho de uma oportunidade que estava em andamento. Esse elemento só tem efeito quando executado em uma automação disparada por um gatilho de ganho de oportunidade.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
+Como se escreve: meu_rotulo: cancelOpportunityWin
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>105</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: cancelOpportunityWin</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<h3 id="el-lockOpportunityCart">lockOpportunityCart</h3>
+<p>Bloqueia o carrinho de uma oportunidade do CRM: a lista de produtos e o valor do frete passam a ser somente leitura para TODOS os usuários do sistema, inclusive administradores e supervisores. As URAs e automações continuam podendo alterar o carrinho normalmente pelos elementos addOrEditProductToOpportunity, removeProductFromOpportunity e clearProductListOfOpportunity — o bloqueio vale apenas para a edição manual. Use este elemento quando o fluxo monta o pedido e precisa garantir que ninguém o altere no meio do caminho (aguardando pagamento, pedido já enviado ao cliente, etc). O bloqueio não depende do estado da oportunidade: uma oportunidade aberta, congelada, ganha ou perdida pode ter o carrinho bloqueado. Se a oportunidade não for encontrada ou o carrinho já estiver bloqueado, o elemento não faz nada e o fluxo segue normalmente. Para liberar, use unlockOpportunityCart. O estado atual fica disponível na variável opportunity_cart_locked. BLOQUEAR CONGELA OS PREÇOS: o preço de cada item passa a ser o que valia no momento do bloqueio, e uma alteração posterior no cadastro do produto não muda mais o total daquele pedido — desbloquear descongela e os itens voltam a seguir o preço vigente. Em fila de WebChat V2 com CARRINHO SINCRONIZADO, o bloqueio tem um efeito a mais: além de deixar o carrinho somente leitura para o cliente e para o agente, ele IMPEDE o fechamento do pedido — o cliente clica em finalizar e a conversão é recusada. Nessa fila, bloqueie o carrinho DEPOIS do fechamento (ou deixe que a própria conversão o faça, se a fila estiver configurada para travar automaticamente), nunca antes.</p>
+<div class="callout info">CARRINHO DE UM ATENDIMENTO (cartTarget: "chat", opcional): em vez do ID da oportunidade, o elemento pode agir no carrinho sincronizado de um atendimento — o do próprio fluxo (chatId vazio) ou outro atendimento aberto (chatId, ex.: um item da lista do queueChats). Se o atendimento ainda não tiver carrinho, o elemento não faz nada e o fluxo segue. Só vale em fila com Carrinho sincronizado ativo, e numa automação sem atendimento (a "ao alterar o carrinho" da fila, a de etapa do funil) o chatId vazio não tem carrinho: ali use opportunityId {{opportunity_id}}. Omitido = pelo opportunityId, como sempre.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"opportunityId":"","nextElementId":""}
+Como se escreve: meu_rotulo: lockOpportunityCart opportunityId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>138</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: lockOpportunityCart opportunityId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td>sim</td><td>ID da oportunidade cujo carrinho (produtos e frete) será bloqueado para edição pelos usuários. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}" Exceção: com cartTarget 'chat' deixe vazio (o campo é ignorado).</td></tr>
+</tbody></table></div>
+<h3 id="el-unlockOpportunityCart">unlockOpportunityCart</h3>
+<p>Desfaz o bloqueio aplicado por lockOpportunityCart: a lista de produtos e o valor do frete voltam a ser editáveis pelos usuários no formulário da oportunidade, respeitando as permissões normais do funil. Se a oportunidade não for encontrada ou o carrinho já estiver desbloqueado, o elemento não faz nada e o fluxo segue normalmente. O estado atual fica disponível na variável opportunity_cart_locked. Desbloquear DESCONGELA os preços congelados no bloqueio: os itens voltam a seguir o preço vigente do cadastro, e o total do pedido pode mudar. Em fila com Carrinho sincronizado, desbloquear devolve ao cliente e ao agente a edição do carrinho e volta a permitir o fechamento do pedido.</p>
+<div class="callout info">CARRINHO DE UM ATENDIMENTO (cartTarget: "chat", opcional): em vez do ID da oportunidade, o elemento pode agir no carrinho sincronizado de um atendimento — o do próprio fluxo (chatId vazio) ou outro atendimento aberto (chatId, ex.: um item da lista do queueChats). Se o atendimento ainda não tiver carrinho, o elemento não faz nada e o fluxo segue. Só vale em fila com Carrinho sincronizado ativo, e numa automação sem atendimento (a "ao alterar o carrinho" da fila, a de etapa do funil) o chatId vazio não tem carrinho: ali use opportunityId {{opportunity_id}}. Omitido = pelo opportunityId, como sempre.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"opportunityId":"","nextElementId":""}
+Como se escreve: meu_rotulo: unlockOpportunityCart opportunityId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>139</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: unlockOpportunityCart opportunityId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td>sim</td><td>ID da oportunidade cujo carrinho (produtos e frete) voltará a ser editável pelos usuários. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}" Exceção: com cartTarget 'chat' deixe vazio (o campo é ignorado).</td></tr>
+</tbody></table></div>
+<h3 id="el-replaceOpportunityCart">replaceOpportunityCart</h3>
+<p>Substitui o carrinho INTEIRO de uma oportunidade pelo conteúdo de um objeto JSON. Serve para reescrever a lista de itens de uma vez a partir da resposta de um ERP ou de um cálculo do fluxo — inclusive removendo o que NÃO veio no JSON, o que os elementos de adicionar/remover produto não conseguem fazer sem saber de antemão o que está no carrinho.</p>
+<div class="callout info">O conteúdo pode vir como texto JSON (o caso comum, uma variável interpolada) ou como objeto já estruturado. Aceita `{"items": [...]}` ou o array puro. Cada item aceita: `id` (id do produto) OU `internalcode` (código interno do catálogo); `qty` (quantidade, padrão 1); `discount` e `recurrentdiscount` (percentuais de 0 a 100 concedidos ao cliente); `systemdiscount` e `systemrecurrentdiscount` (desconto do SISTEMA, que o agente não altera pela tela e que não é limitado pelo teto do cadastro do produto — soma com o desconto do agente, teto de 100%); `disableUsersDiscount` (true zera o desconto do agente naquele item e bloqueia a edição); e `notes` (recado curto exibido só no carrinho do ATENDENTE). No nível do objeto, `freight` define o frete em unidades monetárias.<br>Item sem produto correspondente no catálogo é IGNORADO e registrado no depurador; o restante é aplicado. Campos de sistema AUSENTES preservam o que a linha já tinha (exceto `notes`, em que texto vazio limpa a observação). `freight` ausente não altera o frete.<br>Como o setter de lista completa, ignora o bloqueio do carrinho: carrinho travado é somente leitura para os usuários, nunca para o fluxo. Em fila com CARRINHO SINCRONIZADO, a substituição aparece AO VIVO na tela do cliente. O elemento não recusa produto arquivado, indisponível ou fora do catálogo da fila — o fluxo é considerado autoridade.<br>ATENÇÃO — o elemento pode ser IGNORADO de propósito: dentro da automação "ao alterar o carrinho" da fila, se uma PESSOA (atendente, cliente ou assistente de IA) alterar o carrinho enquanto a automação roda, a substituição é descartada e o fluxo segue pelo caminho normal, sem erro. Isso evita que a lista montada antes — em geral a resposta de um ERP consultado segundos atrás — apague o item recém-acrescentado; a execução pendente da automação refaz a conferência com o carrinho atual. Use onConcurrentChange: "apply" para gravar assim mesmo. A ocorrência é registrada no depurador do fluxo.<br>CARRINHO DE UM ATENDIMENTO (cartTarget: "chat", opcional): em vez do ID da oportunidade, o elemento pode agir no carrinho sincronizado de um atendimento — o do próprio fluxo (chatId vazio) ou outro atendimento aberto (chatId, ex.: um item da lista do queueChats). Se o atendimento ainda não tiver carrinho, o elemento o cria. Só vale em fila com Carrinho sincronizado ativo, e numa automação sem atendimento (a "ao alterar o carrinho" da fila, a de etapa do funil) o chatId vazio não tem carrinho: ali use opportunityId {{opportunity_id}}. Omitido = pelo opportunityId, como sempre.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"opportunityId":"","cartData":"","nextElementId":"","onConcurrentChange":"skip"}
+Como se escreve: meu_rotulo: replaceOpportunityCart opportunityId="..." cartData="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>141</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: replaceOpportunityCart opportunityId="..." cartData="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td>sim</td><td>ID da oportunidade cujo carrinho será substituído. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}" Exceção: com cartTarget 'chat' deixe vazio (o campo é ignorado).</td></tr>
+<tr><td><code>cartData</code></td><td><code>string</code></td><td>sim</td><td>Objeto JSON com o carrinho completo. Normalmente uma variável interpolada, exemplo: "{{resposta_erp}}". Formato: {"items": [{"id": 12, "qty": 2, "discount": 5, "systemdiscount": 10, "disableUsersDiscount": true, "notes": "Preço de contrato"}], "freight": 15.90}. Também aceita o array puro. Em cada item, "internalcode" pode substituir "id". Itens sem produto correspondente no catálogo são ignorados. O que NÃO estiver na lista é REMOVIDO do carrinho.</td></tr>
+</tbody></table></div>
+<h3 id="el-sendCartButton">sendCartButton</h3>
+<p>Envia ao cliente uma MENSAGEM com um botão que ABRE O CARRINHO dele para conferência.</p>
+<div class="callout info">É apenas um ATALHO DE NAVEGAÇÃO: não altera o carrinho, não acrescenta nem remove itens, não fecha pedido e não muda etapa de oportunidade nenhuma. Serve para quando o cliente montou o carrinho e não percebeu onde ele fica, ou para convidá-lo a conferir antes de fechar.<br>Funciona por DOIS caminhos, conforme a fila:<br>- WebChat V2 (type 26) com o catálogo habilitado: a mensagem chega como uma bolha de atalho dentro do próprio chat.<br>- Filas com Catálogo sincronizado local (Facebook, Telegram, WhatsApp não oficial (WAMD 2 e WAMD 3), WhatsApp Cloud API, Instagram e Genérica 2): a mensagem chega como um BOTÃO DE URL que abre o catálogo da empresa direto no carrinho.<br>NÃO depende do Carrinho sincronizado: funciona igual com o carrinho local. Depende de a fila entregar catálogo ao cliente por um desses caminhos — sem catálogo o cliente não tem carrinho para abrir.<br>Se o fluxo não possuir atendimento associado, ou a fila não entregar catálogo, o elemento é IGNORADO e o fluxo segue normalmente, sem aresta de erro e sem enviar mensagem nenhuma.<br>A mensagem fica no histórico: reaparece no recarregamento e no eco ao agente.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"bodyText":"","buttonText":"","nextElementId":""}
+Como se escreve: meu_rotulo: sendCartButton bodyText="..." buttonText="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>140</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: sendCartButton bodyText="..." buttonText="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>bodyText</code></td><td><code>string</code></td><td>sim</td><td>Texto exibido no corpo da mensagem, junto ao botão que abre o carrinho. Pode-se utilizar variáveis no conteúdo, exemplo: "{{body_text}}"</td></tr>
+<tr><td><code>buttonText</code></td><td><code>string</code></td><td>sim</td><td>Texto do botão que abre o carrinho no WebChat (ex.: "Ver carrinho"). Pode-se utilizar variáveis no conteúdo, exemplo: "{{button_text}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-addOrEditProductToOpportunity">addOrEditProductToOpportunity</h3>
+<p>Adiciona ou modifica um produto a uma oportunidade no CRM do sistema. Permite definir quantidade, desconto e estratégia de conflito quando o produto já existir. O desconto é sempre PERCENTUAL (0 a 100). Em fila de WebChat V2 com CARRINHO SINCRONIZADO, se a oportunidade for o carrinho do atendimento em curso, o item entra AO VIVO na tela do cliente. Atenção: ao contrário do que o cliente, o agente e o assistente de IA conseguem lançar, este elemento NÃO está limitado ao catálogo daquela fila e não recusa produto arquivado, indisponível ou oculto para clientes — o fluxo é considerado autoridade. Um produto que o cliente não encontraria sozinho pode, por aqui, aparecer no carrinho dele com nome, foto e preço. Se o carrinho estiver bloqueado, o elemento ainda assim altera o carrinho: o bloqueio vale para os usuários, não para o fluxo.</p>
+<div class="callout info">Além do desconto normal, o elemento aplica o DESCONTO DO SISTEMA (systemDiscount / systemRecurrentDiscount): um desconto que o agente NÃO consegue alterar pela tela e que NÃO é limitado pelo teto de desconto do cadastro do produto. Ele SOMA com o desconto concedido pelo agente, com teto de 100%. Para impedir a soma, use disableUsersDiscount, que zera o desconto do agente naquele item e bloqueia a edição. `notes` é um recado curto que aparece só no carrinho do ATENDENTE, nunca no catálogo do cliente. Estes quatro campos são opcionais e, DEIXADOS EM BRANCO, NÃO ALTERAM o que a linha já tinha — mande 0 explicitamente para zerar.<br>CARRINHO DE UM ATENDIMENTO (cartTarget: "chat", opcional): em vez do ID da oportunidade, o elemento pode agir no carrinho sincronizado de um atendimento — o do próprio fluxo (chatId vazio) ou outro atendimento aberto (chatId, ex.: um item da lista do queueChats). Se o atendimento ainda não tiver carrinho, o elemento o cria. Só vale em fila com Carrinho sincronizado ativo, e numa automação sem atendimento (a "ao alterar o carrinho" da fila, a de etapa do funil) o chatId vazio não tem carrinho: ali use opportunityId {{opportunity_id}}. Omitido = pelo opportunityId, como sempre.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"opportunityId":"","searchType":"id","productId":"","quantity":"1","discount":"0","conflictStrategy":"sum","nextElementId":""}
+Como se escreve: meu_rotulo: addOrEditProductToOpportunity opportunityId="..." searchType="id" productId="..." quantity="1"
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>96</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: addOrEditProductToOpportunity opportunityId="..." searchType="id" productId="..." quantity="1"</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td>sim</td><td>ID da oportunidade que receberá o produto. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}" Exceção: com cartTarget 'chat' deixe vazio (o campo é ignorado).</td></tr>
+<tr><td><code>searchType</code></td><td><code>'id' | 'code'</code></td><td>sim</td><td>Tipo de busca para localizar o produto. 'id' para buscar pelo ID do produto no sistema, 'code' para buscar pelo código interno do produto.</td></tr>
+<tr><td><code>productId</code></td><td><code>string</code></td><td>sim</td><td>Lista de códigos internos ou IDs dos produtos que compõem o pedido, separados por vírgula quando mais de um. Pode-se utilizar variáveis no conteúdo, exemplo: "{{product_ids}}" ou "123,456,789"</td></tr>
+<tr><td><code>quantity</code></td><td><code>string</code></td><td>sim</td><td>Lista de quantidades dos produtos que compõem o pedido, separados por vírgula quando mais de um. Deve estar na mesma ordem dos productId. Pode-se utilizar variáveis no conteúdo, exemplo: "{{quantities}}" ou "2,1,5"</td></tr>
+<tr><td><code>discount</code></td><td><code>string</code></td><td></td><td>Desconto PERCENTUAL aplicado ao produto, de 0 a 100 (ex.: "10" para 10%). Não existe desconto por valor absoluto. Pode-se utilizar variáveis no conteúdo, exemplo: "{{discount}}"</td></tr>
+<tr><td><code>conflictStrategy</code></td><td><code>'sum' | 'replace' | 'ignore' | 'subtract'</code></td><td>sim</td><td>Estratégia de conflito quando o produto já existir na oportunidade. 'sum' para somar a quantidade, 'replace' para substituir a configuração, 'ignore' para ignorar se já existir, 'subtract' para subtrair a quantidade informada.</td></tr>
+</tbody></table></div>
+<h3 id="el-removeProductFromOpportunity">removeProductFromOpportunity</h3>
+<p>Remove um produto de uma oportunidade no CRM do sistema. O produto é completamente removido da lista de produtos da oportunidade.</p>
+<div class="callout info">CARRINHO DE UM ATENDIMENTO (cartTarget: "chat", opcional): em vez do ID da oportunidade, o elemento pode agir no carrinho sincronizado de um atendimento — o do próprio fluxo (chatId vazio) ou outro atendimento aberto (chatId, ex.: um item da lista do queueChats). Se o atendimento ainda não tiver carrinho, o elemento não faz nada e o fluxo segue. Só vale em fila com Carrinho sincronizado ativo, e numa automação sem atendimento (a "ao alterar o carrinho" da fila, a de etapa do funil) o chatId vazio não tem carrinho: ali use opportunityId {{opportunity_id}}. Omitido = pelo opportunityId, como sempre.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"opportunityId":"","searchType":"id","productId":"","nextElementId":""}
+Como se escreve: meu_rotulo: removeProductFromOpportunity opportunityId="..." searchType="id" productId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>97</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: removeProductFromOpportunity opportunityId="..." searchType="id" productId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td>sim</td><td>ID da oportunidade de onde o produto será removido. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}" Exceção: com cartTarget 'chat' deixe vazio (o campo é ignorado).</td></tr>
+<tr><td><code>searchType</code></td><td><code>'id' | 'code'</code></td><td>sim</td><td>Tipo de busca para localizar o produto. 'id' para buscar pelo ID do produto no sistema, 'code' para buscar pelo código interno do produto.</td></tr>
+<tr><td><code>productId</code></td><td><code>string</code></td><td>sim</td><td>ID ou código interno do produto que será removido. Pode-se utilizar variáveis no conteúdo, exemplo: "{{product_id}}"</td></tr>
+</tbody></table></div>
+<h3 id="el-clearProductListOfOpportunity">clearProductListOfOpportunity</h3>
+<p>Limpa completamente a lista de produtos associados a uma oportunidade no CRM do sistema. Todos os produtos serão removidos da oportunidade.</p>
+<div class="callout info">CARRINHO DE UM ATENDIMENTO (cartTarget: "chat", opcional): em vez do ID da oportunidade, o elemento pode agir no carrinho sincronizado de um atendimento — o do próprio fluxo (chatId vazio) ou outro atendimento aberto (chatId, ex.: um item da lista do queueChats). Se o atendimento ainda não tiver carrinho, o elemento não faz nada e o fluxo segue. Só vale em fila com Carrinho sincronizado ativo, e numa automação sem atendimento (a "ao alterar o carrinho" da fila, a de etapa do funil) o chatId vazio não tem carrinho: ali use opportunityId {{opportunity_id}}. Omitido = pelo opportunityId, como sempre.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"opportunityId":"","nextElementId":""}
+Como se escreve: meu_rotulo: clearProductListOfOpportunity opportunityId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>98</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: clearProductListOfOpportunity opportunityId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td>sim</td><td>ID da oportunidade que terá sua lista de produtos limpa. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}" Exceção: com cartTarget 'chat' deixe vazio (o campo é ignorado).</td></tr>
+</tbody></table></div>
+<h2 id="exemplos-do-grupo">Exemplos de uso</h2>
+<p>Fluxos completos que usam os elementos deste grupo. Cada exemplo foi compilado pelo próprio sistema antes de entrar aqui.</p>
+<h3 id="ex-automacoes-crm-carrinho-1">Detectar interesse, criar oportunidade e mover no funil</h3>
+<p>Quando o cliente diz que quer comprar, cria a oportunidade no funil de vendas e ja a posiciona na etapa de negociacao.</p>
+<ol class="steps">
+<li><strong><code>options</code></strong> — abre o menu de intencao e separa quem quer comprar de quem so tem duvida.</li>
+<li><strong><code>question</code></strong> — pergunta qual produto despertou o interesse e guarda o texto em produto_interesse.</li>
+<li><strong><code>addOpportunity</code></strong> — cria a oportunidade no funil 1, etapa 1, com titulo, telefone, e-mail e valor; associa ao atendimento e ao contato atuais e devolve os dados em opp_interesse.</li>
+<li><strong><code>moveOpportunity</code></strong> — move a oportunidade recem-criada para a etapa 2 (Negociacao) do mesmo funil.</li>
+<li><strong><code>message</code></strong> — confirma ao cliente que o interesse foi registrado e que a negociacao segue no funil.</li>
+<li><strong><code>terminate</code></strong> — encerra a cadeia do menu.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">inicio: options text="Como posso ajudar hoje?" type=0 {
+  case quero text="Quero comprar" {
+    pede: question varName="produto_interesse" text="Qual produto voce procura?"
+    cria: addOpportunity pipelineId=1 stageId=1 resultVariableName="opp_interesse" opportunity.title.enabled=1 opportunity.title.content="Interesse - {{produto_interesse}}" opportunity.mainphone.enabled=1 opportunity.mainphone.content="{{contact_number}}" opportunity.mainmail.enabled=1 opportunity.mainmail.content="{{contact_email}}" opportunity.value.enabled=1 opportunity.value.content="{{chat_cart_total}}" opportunity.probability.enabled=1 opportunity.probability.content="30" opportunity.products.enabled=1 opportunity.products.content=[{"id":101,"qty":2}] opportunity.associateToCurrentChat.enabled=1 opportunity.associateToCurrentChat.content=true opportunity.associateToCurrentContact.enabled=1 opportunity.associateToCurrentContact.content=true
+    move: moveOpportunity opportunityId="{{opportunity_id}}" stageId=2 pipelineId=1
+    avisa: message text="Anotei seu interesse em {{produto_interesse}} e ja coloquei a oportunidade no funil de vendas."
+    fim: terminate
+  }
+  case duvida text="Tenho uma duvida" {
+    ajuda: message text="Vou passar voce para um atendente resolver a duvida."
+    fimd: terminate
+  }
+  else {
+    nao: message text="Nao entendi. Escolha uma das opcoes do menu."
+    fimn: terminate
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente ve a confirmacao do interesse e o time encontra a oportunidade ja criada na etapa de negociacao do funil.</div>
+<h3 id="ex-automacoes-crm-carrinho-2">Montar o carrinho e enviar o botao para conferencia</h3>
+<p>Lanca os produtos que o cliente pediu no carrinho do atendimento e entrega a ele o botao que abre o carrinho para conferir.</p>
+<ol class="steps">
+<li><strong><code>addOrEditProductToOpportunity</code></strong> — lanca o produto 101 (2 unidades) somando a quantidade caso ele ja exista no carrinho.</li>
+<li><strong><code>addOrEditProductToOpportunity</code></strong> — lanca o produto de codigo SKU-204, 1 unidade e 10% de desconto, substituindo a configuracao anterior desse item.</li>
+<li><strong><code>message</code></strong> — mostra o resumo com o total do carrinho e a quantidade de itens.</li>
+<li><strong><code>sendCartButton</code></strong> — envia a mensagem com o botao que abre o carrinho do cliente para ele conferir itens e frete.</li>
+<li><strong><code>terminate</code></strong> — encerra a cadeia.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">monta: addOrEditProductToOpportunity opportunityId="{{opportunity_id}}" searchType="id" productId="101" quantity="2" conflictStrategy="sum"
+junta: addOrEditProductToOpportunity opportunityId="{{opportunity_id}}" searchType="code" productId="SKU-204" quantity="1" discount="10" conflictStrategy="replace"
+resumo: message text="Seu carrinho esta em {{chat_cart_total}} com {{chat_cart_items_count}} itens."
+botao: sendCartButton bodyText="Confira os itens e o frete antes de finalizar." buttonText="Abrir meu carrinho"
+fim: terminate</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O cliente recebe o resumo do total e o botao Abrir meu carrinho para revisar o pedido antes de finalizar.</div>
+<h3 id="ex-automacoes-crm-carrinho-3">Bloquear o carrinho na conferencia e liberar depois</h3>
+<p>Trava o carrinho de um pedido em conferencia para ninguem alterar itens ou frete e o libera quando a conferencia termina.</p>
+<ol class="steps">
+<li><strong><code>message</code></strong> — informa o valor registrado do pedido antes de travar.</li>
+<li><strong><code>lockOpportunityCart</code></strong> — bloqueia o carrinho da oportunidade: itens e frete ficam somente leitura e os precos ficam congelados no valor do momento do bloqueio.</li>
+<li><strong><code>varCondition</code></strong> — consulta opportunity_cart_locked para confirmar que o bloqueio valeu.</li>
+<li><strong><code>question</code></strong> — espera o atendente digitar 1 quando a conferencia e o pagamento terminarem.</li>
+<li><strong><code>unlockOpportunityCart</code></strong> — desfaz o bloqueio e descongela os precos, devolvendo a edicao ao cliente e ao agente.</li>
+<li><strong><code>terminate</code></strong> — encerra a cadeia nos dois ramos.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">registrado: message text="Pedido registrado no valor de {{chat_cart_total}}."
+trava: lockOpportunityCart opportunityId="{{opportunity_id}}"
+checa: varCondition value="{{opportunity_cart_locked}}" {
+  case travado conditionOperator="=" conditionValue="1" {
+    avisa: message text="Precos travados enquanto a conferencia e o pagamento acontecem."
+    espera: question varName="pagamento_confirmado" text="Digite 1 quando o pagamento for confirmado"
+    libera: unlockOpportunityCart opportunityId="{{opportunity_id}}"
+    fim: message text="Conferencia concluida. Carrinho liberado para ajuste."
+    fimf: terminate
+  }
+  else {
+    sem_trava: message text="Nao consegui travar o carrinho agora; siga a conferencia manualmente."
+    sem_travaf: terminate
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> Enquanto a conferencia dura, ninguem edita o carrinho; ao terminar, o carrinho volta editavel e o pedido pode ser ajustado. Em fila WebChat V2 com carrinho sincronizado, bloqueie sempre depois do fechamento do pedido.</div>
+<h3 id="ex-automacoes-crm-carrinho-4">Fechar a venda como ganha e reabrir em caso de arrependimento</h3>
+<p>Recupera a oportunidade do cliente no CRM e, conforme o desfecho, marca ganha, marca perdida ou reabre o negocio.</p>
+<ol class="steps">
+<li><strong><code>searchOpportunity</code></strong> — localiza a oportunidade pelo e-mail do contato e guarda os dados em opp_negocio.</li>
+<li><strong><code>options</code></strong> — oferece tres desfechos: ganho, perdido e arrependimento com reabertura.</li>
+<li><strong><code>winOpportunity</code></strong> — encerra a oportunidade como ganha, gravando o valor informado no fechamento.</li>
+<li><strong><code>loseOpportunity</code></strong> — encerra a oportunidade como perdida, registrando o motivo da perda.</li>
+<li><strong><code>reopenOpportunity</code></strong> — reabre a oportunidade que tinha sido fechada, devolvendo-a ao funil.</li>
+<li><strong><code>terminate</code></strong> — encerra a cadeia de cada opcao.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">busca: searchOpportunity resultVariableName="opp_negocio" searchField="mainmail" searchValue="{{contact_email}}"
+menu: options text="Como esta o negocio {{opportunity_title}}?" type=0 {
+  case ganho text="Ganho - cliente fechou" {
+    marca: winOpportunity opportunityId="{{opportunity_id}}" value="{{opportunity_value}}"
+    avisa: message text="Oportunidade marcada como ganha. Bom trabalho!"
+    fim: terminate
+  }
+  case perdido text="Perdido - cliente desistiu" {
+    perde: loseOpportunity opportunityId="{{opportunity_id}}" reason="Cliente desistiu no fechamento"
+    avisa2: message text="Oportunidade marcada como perdida."
+    fim2: terminate
+  }
+  case arrependeu text="Cliente se arrependeu - reabrir" {
+    reabre: reopenOpportunity opportunityId="{{opportunity_id}}"
+    avisa3: message text="Oportunidade reaberta e de volta ao funil."
+    fim3: terminate
+  }
+  else {
+    nao: message text="Opcao invalida."
+    fim4: terminate
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O desfecho do negocio fica refletido no CRM: ganho, perdido ou de volta ao funil quando o cliente se arrepende. Nao aponte winOpportunity nem loseOpportunity para a oportunidade que serve de carrinho do atendimento em fila com carrinho sincronizado.</div>
+<h3 id="ex-automacoes-crm-carrinho-5">Sincronizar o carrinho inteiro a partir de um JSON de ERP</h3>
+<p>Le a resposta de um ERP e reescreve de uma vez toda a lista de itens do carrinho, ajustando total e frete.</p>
+<ol class="steps">
+<li><strong><code>request</code></strong> — chama o ERP em JSON e guarda a resposta com o prefixo erp (erp_status, erp_data, erp_total, erp_frete).</li>
+<li><strong><code>varCondition</code></strong> — segue o caminho bom somente quando erp_status == 200.</li>
+<li><strong><code>replaceOpportunityCart</code></strong> — substitui o carrinho INTEIRO pelo objeto JSON do ERP, inclusive removendo o que nao veio na resposta.</li>
+<li><strong><code>editOpportunity</code></strong> — acerta o valor e o frete da oportunidade com os numeros do ERP.</li>
+<li><strong><code>message</code></strong> — confirma que o carrinho foi sincronizado e mostra o total atual.</li>
+<li><strong><code>terminate</code></strong> — encerra a cadeia nos dois ramos.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">consulta: request dataType="json" method="get" url="https://erp.exemplo.com/carrinho?pedido={{chat_id}}" varPrefix="erp"
+checa: varCondition {
+  case ok conditionOperator="expression" conditionValue="erp_status == 200" {
+    troca: replaceOpportunityCart opportunityId="{{opportunity_id}}" cartData="{{erp_data}}"
+    ajusta: editOpportunity pipelineId=1 opportunityId="{{opportunity_id}}" opportunity.title.enabled=1 opportunity.title.content="{{opportunity_title}}" opportunity.value.enabled=1 opportunity.value.content="{{erp_total}}" opportunity.freight.enabled=1 opportunity.freight.content="{{erp_frete}}"
+    avisa: message text="Carrinho sincronizado com o ERP. Total atual: {{chat_cart_total}}."
+    fim: terminate
+  }
+  else {
+    erro: message text="Nao consegui ler o ERP agora. Sigo com o carrinho atual."
+    errof: terminate
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O carrinho passa a refletir exatamente o pedido do ERP; se a consulta falha, o cliente segue com o carrinho que ja tinha.</div>
+<h3 id="ex-automacoes-crm-carrinho-6">Baixa e devolucao de estoque ligadas ao pedido</h3>
+<p>Da baixa de estoque no ERP quando o pedido e confirmado e trata devolucao parcial ou total ajustando o carrinho.</p>
+<ol class="steps">
+<li><strong><code>request</code></strong> — envia a baixa de estoque do pedido ao ERP e guarda a resposta com o prefixo baixa.</li>
+<li><strong><code>varCondition</code></strong> — confirma a baixa somente quando baixa_status == 200.</li>
+<li><strong><code>options</code></strong> — pergunta se houve devolucao, separando parcial de total.</li>
+<li><strong><code>removeProductFromOpportunity</code></strong> — remove do pedido o produto devolvido (SKU-204).</li>
+<li><strong><code>addOrEditProductToOpportunity</code></strong> — lanca o item de troca no lugar do devolvido.</li>
+<li><strong><code>clearProductListOfOpportunity</code></strong> — zera a lista de produtos quando a devolucao e total.</li>
+<li><strong><code>message</code></strong> — informa o que foi feito com o pedido.</li>
+<li><strong><code>terminate</code></strong> — encerra a cadeia de cada opcao.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">baixa: request dataType="json" method="post" url="https://erp.exemplo.com/estoque/baixa?pedido={{chat_id}}" varPrefix="baixa"
+checa: varCondition {
+  case ok conditionOperator="expression" conditionValue="baixa_status == 200" {
+    confirma: message text="Baixa de estoque enviada para o pedido {{chat_id}}."
+    menu: options text="O cliente devolveu algum item?" type=0 {
+      case parcial text="Devolucao parcial" {
+        tira: removeProductFromOpportunity opportunityId="{{opportunity_id}}" searchType="code" productId="SKU-204"
+        troca: addOrEditProductToOpportunity opportunityId="{{opportunity_id}}" searchType="id" productId="102" quantity="1" conflictStrategy="sum"
+        avisa: message text="O item devolvido saiu do pedido e o item de troca foi lancado."
+        fim: terminate
+      }
+      case total text="Devolucao total" {
+        zera: clearProductListOfOpportunity opportunityId="{{opportunity_id}}"
+        avisa2: message text="Pedido zerado e itens recolocados em estoque."
+        fim2: terminate
+      }
+      else {
+        nada: message text="Sem devolucao. O pedido segue normal."
+        fim3: terminate
+      }
+    }
+  }
+  else {
+    falha: message text="Falha ao dar baixa no estoque; chamando o time de logistica."
+    transfere: terminate
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O estoque e baixado no ERP junto do pedido e cada devolucao ajusta o carrinho: parcial troca o item, total esvazia o pedido.</div>
+<h3 id="ex-automacoes-crm-carrinho-7">Congelar, anexar contrato, limpar tarefas e transferir a oportunidade</h3>
+<p>Faz a manutencao de uma oportunidade parada: esconde do time, clona para renovacao, limpa tarefas, anexa o contrato e troca o responsavel.</p>
+<ol class="steps">
+<li><strong><code>freezeOpportunity</code></strong> — congela a oportunidade ate a data informada, ocultando-a da lista dos agentes.</li>
+<li><strong><code>cloneOpportunity</code></strong> — clona a oportunidade para abrir uma copia de renovacao no mesmo funil e etapa.</li>
+<li><strong><code>clearOpportunityTasks</code></strong> — apaga as tarefas antigas ligadas a oportunidade.</li>
+<li><strong><code>insertFileOpportunity</code></strong> — associa o arquivo do contrato (fileId informado) a oportunidade.</li>
+<li><strong><code>transferOpportunity</code></strong> — transfere a oportunidade para outro responsavel, escolhendo um agente online.</li>
+<li><strong><code>unfreezeOpportunity</code></strong> — descongela a oportunidade, devolvendo-a a visao do time.</li>
+<li><strong><code>terminate</code></strong> — encerra a cadeia.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">pausa: freezeOpportunity opportunityId="{{opportunity_id}}" freezeUntil="2026-11-30"
+avisa: message text="Oportunidade congelada: ela some da lista do time ate a data informada."
+copia: cloneOpportunity pipelineId=1 stageId=1 opportunityId="{{opportunity_id}}" resultVariableName="opp_renovacao"
+limpa: clearOpportunityTasks opportunityId="{{opportunity_id}}"
+anexa: insertFileOpportunity opportunityId="{{opportunity_id}}" fileId="99001"
+passa: transferOpportunity opportunityId="{{opportunity_id}}" transferType=1 autoTransferStrategy=1 preferOnlineAgents=true
+volta: unfreezeOpportunity opportunityId="{{opportunity_id}}"
+fim: message text="Oportunidade de volta ao funil, com novo responsavel e sem as tarefas antigas."
+fimf: terminate</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> A oportunidade volta ao funil com novo responsavel, contrato anexado e sem as tarefas antigas; a copia de renovacao fica criada.</div>
+<h3 id="ex-automacoes-crm-carrinho-8">Guardas do funil: cancelar movimentacao e ganho indevidos</h3>
+<p>Em automacoes disparadas por mudanca de etapa ou por ganho, cancela o movimento ou o ganho quando a regra de negocio nao e atendida.</p>
+<ol class="steps">
+<li><strong><code>varCondition</code></strong> — avalia o nome da etapa atual da oportunidade para decidir se o movimento pode seguir.</li>
+<li><strong><code>cancelOpportunityMove</code></strong> — cancela a movimentacao de etapa em andamento quando a etapa nao esta liberada (so vale em automacao disparada por movimento).</li>
+<li><strong><code>cancelOpportunityWin</code></strong> — cancela o processo de ganho em andamento (so vale em automacao disparada por ganho).</li>
+<li><strong><code>message</code></strong> — avisa o time sobre o cancelamento.</li>
+<li><strong><code>terminate</code></strong> — encerra a cadeia nos dois ramos.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">guarda: varCondition value="{{opportunity_stage_name}}" {
+  case sem_pagamento conditionOperator="=" conditionValue="Revisao de credito" {
+    cancela_move: cancelOpportunityMove
+    avisa: message text="Etapa nao liberada sem pagamento confirmado. Movimentacao cancelada."
+    fim: terminate
+  }
+  else {
+    cancela_ganho: cancelOpportunityWin
+    ok: message text="Ganho automatico cancelado: a negociacao continua no funil."
+    okf: terminate
+  }
+}</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> O time recebe o aviso de que a movimentacao ou o ganho foram cancelados e a oportunidade continua onde estava. Na pratica, cada cancelador fica na automacao do seu proprio gatilho.</div>
+
+  <div class="pagenav">
+    <a href="automacoes-elementos.html"><span>←</span> Catálogo de elementos</a>
+    <a class="next" href="automacoes-exemplos.html"><span>Ver também →</span> Exemplos prontos</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+inicio: options text="Como posso ajudar hoje?" type=0 {
+  case quero text="Quero comprar" {
+    pede: question varName="produto_interesse" text="Qual produto voce procura?"
+    cria: addOpportunity pipelineId=1 stageId=1 resultVariableName="opp_interesse" opportunity.title.enabled=1 opportunity.title.content="Interesse - {{produto_interesse}}" opportunity.mainphone.enabled=1 opportunity.mainphone.content="{{contact_number}}" opportunity.mainmail.enabled=1 opportunity.mainmail.content="{{contact_email}}" opportunity.value.enabled=1 opportunity.value.content="{{chat_cart_total}}" opportunity.probability.enabled=1 opportunity.probability.content="30" opportunity.products.enabled=1 opportunity.products.content=[{"id":101,"qty":2}] opportunity.associateToCurrentChat.enabled=1 opportunity.associateToCurrentChat.content=true opportunity.associateToCurrentContact.enabled=1 opportunity.associateToCurrentContact.content=true
+    move: moveOpportunity opportunityId="{{opportunity_id}}" stageId=2 pipelineId=1
+    avisa: message text="Anotei seu interesse em {{produto_interesse}} e ja coloquei a oportunidade no funil de vendas."
+    fim: terminate
+  }
+  case duvida text="Tenho uma duvida" {
+    ajuda: message text="Vou passar voce para um atendente resolver a duvida."
+    fimd: terminate
+  }
+  else {
+    nao: message text="Nao entendi. Escolha uma das opcoes do menu."
+    fimn: terminate
+  }
+}

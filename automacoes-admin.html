@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarefas, instâncias e administração — Manual Omnichannel</title>
+<meta name="description" content="Tarefas internas e elementos exclusivos de revenda (parceiro). (12 elementos)">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a class="active" href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="automacoes-elementos.html">Automações e URA</a> &rsaquo; Tarefas, instâncias e administração</div>
+
+  <h1>Tarefas, instâncias e administração</h1>
+  <p class="subtitle">Tarefas internas e elementos exclusivos de revenda (parceiro). (12 elementos)</p>
+
+<p>Tarefas internas e elementos exclusivos de revenda (parceiro).</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Elemento</th><th>O que faz</th></tr></thead><tbody>
+<tr><td><a href="#el-createTask">createTask</a></td><td>Criar uma nova tarefa no sistema.</td></tr>
+<tr><td><a href="#el-markTaskAsDone">markTaskAsDone</a></td><td>Marca uma tarefa como concluída.</td></tr>
+<tr><td><a href="#el-searchInstance">searchInstance</a></td><td>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</td></tr>
+<tr><td><a href="#el-createInstance">createInstance</a></td><td>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</td></tr>
+<tr><td><a href="#el-editInstanceContactDetails">editInstanceContactDetails</a></td><td>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</td></tr>
+<tr><td><a href="#el-markInstanceForExclusion">markInstanceForExclusion</a></td><td>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</td></tr>
+<tr><td><a href="#el-reactivateInstance">reactivateInstance</a></td><td>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</td></tr>
+<tr><td><a href="#el-blockInstance">blockInstance</a></td><td>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</td></tr>
+<tr><td><a href="#el-unblockInstance">unblockInstance</a></td><td>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</td></tr>
+<tr><td><a href="#el-restartInstance">restartInstance</a></td><td>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</td></tr>
+<tr><td><a href="#el-restartInstanceContainer">restartInstanceContainer</a></td><td>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</td></tr>
+<tr><td><a href="#el-updateInstance">updateInstance</a></td><td>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</td></tr>
+</tbody></table></div>
+<h3 id="el-createTask">createTask</h3>
+<p>Criar uma nova tarefa no sistema.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"dueDate":0,"action":0,"associateToCurrentContact":false,"selectionMode":0,"responsibleId":"","responsiblesIds":[],"opportunityId":"","watchersIds":[],"title":"","description":"","checklist":[],"tags":[],"nextElementId":""}
+Como se escreve: meu_rotulo: createTask action=0 title="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>34</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: createTask action=0 title="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>dueDate</code></td><td><code>dueDateType</code></td><td></td><td>Prazo para conclusão da tarefa</td></tr>
+<tr><td><code>action</code></td><td><code>number</code></td><td>sim</td><td>Ação associada a tarefa. 0 - Nenhuma ação, 1 - Ligação, 2 - Chat, 3 - Reunião. Esse campo também pode receber o ID de uma ação personalizada cadastrada no sistema.</td></tr>
+<tr><td><code>associateToCurrentContact</code></td><td><code>boolean</code></td><td></td><td>Se true, a tarefa será associada ao contato atual do atendimento.</td></tr>
+<tr><td><code>selectionMode</code></td><td><code>0 | 1</code></td><td></td><td>Usuários selecionados a partir de uma lista, cujos IDs ficam salvos na lista responsiblesIds, 0 - Um único usuário especificado pela variável responsibleId</td></tr>
+<tr><td><code>responsibleId</code></td><td><code>string</code></td><td></td><td>ID do responsável. Pode-se utilizar variáveis no conteúdo, exemplo: "{{user_id}}". Só é utilizando caso selectionMode seja 0.</td></tr>
+<tr><td><code>responsiblesIds</code></td><td><code>string[]</code></td><td></td><td>Lista de IDs dos responsáveis pela tarefa. Não se pode utilizar variáveis. Só é utilizando caso selectionMode seja 1. Ao menos um responsável deve ser informado.</td></tr>
+<tr><td><code>opportunityId</code></td><td><code>string</code></td><td></td><td>ID da oportunidade associada a tarefa, se houver. Pode-se utilizar variáveis no conteúdo, exemplo: "{{opportunity_id}}". Se não houver oportunidade associada, informar 0.</td></tr>
+<tr><td><code>watchersIds</code></td><td><code>string[]</code></td><td></td><td>Lista de IDs dos observadores da tarefa. Pode-se utilizar variáveis no conteúdo, exemplo: ["{{user_id}}"]</td></tr>
+<tr><td><code>title</code></td><td><code>string</code></td><td>sim</td><td>Título da tarefa. Pode-se utilizar variáveis no conteúdo, exemplo: "{{task_title}}"</td></tr>
+<tr><td><code>description</code></td><td><code>string</code></td><td></td><td>Descrição da tarefa. Pode-se utilizar variáveis no conteúdo, exemplo: "{{task_description}}"</td></tr>
+<tr><td><code>checklist</code></td><td><code>CheckListItem[]</code></td><td></td><td>Lista de itens do checklist da tarefa, se houver.</td></tr>
+<tr><td><code>tags</code></td><td><code>string[]</code></td><td></td><td>Lista de IDs das etiquetas associadas da tarefa. Pode-se utilizar variáveis no conteúdo, exemplo: ["{{tag_id}}"]</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+<tr><td><code>id</code></td><td><code>string</code></td><td>sim</td><td>ID do item do checklist</td></tr>
+<tr><td><code>title</code></td><td><code>string</code></td><td>sim</td><td>Título do item do checklist. Pode-se utilizar variáveis no conteúdo, exemplo: "{{checklist_item_title}}"</td></tr>
+<tr><td><code>checked</code></td><td><code>boolean</code></td><td></td><td>Se true, o item do checklist está marcado como concluído</td></tr>
+</tbody></table></div>
+<h3 id="el-markTaskAsDone">markTaskAsDone</h3>
+<p>Marca uma tarefa como concluída.</p>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"taskId":"","nextElementId":""}
+Como se escreve: meu_rotulo: markTaskAsDone taskId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>67</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: markTaskAsDone taskId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>taskId</code></td><td><code>string</code></td><td>sim</td><td>ID da tarefa que será marcada como concluída. Pode-se utilizar variáveis no conteúdo, exemplo: "{{task_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-searchInstance">searchInstance</h3>
+<p>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</p>
+<div class="callout info">Busca uma instância de cliente na base de dados do sistema e disponibiliza seus dados em duas variáveis.<br>A primeira prefixo_list é uma variável do tipo lista, com os objetos de todas as instâncias encontradas, conforme documentação das variáveis de instância.<br>A segunda prefixo_count é uma variável do tipo número, com a quantidade de instâncias encontradas.<br>Em ambas "prefixo" é um prefixo que deve ser informado na configuração do elemento.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"searchField":"id","searchValue":"","resultVariablePrefix":"","nextElementId":""}
+Como se escreve: meu_rotulo: searchInstance searchField="id" searchValue="..." resultVariablePrefix="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>55</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: searchInstance searchField="id" searchValue="..." resultVariablePrefix="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>searchField</code></td><td><code>"id" | "document" | "name"</code></td><td>sim</td><td>Campo que será utilizado para buscar a instância. id - ID da instância, document - Documento da instância, name - Nome da instância</td></tr>
+<tr><td><code>searchValue</code></td><td><code>string</code></td><td>sim</td><td>Valor que será utilizado para buscar a instância. Esse valor será comparado com o valor do campo especificado em searchField. Pode-se utilizar variáveis no conteúdo, exemplo: "{{search_value}}"</td></tr>
+<tr><td><code>resultVariablePrefix</code></td><td><code>string</code></td><td>sim</td><td>Prefixo que será utilizado para nomear as variáveis que receberão os resultados da busca. Adicionar somente o prefixo, sem chaves. Exemplo: "instance"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-createInstance">createInstance</h3>
+<p>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</p>
+<div class="callout info">Cria uma nova instância de cliente no sistema.<br>ASSOCIAÇÃO A PARCEIRO (partnerId): disponível SOMENTE quando o painel de parceiros opera em modo frota gerida (loadPartnersOnly) — nesse modo, informe o ID do parceiro ao qual a instância será associada (use automations_get_system_data ["partners"] para listar os IDs válidos); o provisionamento (servidor, domínio, DNS) continua no parceiro do painel. Parceiro inexistente falha a criação; fora do modo o campo é ignorado.<br>Ao fim da criação a senha de fábrica do admin da instância nova é trocada por uma aleatória e entregue ao painel, que a exibe uma única vez no diálogo de criação. Quando existe automação de criação configurada no painel, a senha chega também na variável instance_adminpassword do atendimento fictício dessa automação — é o único lugar de onde um fluxo consegue lê-la.<br>Cria as variáveis:<br>- prefixo_result com o resultado da criação, tendo 1 para caso a criação tenha sido criada com sucesso e 0 caso tenha havido falha.<br>- prefixo_message com a mensagem de erro, caso tenha havido falha.<br>- prefixo_instance com o objeto da instância criada, caso tenha sido criada com sucesso.<br>Em todas "prefixo" é um prefixo que deve ser informado na configuração do elemento.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"instance":{"name":"","document":"","planId":"","contact":{"clientName":"","contactName1":"","contactPhone1":"","contactMail1":"","contactName2":"","contactPhone2":"","contactMail2":""}},"resultVariablePrefix":"","nextElementId":""}
+Como se escreve: meu_rotulo: createInstance instance={...}
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>56</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: createInstance instance={...}</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>instance</code></td><td><code>InstanceConfig</code></td><td>sim</td><td>Dados para criação da instância</td></tr>
+<tr><td><code>resultVariablePrefix</code></td><td><code>string</code></td><td></td><td>Prefixo que será utilizado para nomear as variáveis que receberão os resultados da criação. Adicionar somente o prefixo, sem chaves. Exemplo: "instance"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+<tr><td><code>name</code></td><td><code>string</code></td><td></td><td>Nome da instância. Essa informação é obrigatória.</td></tr>
+<tr><td><code>document</code></td><td><code>string</code></td><td></td><td>Documento da instância. Essa informação é obrigatória.</td></tr>
+<tr><td><code>planId</code></td><td><code>string</code></td><td></td><td>ID do plano contratado para a instância. Essa informação é obrigatória.</td></tr>
+<tr><td><code>contact</code></td><td><code>InstanceContactConfig</code></td><td></td><td>Dados de contato da instância. Essa informação é opcional</td></tr>
+<tr><td><code>clientName</code></td><td><code>string</code></td><td></td><td>Nome do cliente associado à instância. Opcional.</td></tr>
+<tr><td><code>contactName1</code></td><td><code>string</code></td><td></td><td>Nome do contato 1 associado à instância. Opcional.</td></tr>
+<tr><td><code>contactPhone1</code></td><td><code>string</code></td><td></td><td>Telefone do contato 1 associado à instância. Opcional.</td></tr>
+<tr><td><code>contactMail1</code></td><td><code>string</code></td><td></td><td>Email do contato 1 associado à instância. Opcional.</td></tr>
+<tr><td><code>contactName2</code></td><td><code>string</code></td><td></td><td>Nome do contato 2 associado à instância. Opcional.</td></tr>
+<tr><td><code>contactPhone2</code></td><td><code>string</code></td><td></td><td>Telefone do contato 2 associado à instância. Opcional.</td></tr>
+<tr><td><code>contactMail2</code></td><td><code>string</code></td><td></td><td>Email do contato 2 associado à instância. Opcional.</td></tr>
+</tbody></table></div>
+<h3 id="el-editInstanceContactDetails">editInstanceContactDetails</h3>
+<p>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</p>
+<div class="callout info">Edita os dados de contato de uma instância de cliente no sistema.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"instanceId":"","contact":{"clientName":"","contactName1":"","contactPhone1":"","contactMail1":"","contactName2":"","contactPhone2":"","contactMail2":""},"nextElementId":""}
+Como se escreve: meu_rotulo: editInstanceContactDetails instanceId="..." contact={...}
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>57</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: editInstanceContactDetails instanceId="..." contact={...}</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>instanceId</code></td><td><code>string</code></td><td>sim</td><td>ID da instância que terá seus dados de contato editados. Pode-se utilizar variáveis no conteúdo, exemplo: "{{instance_id}}"</td></tr>
+<tr><td><code>contact</code></td><td><code>InstanceContactConfig</code></td><td>sim</td><td>Dados de contato da instância. Essa informação é opcional</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-markInstanceForExclusion">markInstanceForExclusion</h3>
+<p>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</p>
+<div class="callout info">Marca uma instância de cliente para exclusão do sistema. Significa que o cliente cancelou o contrato e a instância será excluída do sistema em um prazo determinado.<br>A instância será efetivamente cancelada e excluída conforme o prazo de aviso prévio previsto no plano contratado, nenhum prazo necessita ser informado aqui.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"instanceId":"","nextElementId":""}
+Como se escreve: meu_rotulo: markInstanceForExclusion instanceId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>58</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: markInstanceForExclusion instanceId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>instanceId</code></td><td><code>string</code></td><td>sim</td><td>ID da instância que será marcada para exclusão. Pode-se utilizar variáveis no conteúdo, exemplo: "{{instance_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-reactivateInstance">reactivateInstance</h3>
+<p>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</p>
+<div class="callout info">Reativa uma instância de cliente que foi marcada para exclusão porém ainda não foi efetivamente cancelada e excluída.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"instanceId":"","nextElementId":""}
+Como se escreve: meu_rotulo: reactivateInstance instanceId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>59</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: reactivateInstance instanceId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>instanceId</code></td><td><code>string</code></td><td>sim</td><td>ID da instância que será reativada. Pode-se utilizar variáveis no conteúdo, exemplo: "{{instance_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-blockInstance">blockInstance</h3>
+<p>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</p>
+<div class="callout info">Bloqueia uma instância de cliente no sistema. Significa que o cliente não poderá mais acessar o sistema até que a instância seja desbloqueada.<br>Pode ser utilizado por exemplo para bloquear clientes inadimplentes.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"instanceId":"","nextElementId":""}
+Como se escreve: meu_rotulo: blockInstance instanceId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>60</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: blockInstance instanceId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>instanceId</code></td><td><code>string</code></td><td>sim</td><td>ID da instância que será bloqueada. Pode-se utilizar variáveis no conteúdo, exemplo: "{{instance_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-unblockInstance">unblockInstance</h3>
+<p>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</p>
+<div class="callout info">Desbloqueia uma instância de cliente que foi bloqueada anteriormente.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"instanceId":"","nextElementId":""}
+Como se escreve: meu_rotulo: unblockInstance instanceId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>61</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: unblockInstance instanceId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>instanceId</code></td><td><code>string</code></td><td>sim</td><td>ID da instância que será desbloqueada. Pode-se utilizar variáveis no conteúdo, exemplo: "{{instance_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-restartInstance">restartInstance</h3>
+<p>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</p>
+<div class="callout info">Reinicia o serviço de uma instância de cliente no sistema. Podendo ser utilizado para reiniciar o serviço de um cliente que esteja com problemas de acesso.<br>Esse elemento reinicia o serviço, porém não reinicia o container, sendo um reinício mais rápido e simples.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"instanceId":"","nextElementId":""}
+Como se escreve: meu_rotulo: restartInstance instanceId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>62</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: restartInstance instanceId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>instanceId</code></td><td><code>string</code></td><td>sim</td><td>ID da instância que terá seu serviço reiniciado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{instance_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-restartInstanceContainer">restartInstanceContainer</h3>
+<p>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</p>
+<div class="callout info">Reinicia o container de uma instância de cliente no sistema. Podendo ser utilizado para reiniciar o container de um cliente que esteja com problemas de acesso.<br>Esse elemento reinicia o container, sendo um mais lento, que reinícia inclusive o sistema operacional associado à instância do cliente.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"instanceId":"","nextElementId":""}
+Como se escreve: meu_rotulo: restartInstanceContainer instanceId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>63</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: restartInstanceContainer instanceId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>instanceId</code></td><td><code>string</code></td><td>sim</td><td>ID da instância que terá seu container reiniciado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{instance_id}}"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-updateInstance">updateInstance</h3>
+<p>Esse elemento só está disponível em instâncias especiais de parceiros que realizam a revenda do sistema.</p>
+<div class="callout info">Atualiza o plano e os extras contratados de uma instância de cliente no sistema.<br>SEMÂNTICA DE CAMPOS: só o que for explicitamente configurado é enviado — todo campo deixado em branco (ou que resolva para vazio) NÃO altera a instância, que mantém o valor que já tinha. Isso vale inclusive para o plano: planId vazio atualiza apenas os extras, mantendo o plano atual.<br>Extras numéricos — agentes extras, espaço de armazenamento em GB, filas de WhatsApp extras, supervisores/administradores extras, licenças de suporte remoto, ramais e espaço de gravação da telefonia simplificada: informe um número; valor que não é número é ignorado e registrado na depuração. Alguns extras dependem do plano: extra que o plano não permite fica em 0 e instância em período de avaliação não acumula espaço extra.<br>Recursos liga/desliga (IA, IA premium, relatório personalizado, grupos, gestão do MCP, desabilitar CRM/tickets/pesquisas): informe 1/true/sim para ativar, 0/false/não para desativar, ou deixe vazio para não alterar. IA e IA premium só são aplicadas se o plano da instância permitir — com plano sem permissão, o recurso fica desligado (o valor enviado é descartado); relatório personalizado é um recurso contratado da instância.<br>Telefonia simplificada: pbxExtensions com 2 ou mais ramais ativa (exige plano que permita telefonia simplificada e instância sem PABX dedicado), 0 desativa — e ao desativar zera também o espaço extra de gravação; pbxExtraQuota é o espaço extra de gravação de chamadas, em GB.<br>CONFIGURAÇÕES EXTRAS (extraConfig): disponível SOMENTE com o painel de parceiros em modo frota gerida (loadPartnersOnly) — recebe um objeto JSON gravado por cima de toda a configuração da instância (é a última camada da geração dela, sobrepõe o que plano/parceiro/servidor definirem), permitindo ligar e desligar chaves extras. extraConfigMode define append (mescla raso sobre o atual — chaves de primeiro nível; objetos aninhados são substituídos inteiros; padrão) ou replace (substitui o objeto inteiro). Fora do modo o campo é ignorado com aviso na depuração; JSON inválido, que não seja um objeto ou que contenha chaves de protótipo (__proto__/constructor/prototype) é limpo/preservado com aviso.<br>A atualização pode falhar por regras do plano (ex.: agentes/supervisores/filas abaixo do que já está em uso, mínimo de 2 ramais, plano não permitido); nessas falhas prefixo_result vale 0 e prefixo_message traz o motivo. Falhas na aplicação (regras do plano, erro inesperado da chamada ou do extraConfig) escrevem prefixo_result 0 e juntam os motivos em prefixo_message; erros que impedem o elemento de rodar (instância não encontrada, prefixo de variável ausente) são registrados apenas na depuração e o fluxo segue sem escrever as variáveis.<br>Cria as variáveis:<br>- prefixo_result com o resultado da atualização, tendo 1 para caso a atualização tenha sido aplicada com sucesso (inclusive quando não havia nada a alterar) e 0 caso tenha havido falha.<br>- prefixo_message com a mensagem de erro, caso tenha havido falha.</div>
+<p class="s10"><strong>Disponível em:</strong> Todos
+Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"instanceId":"","planId":"","extraAgents":"","extraStorage":"","resultVariablePrefix":"","nextElementId":""}
+Como se escreve: meu_rotulo: updateInstance instanceId="..."
+Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>64</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: updateInstance instanceId="..."</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>instanceId</code></td><td><code>string</code></td><td>sim</td><td>ID da instância que terá seus dados atualizados. Pode-se utilizar variáveis no conteúdo, exemplo: "{{instance_id}}"</td></tr>
+<tr><td><code>planId</code></td><td><code>string</code></td><td></td><td>ID do plano a contratar para a instância. Pode-se utilizar variáveis no conteúdo, exemplo: "{{plan_id}}". Deixe vazio para manter o plano atual e atualizar apenas os extras.</td></tr>
+<tr><td><code>extraAgents</code></td><td><code>string</code></td><td></td><td>Agentes extras contratados para a instância. Número; pode-se utilizar variáveis, exemplo: "{{extra_agents}}". Vazio mantém o valor atual.</td></tr>
+<tr><td><code>extraStorage</code></td><td><code>string</code></td><td></td><td>Espaço de armazenamento extra, em GB. Número; pode-se utilizar variáveis, exemplo: "{{extra_storage}}". Vazio mantém o valor atual.</td></tr>
+<tr><td><code>resultVariablePrefix</code></td><td><code>string</code></td><td></td><td>Prefixo que será utilizado para nomear as variáveis que receberão os resultados da atualização. Adicionar somente o prefixo, sem chaves. Exemplo: "instance"</td></tr>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h2 id="exemplos-do-grupo">Exemplos de uso</h2>
+<p>Fluxos completos que usam os elementos deste grupo. Cada exemplo foi compilado pelo próprio sistema antes de entrar aqui.</p>
+<h3 id="ex-automacoes-admin-1">Tarefa de acompanhamento ao final do atendimento e alerta a supervisao</h3>
+<p>Ao encerrar o atendimento, criar a tarefa de retorno ao cliente e uma tarefa de monitoria para a supervisao.</p>
+<ol class="steps">
+<li><strong><code>message</code></strong> — informa que vai registrar o acompanhamento.</li>
+<li><strong><code>createTask</code></strong> — cria a tarefa de retorno ao cliente, com acao Ligacao, vencimento para amanha e uma pessoa responsavel.</li>
+<li><strong><code>createTask</code></strong> — cria a tarefa de monitoria para a supervisao (responsaveis 15 e 18) com o observador 10 - esse e o alerta a supervisao.</li>
+<li><strong><code>terminate</code></strong> — encerra o atendimento.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">fecha: message text="Encerrando o atendimento {{chat_protocol}}."
+tarefa: createTask action=1 title="Retornar ligacao ao cliente {{chat_client_name}}" description="Acompanhar o atendimento {{chat_protocol}}." dueDate=1 associateToCurrentContact=true selectionMode=1 responsiblesIds=["12"]
+monitoria: createTask action=0 title="Monitorar atendimento {{chat_protocol}}" description="Alerta a supervisao: revisar este atendimento." dueDate=0 selectionMode=1 responsiblesIds=["15","18"] watchersIds=["10"] tags=["monitoria"]
+fim: terminate reason="Tarefas de acompanhamento e alerta criadas"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> Ficam criadas a tarefa de retorno (para o atendente) e a tarefa de monitoria (para a supervisao).</div>
+<h3 id="ex-automacoes-admin-2">Concluir a tarefa de acompanhamento</h3>
+<p>Marcar como concluida a tarefa de acompanhamento quando o cliente retorna o contato.</p>
+<ol class="steps">
+<li><strong><code>message</code></strong> — registra que o cliente retornou.</li>
+<li><strong><code>markTaskAsDone</code></strong> — marca a tarefa 36 como concluida.</li>
+<li><strong><code>message</code></strong> — confirma a conclusao.</li>
+<li><strong><code>terminate</code></strong> — encerra o atendimento.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">retorno: message text="Registrando o retorno do cliente {{chat_client_name}}."
+conclui: markTaskAsDone taskId="36"
+avisa: message text="Tarefa de acompanhamento concluida."
+fim: terminate reason="Tarefa concluida"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> A tarefa de acompanhamento sai da lista de pendentes.</div>
+<h3 id="ex-automacoes-admin-3">Provisionar instancia de um cliente (somente instancia de revenda)</h3>
+<p>Criar a instancia de um cliente, atualizar o plano e os dados de contato. So existe em instancia de revenda (parceiro).</p>
+<ol class="steps">
+<li><strong><code>createInstance</code></strong> — cria a instancia do cliente com nome, documento e plano (so instancia de revenda).</li>
+<li><strong><code>updateInstance</code></strong> — atualiza o plano e os extras (agentes e armazenamento) da instancia (so instancia de revenda).</li>
+<li><strong><code>editInstanceContactDetails</code></strong> — edita os contatos da instancia (so instancia de revenda).</li>
+<li><strong><code>terminate</code></strong> — encerra o atendimento.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">aviso: message text="Provisionando a instancia do cliente {{chat_client_name}}."
+cria: createInstance instance.name="Cliente {{chat_client_name}}" instance.document="{{contact_document}}" instance.planId="profissional" instance.contact.clientName="{{chat_client_name}}" instance.contact.contactPhone1="{{chat_client_number}}" instance.contact.contactMail1="{{chat_client_email}}" resultVariablePrefix="nova"
+plano: updateInstance instanceId="4321" planId="enterprise" extraAgents="5" extraStorage="10"
+contato: editInstanceContactDetails instanceId="4321" contact.clientName="{{chat_client_name}}" contact.contactPhone1="{{chat_client_number}}" contact.contactMail1="{{chat_client_email}}"
+fim: terminate reason="Instancia provisionada"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> A instancia do cliente fica criada, com plano e contatos atualizados. Recurso exclusivo de instancia de revenda.</div>
+<h3 id="ex-automacoes-admin-4">Manutencao de instancias (somente instancia de revenda)</h3>
+<p>Localizar uma instancia e executar as rotinas de bloqueio, reinicio, desbloqueio, exclusao e reativacao. So existe em instancia de revenda (parceiro).</p>
+<ol class="steps">
+<li><strong><code>searchInstance</code></strong> — localiza a instancia pelo ID e disponibiliza o resultado no prefixo inst (so instancia de revenda).</li>
+<li><strong><code>blockInstance</code></strong> — bloqueia a instancia (so instancia de revenda).</li>
+<li><strong><code>restartInstance</code></strong> — reinicia a instancia (so instancia de revenda).</li>
+<li><strong><code>restartInstanceContainer</code></strong> — reinicia o container da instancia (so instancia de revenda).</li>
+<li><strong><code>unblockInstance</code></strong> — desbloqueia a instancia (so instancia de revenda).</li>
+<li><strong><code>markInstanceForExclusion</code></strong> — marca a instancia para exclusao (so instancia de revenda).</li>
+<li><strong><code>reactivateInstance</code></strong> — reativa a instancia marcada para exclusao (so instancia de revenda).</li>
+<li><strong><code>terminate</code></strong> — encerra o atendimento.</li>
+</ol>
+<div class="table-wrap"><pre class="flow">localiza: searchInstance searchField="id" searchValue="4321" resultVariablePrefix="inst"
+bloqueia: blockInstance instanceId="4321"
+reinicia: restartInstance instanceId="4321"
+container: restartInstanceContainer instanceId="4321"
+desbloqueia: unblockInstance instanceId="4321"
+exclui: markInstanceForExclusion instanceId="4321"
+reativa: reactivateInstance instanceId="4321"
+fim: terminate reason="Manutencao de instancia concluida"</pre></div>
+<div class="callout tip"><strong>Resultado:</strong> A instancia passa pelas rotinas de manutencao e volta ativa. Recurso exclusivo de instancia de revenda.</div>
+
+  <div class="pagenav">
+    <a href="automacoes-elementos.html"><span>←</span> Catálogo de elementos</a>
+    <a class="next" href="automacoes-exemplos.html"><span>Ver também →</span> Exemplos prontos</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

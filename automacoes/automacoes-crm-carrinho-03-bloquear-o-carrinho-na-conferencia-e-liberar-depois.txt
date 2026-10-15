@@ -1,0 +1,15 @@
+registrado: message text="Pedido registrado no valor de {{chat_cart_total}}."
+trava: lockOpportunityCart opportunityId="{{opportunity_id}}"
+checa: varCondition value="{{opportunity_cart_locked}}" {
+  case travado conditionOperator="=" conditionValue="1" {
+    avisa: message text="Precos travados enquanto a conferencia e o pagamento acontecem."
+    espera: question varName="pagamento_confirmado" text="Digite 1 quando o pagamento for confirmado"
+    libera: unlockOpportunityCart opportunityId="{{opportunity_id}}"
+    fim: message text="Conferencia concluida. Carrinho liberado para ajuste."
+    fimf: terminate
+  }
+  else {
+    sem_trava: message text="Nao consegui travar o carrinho agora; siga a conferencia manualmente."
+    sem_travaf: terminate
+  }
+}

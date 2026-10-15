@@ -1,0 +1,7 @@
+despedida_audio: aiTts text="Obrigado por falar com a gente, {{chat_client_name}}. Seu protocolo e {{chat_protocol}}. Ate a proxima!" model="tts-1" voice="alloy" codec="opus" resultVariableName="audio_despedida"
+envia_audio: message text="Segue em audio o resumo do seu atendimento:" fileChooseType=1 fileId="{{audio_despedida}}"
+gera_doc: generateDocumentFromTemplate resultVariableName="comprovante_id" templateId=3
+marca_resultado: aiDefineAssistantResult result=1
+captura_tela: pmScreenshot fk_target_user="10"
+grava_video: pmVideoCapture fk_target_user="10" duration=30
+encerra: terminate reason="Atendimento concluido pela IA"

@@ -1,0 +1,4 @@
+fecha: message text="Encerrando o atendimento {{chat_protocol}}."
+tarefa: createTask action=1 title="Retornar ligacao ao cliente {{chat_client_name}}" description="Acompanhar o atendimento {{chat_protocol}}." dueDate=1 associateToCurrentContact=true selectionMode=1 responsiblesIds=["12"]
+monitoria: createTask action=0 title="Monitorar atendimento {{chat_protocol}}" description="Alerta a supervisao: revisar este atendimento." dueDate=0 selectionMode=1 responsiblesIds=["15","18"] watchersIds=["10"] tags=["monitoria"]
+fim: terminate reason="Tarefas de acompanhamento e alerta criadas"

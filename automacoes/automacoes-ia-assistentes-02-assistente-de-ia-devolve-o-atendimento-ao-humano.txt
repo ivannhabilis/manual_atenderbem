@@ -1,0 +1,6 @@
+entrega_ia: aiAssistant assistantId="12" { transfer -> volta_humano }
+ia_concluiu: aiStopAssistant
+fim_ia: terminate reason="Assistente concluiu"
+volta_humano: aiStopMessage
+avisa_cliente: message text="Um instante, {{chat_client_name}}. Vou te encaminhar para um atendente humano continuar."
+vai_para_humano: transfer destinationType=2 destinationId="5"

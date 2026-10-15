@@ -1,0 +1,13 @@
+busca_optin: searchPersistent key="opt_in_campanhas:{{chat_client_number}}" resultVariableName="opt_in"
+decide: varCondition value="{{opt_in}}" {
+  case inscrito conditionOperator="not null" {
+    remove_marca: removePersistent key="opt_in_campanhas:{{chat_client_number}}"
+    registra_saida: addPersistent key="opt_out_campanhas:{{chat_client_number}}" value="sim" ttl=0
+    confirma: message text="Pronto: removi seu cadastro das campanhas de marketing. Se mudar de ideia, e so avisar."
+    fim_saida: terminate reason="Descadastro de campanhas" obs="Chave persistente de opt-in removida e opt-out registrado."
+  }
+  else {
+    nada: message text="Voce nao estava inscrito nas campanhas de marketing. Nao ha o que remover."
+    fim_nada: terminate reason="Sem inscricao ativa" obs="Nada foi alterado no cadastro."
+  }
+}

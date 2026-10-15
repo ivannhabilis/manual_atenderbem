@@ -289,6 +289,100 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Atendimento, fila e bloqueios",
+  "u": "automacoes-atendimento.html",
+  "s": [
+   {
+    "h": "openChat",
+    "a": "el-openChat"
+   },
+   {
+    "h": "openChatCloud",
+    "a": "el-openChatCloud"
+   },
+   {
+    "h": "searchChat",
+    "a": "el-searchChat"
+   },
+   {
+    "h": "queueChats",
+    "a": "el-queueChats"
+   },
+   {
+    "h": "addToWaitingList",
+    "a": "el-addToWaitingList"
+   },
+   {
+    "h": "removeFromWaitingList",
+    "a": "el-removeFromWaitingList"
+   },
+   {
+    "h": "lock",
+    "a": "el-lock"
+   },
+   {
+    "h": "blockChatManualEnd",
+    "a": "el-blockChatManualEnd"
+   },
+   {
+    "h": "unblockChatManualEnd",
+    "a": "el-unblockChatManualEnd"
+   },
+   {
+    "h": "blockChatManualTransfer",
+    "a": "el-blockChatManualTransfer"
+   },
+   {
+    "h": "unblockChatManualTransfer",
+    "a": "el-unblockChatManualTransfer"
+   },
+   {
+    "h": "userAvailable",
+    "a": "el-userAvailable"
+   },
+   {
+    "h": "sendNotification",
+    "a": "el-sendNotification"
+   },
+   {
+    "h": "sendAlert",
+    "a": "el-sendAlert"
+   },
+   {
+    "h": "showSnackNotification",
+    "a": "el-showSnackNotification"
+   },
+   {
+    "h": "Exemplos de uso",
+    "a": "exemplos-do-grupo"
+   },
+   {
+    "h": "Retomar o atendimento em aberto pelo protocolo",
+    "a": "ex-automacoes-atendimento-1"
+   },
+   {
+    "h": "Abrir um atendimento ativo pelo telefone",
+    "a": "ex-automacoes-atendimento-2"
+   },
+   {
+    "h": "Fila de espera com agente preferencial travado",
+    "a": "ex-automacoes-atendimento-3"
+   },
+   {
+    "h": "Blindar o atendimento durante a coleta de dados",
+    "a": "ex-automacoes-atendimento-4"
+   },
+   {
+    "h": "Abrir atendimento em fila oficial com template",
+    "a": "ex-automacoes-atendimento-5"
+   },
+   {
+    "h": "Alerta de fila acima do limite para a supervisao",
+    "a": "ex-automacoes-atendimento-6"
+   }
+  ]
+ },
+ {
   "t": "Auditoria de Chamadas e CDR",
   "u": "pabx-cdr-auditoria.html",
   "s": [
@@ -685,6 +779,318 @@ window.MANUAL_INDEX = [
    {
     "h": "Como encerrar automaticamente um atendimento sem tirar da sala de espera?",
     "a": "faq-49"
+   }
+  ]
+ },
+ {
+  "t": "Automações e URA",
+  "u": "automacoes-elementos.html",
+  "s": [
+   {
+    "h": "1. Como ler as fichas de elemento",
+    "a": "1-como-ler-as-fichas-de-elemento"
+   },
+   {
+    "h": "2. Os três tipos de fluxo",
+    "a": "2-os-tres-tipos-de-fluxo"
+   },
+   {
+    "h": "3. A linguagem do fluxo",
+    "a": "3-a-linguagem-do-fluxo"
+   },
+   {
+    "h": "4. Índice dos 144 elementos",
+    "a": "4-indice-dos-elementos"
+   },
+   {
+    "h": "5. Como testar antes de publicar",
+    "a": "5-como-testar-antes-de-publicar"
+   }
+  ]
+ },
+ {
+  "t": "Automações: Exemplos Prontos",
+  "u": "automacoes-exemplos.html",
+  "s": [
+   {
+    "h": "Índice dos exemplos",
+    "a": "indice-dos-exemplos"
+   },
+   {
+    "h": "Mensagens e conteúdo",
+    "a": "ex-automacoes-mensagens"
+   },
+   {
+    "h": "1. Boas-vindas, menu principal e consulta com validação de CPF compilado",
+    "a": "exemplo-automacoes-mensagens-1"
+   },
+   {
+    "h": "2. Pesquisa de satisfação com a nota protegida compilado",
+    "a": "exemplo-automacoes-mensagens-2"
+   },
+   {
+    "h": "3. Coleta de endereço com Whatsapp Flow e limpeza do dado sensível compilado",
+    "a": "exemplo-automacoes-mensagens-3"
+   },
+   {
+    "h": "4. Comentário no Instagram respondido e convertido em atendimento no direct compilado",
+    "a": "exemplo-automacoes-mensagens-4"
+   },
+   {
+    "h": "5. Cancelar a mensagem programada fora do horário comercial compilado",
+    "a": "exemplo-automacoes-mensagens-5"
+   },
+   {
+    "h": "Fluxo, lógica e gatilhos",
+    "a": "ex-automacoes-fluxo-logica"
+   },
+   {
+    "h": "1. Triagem por horário de funcionamento com protocolo e rodízio de plantão compilado",
+    "a": "exemplo-automacoes-fluxo-logica-1"
+   },
+   {
+    "h": "2. Resumo do carrinho item a item com laço de repetição compilado",
+    "a": "exemplo-automacoes-fluxo-logica-2"
+   },
+   {
+    "h": "3. Orçamento com acompanhamento agendado e cancelamento compilado",
+    "a": "exemplo-automacoes-fluxo-logica-3"
+   },
+   {
+    "h": "4. Classificar o cliente com código, variáveis e gatilhos compilado",
+    "a": "exemplo-automacoes-fluxo-logica-4"
+   },
+   {
+    "h": "5. Retorno por ligação: oferta, confirmação e desfecho da chamada compilado",
+    "a": "exemplo-automacoes-fluxo-logica-5"
+   },
+   {
+    "h": "Atendimento, fila e bloqueios",
+    "a": "ex-automacoes-atendimento"
+   },
+   {
+    "h": "1. Retomar o atendimento em aberto pelo protocolo compilado",
+    "a": "exemplo-automacoes-atendimento-1"
+   },
+   {
+    "h": "2. Abrir um atendimento ativo pelo telefone compilado",
+    "a": "exemplo-automacoes-atendimento-2"
+   },
+   {
+    "h": "3. Fila de espera com agente preferencial travado compilado",
+    "a": "exemplo-automacoes-atendimento-3"
+   },
+   {
+    "h": "4. Blindar o atendimento durante a coleta de dados compilado",
+    "a": "exemplo-automacoes-atendimento-4"
+   },
+   {
+    "h": "5. Abrir atendimento em fila oficial com template compilado",
+    "a": "exemplo-automacoes-atendimento-5"
+   },
+   {
+    "h": "6. Alerta de fila acima do limite para a supervisao compilado",
+    "a": "exemplo-automacoes-atendimento-6"
+   },
+   {
+    "h": "Contatos e dados persistentes",
+    "a": "ex-automacoes-contatos-dados"
+   },
+   {
+    "h": "1. Identificar o cliente pelo CPF: atualizar ou cadastrar compilado",
+    "a": "exemplo-automacoes-contatos-dados-1"
+   },
+   {
+    "h": "2. Reconhecer quem esta falando pelo telefone compilado",
+    "a": "exemplo-automacoes-contatos-dados-2"
+   },
+   {
+    "h": "3. Enriquecer o cadastro com endereco e etiquetas compilado",
+    "a": "exemplo-automacoes-contatos-dados-3"
+   },
+   {
+    "h": "4. Preferencia que sobrevive de um atendimento para o outro compilado",
+    "a": "exemplo-automacoes-contatos-dados-4"
+   },
+   {
+    "h": "5. Descadastro de campanhas com limpeza da memoria compilado",
+    "a": "exemplo-automacoes-contatos-dados-5"
+   },
+   {
+    "h": "CRM, oportunidade e carrinho",
+    "a": "ex-automacoes-crm-carrinho"
+   },
+   {
+    "h": "1. Detectar interesse, criar oportunidade e mover no funil compilado",
+    "a": "exemplo-automacoes-crm-carrinho-1"
+   },
+   {
+    "h": "2. Montar o carrinho e enviar o botao para conferencia compilado",
+    "a": "exemplo-automacoes-crm-carrinho-2"
+   },
+   {
+    "h": "3. Bloquear o carrinho na conferencia e liberar depois compilado",
+    "a": "exemplo-automacoes-crm-carrinho-3"
+   },
+   {
+    "h": "4. Fechar a venda como ganha e reabrir em caso de arrependimento compilado",
+    "a": "exemplo-automacoes-crm-carrinho-4"
+   },
+   {
+    "h": "5. Sincronizar o carrinho inteiro a partir de um JSON de ERP compilado",
+    "a": "exemplo-automacoes-crm-carrinho-5"
+   },
+   {
+    "h": "6. Baixa e devolucao de estoque ligadas ao pedido compilado",
+    "a": "exemplo-automacoes-crm-carrinho-6"
+   },
+   {
+    "h": "7. Congelar, anexar contrato, limpar tarefas e transferir a oportunidade compilado",
+    "a": "exemplo-automacoes-crm-carrinho-7"
+   },
+   {
+    "h": "8. Guardas do funil: cancelar movimentacao e ganho indevidos compilado",
+    "a": "exemplo-automacoes-crm-carrinho-8"
+   },
+   {
+    "h": "Catálogo, pedidos e estoque",
+    "a": "ex-automacoes-catalogo-pedidos"
+   },
+   {
+    "h": "1. Vitrine em carrossel e consulta de produto por codigo interno compilado",
+    "a": "exemplo-automacoes-catalogo-pedidos-1"
+   },
+   {
+    "h": "2. Enviar pedido com Pix e atualizar o status compilado",
+    "a": "exemplo-automacoes-catalogo-pedidos-2"
+   },
+   {
+    "h": "3. Baixa de estoque ao fechar o pedido da oportunidade compilado",
+    "a": "exemplo-automacoes-catalogo-pedidos-3"
+   },
+   {
+    "h": "4. Devolucao ao estoque em cancelamento de item avulso compilado",
+    "a": "exemplo-automacoes-catalogo-pedidos-4"
+   },
+   {
+    "h": "Tickets (mesa de ajuda)",
+    "a": "ex-automacoes-tickets"
+   },
+   {
+    "h": "1. Abertura automatica de ticket pelo chat com vinculo do contato compilado",
+    "a": "exemplo-automacoes-tickets-1"
+   },
+   {
+    "h": "2. Escalonamento por SLA com prioridade, status e comentario interno compilado",
+    "a": "exemplo-automacoes-tickets-2"
+   },
+   {
+    "h": "3. Resolucao com comentario externo disparando evento compilado",
+    "a": "exemplo-automacoes-tickets-3"
+   },
+   {
+    "h": "4. Aguardar cliente, reabrir e corrigir vinculo do ticket compilado",
+    "a": "exemplo-automacoes-tickets-4"
+   },
+   {
+    "h": "IA e assistentes",
+    "a": "ex-automacoes-ia-assistentes"
+   },
+   {
+    "h": "1. Entregar o atendimento ao assistente de IA compilado",
+    "a": "exemplo-automacoes-ia-assistentes-1"
+   },
+   {
+    "h": "2. Assistente de IA devolve o atendimento ao humano compilado",
+    "a": "exemplo-automacoes-ia-assistentes-2"
+   },
+   {
+    "h": "3. Solicitacao unica a um assistente especialista compilado",
+    "a": "exemplo-automacoes-ia-assistentes-3"
+   },
+   {
+    "h": "4. Adicionar contexto e provocar o assistente compilado",
+    "a": "exemplo-automacoes-ia-assistentes-4"
+   },
+   {
+    "h": "5. Ler o documento ou a imagem do cliente com IA compilado",
+    "a": "exemplo-automacoes-ia-assistentes-5"
+   },
+   {
+    "h": "6. Fechamento: audio com IA, documento e auditoria compilado",
+    "a": "exemplo-automacoes-ia-assistentes-6"
+   },
+   {
+    "h": "Telefonia (URA telefônica)",
+    "a": "ex-automacoes-telefonia"
+   },
+   {
+    "h": "1. Menu de voz com audio e leitura do teclado (URA telefonica) compilado",
+    "a": "exemplo-automacoes-telefonia-1"
+   },
+   {
+    "h": "2. Desviar conforme a tecla e enviar DTMF ao PABX de destino (URA telefonica) compilado",
+    "a": "exemplo-automacoes-telefonia-2"
+   },
+   {
+    "h": "3. Encerrar a chamada com hangup (URA telefonica) compilado",
+    "a": "exemplo-automacoes-telefonia-3"
+   },
+   {
+    "h": "Pesquisas, formulários e WebChat",
+    "a": "ex-automacoes-pesquisas-webchat"
+   },
+   {
+    "h": "1. Pesquisa de satisfacao na despedida do atendimento compilado",
+    "a": "exemplo-automacoes-pesquisas-webchat-1"
+   },
+   {
+    "h": "2. Link publico de pesquisa, submissao e perguntas ocultas compilado",
+    "a": "exemplo-automacoes-pesquisas-webchat-2"
+   },
+   {
+    "h": "3. Formulario personalizado e fluxo de formularios multi-etapas compilado",
+    "a": "exemplo-automacoes-pesquisas-webchat-3"
+   },
+   {
+    "h": "4. Cartao de informacao exibido e depois removido compilado",
+    "a": "exemplo-automacoes-pesquisas-webchat-4"
+   },
+   {
+    "h": "5. WebChat V2: notificacoes push, migracao e confirmacao do atendente compilado",
+    "a": "exemplo-automacoes-pesquisas-webchat-5"
+   },
+   {
+    "h": "Integrações, webhooks e extensões",
+    "a": "ex-automacoes-integracoes"
+   },
+   {
+    "h": "1. Consultar uma API externa, decidir pelo status e avisar a extensao compilado",
+    "a": "exemplo-automacoes-integracoes-1"
+   },
+   {
+    "h": "2. Responder a um webhook com JSON e gerar QR Code de um link compilado",
+    "a": "exemplo-automacoes-integracoes-2"
+   },
+   {
+    "h": "Tarefas, instâncias e administração",
+    "a": "ex-automacoes-admin"
+   },
+   {
+    "h": "1. Tarefa de acompanhamento ao final do atendimento e alerta a supervisao compilado",
+    "a": "exemplo-automacoes-admin-1"
+   },
+   {
+    "h": "2. Concluir a tarefa de acompanhamento compilado",
+    "a": "exemplo-automacoes-admin-2"
+   },
+   {
+    "h": "3. Provisionar instancia de um cliente (somente instancia de revenda) compilado",
+    "a": "exemplo-automacoes-admin-3"
+   },
+   {
+    "h": "4. Manutencao de instancias (somente instancia de revenda) compilado",
+    "a": "exemplo-automacoes-admin-4"
    }
   ]
  },
@@ -1647,6 +2053,56 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Catálogo, pedidos e estoque",
+  "u": "automacoes-catalogo-pedidos.html",
+  "s": [
+   {
+    "h": "sendProductMessage",
+    "a": "el-sendProductMessage"
+   },
+   {
+    "h": "getProductDetails",
+    "a": "el-getProductDetails"
+   },
+   {
+    "h": "sendOrder",
+    "a": "el-sendOrder"
+   },
+   {
+    "h": "updateOrderStatus",
+    "a": "el-updateOrderStatus"
+   },
+   {
+    "h": "decrementProductStock",
+    "a": "el-decrementProductStock"
+   },
+   {
+    "h": "incrementProductStock",
+    "a": "el-incrementProductStock"
+   },
+   {
+    "h": "Exemplos de uso",
+    "a": "exemplos-do-grupo"
+   },
+   {
+    "h": "Vitrine em carrossel e consulta de produto por codigo interno",
+    "a": "ex-automacoes-catalogo-pedidos-1"
+   },
+   {
+    "h": "Enviar pedido com Pix e atualizar o status",
+    "a": "ex-automacoes-catalogo-pedidos-2"
+   },
+   {
+    "h": "Baixa de estoque ao fechar o pedido da oportunidade",
+    "a": "ex-automacoes-catalogo-pedidos-3"
+   },
+   {
+    "h": "Devolucao ao estoque em cancelamento de item avulso",
+    "a": "ex-automacoes-catalogo-pedidos-4"
+   }
+  ]
+ },
+ {
   "t": "Chat Interno",
   "u": "chat-interno.html",
   "s": [
@@ -1991,6 +2447,60 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Contatos e dados persistentes",
+  "u": "automacoes-contatos-dados.html",
+  "s": [
+   {
+    "h": "searchContact",
+    "a": "el-searchContact"
+   },
+   {
+    "h": "addContact",
+    "a": "el-addContact"
+   },
+   {
+    "h": "editContact",
+    "a": "el-editContact"
+   },
+   {
+    "h": "addPersistent",
+    "a": "el-addPersistent"
+   },
+   {
+    "h": "searchPersistent",
+    "a": "el-searchPersistent"
+   },
+   {
+    "h": "removePersistent",
+    "a": "el-removePersistent"
+   },
+   {
+    "h": "Exemplos de uso",
+    "a": "exemplos-do-grupo"
+   },
+   {
+    "h": "Identificar o cliente pelo CPF: atualizar ou cadastrar",
+    "a": "ex-automacoes-contatos-dados-1"
+   },
+   {
+    "h": "Reconhecer quem esta falando pelo telefone",
+    "a": "ex-automacoes-contatos-dados-2"
+   },
+   {
+    "h": "Enriquecer o cadastro com endereco e etiquetas",
+    "a": "ex-automacoes-contatos-dados-3"
+   },
+   {
+    "h": "Preferencia que sobrevive de um atendimento para o outro",
+    "a": "ex-automacoes-contatos-dados-4"
+   },
+   {
+    "h": "Descadastro de campanhas com limpeza da memoria",
+    "a": "ex-automacoes-contatos-dados-5"
+   }
+  ]
+ },
+ {
   "t": "Contatos e Empresas",
   "u": "contatos.html",
   "s": [
@@ -2321,6 +2831,136 @@ window.MANUAL_INDEX = [
    {
     "h": "Quais campos e opções existem na aba Geral de Configurações &gt; Geral da instância?",
     "a": "faq-246"
+   }
+  ]
+ },
+ {
+  "t": "CRM, oportunidade e carrinho",
+  "u": "automacoes-crm-carrinho.html",
+  "s": [
+   {
+    "h": "addOpportunity",
+    "a": "el-addOpportunity"
+   },
+   {
+    "h": "editOpportunity",
+    "a": "el-editOpportunity"
+   },
+   {
+    "h": "searchOpportunity",
+    "a": "el-searchOpportunity"
+   },
+   {
+    "h": "cloneOpportunity",
+    "a": "el-cloneOpportunity"
+   },
+   {
+    "h": "moveOpportunity",
+    "a": "el-moveOpportunity"
+   },
+   {
+    "h": "winOpportunity",
+    "a": "el-winOpportunity"
+   },
+   {
+    "h": "loseOpportunity",
+    "a": "el-loseOpportunity"
+   },
+   {
+    "h": "reopenOpportunity",
+    "a": "el-reopenOpportunity"
+   },
+   {
+    "h": "transferOpportunity",
+    "a": "el-transferOpportunity"
+   },
+   {
+    "h": "freezeOpportunity",
+    "a": "el-freezeOpportunity"
+   },
+   {
+    "h": "unfreezeOpportunity",
+    "a": "el-unfreezeOpportunity"
+   },
+   {
+    "h": "clearOpportunityTasks",
+    "a": "el-clearOpportunityTasks"
+   },
+   {
+    "h": "insertFileOpportunity",
+    "a": "el-insertFileOpportunity"
+   },
+   {
+    "h": "cancelOpportunityMove",
+    "a": "el-cancelOpportunityMove"
+   },
+   {
+    "h": "cancelOpportunityWin",
+    "a": "el-cancelOpportunityWin"
+   },
+   {
+    "h": "lockOpportunityCart",
+    "a": "el-lockOpportunityCart"
+   },
+   {
+    "h": "unlockOpportunityCart",
+    "a": "el-unlockOpportunityCart"
+   },
+   {
+    "h": "replaceOpportunityCart",
+    "a": "el-replaceOpportunityCart"
+   },
+   {
+    "h": "sendCartButton",
+    "a": "el-sendCartButton"
+   },
+   {
+    "h": "addOrEditProductToOpportunity",
+    "a": "el-addOrEditProductToOpportunity"
+   },
+   {
+    "h": "removeProductFromOpportunity",
+    "a": "el-removeProductFromOpportunity"
+   },
+   {
+    "h": "clearProductListOfOpportunity",
+    "a": "el-clearProductListOfOpportunity"
+   },
+   {
+    "h": "Exemplos de uso",
+    "a": "exemplos-do-grupo"
+   },
+   {
+    "h": "Detectar interesse, criar oportunidade e mover no funil",
+    "a": "ex-automacoes-crm-carrinho-1"
+   },
+   {
+    "h": "Montar o carrinho e enviar o botao para conferencia",
+    "a": "ex-automacoes-crm-carrinho-2"
+   },
+   {
+    "h": "Bloquear o carrinho na conferencia e liberar depois",
+    "a": "ex-automacoes-crm-carrinho-3"
+   },
+   {
+    "h": "Fechar a venda como ganha e reabrir em caso de arrependimento",
+    "a": "ex-automacoes-crm-carrinho-4"
+   },
+   {
+    "h": "Sincronizar o carrinho inteiro a partir de um JSON de ERP",
+    "a": "ex-automacoes-crm-carrinho-5"
+   },
+   {
+    "h": "Baixa e devolucao de estoque ligadas ao pedido",
+    "a": "ex-automacoes-crm-carrinho-6"
+   },
+   {
+    "h": "Congelar, anexar contrato, limpar tarefas e transferir a oportunidade",
+    "a": "ex-automacoes-crm-carrinho-7"
+   },
+   {
+    "h": "Guardas do funil: cancelar movimentacao e ganho indevidos",
+    "a": "ex-automacoes-crm-carrinho-8"
    }
   ]
  },
@@ -2983,6 +3623,112 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Fluxo, lógica e gatilhos",
+  "u": "automacoes-fluxo-logica.html",
+  "s": [
+   {
+    "h": "varCondition",
+    "a": "el-varCondition"
+   },
+   {
+    "h": "loop",
+    "a": "el-loop"
+   },
+   {
+    "h": "timetable",
+    "a": "el-timetable"
+   },
+   {
+    "h": "businesshoursCheck",
+    "a": "el-businesshoursCheck"
+   },
+   {
+    "h": "sleep",
+    "a": "el-sleep"
+   },
+   {
+    "h": "waitMessage",
+    "a": "el-waitMessage"
+   },
+   {
+    "h": "terminate",
+    "a": "el-terminate"
+   },
+   {
+    "h": "transfer",
+    "a": "el-transfer"
+   },
+   {
+    "h": "marker",
+    "a": "el-marker"
+   },
+   {
+    "h": "protocol",
+    "a": "el-protocol"
+   },
+   {
+    "h": "jscode",
+    "a": "el-jscode"
+   },
+   {
+    "h": "newVar",
+    "a": "el-newVar"
+   },
+   {
+    "h": "execAutomation",
+    "a": "el-execAutomation"
+   },
+   {
+    "h": "setTriggers",
+    "a": "el-setTriggers"
+   },
+   {
+    "h": "removeTrigger",
+    "a": "el-removeTrigger"
+   },
+   {
+    "h": "removeAllTriggers",
+    "a": "el-removeAllTriggers"
+   },
+   {
+    "h": "scheduleAutomation",
+    "a": "el-scheduleAutomation"
+   },
+   {
+    "h": "cancelSchedule",
+    "a": "el-cancelSchedule"
+   },
+   {
+    "h": "startCall",
+    "a": "el-startCall"
+   },
+   {
+    "h": "Exemplos de uso",
+    "a": "exemplos-do-grupo"
+   },
+   {
+    "h": "Triagem por horário de funcionamento com protocolo e rodízio de plantão",
+    "a": "ex-automacoes-fluxo-logica-1"
+   },
+   {
+    "h": "Resumo do carrinho item a item com laço de repetição",
+    "a": "ex-automacoes-fluxo-logica-2"
+   },
+   {
+    "h": "Orçamento com acompanhamento agendado e cancelamento",
+    "a": "ex-automacoes-fluxo-logica-3"
+   },
+   {
+    "h": "Classificar o cliente com código, variáveis e gatilhos",
+    "a": "ex-automacoes-fluxo-logica-4"
+   },
+   {
+    "h": "Retorno por ligação: oferta, confirmação e desfecho da chamada",
+    "a": "ex-automacoes-fluxo-logica-5"
+   }
+  ]
+ },
+ {
   "t": "Gestão de Ramais e Softphones",
   "u": "pabx-ramais.html",
   "s": [
@@ -3017,6 +3763,88 @@ window.MANUAL_INDEX = [
    {
     "h": "8. Diagnóstico de Ramais via CLI",
     "a": "8-diagnostico-de-ramais-via-cli"
+   }
+  ]
+ },
+ {
+  "t": "IA e assistentes",
+  "u": "automacoes-ia-assistentes.html",
+  "s": [
+   {
+    "h": "aiAssistant",
+    "a": "el-aiAssistant"
+   },
+   {
+    "h": "aiAssistantSingleRequest",
+    "a": "el-aiAssistantSingleRequest"
+   },
+   {
+    "h": "aiAddContextToAssistant",
+    "a": "el-aiAddContextToAssistant"
+   },
+   {
+    "h": "aiProvokeAssistant",
+    "a": "el-aiProvokeAssistant"
+   },
+   {
+    "h": "aiProcessFile",
+    "a": "el-aiProcessFile"
+   },
+   {
+    "h": "aiStopAssistant",
+    "a": "el-aiStopAssistant"
+   },
+   {
+    "h": "aiStopMessage",
+    "a": "el-aiStopMessage"
+   },
+   {
+    "h": "aiDefineAssistantResult",
+    "a": "el-aiDefineAssistantResult"
+   },
+   {
+    "h": "aiTts",
+    "a": "el-aiTts"
+   },
+   {
+    "h": "generateDocumentFromTemplate",
+    "a": "el-generateDocumentFromTemplate"
+   },
+   {
+    "h": "pmScreenshot",
+    "a": "el-pmScreenshot"
+   },
+   {
+    "h": "pmVideoCapture",
+    "a": "el-pmVideoCapture"
+   },
+   {
+    "h": "Exemplos de uso",
+    "a": "exemplos-do-grupo"
+   },
+   {
+    "h": "Entregar o atendimento ao assistente de IA",
+    "a": "ex-automacoes-ia-assistentes-1"
+   },
+   {
+    "h": "Assistente de IA devolve o atendimento ao humano",
+    "a": "ex-automacoes-ia-assistentes-2"
+   },
+   {
+    "h": "Solicitacao unica a um assistente especialista",
+    "a": "ex-automacoes-ia-assistentes-3"
+   },
+   {
+    "h": "Adicionar contexto e provocar o assistente",
+    "a": "ex-automacoes-ia-assistentes-4"
+   },
+   {
+    "h": "Ler o documento ou a imagem do cliente com IA",
+    "a": "ex-automacoes-ia-assistentes-5"
+   },
+   {
+    "h": "Fechamento: audio com IA, documento e auditoria",
+    "a": "ex-automacoes-ia-assistentes-6"
    }
   ]
  },
@@ -3369,6 +4197,40 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Integrações, webhooks e extensões",
+  "u": "automacoes-integracoes.html",
+  "s": [
+   {
+    "h": "request",
+    "a": "el-request"
+   },
+   {
+    "h": "webhookReply",
+    "a": "el-webhookReply"
+   },
+   {
+    "h": "publishToExtension",
+    "a": "el-publishToExtension"
+   },
+   {
+    "h": "generateQrCode",
+    "a": "el-generateQrCode"
+   },
+   {
+    "h": "Exemplos de uso",
+    "a": "exemplos-do-grupo"
+   },
+   {
+    "h": "Consultar uma API externa, decidir pelo status e avisar a extensao",
+    "a": "ex-automacoes-integracoes-1"
+   },
+   {
+    "h": "Responder a um webhook com JSON e gerar QR Code de um link",
+    "a": "ex-automacoes-integracoes-2"
+   }
+  ]
+ },
+ {
   "t": "Inteligência Artificial",
   "u": "ia.html",
   "s": [
@@ -3705,6 +4567,18 @@ window.MANUAL_INDEX = [
     "a": "monitoramento-de-produtividade"
    },
    {
+    "h": "Automações e URA — Catálogo de Elementos",
+    "a": "automacoes-e-ura-catalogo-de-elementos"
+   },
+   {
+    "h": "Automações: Variáveis e Expressões",
+    "a": "automacoes-variaveis-e-expressoes"
+   },
+   {
+    "h": "Automações: Exemplos Prontos",
+    "a": "automacoes-exemplos-prontos"
+   },
+   {
     "h": "Integrações e Automações Externas",
     "a": "integracoes-e-automacoes-externas"
    },
@@ -3727,6 +4601,92 @@ window.MANUAL_INDEX = [
    {
     "h": "Links de Compartilhamento (raw.githack)",
     "a": "links-de-compartilhamento-rawgithack"
+   }
+  ]
+ },
+ {
+  "t": "Mensagens e conteúdo",
+  "u": "automacoes-mensagens.html",
+  "s": [
+   {
+    "h": "message",
+    "a": "el-message"
+   },
+   {
+    "h": "info",
+    "a": "el-info"
+   },
+   {
+    "h": "question",
+    "a": "el-question"
+   },
+   {
+    "h": "options",
+    "a": "el-options"
+   },
+   {
+    "h": "url",
+    "a": "el-url"
+   },
+   {
+    "h": "requestLocation",
+    "a": "el-requestLocation"
+   },
+   {
+    "h": "sendMail",
+    "a": "el-sendMail"
+   },
+   {
+    "h": "sendTemplate",
+    "a": "el-sendTemplate"
+   },
+   {
+    "h": "sendFlow",
+    "a": "el-sendFlow"
+   },
+   {
+    "h": "clearFlowDataFromMessage",
+    "a": "el-clearFlowDataFromMessage"
+   },
+   {
+    "h": "changeMessageVisualGroup",
+    "a": "el-changeMessageVisualGroup"
+   },
+   {
+    "h": "cancelMessage",
+    "a": "el-cancelMessage"
+   },
+   {
+    "h": "replyComment",
+    "a": "el-replyComment"
+   },
+   {
+    "h": "shareContact",
+    "a": "el-shareContact"
+   },
+   {
+    "h": "Exemplos de uso",
+    "a": "exemplos-do-grupo"
+   },
+   {
+    "h": "Boas-vindas, menu principal e consulta com validação de CPF",
+    "a": "ex-automacoes-mensagens-1"
+   },
+   {
+    "h": "Pesquisa de satisfação com a nota protegida",
+    "a": "ex-automacoes-mensagens-2"
+   },
+   {
+    "h": "Coleta de endereço com Whatsapp Flow e limpeza do dado sensível",
+    "a": "ex-automacoes-mensagens-3"
+   },
+   {
+    "h": "Comentário no Instagram respondido e convertido em atendimento no direct",
+    "a": "ex-automacoes-mensagens-4"
+   },
+   {
+    "h": "Cancelar a mensagem programada fora do horário comercial",
+    "a": "ex-automacoes-mensagens-5"
    }
   ]
  },
@@ -4021,6 +4981,104 @@ window.MANUAL_INDEX = [
    {
     "h": "11. Checklist de implantação",
     "a": "11-checklist-de-implantacao"
+   }
+  ]
+ },
+ {
+  "t": "Pesquisas, formulários e WebChat",
+  "u": "automacoes-pesquisas-webchat.html",
+  "s": [
+   {
+    "h": "sendForm",
+    "a": "el-sendForm"
+   },
+   {
+    "h": "sendFormFlow",
+    "a": "el-sendFormFlow"
+   },
+   {
+    "h": "showForm",
+    "a": "el-showForm"
+   },
+   {
+    "h": "showFormSync",
+    "a": "el-showFormSync"
+   },
+   {
+    "h": "showConfirmationDialogSync",
+    "a": "el-showConfirmationDialogSync"
+   },
+   {
+    "h": "showInformationDialog",
+    "a": "el-showInformationDialog"
+   },
+   {
+    "h": "generateSurveyFormLink",
+    "a": "el-generateSurveyFormLink"
+   },
+   {
+    "h": "submitSurveyFormResponse",
+    "a": "el-submitSurveyFormResponse"
+   },
+   {
+    "h": "editSurveyFormResponse",
+    "a": "el-editSurveyFormResponse"
+   },
+   {
+    "h": "sendSurveyFormMessage",
+    "a": "el-sendSurveyFormMessage"
+   },
+   {
+    "h": "sendInformationCard",
+    "a": "el-sendInformationCard"
+   },
+   {
+    "h": "addInformationCard",
+    "a": "el-addInformationCard"
+   },
+   {
+    "h": "removeInformationCard",
+    "a": "el-removeInformationCard"
+   },
+   {
+    "h": "addInformationCardToMessage",
+    "a": "el-addInformationCardToMessage"
+   },
+   {
+    "h": "removeInformationCardFromMessage",
+    "a": "el-removeInformationCardFromMessage"
+   },
+   {
+    "h": "requestPushPermission",
+    "a": "el-requestPushPermission"
+   },
+   {
+    "h": "generateWebchatMigrationLink",
+    "a": "el-generateWebchatMigrationLink"
+   },
+   {
+    "h": "Exemplos de uso",
+    "a": "exemplos-do-grupo"
+   },
+   {
+    "h": "Pesquisa de satisfacao na despedida do atendimento",
+    "a": "ex-automacoes-pesquisas-webchat-1"
+   },
+   {
+    "h": "Link publico de pesquisa, submissao e perguntas ocultas",
+    "a": "ex-automacoes-pesquisas-webchat-2"
+   },
+   {
+    "h": "Formulario personalizado e fluxo de formularios multi-etapas",
+    "a": "ex-automacoes-pesquisas-webchat-3"
+   },
+   {
+    "h": "Cartao de informacao exibido e depois removido",
+    "a": "ex-automacoes-pesquisas-webchat-4"
+   },
+   {
+    "h": "WebChat V2: notificacoes push, migracao e confirmacao do atendente",
+    "a": "ex-automacoes-pesquisas-webchat-5"
    }
   ]
  },
@@ -5065,6 +6123,122 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Tarefas, instâncias e administração",
+  "u": "automacoes-admin.html",
+  "s": [
+   {
+    "h": "createTask",
+    "a": "el-createTask"
+   },
+   {
+    "h": "markTaskAsDone",
+    "a": "el-markTaskAsDone"
+   },
+   {
+    "h": "searchInstance",
+    "a": "el-searchInstance"
+   },
+   {
+    "h": "createInstance",
+    "a": "el-createInstance"
+   },
+   {
+    "h": "editInstanceContactDetails",
+    "a": "el-editInstanceContactDetails"
+   },
+   {
+    "h": "markInstanceForExclusion",
+    "a": "el-markInstanceForExclusion"
+   },
+   {
+    "h": "reactivateInstance",
+    "a": "el-reactivateInstance"
+   },
+   {
+    "h": "blockInstance",
+    "a": "el-blockInstance"
+   },
+   {
+    "h": "unblockInstance",
+    "a": "el-unblockInstance"
+   },
+   {
+    "h": "restartInstance",
+    "a": "el-restartInstance"
+   },
+   {
+    "h": "restartInstanceContainer",
+    "a": "el-restartInstanceContainer"
+   },
+   {
+    "h": "updateInstance",
+    "a": "el-updateInstance"
+   },
+   {
+    "h": "Exemplos de uso",
+    "a": "exemplos-do-grupo"
+   },
+   {
+    "h": "Tarefa de acompanhamento ao final do atendimento e alerta a supervisao",
+    "a": "ex-automacoes-admin-1"
+   },
+   {
+    "h": "Concluir a tarefa de acompanhamento",
+    "a": "ex-automacoes-admin-2"
+   },
+   {
+    "h": "Provisionar instancia de um cliente (somente instancia de revenda)",
+    "a": "ex-automacoes-admin-3"
+   },
+   {
+    "h": "Manutencao de instancias (somente instancia de revenda)",
+    "a": "ex-automacoes-admin-4"
+   }
+  ]
+ },
+ {
+  "t": "Telefonia (URA telefônica)",
+  "u": "automacoes-telefonia.html",
+  "s": [
+   {
+    "h": "callPlayAudio",
+    "a": "el-callPlayAudio"
+   },
+   {
+    "h": "callWaitClientReply",
+    "a": "el-callWaitClientReply"
+   },
+   {
+    "h": "sentDTMF",
+    "a": "el-sentDTMF"
+   },
+   {
+    "h": "callTransfer",
+    "a": "el-callTransfer"
+   },
+   {
+    "h": "callTerminate",
+    "a": "el-callTerminate"
+   },
+   {
+    "h": "Exemplos de uso",
+    "a": "exemplos-do-grupo"
+   },
+   {
+    "h": "Menu de voz com audio e leitura do teclado (URA telefonica)",
+    "a": "ex-automacoes-telefonia-1"
+   },
+   {
+    "h": "Desviar conforme a tecla e enviar DTMF ao PABX de destino (URA telefonica)",
+    "a": "ex-automacoes-telefonia-2"
+   },
+   {
+    "h": "Encerrar a chamada com hangup (URA telefonica)",
+    "a": "ex-automacoes-telefonia-3"
+   }
+  ]
+ },
+ {
   "t": "Telefonia e PABX",
   "u": "faq-telefonia-pabx.html",
   "s": [
@@ -5545,6 +6719,88 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Tickets (mesa de ajuda)",
+  "u": "automacoes-tickets.html",
+  "s": [
+   {
+    "h": "addTicket",
+    "a": "el-addTicket"
+   },
+   {
+    "h": "editTicket",
+    "a": "el-editTicket"
+   },
+   {
+    "h": "searchTicket",
+    "a": "el-searchTicket"
+   },
+   {
+    "h": "resolveTicket",
+    "a": "el-resolveTicket"
+   },
+   {
+    "h": "reopenTicket",
+    "a": "el-reopenTicket"
+   },
+   {
+    "h": "assignTicket",
+    "a": "el-assignTicket"
+   },
+   {
+    "h": "escalateTicket",
+    "a": "el-escalateTicket"
+   },
+   {
+    "h": "contactClientTicket",
+    "a": "el-contactClientTicket"
+   },
+   {
+    "h": "addCommentTicket",
+    "a": "el-addCommentTicket"
+   },
+   {
+    "h": "linkContactTicket",
+    "a": "el-linkContactTicket"
+   },
+   {
+    "h": "unlinkContactTicket",
+    "a": "el-unlinkContactTicket"
+   },
+   {
+    "h": "changeStatusTicket",
+    "a": "el-changeStatusTicket"
+   },
+   {
+    "h": "addTagTicket",
+    "a": "el-addTagTicket"
+   },
+   {
+    "h": "changeStageTicket",
+    "a": "el-changeStageTicket"
+   },
+   {
+    "h": "Exemplos de uso",
+    "a": "exemplos-do-grupo"
+   },
+   {
+    "h": "Abertura automatica de ticket pelo chat com vinculo do contato",
+    "a": "ex-automacoes-tickets-1"
+   },
+   {
+    "h": "Escalonamento por SLA com prioridade, status e comentario interno",
+    "a": "ex-automacoes-tickets-2"
+   },
+   {
+    "h": "Resolucao com comentario externo disparando evento",
+    "a": "ex-automacoes-tickets-3"
+   },
+   {
+    "h": "Aguardar cliente, reabrir e corrigir vinculo do ticket",
+    "a": "ex-automacoes-tickets-4"
+   }
+  ]
+ },
+ {
   "t": "Tickets e SLA",
   "u": "faq-tickets.html",
   "s": [
@@ -5873,6 +7129,116 @@ window.MANUAL_INDEX = [
    {
     "h": "6. Horário de Atendimento Dentro do Fluxo da URA",
     "a": "6-horario-de-atendimento-dentro-do-fluxo-da-ura"
+   }
+  ]
+ },
+ {
+  "t": "Variáveis e Expressões do Fluxo",
+  "u": "automacoes-variaveis.html",
+  "s": [
+   {
+    "h": "1. Sintaxe das expressões",
+    "a": "1-sintaxe-das-expressoes"
+   },
+   {
+    "h": "2. Operadores",
+    "a": "2-operadores"
+   },
+   {
+    "h": "3. Filtros (pipes)",
+    "a": "3-filtros-pipes"
+   },
+   {
+    "h": "4. Expressão avaliada como valor",
+    "a": "4-expressao-avaliada-como-valor"
+   },
+   {
+    "h": "5. Variáveis do sistema são somente leitura",
+    "a": "5-variaveis-do-sistema-sao-somente-leitura"
+   },
+   {
+    "h": "6. Armadilhas",
+    "a": "6-armadilhas"
+   },
+   {
+    "h": "7. Catálogo de variáveis por categoria",
+    "a": "7-catalogo-de-variaveis"
+   },
+   {
+    "h": "Gerais (sempre disponíveis) 4",
+    "a": "var-general"
+   },
+   {
+    "h": "Contato 28",
+    "a": "var-contact"
+   },
+   {
+    "h": "Atendimento (chat) 57",
+    "a": "var-chat"
+   },
+   {
+    "h": "Mensagem 25",
+    "a": "var-message"
+   },
+   {
+    "h": "Chamada 29",
+    "a": "var-call"
+   },
+   {
+    "h": "Fim de chamada 16",
+    "a": "var-call_end"
+   },
+   {
+    "h": "PABX (telefonia) 18",
+    "a": "var-pbx"
+   },
+   {
+    "h": "Oportunidade (CRM) 64",
+    "a": "var-opportunity"
+   },
+   {
+    "h": "Produto 23",
+    "a": "var-product"
+   },
+   {
+    "h": "Tarefa 18",
+    "a": "var-task"
+   },
+   {
+    "h": "Ticket 36",
+    "a": "var-ticket"
+   },
+   {
+    "h": "Pesquisa de satisfação 14",
+    "a": "var-survey"
+   },
+   {
+    "h": "Resultado de IA 10",
+    "a": "var-ai_result"
+   },
+   {
+    "h": "Agente/usuário 19",
+    "a": "var-agent"
+   },
+   {
+    "h": "Arquivo 6",
+    "a": "var-file"
+   },
+   {
+    "h": "Agendamento 8",
+    "a": "var-schedule"
+   },
+   {
+    "h": "WebApp/WebChat 6",
+    "a": "var-webapp"
+   },
+   {
+    "h": "Extensão 5",
+    "a": "var-extension"
+   },
+   {
+    "h": "Instância 53",
+    "a": "var-instance"
    }
   ]
  },

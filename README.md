@@ -32,6 +32,12 @@ Páginas:
 - `pabx-simplepbx.html` — SimplePBX (Telefonia Simplificada): telefonia gerenciada dentro da plataforma (ramais, troncos, rotas, grupos de toque, gravações, Debug SIP, limites, importação/exportação e API de telefonia)
 - `pabx-simplepbx-configuracao.html` — SimplePBX: guia de configuração campo a campo (tronco WhatsApp Cloud API voz, tronco de operadora SIP, ramais WebRTC, rotas, grupos de toque, filas e URA), com capturas de tela
 - `assets/simplepbx/` — capturas de tela do SimplePBX usadas no guia de configuração
+- `automacoes-elementos.html` — catálogo dos 144 elementos do editor de Fluxo de Automação e URA (o que fazem, campos, ramos, exemplos)
+- `automacoes-variaveis.html` — variáveis e expressões do fluxo: sintaxe, operadores, filtros e as 439 variáveis por categoria
+- `automacoes-exemplos.html` — exemplos prontos de fluxos (passo a passo, importáveis e validados pelo compilador do sistema)
+- `automacoes-*.html` — capítulos por grupo de elementos (mensagens, fluxo/lógica, atendimento, contatos, CRM/carrinho, catálogo/pedidos, tickets, IA, telefonia, pesquisas/WebChat, integrações, tarefas/admin)
+- `assets/automacoes/lista-fluxos.png` — print higienizado da tela Fluxo de Automação e URA
+- `enriquecer_dados/automacoes/` — fonte do capítulo: catálogo, especificações, variáveis, exemplos e geradores
 - `links-compartilhamento.html` — índice dos links públicos (raw.githack): entregáveis avulsos, kits de extensão e todos os capítulos por assunto
 - `entrega/extensoes-explicacao.html` — guia guiado avulso: criar sua primeira extensão (imagens embutidas)
 - `entrega/tutorial-modelo-documento.html` — tutorial avulso: gerar documento a partir de um modelo (imagens embutidas)

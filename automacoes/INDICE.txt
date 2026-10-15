@@ -1,0 +1,62 @@
+Exemplos de fluxo — Manual Omnichannel (AtenderBem)
+Cada arquivo e o TEXTO do fluxo, pronto para importar no editor de Fluxo de Automacao e URA.
+Importacao: Fluxo de Automacao e URA > Importar, escolhendo o arquivo .txt.
+Todos os fluxos foram compilados pelo validador do proprio sistema.
+
+automacoes-mensagens-01-boas-vindas-menu-principal-e-consulta-com-validacao-de-cpf.txt	Boas-vindas, menu principal e consulta com validação de CPF
+automacoes-mensagens-02-pesquisa-de-satisfacao-com-a-nota-protegida.txt	Pesquisa de satisfação com a nota protegida
+automacoes-mensagens-03-coleta-de-endereco-com-whatsapp-flow-e-limpeza-do-dado-sensi.txt	Coleta de endereço com Whatsapp Flow e limpeza do dado sensível
+automacoes-mensagens-04-comentario-no-instagram-respondido-e-convertido-em-atendimen.txt	Comentário no Instagram respondido e convertido em atendimento no direct
+automacoes-mensagens-05-cancelar-a-mensagem-programada-fora-do-horario-comercial.txt	Cancelar a mensagem programada fora do horário comercial
+automacoes-fluxo-logica-01-triagem-por-horario-de-funcionamento-com-protocolo-e-rodizio.txt	Triagem por horário de funcionamento com protocolo e rodízio de plantão
+automacoes-fluxo-logica-02-resumo-do-carrinho-item-a-item-com-laco-de-repeticao.txt	Resumo do carrinho item a item com laço de repetição
+automacoes-fluxo-logica-03-orcamento-com-acompanhamento-agendado-e-cancelamento.txt	Orçamento com acompanhamento agendado e cancelamento
+automacoes-fluxo-logica-04-classificar-o-cliente-com-codigo-variaveis-e-gatilhos.txt	Classificar o cliente com código, variáveis e gatilhos
+automacoes-fluxo-logica-05-retorno-por-ligacao-oferta-confirmacao-e-desfecho-da-chamada.txt	Retorno por ligação: oferta, confirmação e desfecho da chamada
+automacoes-atendimento-01-retomar-o-atendimento-em-aberto-pelo-protocolo.txt	Retomar o atendimento em aberto pelo protocolo
+automacoes-atendimento-02-abrir-um-atendimento-ativo-pelo-telefone.txt	Abrir um atendimento ativo pelo telefone
+automacoes-atendimento-03-fila-de-espera-com-agente-preferencial-travado.txt	Fila de espera com agente preferencial travado
+automacoes-atendimento-04-blindar-o-atendimento-durante-a-coleta-de-dados.txt	Blindar o atendimento durante a coleta de dados
+automacoes-atendimento-05-abrir-atendimento-em-fila-oficial-com-template.txt	Abrir atendimento em fila oficial com template
+automacoes-atendimento-06-alerta-de-fila-acima-do-limite-para-a-supervisao.txt	Alerta de fila acima do limite para a supervisao
+automacoes-contatos-dados-01-identificar-o-cliente-pelo-cpf-atualizar-ou-cadastrar.txt	Identificar o cliente pelo CPF: atualizar ou cadastrar
+automacoes-contatos-dados-02-reconhecer-quem-esta-falando-pelo-telefone.txt	Reconhecer quem esta falando pelo telefone
+automacoes-contatos-dados-03-enriquecer-o-cadastro-com-endereco-e-etiquetas.txt	Enriquecer o cadastro com endereco e etiquetas
+automacoes-contatos-dados-04-preferencia-que-sobrevive-de-um-atendimento-para-o-outro.txt	Preferencia que sobrevive de um atendimento para o outro
+automacoes-contatos-dados-05-descadastro-de-campanhas-com-limpeza-da-memoria.txt	Descadastro de campanhas com limpeza da memoria
+automacoes-crm-carrinho-01-detectar-interesse-criar-oportunidade-e-mover-no-funil.txt	Detectar interesse, criar oportunidade e mover no funil
+automacoes-crm-carrinho-02-montar-o-carrinho-e-enviar-o-botao-para-conferencia.txt	Montar o carrinho e enviar o botao para conferencia
+automacoes-crm-carrinho-03-bloquear-o-carrinho-na-conferencia-e-liberar-depois.txt	Bloquear o carrinho na conferencia e liberar depois
+automacoes-crm-carrinho-04-fechar-a-venda-como-ganha-e-reabrir-em-caso-de-arrependiment.txt	Fechar a venda como ganha e reabrir em caso de arrependimento
+automacoes-crm-carrinho-05-sincronizar-o-carrinho-inteiro-a-partir-de-um-json-de-erp.txt	Sincronizar o carrinho inteiro a partir de um JSON de ERP
+automacoes-crm-carrinho-06-baixa-e-devolucao-de-estoque-ligadas-ao-pedido.txt	Baixa e devolucao de estoque ligadas ao pedido
+automacoes-crm-carrinho-07-congelar-anexar-contrato-limpar-tarefas-e-transferir-a-oport.txt	Congelar, anexar contrato, limpar tarefas e transferir a oportunidade
+automacoes-crm-carrinho-08-guardas-do-funil-cancelar-movimentacao-e-ganho-indevidos.txt	Guardas do funil: cancelar movimentacao e ganho indevidos
+automacoes-catalogo-pedidos-01-vitrine-em-carrossel-e-consulta-de-produto-por-codigo-intern.txt	Vitrine em carrossel e consulta de produto por codigo interno
+automacoes-catalogo-pedidos-02-enviar-pedido-com-pix-e-atualizar-o-status.txt	Enviar pedido com Pix e atualizar o status
+automacoes-catalogo-pedidos-03-baixa-de-estoque-ao-fechar-o-pedido-da-oportunidade.txt	Baixa de estoque ao fechar o pedido da oportunidade
+automacoes-catalogo-pedidos-04-devolucao-ao-estoque-em-cancelamento-de-item-avulso.txt	Devolucao ao estoque em cancelamento de item avulso
+automacoes-tickets-01-abertura-automatica-de-ticket-pelo-chat-com-vinculo-do-conta.txt	Abertura automatica de ticket pelo chat com vinculo do contato
+automacoes-tickets-02-escalonamento-por-sla-com-prioridade-status-e-comentario-int.txt	Escalonamento por SLA com prioridade, status e comentario interno
+automacoes-tickets-03-resolucao-com-comentario-externo-disparando-evento.txt	Resolucao com comentario externo disparando evento
+automacoes-tickets-04-aguardar-cliente-reabrir-e-corrigir-vinculo-do-ticket.txt	Aguardar cliente, reabrir e corrigir vinculo do ticket
+automacoes-ia-assistentes-01-entregar-o-atendimento-ao-assistente-de-ia.txt	Entregar o atendimento ao assistente de IA
+automacoes-ia-assistentes-02-assistente-de-ia-devolve-o-atendimento-ao-humano.txt	Assistente de IA devolve o atendimento ao humano
+automacoes-ia-assistentes-03-solicitacao-unica-a-um-assistente-especialista.txt	Solicitacao unica a um assistente especialista
+automacoes-ia-assistentes-04-adicionar-contexto-e-provocar-o-assistente.txt	Adicionar contexto e provocar o assistente
+automacoes-ia-assistentes-05-ler-o-documento-ou-a-imagem-do-cliente-com-ia.txt	Ler o documento ou a imagem do cliente com IA
+automacoes-ia-assistentes-06-fechamento-audio-com-ia-documento-e-auditoria.txt	Fechamento: audio com IA, documento e auditoria
+automacoes-telefonia-01-menu-de-voz-com-audio-e-leitura-do-teclado-ura-telefonica.txt	Menu de voz com audio e leitura do teclado (URA telefonica)
+automacoes-telefonia-02-desviar-conforme-a-tecla-e-enviar-dtmf-ao-pabx-de-destino-ur.txt	Desviar conforme a tecla e enviar DTMF ao PABX de destino (URA telefonica)
+automacoes-telefonia-03-encerrar-a-chamada-com-hangup-ura-telefonica.txt	Encerrar a chamada com hangup (URA telefonica)
+automacoes-pesquisas-webchat-01-pesquisa-de-satisfacao-na-despedida-do-atendimento.txt	Pesquisa de satisfacao na despedida do atendimento
+automacoes-pesquisas-webchat-02-link-publico-de-pesquisa-submissao-e-perguntas-ocultas.txt	Link publico de pesquisa, submissao e perguntas ocultas
+automacoes-pesquisas-webchat-03-formulario-personalizado-e-fluxo-de-formularios-multi-etapas.txt	Formulario personalizado e fluxo de formularios multi-etapas
+automacoes-pesquisas-webchat-04-cartao-de-informacao-exibido-e-depois-removido.txt	Cartao de informacao exibido e depois removido
+automacoes-pesquisas-webchat-05-webchat-v2-notificacoes-push-migracao-e-confirmacao-do-atend.txt	WebChat V2: notificacoes push, migracao e confirmacao do atendente
+automacoes-integracoes-01-consultar-uma-api-externa-decidir-pelo-status-e-avisar-a-ext.txt	Consultar uma API externa, decidir pelo status e avisar a extensao
+automacoes-integracoes-02-responder-a-um-webhook-com-json-e-gerar-qr-code-de-um-link.txt	Responder a um webhook com JSON e gerar QR Code de um link
+automacoes-admin-01-tarefa-de-acompanhamento-ao-final-do-atendimento-e-alerta-a-.txt	Tarefa de acompanhamento ao final do atendimento e alerta a supervisao
+automacoes-admin-02-concluir-a-tarefa-de-acompanhamento.txt	Concluir a tarefa de acompanhamento
+automacoes-admin-03-provisionar-instancia-de-um-cliente-somente-instancia-de-rev.txt	Provisionar instancia de um cliente (somente instancia de revenda)
+automacoes-admin-04-manutencao-de-instancias-somente-instancia-de-revenda.txt	Manutencao de instancias (somente instancia de revenda)

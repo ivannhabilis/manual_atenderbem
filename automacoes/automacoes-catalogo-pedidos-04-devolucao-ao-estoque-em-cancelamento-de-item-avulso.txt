@@ -1,0 +1,7 @@
+pede_codigo: question varName="codigo_produto" text="Informe o codigo interno do produto cancelado"
+pede_quantidade: question varName="quantidade" text="Quantas unidades foram canceladas?"
+consulta_item: getProductDetails searchType="code" searchValue="{{codigo_produto}}" resultVariableName="produto_cancelado"
+devolve_estoque: incrementProductStock stockTarget="product" productId="{{codigo_produto}}" searchType="code" quantity="{{quantidade}}" setAvailableWhenRestocked=true resultVariableName="devolucao_estoque"
+atualiza_pedido: updateOrderStatus orderId="{{order_id}}" status="canceled" bodyText="Seu pedido foi cancelado e os itens voltaram ao estoque."
+avisa_cliente: message text="Cancelamento registrado. {{produto_cancelado.product_name}} voltou a ficar disponivel no catalogo."
+fim: terminate
