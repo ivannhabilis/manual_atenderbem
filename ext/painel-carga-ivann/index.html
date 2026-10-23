@@ -36,6 +36,8 @@
   .barra{height:6px;border-radius:999px;background:var(--line);overflow:hidden;margin-top:10px;display:none}
   .barra.on{display:block}
   .barra > div{height:100%;width:0;background:var(--accent);transition:width .12s}
+  /* table-layout:fixed é o que impede a tabela de criar largura mínima pelo conteúdo
+     (era isso que gerava a barra de rolagem horizontal no painel) */
   table{width:100%;max-width:100%;table-layout:fixed;border-collapse:collapse;background:var(--card);
         border:1px solid var(--line);border-radius:10px;overflow:hidden}
   th,td{padding:6px 10px;text-align:left;border-bottom:1px solid var(--line);font-size:12px;
@@ -71,7 +73,7 @@
   .hint{color:var(--muted);font-size:11px;margin-top:6px}
   .ver{font-size:10px;color:var(--muted);border:1px solid var(--line);border-radius:999px;
        padding:1px 7px;margin-left:6px;vertical-align:middle;white-space:nowrap}
-  /* Em painel muito estreito os rotulos das colunas quebravam letra a letra */
+  /* em painel estreito os rótulos das colunas quebravam letra por letra */
   @media (max-width:620px){
     th{font-size:9px}
     th,td{padding:5px 6px}
@@ -133,11 +135,20 @@
   </details>
 
 <script>
+/*
+  Painel de Carga dos Agentes — contribuição de menu superior (topMenu).
+  Mostra, num lugar só, quantos atendimentos estão abertos por agente e por fila,
+  quais estão sem agente e há quanto tempo o mais antigo espera.
+  Da visão para a ação: transfere o atendimento ou abre o painel de agentes,
+  sempre com confirmação antes de mexer em dado real.
+
+  Autor: Ivann
+*/
 const el = (id) => document.getElementById(id);
 const O = window.omni;
-const EXT_VERSAO = '1.0.6';   // precisa acompanhar a "version" do manifest.json
+const EXT_VERSAO = '1.0.7';
 
-// ---- configuração vinda da instalação ----
+// ---------- configuração vinda da instalação ----------
 const CFG = { limiteEsperaAlerta: 10, intervaloMs: 60, maxFilas: 0 };
 function lerConfig(){
   try{
@@ -147,34 +158,35 @@ function lerConfig(){
   }catch(e){}
 }
 
-// ---- utilidades ----
+// ---------- utilidades ----------
 function say(kind, text){ const m = el('msg'); m.className = 'msg show ' + kind; m.textContent = text; }
 function hideMsg(){ el('msg').className = 'msg'; }
 
-// O SDK desta versao EXIGE uma altura numerica positiva e devolve uma Promise:
-// chamar sem argumento gera "Promise rejeitada sem tratamento". Enviamos a altura real
-// do conteudo (>= 1) e sempre absorvemos a rejeicao.
+// O resize desta versão do SDK exige uma altura numérica positiva e devolve Promise.
+// Mando a altura real do conteúdo (com teto, para o painel não passar da janela) e
+// trato a rejeição com .catch() — try/catch sozinho não pega Promise rejeitada.
 let alturaAgendada = null;
 function ajustarAltura(){
-  if (alturaAgendada) return;                     // agrupa rajadas do ResizeObserver
+  if (alturaAgendada) return;                        // segura a rajada do ResizeObserver
   alturaAgendada = setTimeout(() => {
     alturaAgendada = null;
     try{
       if (!O || typeof O.ui.resize !== 'function') return;
       const conteudo = Math.ceil(document.body.scrollHeight || document.documentElement.scrollHeight || 1);
-      const h = Math.max(1, Math.min(660, conteudo));   // teto: o painel nao passa da janela
+      const h = Math.max(1, Math.min(660, conteudo));
       const r = O.ui.resize(h);
       if (r && typeof r.catch === 'function') r.catch(() => {});
     }catch(e){}
   }, 150);
 }
 
-// o METODO final tem de ser funcao; os niveis intermediarios sao objetos
+// o método só existe se o caminho terminar numa função (os níveis do meio são objetos)
 function temMetodo(root, path){
   let o = root; const p = path.split('.');
   for (let i = 0; i < p.length - 1; i++){ o = o ? o[p[i]] : null; if (!o) return false; }
   return typeof o[p[p.length - 1]] === 'function';
 }
+// startedAt vem como string de segundos epoch
 function segundosDesde(v){
   const n = Number(v);
   if (!isFinite(n) || n <= 0) return null;
@@ -186,11 +198,11 @@ function esperaMin(c){
   return s === null ? null : Math.round(s / 60);
 }
 
-// ---- estado ----
+// ---------- estado ----------
 const estado = { chats: [], filas: [], usuarios: [], filaPorId: {}, userPorId: {}, selecionado: null, euId: null };
 
 function nomeAgente(id){
-  if (!id || Number(id) === 0) return null;
+  if (!id || Number(id) === 0) return null;          // userId 0 = sem agente
   const u = estado.userPorId[String(id)];
   return u ? (u.name || ('usuário ' + id)) : ('usuário ' + id);
 }
@@ -200,7 +212,7 @@ function nomeContato(c){
   return (k && (k.name || k.phone)) || ('contato ' + (c && c.contactId));
 }
 
-// ---- diagnóstico do SDK ----
+// ---------- diagnóstico do SDK ----------
 function diagnostico(){
   if (!O) return 'window.omni AUSENTE';
   const linhas = ['extensão: v' + EXT_VERSAO, 'sdkVersion: ' + (O.sdkVersion || '?'), ''];
@@ -218,7 +230,7 @@ function diagnostico(){
   return linhas.join('\n');
 }
 
-// ---- carga de dados ----
+// ---------- carga dos dados ----------
 async function carregar(){
   hideMsg();
   el('barra').classList.add('on');
@@ -238,12 +250,14 @@ async function carregar(){
   estado.filaPorId = {};
   for (const q of estado.filas) estado.filaPorId[String(q.id)] = q;
 
+  // o nome do usuário logado pode vir vazio no getUser; cai para a lista de usuários
   const meuNome = (eu && eu.name) || (estado.userPorId[String(eu && eu.id)] || {}).name || '?';
   const perfil = (eu && eu.type) === 0 ? 'administrador' : (eu && eu.type) === 1 ? 'supervisor' : 'agente';
   el('sub').textContent = 'sessão: ' + meuNome + ' (id ' + (eu && eu.id) + ') · ' + perfil +
     ' · ' + estado.usuarios.length + ' usuários · ' + estado.filas.length + ' filas';
 
-  // consulta fila a fila, em sequência e espaçada (protege o canal da extensão)
+  // listByQueue pede o id da fila, então vou fila por fila. De propósito uma de cada vez
+  // e com pausa: o canal da extensão tem limite de requisições e não quero derrubá-lo.
   estado.chats = [];
   const filas = CFG.maxFilas > 0 ? estado.filas.slice(0, CFG.maxFilas) : estado.filas;
   let falhas = 0, consultadas = 0, comAtendimento = 0;
@@ -284,7 +298,7 @@ function render(){
   el('cEspera').className = 'v small' + (maior === null ? '' : (maior >= CFG.limiteEsperaAlerta ? ' bad' : ' ok'));
   el('cFilas').textContent = filasCom;
 
-  // por agente
+  // agrupa por agente: quantas filas ele cobre, quantos abertos e a maior espera dele
   const porAgente = new Map();
   for (const c of estado.chats){
     const nome = nomeAgente(c.userId) || '(sem agente)';
@@ -294,6 +308,7 @@ function render(){
     const e = esperaMin(c);
     if (e !== null && (it.espera === null || e > it.espera)) it.espera = e;
   }
+  // quem espera há mais tempo aparece primeiro
   const linhas = [...porAgente.values()].sort((a, b) =>
     (b.espera === null ? -1 : b.espera) - (a.espera === null ? -1 : a.espera));
 
@@ -312,7 +327,7 @@ function render(){
     }
   }
 
-  // sem agente, linha a linha
+  // os sem agente, um por linha, do mais antigo para o mais novo
   const semLista = estado.chats.filter(c => nomeAgente(c.userId) === null)
     .sort((a, b) => (esperaMin(b) || 0) - (esperaMin(a) || 0));
   const tbs = el('tbodySem');
@@ -331,7 +346,7 @@ function render(){
     }
   }
 
-  // combo de agentes (quem atende)
+  // lista de destino: só quem atende (type 2), fora eu mesmo
   const sel = el('inAgente');
   sel.innerHTML = '<option value="">— escolha o agente —</option>';
   const agentes = estado.usuarios.filter(u => u.type === 2 && u.id !== estado.euId)
@@ -400,10 +415,11 @@ async function transferir(){
     say('ok', 'Atendimento #' + id + ' transferido para ' + rotulo + '.');
     await carregar();
   }catch(e){
+    // nesta versão do sistema o método existe no SDK mas não tem serviço do outro lado
     const m = (e && e.message) ? e.message : String(e);
     if (/service not found/i.test(m)){
-      say('info', 'O Host desta versão expõe omni.chats.transfer no SDK, mas não implementa o serviço ' +
-        '(resposta "Service not found"). Use "Abrir no painel de agentes" para tratar o atendimento manualmente.');
+      say('info', 'O sistema não aceitou a transferência por extensão nesta versão ("Service not found"). ' +
+        'Use "Abrir no painel de agentes" para tratar o atendimento manualmente.');
     }else{
       say('bad', 'Falha ao transferir: ' + m);
     }

@@ -1,80 +1,108 @@
-# Roteiro de narração — vídeo da extensão "Painel de Carga dos Agentes (Ivann)"
+# Roteiro de narração — Painel de Carga dos Agentes (Ivann)
 
-Arquivo do vídeo: `/home/hermes/videos/painel-carga-ivann.mp4` (1440x838, ~3min, sem áudio).
-Grave a sua narração por cima. Os tempos abaixo são os do vídeo gravado.
+Vídeo: `/home/hermes/videos/painel-carga-ivann.mp4`
+Extensão: `ivann.painel-carga` · versão **1.0.7** · menu superior (topMenu), modo diálogo
+Duração: 4min41 · 1440x838 · sem áudio (grave a sua narração por cima)
+Legendas prontas: `legendas.srt` (mesma divisão de tempo deste roteiro)
 
-Identificação da entrega
-- Extensão: `ivann.painel-carga` — "Painel de Carga dos Agentes (Ivann)"
-- Versão publicada: 1.0.2 (CDN dev: `https://cdn.a-tend.online/ivann.painel-carga/manifest_dev.json`)
-- Onde aparece: menu superior (contribuição `topMenu`, modo diálogo) — visível a administrador, supervisor e agente.
-
----
-
-## Bloco 1 — 0:00 a 0:35 — [TELA: o sistema, o mouse indo ao ícone do menu e o painel abrindo]
-
-"Neste vídeo eu apresento a extensão que desenvolvi para o módulo de Extensões do AtenderBem.
-Ela se chama Painel de Carga dos Agentes, está publicada na versão 1.0.2 e aparece aqui no menu
-superior, como este ícone de barras. Ao clicar, o sistema abre o painel num diálogo."
-
-## Bloco 2 — 0:35 a 0:55 — [TELA: a barra de progresso e os números aparecendo]
-
-"O painel precisa consultar cada fila para montar o retrato da operação. Esta barra é essa
-varredura: são noventa e quatro filas consultadas em sequência, espaçadas de propósito para não
-sobrecarregar o canal da extensão. Ao terminar, aparecem os quatro números do topo: atendimentos
-abertos, quantos estão sem agente, a espera do mais antigo e em quantas filas há atendimento."
-
-## Bloco 3 — 0:55 a 1:20 — [TELA: os cartões e as duas tabelas]
-
-"O valor aqui é ter tudo num lugar só. Em cima, o resumo. Na primeira tabela, a carga agrupada
-por agente, com quantas filas ele cobre, quantos atendimentos estão abertos com ele e há quanto
-tempo o mais antigo espera. Na segunda tabela, linha por linha, só os atendimentos que estão sem
-agente — que são exatamente os que precisam de decisão. Quem passou do limite de espera que eu
-configurei aparece em vermelho; neste ambiente de teste há atendimentos parados há semanas, então
-quase tudo está destacado."
-
-## Bloco 4 — 1:20 a 1:35 — [TELA: clicar na linha e abrir a lista de agentes]
-
-"Eu seleciono um atendimento: clico na linha e ele aparece no campo de seleção, com o número, a
-fila, o contato e o tempo de espera. Depois escolho para quem transferir — aqui está a lista dos
-agentes desta instância."
-
-## Bloco 5 — 1:35 a 1:55 — [TELA: o diálogo de confirmação do sistema]
-
-"Antes de executar qualquer coisa, a extensão chama o diálogo de confirmação do próprio sistema.
-Isto é deliberado: a transferência mexe em dados reais, então nada acontece sem o aceite explícito
-do usuário. O diálogo mostra exatamente qual atendimento será movido e para quem."
-
-## Bloco 6 — 1:55 a 2:20 — [TELA: a mensagem informativa e o bloco de diagnóstico]
-
-"Aqui eu preciso ser honesto, porque isso é resultado de investigação e não de suposição. Ao
-confirmar, o sistema respondeu que não implementa o serviço de transferência: `omni.chats.transfer`
-existe no SDK, mas o Host devolve 'Service not found'. Eu testei seis formas diferentes de chamada,
-inclusive transferência por fila, e todas devolvem o mesmo erro — enquanto leitura de dados, avisos
-e navegação funcionam normal. Em vez de esconder isso, o painel mostra a mensagem e oferece o
-caminho que funciona. É por isso que existe este bloco 'Diagnóstico do SDK': ele lista, na sessão
-real, todos os namespaces e métodos que o SDK expõe e marca quais dos métodos previstos no cenário
-estão presentes. Prefiro mostrar o que é real a fingir uma função que não existe."
-
-## Bloco 7 — 2:20 a 2:50 — [TELA: segunda ação, confirmação e a tela de destino]
-
-"Como a transferência programática não está disponível neste Host, a extensão oferece a ação que
-fecha o fluxo: abrir o painel de agentes para tratar o atendimento manualmente. Ela também passa
-por confirmação. Confirmo, o sistema troca de tela, e o painel se fecha com `omni.ui.close` —
-revelando o painel de agentes aberto, que é onde o supervisor conclui a transferência pelos
-controles nativos do produto."
-
-## Bloco 8 — 2:50 ao fim — [TELA: quadro final]
-
-"Resumindo: a extensão está publicada na versão 1.0.2, instalada e habilitada nesta instância,
-aparece no menu superior, consulta dados reais das noventa e quatro filas, agrupa a carga por
-agente, destaca os atendimentos sem agente e o tempo de espera, e executa a ação escolhida sempre
-com confirmação prévia. Obrigado."
+Os tempos foram tirados do próprio vídeo. Se sobrar tempo num bloco, respire e espere o próximo;
+se faltar, corte o que estiver entre parênteses.
 
 ---
 
-## Observações para a gravação
+## 0:00 – 0:30 | TELA: o sistema aberto, sem o painel
 
-- Fale devagar nos blocos 2, 5 e 6 — são os que mostram o funcionamento e a análise técnica.
-- No bloco 5 o diálogo fica na tela por cerca de cinco segundos; use esse tempo para ler a frase.
-- Se quiser encurtar, os blocos 4 e 8 são os mais fáceis de reduzir.
-- O vídeo não tem áudio: a narração é sua; não há trilha nem legenda embutida.
+"Neste vídeo eu apresento a extensão que eu desenvolvi para o módulo de Extensões do AtenderBem.
+O objetivo dela é simples de dizer e chato de fazer à mão: dar ao supervisor, numa tela só,
+a foto da carga de atendimento da operação."
+
+## 0:30 – 1:06 | TELA: o mouse subindo até o ícone no menu superior
+
+"Quando o supervisor precisa saber quem está sobrecarregado, ele abre o painel de agentes, depois
+o histórico de chats, depois a lista de filas, e no fim ainda tem que agir em outra tela. A ideia
+aqui é juntar a visão e a ação no mesmo lugar. A extensão fica neste ícone, na barra superior."
+
+## 1:06 – 1:20 | TELA: clique no ícone e o diálogo abrindo, com o selo v1.0.7
+
+"Cliquei, e o sistema abre o painel. No cabeçalho está o nome e a versão que está no ar: v1.0.7.
+Esse selo não é enfeite: ele existe para eu ter certeza de qual versão o navegador carregou,
+porque extensão publicada vive de cache."
+
+## 1:20 – 1:45 | TELA: a barra de progresso percorrendo o topo
+
+"O painel precisa consultar fila por fila. Esta barra é essa varredura: são noventa e quatro
+filas, uma de cada vez e com uma pausa entre elas. O motivo da pausa é técnico: o canal da
+extensão tem limite de requisições por segundo, e se eu disparar tudo de uma vez o próprio
+sistema derruba o canal."
+
+## 1:45 – 2:05 | TELA: os quatro cartões do topo
+
+"Terminada a varredura, estes são os números que importam. Vinte e sete atendimentos abertos.
+Vinte e sete estão sem agente — ou seja, todos. A espera do mais antigo: quarenta e seis mil
+minutos, e isso não é erro de conta: é ambiente de teste, com atendimento parado há semanas.
+E doze filas com atendimento em aberto."
+
+## 2:05 – 2:22 | TELA: as duas tabelas
+
+"Embaixo, a primeira tabela agrupa a carga por agente: quantas filas ele cobre, quantos
+atendimentos estão abertos com ele e a maior espera dele. A segunda desce ao detalhe: um
+atendimento por linha, só os que estão sem agente. Quem passou do limite que eu configuro
+aparece em vermelho, e a ordem é do mais crítico para o menos crítico."
+
+## 2:22 – 2:42 | TELA: clique na linha, a lista de agentes abrindo
+
+"Agora a parte que interessa: sair da visão e agir. Clico numa linha — o atendimento fica
+selecionado e aparece no campo, com número, fila, contato e tempo de espera. Depois escolho o
+destino nesta lista de agentes."
+
+## 2:42 – 2:59 | TELA: o diálogo de confirmação do sistema
+
+"Antes de executar, a extensão chama o diálogo de confirmação do próprio sistema. Isso é
+deliberado: transferir mexe em dado real. O diálogo mostra exatamente qual atendimento vai sair,
+de qual fila, e para quem. Eu confirmo."
+
+## 2:59 – 3:35 | TELA: a faixa azul com a mensagem e, abaixo, o bloco de diagnóstico
+
+"E aqui eu preciso ser honesto com você, porque isso é resultado de investigação, não de
+suposição. O sistema não aceitou a transferência por extensão nesta versão: o método
+omni.chats.transfer existe no SDK, mas do outro lado não tem serviço — a resposta foi
+Service not found. Eu testei sete formas diferentes de chamada, inclusive transferência por
+fila, e todas devolvem o mesmo erro. Enquanto isso, leitura de dados, avisos e navegação
+funcionam normalmente.
+
+Em vez de esconder, o painel mostra a mensagem e oferece o caminho que funciona. E é para isso
+que existe este bloco aqui embaixo, o Diagnóstico do SDK: ele lista, na sessão real, cada
+namespace e cada método que o SDK expõe, e marca quais dos métodos previstos no cenário existem.
+Eu prefiro mostrar o que é real a fingir uma função que não existe."
+
+## 3:35 – 4:05 | TELA: o texto do diagnóstico rolado
+
+"Repare no que ele mostra: filas, usuários, atendimentos por fila, contatos, tickets, tarefas,
+produtos, carrinho, CRM — tudo isso existe e está disponível. O que falta é só a ação de
+transferir. Então a diferença entre 'a documentação diz que existe' e 'existe de verdade' foi
+medida aqui, em execução, e não copiada de lugar nenhum."
+
+## 4:05 – 4:28 | TELA: segunda ação, confirmação e a troca de tela
+
+"Como a transferência programática não está disponível neste ambiente, a extensão oferece a ação
+que fecha o fluxo: abrir o painel de agentes para tratar o atendimento manualmente. Também passa
+por confirmação. Confirmo, o sistema troca de tela e o painel se fecha, revelando o painel de
+agentes — que é onde o supervisor conclui a transferência pelos controles nativos do produto."
+
+## 4:28 – 4:41 | TELA: quadro final
+
+"Resumindo: a extensão está publicada e instalada, aparece no menu superior, consulta dados reais
+das noventa e quatro filas, agrupa a carga por agente, destaca os atendimentos sem agente e o
+tempo de espera, e executa a ação escolhida sempre com confirmação antes. Obrigado."
+
+---
+
+## Antes de gravar
+
+- Deixe o painel FECHADO e a plataforma carregada: os primeiros segundos do vídeo são o sistema
+  sem o painel.
+- Comece a falar em 0:00 junto com a imagem. O clique no ícone acontece por volta de 1:06.
+- Se a varredura (bloco 1:20) demorar mais na sua máquina, não tem problema: a barra de progresso
+  cobre o tempo morto e é justamente onde a pausa entre filas fica visível.
+- Os números são do momento da gravação. Se você gravar em outro dia, eles mudam — o que não muda
+  é o significado de cada cartão e de cada coluna.

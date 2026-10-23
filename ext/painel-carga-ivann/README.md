@@ -10,17 +10,20 @@ Extensão do módulo de Extensões do AtenderBem. Aparece no **menu superior** (
 | `manifest.json` | Carteira de identidade da extensão (id, versão, contribuição, config). |
 | `index.html` | A tela: lê o SDK `omni`, monta o painel e executa a transferência. |
 | `assets/icone.svg` | Ícone do item no menu superior. É **arquivo da versão** (não é nome de ícone do sistema). |
-| `ROTEIRO-VIDEO.md` | Roteiro de narração do vídeo de entrega. |
+| `ROTEIRO-VIDEO.md` | Roteiro de narração do vídeo, com os tempos reais do vídeo gravado. |
+| `legendas.srt` | Legendas sincronizadas com o vídeo (mesma divisão de tempo do roteiro). |
+| `GUIA-CORRECOES-EXEMPLO.md` | Guia para corrigir os dois defeitos na Extensão de Exemplo (aprendizagem). |
+| `AULA-COMO-FOI-FEITO.md` | Aula: decisões de projeto, conceitos de programação e exercícios. |
 
 ## Estado atual (publicado e verificado)
 
 - Extensão no editor: **id 3**, identificador global `ivann.painel-carga` (congelado na 1ª publicação).
-- Versão **1.0.5** publicada — versão id **16**; ponteiro **dev** apontando para ela.
+- Versão **1.0.7** publicada — versão id **18**; ponteiro **dev** apontando para ela.
   (Limite da plataforma: 5 versões publicadas por extensão — para publicar a próxima é preciso
   `extensions_delete_version` numa antiga que não esteja apontada por prod/dev.)
 - Instalação nesta instância: **id 34**, habilitada, visibilidade `userTypes [0,1,2]` (padrão).
 - Manifesto dev: `https://cdn.a-tend.online/ivann.painel-carga/manifest_dev.json`
-- Arquivo da versão: `https://cdn.a-tend.online/ivann.painel-carga/v/1.0.5/index.html`
+- Arquivo da versão: `https://cdn.a-tend.online/ivann.painel-carga/v/1.0.7/index.html`
 - Sondagem de instalação: `installable: true`, CORS `*`, sem avisos e sem dependências pendentes.
 
 ## Configuração declarada

@@ -1,0 +1,167 @@
+1
+00:00:00,000 --> 00:00:06,000
+Neste vídeo eu apresento a extensão que eu desenvolvi
+
+2
+00:00:06,000 --> 00:00:12,500
+para o módulo de Extensões do AtenderBem.
+
+3
+00:00:12,500 --> 00:00:20,000
+O objetivo dela é simples de dizer e chato de fazer à mão:
+
+4
+00:00:20,000 --> 00:00:29,000
+dar ao supervisor, numa tela só, a foto da carga de atendimento da operação.
+
+5
+00:00:29,000 --> 00:00:38,000
+Quando o supervisor precisa saber quem está sobrecarregado,
+
+6
+00:00:38,000 --> 00:00:45,000
+ele abre o painel de agentes, depois o histórico de chats,
+
+7
+00:00:45,000 --> 00:00:53,000
+depois a lista de filas — e no fim ainda tem que agir em outra tela.
+
+8
+00:00:53,000 --> 00:01:00,000
+A ideia aqui é juntar a visão e a ação no mesmo lugar.
+
+9
+00:01:00,000 --> 00:01:06,000
+A extensão fica neste ícone, na barra superior.
+
+10
+00:01:06,000 --> 00:01:10,000
+Cliquei, e o sistema abre o painel.
+
+11
+00:01:10,000 --> 00:01:16,000
+No cabeçalho está o nome e a versão que está no ar: v1.0.7.
+
+12
+00:01:16,000 --> 00:01:20,000
+Esse selo existe para eu saber qual versão o navegador carregou.
+
+13
+00:01:20,000 --> 00:01:27,000
+O painel precisa consultar fila por fila.
+
+14
+00:01:27,000 --> 00:01:35,000
+Esta barra é essa varredura: noventa e quatro filas, uma de cada vez.
+
+15
+00:01:35,000 --> 00:01:42,000
+Com uma pausa entre elas, para não derrubar o canal da extensão.
+
+16
+00:01:42,000 --> 00:01:50,000
+Terminada a varredura, estes são os números que importam.
+
+17
+00:01:50,000 --> 00:01:56,000
+Vinte e sete atendimentos abertos — e vinte e sete sem agente.
+
+18
+00:01:56,000 --> 00:02:01,000
+A espera do mais antigo: quarenta e seis mil minutos.
+
+19
+00:02:01,000 --> 00:02:05,000
+Não é erro de conta: é ambiente de teste, com atendimento parado há semanas.
+
+20
+00:02:05,000 --> 00:02:11,000
+A primeira tabela agrupa a carga por agente:
+
+21
+00:02:11,000 --> 00:02:16,000
+quantas filas ele cobre, quantos abertos e a maior espera dele.
+
+22
+00:02:16,000 --> 00:02:22,000
+A segunda desce ao detalhe: só os que estão sem agente, em vermelho quando passam do limite.
+
+23
+00:02:22,000 --> 00:02:29,000
+Agora a parte que interessa: sair da visão e agir.
+
+24
+00:02:29,000 --> 00:02:36,000
+Clico numa linha e o atendimento fica selecionado, com fila, contato e espera.
+
+25
+00:02:36,000 --> 00:02:42,000
+Depois escolho o destino nesta lista de agentes.
+
+26
+00:02:42,000 --> 00:02:49,000
+Antes de executar, a extensão chama o diálogo de confirmação do sistema.
+
+27
+00:02:49,000 --> 00:02:54,000
+Isso é deliberado: transferir mexe em dado real.
+
+28
+00:02:54,000 --> 00:02:59,000
+O diálogo mostra qual atendimento sai, de qual fila e para quem. Eu confirmo.
+
+29
+00:02:59,000 --> 00:03:07,000
+E aqui eu preciso ser honesto: isso é resultado de investigação, não de suposição.
+
+30
+00:03:07,000 --> 00:03:15,000
+O sistema não aceitou a transferência por extensão nesta versão:
+
+31
+00:03:15,000 --> 00:03:22,000
+o método omni.chats.transfer existe no SDK, mas do outro lado não tem serviço.
+
+32
+00:03:22,000 --> 00:03:27,000
+Testei sete formas de chamada, inclusive por fila — todas com o mesmo erro.
+
+33
+00:03:27,000 --> 00:03:35,000
+Em vez de esconder, o painel mostra a mensagem e oferece o caminho que funciona.
+
+34
+00:03:35,000 --> 00:03:43,000
+Enquanto isso, leitura de dados, avisos e navegação funcionam normalmente.
+
+35
+00:03:43,000 --> 00:03:51,000
+Este bloco é o Diagnóstico do SDK: lista, na sessão real, cada namespace e cada método.
+
+36
+00:03:51,000 --> 00:03:58,000
+Filas, usuários, atendimentos por fila, contatos, tickets, tarefas, produtos, CRM:
+
+37
+00:03:58,000 --> 00:04:05,000
+tudo isso existe e está disponível. O que falta é só a ação de transferir.
+
+38
+00:04:05,000 --> 00:04:13,000
+Como a transferência por extensão não está disponível neste ambiente,
+
+39
+00:04:13,000 --> 00:04:20,000
+a extensão oferece a ação que fecha o fluxo: abrir o painel de agentes.
+
+40
+00:04:20,000 --> 00:04:28,000
+Também passa por confirmação. Confirmo, o sistema troca de tela e o painel se fecha.
+
+41
+00:04:28,000 --> 00:04:34,000
+Revelando o painel de agentes, onde a transferência é concluída pelos controles nativos.
+
+42
+00:04:34,000 --> 00:04:41,000
+Ela consulta dados reais, agrupa a carga, destaca os críticos e executa com confirmação. Obrigado.
