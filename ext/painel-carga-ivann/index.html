@@ -69,6 +69,8 @@
       font-size:11px;max-height:230px;max-width:100%;overflow:auto;white-space:pre-wrap;
       overflow-wrap:anywhere}
   .hint{color:var(--muted);font-size:11px;margin-top:6px}
+  .ver{font-size:10px;color:var(--muted);border:1px solid var(--line);border-radius:999px;
+       padding:1px 7px;margin-left:6px;vertical-align:middle;white-space:nowrap}
   /* Em painel muito estreito os rotulos das colunas quebravam letra a letra */
   @media (max-width:620px){
     th{font-size:9px}
@@ -83,7 +85,7 @@
 <body>
   <div class="head">
     <div>
-      <h1>Painel de Carga dos Agentes</h1>
+      <h1>Painel de Carga dos Agentes <span class="ver" id="ver"></span></h1>
       <div class="sub" id="sub">conectando ao sistema…</div>
     </div>
     <div class="sp"></div>
@@ -133,6 +135,7 @@
 <script>
 const el = (id) => document.getElementById(id);
 const O = window.omni;
+const EXT_VERSAO = '1.0.6';   // precisa acompanhar a "version" do manifest.json
 
 // ---- configuração vinda da instalação ----
 const CFG = { limiteEsperaAlerta: 10, intervaloMs: 60, maxFilas: 0 };
@@ -200,7 +203,7 @@ function nomeContato(c){
 // ---- diagnóstico do SDK ----
 function diagnostico(){
   if (!O) return 'window.omni AUSENTE';
-  const linhas = ['sdkVersion: ' + (O.sdkVersion || '?'), ''];
+  const linhas = ['extensão: v' + EXT_VERSAO, 'sdkVersion: ' + (O.sdkVersion || '?'), ''];
   for (const n of Object.keys(O).sort()){
     const v = O[n];
     if (v && typeof v === 'object'){
@@ -426,6 +429,7 @@ if (window.ResizeObserver) new ResizeObserver(() => ajustarAltura()).observe(doc
 window.addEventListener('load', () => ajustarAltura());
 
 function arrancar(){
+  el('ver').textContent = 'v' + EXT_VERSAO;
   if (!window.omni || !window.omni.ready){ el('sub').textContent = 'SDK ainda não injetado…'; setTimeout(arrancar, 400); return; }
   window.omni.ready(() => {
     lerConfig();
