@@ -449,6 +449,39 @@ Exercício: escreva o laço de medição que percorre `parentElement` a partir d
 tag, classe, largura, `max-width` e `overflow-x` de cada nível. É a ferramenta que resolve toda
 discussão de layout.
 
+### O erro que eu cometi DEPOIS de acertar o diagnóstico
+
+Vale mais que a lição anterior, porque é o tipo de erro que engana quem já entendeu a causa.
+
+Eu escrevi o aviso de tela com esta condição:
+
+```js
+window.innerWidth > 1422   // ERRADO
+```
+
+O número 1422 está certo como candeia: é a largura da JANELA em que o popup começa a estourar. Só que
+`window.innerWidth` aqui **não é a janela do navegador** — é a largura deste iframe, que é 90% da
+janela. Num monitor de 1920 px o iframe tem 1728, então a condição `> 1422` continuava verdadeira por
+sorte; mas na janela de 1439 usada para gravar o vídeo o iframe tem 1295, e o aviso nunca aparecia.
+
+A régua certa é o teto do popup: o problema existe quando **este iframe** passa de 1280 px.
+
+```js
+window.innerWidth > 1280   // certo: o teto é do container, e aqui "janela" é o iframe
+```
+
+Duas regras para levar:
+
+1. **Cada contexto tem a sua viewport.** Dentro de um iframe, `window`, `vw` e `100%` falam do iframe —
+   não da tela do usuário. Antes de comparar com um número, pergunte "de quem é esta medida?".
+2. **Teste com o número no limite.** Um valor que "funciona em 1920" pode estar funcionando por
+   coincidência; rode a mesma verificação no menor caso em que o defeito deveria aparecer (aqui, 1439)
+   e no maior caso em que deveria sumir (1400). Foi assim que o erro apareceu.
+
+Exercício: no console do Host, imprima `window.innerWidth` (janela) e, dentro do iframe da extensão,
+`window.innerWidth` de novo. Explique em uma frase por que os dois números diferem — e escreva uma
+condição que funcione nos dois contextos.
+
 ---
 
 ## 16. Roteiro de treino sugerido (na Extensão de Exemplo)

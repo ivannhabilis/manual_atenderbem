@@ -90,10 +90,13 @@
       <h1>Painel de Carga dos Agentes <span class="ver" id="ver"></span></h1>
       <div class="sub" id="sub">conectando ao sistema…</div>
     </div>
+    <div>
+      <button id="btCheia" title="Abrir em página cheia — em monitores largos o popup do sistema fica preso em 1280px">Tela cheia</button>
+      <button id="btRefresh">Atualizar</button>
+    </div>
     <div class="sp"></div>
-    <button id="btCheia" title="Abrir em página cheia — em monitores largos o popup do sistema fica preso em 1280px">Tela cheia</button>
-    <button id="btRefresh">Atualizar</button>
   </div>
+  <div class="hint" id="dicaLarga" style="display:none">Este monitor é mais largo que o popup do sistema (teto de 1280 px), por isso a barra horizontal aparece no rodapé. Use <b>Tela cheia</b> para ver o painel na janela inteira.</div>
 
   <div class="cards">
     <div class="card"><div class="k">Atendimentos abertos</div><div class="v" id="cTotal">–</div></div>
@@ -147,7 +150,7 @@
 */
 const el = (id) => document.getElementById(id);
 const O = window.omni;
-const EXT_VERSAO = '1.0.10';
+const EXT_VERSAO = '1.1.1';
 
 // ---------- configuração vinda da instalação ----------
 const CFG = { limiteEsperaAlerta: 10, intervaloMs: 60, maxFilas: 0 };
@@ -268,6 +271,14 @@ async function carregar(){
     estado.paginaCheia = !!(rota && /menu_carga\s*$/.test(String(rota.path || '')));
   }catch(e){ estado.paginaCheia = false; }
   el('btCheia').style.display = estado.paginaCheia ? 'none' : '';   // na tela cheia o atalho não faz sentido
+
+  // O popup do sistema tem teto de 1280 px de largura e o diálogo ocupa 90% da janela: em monitor
+  // largo a parte direita do painel ficaria escondida atrás da rolagem do próprio popup. Alinhar o
+  // conteúdo a esse teto mantém tudo visível e o aviso abaixo ensina a saída (página cheia).
+  document.body.style.maxWidth = estado.paginaCheia ? '' : '1280px';
+  // A régua correta aqui é a largura DESTE iframe (que é 90% da janela), não window.innerWidth da
+  // janela do navegador: o popup estoura quando o iframe passa do teto de 1280 px.
+  el('dicaLarga').style.display = (!estado.paginaCheia && window.innerWidth > 1280) ? 'block' : 'none';
 
   // o nome do usuário logado pode vir vazio no getUser; cai para a lista de usuários
   const meuNome = (eu && eu.name) || (estado.userPorId[String(eu && eu.id)] || {}).name || '?';

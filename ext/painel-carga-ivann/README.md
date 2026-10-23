@@ -18,12 +18,12 @@ Extensão do módulo de Extensões do AtenderBem. Aparece no **menu superior** (
 ## Estado atual (publicado e verificado)
 
 - Extensão no editor: **id 3**, identificador global `ivann.painel-carga` (congelado na 1ª publicação).
-- Versão **1.0.10** publicada — versão id **21**; ponteiro **dev** apontando para ela.
+- Versão **1.1.1** publicada — versão id **23**; ponteiro **dev** apontando para ela.
   (Limite da plataforma: 5 versões publicadas por extensão — para publicar a próxima é preciso
   `extensions_delete_version` numa antiga que não esteja apontada por prod/dev.)
 - Instalação nesta instância: **id 34**, habilitada, visibilidade `userTypes [0,1,2]` (padrão).
 - Manifesto dev: `https://cdn.a-tend.online/ivann.painel-carga/manifest_dev.json`
-- Arquivo da versão: `https://cdn.a-tend.online/ivann.painel-carga/v/1.0.10/index.html`
+- Arquivo da versão: `https://cdn.a-tend.online/ivann.painel-carga/v/1.1.1/index.html`
 - Sondagem de instalação: `installable: true`, CORS `*`, sem avisos e sem dependências pendentes.
 
 ## Configuração declarada
@@ -70,6 +70,15 @@ Publicar **não** coloca no ar: quem coloca é o ponteiro.
   chamar `omni.ui.resize` (a altura passa a ser a da página) e esconde o próprio atalho.
 - Utilitário de diagnóstico: `diagnostico-scroll.js` (colar no console) mostra de quem é a barra —
   página, popup ou conteúdo — com larguras de janela, overlay, diálogo e iframe.
+- **Dentro do iframe, `window.innerWidth` é a largura DO IFRAME** (90% da janela), não a da janela do
+  navegador. Em 1.1.0 a regra do aviso usava 1422 px e nunca disparava; a régua certa é o teto do
+  popup: `window.innerWidth > 1280`. Erro de 1ª pessoa registrado na lição 15 da aula.
+- Em 1.1.1, quando o painel está mais largo que o teto: o conteúdo é alinhado a 1280 px (nada fica
+  escondido atrás da rolagem do popup), o aviso em cinza explica o motivo e o atalho **Tela cheia**
+  abre a rota de página inteira. O aviso e o alinhamento são desligados em página cheia.
+- Relato do defeito para o time do produto: `RELATORIO-DEFEITO-POPUP.md` (reprodução sem depender
+  desta extensão — a extensão de exemplo em `lg` já estoura em janela de 1200 px —, medições,
+  causa com as duas réguas, três correções possíveis e o script de medição).
 - **Permissão define a estratégia de consulta** (v1.0.8). `omni.chats.listByQueue(queueId)` é
   **exclusivo de supervisor/administrador**: para um agente ele responde
   `"Only supervisors can list service requests from a queue."` — e `omni.queues.list()` devolve

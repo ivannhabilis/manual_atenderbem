@@ -1,131 +1,107 @@
 1
-00:00:00,000 --> 00:00:09,000
+00:00:00,000 --> 00:00:07,000
 Neste vídeo eu apresento a extensão que eu desenvolvi
 
 2
-00:00:09,000 --> 00:00:18,000
+00:00:07,000 --> 00:00:14,000
 para o módulo de Extensões do AtenderBem.
 
 3
-00:00:18,000 --> 00:00:27,000
+00:00:14,000 --> 00:00:21,000
 O objetivo dela é simples de dizer e chato de fazer à mão:
 
 4
-00:00:27,000 --> 00:00:36,000
+00:00:21,000 --> 00:00:28,000
 dar ao supervisor, numa tela só, a foto da carga de atendimento da operação.
 
 5
-00:00:36,000 --> 00:00:44,000
+00:00:28,000 --> 00:00:38,000
 Quando o supervisor precisa saber quem está sobrecarregado,
 
 6
-00:00:44,000 --> 00:00:52,000
+00:00:38,000 --> 00:00:50,000
 ele abre o painel de agentes, o histórico de chats, a lista de filas — e ainda age em outra tela.
 
 7
-00:00:52,000 --> 00:00:56,000
-A ideia é juntar a visão e a ação no mesmo lugar. A extensão fica neste ícone.
+00:00:50,000 --> 00:01:02,000
+A ideia é juntar a visão e a ação no mesmo lugar. A extensão fica neste ícone. Cliquei.
 
 8
-00:00:56,000 --> 00:01:04,000
-Cliquei, e o sistema abre o painel. Ele já começa a trabalhar: esta barra é a varredura.
+00:01:02,000 --> 00:01:12,000
+Ele já começa a trabalhar: esta barra é a varredura das filas, uma de cada vez.
 
 9
-00:01:04,000 --> 00:01:11,000
-São noventa e quatro filas, uma de cada vez, com pausa entre elas.
+00:01:12,000 --> 00:01:20,000
+A pausa entre elas é por limite de requisições do canal da extensão.
 
 10
-00:01:11,000 --> 00:01:20,000
-A pausa é por limite de requisições do canal da extensão.
+00:01:20,000 --> 00:01:27,000
+No cabeçalho: o nome, a versão no ar — v1.1.1 —, o perfil da sessão e o atalho Tela cheia.
 
 11
-00:01:20,000 --> 00:01:24,000
-No cabeçalho: o nome, a versão no ar — v1.0.10 —, o perfil da sessão e o atalho Tela cheia.
+00:01:27,000 --> 00:01:36,000
+O aviso em cinza explica: o popup do sistema tem teto de 1280 pixels de largura.
 
 12
-00:01:24,000 --> 00:01:30,000
-O popup do sistema tem teto de 1280 pixels de largura; na página cheia o painel usa a janela inteira.
+00:01:36,000 --> 00:01:44,000
+Terminada a varredura: dezenove atendimentos abertos, todos os dezenove sem agente.
 
 13
-00:01:30,000 --> 00:01:37,000
-Terminada a varredura: vinte atendimentos abertos, quinze sem agente.
+00:01:44,000 --> 00:01:56,000
+A espera do mais antigo é de quarenta e seis mil e quinhentos minutos: ambiente de teste, com atendimento parado há semanas.
 
 14
-00:01:37,000 --> 00:01:43,000
-A espera do mais antigo: quarenta e seis mil e quinhentos minutos.
-
-15
-00:01:43,000 --> 00:01:50,000
-É ambiente de teste, com atendimento parado há semanas. E dez filas têm atendimento em aberto.
-
-16
-00:01:50,000 --> 00:01:56,000
-Na primeira tabela, a carga agrupada: sem agente com oito filas e quinze atendimentos,
-
-17
-00:01:56,000 --> 00:02:01,000
-e o agente Ivann Ribeiro com duas filas e cinco.
-
-18
-00:02:01,000 --> 00:02:07,000
-A segunda desce ao detalhe: linha por linha, só os atendimentos sem agente.
-
-19
-00:02:07,000 --> 00:02:12,000
+00:01:56,000 --> 00:02:04,000
 Clico numa linha: o atendimento fica selecionado, com número, fila, contato e espera.
 
-20
-00:02:12,000 --> 00:02:18,000
-Depois escolho o destino nesta lista de agentes.
+15
+00:02:04,000 --> 00:02:10,000
+Agora escolho o destino nesta lista de agentes.
 
-21
-00:02:18,000 --> 00:02:24,000
+16
+00:02:10,000 --> 00:02:18,000
 Antes de executar, a extensão chama o diálogo de confirmação do próprio sistema.
 
-22
-00:02:24,000 --> 00:02:30,000
+17
+00:02:18,000 --> 00:02:23,000
 Ele mostra o atendimento, a fila e o destino. Transferir mexe em dado real: eu confirmo.
 
-23
-00:02:30,000 --> 00:02:38,000
+18
+00:02:23,000 --> 00:02:31,000
 E aqui eu preciso ser honesto: isso é investigação, não suposição.
 
-24
-00:02:38,000 --> 00:02:46,000
+19
+00:02:31,000 --> 00:02:39,000
 O sistema não aceitou a transferência por extensão nesta versão:
 
-25
-00:02:46,000 --> 00:02:54,000
+20
+00:02:39,000 --> 00:02:47,000
 o método omni.chats.transfer existe no SDK, mas do outro lado não tem serviço.
 
-26
-00:02:54,000 --> 00:03:00,000
+21
+00:02:47,000 --> 00:02:55,000
 Testei sete formas de chamada, inclusive por fila — todas com o mesmo erro.
 
-27
-00:03:00,000 --> 00:03:06,000
-Leitura de dados, avisos e navegação funcionam normalmente.
-
-28
-00:03:06,000 --> 00:03:14,000
+22
+00:02:55,000 --> 00:03:03,000
 Este bloco é o Diagnóstico do SDK: lista cada namespace e cada método desta sessão,
 
-29
-00:03:14,000 --> 00:03:20,000
+23
+00:03:03,000 --> 00:03:11,000
 e marca quais dos métodos do cenário existem, além do modo de consulta usado.
 
-30
-00:03:20,000 --> 00:03:26,000
-Como a transferência por extensão não está disponível, o painel oferece a ação que fecha o fluxo:
+24
+00:03:11,000 --> 00:03:20,000
+Como a transferência por extensão não está disponível, o painel oferece abrir o painel de agentes — também com confirmação. Eu confirmo.
 
-31
-00:03:26,000 --> 00:03:32,000
-abrir o painel de agentes, também com confirmação antes.
+25
+00:03:20,000 --> 00:03:32,000
+O sistema troca de tela e revela o painel de agentes,
 
-32
-00:03:32,000 --> 00:03:40,000
-Confirmo, o sistema troca de tela e o painel se fecha, revelando o painel de agentes,
+26
+00:03:32,000 --> 00:03:41,000
+onde a transferência é concluída pelos controles nativos do produto.
 
-33
-00:03:40,000 --> 00:03:47,000
-onde a transferência é concluída pelos controles nativos do produto. Obrigado.
+27
+00:03:41,000 --> 00:03:51,000
+Resumindo: consulta dados reais das noventa e quatro filas e executa sempre com confirmação. Obrigado.
