@@ -422,18 +422,41 @@ async function abrirNoPainel(){
   if (temMetodo(O, 'ui.confirm')){
     ok = await O.ui.confirm({
       title: 'Abrir no painel de agentes',
-      message: 'Abrir o painel de agentes para tratar o atendimento #' + estado.selecionado.id +
-               ' (' + nomeFila(estado.selecionado) + ')?',
+      message: 'Abrir o painel de agentes para tratar o atendimento ' + dadosSel() + '?\n\n' +
+               'O SDK não permite abrir um atendimento específico, então o painel abre sem seleção.',
       okText: 'Abrir', cancelText: 'Cancelar'
     });
   }
   if (!ok){ say('info', 'Ação cancelada pelo usuário.'); return; }
   try{
     await O.nav.navigate(['/base', 'agentchat']);
-    if (temMetodo(O, 'ui.toast')) O.ui.toast({ msg: 'Painel de agentes aberto' });
+    // Se já existir um atendimento aberto na tela de atendimento, o painel lateral aceita
+    // selecionar este; fora disso o SDK não oferece como escolher um atendimento.
+    let selecionou = false;
+    try{
+      const p = temMetodo(O, 'chatPanel.get') ? await O.chatPanel.get() : null;
+      if (p && p.available && temMetodo(O, 'chatPanel.select')){
+        await O.chatPanel.select(estado.selecionado.id);
+        selecionou = true;
+      }
+    }catch(e){}
+    if (selecionou){
+      say('ok', 'Painel de agentes aberto com o atendimento #' + estado.selecionado.id + ' selecionado.');
+    }else{
+      say('info', 'Painel de agentes aberto. Localize o atendimento ' + dadosSel() + '. ' +
+        'Se este usuário não atende chats, a tela abre vazia — nesse caso entre com um usuário agente.');
+    }
   }catch(e){
     say('bad', 'Não foi possível navegar: ' + (e && e.message ? e.message : e));
   }
+}
+
+// dados do atendimento escolhido, para quando a ação tem que ser feita à mão no painel de agentes
+function dadosSel(){
+  const c = estado.selecionado;
+  if (!c) return '(nenhum)';
+  const fone = (c.contact && c.contact.phone) ? ' · ' + c.contact.phone : '';
+  return '#' + c.id + ' · ' + nomeFila(c) + ' · ' + nomeContato(c) + fone;
 }
 
 async function transferir(){
@@ -463,10 +486,11 @@ async function transferir(){
     // nesta versão do sistema o método existe no SDK mas não tem serviço do outro lado
     const m = (e && e.message) ? e.message : String(e);
     if (/service not found/i.test(m)){
-      say('info', 'O sistema não aceitou a transferência por extensão nesta versão ("Service not found"). ' +
-        'Use "Abrir no painel de agentes" para tratar o atendimento manualmente.');
+      say('info', 'A transferência por extensão não está disponível nesta versão do sistema: o SDK expõe ' +
+        'omni.chats.transfer, mas o Host não tem esse serviço (todas as formas de chamada devolvem ' +
+        '"Service not found"). Transfira manualmente no painel de agentes: ' + dadosSel() + '.');
     }else{
-      say('bad', 'Falha ao transferir: ' + m);
+      say('bad', 'Falha ao transferir (' + m + '). Transfira manualmente no painel de agentes: ' + dadosSel() + '.');
     }
   }finally{
     el('btTransferir').disabled = false;

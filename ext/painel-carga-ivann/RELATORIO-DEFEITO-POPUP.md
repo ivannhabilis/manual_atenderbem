@@ -111,5 +111,64 @@ A linha com `overflowX: auto` e `rola: true` é o elemento que produz a barra; a
 
 ---
 
+# Defeito 2 (mesmo relatório): o SDK expõe ações de chat que não têm serviço no Host
+
+`omni.chats.transfer` e `omni.chats.select` aparecem na superfície do SDK, mas **nenhuma chamada
+funciona**. Testadas sete formas de assinatura contra um atendimento real, em duas telas diferentes
+(painel aberto sobre o dashboard e painel aberto sobre a tela de atendimento):
+
+```
+transfer(id, {userId})           -> Service not found.
+transfer({id, userId})           -> Service not found.
+transfer({chatId, userId})       -> Service not found.
+transfer(id, userId)             -> Service not found.
+transfer({id, userId, queueId})  -> Service not found.
+transfer(id, {userId, queueId})  -> Service not found.
+select(id)                       -> Service not found.
+```
+
+Não é erro de assinatura (o SDK repassaria um erro de argumento) nem falta de permissão (a mensagem
+seria outra): é **ausência de serviço** do outro lado. Nada é alterado — o atendimento continua com
+o mesmo responsável depois das tentativas.
+
+**Como a própria plataforma transfere:** pela Socket.IO, dentro da tela de atendimento —
+
+```js
+// supervisor
+socket.emit("supervisorAction", { type: "transferChat", userId, clientId, queueId, pageId });
+// agente
+socket.emit("action", { type: "transferChat", userId, chatId, queueId });
+```
+
+O SDK de extensões **não expõe socket** (`omni.http.request` faz HTTP, não Socket.IO), então nenhuma
+extensão consegue executar a transferência nesta versão — independentemente de assinatura ou
+permissão. Caminhos que existem e continuam válidos para leitura: `chats.listByQueue`, `listMine`,
+`get`, `getMessages`, `queues.list`, `users.list`.
+
+**Pedido ao time do produto**, uma das três:
+
+1. Implementar o serviço de `chats.transfer` no Host (o caminho é o próprio emit de socket acima).
+2. Expor um método explícito de escrita de chat no SDK (`omni.chats.transfer` com assinatura
+   documentada), com erro claro quando não houver permissão.
+3. Documentar a lacuna na página do SDK, para que quem escreve extensão não perca tempo com um
+   método que aparece em `Object.keys(omni.chats)` e nunca responde.
+
+**Lacuna vizinha, mesma família:** `omni.chatPanel.select(chatId)` responde
+`The side panel only exists on the service screen, with an open service.` — ou seja, só funciona se
+já existir um atendimento aberto; e **não há como abrir um atendimento específico pelo SDK nem por
+rota** (a própria UI faz isso internamente com `actions.selectChat(chat)`, via estado em memória).
+Consequência prática: uma extensão consegue *navegar* para a tela de atendimento
+(`omni.nav.navigate(['/base','agentchat'])`), mas não consegue *selecionar* o atendimento lá.
+
+## Observação sobre usuário sem atendimento de chat
+
+`chatenabled = 0` (caso do administrador `gerente`) faz a tela de atendimento abrir **sem lista de
+atendimentos** — comportamento esperado do produto, mas que confunde quem testa uma extensão a partir
+do perfil de administrador: a ação "abrir no painel de agentes" parece quebrada quando, na verdade,
+o usuário da sessão é que não atende chats. Vale a mensagem explícita na tela (a extensão passou a
+avisar).
+
+---
+
 *Relato preparado com medições feitas no produto em 23/10/2026. Reprodução independente de qualquer
 extensão de terceiros: qualquer contribuição em diálogo serve — inclusive a extensão de exemplo.*
