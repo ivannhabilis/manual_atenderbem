@@ -397,7 +397,61 @@ e observe como isso muda a sua capacidade de diagnosticar.
 
 ---
 
-## 15. Roteiro de treino sugerido (na Extensão de Exemplo)
+## 15. Largura não se discute com hipótese: se mede
+
+Este foi o defeito mais teimoso do projeto, e o mais educativo — porque eu **errei três diagnósticos
+seguidos** antes de medir.
+
+O sintoma: em monitores largos (2K/4K) aparecia uma barra de rolagem horizontal ao abrir o painel.
+Abaixo de ~1423 px de janela, nada. O número 1423 é a pista: 90% de 1423 é 1281.
+
+O que eu supus, em ordem:
+
+1. "É o meu CSS estourando" — errado. Medi a largura interna do painel em 520, 700, 900, 1280,
+   1400, 1920, 2560 e 3840 px: em todas, `scrollWidth == clientWidth`. Zero estouro.
+2. "É cache do navegador" — contribuiu, mas não era a causa.
+3. "O iframe obedece à janela em vez do popup" — errado: o iframe do Host é
+   `border:none; width:100%; height:100%`. Ele obedece ao pai, sempre.
+
+A medição que fechou o caso foi simples: subir a cadeia de elementos e imprimir
+`getBoundingClientRect().width` de cada ancestral.
+
+```
+ 0 DIV.dialog-x-large.ext-dialog            w=2304  cssW=2304px   ovX=hidden
+ 2 DIV.mat-mdc-dialog-surface...            w=1280  cssW=1280px   ovX=auto   rolaH=True (2304>1280)
+ 5 DIV.cdk-overlay-pane.extension-dialog-panel  w=1280  cssW=1280px
+```
+
+Duas medidas diferentes, no mesmo lugar:
+
+- O **container** (`.cdk-overlay-pane.extension-dialog-panel`) tem largura fixa: **1280 px**.
+- O **diálogo** (`.dialog-x-large`) usa **90vw** — noventa por cento da VIEWPORT, não do container.
+
+Enquanto 90% da janela cabe em 1280 (janela até 1422 px), deu certo por coincidência. Depois disso,
+o filho é maior que o pai, o pai tem `overflow-x: auto`, e nasce a barra. Em 2560 px a sobra é
+1024 px; em 3840 px, 2176 px — daí piorar com o tamanho do monitor.
+
+Três lições:
+
+1. **Unidades diferentes no mesmo layout são uma armadilha.** `vw` mede a janela; `%` mede o pai.
+   Quando um elemento usa `vw` e o pai tem largura fixa, os dois discordam acima de certo tamanho.
+2. **A causa pode estar ACIMA do seu código.** Nenhum CSS meu consertava aquilo — o erro era do
+   Host. Saber onde termina a sua responsabilidade também é engenharia.
+3. **Sintoma que depende do tamanho da tela é convite para medir em vários tamanhos.** Reproduzi
+   porque emulei viewports de 1280 a 3840 px; se eu tivesse testado só a minha tela, nunca teria
+   visto.
+
+Solução entregue (dentro do que a extensão controla): o atalho **Tela cheia**, que abre o painel
+na rota de página inteira — onde não existe o teto de 1280 px. Em tela cheia o painel detecta o
+modo pela rota (`omni.nav.getRoute()`), deixa de pedir altura ao Host e esconde o próprio atalho.
+
+Exercício: escreva o laço de medição que percorre `parentElement` a partir de um elemento e imprime
+tag, classe, largura, `max-width` e `overflow-x` de cada nível. É a ferramenta que resolve toda
+discussão de layout.
+
+---
+
+## 16. Roteiro de treino sugerido (na Extensão de Exemplo)
 
 Na ordem, cada um usando o que está acima:
 

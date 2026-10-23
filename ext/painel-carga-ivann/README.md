@@ -18,12 +18,12 @@ Extensão do módulo de Extensões do AtenderBem. Aparece no **menu superior** (
 ## Estado atual (publicado e verificado)
 
 - Extensão no editor: **id 3**, identificador global `ivann.painel-carga` (congelado na 1ª publicação).
-- Versão **1.0.8** publicada — versão id **19**; ponteiro **dev** apontando para ela.
+- Versão **1.0.10** publicada — versão id **21**; ponteiro **dev** apontando para ela.
   (Limite da plataforma: 5 versões publicadas por extensão — para publicar a próxima é preciso
   `extensions_delete_version` numa antiga que não esteja apontada por prod/dev.)
 - Instalação nesta instância: **id 34**, habilitada, visibilidade `userTypes [0,1,2]` (padrão).
 - Manifesto dev: `https://cdn.a-tend.online/ivann.painel-carga/manifest_dev.json`
-- Arquivo da versão: `https://cdn.a-tend.online/ivann.painel-carga/v/1.0.8/index.html`
+- Arquivo da versão: `https://cdn.a-tend.online/ivann.painel-carga/v/1.0.10/index.html`
 - Sondagem de instalação: `installable: true`, CORS `*`, sem avisos e sem dependências pendentes.
 
 ## Configuração declarada
@@ -54,7 +54,22 @@ Publicar **não** coloca no ar: quem coloca é o ponteiro.
 
 - O `chatPanel` não foi usado de propósito: o usuário administrador desta instância tem
   `chatenabled = 0`, e painéis de chat só renderizam para quem atende chats. O `topMenu` aparece para todos.
-- `requires` no manifesto é **lista** de nomes de recurso (um objeto é recusado com `E_TYPE`).
+- O `requires` no manifesto é **lista** de nomes de recurso (um objeto é recusado com `E_TYPE`).
+- **Teto de largura do popup do Host (não é do conteúdo).** Medido: o painel do overlay
+  `.cdk-overlay-pane.extension-dialog-panel` fica preso em **1280 px**, enquanto o diálogo
+  `.dialog-x-large.ext-dialog` ocupa **90% da janela** (`90vw`, não `90%` do pai). Logo, acima de
+  **1422 px** de janela o diálogo passa a ser mais largo que o container e o
+  `.mat-mdc-dialog-surface` (`overflow-x: auto`) cria a barra horizontal — em 2560 px a sobra é
+  1024 px; em 3840 px, 2176 px. O conteúdo da extensão nunca estoura: medi a largura interna
+  igual à visível em 520, 700, 900, 1280, 1400, 1920, 2560 e 3840 px.
+  Atenção: a inconsistência é do Host e piora com `lg` (painel 960 px com diálogo de 80vw — já
+  estoura em janela de 1200 px). `xl` é o tamanho de diálogo mais seguro.
+- **Solução entregue: o atalho "Tela cheia"** (`omni.nav.openFullscreen('menu_carga')`), que abre
+  o painel na rota `/base/extensions/34/menu_carga` — ali não existe o teto de 1280 px. Nessa rota
+  o painel detecta o modo via `omni.nav.getRoute()` (caminho terminando em `menu_carga`), para de
+  chamar `omni.ui.resize` (a altura passa a ser a da página) e esconde o próprio atalho.
+- Utilitário de diagnóstico: `diagnostico-scroll.js` (colar no console) mostra de quem é a barra —
+  página, popup ou conteúdo — com larguras de janela, overlay, diálogo e iframe.
 - **Permissão define a estratégia de consulta** (v1.0.8). `omni.chats.listByQueue(queueId)` é
   **exclusivo de supervisor/administrador**: para um agente ele responde
   `"Only supervisors can list service requests from a queue."` — e `omni.queues.list()` devolve

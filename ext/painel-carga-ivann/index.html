@@ -91,6 +91,7 @@
       <div class="sub" id="sub">conectando ao sistema…</div>
     </div>
     <div class="sp"></div>
+    <button id="btCheia" title="Abrir em página cheia — em monitores largos o popup do sistema fica preso em 1280px">Tela cheia</button>
     <button id="btRefresh">Atualizar</button>
   </div>
 
@@ -146,7 +147,7 @@
 */
 const el = (id) => document.getElementById(id);
 const O = window.omni;
-const EXT_VERSAO = '1.0.8';
+const EXT_VERSAO = '1.0.10';
 
 // ---------- configuração vinda da instalação ----------
 const CFG = { limiteEsperaAlerta: 10, intervaloMs: 60, maxFilas: 0 };
@@ -172,6 +173,7 @@ function ajustarAltura(){
     alturaAgendada = null;
     try{
       if (!O || typeof O.ui.resize !== 'function') return;
+      if (estado.paginaCheia) return;                   // na página cheia a altura é a da página
       const conteudo = Math.ceil(document.body.scrollHeight || document.documentElement.scrollHeight || 1);
       const h = Math.max(1, Math.min(660, conteudo));
       const r = O.ui.resize(h);
@@ -199,7 +201,7 @@ function esperaMin(c){
 }
 
 // ---------- estado ----------
-const estado = { chats: [], filas: [], usuarios: [], filaPorId: {}, userPorId: {}, selecionado: null, euId: null, global: false };
+const estado = { chats: [], filas: [], usuarios: [], filaPorId: {}, userPorId: {}, selecionado: null, euId: null, global: false, paginaCheia: false };
 
 function nomeAgente(id){
   if (!id || Number(id) === 0) return null;          // userId 0 = sem agente
@@ -257,6 +259,15 @@ async function carregar(){
   let perm = {};
   try{ perm = (await O.session.getPermissions()) || {}; }catch(e){}
   estado.global = !!(perm.isAdmin || perm.isSupervisor || perm.isSuperAdmin);
+
+  // Em monitor largo o popup do sistema fica preso em 1280px de largura, mas o diálogo ocupa
+  // 90% da janela: acima de ~1422px o popup começa a rolar na horizontal. A página cheia não
+  // tem esse teto, então descubro o modo pela rota e nele deixo de mandar altura ao sistema.
+  try{
+    const rota = temMetodo(O, 'nav.getRoute') ? await O.nav.getRoute() : null;
+    estado.paginaCheia = !!(rota && /menu_carga\s*$/.test(String(rota.path || '')));
+  }catch(e){ estado.paginaCheia = false; }
+  el('btCheia').style.display = estado.paginaCheia ? 'none' : '';   // na tela cheia o atalho não faz sentido
 
   // o nome do usuário logado pode vir vazio no getUser; cai para a lista de usuários
   const meuNome = (eu && eu.name) || (estado.userPorId[String(eu && eu.id)] || {}).name || '?';
@@ -462,6 +473,12 @@ function tema(){
 }
 
 el('btRefresh').addEventListener('click', carregar);
+el('btCheia').addEventListener('click', async () => {
+  // atalho para quem usa monitor largo: na página cheia o painel usa a janela toda e a barra
+  // horizontal do popup desaparece
+  try{ await O.nav.openFullscreen('menu_carga'); }
+  catch(e){ say('bad', 'Não foi possível abrir em tela cheia: ' + ((e && e.message) || e)); }
+});
 el('btTransferir').addEventListener('click', transferir);
 el('btAbrir').addEventListener('click', abrirNoPainel);
 if (window.ResizeObserver) new ResizeObserver(() => ajustarAltura()).observe(document.body);
