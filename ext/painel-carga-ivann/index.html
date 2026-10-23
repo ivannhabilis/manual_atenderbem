@@ -146,7 +146,7 @@
 */
 const el = (id) => document.getElementById(id);
 const O = window.omni;
-const EXT_VERSAO = '1.0.7';
+const EXT_VERSAO = '1.0.8';
 
 // ---------- configuração vinda da instalação ----------
 const CFG = { limiteEsperaAlerta: 10, intervaloMs: 60, maxFilas: 0 };
@@ -199,7 +199,7 @@ function esperaMin(c){
 }
 
 // ---------- estado ----------
-const estado = { chats: [], filas: [], usuarios: [], filaPorId: {}, userPorId: {}, selecionado: null, euId: null };
+const estado = { chats: [], filas: [], usuarios: [], filaPorId: {}, userPorId: {}, selecionado: null, euId: null, global: false };
 
 function nomeAgente(id){
   if (!id || Number(id) === 0) return null;          // userId 0 = sem agente
@@ -250,36 +250,59 @@ async function carregar(){
   estado.filaPorId = {};
   for (const q of estado.filas) estado.filaPorId[String(q.id)] = q;
 
+  // Quem enxerga a operação inteira é supervisor/administrador: só eles podem listar os
+  // atendimentos de uma fila (listByQueue). O agente recebe "Only supervisors can list
+  // service requests from a queue." Então a estratégia depende do perfil: visão global
+  // para quem supervisiona, os próprios atendimentos (listMine) para quem atende.
+  let perm = {};
+  try{ perm = (await O.session.getPermissions()) || {}; }catch(e){}
+  estado.global = !!(perm.isAdmin || perm.isSupervisor || perm.isSuperAdmin);
+
   // o nome do usuário logado pode vir vazio no getUser; cai para a lista de usuários
   const meuNome = (eu && eu.name) || (estado.userPorId[String(eu && eu.id)] || {}).name || '?';
   const perfil = (eu && eu.type) === 0 ? 'administrador' : (eu && eu.type) === 1 ? 'supervisor' : 'agente';
   el('sub').textContent = 'sessão: ' + meuNome + ' (id ' + (eu && eu.id) + ') · ' + perfil +
-    ' · ' + estado.usuarios.length + ' usuários · ' + estado.filas.length + ' filas';
+    ' · ' + estado.usuarios.length + ' usuários · ' + estado.filas.length + ' filas' +
+    (estado.global ? ' · visão global' : ' · seus atendimentos');
 
-  // listByQueue pede o id da fila, então vou fila por fila. De propósito uma de cada vez
-  // e com pausa: o canal da extensão tem limite de requisições e não quero derrubá-lo.
   estado.chats = [];
-  const filas = CFG.maxFilas > 0 ? estado.filas.slice(0, CFG.maxFilas) : estado.filas;
-  let falhas = 0, consultadas = 0, comAtendimento = 0;
-  if (temMetodo(O, 'chats.listByQueue')){
-    for (let i = 0; i < filas.length; i++){
-      try{
-        const l = await O.chats.listByQueue(filas[i].id);
-        if (Array.isArray(l) && l.length){ estado.chats = estado.chats.concat(l); comAtendimento++; }
-        falhas = 0;
-      }catch(e){
-        falhas++;
-        if (falhas >= 3){ say('bad', 'Consulta interrompida após 3 falhas seguidas, para não derrubar o canal da extensão.'); break; }
+  let consultadas = 0, semPermissao = 0;
+  if (!estado.global){
+    // agente: os atendimentos dele
+    try{ estado.chats = (await O.chats.listMine()) || []; }catch(e){}
+    consultadas = 1;
+  } else {
+    // supervisor: fila por fila, uma de cada vez e com pausa, porque o canal da extensão
+    // tem limite de requisições; falha de permissão numa fila não derruba a varredura
+    let falhas = 0;
+    const filas = CFG.maxFilas > 0 ? estado.filas.slice(0, CFG.maxFilas) : estado.filas;
+    if (temMetodo(O, 'chats.listByQueue')){
+      for (let i = 0; i < filas.length; i++){
+        try{
+          const l = await O.chats.listByQueue(filas[i].id);
+          if (Array.isArray(l) && l.length) estado.chats = estado.chats.concat(l);
+          falhas = 0;
+        }catch(e){
+          const msg = (e && e.message) ? e.message : String(e);
+          if (/supervisor|permiss|not allowed|forbidden/i.test(msg)){ semPermissao++; falhas = 0; }
+          else {
+            falhas++;
+            if (falhas >= 3){ say('bad', 'Consulta interrompida após 3 falhas seguidas, para não derrubar o canal da extensão.'); break; }
+          }
+        }
+        consultadas++;
+        el('barraIn').style.width = Math.round((i + 1) / filas.length * 100) + '%';
+        if (CFG.intervaloMs > 0) await new Promise(r => setTimeout(r, CFG.intervaloMs));
       }
-      consultadas++;
-      el('barraIn').style.width = Math.round((i + 1) / filas.length * 100) + '%';
-      if (CFG.intervaloMs > 0) await new Promise(r => setTimeout(r, CFG.intervaloMs));
     }
   }
   el('barra').classList.remove('on');
 
   render();
-  el('diag').textContent = diagnostico() + '\n\nfilas consultadas: ' + consultadas + ' de ' + estado.filas.length +
+  el('diag').textContent = diagnostico() +
+    '\n\nmodo: ' + (estado.global ? 'visão global (supervisor / administrador)' : 'atendimentos do próprio agente') +
+    '\nfilas consultadas: ' + consultadas + ' de ' + estado.filas.length +
+    (semPermissao ? '\nsem permissão em ' + semPermissao + ' fila(s) — ignoradas' : '') +
     '\natendimentos encontrados: ' + estado.chats.length;
   ajustarAltura();
 }

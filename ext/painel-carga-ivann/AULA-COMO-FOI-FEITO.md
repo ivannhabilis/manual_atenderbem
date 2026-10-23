@@ -334,7 +334,70 @@ só repete o que a linha já diz, ele é ruído.
 
 ---
 
-## 14. Roteiro de treino sugerido (na Extensão de Exemplo)
+## 14. Permissão não é detalhe: é requisito funcional
+
+Este foi o defeito mais instrutivo do projeto, e vale estudar com calma — porque **o sintoma
+apontava para o lugar errado**.
+
+O que acontecia: logado como **agente**, o painel mostrava tudo zerado e a mensagem
+"Consulta interrompida após 3 falhas seguidas". Parecia problema de limite de requisições do canal.
+Não era.
+
+O que era: `omni.chats.listByQueue(queueId)` — listar os atendimentos de uma fila — é
+**exclusivo de supervisor**. Para um agente, a resposta é literal:
+
+```
+Only supervisors can list service requests from a queue.
+```
+
+E `omni.queues.list()` também é recortado por permissão: devolvia 18 filas para o agente e 94 para
+o administrador. Ou seja: o mesmo código, com os mesmos argumentos, funciona para um perfil e
+falha no outro — e o meu laço, ao ver três erros seguidos, abortava.
+
+A correção tem duas partes, e as duas são ideias reaproveitáveis.
+
+**Parte 1 — a estratégia depende do perfil.** Antes de buscar, pergunte quem está perguntando:
+
+```js
+let perm = {};
+try{ perm = (await O.session.getPermissions()) || {}; }catch(e){}
+const global = !!(perm.isAdmin || perm.isSupervisor || perm.isSuperAdmin);
+
+if (!global){
+  estado.chats = (await O.chats.listMine()) || [];     // agente: os atendimentos dele
+} else {
+  // supervisor: varre as filas, uma a uma
+}
+```
+
+**Parte 2 — erro de permissão não é erro de sistema.** Separe os dois casos:
+
+```js
+}catch(e){
+  const msg = (e && e.message) ? e.message : String(e);
+  if (/supervisor|permiss|not allowed|forbidden/i.test(msg)){ semPermissao++; falhas = 0; }
+  else { falhas++; if (falhas >= 3){ /* aí sim: abortar */ } }
+}
+```
+
+Uma fila sem permissão é **esperada**; deve ser ignorada e contada, não derrubar a operação.
+Um erro de rede é **inesperado**; esse sim justifica parar.
+
+Três lições para levar:
+
+1. **Erro defensivo mal desenhado esconde a causa.** O meu `if (falhas >= 3)` transformou
+   "sem permissão" em "canal caiu" — o sintoma mentiu.
+2. **Leia a mensagem de erro do sistema, não só o `catch`.** A frase "Only supervisors can list…"
+   já dizia tudo; bastava mostrar o motivo em vez do meu texto genérico.
+3. **Permissão é requisito funcional.** "O que cada perfil pode fazer" muda o fluxo do código, não
+   é detalhe de configuração.
+
+Exercício: acrescente o motivo real da falha na mensagem da tela (o texto que o sistema devolveu)
+e observe como isso muda a sua capacidade de diagnosticar.
+
+---
+
+## 15. Roteiro de treino sugerido (na Extensão de Exemplo)
 
 Na ordem, cada um usando o que está acima:
 

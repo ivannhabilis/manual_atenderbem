@@ -18,12 +18,12 @@ Extensão do módulo de Extensões do AtenderBem. Aparece no **menu superior** (
 ## Estado atual (publicado e verificado)
 
 - Extensão no editor: **id 3**, identificador global `ivann.painel-carga` (congelado na 1ª publicação).
-- Versão **1.0.7** publicada — versão id **18**; ponteiro **dev** apontando para ela.
+- Versão **1.0.8** publicada — versão id **19**; ponteiro **dev** apontando para ela.
   (Limite da plataforma: 5 versões publicadas por extensão — para publicar a próxima é preciso
   `extensions_delete_version` numa antiga que não esteja apontada por prod/dev.)
 - Instalação nesta instância: **id 34**, habilitada, visibilidade `userTypes [0,1,2]` (padrão).
 - Manifesto dev: `https://cdn.a-tend.online/ivann.painel-carga/manifest_dev.json`
-- Arquivo da versão: `https://cdn.a-tend.online/ivann.painel-carga/v/1.0.7/index.html`
+- Arquivo da versão: `https://cdn.a-tend.online/ivann.painel-carga/v/1.0.8/index.html`
 - Sondagem de instalação: `installable: true`, CORS `*`, sem avisos e sem dependências pendentes.
 
 ## Configuração declarada
@@ -55,6 +55,16 @@ Publicar **não** coloca no ar: quem coloca é o ponteiro.
 - O `chatPanel` não foi usado de propósito: o usuário administrador desta instância tem
   `chatenabled = 0`, e painéis de chat só renderizam para quem atende chats. O `topMenu` aparece para todos.
 - `requires` no manifesto é **lista** de nomes de recurso (um objeto é recusado com `E_TYPE`).
+- **Permissão define a estratégia de consulta** (v1.0.8). `omni.chats.listByQueue(queueId)` é
+  **exclusivo de supervisor/administrador**: para um agente ele responde
+  `"Only supervisors can list service requests from a queue."` — e `omni.queues.list()` devolve
+  apenas as filas do próprio agente (18, contra 94 de um administrador). Por isso o painel lê
+  `omni.session.getPermissions()` e escolhe: `isAdmin || isSupervisor || isSuperAdmin` → visão
+  global por fila; caso contrário → `omni.chats.listMine()` (os atendimentos do próprio agente).
+  O modo usado aparece no rodapé do Diagnóstico do SDK.
+  Sintoma antigo: logado como agente, a varredura batia em 3 filas sem permissão e abortava com
+  "Consulta interrompida após 3 falhas seguidas" — parecia limite de canal, era permissão.
+  Falha de permissão numa fila agora é contada e ignorada, sem derrubar a varredura.
 - **SDK real medido em sessão (host 14.2.5, `omni.sdkVersion` 1.4.0)** — o capítulo do manual
   documenta bem menos do que existe. Namespaces expostos: `bus, cart, channel, chatPanel, chats,
   contacts, crm, data, forms, handlers, http, nav, on/off, products, queueTypes, queues, ready,
