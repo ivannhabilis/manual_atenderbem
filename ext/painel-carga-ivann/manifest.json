@@ -1,9 +1,9 @@
 {
   "manifestVersion": 1,
   "id": "ivann.painel-carga",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "name": "Painel de Carga dos Agentes (Ivann)",
-  "description": "Painel no menu superior que mostra a carga de atendimentos por fila, destaca os atendimentos sem agente e o tempo de espera do mais antigo, e permite transferir um atendimento para outro agente com confirmação.",
+  "description": "Painel no menu superior que mostra a carga de atendimentos por agente e por fila, destaca os atendimentos sem agente e o tempo de espera do mais antigo, e permite transferir um atendimento para outro agente com confirmação.",
   "author": { "name": "Ivann" },
   "minHostVersion": "1.40.0",
   "config": [
@@ -15,10 +15,17 @@
       "required": false
     },
     {
-      "key": "filasIgnoradas",
-      "label": "Filas ignoradas (ids separados por vírgula)",
-      "type": "string",
-      "default": "",
+      "key": "intervaloMs",
+      "label": "Intervalo entre as consultas de fila (ms)",
+      "type": "number",
+      "default": 60,
+      "required": false
+    },
+    {
+      "key": "maxFilas",
+      "label": "Máximo de filas a consultar (0 = todas)",
+      "type": "number",
+      "default": 0,
       "required": false
     }
   ],

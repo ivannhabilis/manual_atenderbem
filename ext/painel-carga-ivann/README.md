@@ -15,9 +15,10 @@ Extensão do módulo de Extensões do AtenderBem. Aparece no **menu superior** (
 ## Estado atual (publicado e verificado)
 
 - Extensão no editor: **id 3**, identificador global `ivann.painel-carga` (congelado na 1ª publicação).
-- Versão **1.0.0** publicada — versão id **11**; ponteiro **dev** apontando para ela.
+- Versão **1.0.2** publicada — versão id **13**; ponteiro **dev** apontando para ela.
+- Instalação nesta instância: **id 34**, habilitada, visibilidade `userTypes [0,1,2]` (padrão).
 - Manifesto dev: `https://cdn.a-tend.online/ivann.painel-carga/manifest_dev.json`
-- Arquivo da versão: `https://cdn.a-tend.online/ivann.painel-carga/v/1.0.0/index.html`
+- Arquivo da versão: `https://cdn.a-tend.online/ivann.painel-carga/v/1.0.2/index.html`
 - Sondagem de instalação: `installable: true`, CORS `*`, sem avisos e sem dependências pendentes.
 
 ## Configuração declarada
@@ -25,7 +26,8 @@ Extensão do módulo de Extensões do AtenderBem. Aparece no **menu superior** (
 | Chave | Tipo | Padrão | Para que serve |
 |---|---|---|---|
 | `limiteEsperaAlerta` | number | 10 | Minutos de espera a partir dos quais a linha fica vermelha. |
-| `filasIgnoradas` | string | (vazio) | Ids de fila separados por vírgula. |
+| `intervaloMs` | number | 60 | Pausa entre as consultas de fila (protege o canal da extensão). |
+| `maxFilas` | number | 0 | Teto de filas a consultar; `0` = todas. |
 
 ## Publicar uma nova versão (não dá para editar a publicada)
 
@@ -48,6 +50,18 @@ Publicar **não** coloca no ar: quem coloca é o ponteiro.
 - O `chatPanel` não foi usado de propósito: o usuário administrador desta instância tem
   `chatenabled = 0`, e painéis de chat só renderizam para quem atende chats. O `topMenu` aparece para todos.
 - `requires` no manifesto é **lista** de nomes de recurso (um objeto é recusado com `E_TYPE`).
-- O SDK não expõe hoje os namespaces `queues` nem `users`, nem `chats.listByQueue`. O painel
-  detecta isso em tempo de execução e mostra no bloco "Diagnóstico do SDK" o que existe de fato,
-  em vez de assumir. Ver `ROTEIRO-VIDEO.md`, bloco 7.
+- **SDK real medido em sessão (host 14.2.5, `omni.sdkVersion` 1.4.0)** — o capítulo do manual
+  documenta bem menos do que existe. Namespaces expostos: `bus, cart, channel, chatPanel, chats,
+  contacts, crm, data, forms, handlers, http, nav, on/off, products, queueTypes, queues, ready,
+  runAutomation, session, state, storage, tasks, tickets, ui, users`. Deste recorte, o cenário 3
+  usa `queues.list()` (94 filas), `users.list()` (44 usuários) e `chats.listByQueue(queueId)`.
+- **Lacuna do Host**: `omni.chats.transfer` e `omni.chats.select` estão expostos no SDK, mas
+  devolvem `Service not found.` em qualquer forma de chamada testada (objeto, posicional,
+  `userId`, `queueId`) — o método é roteado e não existe serviço do outro lado. Método realmente
+  inexistente dá outro erro (`is not a function`), então a distinção é confiável. Leitura
+  (`chats.get`, `getSelected`, `tickets.list`), `ui.toast`, `ui.confirm`, `ui.close`,
+  `ui.openContribution` e `nav.navigate` funcionam.
+  Por isso o painel trata a falha e oferece a ação que funciona ("Abrir no painel de agentes").
+- **Custo da varredura**: consultar as 94 filas leva ~19 s (uma chamada por fila, ~200 ms cada).
+  O canal da instalação tem limite declarado de 10 req/s (rajada 20, 3 estouros derrubam);
+  o laço é sequencial e espaçado, e aborta após 3 falhas seguidas em vez de insistir.

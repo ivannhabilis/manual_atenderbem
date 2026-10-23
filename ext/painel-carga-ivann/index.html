@@ -14,10 +14,11 @@
     --card:#111c33; --accent:#8b7cf6; --ok:#34d399; --warn:#fbbf24; --bad:#f87171;
   }
   *{box-sizing:border-box}
-  body{margin:0;padding:16px;background:var(--bg);color:var(--fg);
+  body{margin:0;padding:14px;background:var(--bg);color:var(--fg);
        font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:13px}
   h1{font-size:16px;margin:0}
-  .head{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+  h2{font-size:11px;margin:16px 0 6px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  .head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   .head .sp{flex:1}
   .sub{color:var(--muted);font-size:11px;margin-top:2px}
   button{font:inherit;padding:6px 12px;border-radius:7px;border:1px solid var(--line);
@@ -25,37 +26,40 @@
   button:hover{border-color:var(--accent)}
   button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
   button:disabled{opacity:.5;cursor:not-allowed}
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
   .k{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.05em}
   .v{font-size:22px;font-weight:700;margin-top:2px}
   .v.small{font-size:15px}
   .v.bad{color:var(--bad)} .v.warn{color:var(--warn)} .v.ok{color:var(--ok)}
+  .barra{height:6px;border-radius:999px;background:var(--line);overflow:hidden;margin-top:10px;display:none}
+  .barra.on{display:block}
+  .barra > div{height:100%;width:0;background:var(--accent);transition:width .12s}
   table{width:100%;border-collapse:collapse;background:var(--card);
         border:1px solid var(--line);border-radius:10px;overflow:hidden}
-  th,td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--line);font-size:12px}
+  th,td{padding:6px 10px;text-align:left;border-bottom:1px solid var(--line);font-size:12px}
   th{background:rgba(127,127,127,.08);font-size:10px;text-transform:uppercase;color:var(--muted)}
   tbody tr:last-child td{border-bottom:none}
-  tr.sel{background:rgba(87,70,227,.12)}
+  tr.sel{background:rgba(87,70,227,.14)}
   tr.click{cursor:pointer}
   .tag{display:inline-block;padding:1px 7px;border-radius:999px;font-size:10px;font-weight:600}
   .tag.bad{background:rgba(220,38,38,.15);color:var(--bad)}
   .tag.ok{background:rgba(5,150,105,.15);color:var(--ok)}
   .tag.warn{background:rgba(217,119,6,.15);color:var(--warn)}
-  .row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-top:12px}
+  .row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-top:10px}
   label{display:flex;flex-direction:column;gap:3px;font-size:11px;color:var(--muted)}
   select,input{font:inherit;padding:6px 8px;border-radius:7px;border:1px solid var(--line);
-               background:var(--card);color:var(--fg);min-width:190px}
-  .msg{margin-top:12px;padding:9px 11px;border-radius:8px;font-size:12px;display:none}
+               background:var(--card);color:var(--fg);min-width:210px}
+  .msg{margin-top:10px;padding:9px 11px;border-radius:8px;font-size:12px;display:none}
   .msg.show{display:block}
   .msg.ok{background:rgba(5,150,105,.12);color:var(--ok)}
   .msg.bad{background:rgba(220,38,38,.12);color:var(--bad)}
   .msg.info{background:rgba(87,70,227,.12);color:var(--accent)}
-  .empty{padding:16px;text-align:center;color:var(--muted)}
+  .empty{padding:14px;text-align:center;color:var(--muted)}
   details{margin-top:14px}
   summary{cursor:pointer;color:var(--muted);font-size:11px}
   pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px;
-      font-size:11px;max-height:220px;overflow:auto;white-space:pre-wrap}
+      font-size:11px;max-height:230px;overflow:auto;white-space:pre-wrap}
   .hint{color:var(--muted);font-size:11px;margin-top:6px}
 </style>
 </head>
@@ -76,21 +80,31 @@
     <div class="card"><div class="k">Filas com atendimento</div><div class="v" id="cFilas">–</div></div>
   </div>
 
-  <table id="tbl">
-    <thead><tr><th>Agente</th><th>Fila</th><th>Abertos</th><th>Mais antigo esperando</th></tr></thead>
+  <div class="barra" id="barra"><div id="barraIn"></div></div>
+
+  <h2>Carga por agente</h2>
+  <table>
+    <thead><tr><th>Agente</th><th>Filas</th><th>Abertos</th><th>Espera do mais antigo</th></tr></thead>
     <tbody id="tbody"><tr><td colspan="4" class="empty">carregando…</td></tr></tbody>
   </table>
 
+  <h2>Atendimentos sem agente</h2>
+  <table>
+    <thead><tr><th>Fila</th><th>Contato</th><th>Esperando há</th></tr></thead>
+    <tbody id="tbodySem"><tr><td colspan="3" class="empty">carregando…</td></tr></tbody>
+  </table>
+
   <div class="row">
-    <label>Atendimento (clique na linha da tabela)
+    <label>Atendimento selecionado (clique numa linha)
       <input id="inChat" placeholder="nenhum selecionado" readonly>
     </label>
     <label>Transferir para
       <select id="inAgente"><option value="">— escolha o agente —</option></select>
     </label>
     <button id="btTransferir" class="primary" disabled>Transferir atendimento</button>
+    <button id="btAbrir" disabled>Abrir no painel de agentes</button>
   </div>
-  <div class="hint">A transferência pede confirmação antes de executar e altera dados reais.</div>
+  <div class="hint">A ação pede confirmação antes de executar e altera dados reais.</div>
 
   <div class="msg" id="msg"></div>
 
@@ -100,239 +114,261 @@
   </details>
 
 <script>
-const $ = (s) => document.querySelector(s);
 const el = (id) => document.getElementById(id);
 const O = window.omni;
 
-function say(kind, text){
-  const m = el('msg');
-  m.className = 'msg show ' + kind;
-  m.textContent = text;
+// ---- configuração vinda da instalação ----
+const CFG = { limiteEsperaAlerta: 10, intervaloMs: 60, maxFilas: 0 };
+function lerConfig(){
+  try{
+    const c = (O && O.config) || null;
+    if (c) for (const k of Object.keys(CFG))
+      if (c[k] !== undefined && c[k] !== null && c[k] !== '') CFG[k] = Number(c[k]) || CFG[k];
+  }catch(e){}
 }
+
+// ---- utilidades ----
+function say(kind, text){ const m = el('msg'); m.className = 'msg show ' + kind; m.textContent = text; }
 function hideMsg(){ el('msg').className = 'msg'; }
 
-function quote(v){
-  if (v === null || v === undefined) return '—';
-  if (typeof v === 'object') return JSON.stringify(v);
-  return String(v);
+// o METODO final tem de ser funcao; os niveis intermediarios sao objetos
+function temMetodo(root, path){
+  let o = root; const p = path.split('.');
+  for (let i = 0; i < p.length - 1; i++){ o = o ? o[p[i]] : null; if (!o) return false; }
+  return typeof o[p[p.length - 1]] === 'function';
 }
-function hasPath(root, path){
-  let o = root;
-  for (const k of path.split('.')){ if (!o || typeof o[k] !== 'function') return false; o = o[k]; }
-  return true;
+function segundosDesde(v){
+  const n = Number(v);
+  if (!isFinite(n) || n <= 0) return null;
+  const sec = n > 1e11 ? n / 1000 : n;
+  return Math.max(0, Math.round((Date.now() / 1000) - sec));
 }
-// ---- estado ----
-let chats = [];
-let agentes = [];
-let filas = [];
-let selecionado = null;
-let limiteMin = 10;
+function esperaMin(c){
+  const s = segundosDesde(c && c.startedAt);
+  return s === null ? null : Math.round(s / 60);
+}
 
-// ---- diagnóstico ----
+// ---- estado ----
+const estado = { chats: [], filas: [], usuarios: [], filaPorId: {}, userPorId: {}, selecionado: null, euId: null };
+
+function nomeAgente(id){
+  if (!id || Number(id) === 0) return null;
+  const u = estado.userPorId[String(id)];
+  return u ? (u.name || ('usuário ' + id)) : ('usuário ' + id);
+}
+function nomeFila(c){ const q = estado.filaPorId[String(c.queueId)]; return q ? q.name : ('fila ' + c.queueId); }
+function nomeContato(c){
+  const k = c && c.contact;
+  return (k && (k.name || k.phone)) || ('contato ' + (c && c.contactId));
+}
+
+// ---- diagnóstico do SDK ----
 function diagnostico(){
-  const linhas = [];
-  if (!O){ linhas.push('window.omni AUSENTE'); return linhas.join('\n'); }
-  const ns = Object.keys(O).sort();
-  linhas.push('namespaces: ' + ns.join(', '));
-  linhas.push('');
-  for (const n of ns){
+  if (!O) return 'window.omni AUSENTE';
+  const linhas = ['sdkVersion: ' + (O.sdkVersion || '?'), ''];
+  for (const n of Object.keys(O).sort()){
     const v = O[n];
     if (v && typeof v === 'object'){
-      const metodos = Object.keys(v).filter(k => typeof v[k] === 'function').sort();
-      if (metodos.length) linhas.push('omni.' + n + ': ' + metodos.join(', '));
-    } else if (typeof v === 'function'){
-      linhas.push('omni.' + n + '(): função');
-    }
+      const ms = Object.keys(v).filter(k => typeof v[k] === 'function').sort();
+      if (ms.length) linhas.push('omni.' + n + ': ' + ms.join(', '));
+    } else if (typeof v === 'function') linhas.push('omni.' + n + '()');
   }
-  const alvo = ['chats.listMine','chats.listByQueue','chats.transfer','chats.getSelected',
-                'queues.list','users.list','ui.confirm','ui.toast','session.getUser'];
-  linhas.push('');
-  linhas.push('checagem dos métodos do cenário:');
-  for (const p of alvo) linhas.push('  ' + (hasPath(O,p) ? 'OK  ' : 'X   ') + p);
+  linhas.push('', 'métodos do cenário:');
+  for (const p of ['queues.list','users.list','chats.listByQueue','chats.listMine',
+                   'chats.getSelected','chats.transfer','ui.confirm','ui.toast','session.getUser'])
+    linhas.push('  ' + (temMetodo(O, p) ? 'OK  ' : 'X   ') + p);
   return linhas.join('\n');
 }
 
 // ---- carga de dados ----
-function minutosDesde(iso){
-  if (!iso) return null;
-  const t = Date.parse(iso);
-  if (isNaN(t)) return null;
-  return Math.max(0, Math.round((Date.now() - t) / 60000));
-}
-function esperaDe(c){
-  // tenta os campos usuais de tempo de espera
-  const cands = ['waitingtime','waitingTime','waittime','createdAt','createdat','starttime',
-                 'startTime','date','datetime','lastmessageat'];
-  for (const k of cands){
-    if (c && c[k] !== undefined && c[k] !== null){
-      const v = c[k];
-      if (typeof v === 'number'){
-        // alguns campos vem em segundos
-        const min = v > 1e9 ? Math.round((Date.now() - v*1000)/60000) : Math.round(v/60);
-        if (isFinite(min) && min >= 0) return min;
+async function carregar(){
+  hideMsg();
+  el('barra').classList.add('on');
+  el('barraIn').style.width = '0%';
+  el('tbody').innerHTML = '<tr><td colspan="4" class="empty">carregando…</td></tr>';
+  el('tbodySem').innerHTML = '<tr><td colspan="3" class="empty">carregando…</td></tr>';
+
+  let eu = null;
+  try{ eu = await O.session.getUser(); }catch(e){}
+  estado.euId = eu && eu.id;
+
+  estado.usuarios = temMetodo(O, 'users.list') ? (await O.users.list() || []) : [];
+  estado.userPorId = {};
+  for (const u of estado.usuarios) estado.userPorId[String(u.id)] = u;
+
+  estado.filas = temMetodo(O, 'queues.list') ? (await O.queues.list() || []) : [];
+  estado.filaPorId = {};
+  for (const q of estado.filas) estado.filaPorId[String(q.id)] = q;
+
+  const meuNome = (eu && eu.name) || (estado.userPorId[String(eu && eu.id)] || {}).name || '?';
+  const perfil = (eu && eu.type) === 0 ? 'administrador' : (eu && eu.type) === 1 ? 'supervisor' : 'agente';
+  el('sub').textContent = 'sessão: ' + meuNome + ' (id ' + (eu && eu.id) + ') · ' + perfil +
+    ' · ' + estado.usuarios.length + ' usuários · ' + estado.filas.length + ' filas';
+
+  // consulta fila a fila, em sequência e espaçada (protege o canal da extensão)
+  estado.chats = [];
+  const filas = CFG.maxFilas > 0 ? estado.filas.slice(0, CFG.maxFilas) : estado.filas;
+  let falhas = 0, consultadas = 0, comAtendimento = 0;
+  if (temMetodo(O, 'chats.listByQueue')){
+    for (let i = 0; i < filas.length; i++){
+      try{
+        const l = await O.chats.listByQueue(filas[i].id);
+        if (Array.isArray(l) && l.length){ estado.chats = estado.chats.concat(l); comAtendimento++; }
+        falhas = 0;
+      }catch(e){
+        falhas++;
+        if (falhas >= 3){ say('bad', 'Consulta interrompida após 3 falhas seguidas, para não derrubar o canal da extensão.'); break; }
       }
-      const m = minutosDesde(v);
-      if (m !== null) return m;
+      consultadas++;
+      el('barraIn').style.width = Math.round((i + 1) / filas.length * 100) + '%';
+      if (CFG.intervaloMs > 0) await new Promise(r => setTimeout(r, CFG.intervaloMs));
     }
   }
-  return null;
-}
-function nomeFila(c){
-  return (c && (c.queueName || (c.queue && (c.queue.name || c.queue.description)) || c.queueid || c.queueId)) || 'sem fila';
-}
-function agenteDe(c){
-  return (c && (c.userName || c.userid || c.userId || (c.user && (c.user.name || c.user.id)))) || null;
-}
-function semAgente(c){
-  const a = agenteDe(c);
-  return a === null || a === undefined || a === '' || a === 0 || a === '0';
-}
-function idChat(c){ return c && (c.id !== undefined ? c.id : c.chatid); }
+  el('barra').classList.remove('on');
 
-async function carregar(){
-  el('tbody').innerHTML = '<tr><td colspan="4" class="empty">carregando…</td></tr>';
-  hideMsg();
-  const notas = [];
-
-  try{
-    const conf = (O && O.config) || (window.__omniConfig) || {};
-    if (conf && conf.limiteEsperaAlerta !== undefined) limiteMin = Number(conf.limiteEsperaAlerta) || 10;
-  }catch(e){}
-
-  try{
-    const u = await O.session.getUser();
-    el('sub').textContent = 'sessão: ' + (u && u.name ? u.name : '?') +
-      ' (id ' + (u && u.id) + ') · tipo ' + quote(u && u.type);
-  }catch(e){ el('sub').textContent = 'sessão indisponível'; }
-
-  // filas
-  if (hasPath(O, 'queues.list')){
-    try { filas = await O.queues.list(); notas.push('queues.list: ' + (filas ? filas.length : 0) + ' filas'); }
-    catch(e){ notas.push('queues.list falhou: ' + (e && e.message)); }
-  } else { notas.push('queues.list AUSENTE'); }
-
-  // agentes
-  if (hasPath(O, 'users.list')){
-    try { agentes = await O.users.list(); notas.push('users.list: ' + (agentes ? agentes.length : 0) + ' agentes'); }
-    catch(e){ notas.push('users.list falhou: ' + (e && e.message)); }
-  } else { notas.push('users.list AUSENTE'); }
-
-  // chats
-  chats = [];
-  if (hasPath(O, 'chats.listByQueue')){
-    try { chats = await O.chats.listByQueue(); notas.push('chats.listByQueue: ' + (chats ? chats.length : 0)); }
-    catch(e){ notas.push('chats.listByQueue falhou: ' + (e && e.message)); }
-  }
-  if ((!chats || !chats.length) && hasPath(O, 'chats.listMine')){
-    try { chats = await O.chats.listMine(); notas.push('chats.listMine: ' + (chats ? chats.length : 0)); }
-    catch(e){ notas.push('chats.listMine falhou: ' + (e && e.message)); }
-  }
-  if (!chats) chats = [];
-
-  render(notas);
+  render();
+  el('diag').textContent = diagnostico() + '\n\nfilas consultadas: ' + consultadas + ' de ' + estado.filas.length +
+    '\natendimentos encontrados: ' + estado.chats.length;
+  try{ O.ui.resize(); }catch(e){}
 }
 
-function render(notas){
-  const total = chats.length;
-  const sem = chats.filter(semAgente).length;
-  const esperas = chats.map(esperaDe).filter(v => v !== null);
+function render(){
+  const total = estado.chats.length;
+  const sem = estado.chats.filter(c => nomeAgente(c.userId) === null).length;
+  const esperas = estado.chats.map(esperaMin).filter(v => v !== null);
   const maior = esperas.length ? Math.max(...esperas) : null;
-  const filasCom = new Set(chats.map(nomeFila)).size;
+  const filasCom = new Set(estado.chats.map(c => String(c.queueId))).size;
 
   el('cTotal').textContent = total;
   el('cSemAgente').textContent = sem;
   el('cSemAgente').className = 'v' + (sem > 0 ? ' bad' : '');
   el('cEspera').textContent = maior === null ? '—' : (maior + ' min');
-  el('cEspera').className = 'v small' + (maior !== null && maior >= limiteMin ? ' bad' : (maior !== null ? ' ok' : ''));
+  el('cEspera').className = 'v small' + (maior === null ? '' : (maior >= CFG.limiteEsperaAlerta ? ' bad' : ' ok'));
   el('cFilas').textContent = filasCom;
 
-  // agrupa por agente + fila
-  const mapa = new Map();
-  for (const c of chats){
-    const a = semAgente(c) ? '(sem agente)' : String(agenteDe(c));
-    const f = String(nomeFila(c));
-    const key = a + '\u0000' + f;
-    if (!mapa.has(key)) mapa.set(key, { agente:a, fila:f, n:0, espera:null, amostra:null });
-    const it = mapa.get(key);
-    it.n++;
-    const e = esperaDe(c);
+  // por agente
+  const porAgente = new Map();
+  for (const c of estado.chats){
+    const nome = nomeAgente(c.userId) || '(sem agente)';
+    if (!porAgente.has(nome)) porAgente.set(nome, { nome, filas: new Set(), n: 0, espera: null });
+    const it = porAgente.get(nome);
+    it.n++; it.filas.add(String(c.queueId));
+    const e = esperaMin(c);
     if (e !== null && (it.espera === null || e > it.espera)) it.espera = e;
-    if (!it.amostra) it.amostra = c;
   }
-  const linhas = [...mapa.values()].sort((x, y) => (y.espera === null ? -1 : y.espera) - (x.espera === null ? -1 : x.espera));
+  const linhas = [...porAgente.values()].sort((a, b) =>
+    (b.espera === null ? -1 : b.espera) - (a.espera === null ? -1 : a.espera));
 
   const tb = el('tbody');
+  tb.innerHTML = '';
   if (!linhas.length){
     tb.innerHTML = '<tr><td colspan="4" class="empty">nenhum atendimento aberto no momento</td></tr>';
   } else {
-    tb.innerHTML = '';
     for (const it of linhas){
       const tr = document.createElement('tr');
-      tr.className = 'click';
-      const cls = it.espera !== null && it.espera >= limiteMin ? 'bad' : 'ok';
-      tr.innerHTML =
-        '<td>' + (it.agente === '(sem agente)' ? '<span class="tag bad">sem agente</span>' : it.agente) + '</td>' +
-        '<td>' + it.fila + '</td>' +
-        '<td><b>' + it.n + '</b></td>' +
-        '<td>' + (it.espera === null ? '—' : '<span class="tag ' + cls + '">' + it.espera + ' min</span>') + '</td>';
-      tr.addEventListener('click', () => selecionar(it.amostra, tr));
+      tr.innerHTML = '<td>' + (it.nome === '(sem agente)' ? '<span class="tag bad">sem agente</span>' : it.nome) +
+        '</td><td>' + it.filas.size + '</td><td><b>' + it.n + '</b></td><td>' +
+        (it.espera === null ? '—' : '<span class="tag ' + (it.espera >= CFG.limiteEsperaAlerta ? 'bad' : 'ok') + '">' +
+          it.espera + ' min</span>') + '</td>';
       tb.appendChild(tr);
     }
   }
 
-  // combo de agentes
-  const sel = el('inAgente');
-  sel.innerHTML = '<option value="">— escolha o agente —</option>';
-  for (const a of (agentes || [])){
-    const id = a && (a.id !== undefined ? a.id : a.userid);
-    const nome = a && (a.name || a.fullname || a.username) || ('agente ' + id);
-    if (id === undefined || id === null) continue;
-    const op = document.createElement('option');
-    op.value = String(id);
-    op.textContent = nome + ' (#' + id + ')';
-    sel.appendChild(op);
-  }
-  if (!agentes || !agentes.length){
-    sel.innerHTML = '<option value="">— lista de agentes indisponível —</option>';
+  // sem agente, linha a linha
+  const semLista = estado.chats.filter(c => nomeAgente(c.userId) === null)
+    .sort((a, b) => (esperaMin(b) || 0) - (esperaMin(a) || 0));
+  const tbs = el('tbodySem');
+  tbs.innerHTML = '';
+  if (!semLista.length){
+    tbs.innerHTML = '<tr><td colspan="3" class="empty">nenhum atendimento sem agente</td></tr>';
+  } else {
+    for (const c of semLista){
+      const e = esperaMin(c);
+      const tr = document.createElement('tr');
+      tr.className = 'click';
+      tr.innerHTML = '<td>' + nomeFila(c) + '</td><td>' + nomeContato(c) + '</td><td>' +
+        (e === null ? '—' : '<span class="tag ' + (e >= CFG.limiteEsperaAlerta ? 'bad' : 'warn') + '">' + e + ' min</span>') + '</td>';
+      tr.addEventListener('click', () => selecionar(c, tr));
+      tbs.appendChild(tr);
+    }
   }
 
-  el('diag').textContent = diagnostico() + '\n\n' + (notas.join('\n') || '(sem notas)');
-  try{ O.ui.resize(); }catch(e){}
+  // combo de agentes (quem atende)
+  const sel = el('inAgente');
+  sel.innerHTML = '<option value="">— escolha o agente —</option>';
+  const agentes = estado.usuarios.filter(u => u.type === 2 && u.id !== estado.euId)
+    .sort((a, b) => String(a.name || '').localeCompare(String(b.name || '')));
+  for (const a of agentes){
+    const op = document.createElement('option');
+    op.value = String(a.id);
+    op.textContent = (a.name || ('usuário ' + a.id)) + ' (#' + a.id + ')';
+    sel.appendChild(op);
+  }
+  if (!agentes.length) sel.innerHTML = '<option value="">— nenhum agente listado —</option>';
 }
 
 function selecionar(c, tr){
-  selecionado = c;
+  estado.selecionado = c;
   document.querySelectorAll('tbody tr').forEach(t => t.classList.remove('sel'));
   if (tr) tr.classList.add('sel');
-  el('inChat').value = '#' + idChat(c) + ' · ' + nomeFila(c) + ' · ' + (semAgente(c) ? 'sem agente' : agenteDe(c));
+  const e = esperaMin(c);
+  el('inChat').value = '#' + c.id + ' · ' + nomeFila(c) + ' · ' + nomeContato(c) +
+    (e === null ? '' : ' · espera ' + e + ' min');
   el('btTransferir').disabled = false;
+  el('btAbrir').disabled = false;
+}
+
+async function abrirNoPainel(){
+  if (!estado.selecionado){ say('bad', 'Selecione um atendimento na tabela.'); return; }
+  let ok = true;
+  if (temMetodo(O, 'ui.confirm')){
+    ok = await O.ui.confirm({
+      title: 'Abrir no painel de agentes',
+      message: 'Abrir o painel de agentes para tratar o atendimento #' + estado.selecionado.id +
+               ' (' + nomeFila(estado.selecionado) + ')?',
+      okText: 'Abrir', cancelText: 'Cancelar'
+    });
+  }
+  if (!ok){ say('info', 'Ação cancelada pelo usuário.'); return; }
+  try{
+    await O.nav.navigate(['/base', 'agentchat']);
+    if (temMetodo(O, 'ui.toast')) O.ui.toast({ msg: 'Painel de agentes aberto' });
+  }catch(e){
+    say('bad', 'Não foi possível navegar: ' + (e && e.message ? e.message : e));
+  }
 }
 
 async function transferir(){
-  if (!selecionado){ say('bad', 'Selecione um atendimento na tabela.'); return; }
+  if (!estado.selecionado){ say('bad', 'Selecione um atendimento na tabela.'); return; }
   const destino = el('inAgente').value;
   if (!destino){ say('bad', 'Escolha o agente de destino.'); return; }
   const rotulo = el('inAgente').selectedOptions[0].textContent;
-  const id = idChat(selecionado);
+  const id = estado.selecionado.id;
 
   let ok = true;
-  if (hasPath(O, 'ui.confirm')){
+  if (temMetodo(O, 'ui.confirm')){
     ok = await O.ui.confirm({
       title: 'Transferir atendimento',
-      message: 'Transferir o atendimento #' + id + ' para ' + rotulo + '?',
+      message: 'Transferir o atendimento #' + id + ' (' + nomeFila(estado.selecionado) + ') para ' + rotulo + '?',
       okText: 'Transferir', cancelText: 'Cancelar'
     });
   }
-  if (!ok) return;
+  if (!ok){ say('info', 'Transferência cancelada pelo usuário.'); return; }
 
   try{
     el('btTransferir').disabled = true;
     await O.chats.transfer(id, { userId: Number(destino) });
-    if (hasPath(O, 'ui.toast')) O.ui.toast({ msg: 'Atendimento #' + id + ' transferido para ' + rotulo });
+    if (temMetodo(O, 'ui.toast')) O.ui.toast({ msg: 'Atendimento #' + id + ' transferido para ' + rotulo });
     say('ok', 'Atendimento #' + id + ' transferido para ' + rotulo + '.');
     await carregar();
   }catch(e){
-    say('bad', 'Falha ao transferir: ' + (e && e.message ? e.message : e));
+    const m = (e && e.message) ? e.message : String(e);
+    if (/service not found/i.test(m)){
+      say('info', 'O Host desta versão expõe omni.chats.transfer no SDK, mas não implementa o serviço ' +
+        '(resposta "Service not found"). Use "Abrir no painel de agentes" para tratar o atendimento manualmente.');
+    }else{
+      say('bad', 'Falha ao transferir: ' + m);
+    }
   }finally{
     el('btTransferir').disabled = false;
   }
@@ -340,7 +376,7 @@ async function transferir(){
 
 function tema(){
   try{
-    if (O && O.session && O.session.getTheme){
+    if (temMetodo(O, 'session.getTheme')){
       O.session.getTheme().then(th => {
         document.documentElement.setAttribute('data-theme', (th && th.mode === 'dark') ? 'dark' : 'light');
       }).catch(()=>{});
@@ -350,18 +386,16 @@ function tema(){
 
 el('btRefresh').addEventListener('click', carregar);
 el('btTransferir').addEventListener('click', transferir);
-if (window.ResizeObserver){ new ResizeObserver(()=>{ try{ O.ui.resize(); }catch(e){} }).observe(document.body); }
+el('btAbrir').addEventListener('click', abrirNoPainel);
+if (window.ResizeObserver) new ResizeObserver(() => { try{ O.ui.resize(); }catch(e){} }).observe(document.body);
 
 function arrancar(){
-  if (!window.omni || !window.omni.ready){
-    el('sub').textContent = 'SDK ainda não injetado — tentando novamente…';
-    setTimeout(arrancar, 400);
-    return;
-  }
+  if (!window.omni || !window.omni.ready){ el('sub').textContent = 'SDK ainda não injetado…'; setTimeout(arrancar, 400); return; }
   window.omni.ready(() => {
+    lerConfig();
     tema();
-    if (window.omni.on){ try{ window.omni.on('themeChanged', () => tema()); }catch(e){} }
-    if (window.omni.on){ try{ window.omni.on('chatListChanged', () => carregar()); }catch(e){} }
+    try{ if (O.on) O.on('themeChanged', () => tema()); }catch(e){}
+    try{ if (O.on) O.on('chatListChanged', () => carregar()); }catch(e){}
     carregar();
   });
 }
