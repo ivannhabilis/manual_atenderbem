@@ -1,7 +1,8 @@
 # Roteiro de narração — Painel de Carga dos Agentes (Ivann)
 
-Vídeo: `/home/hermes/videos/painel-carga-ivann.mp4` (3min51, sem áudio)
-Versão com as legendas gravadas na imagem: `/home/hermes/videos/painel-carga-ivann-legendado.mp4`
+Vídeo: `/home/hermes/videos/painel-carga-ivann.mp4` (3min51, 1440x838, sem áudio e SEM legenda na imagem)
+O arquivo `legendas.srt` é o guia da narração — mesmos tempos e mesmo texto deste roteiro. Ele não vai
+para dentro do vídeo: a narração é a sua voz, lida daqui.
 Extensão: `ivann.painel-carga` · versão **1.1.1** · menu superior (topMenu), modo diálogo
 Legendas: `legendas.srt` (mesma divisão de tempo deste roteiro)
 
