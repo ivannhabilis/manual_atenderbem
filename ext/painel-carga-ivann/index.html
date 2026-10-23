@@ -14,6 +14,7 @@
     --card:#111c33; --accent:#8b7cf6; --ok:#34d399; --warn:#fbbf24; --bad:#f87171;
   }
   *{box-sizing:border-box}
+  html,body{max-width:100%;overflow-x:hidden}
   body{margin:0;padding:14px;background:var(--bg);color:var(--fg);
        font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:13px}
   h1{font-size:16px;margin:0}
@@ -26,7 +27,7 @@
   button:hover{border-color:var(--accent)}
   button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
   button:disabled{opacity:.5;cursor:not-allowed}
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:10px;margin-top:12px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
   .k{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.05em}
   .v{font-size:22px;font-weight:700;margin-top:2px}
@@ -35,9 +36,14 @@
   .barra{height:6px;border-radius:999px;background:var(--line);overflow:hidden;margin-top:10px;display:none}
   .barra.on{display:block}
   .barra > div{height:100%;width:0;background:var(--accent);transition:width .12s}
-  table{width:100%;border-collapse:collapse;background:var(--card);
+  table{width:100%;max-width:100%;table-layout:fixed;border-collapse:collapse;background:var(--card);
         border:1px solid var(--line);border-radius:10px;overflow:hidden}
-  th,td{padding:6px 10px;text-align:left;border-bottom:1px solid var(--line);font-size:12px}
+  th,td{padding:6px 10px;text-align:left;border-bottom:1px solid var(--line);font-size:12px;
+        overflow-wrap:anywhere;word-break:break-word}
+  table.carga th:nth-child(1){width:40%} table.carga th:nth-child(2){width:16%}
+  table.carga th:nth-child(3){width:16%} table.carga th:nth-child(4){width:28%}
+  table.semag th:nth-child(1){width:40%} table.semag th:nth-child(2){width:34%}
+  table.semag th:nth-child(3){width:26%}
   th{background:rgba(127,127,127,.08);font-size:10px;text-transform:uppercase;color:var(--muted)}
   tbody tr:last-child td{border-bottom:none}
   tr.sel{background:rgba(87,70,227,.14)}
@@ -46,10 +52,11 @@
   .tag.bad{background:rgba(220,38,38,.15);color:var(--bad)}
   .tag.ok{background:rgba(5,150,105,.15);color:var(--ok)}
   .tag.warn{background:rgba(217,119,6,.15);color:var(--warn)}
-  .row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-top:10px}
-  label{display:flex;flex-direction:column;gap:3px;font-size:11px;color:var(--muted)}
+  .row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-top:10px;max-width:100%}
+  label{display:flex;flex-direction:column;gap:3px;font-size:11px;color:var(--muted);
+        flex:1 1 200px;min-width:0;max-width:100%}
   select,input{font:inherit;padding:6px 8px;border-radius:7px;border:1px solid var(--line);
-               background:var(--card);color:var(--fg);min-width:210px}
+               background:var(--card);color:var(--fg);width:100%;min-width:0;max-width:100%}
   .msg{margin-top:10px;padding:9px 11px;border-radius:8px;font-size:12px;display:none}
   .msg.show{display:block}
   .msg.ok{background:rgba(5,150,105,.12);color:var(--ok)}
@@ -59,8 +66,18 @@
   details{margin-top:14px}
   summary{cursor:pointer;color:var(--muted);font-size:11px}
   pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px;
-      font-size:11px;max-height:230px;overflow:auto;white-space:pre-wrap}
+      font-size:11px;max-height:230px;max-width:100%;overflow:auto;white-space:pre-wrap;
+      overflow-wrap:anywhere}
   .hint{color:var(--muted);font-size:11px;margin-top:6px}
+  /* Em painel muito estreito os rotulos das colunas quebravam letra a letra */
+  @media (max-width:620px){
+    th{font-size:9px}
+    th,td{padding:5px 6px}
+    table.carga th:nth-child(1){width:44%} table.carga th:nth-child(2){width:13%}
+    table.carga th:nth-child(3){width:14%} table.carga th:nth-child(4){width:29%}
+    table.semag th:nth-child(1){width:44%} table.semag th:nth-child(2){width:32%}
+    table.semag th:nth-child(3){width:24%}
+  }
 </style>
 </head>
 <body>
@@ -83,13 +100,13 @@
   <div class="barra" id="barra"><div id="barraIn"></div></div>
 
   <h2>Carga por agente</h2>
-  <table>
+  <table class="carga">
     <thead><tr><th>Agente</th><th>Filas</th><th>Abertos</th><th>Espera do mais antigo</th></tr></thead>
     <tbody id="tbody"><tr><td colspan="4" class="empty">carregando…</td></tr></tbody>
   </table>
 
   <h2>Atendimentos sem agente</h2>
-  <table>
+  <table class="semag">
     <thead><tr><th>Fila</th><th>Contato</th><th>Esperando há</th></tr></thead>
     <tbody id="tbodySem"><tr><td colspan="3" class="empty">carregando…</td></tr></tbody>
   </table>
@@ -130,6 +147,24 @@ function lerConfig(){
 // ---- utilidades ----
 function say(kind, text){ const m = el('msg'); m.className = 'msg show ' + kind; m.textContent = text; }
 function hideMsg(){ el('msg').className = 'msg'; }
+
+// O SDK desta versao EXIGE uma altura numerica positiva e devolve uma Promise:
+// chamar sem argumento gera "Promise rejeitada sem tratamento". Enviamos a altura real
+// do conteudo (>= 1) e sempre absorvemos a rejeicao.
+let alturaAgendada = null;
+function ajustarAltura(){
+  if (alturaAgendada) return;                     // agrupa rajadas do ResizeObserver
+  alturaAgendada = setTimeout(() => {
+    alturaAgendada = null;
+    try{
+      if (!O || typeof O.ui.resize !== 'function') return;
+      const conteudo = Math.ceil(document.body.scrollHeight || document.documentElement.scrollHeight || 1);
+      const h = Math.max(1, Math.min(660, conteudo));   // teto: o painel nao passa da janela
+      const r = O.ui.resize(h);
+      if (r && typeof r.catch === 'function') r.catch(() => {});
+    }catch(e){}
+  }, 150);
+}
 
 // o METODO final tem de ser funcao; os niveis intermediarios sao objetos
 function temMetodo(root, path){
@@ -229,7 +264,7 @@ async function carregar(){
   render();
   el('diag').textContent = diagnostico() + '\n\nfilas consultadas: ' + consultadas + ' de ' + estado.filas.length +
     '\natendimentos encontrados: ' + estado.chats.length;
-  try{ O.ui.resize(); }catch(e){}
+  ajustarAltura();
 }
 
 function render(){
@@ -387,7 +422,8 @@ function tema(){
 el('btRefresh').addEventListener('click', carregar);
 el('btTransferir').addEventListener('click', transferir);
 el('btAbrir').addEventListener('click', abrirNoPainel);
-if (window.ResizeObserver) new ResizeObserver(() => { try{ O.ui.resize(); }catch(e){} }).observe(document.body);
+if (window.ResizeObserver) new ResizeObserver(() => ajustarAltura()).observe(document.body);
+window.addEventListener('load', () => ajustarAltura());
 
 function arrancar(){
   if (!window.omni || !window.omni.ready){ el('sub').textContent = 'SDK ainda não injetado…'; setTimeout(arrancar, 400); return; }

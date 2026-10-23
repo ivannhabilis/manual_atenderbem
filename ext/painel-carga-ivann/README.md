@@ -15,10 +15,12 @@ Extensão do módulo de Extensões do AtenderBem. Aparece no **menu superior** (
 ## Estado atual (publicado e verificado)
 
 - Extensão no editor: **id 3**, identificador global `ivann.painel-carga` (congelado na 1ª publicação).
-- Versão **1.0.2** publicada — versão id **13**; ponteiro **dev** apontando para ela.
+- Versão **1.0.5** publicada — versão id **16**; ponteiro **dev** apontando para ela.
+  (Limite da plataforma: 5 versões publicadas por extensão — para publicar a próxima é preciso
+  `extensions_delete_version` numa antiga que não esteja apontada por prod/dev.)
 - Instalação nesta instância: **id 34**, habilitada, visibilidade `userTypes [0,1,2]` (padrão).
 - Manifesto dev: `https://cdn.a-tend.online/ivann.painel-carga/manifest_dev.json`
-- Arquivo da versão: `https://cdn.a-tend.online/ivann.painel-carga/v/1.0.2/index.html`
+- Arquivo da versão: `https://cdn.a-tend.online/ivann.painel-carga/v/1.0.5/index.html`
 - Sondagem de instalação: `installable: true`, CORS `*`, sem avisos e sem dependências pendentes.
 
 ## Configuração declarada
