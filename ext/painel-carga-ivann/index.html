@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carga dos Agentes (Ivann)</title>
+<style>
+  :root{
+    --bg:#f8fafc; --fg:#0f172a; --muted:#64748b; --line:#e2e8f0;
+    --card:#ffffff; --accent:#5746e3; --ok:#059669; --warn:#d97706; --bad:#dc2626;
+  }
+  [data-theme="dark"]{
+    --bg:#0f172a; --fg:#e2e8f0; --muted:#94a3b8; --line:#1e293b;
+    --card:#111c33; --accent:#8b7cf6; --ok:#34d399; --warn:#fbbf24; --bad:#f87171;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:16px;background:var(--bg);color:var(--fg);
+       font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:13px}
+  h1{font-size:16px;margin:0}
+  .head{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+  .head .sp{flex:1}
+  .sub{color:var(--muted);font-size:11px;margin-top:2px}
+  button{font:inherit;padding:6px 12px;border-radius:7px;border:1px solid var(--line);
+         background:var(--card);color:var(--fg);cursor:pointer}
+  button:hover{border-color:var(--accent)}
+  button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  .k{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+  .v{font-size:22px;font-weight:700;margin-top:2px}
+  .v.small{font-size:15px}
+  .v.bad{color:var(--bad)} .v.warn{color:var(--warn)} .v.ok{color:var(--ok)}
+  table{width:100%;border-collapse:collapse;background:var(--card);
+        border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  th,td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--line);font-size:12px}
+  th{background:rgba(127,127,127,.08);font-size:10px;text-transform:uppercase;color:var(--muted)}
+  tbody tr:last-child td{border-bottom:none}
+  tr.sel{background:rgba(87,70,227,.12)}
+  tr.click{cursor:pointer}
+  .tag{display:inline-block;padding:1px 7px;border-radius:999px;font-size:10px;font-weight:600}
+  .tag.bad{background:rgba(220,38,38,.15);color:var(--bad)}
+  .tag.ok{background:rgba(5,150,105,.15);color:var(--ok)}
+  .tag.warn{background:rgba(217,119,6,.15);color:var(--warn)}
+  .row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-top:12px}
+  label{display:flex;flex-direction:column;gap:3px;font-size:11px;color:var(--muted)}
+  select,input{font:inherit;padding:6px 8px;border-radius:7px;border:1px solid var(--line);
+               background:var(--card);color:var(--fg);min-width:190px}
+  .msg{margin-top:12px;padding:9px 11px;border-radius:8px;font-size:12px;display:none}
+  .msg.show{display:block}
+  .msg.ok{background:rgba(5,150,105,.12);color:var(--ok)}
+  .msg.bad{background:rgba(220,38,38,.12);color:var(--bad)}
+  .msg.info{background:rgba(87,70,227,.12);color:var(--accent)}
+  .empty{padding:16px;text-align:center;color:var(--muted)}
+  details{margin-top:14px}
+  summary{cursor:pointer;color:var(--muted);font-size:11px}
+  pre{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px;
+      font-size:11px;max-height:220px;overflow:auto;white-space:pre-wrap}
+  .hint{color:var(--muted);font-size:11px;margin-top:6px}
+</style>
+</head>
+<body>
+  <div class="head">
+    <div>
+      <h1>Painel de Carga dos Agentes</h1>
+      <div class="sub" id="sub">conectando ao sistema…</div>
+    </div>
+    <div class="sp"></div>
+    <button id="btRefresh">Atualizar</button>
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="k">Atendimentos abertos</div><div class="v" id="cTotal">–</div></div>
+    <div class="card"><div class="k">Sem agente</div><div class="v" id="cSemAgente">–</div></div>
+    <div class="card"><div class="k">Espera do mais antigo</div><div class="v small" id="cEspera">–</div></div>
+    <div class="card"><div class="k">Filas com atendimento</div><div class="v" id="cFilas">–</div></div>
+  </div>
+
+  <table id="tbl">
+    <thead><tr><th>Agente</th><th>Fila</th><th>Abertos</th><th>Mais antigo esperando</th></tr></thead>
+    <tbody id="tbody"><tr><td colspan="4" class="empty">carregando…</td></tr></tbody>
+  </table>
+
+  <div class="row">
+    <label>Atendimento (clique na linha da tabela)
+      <input id="inChat" placeholder="nenhum selecionado" readonly>
+    </label>
+    <label>Transferir para
+      <select id="inAgente"><option value="">— escolha o agente —</option></select>
+    </label>
+    <button id="btTransferir" class="primary" disabled>Transferir atendimento</button>
+  </div>
+  <div class="hint">A transferência pede confirmação antes de executar e altera dados reais.</div>
+
+  <div class="msg" id="msg"></div>
+
+  <details>
+    <summary>Diagnóstico do SDK (métodos disponíveis nesta sessão)</summary>
+    <pre id="diag">…</pre>
+  </details>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const el = (id) => document.getElementById(id);
+const O = window.omni;
+
+function say(kind, text){
+  const m = el('msg');
+  m.className = 'msg show ' + kind;
+  m.textContent = text;
+}
+function hideMsg(){ el('msg').className = 'msg'; }
+
+function quote(v){
+  if (v === null || v === undefined) return '—';
+  if (typeof v === 'object') return JSON.stringify(v);
+  return String(v);
+}
+function hasPath(root, path){
+  let o = root;
+  for (const k of path.split('.')){ if (!o || typeof o[k] !== 'function') return false; o = o[k]; }
+  return true;
+}
+// ---- estado ----
+let chats = [];
+let agentes = [];
+let filas = [];
+let selecionado = null;
+let limiteMin = 10;
+
+// ---- diagnóstico ----
+function diagnostico(){
+  const linhas = [];
+  if (!O){ linhas.push('window.omni AUSENTE'); return linhas.join('\n'); }
+  const ns = Object.keys(O).sort();
+  linhas.push('namespaces: ' + ns.join(', '));
+  linhas.push('');
+  for (const n of ns){
+    const v = O[n];
+    if (v && typeof v === 'object'){
+      const metodos = Object.keys(v).filter(k => typeof v[k] === 'function').sort();
+      if (metodos.length) linhas.push('omni.' + n + ': ' + metodos.join(', '));
+    } else if (typeof v === 'function'){
+      linhas.push('omni.' + n + '(): função');
+    }
+  }
+  const alvo = ['chats.listMine','chats.listByQueue','chats.transfer','chats.getSelected',
+                'queues.list','users.list','ui.confirm','ui.toast','session.getUser'];
+  linhas.push('');
+  linhas.push('checagem dos métodos do cenário:');
+  for (const p of alvo) linhas.push('  ' + (hasPath(O,p) ? 'OK  ' : 'X   ') + p);
+  return linhas.join('\n');
+}
+
+// ---- carga de dados ----
+function minutosDesde(iso){
+  if (!iso) return null;
+  const t = Date.parse(iso);
+  if (isNaN(t)) return null;
+  return Math.max(0, Math.round((Date.now() - t) / 60000));
+}
+function esperaDe(c){
+  // tenta os campos usuais de tempo de espera
+  const cands = ['waitingtime','waitingTime','waittime','createdAt','createdat','starttime',
+                 'startTime','date','datetime','lastmessageat'];
+  for (const k of cands){
+    if (c && c[k] !== undefined && c[k] !== null){
+      const v = c[k];
+      if (typeof v === 'number'){
+        // alguns campos vem em segundos
+        const min = v > 1e9 ? Math.round((Date.now() - v*1000)/60000) : Math.round(v/60);
+        if (isFinite(min) && min >= 0) return min;
+      }
+      const m = minutosDesde(v);
+      if (m !== null) return m;
+    }
+  }
+  return null;
+}
+function nomeFila(c){
+  return (c && (c.queueName || (c.queue && (c.queue.name || c.queue.description)) || c.queueid || c.queueId)) || 'sem fila';
+}
+function agenteDe(c){
+  return (c && (c.userName || c.userid || c.userId || (c.user && (c.user.name || c.user.id)))) || null;
+}
+function semAgente(c){
+  const a = agenteDe(c);
+  return a === null || a === undefined || a === '' || a === 0 || a === '0';
+}
+function idChat(c){ return c && (c.id !== undefined ? c.id : c.chatid); }
+
+async function carregar(){
+  el('tbody').innerHTML = '<tr><td colspan="4" class="empty">carregando…</td></tr>';
+  hideMsg();
+  const notas = [];
+
+  try{
+    const conf = (O && O.config) || (window.__omniConfig) || {};
+    if (conf && conf.limiteEsperaAlerta !== undefined) limiteMin = Number(conf.limiteEsperaAlerta) || 10;
+  }catch(e){}
+
+  try{
+    const u = await O.session.getUser();
+    el('sub').textContent = 'sessão: ' + (u && u.name ? u.name : '?') +
+      ' (id ' + (u && u.id) + ') · tipo ' + quote(u && u.type);
+  }catch(e){ el('sub').textContent = 'sessão indisponível'; }
+
+  // filas
+  if (hasPath(O, 'queues.list')){
+    try { filas = await O.queues.list(); notas.push('queues.list: ' + (filas ? filas.length : 0) + ' filas'); }
+    catch(e){ notas.push('queues.list falhou: ' + (e && e.message)); }
+  } else { notas.push('queues.list AUSENTE'); }
+
+  // agentes
+  if (hasPath(O, 'users.list')){
+    try { agentes = await O.users.list(); notas.push('users.list: ' + (agentes ? agentes.length : 0) + ' agentes'); }
+    catch(e){ notas.push('users.list falhou: ' + (e && e.message)); }
+  } else { notas.push('users.list AUSENTE'); }
+
+  // chats
+  chats = [];
+  if (hasPath(O, 'chats.listByQueue')){
+    try { chats = await O.chats.listByQueue(); notas.push('chats.listByQueue: ' + (chats ? chats.length : 0)); }
+    catch(e){ notas.push('chats.listByQueue falhou: ' + (e && e.message)); }
+  }
+  if ((!chats || !chats.length) && hasPath(O, 'chats.listMine')){
+    try { chats = await O.chats.listMine(); notas.push('chats.listMine: ' + (chats ? chats.length : 0)); }
+    catch(e){ notas.push('chats.listMine falhou: ' + (e && e.message)); }
+  }
+  if (!chats) chats = [];
+
+  render(notas);
+}
+
+function render(notas){
+  const total = chats.length;
+  const sem = chats.filter(semAgente).length;
+  const esperas = chats.map(esperaDe).filter(v => v !== null);
+  const maior = esperas.length ? Math.max(...esperas) : null;
+  const filasCom = new Set(chats.map(nomeFila)).size;
+
+  el('cTotal').textContent = total;
+  el('cSemAgente').textContent = sem;
+  el('cSemAgente').className = 'v' + (sem > 0 ? ' bad' : '');
+  el('cEspera').textContent = maior === null ? '—' : (maior + ' min');
+  el('cEspera').className = 'v small' + (maior !== null && maior >= limiteMin ? ' bad' : (maior !== null ? ' ok' : ''));
+  el('cFilas').textContent = filasCom;
+
+  // agrupa por agente + fila
+  const mapa = new Map();
+  for (const c of chats){
+    const a = semAgente(c) ? '(sem agente)' : String(agenteDe(c));
+    const f = String(nomeFila(c));
+    const key = a + '\u0000' + f;
+    if (!mapa.has(key)) mapa.set(key, { agente:a, fila:f, n:0, espera:null, amostra:null });
+    const it = mapa.get(key);
+    it.n++;
+    const e = esperaDe(c);
+    if (e !== null && (it.espera === null || e > it.espera)) it.espera = e;
+    if (!it.amostra) it.amostra = c;
+  }
+  const linhas = [...mapa.values()].sort((x, y) => (y.espera === null ? -1 : y.espera) - (x.espera === null ? -1 : x.espera));
+
+  const tb = el('tbody');
+  if (!linhas.length){
+    tb.innerHTML = '<tr><td colspan="4" class="empty">nenhum atendimento aberto no momento</td></tr>';
+  } else {
+    tb.innerHTML = '';
+    for (const it of linhas){
+      const tr = document.createElement('tr');
+      tr.className = 'click';
+      const cls = it.espera !== null && it.espera >= limiteMin ? 'bad' : 'ok';
+      tr.innerHTML =
+        '<td>' + (it.agente === '(sem agente)' ? '<span class="tag bad">sem agente</span>' : it.agente) + '</td>' +
+        '<td>' + it.fila + '</td>' +
+        '<td><b>' + it.n + '</b></td>' +
+        '<td>' + (it.espera === null ? '—' : '<span class="tag ' + cls + '">' + it.espera + ' min</span>') + '</td>';
+      tr.addEventListener('click', () => selecionar(it.amostra, tr));
+      tb.appendChild(tr);
+    }
+  }
+
+  // combo de agentes
+  const sel = el('inAgente');
+  sel.innerHTML = '<option value="">— escolha o agente —</option>';
+  for (const a of (agentes || [])){
+    const id = a && (a.id !== undefined ? a.id : a.userid);
+    const nome = a && (a.name || a.fullname || a.username) || ('agente ' + id);
+    if (id === undefined || id === null) continue;
+    const op = document.createElement('option');
+    op.value = String(id);
+    op.textContent = nome + ' (#' + id + ')';
+    sel.appendChild(op);
+  }
+  if (!agentes || !agentes.length){
+    sel.innerHTML = '<option value="">— lista de agentes indisponível —</option>';
+  }
+
+  el('diag').textContent = diagnostico() + '\n\n' + (notas.join('\n') || '(sem notas)');
+  try{ O.ui.resize(); }catch(e){}
+}
+
+function selecionar(c, tr){
+  selecionado = c;
+  document.querySelectorAll('tbody tr').forEach(t => t.classList.remove('sel'));
+  if (tr) tr.classList.add('sel');
+  el('inChat').value = '#' + idChat(c) + ' · ' + nomeFila(c) + ' · ' + (semAgente(c) ? 'sem agente' : agenteDe(c));
+  el('btTransferir').disabled = false;
+}
+
+async function transferir(){
+  if (!selecionado){ say('bad', 'Selecione um atendimento na tabela.'); return; }
+  const destino = el('inAgente').value;
+  if (!destino){ say('bad', 'Escolha o agente de destino.'); return; }
+  const rotulo = el('inAgente').selectedOptions[0].textContent;
+  const id = idChat(selecionado);
+
+  let ok = true;
+  if (hasPath(O, 'ui.confirm')){
+    ok = await O.ui.confirm({
+      title: 'Transferir atendimento',
+      message: 'Transferir o atendimento #' + id + ' para ' + rotulo + '?',
+      okText: 'Transferir', cancelText: 'Cancelar'
+    });
+  }
+  if (!ok) return;
+
+  try{
+    el('btTransferir').disabled = true;
+    await O.chats.transfer(id, { userId: Number(destino) });
+    if (hasPath(O, 'ui.toast')) O.ui.toast({ msg: 'Atendimento #' + id + ' transferido para ' + rotulo });
+    say('ok', 'Atendimento #' + id + ' transferido para ' + rotulo + '.');
+    await carregar();
+  }catch(e){
+    say('bad', 'Falha ao transferir: ' + (e && e.message ? e.message : e));
+  }finally{
+    el('btTransferir').disabled = false;
+  }
+}
+
+function tema(){
+  try{
+    if (O && O.session && O.session.getTheme){
+      O.session.getTheme().then(th => {
+        document.documentElement.setAttribute('data-theme', (th && th.mode === 'dark') ? 'dark' : 'light');
+      }).catch(()=>{});
+    }
+  }catch(e){}
+}
+
+el('btRefresh').addEventListener('click', carregar);
+el('btTransferir').addEventListener('click', transferir);
+if (window.ResizeObserver){ new ResizeObserver(()=>{ try{ O.ui.resize(); }catch(e){} }).observe(document.body); }
+
+function arrancar(){
+  if (!window.omni || !window.omni.ready){
+    el('sub').textContent = 'SDK ainda não injetado — tentando novamente…';
+    setTimeout(arrancar, 400);
+    return;
+  }
+  window.omni.ready(() => {
+    tema();
+    if (window.omni.on){ try{ window.omni.on('themeChanged', () => tema()); }catch(e){} }
+    if (window.omni.on){ try{ window.omni.on('chatListChanged', () => carregar()); }catch(e){} }
+    carregar();
+  });
+}
+arrancar();
+</script>
+</body>
+</html>
