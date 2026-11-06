@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Relatórios, Painéis e Métricas — Manual Omnichannel</title>
-<meta name="description" content="Métricas de tempo (TMA, TMPR, TPR, ESR), relatórios de atendimento, painéis, exportação para Excel e relatórios personalizados — dúvidas frequentes.">
+<meta name="description" content="Métricas de tempo (TMA, TMPR, TMR, TPR, ESR), relatórios de atendimento, painéis, exportação para Excel e relatórios personalizados — dúvidas frequentes.">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -132,7 +132,7 @@
   <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="faq.html">Base de Conhecimento</a> &rsaquo; Relatórios e Métricas</div>
 
   <h1>Relatórios, Painéis e Métricas</h1>
-  <p class="subtitle">Métricas de tempo (TMA, TMPR, TPR, ESR), relatórios de atendimento, painéis, exportação para Excel e relatórios personalizados — dúvidas frequentes.</p>
+  <p class="subtitle">Métricas de tempo (TMA, TMPR, TMR, TPR, ESR), relatórios de atendimento, painéis, exportação para Excel e relatórios personalizados — dúvidas frequentes.</p>
 
   <!-- AUTO-TOC -->
   <nav class="toc" aria-label="Índice do capítulo">
@@ -255,6 +255,8 @@
 <tr><td>TMA-A</td><td>TMA calculado na perspectiva do próprio agente</td><td>Relatório de agentes</td></tr>
 <tr><td>TMPR</td><td>Tempo Médio para Primeira Resposta (tempo médio até a primeira resposta do agente)</td><td>Relatório de agentes, Relatório de filas</td></tr>
 <tr><td>TMPR-A</td><td>TMPR calculado na perspectiva do próprio agente</td><td>Relatório de agentes</td></tr>
+<tr><td>TMR</td><td>Tempo Médio de Resposta — média, por troca de turno, do tempo entre cada mensagem do cliente e a resposta do agente (ritmo da conversa, não duração do atendimento)</td><td>Relatório de agentes</td></tr>
+<tr><td>TMR-IA</td><td>Tempo Médio de Resposta das mensagens de continuidade enviadas pela IA (mesma conta do TMR, restrita às respostas automáticas)</td><td>Relatório de agentes, instâncias com IA Premium</td></tr>
 <tr><td>TPR</td><td>Tempo para Primeira Resposta de um atendimento específico (não é uma média, é o valor daquele atendimento)</td><td>Histórico de Chats</td></tr>
 <tr><td>ESR</td><td>Encerrados Sem Resposta — atendimentos finalizados sem que o cliente tenha recebido resposta</td><td>Relatório de agentes, Relatório de filas</td></tr>
 <tr><td>TME</td><td>Tempo Médio de Espera do cliente na fila antes de ser atendido</td><td>Relatório de filas</td></tr>
@@ -267,6 +269,7 @@
 <ul>
 <li>Nos relatórios de Tickets a mesma sigla muda de sentido: lá, TMR é o tempo médio até a primeira resposta do ticket, e TMA é o tempo médio de resolução do ticket (do momento de abertura até o encerramento) — não confunda com o TMA de atendimentos de chat/telefonia, que mede a duração do próprio atendimento.</li>
 <li>TPR é sempre um valor individual (de um atendimento), enquanto TMA, TMPR, TME e TMR são sempre médias calculadas sobre um conjunto de atendimentos ou tickets no período do filtro.</li>
+<li>No Relatório de agentes, o <strong>TMR</strong> não é o tempo até a primeira resposta (isso é TMPR) nem a duração do atendimento (isso é TMA): é a média de <strong>cada troca de turno</strong>, ou seja, quanto o agente demorou a responder depois de cada mensagem do cliente. Se o período não teve nenhuma troca de turno, a célula mostra <strong>“—”</strong> em vez de 00:00:00. O <strong>TMR-IA</strong> usa a mesma conta, restrita às respostas automáticas de continuidade da IA, e só aparece com IA Premium habilitada.</li>
 <li>TMA-A e TMPR-A só existem no Relatório de agentes; nos demais relatórios só aparece a versão sem "-A".</li>
 <li>Veja também os artigos "Quais colunas e métricas tem o Relatório de filas?" e "Quais colunas e métricas o relatório de agentes tem?" para o contexto completo de cada coluna nesses relatórios.</li>
 </ul>
@@ -398,6 +401,8 @@
 <tr><td>Chats</td><td>TMA-A</td><td>TMA calculado na perspectiva do agente</td></tr>
 <tr><td>Chats</td><td>TMPR</td><td>Tempo Médio para Primeira Resposta</td></tr>
 <tr><td>Chats</td><td>TMPR-A</td><td>TMPR calculado na perspectiva do agente</td></tr>
+<tr><td>Chats</td><td>TMR</td><td>Tempo médio de resposta por troca de turno: a cada mensagem do cliente, quanto o agente levou para responder (aparece como "—" quando o período não teve nenhuma troca de turno)</td></tr>
+<tr><td>Chats</td><td>TMR-IA</td><td>Mesma média do TMR, restrita às mensagens de continuidade enviadas pela IA (só aparece com IA Premium habilitada)</td></tr>
 <tr><td>Chats</td><td>ESR</td><td>Encerrados Sem Resposta</td></tr>
 <tr><td>—</td><td>Avaliações</td><td>Média das notas de satisfação dadas pelos clientes nos atendimentos do agente</td></tr>
 <tr><td>—</td><td>Avaliações por IA</td><td>Média das notas de satisfação estimadas por IA nos atendimentos do agente</td></tr>
@@ -423,7 +428,7 @@
 <h4>Pontos de atenção</h4>
 <ul>
 <li>O relatório não separa colunas por canal (WhatsApp, Instagram etc.): os números de "Chats" somam todos os canais de mensageria atendidos pelo agente no período.</li>
-<li>Para o significado detalhado de TMA, TMA-A, TMPR, TMPR-A e ESR — inclusive por que o mesmo agente pode aparecer com valores diferentes em outros relatórios — veja o artigo "O que significam as siglas TMA, TMPR, TMPR-A, TPR e ESR usadas nos relatórios?".</li>
+<li>Para o significado detalhado de TMA, TMA-A, TMPR, TMPR-A, TMR, TMR-IA e ESR — inclusive por que o mesmo agente pode aparecer com valores diferentes em outros relatórios — veja o artigo "O que significam as siglas TMA, TMPR, TMPR-A, TPR e ESR usadas nos relatórios?".</li>
 <li>Este relatório mostra totais e médias por agente; para o detalhamento por motivo de pausa, use o Relatório de Pausas (Relatórios &gt; Relatório de Pausas).</li>
 </ul>
 

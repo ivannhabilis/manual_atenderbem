@@ -235,22 +235,78 @@
   </div>
 
   <h3 id="3-2-metricas-do-relatorio-e-do-painel-de-agentes">3.2 Métricas do Relatório e do Painel de Agentes</h3>
-  <p>Além de “Chats agora” e “Chats atendidos hoje”, o Relatório de Agentes expõe indicadores calculados a partir de eventos do atendimento. Entenda o que cada um considera:</p>
+  <p>Além de “Chats agora” e “Chats atendidos hoje”, o Relatório de Agentes expõe indicadores calculados a partir dos eventos do atendimento. Nada é estimado: todos os tempos vêm de carimbos de hora gravados pelo sistema (abertura do chat, atribuição ao agente, envio da primeira resposta, cada nova mensagem e encerramento) e cada coluna é apenas uma <strong>contagem</strong> ou uma <strong>média</strong> desses carimbos dentro do período filtrado. Os tempos são sempre exibidos no formato <strong>hh:mm:ss</strong>.</p>
+
+  <p><strong>O caminho do atendimento, em linguagem simples:</strong> o cliente abre o chat (<em>aberto</em>) → o chat é entregue a um agente (<em>atribuído</em>) → o agente responde pela primeira vez (<em>primeira resposta</em>) → cliente e agente trocam mensagens, e cada resposta do agente a uma mensagem do cliente é uma <em>troca de turno</em> → o atendimento termina (<em>encerrado</em>). Se o chat termina sem nenhuma resposta do agente, ele entra em <em>encerrados sem resposta</em>.</p>
+
+  <p><strong>Grupo “Chats” — os cinco primeiros contadores.</strong> As cinco primeiras colunas do grupo não trazem texto no cabeçalho, apenas um ícone; ao passar o mouse, o sistema mostra o nome completo da coluna. Na ordem em que aparecem:</p>
   <div class="table-wrap">
   <table class="doc">
-    <thead><tr><th>Indicador</th><th>Quando é calculado</th><th>O que considera</th></tr></thead>
+    <thead><tr><th>Posição</th><th>Nome oficial da coluna (tooltip do sistema)</th><th>O que conta</th></tr></thead>
     <tbody>
-      <tr><td>Total de chats encerrados pelo agente</td><td>Ao finalizar o atendimento (botão encerrar).</td><td>Atendimentos efetivamente encerrados pelo agente no período.</td></tr>
-      <tr><td>Total de chats atribuídos ao agente</td><td>No período.</td><td>Atendimentos atribuídos ao agente, mesmo que não tenham sido encerrados por ele.</td></tr>
-      <tr><td>Total de clientes únicos atribuídos</td><td>No período.</td><td>Clientes distintos — se o mesmo cliente foi atendido 3 vezes, conta apenas 1.</td></tr>
-      <tr><td>Total de atendimentos respondidos</td><td>No período.</td><td>Atendimentos que receberam resposta enquanto estavam com o agente.</td></tr>
-      <tr><td>TMA</td><td>Quando o atendimento é encerrado pelo agente.</td><td>Tempo médio da abertura até o fechamento, independente de quanto tempo ficou com aquele agente específico.</td></tr>
-      <tr><td>TMA-A</td><td>Quando o atendimento é removido do agente (fechamento, transferência ou outro motivo).</td><td>Tempo médio a partir do momento em que foi atribuído ao agente; se voltou mais de uma vez para o mesmo agente, soma todas as passagens.</td></tr>
-      <tr><td>TMPR</td><td>Na primeira resposta enviada pelo agente.</td><td>Tempo médio de primeira resposta desde a abertura; conta uma resposta por dia para cada ID de atendimento.</td></tr>
-      <tr><td>TMPR-A</td><td>Na resposta do agente.</td><td>Tempo médio de primeira resposta desde o momento em que foi atribuído ao agente; conta uma resposta por dia para cada ID de atendimento.</td></tr>
+      <tr><td>1º ícone</td><td>Total de chats encerrados pelo agente no período</td><td>Atendimentos que o próprio agente finalizou (clicou em encerrar). Não inclui chats encerrados pela automação, pelo cliente ou por outro usuário.</td></tr>
+      <tr><td>2º ícone</td><td>Total de chats atribuídos ao agente no período</td><td>Atendimentos que passaram pelo agente, mesmo que ele não os tenha encerrado.</td></tr>
+      <tr><td>3º ícone</td><td>Total de clientes únicos atribuídos ao agente no período</td><td>Clientes distintos entre os atendimentos atribuídos: se o mesmo cliente falou três vezes, conta <strong>1</strong>.</td></tr>
+      <tr><td>4º ícone</td><td>Total de atendimentos respondidos pelo agente no período</td><td>Atendimentos que receberam pelo menos uma resposta do agente enquanto estavam com ele.</td></tr>
+      <tr><td>5º ícone</td><td>Total de clientes únicos respondidos pelo agente no período</td><td>Mesma regra de “cliente distinto”, aplicada aos atendimentos respondidos.</td></tr>
     </tbody>
   </table>
   </div>
+  <div class="callout tip">
+    <strong>Leitura rápida dos contadores:</strong> o 2º ícone é “quanto trabalho chegou” e o 1º é “quanto foi concluído”. Quando o 2º é muito maior que o 1º, o agente está recebendo mais do que fechando — normalmente por transferência, por chat que retorna à fila ou por encerramento automático.
+  </div>
+
+  <p><strong>Métricas de tempo.</strong> As siglas abaixo aparecem à direita dos contadores. A coluna “-A” existe para separar a espera do cliente (que inclui a fila) do tempo que esteve efetivamente com o agente:</p>
+  <div class="table-wrap">
+  <table class="doc">
+    <thead><tr><th>Sigla</th><th>Nome oficial (tooltip do sistema)</th><th>Quando é calculado</th><th>O que considera</th></tr></thead>
+    <tbody>
+      <tr><td><strong>TMA</strong></td><td>Tempo médio para atendimento</td><td>Quando o atendimento é encerrado pelo agente.</td><td>Tempo médio da abertura até o fechamento, independente de quanto tempo ficou com aquele agente específico.</td></tr>
+      <tr><td><strong>TMA-A</strong></td><td>Tempo médio para atendimento (na perspectiva do agente)</td><td>Quando o atendimento é removido do agente (fechamento, transferência ou outro motivo).</td><td>Tempo médio a partir do momento em que foi atribuído ao agente; se voltou mais de uma vez para o mesmo agente, soma todas as passagens.</td></tr>
+      <tr><td><strong>TMPR</strong></td><td>Tempo médio para primeira resposta</td><td>Na primeira resposta enviada pelo agente.</td><td>Tempo médio de primeira resposta desde a abertura; conta uma resposta por dia para cada ID de atendimento.</td></tr>
+      <tr><td><strong>TMPR-A</strong></td><td>Tempo médio para primeira resposta (na perspectiva do agente)</td><td>Na resposta do agente.</td><td>Tempo médio de primeira resposta desde o momento em que foi atribuído ao agente; conta uma resposta por dia para cada ID de atendimento.</td></tr>
+      <tr><td><strong>TMR</strong></td><td>Tempo médio de resposta: média, por troca de turno, do tempo entre a primeira mensagem do cliente e a primeira resposta do agente</td><td>Em cada troca de turno (cada mensagem do cliente seguida de resposta do agente).</td><td>Média do tempo de reação do agente <strong>a cada mensagem</strong> do cliente. É o “ritmo da conversa”, e não a duração do atendimento.</td></tr>
+      <tr><td><strong>TMR-IA</strong></td><td>Tempo médio de resposta com as mensagens de continuidade da IA</td><td>Nas trocas de turno em que a resposta foi enviada por <em>automação de continuidade</em> da IA.</td><td>Mesma conta do TMR, restrita às mensagens automáticas de continuidade. A coluna só é exibida em instâncias com <strong>IA Premium</strong> habilitada.</td></tr>
+      <tr><td><strong>ESR</strong></td><td>Encerrados sem resposta</td><td>Quando o atendimento é encerrado — por quem quer que seja.</td><td>Quantidade de atendimentos que terminaram <strong>sem nenhuma resposta</strong> do agente: o cliente saiu sem ser atendido (timeout, encerramento pelo próprio cliente, automação ou regra do sistema).</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout info">
+    <strong>Como o TMR é calculado, passo a passo.</strong> O sistema marca a hora da mensagem do cliente e a hora da primeira resposta do agente seguinte; a diferença é um turno. O TMR é a <strong>média simples desses turnos</strong> no período. Exemplo: o cliente escreve às 10:00 e o agente responde às 10:03 (3 min); às 10:10 o cliente volta e é respondido às 10:11 (1 min) — TMR = (3 + 1) ÷ 2 = <strong>2 min</strong>. Consequências práticas:
+    <ul>
+      <li>Só há TMR onde houve <strong>troca de turno</strong> — um chat sem nenhuma resposta do agente não entra na média.</li>
+      <li>Quando o período não tem nenhuma troca de turno, a célula mostra <strong>“—”</strong> (traço), e não 00:00:00: não existe divisão por zero a exibir.</li>
+      <li>A célula do TMR também traz o detalhe <strong>“N trocas de turno”</strong>, que é a quantidade de turnos usada na média — útil para saber se a média tem base ou é apenas um turno isolado.</li>
+      <li>Uma única resposta muito demorada pesa menos em um dia com 50 turnos do que em um dia com 2 turnos.</li>
+    </ul>
+  </div>
+
+  <div class="callout warn">
+    <strong>TMR não é TMA nem TMPR.</strong> O <strong>TMPR</strong> mede <em>uma única espera</em>: do início do atendimento até a primeira resposta. O <strong>TMA</strong> mede a <em>duração do atendimento inteiro</em>. O <strong>TMR</strong> mede o <em>ritmo de cada resposta</em> ao longo da conversa. Um atendimento pode ter TMPR baixo (respondeu rápido), TMR alto (depois demorou em cada retorno) e TMA alto (conversa longa) — são três perguntas diferentes.
+  </div>
+
+  <div class="callout info">
+    <strong>Por que existem as versões “-A”.</strong> Porque o TMA e o TMPR sem “-A” carregam o tempo de espera na fila, que não é atribuível ao agente. Um chat que esperou 40 minutos na fila e foi respondido em 30 segundos apresenta <strong>TMPR = 40min30s</strong> e <strong>TMPR-A = 30s</strong>. Regra prática: para avaliar <em>o agente</em>, use as colunas com “-A”; para avaliar <em>a operação/fila</em>, use as sem “-A”.
+  </div>
+
+  <p><strong>Como ler células zeradas, com traço e “N/D”.</strong> O relatório nunca “esconde” uma coluna por falta de dado: ele marca o motivo.</p>
+  <div class="table-wrap">
+  <table class="doc">
+    <thead><tr><th>Valor exibido</th><th>Significado</th></tr></thead>
+    <tbody>
+      <tr><td><strong>0</strong></td><td>Nenhuma ocorrência no período (nenhum chat atribuído, encerrado ou respondido).</td></tr>
+      <tr><td><strong>00:00:00</strong></td><td>A média existe, mas com numerador zero — é um zero legítimo do período, não um erro de cálculo.</td></tr>
+      <tr><td><strong>—</strong> (traço)</td><td>Não há valor possível para calcular. No TMR, significa zero trocas de turno no período.</td></tr>
+      <tr><td><strong>N/D</strong></td><td>“Não disponível”: a métrica depende de um dado que não existiu no período (chamadas de telefonia, avaliações de clientes, tempo de disponibilidade).</td></tr>
+      <tr><td><strong>0%</strong></td><td>Percentual sem denominador: houve zero eventos na base do cálculo.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout tip">
+    <strong>Regra de ouro para explicar a um gestor:</strong> as colunas <strong>com “-A” avaliam o agente</strong>; as <strong>sem “-A” avaliam a jornada do cliente</strong>, incluindo a fila. E os três contadores de chats (atribuídos, respondidos e encerrados) são bases diferentes de propósito — por isso não fecham soma entre si nem com o Dashboard. A conciliação é feita no Histórico de Chats, como mostra a seção 3.3.
+  </div>
+  <p>Para o resumo das siglas em formato de consulta rápida, veja também o artigo <a href="faq-relatorios-metricas.html#faq-299">“O que significam as siglas TMA, TMPR, TMPR-A, TPR e ESR usadas nos relatórios?”</a> e o artigo <a href="faq-relatorios-metricas.html#faq-329">“Quais colunas e métricas o relatório de Agentes mostra?”</a>.</p>
 
   <h3 id="3-3-exemplo-pratico-de-conciliacao-cruzando-os-dados">3.3 Exemplo prático de conciliação (cruzando os dados)</h3>
   <p>Exemplo real extraído de uma mesma instância, no período de um dia:</p>
