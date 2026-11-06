@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatório de Agentes — como ler cada número</title>
+<style>
+  :root{--roxo:#4c1d95;--roxo2:#6d28d9;--azul:#2563eb;--cinza:#475569;--borda:#cbd5e1;--fundo:#f8fafc;--verde:#047857;--ambar:#b45309}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#0f172a;line-height:1.62;background:#fff}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 80px}
+  header.topo{background:linear-gradient(135deg,var(--roxo),var(--roxo2));color:#fff;padding:34px 20px}
+  header.topo .in{max-width:920px;margin:0 auto}
+  header.topo h1{margin:0 0 6px;font-size:27px;line-height:1.25}
+  header.topo p{margin:0;opacity:.94;font-size:14.5px}
+  h2{margin:40px 0 12px;font-size:20px;color:var(--roxo);border-bottom:2px solid #ede9fe;padding-bottom:6px}
+  h3{margin:26px 0 8px;font-size:16.5px;color:#1e293b}
+  p,li,td,th{font-size:14.5px}
+  ul,ol{padding-left:22px}
+  li{margin:4px 0}
+  strong{color:#0b1220}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.8px}
+  th,td{border:1px solid var(--borda);padding:9px 11px;text-align:left;vertical-align:top}
+  th{background:var(--roxo);color:#fff;font-weight:600}
+  tr:nth-child(even) td{background:var(--fundo)}
+  td.sig{font-weight:700;white-space:nowrap;color:var(--roxo)}
+  .box{border-left:5px solid var(--azul);background:#eff6ff;padding:12px 16px;border-radius:8px;margin:16px 0}
+  .box.aviso{border-color:#f59e0b;background:#fffbeb}
+  .box.dica{border-color:#10b981;background:#ecfdf5}
+  .box.faca{border-color:var(--roxo2);background:#f5f3ff}
+  .box b.rot{display:block;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;opacity:.85}
+  .box p:last-child,.box ul:last-child{margin-bottom:0}
+  .box p:first-of-type{margin-top:0}
+  .fluxo{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin:16px 0}
+  .fluxo .c{flex:1 1 150px;border:2px solid var(--azul);border-radius:10px;background:#eff6ff;padding:10px 12px;font-size:13px}
+  .fluxo .c b{display:block;font-size:13px;color:#1e3a8a}
+  .indice{background:var(--fundo);border:1px solid var(--borda);border-radius:12px;padding:12px 20px;margin:20px 0}
+  .indice b{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--cinza)}
+  .indice ol{margin:6px 0 0}
+  .indice a{color:var(--roxo2);text-decoration:none}
+  footer{margin-top:46px;border-top:1px solid var(--borda);padding-top:14px;color:var(--cinza);font-size:12.5px}
+  .exemplo{background:#0f172a;color:#e2e8f0;border-radius:10px;padding:14px 16px;font-family:Consolas,Menlo,monospace;font-size:13px;line-height:1.6;margin:14px 0}
+  .exemplo b{color:#7dd3fc}
+  .pill{display:inline-block;background:#ede9fe;color:#4c1d95;border-radius:20px;padding:1px 9px;font-size:12px;font-weight:600}
+  @media print{
+    @page{size:A4;margin:14mm 12mm}
+    body{font-size:10.4pt;line-height:1.5}
+    header.topo{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:22px 16px}
+    header.topo h1{font-size:20pt}
+    .wrap{max-width:none;padding:0 0 6mm}
+    h2{font-size:13.5pt;margin:16px 0 8px;break-after:avoid}
+    h3{font-size:11.5pt;break-after:avoid}
+    p,li,td,th{font-size:9.8pt}
+    p{orphans:2;widows:2}
+    .box,.fluxo,.exemplo,.indice{break-inside:avoid}
+    table{break-inside:auto}
+    tr{break-inside:avoid}
+    thead{display:table-header-group}
+    footer{margin-top:18px}
+    .indice{display:none}
+  }
+</style>
+</head>
+<body>
+<header class="topo"><div class="in">
+  <h1>Relatório de Agentes — como ler cada número</h1>
+  <p>Guia rápido para gestores, supervisores e equipe de atendimento. Explica, em linguagem simples, o que cada coluna mede e como usar esses números na prática.</p>
+</div></header>
+
+<div class="wrap">
+
+  <div class="box">
+    <b class="rot">Resumo em uma frase</b>
+    O relatório não “estima” nada: ele apenas conta e calcula médias a partir dos horários dos eventos do atendimento — quando o chat abriu, quando chegou ao agente, quando o agente respondeu e quando o atendimento terminou. Entender de onde vem cada número é o que permite usar a tabela para decidir, em vez de discuti-la.
+  </div>
+
+  <div class="indice">
+    <b>Neste guia</b>
+    <ol>
+      <li><a href="#p1">Que perguntas essa tabela responde</a></li>
+      <li><a href="#p2">O caminho do atendimento, em linguagem simples</a></li>
+      <li><a href="#p3">Os cinco contadores do grupo “Chats”</a></li>
+      <li><a href="#p4">As siglas de tempo: TMA, TMPR, TMR e ESR</a></li>
+      <li><a href="#p5">TMR em detalhe: o ritmo da conversa</a></li>
+      <li><a href="#p6">Por que existem as versões com “-A”</a></li>
+      <li><a href="#p7">Como ler 0, 00:00:00, “—” e “N/D”</a></li>
+      <li><a href="#p8">Dúvidas frequentes</a></li>
+      <li><a href="#p9">Regra de ouro</a></li>
+    </ol>
+  </div>
+
+  <h2 id="p1">1. Que perguntas essa tabela responde</h2>
+  <p>Cada linha é um agente. Lendo a linha da esquerda para a direita, você responde quatro perguntas diferentes — e é importante não misturá-las:</p>
+  <table>
+    <thead><tr><th>Pergunta</th><th>Onde olhar</th></tr></thead>
+    <tbody>
+      <tr><td>Quanto trabalho chegou para este agente?</td><td>Contadores do grupo <strong>Chats</strong> (atribuídos e clientes únicos atribuídos)</td></tr>
+      <tr><td>Quanto ele concluiu?</td><td>Contador de <strong>chats encerrados pelo agente</strong></td></tr>
+      <tr><td>Quanto tempo o cliente esperou?</td><td><strong>TMPR</strong> (espera desde a abertura) e <strong>TMPR-A</strong> (espera a partir do momento em que o chat chegou ao agente)</td></tr>
+      <tr><td>Com que ritmo ele respondeu durante a conversa?</td><td><strong>TMR</strong> (média por resposta) e a duração total do atendimento em <strong>TMA</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="p2">2. O caminho do atendimento, em linguagem simples</h2>
+  <p>Todo atendimento percorre as mesmas etapas. As métricas são apenas medidas tiradas dessas etapas:</p>
+  <div class="fluxo">
+    <div class="c"><b>1. Abre</b>O cliente manda a primeira mensagem.</div>
+    <div class="c"><b>2. É atribuído</b>O sistema entrega o chat a um agente.</div>
+    <div class="c"><b>3. Primeira resposta</b>O agente responde pela primeira vez.</div>
+    <div class="c"><b>4. Trocas de turno</b>Cada mensagem do cliente seguida de resposta do agente.</div>
+    <div class="c"><b>5. Encerra</b>Alguém finaliza o atendimento.</div>
+  </div>
+  <p>Uma analogia que costuma funcionar bem em treinamento: é como um restaurante. O cliente entra e senta (chat aberto), o garçom assume a mesa (atribuído), cumprimenta (primeira resposta), cada pedido entregue é uma troca de turno, e a conta encerrada é o fim do atendimento. Se o cliente cansa e vai embora sem ninguém aparecer, isso é um <strong>atendimento encerrado sem resposta</strong>.</p>
+
+  <h2 id="p3">3. Os cinco contadores do grupo “Chats”</h2>
+  <p>As cinco primeiras colunas do grupo não têm texto no cabeçalho: mostram apenas um ícone. Ao passar o mouse sobre o ícone, o sistema exibe o nome completo da coluna. Na ordem em que aparecem:</p>
+  <table>
+    <thead><tr><th>Posição</th><th>Coluna</th><th>O que conta</th></tr></thead>
+    <tbody>
+      <tr><td>1º ícone</td><td><strong>Atendimentos encerrados pelo agente</strong></td><td>Atendimentos que o próprio agente finalizou. Não inclui chats encerrados pela automação, pelo cliente ou por outro usuário.</td></tr>
+      <tr><td>2º ícone</td><td><strong>Atendimentos atribuídos ao agente</strong></td><td>Atendimentos que passaram pelo agente, mesmo que ele não os tenha encerrado.</td></tr>
+      <tr><td>3º ícone</td><td><strong>Clientes únicos atribuídos</strong></td><td>Clientes distintos entre os atendimentos atribuídos: se o mesmo cliente falou três vezes, conta <strong>1</strong>.</td></tr>
+      <tr><td>4º ícone</td><td><strong>Atendimentos respondidos pelo agente</strong></td><td>Atendimentos que receberam pelo menos uma resposta do agente enquanto estavam com ele.</td></tr>
+      <tr><td>5º ícone</td><td><strong>Clientes únicos respondidos</strong></td><td>Mesma regra de “cliente distinto”, aplicada aos atendimentos respondidos.</td></tr>
+    </tbody>
+  </table>
+  <div class="box dica">
+    <b class="rot">Como usar na prática</b>
+    Compare o <strong>2º</strong> ícone (quanto chegou) com o <strong>1º</strong> (quanto foi concluído). Quando o 2º é muito maior que o 1º, o agente está recebendo mais do que fechando — normalmente por transferência, por chat que volta para a fila ou por encerramento automático. Isso é uma conversa sobre fluxo de trabalho, não sobre esforço individual.
+  </div>
+
+  <h2 id="p4">4. As siglas de tempo</h2>
+  <p>Todos os tempos aparecem no formato <strong>hh:mm:ss</strong> (horas, minutos e segundos). Cada sigla responde a uma pergunta diferente:</p>
+  <table>
+    <thead><tr><th>Sigla</th><th>Nome</th><th>O que responde</th></tr></thead>
+    <tbody>
+      <tr><td class="sig">TMA</td><td>Tempo médio para atendimento</td><td>Quanto durou, em média, o atendimento inteiro — da abertura ao encerramento, independentemente de por quantos agentes passou.</td></tr>
+      <tr><td class="sig">TMA-A</td><td>TMA na perspectiva do agente</td><td>Quanto durou, em média, apenas o período em que o atendimento esteve com <em>aquele</em> agente. Se o chat voltou para ele mais de uma vez, as passagens são somadas.</td></tr>
+      <tr><td class="sig">TMPR</td><td>Tempo médio para primeira resposta</td><td>Quanto o cliente esperou, desde a abertura do chat, até a primeira resposta do agente.</td></tr>
+      <tr><td class="sig">TMPR-A</td><td>TMPR na perspectiva do agente</td><td>A mesma espera, contada a partir do momento em que o chat foi entregue ao agente — ignora o tempo de fila anterior.</td></tr>
+      <tr><td class="sig">TMR</td><td>Tempo médio de resposta</td><td>O ritmo da conversa: em média, quanto o agente levou para responder <em>cada</em> mensagem do cliente.</td></tr>
+      <tr><td class="sig">TMR-IA</td><td>TMR das mensagens da IA</td><td>O mesmo cálculo, restrito às respostas automáticas de continuidade enviadas pela IA. Só aparece em contas com IA Premium habilitada.</td></tr>
+      <tr><td class="sig">ESR</td><td>Encerrados sem resposta</td><td>Quantos atendimentos terminaram sem nenhuma resposta do agente — o cliente saiu sem ser atendido.</td></tr>
+    </tbody>
+  </table>
+  <div class="box aviso">
+    <b class="rot">Atenção</b>
+    TMA, TMPR e TMR não são a mesma coisa com nomes diferentes. <strong>TMPR</strong> mede uma única espera (a primeira). <strong>TMA</strong> mede a duração do atendimento inteiro. <strong>TMR</strong> mede o ritmo de cada resposta ao longo da conversa. Um atendimento pode ter primeira resposta rápida, demora nos retornos seguintes e duração total longa — e isso aparece em três colunas distintas.
+  </div>
+
+  <h2 id="p5">5. TMR em detalhe: o ritmo da conversa</h2>
+  <p>O TMR nasce de uma medida simples, repetida a cada mensagem do cliente:</p>
+  <ol>
+    <li>O sistema registra o horário da mensagem do cliente.</li>
+    <li>Registra o horário da primeira resposta do agente depois dela.</li>
+    <li>A diferença entre os dois é <strong>um turno</strong>.</li>
+    <li>O TMR é a <strong>média simples de todos os turnos</strong> do período.</li>
+  </ol>
+  <div class="exemplo">
+    Mensagem do cliente <b>10:00</b> → resposta do agente <b>10:03</b> = turno de <b>3 min</b><br>
+    Mensagem do cliente <b>10:10</b> → resposta do agente <b>10:11</b> = turno de <b>1 min</b><br>
+    TMR = (3 + 1) ÷ 2 = <b>2 min</b>
+  </div>
+  <h3>O que isso significa na prática</h3>
+  <ul>
+    <li><strong>Só existe TMR onde houve troca de turno.</strong> Um atendimento sem nenhuma resposta do agente não entra nessa média — ele aparece em <span class="pill">Encerrados sem resposta</span>.</li>
+    <li><strong>Sem troca de turno no período, a célula mostra “—”.</strong> Não é erro: não há conta a fazer, então o sistema não exibe 00:00:00.</li>
+    <li><strong>A célula também informa quantos turnos entraram na média</strong> ("N trocas de turno"). É o que diz se a média tem base sólida ou se representa apenas uma resposta isolada.</li>
+    <li><strong>Uma resposta muito lenta pesa menos em um dia movimentado.</strong> Um atraso de 20 minutos derruba pouco a média de 50 turnos e derruba muito a média de 2 turnos.</li>
+    <li><strong>TMR baixo não significa, sozinho, bom atendimento.</strong> Respostas rápidas e vazias (“já verifico”, “um momento”) mantêm o TMR baixo sem resolver o cliente — por isso ele deve ser lido junto com avaliações e conclusão dos atendimentos.</li>
+  </ul>
+
+  <h2 id="p6">6. Por que existem as versões com “-A”</h2>
+  <p>Porque as colunas sem “-A” carregam o tempo de espera na fila, que não é atribuível ao agente. Exemplo real de leitura:</p>
+  <table>
+    <thead><tr><th>Situação</th><th>Como aparece</th></tr></thead>
+    <tbody>
+      <tr><td>O chat esperou <strong>40 minutos na fila</strong> e o agente respondeu em <strong>30 segundos</strong></td><td><strong>TMPR</strong> = 40min30s (jornada do cliente)<br><strong>TMPR-A</strong> = 30s (desempenho do agente)</td></tr>
+      <tr><td>O agente respondeu rápido, mas o cliente demorou a retornar e a conversa se arrastou por horas</td><td><strong>TMR</strong> baixo (bom ritmo de resposta)<br><strong>TMA</strong> alto (conversa longa)</td></tr>
+    </tbody>
+  </table>
+  <div class="box faca">
+    <b class="rot">Regra de leitura</b>
+    Para avaliar <strong>o agente</strong>, use as colunas com “-A”. Para avaliar <strong>a operação e a fila</strong>, use as colunas sem “-A”. Cobrar do agente o tempo que o cliente passou na fila é o erro mais comum na leitura desse relatório.
+  </div>
+
+  <h2 id="p7">7. Como ler 0, 00:00:00, “—” e “N/D”</h2>
+  <p>O relatório não esconde uma coluna por falta de dado: ele marca o motivo. Uma linha zerada quase sempre significa “não houve atendimento no período”, e não “o sistema falhou”.</p>
+  <table>
+    <thead><tr><th>Valor exibido</th><th>Significado</th></tr></thead>
+    <tbody>
+      <tr><td><strong>0</strong></td><td>Nenhuma ocorrência no período (nenhum chat atribuído, encerrado ou respondido).</td></tr>
+      <tr><td><strong>00:00:00</strong></td><td>A média existe, mas com numerador zero — é um zero legítimo do período, não erro de cálculo.</td></tr>
+      <tr><td><strong>—</strong> (traço)</td><td>Não há valor possível. No TMR, significa zero trocas de turno no período.</td></tr>
+      <tr><td><strong>N/D</strong></td><td>“Não disponível”: a métrica depende de um dado que não existiu no período (chamadas de telefonia, avaliações de clientes, tempo de disponibilidade).</td></tr>
+      <tr><td><strong>0%</strong></td><td>Percentual sem base de cálculo: houve zero eventos no denominador.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="p8">8. Dúvidas frequentes</h2>
+
+  <h3>Os números deste relatório não batem com o painel inicial. Há erro?</h3>
+  <p>Não. Cada tela usa um recorte próprio, e isso é intencional: o painel inicial olha os atendimentos <strong>abertos</strong> no período; o relatório de agentes olha as <strong>ações do agente</strong> (encerramentos, respostas) no momento em que acontecem; o histórico de chats permite escolher entre data de abertura e data de fechamento. Um atendimento aberto ontem e fechado hoje aparece em um e não no outro. A conferência linha a linha se faz no histórico de chats, com o filtro de data correto.</p>
+
+  <h3>Por que o TMR aparece como “—”?</h3>
+  <p>Porque no período filtrado não houve nenhuma troca de turno para aquele agente — sem mensagem de cliente respondida, não existe tempo de resposta a medir. Se o esperado era haver atendimento, confira o período e se os chats realmente chegaram a esse agente.</p>
+
+  <h3>Por que o mesmo agente tem números diferentes em dois relatórios?</h3>
+  <p>Porque os contadores são bases distintas de propósito: <strong>atribuídos</strong>, <strong>respondidos</strong> e <strong>encerrados</strong> medem coisas diferentes. Um chat pode ser atribuído ao agente e encerrado pela automação; outro pode ser respondido por ele e encerrado por um supervisor. Nenhum dos três é “o número oficial” — eles se complementam.</p>
+
+  <h3>Um TMR alto quer dizer que o agente é ruim?</h3>
+  <p>Não necessariamente. O TMR pode subir por volume (muitos clientes ao mesmo tempo), por conversas que exigem consulta técnica demorada ou por atendimentos noturnos. O TMR é um sinal para investigar, não uma sentença — leia junto com volume, avaliações e quantidade de atendimentos encerrados sem resposta.</p>
+
+  <h2 id="p9">9. Regra de ouro</h2>
+  <div class="box dica">
+    <b class="rot">Para levar ao time</b>
+    <ul>
+      <li>Colunas <strong>com “-A”</strong> avaliam <strong>o agente</strong>; colunas <strong>sem “-A”</strong> avaliam a <strong>jornada do cliente</strong>, incluindo a fila.</li>
+      <li><strong>TMPR</strong> = a primeira espera. <strong>TMA</strong> = a duração total. <strong>TMR</strong> = o ritmo de cada resposta.</li>
+      <li><strong>ESR</strong> (encerrados sem resposta) é o indicador de cliente que saiu sem ser atendido — acompanhe junto com os demais, nunca isolado.</li>
+      <li>Linha zerada normalmente significa <strong>período sem movimento</strong>. Antes de abrir um chamado, confira o período e a fila.</li>
+    </ul>
+  </div>
+
+  <footer>
+    Documento explicativo sobre as métricas do Relatório de Agentes. Os nomes e definições das colunas seguem os textos oficiais exibidos pelo próprio sistema (dica de tela de cada coluna), versão 14.3. Esses conceitos não mudam entre instâncias; a disponibilidade de algumas colunas (como TMR-IA e o grupo de chamadas) depende dos módulos contratados.
+  </footer>
+
+</div>
+</body>
+</html>
