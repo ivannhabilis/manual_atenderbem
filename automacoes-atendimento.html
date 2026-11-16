@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Atendimento, fila e bloqueios — Manual Omnichannel</title>
-<meta name="description" content="Abrir, localizar, distribuir, travar e liberar o atendimento. (15 elementos)">
+<meta name="description" content="Abrir, localizar, distribuir, travar e liberar o atendimento. (17 elementos)">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -132,7 +132,7 @@
   <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="automacoes-elementos.html">Automações e URA</a> &rsaquo; Atendimento, fila e bloqueios</div>
 
   <h1>Atendimento, fila e bloqueios</h1>
-  <p class="subtitle">Abrir, localizar, distribuir, travar e liberar o atendimento. (15 elementos)</p>
+  <p class="subtitle">Abrir, localizar, distribuir, travar e liberar o atendimento. (17 elementos)</p>
 
 <p>Abrir, localizar, distribuir, travar e liberar o atendimento.</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Elemento</th><th>O que faz</th></tr></thead><tbody>
@@ -151,14 +151,13 @@
 <tr><td><a href="#el-sendNotification">sendNotification</a></td><td>Envia uma notificação para um ou mais usuários do sistema (agentes, supervisores ou administradores).</td></tr>
 <tr><td><a href="#el-sendAlert">sendAlert</a></td><td>Envia um alerta para um conjunto de usuários do sistema.</td></tr>
 <tr><td><a href="#el-showSnackNotification">showSnackNotification</a></td><td>Exibe uma notificação de snack para o agente responsável pelo atendimento associado ao fluxo.</td></tr>
+<tr><td><a href="#el-addChatGuests">addChatGuests</a></td><td>Convida um ou mais agentes para o atendimento, com o mesmo efeito do diálogo "Convidados" da tela do agente: os convidados passam a ver o at</td></tr>
+<tr><td><a href="#el-removeChatGuests">removeChatGuests</a></td><td>Remove agentes convidados do atendimento, com o mesmo efeito de o agente desmarcá-los no diálogo "Convidados": o convidado deixa de ver o at</td></tr>
 </tbody></table></div>
 <h3 id="el-openChat">openChat</h3>
 <p>Abre um novo atendimento com base no número de telefone informado. Em fila Telegram, o número é resolvido para a conta correspondente no Telegram antes de abrir o atendimento; se a pessoa não tiver Telegram, ou não permitir ser encontrada pelo telefone, o atendimento não é aberto (NOT_ON_WHATSAPP, o mesmo código do número sem WhatsApp numa fila WAMD). Vale apenas para o tipo de fila Telegram atual (conta + bot), e não para as filas antigas TG e TG Bot, que não abrem atendimento ativo.</p>
 <div class="callout info">FILA E ASSOCIAÇÃO (queueId, opcional; vazio = a fila do fluxo): sem queueId, destinationType, destinationId e resultVariableName, é o elemento de sempre — o atendimento aberto é ASSOCIADO ao fluxo. Com qualquer um desses campos preenchido (destinationType diferente de 0): se a fila (a informada, ou a do fluxo quando queueId está vazio) for a própria fila do fluxo e o fluxo ainda não tiver atendimento, associa do mesmo jeito; em QUALQUER outro caso (fila diferente, ou fluxo que já tem atendimento) o atendimento é aberto SEM associar — o fluxo continua no seu contexto, os elementos seguintes NÃO agem sobre o novo atendimento (para agir nele use o campo chatId de message, sendTemplate, marker, transfer, terminate etc. com a variável de resultado), e as variáveis de usuário do fluxo são copiadas para ele sem sobrescrever as dele. Nesse modo o elemento roda também em automação que já tem atendimento. resultVariableName (vale com ou sem queueId) recebe o ID do atendimento e resultVariableName + "_error" o código da recusa ("" em sucesso). Na aba "Testar" nada é aberto sem associar (VIRTUAL_CHAT).<br>DESTINO (destinationType/destinationId, opcional; vale com ou sem queueId, associando ou não, e só para atendimento RECÉM-aberto): 0 distribuição normal da fila; 1 um atendente específico (precisa estar disponível, poder receber atendimentos e estar vinculado à fila; senão distribuição normal com USER_UNAVAILABLE); 2 um fluxo — uma URA recebe o atendimento sem passar por atendente (um assistente de IA é uma URA com o elemento de assistente), uma automação roda sobre ele depois da distribuição normal. Se já havia atendimento aberto para o número ele é reaproveitado sem aplicar o destino e, no modo sem associar, o erro é CHAT_OPEN.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Abrir atendimento</em> · <strong>Disponível em:</strong> WAMD,Telegram
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"countryCode":"","phoneNumber":"","nextElementId":""}
-Como se escreve: meu_rotulo: openChat countryCode="..." phoneNumber="..."
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>29</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Abrir atendimento</em><br><strong>Disponível em:</strong> WAMD,Telegram<br><strong>Tipo interno:</strong> <code>29</code><br><strong>Config padrão:</strong> <code>{"countryCode":"","phoneNumber":"","nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: openChat countryCode="..." phoneNumber="..."</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -169,10 +168,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-openChatCloud">openChatCloud</h3>
 <p>Abre um novo atendimento com base no número de telefone informado.</p>
 <div class="callout info">Esse elemento deve ser utilizado em filas do tipo WA Cloud API enquanto o openChat deve ser utilizado em filas WAMD.<br>FILA E ASSOCIAÇÃO (queueId, opcional; vazio = a fila do fluxo): sem queueId, destinationType, destinationId e resultVariableName, é o elemento de sempre — o atendimento aberto é ASSOCIADO ao fluxo. Com qualquer um desses campos preenchido (destinationType diferente de 0): se a fila (a informada, ou a do fluxo quando queueId está vazio) for a própria fila do fluxo e o fluxo ainda não tiver atendimento, associa do mesmo jeito; em QUALQUER outro caso (fila diferente, ou fluxo que já tem atendimento) o atendimento é aberto SEM associar — o fluxo continua no seu contexto, os elementos seguintes NÃO agem sobre o novo atendimento (para agir nele use o campo chatId de message, sendTemplate, marker, transfer, terminate etc. com a variável de resultado), e as variáveis de usuário do fluxo são copiadas para ele sem sobrescrever as dele. Nesse modo o elemento roda também em automação que já tem atendimento. resultVariableName (vale com ou sem queueId) recebe o ID do atendimento e resultVariableName + "_error" o código da recusa ("" em sucesso). Na aba "Testar" nada é aberto sem associar (VIRTUAL_CHAT).<br>DESTINO (destinationType/destinationId, opcional; vale com ou sem queueId, associando ou não, e só para atendimento RECÉM-aberto): 0 distribuição normal da fila; 1 um atendente específico (precisa estar disponível, poder receber atendimentos e estar vinculado à fila; senão distribuição normal com USER_UNAVAILABLE); 2 um fluxo — uma URA recebe o atendimento sem passar por atendente (um assistente de IA é uma URA com o elemento de assistente), uma automação roda sobre ele depois da distribuição normal. Se já havia atendimento aberto para o número ele é reaproveitado sem aplicar o destino e, no modo sem associar, o erro é CHAT_OPEN.<br>No openChatCloud, a URA de destino só é iniciada DEPOIS do envio bem-sucedido do template, então o primeiro elemento dela deve ESPERAR a resposta do cliente (question, options ou waitMessage). No modo sem associar, se já houver atendimento aberto para o número, o template NÃO é enviado. O template precisa ser da fila escolhida (TEMPLATE_QUEUE_MISMATCH). Para só enviar um template, sem abrir atendimento, use sendTemplate com phoneNumber.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Abrir atendimento (Cloud)</em> · <strong>Disponível em:</strong> WA Cloud API
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"countryCode":"","phoneNumber":"","templateId":0,"templateData":[],"nextElementId":""}
-Como se escreve: meu_rotulo: openChatCloud countryCode="..." phoneNumber="..." templateId=0
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>31</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Abrir atendimento (Cloud)</em><br><strong>Disponível em:</strong> WA Cloud API<br><strong>Tipo interno:</strong> <code>31</code><br><strong>Config padrão:</strong> <code>{"countryCode":"","phoneNumber":"","templateId":0,"templateData":[],"nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: openChatCloud countryCode="..." phoneNumber="..." templateId=0</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -185,10 +181,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-searchChat">searchChat</h3>
 <p>Busca um atendimento atualmente em aberto, em andamento, com base no dado informado e associa-o ao fluxo corrente.</p>
 <div class="callout info">Caso o fluxo de execução já esteja associado a um atendimento, esse elemento será ignorado.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Buscar atendimento</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"searchField":"clientNumber","searchValue":"","nextElementId":""}
-Como se escreve: meu_rotulo: searchChat searchField="clientNumber" searchValue="..."
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>30</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Buscar atendimento</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>30</code><br><strong>Config padrão:</strong> <code>{"searchField":"clientNumber","searchValue":"","nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: searchChat searchField="clientNumber" searchValue="..."</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -199,10 +192,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-queueChats">queueChats</h3>
 <p>Lista os atendimentos ABERTOS de uma fila no momento da execução e grava o resultado em variáveis, sem alterar nada. Só leitura; tem saída única.</p>
 <div class="callout info">FILA: queueId (ID da fila, aceita variável). Vazio = a fila do fluxo — numa automação ela costuma ser a fila TÉCNICA em que a automação roda (a fila de automações do funil, do contato etc.), e não a que você quer observar: informe a fila explicitamente. Fila inexistente ou desativada: lista vazia, contadores 0 e o código do erro em resultVariableName + "_error" (QUEUE_NOT_FOUND ou QUEUE_DISABLED; o terceiro código possível é FLOW_TYPE_UNSUPPORTED, fora de automação).<br>ESTADOS (status), exclusivos entre si nesta ordem de precedência: 4 - em URA (inclui atendimento com assistente de IA; uma automação rodando sobre o atendimento NÃO conta como URA), 3 - na sala de espera, 2 - com atendente (inclui atendente robô), 1 - aguardando atendente na fila (inclui o recém-aberto ainda não distribuído), 0 - todos os abertos. O "aguardando" daqui não inclui URA nem sala de espera, diferente do indicador "Aguardando atendimento na fila" dos relatórios de SLA.<br>ORDEM: com status 1, a ordem real de distribuição da fila (prioridade, depois antiguidade); nos demais, do mais antigo para o mais novo.<br>VARIÁVEIS criadas (resultVariableName = nome escolhido): resultVariableName: lista (até limit itens, padrão 100, máximo 500) de objetos com id (ID do atendimento — use no campo chatId dos outros elementos), protocol, client_name, client_number, client_id, contact_id, agent_id, agent_name, on_ivr (0/1), ivr_id (0 fora de URA), on_waiting_room (0/1), marker_id, begin_time e wait_seconds (segundos desde a ABERTURA do atendimento, não desde a entrada na fila); resultVariableName + "_count": total do estado pedido, SEM o limite; resultVariableName + "_open", "_waiting", "_assigned", "_waiting_room" e "_on_ivr": contadores de cada estado; resultVariableName + "_error": "" em sucesso ou o código do erro.<br>PARA PERCORRER A LISTA use o elemento loop (type 144) em modo forEach com list "{{nome}}" e maxIterations &gt;= limit (acima do teto o laço não executa nenhuma volta). Valem os tetos por turno da automação (1.000 elementos e 100 mensagens por padrão): uma lista grande com envio de mensagem a cada item estoura o turno.<br>Para só saber QUANTOS atendimentos há na fila do atendimento, sem lista, use as variáveis de sistema chat_queue_open_count, chat_queue_waiting_count, chat_queue_assigned_count, chat_queue_waiting_room_count e chat_queue_on_ivr_count (categoria chat).<br>Só existe em AUTOMAÇÕES: a lista traz dados de outros clientes, que não podem ficar ao alcance de um atendimento de URA. Numa URA (ou URA telefônica) a gravação do fluxo recusa o elemento e, se ele estiver lá mesmo assim, NÃO executa: lista vazia, contadores 0 e resultVariableName + "_error" = FLOW_TYPE_UNSUPPORTED, e o fluxo segue. Na aba "Testar" a fila é simulada: lista vazia e contadores 0.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Consultar atendimentos da fila</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"status":0,"resultVariableName":"","nextElementId":"","queueId":"","limit":100}
-Como se escreve: meu_rotulo: queueChats status=0 resultVariableName="..."
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>145</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Consultar atendimentos da fila</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>145</code><br><strong>Config padrão:</strong> <code>{"status":0,"resultVariableName":"","nextElementId":"","queueId":"","limit":100}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: queueChats status=0 resultVariableName="..."</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -212,10 +202,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-addToWaitingList">addToWaitingList</h3>
 <p>Envia o atendimento associado ao fluxo para a fila de espera.</p>
 <div class="callout info">Atendimentos na fila de espera não são distribuídos automaticamente para os agentes, sendo necessário que um agente manualmente puxe o atendimento.<br>Caso o fluxo não possua um atendimento associado esse elemento é ignorado.<br>OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Adicionar à lista de espera</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
-Como se escreve: meu_rotulo: addToWaitingList
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>68</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Adicionar à lista de espera</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>68</code><br><strong>Config padrão:</strong> <code>{"nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: addToWaitingList</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -224,10 +211,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-removeFromWaitingList">removeFromWaitingList</h3>
 <p>Remove o atendimento associado ao fluxo da fila de espera.</p>
 <div class="callout info">Caso o fluxo não possua um atendimento associado esse elemento é ignorado.<br>OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Remover da lista de espera</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
-Como se escreve: meu_rotulo: removeFromWaitingList
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>69</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Remover da lista de espera</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>69</code><br><strong>Config padrão:</strong> <code>{"nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: removeFromWaitingList</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -236,10 +220,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-lock">lock</h3>
 <p>Aplica um bloqueio ao atendimento associado, vinculando a um agente específico, de forma que o atendimento não possa ser</p>
 <div class="callout info">recebido por outro atendente até que a trava seja removida.<br>Só pode existir um bloqueio por atendimento. Se um novo bloqueio for aplicado, o anterior será removido.<br>OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Bloquear atendimento</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"userId":"","lockTime":0,"nextElementId":""}
-Como se escreve: meu_rotulo: lock userId="..." lockTime=0
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>25</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Bloquear atendimento</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>25</code><br><strong>Config padrão:</strong> <code>{"userId":"","lockTime":0,"nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: lock userId="..." lockTime=0</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -250,10 +231,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-blockChatManualEnd">blockChatManualEnd</h3>
 <p>Impede que o atendimento associado ao fluxo seja encerrado manualmente por um agente humano. Se nenhum atendimento associado estiver disponível, esse elemento será ignorado. Após a execução desse elemento, o atendimento não poderá ser encerrado manualmente por um agente humano, somente poderá ser encerrado por automação ou por um supervisor / administrador. Não afeta a transferência manual, que tem o seu próprio elemento (blockChatManualTransfer).</p>
 <div class="callout info">OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Impedir encerramento manual</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
-Como se escreve: meu_rotulo: blockChatManualEnd
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>84</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Impedir encerramento manual</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>84</code><br><strong>Config padrão:</strong> <code>{"nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: blockChatManualEnd</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -262,10 +240,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-unblockChatManualEnd">unblockChatManualEnd</h3>
 <p>Remove o impedimento de encerramento manual por um agente humano do atendimento associado ao fluxo. Se nenhum atendimento associado estiver disponível, esse elemento será ignorado. Após a execução desse elemento, o atendimento poderá novamente ser encerrado manualmente por um agente humano caso este estivesse bloqueado. Caso o atendimento não possuísse bloqueio de encerramento, esse elemento será ignorado. Não afeta o impedimento de transferência manual (unblockChatManualTransfer).</p>
 <div class="callout info">OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Desimpedir encerramento manual</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
-Como se escreve: meu_rotulo: unblockChatManualEnd
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>85</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Desimpedir encerramento manual</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>85</code><br><strong>Config padrão:</strong> <code>{"nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: unblockChatManualEnd</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -274,10 +249,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-blockChatManualTransfer">blockChatManualTransfer</h3>
 <p>Impede que o atendimento associado ao fluxo seja transferido manualmente por um agente humano — para outro agente, para a fila ou por filtro de distribuição. Se nenhum atendimento associado estiver disponível, esse elemento será ignorado. Após a execução desse elemento, o atendimento não poderá ser transferido manualmente por um agente humano; somente poderá ser transferido pelo próprio fluxo (elemento transfer, assistente de IA) ou por um supervisor / administrador. O impedimento acompanha o atendimento até ser removido pelo unblockChatManualTransfer ou até o atendimento ser encerrado, inclusive se ele for transferido pelo fluxo ou por um supervisor. Não afeta o encerramento manual, que tem o seu próprio elemento (blockChatManualEnd).</p>
 <div class="callout info">OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Impedir transferência manual</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
-Como se escreve: meu_rotulo: blockChatManualTransfer
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>146</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Impedir transferência manual</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>146</code><br><strong>Config padrão:</strong> <code>{"nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: blockChatManualTransfer</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -286,10 +258,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-unblockChatManualTransfer">unblockChatManualTransfer</h3>
 <p>Remove o impedimento de transferência manual por um agente humano do atendimento associado ao fluxo. Se nenhum atendimento associado estiver disponível, esse elemento será ignorado. Após a execução desse elemento, o atendimento poderá novamente ser transferido manualmente por um agente humano caso este estivesse bloqueado. Caso o atendimento não possuísse bloqueio de transferência, esse elemento será ignorado. Não afeta o impedimento de encerramento manual (unblockChatManualEnd).</p>
 <div class="callout info">OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Desimpedir transferência manual</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
-Como se escreve: meu_rotulo: unblockChatManualTransfer
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>147</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Desimpedir transferência manual</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>147</code><br><strong>Config padrão:</strong> <code>{"nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: unblockChatManualTransfer</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -297,10 +266,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-userAvailable">userAvailable</h3>
 <p>Verifica o estado de um agente de atendimento com base em seu ID, salvando o resultado em uma variável.</p>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Verificar disponibilidade do usuário</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"variableName":"","userId":"","nextElementId":""}
-Como se escreve: meu_rotulo: userAvailable variableName="..." userId="..."
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>16</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Verificar disponibilidade do usuário</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>16</code><br><strong>Config padrão:</strong> <code>{"variableName":"","userId":"","nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: userAvailable variableName="..." userId="..."</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -310,10 +276,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-sendNotification">sendNotification</h3>
 <p>Envia uma notificação para um ou mais usuários do sistema (agentes, supervisores ou administradores).</p>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Enviar notificação</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"selectionMode":0,"userId":"","usersIds":[],"text":"","type":0,"nextElementId":""}
-Como se escreve: meu_rotulo: sendNotification selectionMode=0 text="..." type=0
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>33</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Enviar notificação</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>33</code><br><strong>Config padrão:</strong> <code>{"selectionMode":0,"userId":"","usersIds":[],"text":"","type":0,"nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: sendNotification selectionMode=0 text="..." type=0</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -325,10 +288,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-sendAlert">sendAlert</h3>
 <p>Envia um alerta para um conjunto de usuários do sistema.</p>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Enviar alerta</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":"","text":"","fileChooseType":0,"fileId":"","usersIds":[]}
-Como se escreve: meu_rotulo: sendAlert usersIds=[]
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>22</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Enviar alerta</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>22</code><br><strong>Config padrão:</strong> <code>{"nextElementId":"","text":"","fileChooseType":0,"fileId":"","usersIds":[]}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: sendAlert usersIds=[]</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -340,10 +300,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-showSnackNotification">showSnackNotification</h3>
 <p>Exibe uma notificação de snack para o agente responsável pelo atendimento associado ao fluxo.</p>
 <div class="callout info">Caso o fluxo não possua um atendimento associado ou o atendimento não possua um agente esse elemento é ignorado.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Exibir notificação rápida</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"message":"","duration":0,"buttonText":"","style":"default","nextElementId":""}
-Como se escreve: meu_rotulo: showSnackNotification message="..." buttonText="..." style="default"
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>72</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Exibir notificação rápida</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>72</code><br><strong>Config padrão:</strong> <code>{"message":"","duration":0,"buttonText":"","style":"default","nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: showSnackNotification message="..." buttonText="..." style="default"</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -352,6 +309,29 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <tr><td><code>buttonText</code></td><td><code>string</code></td><td>sim</td><td>Texto do botão que será exibido na notificação de snack. Pode-se utilizar variáveis no conteúdo, exemplo: "Fechar {{notification_type}}"</td></tr>
 <tr><td><code>style</code></td><td><code>"default" | "info" | "success" | "alert" | "warning" | "danger"</code></td><td>sim</td><td>Estilo visual da notificação de snack.</td></tr>
 <tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-addChatGuests">addChatGuests</h3>
+<p>Convida um ou mais agentes para o atendimento, com o mesmo efeito do diálogo "Convidados" da tela do agente: os convidados passam a ver o atendimento e as mesmas mensagens que o atendente atribuído e podem enviar mensagens nele; cada convite registra uma mensagem de sistema no atendimento. Saída única; o fluxo sempre segue.</p>
+<div class="callout info">USUÁRIOS (userIds): IDs de usuários separados por vírgula ("12,15") ou uma variável que contenha um ID ou uma lista de IDs (ex.: "{{agentes}}"). No máximo 20 por elemento. Os IDs dos usuários estão em automations_get_system_data (types ["users"]).<br>REGRAS (as mesmas da tela do agente): o atendimento precisa ter um atendente atribuído e estar FORA de URA — numa URA, sem chatId, o atendimento do próprio fluxo está em URA e nada é feito; use o elemento numa automação (por exemplo, disparada por gatilho depois da atribuição) ou com chatId de outro atendimento. Só usuários do tipo agente podem ser convidados; o próprio atendente atribuído e quem já é convidado são ignorados. O convidado não precisa estar online. Se o atendimento voltar para a fila ou para uma URA, os convidados são removidos automaticamente.<br>O que não pôde ser feito (usuário inexistente, que não é agente, já convidado; atendimento sem atendente, em URA ou em encerramento) é ignorado sem interromper o fluxo e registrado na depuração. Os convidados atuais ficam nas variáveis de sistema chat_guests_ids_list e chat_guests_ids_count.<br>Na aba "Testar" os convidados não são alterados. Para remover convidados use removeChatGuests.<br>OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Adicionar convidados</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>153</code><br><strong>Config padrão:</strong> <code>{"nextElementId":"","userIds":""}</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: addChatGuests</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+<tr><td><code>userIds</code></td><td><code>string</code></td><td></td><td>IDs dos agentes a convidar, separados por vírgula (ex.: "12,15"), ou uma variável com um ID ou uma lista de IDs (ex.: "{{agentes}}"). Obrigatório; no máximo 20. Só usuários do tipo agente são aceitos.</td></tr>
+<tr><td><code>chatId</code></td><td><code>string</code></td><td></td><td>ID de OUTRO atendimento aberto sobre o qual o elemento age (ex.: um atendimento aberto pelo openChat sem associar, ou um item da lista do queueChats). Omita ou deixe vazio para agir no atendimento do fluxo, como sempre. Pode-se utilizar variáveis, exemplo: "{{novo_atendimento}}". Com chatId preenchido o elemento roda também em fluxo sem atendimento, e o fluxo continua no seu próprio contexto; atendimento não encontrado ou encerrado: nada acontece (registrado na depuração) e o fluxo segue.</td></tr>
+</tbody></table></div>
+<h3 id="el-removeChatGuests">removeChatGuests</h3>
+<p>Remove agentes convidados do atendimento, com o mesmo efeito de o agente desmarcá-los no diálogo "Convidados": o convidado deixa de ver o atendimento e uma mensagem de sistema é registrada. Saída única; o fluxo sempre segue.</p>
+<div class="callout info">QUEM REMOVER: removeAll: true remove todos os convidados atuais (userIds é ignorado); senão, userIds com os IDs separados por vírgula ("12,15") ou uma variável com um ID ou uma lista de IDs. No máximo 20 por elemento. Quem não é convidado do atendimento é ignorado e registrado na depuração. Remover não depende de atendente atribuído nem de URA.<br>Os convidados atuais ficam nas variáveis de sistema chat_guests_ids_list e chat_guests_ids_count. Na aba "Testar" os convidados não são alterados. Para convidar use addChatGuests.<br>OUTRO ATENDIMENTO (chatId, opcional): informe o ID de outro atendimento aberto — por exemplo o aberto por openChat/openChatCloud sem associar, ou um item da lista do queueChats — para aplicar o elemento a ele. O fluxo continua no seu próprio contexto (as variáveis e o atendimento do fluxo não mudam) e o elemento passa a rodar também em automação sem atendimento. Atendimento não encontrado ou encerrado: nada acontece, o motivo fica na depuração e o fluxo segue. Vazio = comportamento acima.</div>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Remover convidados</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>154</code><br><strong>Config padrão:</strong> <code>{"nextElementId":""}</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: removeChatGuests</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+<tr><td><code>removeAll</code></td><td><code>boolean</code></td><td></td><td>true = remove TODOS os convidados atuais e ignora userIds. Padrão false.</td></tr>
+<tr><td><code>userIds</code></td><td><code>string</code></td><td></td><td>IDs dos convidados a remover, separados por vírgula (ex.: "12,15"), ou uma variável com um ID ou uma lista de IDs (ex.: "{{agentes}}"). Obrigatório quando removeAll não é true; no máximo 20.</td></tr>
+<tr><td><code>chatId</code></td><td><code>string</code></td><td></td><td>ID de OUTRO atendimento aberto sobre o qual o elemento age (ex.: um atendimento aberto pelo openChat sem associar, ou um item da lista do queueChats). Omita ou deixe vazio para agir no atendimento do fluxo, como sempre. Pode-se utilizar variáveis, exemplo: "{{novo_atendimento}}". Com chatId preenchido o elemento roda também em fluxo sem atendimento, e o fluxo continua no seu próprio contexto; atendimento não encontrado ou encerrado: nada acontece (registrado na depuração) e o fluxo segue.</td></tr>
 </tbody></table></div>
 <h2 id="exemplos-do-grupo">Exemplos de uso</h2>
 <p>Fluxos completos que usam os elementos deste grupo. Cada exemplo foi compilado pelo próprio sistema antes de entrar aqui.</p>

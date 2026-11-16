@@ -353,6 +353,14 @@ window.MANUAL_INDEX = [
     "a": "el-showSnackNotification"
    },
    {
+    "h": "addChatGuests",
+    "a": "el-addChatGuests"
+   },
+   {
+    "h": "removeChatGuests",
+    "a": "el-removeChatGuests"
+   },
+   {
     "h": "Exemplos de uso",
     "a": "exemplos-do-grupo"
    },
@@ -799,7 +807,7 @@ window.MANUAL_INDEX = [
     "a": "3-a-linguagem-do-fluxo"
    },
    {
-    "h": "4. Índice dos 144 elementos",
+    "h": "4. Índice dos 150 elementos",
     "a": "4-indice-dos-elementos"
    },
    {
@@ -2083,6 +2091,10 @@ window.MANUAL_INDEX = [
    {
     "h": "incrementProductStock",
     "a": "el-incrementProductStock"
+   },
+   {
+    "h": "manageProducts",
+    "a": "el-manageProducts"
    },
    {
     "h": "Exemplos de uso",
@@ -3823,6 +3835,10 @@ window.MANUAL_INDEX = [
     "a": "el-pmVideoCapture"
    },
    {
+    "h": "aiDecision",
+    "a": "el-aiDecision"
+   },
+   {
     "h": "Exemplos de uso",
     "a": "exemplos-do-grupo"
    },
@@ -4219,6 +4235,10 @@ window.MANUAL_INDEX = [
    {
     "h": "generateQrCode",
     "a": "el-generateQrCode"
+   },
+   {
+    "h": "sendWebappMessage",
+    "a": "el-sendWebappMessage"
    },
    {
     "h": "Exemplos de uso",
@@ -4667,6 +4687,10 @@ window.MANUAL_INDEX = [
    {
     "h": "shareContact",
     "a": "el-shareContact"
+   },
+   {
+    "h": "sendWaGroupMessage",
+    "a": "el-sendWaGroupMessage"
    },
    {
     "h": "Exemplos de uso",

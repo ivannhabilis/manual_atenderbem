@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IA e assistentes — Manual Omnichannel</title>
-<meta name="description" content="Entregar o atendimento à IA, processar arquivos, gerar áudio e documentos. (12 elementos)">
+<meta name="description" content="Entregar o atendimento à IA, processar arquivos, gerar áudio e documentos. (13 elementos)">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -132,7 +132,7 @@
   <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="automacoes-elementos.html">Automações e URA</a> &rsaquo; IA e assistentes</div>
 
   <h1>IA e assistentes</h1>
-  <p class="subtitle">Entregar o atendimento à IA, processar arquivos, gerar áudio e documentos. (12 elementos)</p>
+  <p class="subtitle">Entregar o atendimento à IA, processar arquivos, gerar áudio e documentos. (13 elementos)</p>
 
 <p>Entregar o atendimento à IA, processar arquivos, gerar áudio e documentos.</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Elemento</th><th>O que faz</th></tr></thead><tbody>
@@ -148,14 +148,12 @@
 <tr><td><a href="#el-generateDocumentFromTemplate">generateDocumentFromTemplate</a></td><td>Gera um documento a partir de um modelo pré cadastrado no sistema. O modelo é um documento com variáveis posicionadas ao longo do conteúdo, </td></tr>
 <tr><td><a href="#el-pmScreenshot">pmScreenshot</a></td><td>Envia um comando para o aplicativo desktop do usuário alvo capturar uma screenshot da tela. Elemento do módulo de monitoramento de produtivi</td></tr>
 <tr><td><a href="#el-pmVideoCapture">pmVideoCapture</a></td><td>Envia um comando para o aplicativo desktop do usuário alvo gravar um vídeo da tela, com a duração configurada. Elemento do módulo de monitor</td></tr>
+<tr><td><a href="#el-aiDecision">aiDecision</a></td><td>Classifica um texto com um MODELO DE DECISÃO (Jev, da TypeSafe, ou Microsoft Decision-1, pelo OpenRouter). Esses modelos não geram texto: re</td></tr>
 </tbody></table></div>
 <h3 id="el-aiAssistant">aiAssistant</h3>
 <p>Entrega o controle do atendimento para o assistente de IA.</p>
 <div class="callout info">O assistente de IA é um sistema de inteligência artificial, que pode realizar diversas operações, como responder perguntas, realizar buscas, executar automações no sistema, entre outros.<br>O fluxo permanecerá pausado até que o assistente de IA finalize o atendimento ou solicite a transferência.<br>O assistente de IA pode ser configurado para transferir o atendimento para um agente humano em caso de dúvidas ou solicitação do cliente.<br>Caso o assistente de IA transfira o atendimento para um agente humano, o fluxo será retomado. A variável assistant_transfer_reason conterá o motivo da transferência.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Assistente de IA</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"assistantId":"","nextElementId":"","transferNextElementId":""}
-Como se escreve: meu_rotulo: aiAssistant assistantId="..."
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo); transferNextElementId → o bloco `{ transfer -&gt; destino }` · tipo interno <code>77</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Assistente de IA</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>77</code><br><strong>Config padrão:</strong> <code>{"assistantId":"","nextElementId":"","transferNextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: aiAssistant assistantId="..."</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo); transferNextElementId → o bloco `{ transfer -&gt; destino }`</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -164,10 +162,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-aiAssistantSingleRequest">aiAssistantSingleRequest</h3>
 <p>Envia uma solicitação única direta a um assistente virtual por IA e aguarda a resposta. Diferente do aiAssistant, esse elemento não guarda contexto e não mantém uma conversa. É útil para operações pontuais onde se deseja obter uma resposta do assistente para uma mensagem específica ou para interações entre diferentes assistentes.</p>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Solicitação única ao assistente</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"assistantId":"","message":"","resultVariableName":"","nextElementId":""}
-Como se escreve: meu_rotulo: aiAssistantSingleRequest assistantId="..." message="..." resultVariableName="..."
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>92</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Solicitação única ao assistente</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>92</code><br><strong>Config padrão:</strong> <code>{"assistantId":"","message":"","resultVariableName":"","nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: aiAssistantSingleRequest assistantId="..." message="..." resultVariableName="..."</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -178,10 +173,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-aiAddContextToAssistant">aiAddContextToAssistant</h3>
 <p>Esse elemento adiciona informação ao contexto do assistente de IA.</p>
 <div class="callout info">Pode ser utilizado para informar ao assistente de IA informações importantes sobre o atendimento, como por exemplo, o ID de uma oportunidade, o ID de um cliente, ou qualquer outra informação relevante.<br>Também pode ser utilizado para informar ao assistente sobre o retorno de uma operação realizada no fluxo, como por exemplo, o resultado de uma busca, o resultado de uma operação de banco de dados, requisições HTTP ou qualquer outro resultado relevante.<br>Será tipicamente utilizado para retornar para o assistente o resultado de uma operação quando este solicitar a execução de uma automação, sendo usado no final dessa automação para retornar o resultado ao contexto do assistente.<br>Exemplo: O assistente executa uma automação que realiza uma requisição HTTP a um serviço interno que informa se o cliente possui débito em aberto, o resultado dessa requisição é informado ao assistente para que ele possa tomar decisões baseadas nesse resultado.<br>Esse elemento só terá efeito se for usado em uma automação sendo executada por um assistente. Caso seja utilizado em um fluxo normal, será ignorado.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Adicionar contexto ao assistente de IA</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"context":"","nextElementId":""}
-Como se escreve: meu_rotulo: aiAddContextToAssistant context="..."
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>78</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Adicionar contexto ao assistente de IA</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>78</code><br><strong>Config padrão:</strong> <code>{"context":"","nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: aiAddContextToAssistant context="..."</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -190,10 +182,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-aiProvokeAssistant">aiProvokeAssistant</h3>
 <p>Esse elemento adiciona um contexto ao assistente de IA associado ao atendimento e dispara o processamento do assistente, fazendo-o reagir ativamente, do mesmo modo que reagiria a uma nova mensagem do cliente.</p>
 <div class="callout info">Diferente do elemento aiAddContextToAssistant, que apenas alimenta o contexto e é tipicamente utilizado dentro de automações chamadas pelo próprio assistente, o aiProvokeAssistant é projetado para ser usado em automações externas (capturas de webhook, gatilhos de evento, automações agendadas) que precisam fazer o assistente enviar ativamente uma mensagem ao cliente em resposta a um evento ocorrido fora da conversa.<br>Exemplos de uso:<br>- O assistente envia um link de pagamento, o cliente paga e um webhook executa essa automação que informa ao assistente "Pagamento confirmado" e o provoca a enviar a próxima mensagem;<br>- Um sistema externo confirma um agendamento e a automação informa ao assistente para dar sequência ao atendimento;<br>- Uma alteração de status de oportunidade dispara a automação que informa o assistente sobre a mudança.<br>Esse elemento só funciona quando a automação está associada a um atendimento e esse atendimento possui um assistente de IA ativo (vinculado por uma URA com o elemento aiAssistant). Caso contrário, é ignorado. A execução do assistente é assíncrona: a automação prossegue imediatamente após disparar a provocação.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Provocar assistente de IA</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"context":"","nextElementId":""}
-Como se escreve: meu_rotulo: aiProvokeAssistant context="..."
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>125</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Provocar assistente de IA</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>125</code><br><strong>Config padrão:</strong> <code>{"context":"","nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: aiProvokeAssistant context="..."</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -202,10 +191,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-aiProcessFile">aiProcessFile</h3>
 <p>Processa um arquivo ou uma informação de texto utilizando uma Inteligência Artificial (LLM, como gpt4o ou similar).</p>
 <div class="callout info">Pode-se ou não anexar um arquivo como parte do processamento.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Processar arquivo por IA</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"model":0,"fileId":"","instruction":"","includeAllMessages":false,"resultVariableName":"","disableSecurity":false,"outputAsJson":false,"nextElementId":""}
-Como se escreve: meu_rotulo: aiProcessFile model=0 instruction="..." resultVariableName="..."
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>79</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Processar arquivo por IA</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>79</code><br><strong>Config padrão:</strong> <code>{"model":0,"fileId":"","instruction":"","includeAllMessages":false,"resultVariableName":"","disableSecurity":false,"outputAsJson":false,"nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: aiProcessFile model=0 instruction="..." resultVariableName="..."</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -221,10 +207,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-aiStopAssistant">aiStopAssistant</h3>
 <p>Interrompe a execução do assistente de IA, mesmo que esse não tenha concluído o atendimento nem solicitado o encerramento ou transferência.</p>
 <div class="callout info">Esse elemento só pode ser utilizado em automações executadas por assistentes de IA.<br>Caso esse elemento seja utilizado, o fluxo original que atribuiu o atendimento ao assistente continuará a execução normalmente, saindo como se o atendimento tivesse sido transferido pelo assitente. Neste caso, a variável assistant_transfer_reason conterá "execution_stopped".</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Parar assistente de IA</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
-Como se escreve: meu_rotulo: aiStopAssistant
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>80</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Parar assistente de IA</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>80</code><br><strong>Config padrão:</strong> <code>{"nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: aiStopAssistant</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -233,10 +216,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-aiStopMessage">aiStopMessage</h3>
 <p>Interrompe o envio de uma mensagem gerada pelo assistente de IA.</p>
 <div class="callout info">Esse elemento só tem efeito em automações sendo executadas pela etapa de pós processamento de uma mensagem gerada por um assistente de IA.<br>Ela é útil caso por algum motivo não se deseja permitir o envio da mensagem original gerada por assistente.<br>Um exemplo de uso é caso se vá converter as respostas do assistente, geradas como texto, em áudio, enviando o áudio e impedindo o envio da mensagem original em texto.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Parar mensagem do assistente de IA</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"nextElementId":""}
-Como se escreve: meu_rotulo: aiStopMessage
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>81</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Parar mensagem do assistente de IA</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>81</code><br><strong>Config padrão:</strong> <code>{"nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: aiStopMessage</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -244,10 +224,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-aiDefineAssistantResult">aiDefineAssistantResult</h3>
 <p>Define o resultado de um atendimento por assistente virtual por IA (sucesso ou falha), para fins de estatística. Sem assistantId, aplica ao assistente que está no controle do atendimento naquele instante — o que só acontece dentro de uma automação do próprio assistente. Com assistantId, aplica ao vínculo entre aquele assistente e este atendimento mesmo que o assistente já tenha saído, o que permite usar o elemento na URA (inclusive telefônica) depois da saída do assistente para decidir sucesso/falha por lógica do fluxo, em vez das saídas fixas configuradas no assistente. Exige que o assistente indicado tenha realmente atendido este chat/chamada; somente o primeiro resultado aplicado é considerado.</p>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Definir resultado do assistente</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"result":1,"nextElementId":"","assistantId":"","assistantChooseType":0}
-Como se escreve: meu_rotulo: aiDefineAssistantResult result=1
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>94</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Definir resultado do assistente</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>94</code><br><strong>Config padrão:</strong> <code>{"result":1,"nextElementId":"","assistantId":"","assistantChooseType":0}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: aiDefineAssistantResult result=1</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -256,10 +233,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-aiTts">aiTts</h3>
 <p>Converte um texto em um arquivo de áudio utilizando um modelo de Inteligência Artificial (TTS) da OpenAI, do Google ou da OpenRouter.</p>
 <div class="callout info">O provedor é escolhido no campo provider. Vazio ou ausente = OpenAI — é o que todo elemento criado antes da expansão multi-provedor tem, e elementos legados continuam gerando normalmente sem o campo.<br>Cada provedor exige a respectiva chave de IA configurada na instância (OpenAI, Google AI Studio ou OpenRouter) e o recurso de IA Premium habilitado. Na falta da chave do provedor escolhido, o elemento executa sem gerar áudio, registra na depuração e o fluxo segue.<br>Modelos por provedor (a voz informada deve pertencer ao modelo escolhido):<br>- OpenAI: tts-1, tts-1-hd e gpt-4o-mini-tts. Vozes alloy, ash, coral, echo, fable, onyx, nova, sage e shimmer; o gpt-4o-mini-tts acrescenta ballad, verse, marin e cedar, e é o único modelo que aceita o campo instructions (estilo da fala: tom, emoção, entoação).<br>- Google: gemini-3.8-flash-tts e gemini-3.8-flash-lite-tts, com as 30 vozes prebuilt da família Gemini (de Zephyr a Sulafat).<br>- OpenRouter: minimax/speech-2.8-turbo (vozes English_*) e deepgram/aura-2 (vozes aura-2-{nome}-{idioma}; idiomas en, es, de, fr, nl, it e ja). Nenhum dos dois tem voz em português: para texto em pt-BR, prefira OpenAI ou Google.<br>speed (0.25 a 4.0) só tem efeito nos modelos da OpenAI; Google e OpenRouter não possuem controle de velocidade e o valor é ignorado.<br>Formato do arquivo (codec): Opus para envio em filas de WhatsApp e Telegram; MP3 para Instagram (IG), Facebook e WebChat. Os três provedores entregam os três formatos — quando o formato não é nativo do provedor (Google gera WAV e OpenRouter gera MP3), o sistema converte automaticamente.<br>O ID do arquivo gerado vai para a variável de resultVariableName. O fluxo segue sempre para nextElementId, mesmo quando a geração falha — o elemento não interrompe o fluxo.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Gerar áudio com IA</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"text":"","model":"tts-1","voice":"alloy","codec":"opus","speed":1,"resultVariableName":"","nextElementId":""}
-Como se escreve: meu_rotulo: aiTts text="..." model="tts-1" voice="alloy" codec="opus"
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>82</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Gerar áudio com IA</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>82</code><br><strong>Config padrão:</strong> <code>{"text":"","model":"tts-1","voice":"alloy","codec":"opus","speed":1,"resultVariableName":"","nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: aiTts text="..." model="tts-1" voice="alloy" codec="opus"</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -272,10 +246,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 </tbody></table></div>
 <h3 id="el-generateDocumentFromTemplate">generateDocumentFromTemplate</h3>
 <p>Gera um documento a partir de um modelo pré cadastrado no sistema. O modelo é um documento com variáveis posicionadas ao longo do conteúdo, que serão substituídas pelas variáveis do fluxo formando o documento final. O ID do arquivo gerado é salvo em uma variável e pode ser utilizado em outras partes do fluxo de execução.</p>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Gerar documento a partir de um modelo</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"resultVariableName":"","templateId":0,"nextElementId":""}
-Como se escreve: meu_rotulo: generateDocumentFromTemplate resultVariableName="..." templateId=0
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>83</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Gerar documento a partir de um modelo</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>83</code><br><strong>Config padrão:</strong> <code>{"resultVariableName":"","templateId":0,"nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: generateDocumentFromTemplate resultVariableName="..." templateId=0</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -285,10 +256,7 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-pmScreenshot">pmScreenshot</h3>
 <p>Envia um comando para o aplicativo desktop do usuário alvo capturar uma screenshot da tela. Elemento do módulo de monitoramento de produtividade (PM).</p>
 <div class="callout info">A captura é assíncrona: o comando é enviado ao aplicativo desktop do usuário e o fluxo segue imediatamente para o próximo elemento, sem aguardar o resultado da captura. Nenhuma variável é criada por esse elemento.<br>Se o usuário alvo não for encontrado ou não estiver conectado ao sistema, o elemento é ignorado e o fluxo segue normalmente.<br>Projetado para uso em automações disparadas pelo monitoramento de produtividade, que disponibilizam automaticamente as variáveis de contexto pm_user_id, pm_user_name, pm_current_score, pm_current_state, pm_focused_app_name, pm_focused_app_id, pm_idle_count, pm_trigger_reason, pm_trigger_app_id e pm_trigger_titlematch_id. Utilize "{{pm_user_id}}" no campo fk_target_user para capturar o desktop do usuário que disparou a automação.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Captura de tela (PM)</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"fk_target_user":"","nextElementId":""}
-Como se escreve: meu_rotulo: pmScreenshot fk_target_user="..."
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>108</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Captura de tela (PM)</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>108</code><br><strong>Config padrão:</strong> <code>{"fk_target_user":"","nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: pmScreenshot fk_target_user="..."</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
@@ -298,16 +266,32 @@ Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` 
 <h3 id="el-pmVideoCapture">pmVideoCapture</h3>
 <p>Envia um comando para o aplicativo desktop do usuário alvo gravar um vídeo da tela, com a duração configurada. Elemento do módulo de monitoramento de produtividade (PM).</p>
 <div class="callout info">A captura é assíncrona: o comando é enviado ao aplicativo desktop do usuário e o fluxo segue imediatamente para o próximo elemento, sem aguardar o resultado da gravação. Nenhuma variável é criada por esse elemento.<br>Se o usuário alvo não for encontrado ou não estiver conectado ao sistema, o elemento é ignorado e o fluxo segue normalmente.<br>Projetado para uso em automações disparadas pelo monitoramento de produtividade, que disponibilizam automaticamente as variáveis de contexto pm_user_id, pm_user_name, pm_current_score, pm_current_state, pm_focused_app_name, pm_focused_app_id, pm_idle_count, pm_trigger_reason, pm_trigger_app_id e pm_trigger_titlematch_id. Utilize "{{pm_user_id}}" no campo fk_target_user para gravar o desktop do usuário que disparou a automação.</div>
-<p class="s10"><strong>No editor, escolha:</strong> <em>Captura de vídeo (PM)</em> · <strong>Disponível em:</strong> Todos
-Config padrão (campos omitidos num elemento NOVO recebem estes valores): {"fk_target_user":"","duration":30,"nextElementId":""}
-Como se escreve: meu_rotulo: pmVideoCapture fk_target_user="..."
-Saídas (NÃO se escrevem como campo): nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo) · tipo interno <code>109</code></p>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Captura de vídeo (PM)</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>109</code><br><strong>Config padrão:</strong> <code>{"fk_target_user":"","duration":30,"nextElementId":""}</code></p>
 <p><strong>Como se escreve:</strong> <code>meu_rotulo: pmVideoCapture fk_target_user="..."</code></p>
 <p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
 <div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
 <tr><td><code>fk_target_user</code></td><td><code>string</code></td><td>sim</td><td>ID do usuário (agente) cujo desktop será gravado. Pode-se utilizar variáveis no conteúdo, exemplo: "{{pm_user_id}}" (usuário do contexto da automação de monitoramento). Se vazio, ou se o usuário não for encontrado ou não estiver conectado, a gravação não é realizada e o fluxo segue normalmente</td></tr>
 <tr><td><code>duration</code></td><td><code>number</code></td><td></td><td>Duração da gravação em segundos. Padrão 30 se não informado, máximo 120 (valores maiores são limitados a 120)</td></tr>
 <tr><td><code>nextElementId</code></td><td><code>string</code></td><td></td><td>ID do próximo elemento no fluxograma que será executado</td></tr>
+</tbody></table></div>
+<h3 id="el-aiDecision">aiDecision</h3>
+<p>Classifica um texto com um MODELO DE DECISÃO (Jev, da TypeSafe, ou Microsoft Decision-1, pelo OpenRouter). Esses modelos não geram texto: respondem UMA pergunta tipada com a probabilidade de cada resposta. Use para triagem de intenção, assunto, sentimento, urgência ou para verificar uma condição, sem escrever prompt nem interpretar a resposta de um LLM. Para gerar texto, use aiProcessFile.</p>
+<div class="callout info">PERGUNTA (instructions, obrigatória) sobre o CONTEÚDO (state, aceita variáveis, ex.: "{{message_text}}"). Com includeAllMessages = true, o histórico de mensagens do atendimento também é enviado (as mensagens mais antigas são cortadas quando passam do limite); nesse caso state pode ficar vazio.<br>TIPOS (questionType):<br>- "choice": escolhe UMA das opções de choices (de 2 a 30; value é o que fica gravado na variável, fixo e único, até 100 caracteres; description, opcional, diz ao modelo quando escolher a opção — quanto mais concreta, melhor). Inclua uma opção para "nenhuma das anteriores" quando o texto puder não se encaixar.<br>- "noul": sim ou não. A variável recebe 1 quando a probabilidade do sim é maior ou igual a threshold (padrão 0.5) e 0 caso contrário. trueCriteria e falseCriteria (opcionais) descrevem o que conta como sim e como não.<br>- "score": posiciona o conteúdo numa escala ORDENADA, levels (de 2 a 20 níveis, do primeiro ao último). A variável recebe o ÍNDICE do nível mais provável, começando em 0 (o primeiro nível da lista).<br>Campos de outro tipo de pergunta precisam ficar vazios (choices fora de "choice", levels fora de "score", trueCriteria/falseCriteria fora de "noul").<br>VARIÁVEIS (resultVariableName = nome escolhido; todas são sempre gravadas, vazias quando não se aplicam): nome = a resposta (valor da opção, 1/0 ou índice do nível); nome + "_probability" = probabilidade da resposta gravada (0 a 1); nome + "_probabilities" = objeto resposta → probabilidade (na escolha, os valores das opções; no sim/não, as chaves "sim" e "nao", ex.: {{nome_probabilities.sim}}; na escala, os índices como texto, lidos com colchetes: {{nome_probabilities["2"]}}); nome + "_confidence" = concentração da distribuição, de 0 a 1 (só escolha e escala; vazia no sim/não); nome + "_score" = posição ponderada na escala, número decimal entre 0 e o último índice (só escala); nome + "_error" = "" ou o código da falha.<br>ROTEAMENTO: o elemento tem saída única. Para seguir caminhos diferentes, ligue a saída a um varCondition sobre {{nome}} (ex.: conditionArray ["financeiro"]); para exigir segurança mínima, teste também {{nome_confidence}} ou {{nome_probability}} num ramo "expression" e mande os casos duvidosos para um atendente.<br>FALHAS (o fluxo segue sempre por nextElementId, com nome vazio): NO_KEY (a instância não tem a chave OpenRouter nas configurações gerais, ou a IA Premium está desligada), EMPTY_STATE (conteúdo vazio e sem histórico), STATE_TOO_LARGE (conteúdo acima de 60000 caracteres), INVALID_CONFIG, REQUEST_FAILED (erro do provedor, rede ou mais de 20 s sem resposta) e INVALID_RESPONSE.<br>MODELO (model): "typesafe/jev-1.13" (padrão) ou "microsoft/microsoft-decision-1". Limiares escolhidos para um modelo não valem automaticamente para o outro. Custo: só os tokens de entrada, cobrados na conta OpenRouter do cliente; a saída é gratuita. Na aba "Testar" a consulta é real.</div>
+<p class="s10"><strong>No editor, escolha:</strong> <em>Decisão com IA</em><br><strong>Disponível em:</strong> Todos<br><strong>Tipo interno:</strong> <code>152</code><br><strong>Config padrão:</strong> <code>{"model":"typesafe/jev-1.13","questionType":"choice","instructions":"","state":"","resultVariableName":"","nextElementId":"","includeAllMessages":false,"choices":[],"levels":[],"trueCriteria":"","falseCriteria":"","threshold":0.5}</code></p>
+<p><strong>Como se escreve:</strong> <code>meu_rotulo: aiDecision questionType="choice" instructions="Qual o assunto da mensagem do cliente?" state="{{message_text}}" choices=[{value: "financeiro", description: "Boletos, pagamentos e segunda via"}, {value: "suporte", description: "Problemas técnicos"}] resultVariableName="assunto"</code></p>
+<p class="s10"><strong>Saídas e ramos:</strong> nextElementId → a seta `-&gt; destino` (ou a queda para o elemento escrito logo abaixo)</p>
+<div class="table-wrap"><table class="doc"><thead><tr><th>Campo</th><th>Tipo</th><th>Obrig.</th><th>Descrição</th></tr></thead><tbody>
+<tr><td><code>model</code></td><td><code>'typesafe/jev-1.13' | 'microsoft/microsoft-decision-1'</code></td><td>sim</td><td>Modelo de decisão. Padrão 'typesafe/jev-1.13'. Limiares escolhidos para um modelo não valem automaticamente para o outro</td></tr>
+<tr><td><code>questionType</code></td><td><code>'choice' | 'noul' | 'score'</code></td><td>sim</td><td>Tipo da pergunta. 'choice' - escolhe uma das opções de choices; 'noul' - sim ou não (1/0 pelo threshold); 'score' - nível de uma escala ordenada (levels)</td></tr>
+<tr><td><code>instructions</code></td><td><code>string</code></td><td>sim</td><td>A pergunta, em linguagem natural, até 4000 caracteres. Pode-se utilizar variáveis. Exemplo: "Qual o assunto da mensagem do cliente?"</td></tr>
+<tr><td><code>state</code></td><td><code>string</code></td><td></td><td>Conteúdo avaliado, até 60000 caracteres. Pode-se utilizar variáveis, exemplo: "{{message_text}}". Obrigatório, salvo quando includeAllMessages = true (aí pode ficar "")</td></tr>
+<tr><td><code>includeAllMessages</code></td><td><code>boolean</code></td><td></td><td>Envia também o histórico de mensagens do atendimento (as mais antigas são cortadas além do limite). Padrão false. Sem efeito em ligação e em automação sem atendimento</td></tr>
+<tr><td><code>choices</code></td><td><code>AiDecisionChoice[]</code></td><td></td><td>Só para questionType 'choice' (e obrigatório nele): de 2 a 30 opções. Vazio nos outros tipos</td></tr>
+<tr><td><code>levels</code></td><td><code>string[]</code></td><td></td><td>Só para questionType 'score' (e obrigatório nele): de 2 a 20 descrições de nível, do primeiro (índice 0) ao último. Pode-se utilizar variáveis. Vazio nos outros tipos</td></tr>
+<tr><td><code>trueCriteria</code></td><td><code>string</code></td><td></td><td>Só para questionType 'noul': o que conta como SIM. Opcional. Pode-se utilizar variáveis</td></tr>
+<tr><td><code>falseCriteria</code></td><td><code>string</code></td><td></td><td>Só para questionType 'noul': o que conta como NÃO. Opcional. Pode-se utilizar variáveis</td></tr>
+<tr><td><code>threshold</code></td><td><code>number</code></td><td></td><td>Só para questionType 'noul': probabilidade mínima do sim para gravar 1, maior que 0 e menor que 1. Padrão 0.5</td></tr>
+<tr><td><code>resultVariableName</code></td><td><code>string</code></td><td>sim</td><td>Nome da variável (sem chaves) que recebe a resposta. Também são gravadas resultVariableName + "_probability", "_probabilities", "_confidence", "_score" e "_error" ("" ou NO_KEY, EMPTY_STATE, STATE_TOO_LARGE, INVALID_CONFIG, REQUEST_FAILED, INVALID_RESPONSE). Só letras sem acento, números e _, começando por letra ou _, até 80 caracteres</td></tr>
 </tbody></table></div>
 <h2 id="exemplos-do-grupo">Exemplos de uso</h2>
 <p>Fluxos completos que usam os elementos deste grupo. Cada exemplo foi compilado pelo próprio sistema antes de entrar aqui.</p>
