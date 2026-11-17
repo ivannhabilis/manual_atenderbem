@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """Regenera links-compartilhamento.html a partir do GROUPS do build_nav + entregaveis.
-Convencao do manual: toda entrega compartilhavel entra nesta pagina."""
+Convencao do manual: toda entrega compartilhavel entra nesta pagina.
+
+Este script reescreve a pagina inteira, sem o cabecalho: rode-o ANTES de
+`python3 tools/build_nav.py`, que reinjeta o <header class="topbar"> e as tags
+de busca. Na ordem inversa a pagina fica sem menu. O conteudo gerado e
+idempotente, entao repetir a dupla nao cria diff."""
 import importlib.util, html, os
 BASE = "/home/hermes/manual-omnichannel"
 spec = importlib.util.spec_from_file_location("bn", f"{BASE}/tools/build_nav.py")
