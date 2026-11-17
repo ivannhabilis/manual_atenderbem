@@ -7287,8 +7287,28 @@ window.MANUAL_INDEX = [
     "a": "papeis"
    },
    {
+    "h": "Casos de uso",
+    "a": "casos-de-uso"
+   },
+   {
     "h": "O caminho completo, em oito passos",
     "a": "ciclo"
+   },
+   {
+    "h": "Exemplo completo: agendamento de instalação",
+    "a": "exemplo"
+   },
+   {
+    "h": "O manifest",
+    "a": "o-manifest"
+   },
+   {
+    "h": "A página",
+    "a": "a-pagina"
+   },
+   {
+    "h": "O contrato das automações",
+    "a": "o-contrato-das-automacoes"
    },
    {
     "h": "O editor: arquivos, rascunho e envio",

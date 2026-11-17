@@ -147,7 +147,12 @@
     <ol>
       <li><a href="#o-que-e">O que é um webapp</a></li>
       <li><a href="#papeis">Quem faz o quê</a></li>
+      <li><a href="#casos-de-uso">Casos de uso</a></li>
       <li><a href="#ciclo">O caminho completo, em oito passos</a></li>
+      <li><a href="#exemplo">Exemplo completo: agendamento de instalação</a></li>
+      <li class="toc-h3"><a href="#o-manifest">O manifest</a></li>
+      <li class="toc-h3"><a href="#a-pagina">A página</a></li>
+      <li class="toc-h3"><a href="#o-contrato-das-automacoes">O contrato das automações</a></li>
       <li><a href="#editor">O editor: arquivos, rascunho e envio</a></li>
       <li><a href="#manifest">O manifest: campos, permissões e slots</a></li>
       <li class="toc-h3"><a href="#manifest-permissoes">Permissões: o declarado é o teto</a></li>
@@ -220,6 +225,32 @@
 
   <p>O editor e a administração são telas diferentes, com permissões diferentes: uma pessoa pode escrever e publicar o webapp sem conseguir registrá-lo na instância, e o contrário também vale. Uma instalação criada pela gestão remota nasce <strong>desabilitada</strong> e só funciona depois que alguém a revisa e habilita na tela.</p>
 
+  <h2 id="casos-de-uso">Casos de uso</h2>
+
+  <p>Um webapp vale a pena quando o cliente precisa <strong>fazer</strong> algo que o chat sozinho não resolve: escolher um horário, corrigir um dado, montar um pedido, consultar um status. Os cinco casos abaixo são os mais comuns; cada linha diz o que a página usa do SDK e o que precisa ser declarado no manifest.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Caso</th><th>O que o cliente faz</th><th>O que a página usa</th><th>O que declarar</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Autoagendamento</strong></td><td>Escolhe data e horário de uma visita técnica ou instalação.</td><td><code>contact.get</code> e <code>automations.run</code> (listar horários e gravar o agendamento).</td><td><code>contact: read</code>, <code>runsAutomations</code> e os dois apelidos.</td></tr>
+        <tr><td><strong>Confirmação de cadastro</strong></td><td>Revisa nome, e-mail e endereço e corrige o que estiver errado.</td><td><code>contact.get</code> e <code>contact.update</code>.</td><td><code>contact: read</code> e <code>write</code>, só nos campos que a tela edita.</td></tr>
+        <tr><td><strong>Carrinho assistido</strong></td><td>Monta o pedido com os produtos do catálogo e converte em oportunidade.</td><td><code>cart.get</code>, <code>cart.add</code>, <code>cart.set</code> e <code>cart.convert</code>.</td><td><code>cart: write</code> e <code>opportunities: read</code>.</td></tr>
+        <tr><td><strong>Consulta de pedido</strong></td><td>Vê o status da oportunidade e o histórico do pedido.</td><td><code>opportunities.list</code> e <code>opportunities.get</code>.</td><td><code>opportunities: read</code>.</td></tr>
+        <tr><td><strong>Enriquecimento de endereço</strong></td><td>Informa o CEP e recebe o endereço completo para confirmar.</td><td><code>contact.update</code> e uma automação que consulta o CEP.</td><td><code>contact: write</code> e <code>runsAutomations</code> com o apelido da consulta.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <strong>Quando não vale usar webapp.</strong> Se a resposta é só texto ou um botão de escolha, um elemento de mensagem resolve. Se o cliente precisa apenas confirmar algo, um template aprovado já faz. O webapp entra quando há formulário, cálculo, consulta a sistema externo ou várias etapas — e sempre do lado do cliente, nunca no painel do agente.
+  </div>
+
+  <figure class="figure">
+    <img src="assets/webapps/01-lista.png" alt="Tela Configurações › Webapps sem nenhum webapp criado, com o botão Novo webapp e o aviso de sandbox">
+    <figcaption>A lista em <em>Configurações &rsaquo; Webapps</em>. O estado inicial é vazio e o botão <strong>Novo webapp</strong> fica no topo à direita.</figcaption>
+  </figure>
+
   <h2 id="ciclo">O caminho completo, em oito passos</h2>
 
   <ol class="steps">
@@ -237,9 +268,121 @@
     <strong>Publicar não é colocar no ar.</strong> São quatro estados independentes: rascunho (editável), versão publicada (imutável, na CDN), versão em produção ou desenvolvimento (o ponteiro) e instalação habilitada nesta instância. Falta de qualquer um deles deixa o cliente sem a página.
   </div>
 
+  <figure class="figure">
+    <img src="assets/webapps/02-novo-webapp.png" alt="Formulário Novo webapp com os campos Nome, Identificador e Descrição">
+    <figcaption>O formulário <strong>Novo webapp</strong>: nome livre, identificador no formato <code>fornecedor.webapp</code> e descrição opcional. O identificador é imutável depois da primeira publicação.</figcaption>
+  </figure>
+
+  <figure class="figure">
+    <img src="assets/webapps/05-verificar.png" alt="Relatório do botão Verificar mostrando que a página está pronta para publicar, sem achados no uso do SDK">
+    <figcaption><strong>Verificar</strong> mostra o mesmo relatório da publicação sem enviar nada: arquivos conferidos, tamanho e os avisos do SDK.</figcaption>
+  </figure>
+
+  <h2 id="exemplo">Exemplo completo: agendamento de instalação</h2>
+
+  <p>Este é o caminho inteiro com um caso real: o cliente recebe um botão no WhatsApp e escolhe quando quer receber a visita técnica. São três artefatos — o manifest, a página e o contrato das automações — e nenhum deles depende de código no painel.</p>
+
+  <ol class="steps">
+    <li><strong>Crie o webapp.</strong> Em <em>Configurações &rsaquo; Webapps</em>, clique em <strong>Novo webapp</strong> e informe o nome e o identificador <code>exemplo.agendamento</code>. O rascunho <code>0.1.0</code> nasce com um <code>index.html</code> mínimo.</li>
+    <li><strong>Declare o manifest.</strong> Troque o conteúdo do manifest pelo bloco abaixo. As duas automações ainda não existem: o apelido é o que liga a página ao fluxo, e o administrador faz essa ligação na instalação.</li>
+    <li><strong>Escreva a página.</strong> Troque o <code>index.html</code> pelo exemplo. O SDK é injetado na publicação — não há <code>&lt;script&gt;</code> do SDK para colocar.</li>
+    <li><strong>Verifique e publique.</strong> <strong>Verificar</strong> precisa dizer que está pronta; <strong>Publicar</strong> envia os arquivos e congela a versão.</li>
+    <li><strong>Aponte produção e instale.</strong> Use <strong>Usar em produção</strong>, copie a URL do manifest e registre em <em>Webapps instalados</em>, ligando cada apelido à automação correspondente.</li>
+    <li><strong>Use no fluxo.</strong> No editor de automação, inclua o elemento <strong>Enviar webapp</strong> apontando para a instalação. É ele que gera a chave e manda o botão.</li>
+  </ol>
+
+  <h3 id="o-manifest">O manifest</h3>
+
+  <pre><code>{
+  "manifestVersion": 1,
+  "kind": "webapp",
+  "id": "exemplo.agendamento",
+  "version": "1.0.0",
+  "name": "Agendamento de instalação",
+  "description": "O cliente escolhe o horário da visita e o fluxo grava a tarefa no CRM.",
+  "entry": "index.html",
+  "requires": ["crm"],
+  "permissions": { "contact": "read" },
+  "runsAutomations": true,
+  "automations": [
+    { "alias": "listar_horarios", "label": "Listar horários livres" },
+    { "alias": "agendar_instalacao", "label": "Agendar instalação" }
+  ],
+  "session": { "ttlMinutes": 60 }
+}</code></pre>
+
+  <h3 id="a-pagina">A página</h3>
+
+  <pre><code>&lt;!doctype html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;Agendar instalação&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Agendar instalação&lt;/h1&gt;
+    &lt;p id="cliente"&gt;Carregando…&lt;/p&gt;
+    &lt;div id="horarios"&gt;&lt;/div&gt;
+    &lt;p id="resultado" hidden&gt;&lt;/p&gt;
+  &lt;/main&gt;
+
+  &lt;script&gt;
+    omniWebapp.ready(async (session) =&gt; {
+      const contato = await omniWebapp.contact.get();
+      document.querySelector('#cliente').textContent =
+        'Olá, ' + (contato.name || 'cliente') + '. Escolha um horário:';
+
+      const lista = await omniWebapp.automations.run('listar_horarios', {});
+      const horarios = (lista.result &amp;&amp; lista.result.slots) || [];
+
+      const box = document.querySelector('#horarios');
+      for (const slot of horarios) {
+        const botao = document.createElement('button');
+        botao.textContent = slot.label;
+        botao.onclick = async () =&gt; {
+          botao.disabled = true;
+          const run = await omniWebapp.automations.run(
+            'agendar_instalacao', { slotId: slot.id }, { waitMs: 15000 }
+          );
+          const saida = document.querySelector('#resultado');
+          saida.hidden = false;
+          saida.textContent = run.status === 'finished' &amp;&amp; run.result &amp;&amp; run.result.ok
+            ? 'Agendado para ' + run.result.data + '. Protocolo ' + run.result.protocolo + '.'
+            : 'Não foi possível agendar. Escolha outro horário.';
+        };
+        box.appendChild(botao);
+      }
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+  <h3 id="o-contrato-das-automacoes">O contrato das automações</h3>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Apelido</th><th>Recebe em <code>webapp_payload</code></th><th>Devolve em <code>webapp_response</code></th></tr></thead>
+      <tbody>
+        <tr><td><code>listar_horarios</code></td><td><code>{}</code></td><td><code>{ "slots": [ { "id": "2026-11-20T09:00", "label": "20/11 às 9h" } ] }</code></td></tr>
+        <tr><td><code>agendar_instalacao</code></td><td><code>{ "slotId": "2026-11-20T09:00" }</code></td><td><code>{ "ok": true, "data": "20/11/2026 09:00", "protocolo": "AG-1042" }</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>Valide o payload.</strong> O que chega em <code>webapp_payload</code> é dado digitado pelo cliente. Confira o formato antes de gravar no contato, montar uma URL ou usar como alvo de busca. E não devolva em <code>webapp_response</code> nada que o cliente não possa ver.
+  </div>
+
   <h2 id="editor">O editor: arquivos, rascunho e envio</h2>
 
   <p>Cada webapp tem <strong>um rascunho</strong> e até cinco versões publicadas. O rascunho é o único estado editável; versão publicada não aceita escrita, nem pelo editor, nem pela API. Para mexer numa versão já publicada, use <strong>Nova versão a partir desta</strong>: o sistema cria um rascunho com o próximo número livre e uma cópia dos arquivos.</p>
+
+  <figure class="figure">
+    <img src="assets/webapps/03-editor.png" alt="Editor de webapp com a árvore de arquivos à esquerda e o código do index.html à direita">
+    <figcaption>O editor: à esquerda a árvore de arquivos da versão (aqui um único <code>index.html</code>), à direita o código. As abas do topo levam ao <strong>Manifest</strong>, ao <strong>Verificar</strong>, à <strong>Prévia</strong> e à <strong>Documentação</strong>; <strong>Publicar</strong> fica à direita.</figcaption>
+  </figure>
 
   <div class="table-wrap">
     <table class="doc">
@@ -268,6 +411,11 @@
   <h2 id="manifest">O manifest: campos, permissões e slots</h2>
 
   <p>O manifest é um JSON por versão e é validado em dois lugares: o formulário do editor confere enquanto você digita, e o servidor confere de novo ao salvar e ao publicar. Quem manda é o servidor — os dois usam a mesma lista de códigos, no fim desta seção.</p>
+
+  <figure class="figure">
+    <img src="assets/webapps/04-manifest.png" alt="Diálogo Editar manifest com as seções Identificação, Comunicação com o atendimento e Duração do link">
+    <figcaption>O manifest em formulário: <strong>Identificação</strong> (identificador, versão, nome, descrição, autor, página de entrada, ícone, recursos exigidos e versão mínima), <strong>Comunicação com o atendimento</strong> e <strong>Duração do link</strong>. A aba <code>{ } JSON</code> edita o mesmo conteúdo em texto.</figcaption>
+  </figure>
 
   <pre><code>{
   "manifestVersion": 1,
@@ -391,6 +539,11 @@
   <h2 id="publicar">Versões, publicação e ponteiros</h2>
 
   <p>Ao publicar, o sistema executa quatro passos: confere o manifest com as regras de publicação (a página de entrada e o ícone existem, a versão é maior), lê todos os arquivos respeitando os tetos, acrescenta o SDK a cada HTML e envia os arquivos à CDN — recursos primeiro, o HTML por último — e só então marca a versão como publicada. O rótulo (até 255 caracteres) e as notas da versão ficam registrados no histórico.</p>
+
+  <figure class="figure">
+    <img src="assets/webapps/06-lista-com-item.png" alt="Lista de webapps com um item mostrando os ponteiros Produção e Desenvolvimento vazios, o rascunho 0.1.0 e o contador 0/5 de versões">
+    <figcaption>Cada item da lista mostra os dois ponteiros (<strong>Produção</strong> e <strong>Desenvolvimento</strong>), o rascunho atual e quantas das cinco versões já foram usadas. Ponteiro vazio significa que a versão existe, mas não está em uso.</figcaption>
+  </figure>
 
   <p>Se a publicação falhar no meio, a versão continua rascunho e repetir é seguro: o que já subiu é reconhecido e pulado. Dois erros exigem mudar algo no manifest: <code>E_CDN_KEY_EXISTS</code>, quando aquele número de versão já tem na CDN um arquivo com conteúdo diferente, e <code>E_CDN_VERSION_RETIRED</code>, quando o número pertence a uma versão excluída.</p>
 
