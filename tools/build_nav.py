@@ -87,6 +87,7 @@ GROUPS = [
         ("extensoes-criar-publicar-instalar.html", "Extensões: Criar e Instalar"),
         ("extensoes-bastidores.html", "Extensões: Bastidores do Projeto"),
         ("extensoes-tour-guiado.html", "Extensões: Tour Guiado"),
+        ("webapps.html", "Webapps (editor e instalação)"),
         ("tour-guiado-planejamento.html", "Tour Guiado no Sistema (Planejamento)"),
         ("backups.html", "Backups e Restauração"),
         ("novidades-14-2.html", "Novidades da versão 14.2"),

@@ -47,6 +47,7 @@ Páginas:
 - `configuracoes.html` — Configurações (Filas, Usuários, Pausas, Ajuda)
 - `extensoes.html` — Extensões (micro-frontends / SDK)
 - `extensoes-criar-publicar-instalar.html` — Extensões: criar, publicar, instalar e distribuir (whitelabel)
+- `webapps.html` — Webapps: editor, manifest, permissões, publicação em CDN, registro na instância e SDK omniWebapp
 - `extensoes-bastidores.html` — Extensões: bastidores do projeto (método, armadilhas, regras de ouro)
 - `extensoes-tour-guiado.html` — Extensões: tour guiado (nível 2) que roda dentro do produto
 - `assets/tour-extensoes.js` — o script do tour (somente leitura) usado na página acima

@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webapps: páginas do fornecedor no atendimento — Manual Omnichannel</title>
+  <meta name="description" content="Como publicar, aprovar e usar um Webapp: páginas web escritas por um parceiro, abertas pelo cliente por um botão na conversa, ligadas ao atendimento por uma chave temporária. Editor, manifest, permissões, publicação em CDN, registro na instância e SDK omniWebapp.">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    pre { background:#0f172a; color:#e2e8f0; padding:14px 16px; border-radius:8px; font-size:12.5px; line-height:1.55; overflow-x:auto; margin:14px 0; }
+    pre code { font-family: Consolas, "Liberation Mono", Courier, monospace; }
+    .tabela-alta table.doc { min-width: 640px; }
+    .mini { font-size:.86rem; color:#64748b; }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a class="active" href="webapps.html">Webapps (editor e instalação)</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="configuracoes.html">Configurações &amp; Admin</a> &rsaquo; Webapps</div>
+
+  <h1>Webapps: páginas do fornecedor dentro do atendimento</h1>
+  <p class="subtitle">Uma página web completa, escrita por um parceiro, que o cliente abre por um botão na conversa e que enxerga os dados daquele atendimento por uma chave temporária. Este capítulo cobre o editor, o manifest, as permissões, a publicação em CDN, o registro na instância e o SDK que roda na página.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#o-que-e">O que é um webapp</a></li>
+      <li><a href="#papeis">Quem faz o quê</a></li>
+      <li><a href="#ciclo">O caminho completo, em oito passos</a></li>
+      <li><a href="#editor">O editor: arquivos, rascunho e envio</a></li>
+      <li><a href="#manifest">O manifest: campos, permissões e slots</a></li>
+      <li class="toc-h3"><a href="#manifest-permissoes">Permissões: o declarado é o teto</a></li>
+      <li class="toc-h3"><a href="#manifest-automacoes">Slots de automação</a></li>
+      <li class="toc-h3"><a href="#manifest-config">Configuração: público, sem segredo</a></li>
+      <li class="toc-h3"><a href="#manifest-chaves">Chaves que o validador recusa</a></li>
+      <li><a href="#codigos">Códigos do manifest</a></li>
+      <li><a href="#publicar">Versões, publicação e ponteiros</a></li>
+      <li class="toc-h3"><a href="#publicar-verificar">Verificar a publicação</a></li>
+      <li class="toc-h3"><a href="#publicar-excluir">Excluir versão e excluir webapp</a></li>
+      <li><a href="#registrar">Registrar e aprovar na instância</a></li>
+      <li><a href="#envio">Como o cliente recebe o link</a></li>
+      <li><a href="#sdk">O SDK omniWebapp na página</a></li>
+      <li class="toc-h3"><a href="#sdk-metodos">Métodos por namespace</a></li>
+      <li class="toc-h3"><a href="#sdk-automacoes">Chamar uma automação</a></li>
+      <li><a href="#sdk-erros">Estados, eventos e erros do SDK</a></li>
+      <li class="toc-h3"><a href="#sdk-depois-encerramento">Depois do encerramento do atendimento</a></li>
+      <li><a href="#isolamento">Isolamento, armazenamento e segurança</a></li>
+      <li class="toc-h3"><a href="#isolamento-o-que-cada-nivel-permite">O que cada nível de permissão permite</a></li>
+      <li class="toc-h3"><a href="#seguranca-chave">A chave temporária</a></li>
+      <li><a href="#limites">Limites da API que a página usa</a></li>
+      <li><a href="#nao-existe">O que não existe nesta versão</a></li>
+      <li><a href="#diagnostico">Diagnóstico: sintomas e causas</a></li>
+      <li class="toc-h3"><a href="#diagnostico-telas">O cliente vê uma tela do SDK</a></li>
+      <li class="toc-h3"><a href="#diagnostico-publicacao">Ao verificar, publicar ou testar</a></li>
+      <li class="toc-h3"><a href="#diagnostico-envio">O botão não chega ao cliente</a></li>
+      <li><a href="#checklist">Checklist antes de publicar e antes de habilitar</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <div class="callout info">
+    <strong>Nome do módulo.</strong> Aqui <strong>webapp</strong> é sempre essa página do fornecedor. O &ldquo;app web&rdquo; do catálogo de produtos e as <a href="extensoes.html">extensões do painel</a> são outros módulos, com outro editor, outro manifesto e outro SDK: um manifesto de um é recusado pelo outro.
+  </div>
+
+  <h2 id="o-que-e">O que é um webapp</h2>
+
+  <p>Um webapp é um <code>index.html</code> e os arquivos que ele carrega, publicados por um parceiro e abertos pelo <strong>cliente final</strong> no navegador do próprio celular. Nada roda no painel do agente: o atendente não instala nem abre nada.</p>
+
+  <p>O que transforma uma página comum em webapp é a <strong>chave temporária do atendimento</strong>. Quando um fluxo envia o link, ele sai no endereço da própria instância e leva uma chave válida só para aquele atendimento. Com ela a página lê e altera o contato, as oportunidades e o carrinho daquele cliente e dispara automações — sempre no contexto daquele atendimento, nunca em outro. Sem nenhuma permissão e sem automação, o webapp é só uma página: nenhuma chave é gerada.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Aspecto</th><th>Extensão do painel</th><th>Webapp</th></tr></thead>
+      <tbody>
+        <tr><td>Onde roda</td><td>Dentro do painel, no navegador do agente</td><td>Na página do cliente final, no navegador dele</td></tr>
+        <tr><td>Quem usa</td><td>Agentes e supervisores</td><td>O cliente do atendimento</td></tr>
+        <tr><td>Poder</td><td>As permissões de quem está logado</td><td>Só o que a chave do atendimento permite, e nada além do concedido</td></tr>
+        <tr><td>SDK</td><td><code>omni</code></td><td><code>omniWebapp</code>, injetado na publicação</td></tr>
+        <tr><td>Editor</td><td>Configurações &rsaquo; Extensões</td><td>Configurações &rsaquo; Webapps</td></tr>
+        <tr><td>Instalação</td><td>Configurações &rsaquo; Extensões instaladas</td><td>Configurações &rsaquo; Webapps instalados</td></tr>
+        <tr><td>Quem pode</td><td>Administrador do painel ou supervisor com permissão de editar extensões</td><td>Editor ligado na instância; quem registra e habilita é o superusuário (perfis 98 e 99)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="papeis">Quem faz o quê</h2>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Papel</th><th>Responsabilidade</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Parceiro</strong> (instância com o editor ligado)</td><td>Cria o webapp em <em>Configurações &rsaquo; Webapps</em>, grava os arquivos, declara no manifest o que a página precisa, testa na prévia e publica.</td></tr>
+        <tr><td><strong>Administrador da instância</strong> (98 e 99)</td><td>Registra o webapp em <em>Configurações &rsaquo; Webapps instalados</em> colando a URL do manifest, decide o que conceder (o padrão é nada) e a quais automações a página pode chamar.</td></tr>
+        <tr><td><strong>Fluxo de atendimento</strong></td><td>O elemento <a href="automacoes-integracoes.html#el-sendWebappMessage">Enviar webapp</a> gera uma chave nova e manda a mensagem com o botão.</td></tr>
+        <tr><td><strong>Cliente final</strong></td><td>Toca no botão e usa a página.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>O editor e a administração são telas diferentes, com permissões diferentes: uma pessoa pode escrever e publicar o webapp sem conseguir registrá-lo na instância, e o contrário também vale. Uma instalação criada pela gestão remota nasce <strong>desabilitada</strong> e só funciona depois que alguém a revisa e habilita na tela.</p>
+
+  <h2 id="ciclo">O caminho completo, em oito passos</h2>
+
+  <ol class="steps">
+    <li><strong>Criar.</strong> Em <em>Configurações &rsaquo; Webapps</em>, clique em <strong>Novo webapp</strong>: nome, identificador no formato <code>fornecedor.webapp</code> (minúsculas, números e hífen, exatamente um ponto) e descrição opcional. O sistema cria o webapp e um rascunho <code>0.1.0</code> com um <code>index.html</code> de exemplo.</li>
+    <li><strong>Escrever os arquivos.</strong> A árvore à esquerda lista a versão; o editor abre o arquivo. O texto é salvo sozinho cerca de um segundo depois de você parar de digitar (<code>Ctrl+S</code> salva na hora). Dá para criar, renomear e excluir arquivos e pastas e enviar arquivos ou uma pasta inteira do computador.</li>
+    <li><strong>Declarar o manifest.</strong> É onde o webapp diz o que é e o que pede: página de entrada, permissões, automações, duração do link e campos de configuração.</li>
+    <li><strong>Testar na prévia.</strong> A prévia abre a página numa moldura isolada, em três larguras. Sem atendimento ela abre sem chave; com um atendimento seu e aberto dá para gerar um link de teste, que é somente leitura e vale 60 minutos.</li>
+    <li><strong>Verificar e publicar.</strong> <strong>Verificar</strong> mostra o mesmo relatório da publicação sem enviar nada. <strong>Publicar</strong> confere o manifest, injeta o SDK nos HTML, envia os arquivos à CDN e congela a versão.</li>
+    <li><strong>Apontar produção.</strong> Publicar não coloca a versão em uso: <strong>Usar em produção</strong> (ou <strong>Usar em desenvolvimento</strong>, para instâncias de teste) é que move o ponteiro.</li>
+    <li><strong>Entregar a URL do manifest.</strong> Com a produção apontada, a lista oferece o botão de copiar a URL pública do manifest de produção.</li>
+    <li><strong>Registrar e habilitar.</strong> O administrador cola a URL em <em>Webapps instalados</em>, revisa o que a página pede, concede o mínimo e habilita. A partir daí o elemento <strong>Enviar webapp</strong> consegue usá-la nos fluxos.</li>
+  </ol>
+
+  <div class="callout warn">
+    <strong>Publicar não é colocar no ar.</strong> São quatro estados independentes: rascunho (editável), versão publicada (imutável, na CDN), versão em produção ou desenvolvimento (o ponteiro) e instalação habilitada nesta instância. Falta de qualquer um deles deixa o cliente sem a página.
+  </div>
+
+  <h2 id="editor">O editor: arquivos, rascunho e envio</h2>
+
+  <p>Cada webapp tem <strong>um rascunho</strong> e até cinco versões publicadas. O rascunho é o único estado editável; versão publicada não aceita escrita, nem pelo editor, nem pela API. Para mexer numa versão já publicada, use <strong>Nova versão a partir desta</strong>: o sistema cria um rascunho com o próximo número livre e uma cópia dos arquivos.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>O que</th><th>Regra</th></tr></thead>
+      <tbody>
+        <tr><td>Arquivos por versão</td><td>300</td></tr>
+        <tr><td>Pastas por versão</td><td>100</td></tr>
+        <tr><td>Tamanho de um arquivo</td><td>4 MiB armazenados (um binário de até 3 MiB, que o sistema guarda em base64)</td></tr>
+        <tr><td>Tamanho da versão</td><td>32 MiB no total</td></tr>
+        <tr><td>Caminho</td><td>191 caracteres, 10 níveis de pasta, 100 caracteres por nome</td></tr>
+        <tr><td>Caracteres do nome</td><td>letras sem acento, números, ponto, hífen, sublinhado, <code>@</code> e <code>~</code></td></tr>
+        <tr><td>Prefixo reservado</td><td><code>__omni/</code> — é do sistema, não grave nada nele</td></tr>
+        <tr><td>Tipo de conteúdo</td><td>Sai da extensão do arquivo; não existe campo de mimetype</td></tr>
+        <tr><td>Binários</td><td>Imagem, fonte, <code>wasm</code>, áudio, vídeo e PDF vão em base64, marcados como binários</td></tr>
+        <tr><td>Versões publicadas por webapp</td><td>5</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>O envio de uma pasta descarta <code>node_modules</code>, arquivos ocultos e pastas de sistema, e remove a pasta raiz comum (um <code>dist/</code>, por exemplo). Arquivos <code>.zip</code> não são aceitos: envie os arquivos ou a pasta.</p>
+
+  <div class="callout tip">
+    <strong>Não inclua o SDK.</strong> Na publicação o sistema acrescenta um <code>&lt;script&gt;</code> síncrono no início do <code>&lt;head&gt;</code> de cada HTML, antes de qualquer linha sua, entre os comentários <code>omni-webapp:begin</code> e <code>omni-webapp:end</code>. Um HTML que já traz esse bloco é recusado, e o que você lê no editor é sempre o seu código, sem o bloco.
+  </div>
+
+  <h2 id="manifest">O manifest: campos, permissões e slots</h2>
+
+  <p>O manifest é um JSON por versão e é validado em dois lugares: o formulário do editor confere enquanto você digita, e o servidor confere de novo ao salvar e ao publicar. Quem manda é o servidor — os dois usam a mesma lista de códigos, no fim desta seção.</p>
+
+  <pre><code>{
+  "manifestVersion": 1,
+  "kind": "webapp",
+  "id": "acme.pedidos",
+  "version": "1.0.0",
+  "name": "Pedidos ACME",
+  "description": "Consulta e confirma o pedido do cliente durante o atendimento.",
+  "entry": "index.html",
+  "requires": ["crm"],
+  "permissions": { "contact": "read", "opportunities": "read", "cart": "write" },
+  "runsAutomations": true,
+  "automations": [{ "alias": "confirmar_pedido", "label": "Confirmar pedido" }],
+  "session": { "ttlMinutes": 60 },
+  "config": [{ "key": "loja", "label": "Loja", "type": "string", "default": "matriz" }]
+}</code></pre>
+
+  <div class="table-wrap tabela-alta">
+    <table class="doc">
+      <thead><tr><th>Campo</th><th>Regra</th></tr></thead>
+      <tbody>
+        <tr><td><code>manifestVersion</code></td><td>Obrigatório: o número <code>1</code>.</td></tr>
+        <tr><td><code>kind</code></td><td>Obrigatório: exatamente <code>"webapp"</code>.</td></tr>
+        <tr><td><code>id</code></td><td>Obrigatório, <code>fornecedor.webapp</code> (<code>^[a-z0-9-]+\.[a-z0-9-]+$</code>), igual ao identificador do webapp. Fica imutável depois da primeira publicação.</td></tr>
+        <tr><td><code>version</code></td><td>Obrigatório, semver <code>X.Y.Z</code>. Ao publicar precisa ser <strong>maior</strong> que todas as versões já usadas, inclusive as excluídas.</td></tr>
+        <tr><td><code>sdk</code></td><td>Opcional, texto de 1 a 20 caracteres. O servidor grava aqui <code>{version, sha256}</code> do SDK usado ao publicar: não escreva essa forma à mão.</td></tr>
+        <tr><td><code>name</code></td><td>Obrigatório, até 80 caracteres.</td></tr>
+        <tr><td><code>description</code></td><td>Opcional, até 500 caracteres.</td></tr>
+        <tr><td><code>author</code></td><td>Opcional: <code>name</code> (até 120) e <code>url</code> (http ou https). É informação declarada, não verificada.</td></tr>
+        <tr><td><code>icon</code></td><td>Opcional: um arquivo <strong>da versão</strong> (<code>assets/icone.svg</code>). Nome de ícone do sistema não vale.</td></tr>
+        <tr><td><code>entry</code></td><td>Obrigatório: o arquivo <code>.html</code> ou <code>.htm</code> que abre o webapp, gravado na versão.</td></tr>
+        <tr><td><code>minHostVersion</code></td><td>Opcional, semver. Se for maior que a versão da instância, sai um aviso.</td></tr>
+        <tr><td><code>requires</code></td><td>Opcional: até 20 nomes de recurso, até 40 caracteres cada. Oportunidades e carrinho dependem do CRM: declare <code>"crm"</code>.</td></tr>
+        <tr><td><code>permissions</code></td><td>Níveis por recurso: <code>contact</code>, <code>opportunities</code> e <code>cart</code>, cada um <code>none</code>, <code>read</code> ou <code>write</code>.</td></tr>
+        <tr><td><code>runsAutomations</code></td><td><code>true</code> ou <code>false</code> (padrão <code>false</code>).</td></tr>
+        <tr><td><code>automations</code></td><td>Slots de automação: até 20 itens <code>{alias, label, description?}</code>.</td></tr>
+        <tr><td><code>session</code></td><td><code>{ "ttlMinutes": 5 a 1440 }</code>, o teto de vida do link; sem valor, 1440.</td></tr>
+        <tr><td><code>config</code></td><td>Até 30 campos de configuração, <strong>públicos</strong> para o cliente final.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Os caminhos de <code>entry</code> e <code>icon</code> são relativos à versão, sem barra no início e sem <code>\</code>. O prefixo <code>v/1.2.0/</code> que aparece nos manifests publicados é aceito e removido. O manifest inteiro não pode passar de 256 KiB.</p>
+
+  <h3 id="manifest-permissoes">Permissões: o declarado é o teto</h3>
+
+  <p><code>write</code> inclui <code>read</code>. Recurso desconhecido é descartado com aviso; nível fora da lista é erro. Nada declarado e <code>runsAutomations</code> falso significa <strong>página simples</strong>: nenhuma chave é gerada e o link sai sem chave.</p>
+
+  <div class="callout info">
+    <strong>Três valores, um resultado.</strong> O <em>declarado</em> é o que o manifest pede; o <em>concedido</em> é o que o administrador aprova na instalação (o padrão é nada); o <em>efetivo</em> é o menor dos dois, calculado a cada chamada no servidor. Uma versão nova que peça mais não ganha nada sozinha: fica como permissão pendente até alguém aprovar.
+  </div>
+
+  <h3 id="manifest-automacoes">Slots de automação</h3>
+
+  <p>Opcional, e exige <code>runsAutomations: true</code>. Cada slot é <code>{alias, label, description?}</code>: o <code>alias</code> (minúsculas, números e <code>_</code>, começando por letra, até 32 caracteres, único) é o nome que a página usa em <code>omniWebapp.automations.run()</code>; o <code>label</code> (até 60) aparece para o administrador e para o cliente; a <code>description</code> (até 200) é opcional. Com slots declarados, o administrador só consegue mapear aqueles apelidos; sem slots (modo aberto), ele cria os apelidos na instalação.</p>
+
+  <h3 id="manifest-config">Configuração: público, sem segredo</h3>
+
+  <p>Até 30 campos <code>{key, label, type, options?, default?, required?, help?}</code>. A chave começa por letra (letras, números e <code>_</code>, até 40, única), o rótulo vai até 80 caracteres, o tipo é <code>string</code>, <code>number</code>, <code>boolean</code>, <code>url</code> ou <code>select</code> (com até 50 opções), e o valor padrão precisa combinar com o tipo. <strong>Não existe tipo <code>secret</code></strong>: todo valor de configuração chega ao navegador do cliente na sessão e é visível para ele.</p>
+
+  <h3 id="manifest-chaves">Chaves que o validador recusa</h3>
+
+  <p><code>contributions</code>, <code>worker</code>, <code>embedOrigins</code> e <code>cartPricing</code> são chaves de extensão e dão <strong>erro</strong> num webapp, mesmo com valor nulo. Qualquer outra chave desconhecida vira aviso e é descartada do manifest publicado.</p>
+
+  <h2 id="codigos">Códigos do manifest</h2>
+
+  <p>Os códigos abaixo aparecem no editor, ao salvar e ao publicar. Cada erro aponta o caminho do campo dentro do JSON.</p>
+
+  <div class="table-wrap tabela-alta">
+    <table class="doc">
+      <thead><tr><th>Código</th><th>Quando acontece</th></tr></thead>
+      <tbody>
+        <tr><td><code>E_NOT_OBJECT</code></td><td>o manifest não é um objeto JSON</td></tr>
+        <tr><td><code>E_MANIFEST_VERSION</code></td><td><code>manifestVersion</code> ausente ou diferente de 1</td></tr>
+        <tr><td><code>E_WEBAPP_KIND</code></td><td><code>kind</code> ausente ou diferente de <code>"webapp"</code></td></tr>
+        <tr><td><code>E_FOREIGN_KEY</code></td><td>chave de extensão presente</td></tr>
+        <tr><td><code>E_REQUIRED_FIELD</code></td><td>campo obrigatório ausente (<code>id</code>, <code>version</code>, <code>label</code>/<code>type</code> de slot ou de config)</td></tr>
+        <tr><td><code>E_ID_FORMAT</code></td><td><code>id</code> fora do formato <code>fornecedor.webapp</code></td></tr>
+        <tr><td><code>E_ID_IMMUTABLE</code></td><td><code>id</code> diferente do identificador do webapp</td></tr>
+        <tr><td><code>E_VERSION_FORMAT</code></td><td><code>version</code> ou <code>minHostVersion</code> que não é semver</td></tr>
+        <tr><td><code>E_VERSION_DUPLICATE</code></td><td>já existe versão publicada com esse número</td></tr>
+        <tr><td><code>E_VERSION_NOT_GREATER</code></td><td>a versão não é maior que a última publicada</td></tr>
+        <tr><td><code>E_SDK</code></td><td>campo <code>sdk</code> inválido</td></tr>
+        <tr><td><code>E_NAME_REQUIRED</code></td><td><code>name</code> ausente ou vazio</td></tr>
+        <tr><td><code>E_NAME_LENGTH</code></td><td><code>name</code> com mais de 80 caracteres</td></tr>
+        <tr><td><code>E_TYPE</code></td><td>tipo errado ou tamanho acima do limite em um campo genérico</td></tr>
+        <tr><td><code>E_PATH_FORMAT</code></td><td><code>icon</code> ou <code>entry</code> fora da regra de caminho</td></tr>
+        <tr><td><code>E_RESOURCE_MISSING</code></td><td><code>icon</code> ou <code>entry</code> apontam para arquivo que não existe na versão</td></tr>
+        <tr><td><code>E_ENTRY_REQUIRED</code></td><td><code>entry</code> ausente</td></tr>
+        <tr><td><code>E_ENTRY_NOT_HTML</code></td><td><code>entry</code> não termina em <code>.html</code> ou <code>.htm</code></td></tr>
+        <tr><td><code>E_PERMISSIONS</code></td><td><code>permissions</code> não é um objeto</td></tr>
+        <tr><td><code>E_PERMISSION_LEVEL</code></td><td>nível fora de <code>none</code>, <code>read</code> ou <code>write</code></td></tr>
+        <tr><td><code>E_RUNS_AUTOMATIONS</code></td><td><code>runsAutomations</code> não é booleano</td></tr>
+        <tr><td><code>E_AUTOMATIONS</code></td><td><code>automations</code> não é lista, tem mais de 20 itens ou item que não é objeto</td></tr>
+        <tr><td><code>E_AUTOMATION_ALIAS</code></td><td>apelido ausente, fora do formato ou repetido</td></tr>
+        <tr><td><code>E_AUTOMATIONS_REQUIRE_RUNS</code></td><td>há slots com <code>runsAutomations</code> diferente de <code>true</code></td></tr>
+        <tr><td><code>E_SESSION</code></td><td><code>session</code> ou <code>ttlMinutes</code> inválidos</td></tr>
+        <tr><td><code>E_ENUM</code></td><td>tipo de campo de config fora da lista</td></tr>
+        <tr><td><code>E_CONFIG_KEY</code></td><td>chave de config ausente, inválida ou repetida</td></tr>
+        <tr><td><code>E_CONFIG_OPTIONS</code></td><td><code>options</code> ausente em <code>select</code>, presente fora dele ou inválida</td></tr>
+        <tr><td><code>E_CONFIG_DEFAULT</code></td><td>valor padrão incompatível com o tipo</td></tr>
+        <tr><td><code>E_CONFIG_SECRET_UNSUPPORTED</code></td><td>tipo <code>secret</code> — não existe em webapp</td></tr>
+        <tr><td><code>E_INTERNAL</code></td><td>exceção inesperada ao validar</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Aviso</th><th>O que significa</th></tr></thead>
+      <tbody>
+        <tr><td><code>W_UNKNOWN_KEY</code></td><td>chave desconhecida na raiz, em <code>author</code>, <code>session</code>, slot ou config: foi descartada</td></tr>
+        <tr><td><code>W_UNKNOWN_PERMISSION</code></td><td>recurso desconhecido em <code>permissions</code>: foi descartado</td></tr>
+        <tr><td><code>W_MIN_HOST_VERSION</code></td><td><code>minHostVersion</code> maior que a versão da instância</td></tr>
+        <tr><td><code>W_NO_COMMUNICATION</code></td><td>nenhuma permissão e nenhuma automação: página simples, sem chave</td></tr>
+        <tr><td><code>W_PERMISSION_NEEDS_REQUIRES</code></td><td>oportunidades ou carrinho declarados sem <code>"crm"</code> em <code>requires</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="publicar">Versões, publicação e ponteiros</h2>
+
+  <p>Ao publicar, o sistema executa quatro passos: confere o manifest com as regras de publicação (a página de entrada e o ícone existem, a versão é maior), lê todos os arquivos respeitando os tetos, acrescenta o SDK a cada HTML e envia os arquivos à CDN — recursos primeiro, o HTML por último — e só então marca a versão como publicada. O rótulo (até 255 caracteres) e as notas da versão ficam registrados no histórico.</p>
+
+  <p>Se a publicação falhar no meio, a versão continua rascunho e repetir é seguro: o que já subiu é reconhecido e pulado. Dois erros exigem mudar algo no manifest: <code>E_CDN_KEY_EXISTS</code>, quando aquele número de versão já tem na CDN um arquivo com conteúdo diferente, e <code>E_CDN_VERSION_RETIRED</code>, quando o número pertence a uma versão excluída.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Ponteiro</th><th>Para que serve</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Produção</strong></td><td>A versão que os clientes recebem: é o que o administrador instala e o que os próximos envios usam.</td></tr>
+        <tr><td><strong>Desenvolvimento</strong></td><td>Serve a instâncias de teste; o manifest desse canal não fica em cache.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Mover um ponteiro <strong>é</strong> o rollback: nada é apagado e a versão anterior volta a valer. O manifest de produção pode ficar até 15 minutos em cache de borda, e a instância que instalou o webapp só passa a usar a versão nova depois de reconsultar o manifest ou em até 5 minutos. Permissões novas nunca se ampliam sozinhas nessa troca.</p>
+
+  <p>A <strong>URL do manifest</strong> só existe quando o ponteiro daquele canal aponta uma versão publicada — ter identificador não significa ter publicado. É esse endereço, terminado em <code>/manifest.json</code>, que se entrega ao administrador.</p>
+
+  <h3 id="publicar-verificar">Verificar a publicação</h3>
+
+  <p>O menu de uma versão em uso traz <strong>Verificar publicação</strong>: ele lê da CDN o que ela realmente serve e mostra o manifest, o <code>Cache-Control</code> observado, se o HTML tem o SDK e se o endereço do SDK confere. É só leitura. Os valores esperados de cache são <code>public, max-age=900</code> para o manifest de produção, <code>no-store</code> para o de desenvolvimento e <code>public, max-age=0, must-revalidate</code> para o HTML.</p>
+
+  <div class="callout warn">
+    <strong>Endereço-base mudou, publique de novo.</strong> O endereço público de onde os webapps são servidos é configurável na instância, e os endereços do SDK ficam gravados nos HTML já publicados. Se ele mudar, as versões precisam ser republicadas.
+  </div>
+
+  <h3 id="publicar-excluir">Excluir versão e excluir webapp</h3>
+
+  <ul>
+    <li><strong>Versão:</strong> só se não estiver em uso como produção ou desenvolvimento — mova o ponteiro antes. A versão publicada excluída deixa uma lápide na página dela na CDN: quem ainda tem o link vê &ldquo;esta página foi removida pelo fornecedor&rdquo;. A instância guarda a página em memória e confere em segundo plano a cada 6 horas, então a lápide pode demorar esse tempo mais uma visita para aparecer. O número fica queimado e não volta a ser usado.</li>
+    <li><strong>Webapp inteiro:</strong> com versões publicadas, o sistema pede para digitar o identificador. Os links já enviados passam a mostrar a mesma lápide e o webapp deixa de poder ser instalado.</li>
+  </ul>
+
+  <h2 id="registrar">Registrar e aprovar na instância</h2>
+
+  <p>A tela é do administrador da instância (perfis 98 e 99) e só aparece quando os webapps estão ligados: <em>Configurações &rsaquo; Webapps instalados</em>.</p>
+
+  <ol class="steps">
+    <li><strong>Buscar o manifest.</strong> Clique em <strong>Instalar webapp</strong> e cole a URL do manifest de produção. Precisa ser <code>https</code> e o manifest tem de estar hospedado na própria plataforma — webapp hospedado fora dela não é instalado. O botão <strong>Buscar manifest</strong> confere o manifest e a página de entrada sem gravar nada; se algo falha, o motivo aparece na faixa do diálogo.</li>
+    <li><strong>Ler a tela de aprovação.</strong> Antes de instalar você vê, nesta ordem: quem é o webapp (identificador, origem, versão, autor declarado), onde o cliente vai abrir a página e se a entrada abre, o aviso de endereço e isolamento, o que a página poderá ler e alterar em palavras, a matriz de permissões e os campos que podem ser estreitados, o mapeamento das automações, a política de chave, a configuração pública e a frase-resumo do que está sendo concedido.</li>
+    <li><strong>Conceder o mínimo.</strong> A matriz começa em <strong>Sem acesso</strong>. O botão <strong>Conceder tudo o que o webapp declara</strong> copia o declarado; abaixo dele ficam os estreitamentos — quais campos do contato, quais funis e campos de formulário de oportunidade, quais campos do formulário do carrinho. Combinações incomuns, como escrever no contato e ler CPF/CNPJ ao mesmo tempo, recebem aviso vermelho.</li>
+    <li><strong>Mapear as automações.</strong> Cada apelido declarado é ligado a uma automação da instância, escolhida por número, com nome e data da última modificação à vista. Qualquer pessoa com um link válido pode disparar a automação liberada, no atendimento daquele link.</li>
+    <li><strong>Definir a política de chave.</strong> Cada link vale N minutos contados do envio, com N limitado ao que o webapp declarou (5 a 1440). Depois do encerramento do atendimento o link continua abrindo, mas só para leitura, até o prazo acabar — o que foi concedido vale também nesse período.</li>
+    <li><strong>Habilitar.</strong> Habilitar é ato separado da instalação e exige credencial de escopo total. A instalação nasce sem nada concedido e desabilitada; desabilitar derruba na hora todos os links já enviados, e eles não voltam ao reabilitar — é preciso enviar links novos.</li>
+  </ol>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Ação</th><th>Efeito</th></tr></thead>
+      <tbody>
+        <tr><td>Desabilitar</td><td>Nenhum link enviado volta a funcionar e o elemento <strong>Enviar webapp</strong> passa a recusar. A configuração e a concessão ficam preservadas. É o botão de emergência quando um fornecedor é comprometido ou a página é sinalizada por filtros de reputação — que atingiriam o domínio da instância.</td></tr>
+        <tr><td>Habilitar</td><td>Exige escopo total; é recusado enquanto o manifest não estiver em cache ou faltar recurso que ele exige. Habilitar não concede nada.</td></tr>
+        <tr><td>Revogar links</td><td>Mata os links já entregues sem desabilitar. Sem atendimento indicado, revoga todos os da instalação; com um atendimento, só os daquele atendimento. Nenhuma ferramenta mostra ou gera chave: um link novo só nasce quando o elemento roda num atendimento real.</td></tr>
+        <tr><td>Reconsultar o manifest</td><td>Rebusca o manifest no fornecedor, atualiza a versão em cache e reavalia requisitos. A concessão é recortada ao que a versão nova declara; o que ela passou a pedir a mais fica pendente de aprovação. Reabilita sozinha só a instalação que ela mesma desligou por requisito não atendido.</td></tr>
+        <tr><td>Remover</td><td>Remove configuração e concessão, revoga todos os links e faz os elementos <strong>Enviar webapp</strong> que apontam para ela falharem com <code>WEBAPP_NOT_FOUND</code> — a tela mostra em quantos fluxos isso acontece. Reinstalar gera um id novo, e os fluxos precisam ser reapontados.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <strong>Concessão estreitada vale na hora.</strong> Reduzir permissões passa a valer na próxima chamada da página, e os links já enviados continuam com o efetivo menor. Uma página que perde toda comunicação tem os links revogados.
+  </div>
+
+  <h2 id="envio">Como o cliente recebe o link</h2>
+
+  <p>A instalação sozinha não envia nada: o link só é gerado pelo elemento <strong>Enviar webapp</strong> de um fluxo. A cada execução nasce uma chave nova, vinculada àquele atendimento e ao contato dele; o link abre no domínio da instância (o cliente vê o endereço da empresa, não o da CDN) e o texto vai com botão de URL nos canais que suportam botão, ou com o link no fim da mensagem nos demais.</p>
+
+  <p>O elemento recebe o número da instalação e o identificador do webapp; se os dois não corresponderem, nada é enviado. Ele também não reenvia o link quando o próprio webapp disparou aquele fluxo, e limita a 10 links por hora por atendimento e webapp. Nos canais com janela de 24 horas, janela fechada significa mensagem não enviada, com o código <code>WINDOW_CLOSED</code> — este elemento não envia modelo aprovado.</p>
+
+  <p>Os códigos de retorno, as variáveis de resultado e as regras por canal estão na ficha do elemento: <a href="automacoes-integracoes.html#el-sendWebappMessage">sendWebappMessage</a>.</p>
+
+  <h2 id="sdk">O SDK omniWebapp na página</h2>
+
+  <p>O SDK é o <code>window.omniWebapp</code>. Ele chega injetado no HTML pela publicação e é a única porta para os dados do atendimento. O link tem esta forma:</p>
+
+  <pre><code>https://&lt;domínio da instância&gt;/static/webapp/&lt;instalação&gt;/v/&lt;versão&gt;/&lt;entrada&gt;?s=1#k=&lt;chave&gt;</code></pre>
+
+  <p>O marcador <code>?s=1</code> só serve para o SDK reconhecer um link cortado pelo aplicativo que o abriu; a chave vai no fragmento <code>#k=</code>, que o navegador não envia a servidor nenhum nem ao <code>Referer</code>. O SDK a mantém apenas em memória. Uma página aberta sem chave fica no estado <code>keyless</code>: continua sendo uma página, sem nenhuma chamada de rede.</p>
+
+  <pre><code>omniWebapp.ready(function (session) {
+  const nome = session.identity ? session.identity.displayName : 'visitante';
+  document.querySelector('#ola').textContent = 'Olá, ' + nome;
+  if (session.chatClosed) mostrarSomenteConsulta();
+});</code></pre>
+
+  <p><code>ready(cb)</code> chama a função quando o início termina (inclusive sem link) e <code>whenReady()</code> devolve a mesma coisa como Promise. Se o início falhar, a função não é chamada: para isso existem o evento <code>error</code> e o estado. A sessão traz o que a página pode usar sem outra chamada:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo da sessão</th><th>Conteúdo</th></tr></thead>
+      <tbody>
+        <tr><td><code>permissions</code></td><td>O efetivo, já limitado pelo que o administrador concedeu</td></tr>
+        <tr><td><code>automations</code></td><td>Os apelidos liberados, com o nome de cada um</td></tr>
+        <tr><td><code>config</code></td><td>Os valores públicos declarados no manifest</td></tr>
+        <tr><td><code>identity</code></td><td><code>displayName</code> e <code>numberHint</code>, só com permissão de contato</td></tr>
+        <tr><td><code>cart</code></td><td><code>available</code> e <code>clientConvert</code></td></tr>
+        <tr><td><code>chatClosed</code></td><td>Verdadeiro quando o atendimento terminou e a página está em modo consulta</td></tr>
+        <tr><td><code>expiresInSec</code>, <code>locale</code>, <code>uiLocale</code></td><td>Prazo restante do link e idioma das telas do SDK</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Para decidir o que mostrar, use <code>omniWebapp.can('cart', 'write')</code> e <code>omniWebapp.hasAutomation('confirmar_pedido')</code>. Antes de pedir dado sensível, confira <code>session.identity</code>: o link pode ter sido repassado, e mostrar o nome do titular é a forma de o cliente perceber isso.</p>
+
+  <h3 id="sdk-metodos">Métodos por namespace</h3>
+
+  <div class="table-wrap tabela-alta">
+    <table class="doc">
+      <thead><tr><th>Namespace</th><th>Métodos</th></tr></thead>
+      <tbody>
+        <tr><td>raiz</td><td><code>ready</code>, <code>whenReady</code>, <code>on</code>, <code>off</code>, <code>retry</code>, <code>can</code>, <code>hasAutomation</code>, <code>storageNamespace</code> — mais as propriedades <code>version</code>, <code>apiVersion</code>, <code>state</code>, <code>mode</code>, <code>locale</code>, <code>keyless</code>, <code>error</code> e <code>instanceHost</code></td></tr>
+        <tr><td><code>session</code></td><td><code>current</code>, <code>get</code>, <code>remainingSec</code>, <code>refresh</code>, <code>end</code>, <code>scrubAddress</code></td></tr>
+        <tr><td><code>contact</code></td><td><code>get</code>, <code>update</code></td></tr>
+        <tr><td><code>opportunities</code></td><td><code>list</code>, <code>get</code>, <code>update</code></td></tr>
+        <tr><td><code>cart</code></td><td><code>get</code>, <code>ops</code>, <code>add</code>, <code>set</code>, <code>remove</code>, <code>clear</code>, <code>setForm</code>, <code>convert</code></td></tr>
+        <tr><td><code>automations</code></td><td><code>list</code>, <code>run</code></td></tr>
+        <tr><td><code>ui</code></td><td><code>setEnabled</code> — liga ou desliga as telas desenhadas pelo próprio SDK</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Toda chamada que fala com o servidor devolve uma Promise cujo valor é exatamente o <code>data</code> da resposta e rejeita com um erro que tem <code>code</code>, <code>status</code>, <code>retryable</code>, <code>attempts</code> e, quando faz sentido, <code>retryInMs</code>. Valores em dinheiro do carrinho vêm em <strong>centavos inteiros</strong>.</p>
+
+  <h3 id="sdk-automacoes">Chamar uma automação</h3>
+
+  <pre><code>if (omniWebapp.hasAutomation('confirmar_pedido')) {
+  const run = await omniWebapp.automations.run('confirmar_pedido', { cep: '01310-100' }, { waitMs: 8000 });
+  if (run.status === 'finished' && run.result) {
+    console.log(run.result);
+  }
+}</code></pre>
+
+  <p>A página usa o apelido, nunca o nome nem o número do fluxo. O <code>waitMs</code> padrão é de 8 segundos (máximo 20) e representa quanto a chamada espera pela primeira volta da automação; se ela demorar mais, a resposta chega como <code>running</code>. A automação roda no atendimento real do link, com uma visão privada das variáveis daquela execução:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Variável</th><th>Conteúdo</th></tr></thead>
+      <tbody>
+        <tr><td><code>webapp_payload</code></td><td>O objeto que a página enviou, higienizado (<code>{}</code> se não enviou nada)</td></tr>
+        <tr><td><code>webapp_id</code></td><td>O identificador do webapp (por exemplo <code>acme.pedidos</code>)</td></tr>
+        <tr><td><code>webapp_install_id</code></td><td>O número da instalação</td></tr>
+        <tr><td><code>webapp_alias</code></td><td>O apelido pedido</td></tr>
+        <tr><td><code>webapp_run_id</code></td><td>Identificador único da execução</td></tr>
+        <tr><td><code>webapp_response</code></td><td><strong>Escrita pelo fluxo</strong>: o resultado que volta para a página (até 32 KB)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>O <code>payload</code> chega inerte: o sistema neutraliza <code>{{ }}</code> nele e nunca o avalia. Trate <code>webapp_payload</code> como você trata o texto digitado pelo cliente — valide antes de levá-lo a uma variável do contato, a um alvo de busca de atendimento, a uma URL ou a um cabeçalho de requisição. E lembre que <code>webapp_response</code> volta para o navegador do cliente: não ponha nele o que o cliente não pode ver.</p>
+
+  <h2 id="sdk-erros">Estados, eventos e erros do SDK</h2>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Estado</th><th>Significado</th></tr></thead>
+      <tbody>
+        <tr><td><code>booting</code></td><td>Iniciando: validando o endereço e falando com a instância; as chamadas esperam</td></tr>
+        <tr><td><code>ready</code></td><td>Pronto, com chave válida</td></tr>
+        <tr><td><code>keyless</code></td><td>Página aberta sem link de atendimento: só página, sem rede</td></tr>
+        <tr><td><code>expired</code></td><td>O link expirou ou foi revogado (terminal)</td></tr>
+        <tr><td><code>closed</code></td><td>O servidor recusou até a leitura (terminal). Atendimento encerrado com consulta possível <strong>não</strong> muda o estado: continua <code>ready</code> com <code>session.chatClosed</code></td></tr>
+        <tr><td><code>ended</code></td><td>A própria página encerrou a sessão (terminal)</td></tr>
+        <tr><td><code>error</code></td><td>O início falhou; só <code>INSTANCE_UNAVAILABLE</code> se resolve com <code>retry()</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Os eventos disponíveis são <code>ready</code>, <code>session</code>, <code>permissions</code>, <code>expiring</code> (120 segundos antes do fim do link), <code>expired</code>, <code>closed</code>, <code>ended</code>, <code>error</code>, <code>offline</code>, <code>online</code> e <code>call</code> — este último ao fim de cada chamada de rede, com método, caminho, status, duração e número de tentativas, sem cabeçalho, corpo nem chave.</p>
+
+  <div class="table-wrap tabela-alta">
+    <table class="doc">
+      <thead><tr><th>Código</th><th>HTTP</th><th>Repete sozinho</th><th>Quando</th></tr></thead>
+      <tbody>
+        <tr><td><code>BAD_REQUEST</code></td><td>400</td><td>não</td><td>Requisição inválida: o SDK recusou o argumento antes de enviar, ou o servidor recusou o corpo</td></tr>
+        <tr><td><code>UNAUTHORIZED</code></td><td>401</td><td>não</td><td>Link inexistente, expirado ou revogado, instalação desligada ou recurso desligado — a resposta é sempre a mesma, para não dar pista</td></tr>
+        <tr><td><code>PERMISSION_DENIED</code></td><td>403</td><td>não</td><td>O webapp não tem permissão para a operação</td></tr>
+        <tr><td><code>PERMISSION_REVOKED</code></td><td>403</td><td>não</td><td>A permissão foi reduzida depois de o link ser emitido; o SDK relê a sessão uma vez</td></tr>
+        <tr><td><code>TEST_KEY_READONLY</code></td><td>403</td><td>não</td><td>Chave de teste da prévia: somente leitura</td></tr>
+        <tr><td><code>FIELD_NOT_ALLOWED</code></td><td>403</td><td>não</td><td>Campo fora da lista permitida; <code>details.fields</code> traz os recusados e nada foi gravado</td></tr>
+        <tr><td><code>AUTOMATION_NOT_ALLOWED</code></td><td>403</td><td>não</td><td>Apelido desconhecido, não liberado ou fluxo excluído</td></tr>
+        <tr><td><code>CONVERT_DISABLED</code></td><td>403</td><td>não</td><td>Nesta fila o pedido é finalizado pelo atendente</td></tr>
+        <tr><td><code>NOT_FOUND</code></td><td>404</td><td>não</td><td>Não encontrado, sem dizer o motivo</td></tr>
+        <tr><td><code>METHOD_NOT_ALLOWED</code></td><td>405</td><td>não</td><td>Verbo HTTP não permitido na rota</td></tr>
+        <tr><td><code>CONTACT_NOT_LINKED</code></td><td>409</td><td>não</td><td>O atendimento ainda não está vinculado a um cadastro de contato</td></tr>
+        <tr><td><code>CART_INACTIVE</code> / <code>CART_UNAVAILABLE</code></td><td>409</td><td>não</td><td>A fila não usa carrinho sincronizado / ainda não há carrinho no atendimento</td></tr>
+        <tr><td><code>CART_LOCKED</code> / <code>CART_EMPTY</code></td><td>409</td><td>não</td><td>Carrinho bloqueado / vazio</td></tr>
+        <tr><td><code>CART_NOT_CONVERTIBLE</code> / <code>CONVERT_REFUSED</code></td><td>409</td><td>não</td><td>O carrinho não pode ser finalizado agora / o pedido não pôde ser finalizado</td></tr>
+        <tr><td><code>CONVERT_IN_PROGRESS</code></td><td>409</td><td>não</td><td>A finalização já está em andamento; <code>retryInMs</code> sugere quando olhar de novo</td></tr>
+        <tr><td><code>PRESCRIPTION_REQUIRED</code></td><td>409</td><td>não</td><td>Há produtos que exigem receita; <code>details.missingPrescription</code> lista quais</td></tr>
+        <tr><td><code>CONFLICT</code></td><td>409</td><td>não</td><td>O carrinho mudou desde a versão informada em <code>expectedVersion</code></td></tr>
+        <tr><td><code>RUN_IN_PROGRESS</code></td><td>409</td><td>não</td><td>Já existe execução em andamento neste atendimento para esta instalação</td></tr>
+        <tr><td><code>REQUEST_IN_PROGRESS</code></td><td>409</td><td>sim</td><td>Requisição idêntica ainda em andamento; o SDK espera e repete até 3 vezes</td></tr>
+        <tr><td><code>CHAT_CLOSED</code></td><td>410</td><td>não</td><td>Atendimento encerrado: escrita e automações recusadas; as leituras seguem valendo até a chave vencer</td></tr>
+        <tr><td><code>PAYLOAD_TOO_LARGE</code></td><td>413</td><td>não</td><td>Conteúdo grande demais</td></tr>
+        <tr><td><code>UNSUPPORTED_MEDIA_TYPE</code></td><td>415</td><td>não</td><td>O corpo precisa ser JSON</td></tr>
+        <tr><td><code>VALIDATION_FAILED</code></td><td>422</td><td>não</td><td>Dados inválidos; <code>details</code> traz campo e motivo de cada recusa</td></tr>
+        <tr><td><code>RATE_LIMITED</code></td><td>429</td><td>sim</td><td>Muitas requisições: o SDK espera <code>retryInMs</code> (até 10 s), pausa as seguintes e repete até 2 vezes</td></tr>
+        <tr><td><code>AUTOMATION_THROTTLED</code></td><td>429</td><td>não</td><td>A automação foi executada vezes demais neste atendimento</td></tr>
+        <tr><td><code>INTERNAL_ERROR</code></td><td>500</td><td>não</td><td>Não foi possível concluir; nunca é repetido em silêncio, porque a operação pode ter sido feita</td></tr>
+        <tr><td><code>CHAT_NOT_LOADED</code></td><td>503</td><td>sim</td><td>O atendimento está sendo carregado (instância acabou de iniciar)</td></tr>
+        <tr><td><code>SERVICE_UNAVAILABLE</code></td><td>503</td><td>sim</td><td>Serviço indisponível no momento</td></tr>
+        <tr><td><code>AUTOMATION_SUSPENDED</code></td><td>503</td><td>não</td><td>A automação está suspensa pela instância</td></tr>
+        <tr><td><code>NO_SESSION</code></td><td>—</td><td>não</td><td>Página sem link de atendimento, ou sessão já encerrada</td></tr>
+        <tr><td><code>NETWORK</code> / <code>TIMEOUT</code></td><td>—</td><td>sim</td><td>Falha de rede / prazo estourado (15 s; em <code>automations.run</code>, <code>waitMs</code> mais 12 s)</td></tr>
+        <tr><td><code>ABORTED</code> / <code>BAD_RESPONSE</code></td><td>—</td><td>não</td><td>Chamada cancelada pelo <code>signal</code> / resposta fora do envelope esperado</td></tr>
+        <tr><td><code>INVALID_LINK</code></td><td>—</td><td>não</td><td>Endereço que não é um link válido: chave malformada, página não aberta pela instância (por exemplo o endereço direto da CDN) ou servidor que não respondeu como uma instância</td></tr>
+        <tr><td><code>LINK_INCOMPLETE</code></td><td>—</td><td>não</td><td>Link cortado: tem o marcador <code>s=1</code> mas não a chave</td></tr>
+        <tr><td><code>INSTANCE_UNAVAILABLE</code></td><td>—</td><td><code>retry()</code></td><td>A instância não respondeu ou está desligada</td></tr>
+        <tr><td><code>UPDATE_REQUIRED</code> / <code>SDK_REVOKED</code></td><td>—</td><td>não</td><td>SDK da página antigo demais, ou revogado: a chave não é enviada</td></tr>
+        <tr><td><code>UNSUPPORTED_BROWSER</code></td><td>—</td><td>não</td><td>Falta <code>fetch</code> ou <code>Promise</code>, ou o navegador abriu a página sem o isolamento exigido — nesse caso o SDK interrompe a página</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="sdk-depois-encerramento">Depois do encerramento do atendimento</h3>
+
+  <p>O link continua abrindo depois que o atendimento termina — para o cliente confirmar um dado ou responder algo —, mas em <strong>modo consulta</strong>, até o prazo acabar. Nesse modo o servidor recusa tudo o que muda algo com <code>CHAT_CLOSED</code> (410), e as leituras de contato e de oportunidades já vinculadas continuam funcionando. Três cuidados na página:</p>
+
+  <ul>
+    <li>Leia <code>session.chatClosed</code> no <code>ready</code> e esconda ou desabilite os botões de escrita; as permissões de escrita já chegam reduzidas a leitura.</li>
+    <li>Trate o evento <code>closed</code>, que sai uma vez com <code>{ code: 'CHAT_CLOSED', readOnly: true }</code>. O estado continua <code>ready</code> e o SDK não desenha tela: a decisão do que mostrar é da página.</li>
+    <li>Não espere automações nem carrinho: <code>session.automations</code> fica vazio e <code>session.cart.available</code> fica falso.</li>
+  </ul>
+
+  <h2 id="isolamento">Isolamento, armazenamento e segurança</h2>
+
+  <p>A instância entrega a página com <code>Content-Security-Policy: sandbox</code> e <strong>sem</strong> <code>allow-same-origin</code>: para o navegador, cada página é um documento de origem opaca. O código do parceiro não alcança o login nem os dados do painel, o que outro webapp guardou, nem as outras páginas do próprio webapp. As chamadas da página saem com <code>Origin: null</code> e sem cookies — a lista de origens permitidas do servidor do fornecedor precisa aceitar <code>null</code> ou <code>*</code>.</p>
+
+  <div class="table-wrap tabela-alta">
+    <table class="doc">
+      <thead><tr><th>Recurso</th><th>Na página publicada</th></tr></thead>
+      <tbody>
+        <tr><td><code>localStorage</code>, <code>sessionStorage</code></td><td>Memória temporária que o SDK instala antes do seu código: a API é a mesma, mas some ao recarregar e tem teto de 5 milhões de caracteres</td></tr>
+        <tr><td><code>document.cookie</code></td><td>Memória temporária (até 50 cookies); nenhum cookie é enviado a servidor</td></tr>
+        <tr><td>IndexedDB, Cache Storage, service worker</td><td>Não existem: lançam erro</td></tr>
+        <tr><td><code>new Worker(url)</code></td><td>Só com <code>blob:</code>, porque um arquivo da página é de outra origem</td></tr>
+        <tr><td><code>BroadcastChannel</code>, <code>window.opener</code></td><td>Não conversam com outras páginas; o SDK zera <code>window.opener</code></td></tr>
+        <tr><td>Arquivos da página</td><td>Só por caminho relativo; cada arquivo que não é <code>.html</code> chega por redirecionamento à CDN, que o navegador guarda por 1 hora</td></tr>
+        <tr><td>Requisições aos próprios arquivos</td><td>São entre origens diferentes: só <code>GET</code> e <code>HEAD</code>, cabeçalhos simples mais <code>content-type</code> e <code>authorization</code></td></tr>
+        <tr><td>Política de conteúdo própria</td><td><code>'self'</code> bloqueia os seus arquivos, porque eles vêm da CDN: se precisar de política, liste também a origem da CDN</td></tr>
+        <tr><td>Quadro para outra página do webapp</td><td>Não carrega; use <code>srcdoc</code>, <code>blob:</code> ou <code>fetch</code> com <code>innerHTML</code></td></tr>
+        <tr><td>Outra página <code>.html</code> da versão</td><td>Abre com o SDK, mas sem a chave: cada página é um documento novo. O que depende do atendimento fica numa página só, com roteador por hash</td></tr>
+        <tr><td>Permissões do navegador (câmera, microfone, localização, área de transferência)</td><td>As já concedidas à instância não valem para a página; o navegador pergunta de novo</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="isolamento-o-que-cada-nivel-permite">O que cada nível de permissão permite</h3>
+
+  <p><code>write</code> nunca é cheque em branco, porque quem segura a chave é o cliente. As listas são fixas no servidor e tudo é filtrado por lista branca: campo fora dela simplesmente não existe para a página.</p>
+
+  <div class="table-wrap tabela-alta">
+    <table class="doc">
+      <thead><tr><th>Recurso</th><th><code>read</code></th><th><code>write</code></th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Contato</td>
+          <td>Nome, e-mail, telefone, data de nascimento e endereço; CPF/CNPJ, campos livres e campos extras só se o administrador liberar</td>
+          <td>Somente campos de perfil que não identificam a pessoa (nome, e-mail, nascimento, endereço); o telefone nunca é alterado; CPF/CNPJ só se estiver vazio e liberado; consentimento e opt-outs ficam fora</td>
+        </tr>
+        <tr>
+          <td>Oportunidades</td>
+          <td>As oportunidades abertas ou congeladas <strong>deste</strong> cliente, nos funis e campos que o administrador marcar</td>
+          <td>Só os campos de formulário que o administrador liberar</td>
+        </tr>
+        <tr>
+          <td>Carrinho</td>
+          <td>Itens, preços, descontos já aplicados, totais e os campos de formulário liberados</td>
+          <td>Adicionar, alterar e remover itens, preencher o formulário liberado e, só se a fila permitir que o cliente finalize, finalizar o pedido; nunca frete, desconto nem nota interna</td>
+        </tr>
+        <tr>
+          <td>Automações</td>
+          <td>Lista os apelidos liberados</td>
+          <td>Executa os apelidos liberados, no atendimento real, e recebe <code>webapp_response</code> de volta</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="seguranca-chave">A chave temporária</h3>
+
+  <ul>
+    <li>Formato opaco, gerada a cada envio, nunca um JWT; o servidor guarda só o resumo dela.</li>
+    <li>Vale para <strong>um</strong> atendimento, fixado na criação. Encerrado o atendimento, ela não morre: continua valendo até o prazo, em modo consulta. Se o atendimento for reaberto, ganha número novo e a chave antiga nunca passa para ele.</li>
+    <li>Prazo absoluto por instalação (padrão 24 horas, de 5 a 1440 minutos). O que ela pode fazer é avaliado ao vivo, não fica gravado nela.</li>
+    <li>Na API viaja só no cabeçalho <code>Authorization</code>; no link, no fragmento <code>#k=</code>, que o navegador não envia a servidor nenhum nem ao <code>Referer</code>.</li>
+    <li>Enquanto a página está aberta, qualquer script dela consegue ler a chave no endereço. <strong>Não carregue scripts de terceiros</strong> em páginas de webapp, e peça prazo curto quando a página lida com dado sensível.</li>
+  </ul>
+
+  <div class="callout warn">
+    <strong>O cliente é o portador do dado.</strong> A página roda no navegador dele e lê os dados dele com a chave dele. O código do fornecedor pode enviar tudo o que consegue ler para o servidor do próprio fornecedor, e o sistema não vê para onde. Por isso: peça o mínimo no manifest, e trate o fornecedor como operador de dados pessoais — quem instala é quem responde perante o titular. Confira <code>session.identity</code> antes de pedir dado sensível: o link pode ter sido repassado.
+  </div>
+
+  <p>Riscos conhecidos e aceitos nesta versão: a página aparece sob o domínio e o cadeado da instância, e o isolamento protege o painel mas não impede que uma página falsa de login ou pagamento do fornecedor pareça legítima — por isso se aprova apenas fornecedor conhecido e se desabilita a instalação ao menor sinal; a chave aparece na mensagem, no histórico e em exportações, o que se mitiga com prazo curto, ausência de log e modo consulta após o encerramento; um navegador embutido que ignore o isolamento é interrompido pelo SDK, mas scripts já em execução não podem ser parados.</p>
+
+  <h2 id="limites">Limites da API que a página usa</h2>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>O que</th><th>Limite</th></tr></thead>
+      <tbody>
+        <tr><td>Corpo de uma chamada</td><td>128 KB</td></tr>
+        <tr><td><code>payload</code> de uma automação</td><td>64 KB depois de higienizado</td></tr>
+        <tr><td><code>webapp_response</code></td><td>32 KB</td></tr>
+        <tr><td>Execuções de automação</td><td>6 por minuto por link; 20 em 2 minutos por automação e atendimento; 1 por vez, com 1 segundo entre elas; até 8 simultâneas na instância</td></tr>
+        <tr><td>Operações de carrinho numa chamada</td><td>50</td></tr>
+        <tr><td>Escritas</td><td>30 por minuto por link (10 para o contato)</td></tr>
+        <tr><td>Chaves de teste na prévia</td><td>10 por hora por atendimento</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Quando um limite é ultrapassado, o SDK recebe <code>RATE_LIMITED</code>, <code>PAYLOAD_TOO_LARGE</code> ou <code>AUTOMATION_THROTTLED</code>, com <code>retryInMs</code> quando faz sentido esperar.</p>
+
+  <h2 id="nao-existe">O que não existe nesta versão</h2>
+
+  <ul>
+    <li>Envio do link <strong>fora da janela de 24 horas</strong> por modelo do WhatsApp: o elemento não envia e anota <code>WINDOW_CLOSED</code>; use um modelo aprovado pelos meios normais.</li>
+    <li>Link enviado por assistente de IA, por campanha ou por envio automático.</li>
+    <li>Link em URA telefônica e em ligações.</li>
+    <li>Mini App do Telegram e equivalentes de outras plataformas.</li>
+    <li>Anexos do carrinho e histórico de pedidos pela página.</li>
+    <li>Chave que valha para mais de um atendimento, &ldquo;voltar ao chat&rdquo; e troca de atendimento com a mesma chave.</li>
+    <li>Escrita depois do encerramento do atendimento.</li>
+    <li>Recurso de pesquisa na API do webapp: para responder uma pesquisa, use o mecanismo da própria pesquisa.</li>
+    <li>Link para um atendimento que já terminou.</li>
+    <li>Modo simulado na prévia: ela usa a API de verdade, com chave somente leitura.</li>
+    <li>Envio de <code>.zip</code> — envie os arquivos ou a pasta.</li>
+    <li>Armazenamento que sobreviva ao recarregamento no aparelho do cliente.</li>
+    <li>Webapp hospedado fora da plataforma: só se instala o que foi publicado pelo editor da própria plataforma.</li>
+  </ul>
+
+  <h2 id="diagnostico">Diagnóstico: sintomas e causas</h2>
+
+  <h3 id="diagnostico-telas">O cliente vê uma tela do SDK</h3>
+
+  <div class="table-wrap tabela-alta">
+    <table class="doc">
+      <thead><tr><th>Sintoma</th><th>Causa provável</th><th>O que fazer</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Link expirado</strong></td><td>A chave passou do prazo, foi revogada ou o webapp foi desabilitado</td><td>O cliente precisa de um link novo, que só sai de um novo envio no atendimento</td></tr>
+        <tr><td><strong>Atendimento encerrado</strong></td><td>O servidor recusou até a leitura do atendimento</td><td>Link novo, em novo atendimento aberto; não há &ldquo;reabrir&rdquo; com a mesma chave</td></tr>
+        <tr><td>A página abre depois do encerramento mas não grava</td><td>Modo consulta</td><td>Esperado: leia <code>session.chatClosed</code>, esconda os botões de escrita e trate o evento <code>closed</code></td></tr>
+        <tr><td>O link não abre mais depois de algumas horas</td><td>Prazo da duração do link vencido</td><td>Peça duração maior ao administrador, dentro do teto declarado no manifest</td></tr>
+        <tr><td><strong>Página desatualizada</strong></td><td>SDK da página antigo ou revogado</td><td>Republicar o webapp: a publicação injeta o SDK vigente</td></tr>
+        <tr><td><strong>Serviço indisponível</strong></td><td>A instância não respondeu, ou os webapps estão desligados nela</td><td>Tentar novamente; se persistir, falar com o administrador</td></tr>
+        <tr><td><strong>Link inválido ou incompleto</strong></td><td>O link foi cortado ou alterado ao ser copiado</td><td>Reenviar pelo fluxo</td></tr>
+        <tr><td><strong>Página não encontrada</strong> na página publicada</td><td>Webapps desligados na instância, instalação desabilitada ou removida, endereço errado</td><td>Reabilitar em <em>Webapps instalados</em> e enviar link novo</td></tr>
+        <tr><td><strong>Esta página foi removida pelo fornecedor</strong></td><td>A versão do link foi excluída (lápide)</td><td>O fornecedor publica de novo; o cliente precisa de link novo, que segue a produção</td></tr>
+        <tr><td>Página abre, mas <code>fetch</code>, módulos, fontes ou <code>Worker</code> falham em silêncio</td><td>A CDN não libera CORS para páginas em sandbox, ou a página usa cabeçalho próprio ou método diferente de <code>GET</code> nos próprios arquivos</td><td>Mande cabeçalhos e métodos especiais ao servidor do fornecedor, não aos arquivos da página</td></tr>
+        <tr><td><strong>Navegador incompatível</strong> num aplicativo embutido</td><td>O navegador ignorou o isolamento e o SDK interrompeu a página</td><td>Pedir ao cliente que abra no navegador do aparelho</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="diagnostico-publicacao">Ao verificar, publicar ou testar</h3>
+
+  <div class="table-wrap tabela-alta">
+    <table class="doc">
+      <thead><tr><th>Sintoma</th><th>Causa</th><th>O que fazer</th></tr></thead>
+      <tbody>
+        <tr><td><code>E_CDN_KEY_EXISTS</code></td><td>Aquele número de versão já tem na CDN arquivos com conteúdo diferente</td><td>Aumentar o número da versão no manifest</td></tr>
+        <tr><td><code>E_CDN_VERSION_RETIRED</code></td><td>O número pertence a uma versão excluída</td><td>Usar um número maior</td></tr>
+        <tr><td><code>E_INJECT_ALREADY</code></td><td>O HTML já contém o bloco <code>omni-webapp:begin</code></td><td>Remover o bloco: o servidor o acrescenta sozinho</td></tr>
+        <tr><td>&ldquo;Publicação indisponível nesta instância&rdquo;</td><td>A CDN ou o SDK não estão configurados na instância</td><td>Editar e testar normalmente e acionar o suporte</td></tr>
+        <tr><td>&ldquo;Já existem 5 versões publicadas&rdquo;</td><td>Teto atingido</td><td>Escolher qual apagar, nunca a que está em uso</td></tr>
+        <tr><td>Página em branco na prévia</td><td>Caminhos absolutos (<code>/assets/app.js</code>) apontam para a raiz da instância, não para a pasta do webapp</td><td>Usar caminhos relativos; o <strong>Verificar</strong> acusa <code>ABSOLUTE_ASSET_PATH</code></td></tr>
+        <tr><td><code>localStorage</code> some ao recarregar, IndexedDB lança erro</td><td>Isolamento da página</td><td>Esperado: guarde no servidor do fornecedor o que precisa durar</td></tr>
+        <tr><td>Nada acontece ao gerar o link de teste</td><td>O atendimento precisa estar aberto e ser seu</td><td>Conferir a mensagem na tela e o atendimento escolhido</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="diagnostico-envio">O botão não chega ao cliente</h3>
+
+  <ul>
+    <li><code>WINDOW_CLOSED</code>: a janela de 24 horas do canal está fechada; o elemento não envia e é preciso um modelo aprovado antes.</li>
+    <li>O canal não tem botão de URL: o elemento manda o texto com o link no fim.</li>
+    <li><code>WEBAPP_DISABLED</code> ou <code>WEBAPP_MISMATCH</code>: o webapp está desabilitado, ou o elemento aponta para outra instalação.</li>
+    <li><code>NO_CHAT</code>: não há atendimento real — é automação de CRM, ticket ou pesquisa, ou ligação.</li>
+  </ul>
+
+  <h2 id="checklist">Checklist antes de publicar e antes de habilitar</h2>
+
+  <div class="grid">
+    <div class="callout tip">
+      <strong>Antes de publicar</strong>
+      <ul>
+        <li>A página de entrada e o ícone existem e o nome bate com o arquivo.</li>
+        <li>O manifest não pede nada além do que a página usa — cada permissão a mais é um argumento a mais para o administrador recusar.</li>
+        <li>Todos os caminhos são relativos e não há <code>&lt;base href&gt;</code>.</li>
+        <li>Nenhum HTML traz o bloco do SDK e nenhuma política de conteúdo restringe a <code>'self'</code>.</li>
+        <li>O teste foi feito com atendimento aberto e link de teste, conferindo o painel de chamadas.</li>
+        <li>O número da versão é maior que todas as anteriores, inclusive as excluídas.</li>
+      </ul>
+    </div>
+    <div class="callout warn">
+      <strong>Antes de habilitar uma instalação</strong>
+      <ul>
+        <li>O fornecedor é conhecido e o autor declarado confere com quem entregou.</li>
+        <li>A página de entrada abre e carrega o SDK.</li>
+        <li>A concessão está no mínimo: nada de escrita sem necessidade, nenhum campo sensível liberado por conveniência.</li>
+        <li>Cada automação mapeada foi lida antes de ser liberada e trata <code>webapp_payload</code> como dado de cliente.</li>
+        <li>A duração do link é a menor que atende ao uso.</li>
+        <li>A configuração não tem segredo — ela é pública para o cliente final.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pagenav">
+    <a href="extensoes-tour-guiado.html"><span>← Anterior</span> Extensões: Tour Guiado</a>
+    <a class="next" href="configuracoes.html"><span>Próximo →</span> Configurações</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — <strong>AtenderBem / Habilis</strong>. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

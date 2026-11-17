@@ -4571,6 +4571,10 @@ window.MANUAL_INDEX = [
     "a": "extensoes-tour-guiado"
    },
    {
+    "h": "Webapps: editor e instalação",
+    "a": "webapps-editor-e-instalacao"
+   },
+   {
     "h": "Tour Guiado no Sistema Inteiro",
     "a": "tour-guiado-no-sistema-inteiro-planejamento"
    },
@@ -7267,6 +7271,132 @@ window.MANUAL_INDEX = [
    {
     "h": "Instância 53",
     "a": "var-instance"
+   }
+  ]
+ },
+ {
+  "t": "Webapps: páginas do fornecedor no atendimento",
+  "u": "webapps.html",
+  "s": [
+   {
+    "h": "O que é um webapp",
+    "a": "o-que-e"
+   },
+   {
+    "h": "Quem faz o quê",
+    "a": "papeis"
+   },
+   {
+    "h": "O caminho completo, em oito passos",
+    "a": "ciclo"
+   },
+   {
+    "h": "O editor: arquivos, rascunho e envio",
+    "a": "editor"
+   },
+   {
+    "h": "O manifest: campos, permissões e slots",
+    "a": "manifest"
+   },
+   {
+    "h": "Permissões: o declarado é o teto",
+    "a": "manifest-permissoes"
+   },
+   {
+    "h": "Slots de automação",
+    "a": "manifest-automacoes"
+   },
+   {
+    "h": "Configuração: público, sem segredo",
+    "a": "manifest-config"
+   },
+   {
+    "h": "Chaves que o validador recusa",
+    "a": "manifest-chaves"
+   },
+   {
+    "h": "Códigos do manifest",
+    "a": "codigos"
+   },
+   {
+    "h": "Versões, publicação e ponteiros",
+    "a": "publicar"
+   },
+   {
+    "h": "Verificar a publicação",
+    "a": "publicar-verificar"
+   },
+   {
+    "h": "Excluir versão e excluir webapp",
+    "a": "publicar-excluir"
+   },
+   {
+    "h": "Registrar e aprovar na instância",
+    "a": "registrar"
+   },
+   {
+    "h": "Como o cliente recebe o link",
+    "a": "envio"
+   },
+   {
+    "h": "O SDK omniWebapp na página",
+    "a": "sdk"
+   },
+   {
+    "h": "Métodos por namespace",
+    "a": "sdk-metodos"
+   },
+   {
+    "h": "Chamar uma automação",
+    "a": "sdk-automacoes"
+   },
+   {
+    "h": "Estados, eventos e erros do SDK",
+    "a": "sdk-erros"
+   },
+   {
+    "h": "Depois do encerramento do atendimento",
+    "a": "sdk-depois-encerramento"
+   },
+   {
+    "h": "Isolamento, armazenamento e segurança",
+    "a": "isolamento"
+   },
+   {
+    "h": "O que cada nível de permissão permite",
+    "a": "isolamento-o-que-cada-nivel-permite"
+   },
+   {
+    "h": "A chave temporária",
+    "a": "seguranca-chave"
+   },
+   {
+    "h": "Limites da API que a página usa",
+    "a": "limites"
+   },
+   {
+    "h": "O que não existe nesta versão",
+    "a": "nao-existe"
+   },
+   {
+    "h": "Diagnóstico: sintomas e causas",
+    "a": "diagnostico"
+   },
+   {
+    "h": "O cliente vê uma tela do SDK",
+    "a": "diagnostico-telas"
+   },
+   {
+    "h": "Ao verificar, publicar ou testar",
+    "a": "diagnostico-publicacao"
+   },
+   {
+    "h": "O botão não chega ao cliente",
+    "a": "diagnostico-envio"
+   },
+   {
+    "h": "Checklist antes de publicar e antes de habilitar",
+    "a": "checklist"
    }
   ]
  },
