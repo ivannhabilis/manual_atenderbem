@@ -500,6 +500,16 @@ vars['cards_nota'] = 5;</code></pre>
   </div>
   <p>A aba <strong>Permissões</strong> define, por grupo de acesso, o que cada perfil pode fazer com as oportunidades do funil — inclusive ganhar, perder e reabrir. A aba <strong>Automações</strong> reúne os fluxos ligados aos eventos do funil.</p>
 
+  <figure class="figure">
+    <img src="assets/crm/07-funil-geral.png" alt="Janela de cadastro do funil na aba Geral, com Nome, Descrição, Fila para automações, Tempo máximo, automações de ganho/perda/atraso, Formulários, Templates, Grupos, Motivos para perda e Monitorar delta">
+    <figcaption>A aba <strong>Geral</strong> do cadastro do funil. A <strong>Fila para automações</strong> é obrigatória para que qualquer automação do funil rode — sem ela o próprio formulário avisa que os fluxos não serão executados.</figcaption>
+  </figure>
+
+  <figure class="figure">
+    <img src="assets/crm/09-funil-automacoes.png" alt="Aba Automações do cadastro do funil com os fluxos ligados aos eventos">
+    <figcaption>A aba <strong>Automações</strong>: os fluxos ligados aos eventos do funil. Ganho e perda também podem ser definidos por etapa, na janela <strong>Estágio</strong>.</figcaption>
+  </figure>
+
   <h3 id="7-2-a-etapa">7.2. A etapa</h3>
   <p>Cada etapa tem formulário próprio, na janela <strong>Estágio</strong>. Os campos e os textos de ajuda são os que a tela exibe:</p>
   <div class="table-wrap">
@@ -524,6 +534,11 @@ vars['cards_nota'] = 5;</code></pre>
 
   <h3 id="7-3-o-que-as-permissoes-da-etapa-bloqueiam">7.3. O que as permissões da etapa bloqueiam de fato</h3>
   <p>As três permissões da etapa valem mais do que o botão da tela: elas atravessam painel, API, assistente de IA e automação. O quadro abaixo resume o efeito de cada uma quando está desligada.</p>
+
+  <figure class="figure">
+    <img src="assets/crm/08-funil-permissoes.png" alt="Aba Permissões do cadastro do funil, com a matriz de permissões por grupo de acesso">
+    <figcaption>A aba <strong>Permissões</strong> do funil: a matriz por grupo de acesso. É aqui que se decide quem pode ganhar, perder, criar, editar, excluir e reabrir oportunidades neste funil.</figcaption>
+  </figure>
   <div class="table-wrap">
     <table class="doc">
       <thead><tr><th>Permissão desligada</th><th>Efeito</th></tr></thead>
