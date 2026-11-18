@@ -163,6 +163,7 @@
       <li class="toc-h3"><a href="#13-2-botoes-em-wamd2-e-wamd3-v14-1-4">13.2. Botões em WAMD2 e WAMD3 (v14.1.4)</a></li>
       <li class="toc-h3"><a href="#13-3-cloud-api-delay-e-agregacao-de-mensagens-v14-1-10">13.3. Cloud API: delay e agregação de mensagens (v14.1.10)</a></li>
       <li class="toc-h3"><a href="#13-4-correcoes-de-canais-na-v14-e-na-v14-1-10">13.4. Correções de canais na v14 e na v14.1.10</a></li>
+      <li><a href="#14-portfolio-da-fila-smarte-e-atendimento-por-identificador">14. Portfólio da Meta na fila WA Smarte e atendimento por identificador</a></li>
     </ol>
   </nav>
   <!-- /AUTO-TOC -->
@@ -510,6 +511,34 @@ Evidência sanitizada: &lt;sem token, código, telefone completo ou PII&gt;</cod
       <li>O comunicado da v13.0.10 <strong>não reproduz o script</strong> do bookmark nem o formato do arquivo de sessão; obtenha o arquivo pelo canal oficial da Habilis.</li>
       <li>“Botões em WAMD2/WAMD3” cobre o suporte a mensagens com botões; não implica paridade total de recursos com a Cloud API oficial.</li>
     </ul>
+  </div>
+
+  <h2 id="14-portfolio-da-fila-smarte-e-atendimento-por-identificador">14. Portfólio da Meta na fila WA Smarte e atendimento por identificador</h2>
+  <p>Numa fila <strong>WA Smarte</strong> o número está ligado a um portfólio empresarial da Meta, e a fila pode guardar o identificador desse portfólio. Com ele preenchido, a operação consegue atender um cliente que se apresenta apenas pelo identificador de WhatsApp dele (BSUID), sem telefone conhecido.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Item</th><th>Comportamento</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Portfólio da fila</strong></td>
+          <td>Identificador numérico do portfólio empresarial da Meta ao qual o número da fila pertence. É opcional e aceita <strong>somente dígitos</strong>; qualquer outro caractere é recusado com o erro <code>QUEUE_034</code>. Pela API, o valor fica no bloco de configuração avançada da fila, no campo <code>businessid</code>.</td>
+        </tr>
+        <tr>
+          <td><strong>Sem o portfólio</strong></td>
+          <td>A fila continua atendendo quem chega com número de telefone. O que fica indisponível é a abertura de atendimento por identificador, que depende do portfólio para saber a qual conta o BSUID pertence.</td>
+        </tr>
+        <tr>
+          <td><strong>Abertura por identificador</strong></td>
+          <td>Na tela de abertura de atendimento há dois caminhos: o número com DDD ou o identificador do cliente no portfólio. Quando o contato não tem telefone cadastrado, o sistema avisa que o atendimento será iniciado com o envio de um modelo aprovado para o identificador de WhatsApp (BSUID) do cliente — e é o seletor de portfólio dessa tela que define a conta usada no envio.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout tip">
+    <strong>Boa prática:</strong> guarde o identificador do portfólio junto do restante da configuração da fila. Quando a edição é feita pela API, o bloco de configuração avançada é substituído por inteiro: leia a fila antes, altere só o campo desejado e reenvie os valores com <code>***</code> preservados, senão a credencial do canal se perde.
+  </div>
+  <div class="callout warn">
+    <strong>Atenção:</strong> o BSUID é um identificador do WhatsApp, não um telefone. Ele não serve para busca por número, para campanhas por lista de telefones nem para elementos que exigem um número de destino; nesses casos o atendimento precisa do número do cliente.
   </div>
 
   <div class="pagenav">

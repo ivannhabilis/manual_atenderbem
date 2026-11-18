@@ -40,7 +40,7 @@ body = ['<div class="callout info"><strong>Como usar.</strong> Os endereços aba
  '<h2 id="entregaveis">Entregáveis e kits (para enviar a terceiros)</h2>',
  '<p>Materiais avulsos e instaláveis, prontos para compartilhar com parceiros e clientes:</p>', table(destaques),
  '<div class="callout warn"><strong>Download do .docx e dos .txt:</strong> esses endereços usam o <code>raw.githubusercontent</code> (baixam o arquivo direto). Pelo raw.githack também funcionam, mas respondem com um redirecionamento antes de baixar.</div>',
- '<div class="callout tip"><strong>Mudou de endereço?</strong> a extensão de exemplo era publicada em <code>ext/fastcorte-vendas/</code>; o caminho atual é <code>ext/exemplo-vendas/</code>. Links antigos daquele caminho não respondem mais.</div>']
+ '<div class="callout tip"><strong>Mudou de endereço?</strong> a extensão de exemplo já foi publicada em uma pasta com outro nome; o caminho atual é <code>ext/exemplo-vendas/</code>. Links antigos daquele caminho não respondem mais.</div>']
 for t, rows in cats:
     sid = "cat-" + t.lower().replace(" & ", "-").replace(" ", "-")
     body.append('<h2 id="%s">%s</h2>' % (html.escape(sid), html.escape(t)))

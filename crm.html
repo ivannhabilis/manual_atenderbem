@@ -180,6 +180,12 @@
       <li class="toc-h3"><a href="#6-4-construindo-o-layout-o-editor-visual">6.4. Construindo o layout (o editor visual)</a></li>
       <li class="toc-h3"><a href="#6-5-variaveis-dinamicas">6.5. Variáveis dinâmicas</a></li>
       <li class="toc-h3"><a href="#6-6-chamando-o-cartao-na-ura-fluxo-de-automacao">6.6. Chamando o cartão na URA / fluxo de automação</a></li>
+      <li><a href="#7-configuracao-de-funis-e-etapas">7. Configuração de funis e etapas</a></li>
+      <li class="toc-h3"><a href="#7-1-o-cadastro-do-funil">7.1. O cadastro do funil</a></li>
+      <li class="toc-h3"><a href="#7-2-a-etapa">7.2. A etapa</a></li>
+      <li class="toc-h3"><a href="#7-3-o-que-as-permissoes-da-etapa-bloqueiam">7.3. O que as permissões da etapa bloqueiam de fato</a></li>
+      <li class="toc-h3"><a href="#7-4-etapa-de-carrinho">7.4. Etapa de carrinho: como deixá-la exclusiva</a></li>
+      <li class="toc-h3"><a href="#7-5-checklist-do-funil">7.5. Checklist de revisão do funil</a></li>
     </ol>
   </nav>
   <!-- /AUTO-TOC -->
@@ -469,6 +475,100 @@ vars['cards_nota'] = 5;</code></pre>
     <strong>Limite:</strong> diferente do atendimento, no modo mensagem só é permitido exibir <strong>1 (um) cartão por mensagem</strong>.
   </div>
 
+
+  <h2 id="7-configuracao-de-funis-e-etapas">7. Configuração de funis e etapas</h2>
+  <p>O funil não é só a coluna onde a oportunidade aparece: é ele que decide em que ponto a oportunidade pode entrar, avançar, ser ganha ou ser perdida. Um funil montado sem critério deixa o agente fechar negócio numa etapa que deveria ser só de passagem, ou criar à mão uma oportunidade numa etapa reservada ao sistema.</p>
+
+  <h3 id="7-1-o-cadastro-do-funil">7.1. O cadastro do funil</h3>
+  <p>No painel de CRM, o ícone de engrenagem abre o cadastro do funil em três abas: <strong>Geral</strong>, <strong>Permissões</strong> e <strong>Automações</strong>. A aba Geral concentra a identificação e as regras que valem para o funil inteiro:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo</th><th>O que faz</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Nome</strong></td><td>Como o funil aparece no seletor <em>Sales funnel</em>.</td></tr>
+        <tr><td><strong>Descrição</strong></td><td>Texto livre de apoio; aparece junto do funil na configuração.</td></tr>
+        <tr><td><strong>Fila para automações</strong></td><td>Fila usada pelas automações do funil. Enquanto ela não estiver selecionada, o formulário avisa que as automações não serão executadas.</td></tr>
+        <tr><td><strong>Tempo máximo no funil (dias)</strong></td><td>Prazo para a oportunidade percorrer o funil. Ao estourar, ela passa a ser tratada como atrasada e dispara a automação de atraso.</td></tr>
+        <tr><td><strong>Automação no ganho / na perda / no atraso</strong></td><td>Fluxo executado quando a oportunidade é ganha, perdida ou considerada atrasada.</td></tr>
+        <tr><td><strong>Formulários</strong></td><td>Formulários personalizados do funil — os mesmos que podem ser exigidos por etapa.</td></tr>
+        <tr><td><strong>Templates de Documentos</strong></td><td>Modelos que podem ser gerados a partir da oportunidade.</td></tr>
+        <tr><td><strong>Grupos de acesso</strong></td><td>Quem enxerga o funil.</td></tr>
+        <tr><td><strong>Motivos para perda</strong></td><td>Lista de motivos que o agente escolhe ao perder a oportunidade. Sem nenhum motivo cadastrado, o diálogo de perda fica sem opções.</td></tr>
+        <tr><td><strong>Monitorar delta de valor por etapa</strong></td><td>Registra a variação de valor entre etapas, para acompanhar quanto cada passo do funil agrega ao negócio.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>A aba <strong>Permissões</strong> define, por grupo de acesso, o que cada perfil pode fazer com as oportunidades do funil — inclusive ganhar, perder e reabrir. A aba <strong>Automações</strong> reúne os fluxos ligados aos eventos do funil.</p>
+
+  <h3 id="7-2-a-etapa">7.2. A etapa</h3>
+  <p>Cada etapa tem formulário próprio, na janela <strong>Estágio</strong>. Os campos e os textos de ajuda são os que a tela exibe:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo</th><th>Comportamento</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Nome</strong></td><td>Até 500 caracteres. É o rótulo da coluna no kanban.</td></tr>
+        <tr><td><strong>Descrição</strong></td><td>Texto livre de apoio à etapa.</td></tr>
+        <tr><td><strong>Tempo para estagnação (dias)</strong></td><td>"Prazo máximo em dias para que uma oportunidade passe por essa etapa. Após o prazo, a oportunidade será considerada estagnada." Aceita de 0 a 99999.</td></tr>
+        <tr><td><strong>Probabilidade de ganho (%)</strong></td><td>"Probabilidade de ganho para as oportunidades nessa etapa do funil." De 0 a 100. É copiada para a oportunidade no momento em que ela entra na etapa e é o peso usado no valor esperado.</td></tr>
+        <tr><td><strong>Cor da etapa</strong></td><td>Paleta fixa. A cor acompanha a etapa no kanban, na lista e no seletor de movimentação em lote.</td></tr>
+        <tr><td><strong>Pode ganhar</strong></td><td>"Determina se uma oportunidade nesta etapa pode ser ganha."</td></tr>
+        <tr><td><strong>Pode perder</strong></td><td>"Determina se uma oportunidade nesta etapa pode ser perdida."</td></tr>
+        <tr><td><strong>Pode criar</strong></td><td>"Determina se uma oportunidade pode ser criada diretamente nesta etapa."</td></tr>
+        <tr><td><strong>Ocultar etapa na visão do funil</strong></td><td>"Esconde esta etapa e as oportunidades dela da tela do funil para quem não é administrador. Automações, carrinho sincronizado, relatórios e painéis continuam considerando a etapa normalmente."</td></tr>
+        <tr><td><strong>Formulários obrigatórios</strong></td><td>"Selecione os formulários personalizados do funil que são obrigatórios para a entrada nessa etapa. A validação dos formulários só é feita na entrada da oportunidade na etapa. Oportunidades sendo criadas ou transferidas de outros funis não são validadas."</td></tr>
+        <tr><td><strong>Automação na entrada / na saída / na estagnação</strong></td><td>Fluxos disparados quando a oportunidade entra na etapa, sai dela ou é considerada estagnada ali. Dependem da <em>Fila para automações</em> do funil.</td></tr>
+        <tr><td><strong>Excluir estágio</strong></td><td>"Você não pode excluir estágio com oportunidades dentro." Esvazie ou mova as oportunidades antes.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="7-3-o-que-as-permissoes-da-etapa-bloqueiam">7.3. O que as permissões da etapa bloqueiam de fato</h3>
+  <p>As três permissões da etapa valem mais do que o botão da tela: elas atravessam painel, API, assistente de IA e automação. O quadro abaixo resume o efeito de cada uma quando está desligada.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Permissão desligada</th><th>Efeito</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Pode perder</strong></td>
+          <td>A perda é recusada em todos os caminhos manuais e automáticos: ação do painel, API, assistente de IA (erro <code>OPP_033</code>) e elemento de automação <em>Perder oportunidade</em> — este último segue o fluxo, mas termina sem perder. A exceção é o encerramento automático do carrinho sincronizado, que obedece à política da fila ("Ao encerrar o atendimento"). Para perder a oportunidade, mova-a antes para uma etapa que permita.</td>
+        </tr>
+        <tr>
+          <td><strong>Pode ganhar</strong></td>
+          <td>A ação de ganhar fica indisponível e as automações de ganho não disparam. No kanban, ao arrastar um cartão, a área <strong>Ganhou</strong> fica desabilitada quando a etapa de origem tem esta opção desligada.</td>
+        </tr>
+        <tr>
+          <td><strong>Pode criar</strong></td>
+          <td>A criação manual das oportunidades é recusada com <code>OPP_017</code> — painel, API, MCP e assistente de IA —, a menos que a criação peça explicitamente para ignorar a restrição. O que o sistema cria sozinho continua funcionando: a oportunidade-carrinho nasce na etapa de carrinho configurada na fila e o elemento <em>Criar oportunidade</em> cria na etapa que ele indica.</td>
+        </tr>
+        <tr>
+          <td><strong>Ocultar etapa</strong></td>
+          <td>É somente visual, e só para quem não é administrador: a etapa e as oportunidades dela saem do kanban e da lista, mas continuam valendo para automações, carrinho sincronizado, relatórios, painéis e API. Não é controle de acesso — a oportunidade segue alcançável pelo atendimento, pela busca e pelos relatórios.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout info">
+    <strong>Mesma regra no kanban e na API:</strong> arrastar o cartão para <strong>Perdeu</strong> também fica bloqueado quando a etapa de origem tem <em>Pode perder</em> desligado. Quem opera pela API encontra os mesmos campos com os nomes <code>cancreate</code>, <code>canwin</code>, <code>canlose</code>, <code>hidden</code> e <code>winprobability</code>; a leitura do funil traz também <code>stageorders</code>, que é a ordem real das colunas.
+  </div>
+
+  <h3 id="7-4-etapa-de-carrinho">7.4. Etapa de carrinho: como deixá-la exclusiva</h3>
+  <p>Quando a fila usa carrinho sincronizado, a etapa de carrinho vira um ponto de entrada que ninguém deveria usar à mão. A montagem recomendada:</p>
+  <ol class="steps">
+    <li>Desligue <strong>Pode criar</strong> na etapa de carrinho. A criação manual passa a ser recusada e a etapa fica reservada ao que o sistema gera.</li>
+    <li>Deixe <strong>Pode ganhar</strong> e <strong>Pode perder</strong> desligados nessa etapa: o carrinho é um estado vivo, não um desfecho.</li>
+    <li>Na fila, aponte a etapa de carrinho usada pelo carrinho sincronizado — é ela que recebe cada carrinho aberto.</li>
+    <li>Lembre que o encerramento do carrinho segue a política da fila e não é barrado por <strong>Pode perder</strong> desligado.</li>
+  </ol>
+
+  <h3 id="7-5-checklist-do-funil">7.5. Checklist de revisão do funil</h3>
+  <ul>
+    <li>A <strong>Fila para automações</strong> está selecionada? Sem ela, nenhuma automação de etapa roda.</li>
+    <li>As etapas de passagem têm <strong>Pode ganhar</strong> e <strong>Pode perder</strong> desligados, para o desfecho só acontecer no fim?</li>
+    <li>A etapa de carrinho está com <strong>Pode criar</strong> desligado?</li>
+    <li>Os <strong>Motivos para perda</strong> estão cadastrados? Sem eles o agente perde a oportunidade sem classificar o motivo.</li>
+    <li>A <strong>Probabilidade de ganho</strong> de cada etapa reflete a realidade? É ela que pondera o cartão de valor esperado.</li>
+    <li>O <strong>Tempo para estagnação</strong> e o <strong>Tempo máximo no funil</strong> estão coerentes com o ciclo de venda?</li>
+  </ul>
 
   <div class="pagenav">
     <a href="agentes.html"><span>← Anterior</span> Agent Dashboard</a>

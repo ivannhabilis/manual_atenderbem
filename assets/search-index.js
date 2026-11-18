@@ -1607,6 +1607,10 @@ window.MANUAL_INDEX = [
    {
     "h": "13.4. Correções de canais na v14 e na v14.1.10",
     "a": "13-4-correcoes-de-canais-na-v14-e-na-v14-1-10"
+   },
+   {
+    "h": "14. Portfólio da Meta na fila WA Smarte e atendimento por identificador",
+    "a": "14-portfolio-da-fila-smarte-e-atendimento-por-identificador"
    }
   ]
  },
@@ -2617,6 +2621,30 @@ window.MANUAL_INDEX = [
    {
     "h": "6.6. Chamando o cartão na URA / fluxo de automação",
     "a": "6-6-chamando-o-cartao-na-ura-fluxo-de-automacao"
+   },
+   {
+    "h": "7. Configuração de funis e etapas",
+    "a": "7-configuracao-de-funis-e-etapas"
+   },
+   {
+    "h": "7.1. O cadastro do funil",
+    "a": "7-1-o-cadastro-do-funil"
+   },
+   {
+    "h": "7.2. A etapa",
+    "a": "7-2-a-etapa"
+   },
+   {
+    "h": "7.3. O que as permissões da etapa bloqueiam de fato",
+    "a": "7-3-o-que-as-permissoes-da-etapa-bloqueiam"
+   },
+   {
+    "h": "7.4. Etapa de carrinho: como deixá-la exclusiva",
+    "a": "7-4-etapa-de-carrinho"
+   },
+   {
+    "h": "7.5. Checklist de revisão do funil",
+    "a": "7-5-checklist-do-funil"
    }
   ]
  },
