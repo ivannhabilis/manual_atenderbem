@@ -5457,7 +5457,7 @@ window.MANUAL_INDEX = [
     "a": "1-como-acessar"
    },
    {
-    "h": "2. Relatórios disponíveis (observados)",
+    "h": "2. Relatórios que já vêm com a plataforma",
     "a": "2-relatorios-disponiveis-observados"
    },
    {
