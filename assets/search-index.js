@@ -3089,6 +3089,60 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Datastore (SQLite da instância)",
+  "u": "datastore.html",
+  "s": [
+   {
+    "h": "1. Quando o Datastore resolve",
+    "a": "1-quando-o-datastore-resolve"
+   },
+   {
+    "h": "2. Onde fica na tela",
+    "a": "2-onde-fica-na-tela"
+   },
+   {
+    "h": "3. Estado do banco e ciclo de vida",
+    "a": "3-estado-do-banco-e-ciclo-de-vida"
+   },
+   {
+    "h": "4. O que o motor permite",
+    "a": "4-o-que-o-motor-permite"
+   },
+   {
+    "h": "5. Preparar o banco com um script",
+    "a": "5-preparar-o-banco-com-um-script"
+   },
+   {
+    "h": "6. Consultar e gravar dentro do fluxo",
+    "a": "6-consultar-e-gravar-dentro-do-fluxo"
+   },
+   {
+    "h": "7. Exemplo completo: do zero ao atendimento que consulta o banco",
+    "a": "7-exemplo-completo-ponta-a-ponta"
+   },
+   {
+    "h": "8. Pela API e pelo MCP",
+    "a": "8-pela-api-e-pelo-mcp"
+   },
+   {
+    "h": "9. Relatórios com fonte SQLite",
+    "a": "9-relatorios-com-fonte-sqlite"
+   },
+   {
+    "h": "10. Assistentes de IA e extensões",
+    "a": "10-assistentes-de-ia-e-extensoes"
+   },
+   {
+    "h": "11. Códigos de erro",
+    "a": "11-codigos-de-erro"
+   },
+   {
+    "h": "12. Boas práticas",
+    "a": "12-boas-praticas"
+   }
+  ]
+ },
+ {
   "t": "Documentos a partir de um Modelo",
   "u": "documentos-a-partir-de-modelo.html",
   "s": [
@@ -4457,6 +4511,26 @@ window.MANUAL_INDEX = [
    {
     "h": "15. Checklist de implantação e boas práticas",
     "a": "15-checklist-de-implantacao-e-boas-praticas"
+   },
+   {
+    "h": "16. Assistente de IA em grupos (WhatsApp e Telegram)",
+    "a": "16-assistente-de-ia-em-grupos"
+   },
+   {
+    "h": "16.1 Os grupos de que a fila participa",
+    "a": "16-1-os-grupos-de-que-a-fila-participa"
+   },
+   {
+    "h": "16.2 Associar o assistente e definir quem pode acionar",
+    "a": "16-2-associar-o-assistente"
+   },
+   {
+    "h": "16.3 Enviar mensagem ao grupo pela fila",
+    "a": "16-3-enviar-mensagem-ao-grupo-pela-fila"
+   },
+   {
+    "h": "16.4 Exemplo ponta a ponta",
+    "a": "16-4-exemplo-ponta-a-ponta"
    }
   ]
  },
@@ -4531,6 +4605,10 @@ window.MANUAL_INDEX = [
     "a": "carrinho-sincronizado-com-crm"
    },
    {
+    "h": "Tabelas de Preço",
+    "a": "tabelas-de-preco"
+   },
+   {
     "h": "Tickets (Mesa de Ajuda & Configurações)",
     "a": "tickets-mesa-de-ajuda-configuracoes"
    },
@@ -4571,6 +4649,10 @@ window.MANUAL_INDEX = [
     "a": "relatorios-personalizados"
    },
    {
+    "h": "Datastore (SQLite da instância)",
+    "a": "datastore-sqlite-da-instancia"
+   },
+   {
     "h": "Configurações",
     "a": "configuracoes"
    },
@@ -4609,6 +4691,10 @@ window.MANUAL_INDEX = [
    {
     "h": "WhatsApp, Cloud API e Meta",
     "a": "whatsapp-cloud-api-e-meta"
+   },
+   {
+    "h": "WebChat V2: Identidade do Visitante",
+    "a": "webchat-v2-identidade-do-visitante"
    },
    {
     "h": "IA Básica e IA Avançada",
@@ -5445,6 +5531,10 @@ window.MANUAL_INDEX = [
    {
     "h": "9. Uso diário, portabilidade e boas práticas",
     "a": "9-uso-diario-portabilidade-e-boas-praticas"
+   },
+   {
+    "h": "10. Fonte SQLite (Datastore)",
+    "a": "10-fonte-sqlite-datastore"
    }
   ]
  },
@@ -6113,6 +6203,48 @@ window.MANUAL_INDEX = [
    {
     "h": "Q12. Em que setores o recurso tem apelo imediato?",
     "a": "q12-em-que-setores-o-recurso-tem-apelo-imediato"
+   }
+  ]
+ },
+ {
+  "t": "Tabelas de Preço",
+  "u": "tabelas-de-preco.html",
+  "s": [
+   {
+    "h": "1. Quando usar uma tabela de preço",
+    "a": "1-quando-usar"
+   },
+   {
+    "h": "2. Onde fica na tela",
+    "a": "2-onde-fica-na-tela"
+   },
+   {
+    "h": "3. Campos do cadastro",
+    "a": "3-campos-do-cadastro"
+   },
+   {
+    "h": "4. Preços por produto",
+    "a": "4-precos-por-produto"
+   },
+   {
+    "h": "5. Como a tabela chega ao atendimento",
+    "a": "5-aplicar-no-atendimento"
+   },
+   {
+    "h": "6. A tabela no fluxo: elemento setPriceTable",
+    "a": "6-tabela-no-fluxo"
+   },
+   {
+    "h": "7. Exemplo completo: da tabela ao preço no carrinho",
+    "a": "7-exemplo-completo"
+   },
+   {
+    "h": "8. Pela API e pelo MCP",
+    "a": "8-pela-api"
+   },
+   {
+    "h": "9. Limites e cuidados",
+    "a": "9-limites-e-cuidados"
    }
   ]
  },
@@ -7445,6 +7577,52 @@ window.MANUAL_INDEX = [
    {
     "h": "Checklist antes de publicar e antes de habilitar",
     "a": "checklist"
+   }
+  ]
+ },
+ {
+  "t": "WebChat V2",
+  "u": "webchat-identidade.html",
+  "s": [
+   {
+    "h": "1. O problema, em uma frase",
+    "a": "1-o-problema"
+   },
+   {
+    "h": "2. As duas provas aceitas",
+    "a": "2-as-duas-provas"
+   },
+   {
+    "h": "3. Gerar e guardar a chave",
+    "a": "3-gerar-e-guardar-a-chave"
+   },
+   {
+    "h": "4. Assinar corretamente",
+    "a": "4-assinar-corretamente"
+   },
+   {
+    "h": "5. Entregar ao widget",
+    "a": "5-entregar-ao-widget"
+   },
+   {
+    "h": "6. Modo estrito",
+    "a": "6-modo-estrito"
+   },
+   {
+    "h": "7. Como decidir com os contadores",
+    "a": "7-como-decidir-com-os-contadores"
+   },
+   {
+    "h": "8. Ativo por campo do contato",
+    "a": "8-ativo-por-campo-do-contato"
+   },
+   {
+    "h": "9. Vínculos de visitante do contato",
+    "a": "9-vinculos-de-visitante-do-contato"
+   },
+   {
+    "h": "10. Limites e o que não se resolve aqui",
+    "a": "10-limites"
    }
   ]
  },

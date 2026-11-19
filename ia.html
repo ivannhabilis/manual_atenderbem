@@ -29,6 +29,7 @@
         <div class="navdropdown">
           <a href="crm.html">CRM e Funil de Vendas</a>
           <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="tabelas-de-preco.html">Tabelas de Preço</a>
           <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
           <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
         </div>
@@ -37,6 +38,7 @@
         <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
         <div class="navdropdown">
           <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+          <a href="webchat-identidade.html">WebChat V2: Identidade do Visitante</a>
         </div>
       </div>
     <div class="navgroup">
@@ -93,6 +95,7 @@
         <div class="navdropdown">
           <a href="relatorios.html">Relatórios</a>
           <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+          <a href="datastore.html">Datastore (SQLite da instância)</a>
         </div>
       </div>
     <div class="navgroup">
@@ -182,6 +185,11 @@
       <li class="toc-h3"><a href="#14-10-delay-e-agregacao-de-mensagens-em-filas-cloud-api-14-1-10">14.10 Delay e agregação de mensagens em filas Cloud API (14.1.10)</a></li>
       <li class="toc-h3"><a href="#14-11-configuracoes-de-assistente-ligadas-a-estas-novidades">14.11 Configurações de assistente ligadas a estas novidades</a></li>
       <li><a href="#15-checklist-de-implantacao-e-boas-praticas">15. Checklist de implantação e boas práticas</a></li>
+      <li><a href="#16-assistente-de-ia-em-grupos">16. Assistente de IA em grupos (WhatsApp e Telegram)</a></li>
+      <li class="toc-h3"><a href="#16-1-os-grupos-de-que-a-fila-participa">16.1 Os grupos de que a fila participa</a></li>
+      <li class="toc-h3"><a href="#16-2-associar-o-assistente">16.2 Associar o assistente e definir quem pode acionar</a></li>
+      <li class="toc-h3"><a href="#16-3-enviar-mensagem-ao-grupo-pela-fila">16.3 Enviar mensagem ao grupo pela fila</a></li>
+      <li class="toc-h3"><a href="#16-4-exemplo-ponta-a-ponta">16.4 Exemplo ponta a ponta</a></li>
     </ol>
   </nav>
   <!-- /AUTO-TOC -->
@@ -628,6 +636,78 @@
     <li><strong>Proteja produção:</strong> o simulador executa ações reais; use dados controlados e confira cada efeito externo.</li>
     <li><strong>Meça:</strong> acompanhe perguntas não respondidas, resultados, volume, consultas à base, latência e custo.</li>
     <li><strong>Melhore por evidência:</strong> corrija primeiro as lacunas recorrentes da base, as descrições ambíguas de função e os procedimentos incompletos.</li>
+  </ol>
+
+  <h2 id="16-assistente-de-ia-em-grupos">16. Assistente de IA em grupos (WhatsApp e Telegram)</h2>
+  <p>Um assistente pode ser associado a um grupo de WhatsApp ou do Telegram de uma fila e responder ali dentro, quando citado. Ele não atende o grupo inteiro: responde à mensagem que o chamou, citando quem perguntou, com as ferramentas que você liberou para ele — base de conhecimento, produtos, conectores e funções.</p>
+  <table class="doc">
+    <thead><tr><th>Cenário</th><th>Como o grupo é usado</th></tr></thead>
+    <tbody>
+      <tr><td>Grupo de plantão com o time comercial</td><td>“@financeiro qual o faturamento de hoje?” — o assistente consulta a fonte e responde no grupo.</td></tr>
+      <tr><td>Grupo de suporte com o cliente</td><td>O assistente responde dúvidas citado por qualquer participante; o time acompanha e assume quando quiser.</td></tr>
+      <tr><td>Grupo interno de operação</td><td>Só usuários do sistema podem acionar (<code>internal</code>), e o grupo serve de painel de consulta.</td></tr>
+    </tbody>
+  </table>
+  <p>Pré-requisitos: <strong>IA avançada</strong> na instância, fila conectada e os grupos ligados na fila (<code>wagroupsenabled=1</code>). Valem filas de WhatsApp com múltiplos dispositivos (2 e 3) e filas de Telegram com bot — grupos e supergrupos. Canais de transmissão do Telegram ficam de fora.</p>
+
+  <h3 id="16-1-os-grupos-de-que-a-fila-participa">16.1 Os grupos de que a fila participa</h3>
+  <p>A lista por fila devolve, para cada grupo, quatro identificadores e quatro estados — e é essa lista que diz se dá para enviar agora:</p>
+  <table class="doc">
+    <thead><tr><th>Campo</th><th>Uso</th></tr></thead>
+    <tbody>
+      <tr><td><code>catalogId</code></td><td>Id do grupo no catálogo da instância — é o que <code>users_create</code>/<code>users_update</code> recebem em <code>wagroups</code> para dar acesso ao grupo a um usuário.</td></tr>
+      <tr><td><code>groupId</code></td><td>Identificador usado no envio de mensagem, no elemento de fluxo “Enviar mensagem a grupo” e na API de integração.</td></tr>
+      <tr><td><code>name</code>, <code>participants</code></td><td>Nome do grupo e quantidade de participantes.</td></tr>
+      <tr><td><code>isAdmin</code>, <code>onlyAdminsCanSend</code></td><td>A fila é administradora do grupo e/ou o grupo só aceita mensagens de administradores.</td></tr>
+      <tr><td><code>active</code>, <code>canSend</code></td><td>A fila ainda participa e, agora, uma mensagem pode ser enviada (é esta a condição que o envio verifica).</td></tr>
+      <tr><td><code>assistant</code></td><td><code>{assistantId, assistantName, handle, trigger}</code> ou nulo. Um assistente por grupo.</td></tr>
+    </tbody>
+  </table>
+  <p>A lista funciona com a fila desconectada: os grupos já conhecidos continuam aparecendo, com <code>canSend</code> falso. Sem <code>queueId</code>, ela devolve todas as filas com grupos ligados.</p>
+
+  <h3 id="16-2-associar-o-assistente">16.2 Associar o assistente e definir quem pode acionar</h3>
+  <pre><code>queue_groups_set_assistant {
+  "queueId": 45,
+  "groupId": "1203630...@g.us",
+  "assistantId": 12,
+  "handle": "financeiro",
+  "trigger": "admins"
+}</code></pre>
+  <table class="doc">
+    <thead><tr><th><code>trigger</code></th><th>Quem aciona</th><th>Quando usar</th></tr></thead>
+    <tbody>
+      <tr><td><code>all</code></td><td>Qualquer participante do grupo</td><td>Grupo com cliente. Todos passam a usar as ferramentas configuradas no assistente — base de conhecimento, produtos, conectores e funções —, então confirme com o responsável antes de ligar.</td></tr>
+      <tr><td><code>admins</code></td><td>Administradores do grupo e usuários do sistema</td><td>Time interno com muitas pessoas no grupo.</td></tr>
+      <tr><td><code>internal</code></td><td>Só usuários do sistema, escrevendo pelo Chat interno</td><td>Consulta de indicadores sem expor o assistente ao cliente.</td></tr>
+    </tbody>
+  </table>
+  <ul>
+    <li>O assistente só responde quando a mensagem traz <code>@&lt;handle&gt;</code> (ex.: <code>@financeiro, qual o faturamento de hoje?</code>) ou quando é resposta a uma mensagem dele. O gatilho vale também para quem escreve no grupo pelo Chat interno.</li>
+    <li>Para remover, envie <code>assistantId: null</code>.</li>
+    <li><strong>No grupo, o assistente não transfere, não encerra, não mostra botões, não monta carrinho e não cria acompanhamentos</strong> — essas ações continuam existindo apenas no atendimento individual. Se o roteiro precisa delas, o caminho é o grupo abrir um atendimento e continuar no privado.</li>
+    <li>Só age com a fila conectada e os grupos ligados.</li>
+  </ul>
+  <div class="callout warn">
+    <strong>Tetos de acionamento:</strong> 30 por grupo por hora, 10 por pessoa por grupo por hora, 8 por grupo em 2 minutos e 300 por instância por hora. Mensagem com mais de 5 minutos (acumulada durante uma reconexão) não aciona o assistente — é proteção contra rajada de histórico.
+  </div>
+
+  <h3 id="16-3-enviar-mensagem-ao-grupo-pela-fila">16.3 Enviar mensagem ao grupo pela fila</h3>
+  <p>Além do assistente, a fila pode publicar no grupo em nome do sistema, sem nome de agente: é o que o elemento de fluxo “Enviar mensagem a grupo” e a ferramenta de envio fazem.</p>
+  <ul>
+    <li>A mensagem chega às <strong>pessoas reais</strong> do grupo e não pode ser desfeita — envie apenas o que foi pedido. Ela também aparece no Chat interno para quem tem acesso ao grupo.</li>
+    <li>No Telegram sai pela conta da fila, nunca pelo bot; em supergrupo com tópicos, vai ao tópico Geral.</li>
+    <li>Condições: fila conectada, a fila participa do grupo e, se o grupo só aceita mensagens de administradores, a fila é administradora. Tudo isso está em <code>canSend</code>.</li>
+    <li>No máximo <strong>1 envio por segundo por fila</strong>: envios em sequência esperam a vez e, com muitos pendentes, são recusados (<code>RATE_LIMITED</code>).</li>
+  </ul>
+
+  <h3 id="16-4-exemplo-ponta-a-ponta">16.4 Exemplo ponta a ponta</h3>
+  <ol class="steps">
+    <li>Liste os grupos da fila e confirme <code>canSend</code> verdadeiro no grupo de interesse.</li>
+    <li>Prepare o assistente com a fonte do dado: uma tabela no Datastore ou um relatório, expostos como ferramenta dele (ver <a href="datastore.html#10-assistentes-de-ia-e-extensoes">Datastore — assistentes e extensões</a>).</li>
+    <li>Associe com <code>handle</code> curto e fácil de digitar (<code>financeiro</code>) e <code>trigger: "admins"</code> para o primeiro teste.</li>
+    <li>No grupo, escreva <code>@financeiro qual o faturamento de hoje?</code>. A resposta chega citando quem perguntou.</li>
+    <li>Confira o comportamento no histórico do atendimento do grupo e, se o resultado estiver correto, avalie mudar o gatilho para <code>all</code>.</li>
+    <li>Para publicar um aviso programado, use o elemento de fluxo na automação agendada, com o <code>groupId</code> do grupo — respeitando o limite de um envio por segundo.</li>
   </ol>
 
   <div class="pagenav">

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebChat V2 — Identidade do Visitante — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="tabelas-de-preco.html">Tabelas de Preço</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+          <a class="active" href="webchat-identidade.html">WebChat V2: Identidade do Visitante</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+          <a href="datastore.html">Datastore (SQLite da instância)</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="webapps.html">Webapps (editor e instalação)</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+
+  <div class="breadcrumb"><a href="index.html">Início</a> › WebChat V2 — Identidade do Visitante</div>
+
+  <h1>WebChat V2: identidade do visitante</h1>
+  <p class="subtitle">O identificador do visitante é público por natureza. Esta é a camada que impede alguém de usar o identificador de outra pessoa para abrir o atendimento e o histórico dela.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-o-problema">1. O problema, em uma frase</a></li>
+      <li><a href="#2-as-duas-provas">2. As duas provas aceitas</a></li>
+      <li><a href="#3-gerar-e-guardar-a-chave">3. Gerar e guardar a chave</a></li>
+      <li><a href="#4-assinar-corretamente">4. Assinar corretamente</a></li>
+      <li><a href="#5-entregar-ao-widget">5. Entregar ao widget</a></li>
+      <li><a href="#6-modo-estrito">6. Modo estrito</a></li>
+      <li><a href="#7-como-decidir-com-os-contadores">7. Como decidir com os contadores</a></li>
+      <li><a href="#8-ativo-por-campo-do-contato">8. Ativo por campo do contato</a></li>
+      <li><a href="#9-vinculos-de-visitante-do-contato">9. Vínculos de visitante do contato</a></li>
+      <li><a href="#10-limites">10. Limites e o que não se resolve aqui</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <h2 id="1-o-problema">1. O problema, em uma frase</h2>
+  <p>O widget guarda no navegador um <code>clientId</code> — o identificador daquele visitante. Quando o site <strong>fixa</strong> esse identificador (por exemplo, com o e-mail, o telefone, o documento ou o código do usuário logado), qualquer pessoa que descubra o valor pode tentar se passar pelo cliente. E identificadores derivados de dado do cliente são adivinháveis: telefone, e-mail e documento são fáceis de obter.</p>
+  <p>A defesa não é esconder o identificador: é exigir <strong>prova de posse</strong> antes de entregar a sessão que já tem atendimento ou histórico.</p>
+
+  <h2 id="2-as-duas-provas">2. As duas provas aceitas</h2>
+  <table class="doc">
+    <thead><tr><th>Prova</th><th>Quem produz</th><th>Cobre</th><th>Validade</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Token de sessão</strong></td><td>O servidor da plataforma entrega a cada conexão; o widget com suporte guarda e reapresenta</td><td>O mesmo navegador, sem nenhum trabalho no site</td><td>180 dias, renovado a cada conexão</td></tr>
+      <tr><td><strong>Assinatura do clientId</strong></td><td>O <strong>servidor do site</strong>, com a chave da fila</td><td>Outro dispositivo ou navegador, que ainda não tem token</td><td>Enquanto a chave for aceita — a assinatura não expira</td></tr>
+    </tbody>
+  </table>
+  <figure class="figure">
+    <svg viewBox="0 0 880 320" role="img" aria-label="Fluxo de prova de identidade do visitante: token de sessão do widget e assinatura HMAC gerada no servidor do site" style="width:100%;height:auto">
+      <defs>
+        <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 z" fill="#555"></path>
+        </marker>
+      </defs>
+      <rect x="20" y="30" width="200" height="70" rx="8" fill="#eef4ff" stroke="#7a9bd8"></rect>
+      <text x="120" y="58" text-anchor="middle" font-size="13" fill="#123">Navegador do visitante</text>
+      <text x="120" y="78" text-anchor="middle" font-size="12" fill="#456">widget com identityVersion 1</text>
+
+      <rect x="340" y="20" width="200" height="90" rx="8" fill="#f6f1ff" stroke="#a58ad6"></rect>
+      <text x="440" y="48" text-anchor="middle" font-size="13" fill="#220f45">Servidor do site</text>
+      <text x="440" y="68" text-anchor="middle" font-size="12" fill="#553a80">guarda a chave e assina</text>
+      <text x="440" y="86" text-anchor="middle" font-size="12" fill="#553a80">o clientId (HMAC-SHA256)</text>
+
+      <rect x="660" y="30" width="200" height="70" rx="8" fill="#eefaf1" stroke="#79bf90"></rect>
+      <text x="760" y="58" text-anchor="middle" font-size="13" fill="#0d2b18">Plataforma</text>
+      <text x="760" y="78" text-anchor="middle" font-size="12" fill="#2f5a3f">confere token e assinatura</text>
+
+      <line x1="220" y1="55" x2="336" y2="55" stroke="#555" stroke-width="1.6" marker-end="url(#ar)"></line>
+      <line x1="340" y1="80" x2="224" y2="80" stroke="#555" stroke-width="1.6" marker-end="url(#ar)"></line>
+      <text x="278" y="46" text-anchor="middle" font-size="11" fill="#333">pede o par</text>
+      <text x="278" y="98" text-anchor="middle" font-size="11" fill="#333">clientId + assinatura</text>
+      <line x1="540" y1="65" x2="656" y2="65" stroke="#555" stroke-width="1.6" marker-end="url(#ar)"></line>
+      <text x="598" y="56" text-anchor="middle" font-size="11" fill="#333">identify()</text>
+
+      <rect x="20" y="200" width="840" height="96" rx="8" fill="#fbfbfb" stroke="#ccc"></rect>
+      <text x="36" y="224" font-size="12" fill="#333">Sem prova: identidade nova é entregue ao visitante — quem pediu um id que já tem histórico não vê o histórico de ninguém.</text>
+      <text x="36" y="246" font-size="12" fill="#333">Com prova: a sessão existente é retomada, com atendimento e histórico.</text>
+      <text x="36" y="268" font-size="12" fill="#333">Token resolve o mesmo navegador; assinatura resolve o navegador novo. No modo estrito, o atendimento com histórico só abre com uma das duas.</text>
+    </svg>
+    <figcaption>O par <code>identify(clientId, assinatura)</code> é gerado no servidor do site e vai pronto na página. A chave nunca chega ao navegador.</figcaption>
+  </figure>
+
+  <h2 id="3-gerar-e-guardar-a-chave">3. Gerar e guardar a chave</h2>
+  <ol class="steps">
+    <li><strong>Gere a chave</strong> com <code>webchat_identity_rotate_secret {queueId}</code> — 64 caracteres hexadecimais, devolvidos <strong>uma única vez</strong>. Não existe forma de lê-la depois.</li>
+    <li><strong>Guarde no servidor do site</strong>: variável de ambiente ou cofre de segredos. Nunca no HTML, nunca no JavaScript da página, nunca em repositório de front-end — quem lê a página leria a chave.</li>
+    <li><strong>Rotacione sem quebrar</strong>: ao gerar uma chave nova, a anterior passa a “anterior” e continua aceita. Atualize o servidor, acompanhe <code>stats.signatureKeys.previous</code> parar de crescer e só então descarte com <code>webchat_identity_drop_previous_secret</code> (exige <code>confirm: true</code>).</li>
+    <li><strong>Só duas valem ao mesmo tempo.</strong> Gerar outra chave enquanto existe uma anterior guardada descarta a anterior na hora — nesse caso a ferramenta exige <code>confirm: true</code>.</li>
+  </ol>
+
+  <h2 id="4-assinar-corretamente">4. Assinar corretamente</h2>
+  <p>Três detalhes decidem se a assinatura vale:</p>
+  <ul>
+    <li><strong>Algoritmo:</strong> HMAC-SHA256 em hexadecimal minúsculo. O prefixo opcional <code>sha256=</code> é aceito.</li>
+    <li><strong>Chave:</strong> o <em>texto</em> da chave exatamente como entregue, em bytes UTF-8. Não decodifique o hexadecimal — se você transformar os 64 caracteres em 32 bytes, a assinatura nunca casa.</li>
+    <li><strong>Mensagem:</strong> o <code>clientId</code> exato que a página vai fixar — mesma caixa, mesmos caracteres, sem espaços sobrando.</li>
+  </ul>
+  <pre><code>// Node.js
+const { createHmac } = require("crypto");
+const assinatura = createHmac("sha256", CHAVE).update(clientId, "utf8").digest("hex");
+
+// PHP
+$assinatura = hash_hmac("sha256", $clientId, $chave);
+
+# Python
+import hmac, hashlib
+assinatura = hmac.new(chave.encode("utf-8"), client_id.encode("utf-8"), hashlib.sha256).hexdigest();
+
+// C#
+var assinatura = Convert.ToHexString(
+    new HMACSHA256(Encoding.UTF8.GetBytes(chave)).ComputeHash(Encoding.UTF8.GetBytes(clientId))
+).ToLowerInvariant();
+
+// Java
+Mac m = Mac.getInstance("HmacSHA256");
+m.init(new SecretKeySpec(chave.getBytes(StandardCharsets.UTF_8), "HmacSHA256"));
+String assinatura = HexFormat.of().formatHex(m.doFinal(clientId.getBytes(StandardCharsets.UTF_8)));</code></pre>
+
+  <h2 id="5-entregar-ao-widget">5. Entregar ao widget</h2>
+  <p>O servidor do site gera a página já com o par pronto. O detalhe que costuma quebrar a integração: o embed carrega o widget de forma assíncrona, então <code>window.omniChat</code> ainda não existe quando o script da página roda. Espere o carregador:</p>
+  <pre><code>&lt;script&gt;
+(function boot() {
+  if (!window.omniChat) return setTimeout(boot, 50);
+  window.omniChat.identify("&lt;clientId&gt;", "&lt;assinatura&gt;");
+})();
+&lt;/script&gt;</code></pre>
+  <ul>
+    <li><code>identify</code> pode ser chamado antes ou depois de a configuração do widget carregar — se for antes, é aplicado quando ela chega.</li>
+    <li>As propriedades <code>window.omniChat.clientId</code> e <code>window.omniChat.clientIdSignature</code> só valem <strong>depois</strong> do evento <code>configLoaded</code>; antes, são ignoradas sem erro. Prefira <code>identify</code>.</li>
+    <li>A assinatura vale para <strong>aquele</strong> <code>clientId</code>. Trocar o identificador exige assinar de novo.</li>
+    <li>Exige widget com suporte à identidade (<code>identityVersion 1</code>) e servidor atualizado antes de o widget novo ser publicado.</li>
+  </ul>
+
+  <h2 id="6-modo-estrito">6. Modo estrito</h2>
+  <p>Sem prova, a plataforma já não entrega sessão limpa para um identificador que tem histórico — mas ainda restam frestas: um identificador em formato UUID, sem assinatura, pode ser reservado por quem o usar primeiro. O modo estrito fecha isso.</p>
+  <table class="doc">
+    <thead><tr><th>Situação</th><th>Modo compatível (padrão)</th><th>Modo estrito</th></tr></thead>
+    <tbody>
+      <tr><td>UUID sem assinatura, sem histórico</td><td>Mantido</td><td>Identidade nova</td></tr>
+      <tr><td>Identificador que não é UUID, sem assinatura</td><td>Identidade nova a cada conexão</td><td>Identidade nova, sempre</td></tr>
+      <tr><td>Identidade com atendimento ou histórico, sem prova</td><td>Identidade nova</td><td>Identidade nova</td></tr>
+      <tr><td>Sessão antiga sem prova, no momento em que o estrito é ligado</td><td>—</td><td>Identidade nova, uma única vez</td></tr>
+    </tbody>
+  </table>
+  <ul>
+    <li>Liga e desliga por fila com <code>webchat_identity_set_strict {queueId, strict}</code> — vale na hora, sem reinício. Quando a instância inteira está em modo estrito, todas as filas de WebChat seguem o modo, independentemente do valor da fila.</li>
+    <li>O campo equivalente na fila é <code>webchatIdentityStrict</code> (visível em <code>queues_get</code>/<code>queues_update</code>).</li>
+    <li><strong>Ligue só depois</strong> de gerar a chave e de o site assinar. Ligar antes transforma cada visitante em visitante novo — o histórico some para ele (e continua no painel).</li>
+  </ul>
+
+  <h2 id="7-como-decidir-com-os-contadores">7. Como decidir com os contadores</h2>
+  <p><code>webchat_identity_get</code> devolve, por fila de WebChat V2, o modo da instância, o modo da fila, o efetivo, se existem chaves (atual, anterior, do operador) e contadores desde o último reinício. É com eles — não com achismo — que se decide ligar o estrito.</p>
+  <pre><code>{
+  "instanceMode": "compat",
+  "queues": [
+    {
+      "queueId": 123,
+      "queueStrict": 0,
+      "effectiveStrict": false,
+      "hasSecret": true,
+      "hasPreviousSecret": false,
+      "activeField": "",
+      "stats": {
+        "total": 412,
+        "capable": 386,
+        "reasons": {"compat-unproven-state": 12, "signature-invalid": 0, "signature": 141},
+        "capableReasons": {"signature": 141, "token": 233}
+      }
+    }
+  ]
+}</code></pre>
+  <ul>
+    <li><strong>Critério de prontidão:</strong> <code>capable</code> próximo de <code>total</code> (o widget com suporte já está publicado) e, nas filas em que o site fixa o identificador, <code>reasons.signature</code> maior que zero com <code>signature-invalid</code> em zero.</li>
+    <li><code>compat-unproven-state</code> e <code>token-unclean</code> <strong>não</strong> convergem para zero e não servem de critério: eles medem o custo de ligar o estrito, uma vez. Servem para dimensionar o impacto.</li>
+    <li>Motivos possíveis: <code>token</code>, <code>token-unclean</code>, <code>signature</code>, <code>signature-invalid</code>, <code>migration</code>, <code>compat-unproven</code> (fila V1 ou widget antigo), <code>compat-unproven-state</code>, <code>compat-unproven-stateless</code>, <code>strict-stateless</code>, <code>strict-new-identity</code>, <code>strict-token-unclean</code> e <code>strict-unsigned-id</code> (identificador que não é UUID, trocado pelo estrito).</li>
+    <li>Os contadores são em memória, desde o último reinício — zere a expectativa depois de qualquer manutenção.</li>
+  </ul>
+
+  <h2 id="8-ativo-por-campo-do-contato">8. Ativo por campo do contato</h2>
+  <p>Quando um atendimento ativo é aberto informando só o contato (pelo painel ou pela abertura ativa por API), o identificador do visitante pode ser um campo do contato. É o que a chave <code>webchatActiveField</code> da fila decide:</p>
+  <table class="doc">
+    <thead><tr><th>Valor</th><th>Identificador usado</th><th>Observação</th></tr></thead>
+    <tbody>
+      <tr><td><code>""</code> (padrão)</td><td>Automático: ligações já gravadas e o UUID do contato</td><td>Comportamento histórico, sem mudança</td></tr>
+      <tr><td><code>number</code> / telefone</td><td>Telefone do contato</td><td>Adivinhável</td></tr>
+      <tr><td>E-mail</td><td>E-mail do contato</td><td>Adivinhável</td></tr>
+      <tr><td>Documento</td><td>CPF/CNPJ do contato</td><td>Adivinhável</td></tr>
+      <tr><td>Código externo / campo personalizado</td><td>O valor gravado no contato</td><td>Adivinhável</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn">
+    <strong>Campo adivinhável só com o estrito ligado e o site assinando.</strong> Sem a assinatura, no modo estrito, nem o próprio cliente entra no atendimento ativo apontado para telefone, e-mail ou documento. O UUID do contato é o único campo que não se adivinha.
+  </div>
+
+  <h2 id="9-vinculos-de-visitante-do-contato">9. Vínculos de visitante do contato</h2>
+  <p>Cada navegador reconhecido como o contato numa fila de WebChat V2 é uma ligação registrada — e ligação feita por engano precisa de saída.</p>
+  <ul>
+    <li><code>contacts_webchat_ids_list {id}</code> lista até 200 ligações do contato, mais recentes primeiro, com fila, <code>clientId</code>, origem (associação no painel, abertura ativa, integração) e datas.</li>
+    <li><code>contacts_webchat_ids_remove {id, linkId}</code> desfaz <strong>uma</strong> ligação: o navegador deixa de ser reconhecido como o contato naquela fila e os atendimentos <strong>encerrados</strong> daquele identificador somem do histórico do visitante — o atendimento continua existindo no contato. Atendimento aberto no momento não é afetado.</li>
+    <li>“Invalidar sessões de WebChat” no contato <strong>não</strong> revoga o token de um identificador fixado pelo site.</li>
+  </ul>
+
+  <h2 id="10-limites">10. Limites e o que não se resolve aqui</h2>
+  <ul>
+    <li>A assinatura não expira: vale enquanto a chave for aceita. Se a chave vazar, gere outra e descarte a anterior.</li>
+    <li>O token de sessão vale 180 dias por padrão e é renovado a cada conexão.</li>
+    <li>Um identificador que não é UUID, sem assinatura, nunca recebe sessão limpa — nem quem o usar antes do cliente.</li>
+    <li>O modo da instância (<code>instanceMode</code>) e as chaves do operador (<code>hasConfSecret</code>) são configuração de servidor, fora do alcance das ferramentas de integração: quem administra a instância define.</li>
+    <li>WebChat V1 não participa desse mecanismo — as filas aparecem como <code>compat-unproven</code> no diagnóstico.</li>
+  </ul>
+
+  <div class="pagenav">
+    <a href="tabelas-de-preco.html"><span>← Anterior</span> Tabelas de Preço</a>
+    <a class="next" href="ia.html"><span>Próximo →</span> IA Básica e IA Avançada</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

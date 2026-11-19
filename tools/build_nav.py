@@ -31,11 +31,13 @@ GROUPS = [
     ("Vendas & CRM", [
         ("crm.html", "CRM e Funil de Vendas"),
         ("carrinho-sincronizado.html", "Carrinho Sincronizado com CRM"),
+        ("tabelas-de-preco.html", "Tabelas de Preço"),
         ("base/config/cataloglist/index.html", "Catálogo de Produtos"),
         ("documentos-a-partir-de-modelo.html", "Documentos a partir de Modelo"),
     ]),
     ("Canais & WhatsApp", [
         ("canais-whatsapp-meta.html", "WhatsApp, Cloud API e Meta"),
+        ("webchat-identidade.html", "WebChat V2: Identidade do Visitante"),
     ]),
     ("IA & Automação", [
         ("ia.html", "IA Básica e IA Avançada"),
@@ -80,6 +82,7 @@ GROUPS = [
     ("Relatórios & Gestão", [
         ("relatorios.html", "Relatórios"),
         ("relatorios-personalizados.html", "Relatórios Personalizados"),
+        ("datastore.html", "Datastore (SQLite da instância)"),
     ]),
     ("Configurações & Admin", [
         ("configuracoes.html", "Configurações"),

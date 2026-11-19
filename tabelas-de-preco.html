@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabelas de Preço — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a class="active" href="tabelas-de-preco.html">Tabelas de Preço</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+          <a href="webchat-identidade.html">WebChat V2: Identidade do Visitante</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+          <a href="datastore.html">Datastore (SQLite da instância)</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="webapps.html">Webapps (editor e instalação)</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+
+  <div class="breadcrumb"><a href="index.html">Início</a> › Tabelas de Preço</div>
+
+  <h1>Tabelas de Preço</h1>
+  <p class="subtitle">Um mesmo produto pode ter preço, promoção, disponibilidade, estoque e texto de oferta diferentes por canal de venda — e a tabela certa acompanha o atendimento e a oportunidade até o pedido.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-quando-usar">1. Quando usar uma tabela de preço</a></li>
+      <li><a href="#2-onde-fica-na-tela">2. Onde fica na tela</a></li>
+      <li><a href="#3-campos-do-cadastro">3. Campos do cadastro</a></li>
+      <li><a href="#4-precos-por-produto">4. Preços por produto</a></li>
+      <li><a href="#5-aplicar-no-atendimento">5. Como a tabela chega ao atendimento</a></li>
+      <li><a href="#6-tabela-no-fluxo">6. A tabela no fluxo: elemento setPriceTable</a></li>
+      <li><a href="#7-exemplo-completo">7. Exemplo completo: da tabela ao preço no carrinho</a></li>
+      <li><a href="#8-pela-api">8. Pela API e pelo MCP</a></li>
+      <li><a href="#9-limites-e-cuidados">9. Limites e cuidados</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <h2 id="1-quando-usar">1. Quando usar uma tabela de preço</h2>
+  <p>O cadastro do produto guarda um preço. A tabela de preço guarda <em>o preço daquele produto para um contexto</em>: a loja, o atacado, o contrato, a campanha. Quem atende escolhe a tabela (ou o fluxo escolhe) e tudo o que o atendimento mostra — carrinho, catálogo do WebChat, respostas do assistente, variáveis de produto — passa a usar os valores daquela tabela.</p>
+  <table class="doc">
+    <thead><tr><th>Cenário</th><th>Como fica</th></tr></thead>
+    <tbody>
+      <tr><td>Rede com preço diferente por loja</td><td>Uma tabela por loja (<code>loja_1</code>, <code>loja_2</code>) com a linha de cada produto; o cliente que escolhe a loja no atendimento recebe os preços dela.</td></tr>
+      <tr><td>Atacado e varejo no mesmo catálogo</td><td>Duas tabelas; o fluxo decide pela quantidade mínima ou pelo cadastro do cliente.</td></tr>
+      <tr><td>Contrato com preço negociado</td><td>Tabela por contrato, identificada pelo <strong>ID interno</strong> que já existe no ERP — a integração não precisa traduzir código.</td></tr>
+      <tr><td>Campanha com preço promocional</td><td>Tabela ativa só durante a ação; ao desativar, quem já estava usando volta aos preços gerais e ninguém novo entra nela.</td></tr>
+      <tr><td>Item que não é vendido em certa praça</td><td>Produto sem linha na tabela e a tabela com a política “indisponível”: ele aparece como indisponível, sem sumir do catálogo.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout info">
+    <strong>Tabela não é catálogo.</strong> Ela não cria produto nem muda a lista de itens: define, para os produtos que já existem, os valores que valem naquele contexto. Criar produto continua sendo no catálogo.
+  </div>
+
+  <h2 id="2-onde-fica-na-tela">2. Onde fica na tela</h2>
+  <p>O cadastro fica em <strong>Configurações › Catálogo › Tabelas de preço</strong>. A lista mostra as tabelas na ordem de exibição, com o contador de uso do plano (o teto é de 200 tabelas por instância).</p>
+  <figure class="figure">
+    <img src="assets/pricetables/tabelas-lista.png" alt="Tela de Tabelas de preço com as abas Catálogo e Adicionar, contador de tabelas e a lista">
+    <figcaption>A tela abre na aba <strong>Catálogo</strong>, com o contador de tabelas cadastradas contra o teto. Sem nenhuma tabela, aparece “Nenhuma tabela de preço cadastrada” — e é justamente esse o estado em que a plataforma usa apenas os preços gerais do produto.</figcaption>
+  </figure>
+  <p>A aba <strong>Adicionar</strong> abre o formulário de criação:</p>
+  <figure class="figure">
+    <img src="assets/pricetables/tabela-nova.png" alt="Formulário Nova tabela de preço com os campos Nome, Código, ID interno, Moeda, Ordem, política para produto sem preço e o interruptor Ativa">
+    <figcaption>O aviso do topo (“o código não pode ser alterado depois de criado”) vale para sempre: o código nomeia as colunas da importação e é por ele que o fluxo e a API apontam para a tabela. Os demais campos — nome, ID interno, moeda, ordem e política — podem ser editados depois.</figcaption>
+  </figure>
+
+  <h2 id="3-campos-do-cadastro">3. Campos do cadastro</h2>
+  <table class="doc">
+    <thead><tr><th>Campo</th><th>Regra</th><th>Para que serve</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Nome</strong></td><td>Obrigatório, até 80 caracteres</td><td>Rótulo que o atendente vê ao escolher a tabela.</td></tr>
+      <tr><td><strong>Código</strong></td><td>Obrigatório, minúsculas sem acento, números e sublinhado, até 40 caracteres. Imutável.</td><td>Identificador técnico. Nomeia as colunas da importação (<code>price_&lt;código&gt;</code>) e é a chave em <code>priceTables</code> na API de produtos.</td></tr>
+      <tr><td><strong>ID interno</strong></td><td>Opcional, texto livre até 100, não precisa ser único</td><td>Identificador da tabela no ERP. A integração e as automações podem apontar por ele em vez do código.</td></tr>
+      <tr><td><strong>Moeda</strong></td><td>Código ISO de 3 letras (ex.: <code>BRL</code>, <code>USD</code>); vazio = a moeda de cada produto</td><td>Permite tabela em moeda diferente do cadastro geral.</td></tr>
+      <tr><td><strong>Ordem</strong></td><td>Inteiro</td><td>Posição na lista de escolha.</td></tr>
+      <tr><td><strong>Produto sem preço nesta tabela</strong></td><td><em>Usar dados gerais</em> (padrão) ou <em>Indisponível</em></td><td>É a política para o produto que não tem linha na tabela. “Usar dados gerais” herda preço, estoque e oferta do cadastro; “Indisponível” marca o item como fora de venda naquele contexto.</td></tr>
+      <tr><td><strong>Ativa</strong></td><td>Ligado por padrão</td><td>Desativada, a tabela não pode ser escolhida em novos atendimentos e quem já a usava passa a ver os preços gerais. As linhas dos produtos são mantidas.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="4-precos-por-produto">4. Preços por produto</h2>
+  <p>Cada linha liga um produto a uma tabela e pode definir cinco coisas de forma independente: <code>price</code>, <code>salePrice</code>, <code>available</code> (0/1), <code>qty</code> (aceita negativo) e <code>offerText</code>. Campo não definido na linha <strong>herda</strong> o cadastro geral — é assim que se monta uma tabela em que só o preço muda.</p>
+  <pre><code>{
+  "id": 1234,
+  "priceTables": {
+    "loja_1": {"price": 89.90, "salePrice": 79.90, "available": 1, "qty": 12, "offerText": "Leve 2, pague 1"},
+    "atacado": {"price": 69.90, "qty": 480}
+  }
+}</code></pre>
+  <ul>
+    <li>Na <strong>escrita</strong> (<code>products_create</code>, <code>products_update</code>) o preço vai em decimal — <code>89.90</code> — e é gravado em centavos.</li>
+    <li>Na <strong>leitura</strong> (<code>products_get</code>) o mesmo preço volta <strong>em centavos</strong> (<code>8990</code>), junto com <code>id</code>, <code>name</code> e só os campos que a linha realmente define. Ausente = herda o geral.</li>
+    <li><code>priceTables</code> em <code>products_update</code> é sempre <em>patch</em>: só as tabelas e campos enviados mudam; <code>null</code> na tabela remove a linha do produto, <code>null</code> no campo volta a herdar. Para substituir tudo de uma vez, use <code>priceTablesReplace: true</code> (tabela ausente é removida; <code>{}</code> limpa todas as linhas).</li>
+    <li>A importação de produtos ganha uma coluna por tabela: <code>price_&lt;código&gt;</code>, <code>sale_price_&lt;código&gt;</code>, <code>availability_&lt;código&gt;</code>, <code>qty_&lt;código&gt;</code> e <code>offer_text_&lt;código&gt;</code> — também aceitas com prefixo de namespace (<code>g:price_&lt;código&gt;</code>) e, no XML, como tag. Coluna ausente preserva o valor atual; <strong>célula vazia remove</strong> o dado daquela tabela.</li>
+  </ul>
+
+  <h2 id="5-aplicar-no-atendimento">5. Como a tabela chega ao atendimento</h2>
+  <p>São quatro caminhos, e eles podem se combinar. O que define qual vale é o último que agiu.</p>
+  <table class="doc">
+    <thead><tr><th>Caminho</th><th>Como funciona</th><th>Configuração envolvida</th></tr></thead>
+    <tbody>
+      <tr><td>Atendente, pelo chip “Tabela”</td><td>O agente escolhe a tabela do atendimento. Administrador e supervisor da fila sempre podem; o agente só com a permissão ligada.</td><td><code>allowagentpricetable</code> na fila</td></tr>
+      <tr><td>Fluxo de URA ou automação</td><td>O elemento <code>setPriceTable</code> aplica a tabela no meio do fluxo, inclusive a partir de uma variável.</td><td>Elemento tipo 157 + variáveis <code>chat_pricetable_*</code></td></tr>
+      <tr><td>Integração do site (WebChat V2)</td><td>O site informa a tabela (código ou ID interno) ao abrir o widget e ela é aplicada ao atendimento, se existir e estiver ativa — só enquanto ninguém a tiver trocado.</td><td><code>acceptintegrationpricetable</code> na fila (só WebChat V2)</td></tr>
+      <tr><td>Oportunidade / API</td><td><code>opportunities_update</code> com <code>priceTable</code> troca a tabela da oportunidade; exige a permissão “Alterar tabela de preço” do funil.</td><td>Permissão do funil</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn">
+    <strong>Carrinho travado exige confirmação — menos no fluxo.</strong> Quando o carrinho está travado, o atendente precisa digitar o nome da tabela de destino para confirmar a troca (na API, o campo <code>confirmText</code> carrega esse nome; <code>GERAL</code> quando o destino são os preços gerais). O elemento de fluxo não pede confirmação: ele repreça o carrinho direto e registra a troca no histórico da oportunidade. Itens que não existem na tabela nova continuam no carrinho, marcados como indisponíveis.
+  </div>
+
+  <h2 id="6-tabela-no-fluxo">6. A tabela no fluxo: elemento setPriceTable</h2>
+  <p>O elemento <strong>setPriceTable</strong> (tipo 157) tem saída única: o fluxo segue sempre e o desfecho fica nas variáveis. Ele aceita o código, o id numérico ou o ID interno da tabela — e aceita variável, que é o que permite decidir pelo perfil do cliente.</p>
+  <pre><code>aplica_tabela: setPriceTable priceTable="{{tabela_do_cliente}}" resultVariableName="tabela"
+confere: varCondition value="{{tabela_error}}" {
+  case falhou conditionOperator="!=" conditionValue="" {
+    aviso: message text="A tabela de preço informada não está disponível."
+  }
+  else {
+    segue: message text="Tabela aplicada: {{chat_pricetable_name}}."
+  }
+}</code></pre>
+  <ul>
+    <li><code>applyToOpportunity</code> já vem ligado (<code>1</code>): a tabela também vai para a oportunidade em contexto — o carrinho sincronizado do atendimento e, numa automação sobre oportunidade, a oportunidade da automação. Use <code>0</code> para valer só no atendimento.</li>
+    <li>Vazio, <code>0</code> ou <code>geral</code> devolve o atendimento aos preços do cadastro.</li>
+    <li><code>resultVariableName</code> é opcional: recebe o id da tabela aplicada (<code>0</code> = geral) e, com o sufixo <code>_error</code>, o motivo da falha.</li>
+    <li>A tabela vigente aparece nas variáveis de sistema <code>chat_pricetable_id</code>, <code>chat_pricetable_code</code>, <code>chat_pricetable_name</code>, <code>chat_pricetable_internalid</code> e <code>chat_pricetable_currency</code> — e, na oportunidade, nas equivalentes <code>opportunity_pricetable_*</code>.</li>
+    <li>Vale também em URA telefônica: a ligação carrega o carrinho e o assistente de voz usa a mesma tabela.</li>
+    <li>Na aba de teste do editor, a tabela vale para o atendimento de teste; nenhuma oportunidade real é afetada.</li>
+  </ul>
+  <table class="doc">
+    <thead><tr><th>Erro em <code>tabela_error</code></th><th>Significado</th></tr></thead>
+    <tbody>
+      <tr><td><code>PRICE_TABLE_NOT_FOUND</code></td><td>Código, id ou ID interno não cadastrado.</td></tr>
+      <tr><td><code>PRICE_TABLE_DISABLED</code></td><td>A tabela existe, mas está desativada.</td></tr>
+      <tr><td><code>NO_TARGET</code></td><td>Automação sem atendimento e sem oportunidade em contexto.</td></tr>
+      <tr><td><code>APPLY_FAILED</code></td><td>Falha ao aplicar (registro do histórico, repreço do carrinho).</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="7-exemplo-completo">7. Exemplo completo: da tabela ao preço no carrinho</h2>
+  <p>O caso: uma rede tem preço de varejo e preço de atacado. O cliente informa o CNPJ no início do atendimento, o fluxo procura o cadastro e aplica a tabela de atacado quando for cliente corporativo.</p>
+  <ol class="steps">
+    <li><strong>Crie as duas tabelas</strong> — <code>varejo</code> e <code>atacado</code> — com a política “usar dados gerais” (assim só o que for diferente precisa de linha).</li>
+    <li><strong>Defina as linhas</strong> por produto. Pela API:
+      <pre><code>products_update {"id": 880, "priceTables": {"atacado": {"price": 12.50, "qty": 500}}}</code></pre>
+    </li>
+    <li><strong>Na URA da fila</strong>, peça o documento, consulte o cadastro e decida:
+      <pre><code>define_tabela: jscode code="vars[\"tabela_do_cliente\"] = vars[\"cliente_corporativo\"] * 1 ? \"atacado\" : \"varejo\""
+aplica: setPriceTable priceTable="{{tabela_do_cliente}}" resultVariableName="tabela"</code></pre>
+    </li>
+    <li><strong>Confira o efeito</strong>: o catálogo do WebChat V2, o carrinho e as respostas do assistente passam a usar o preço da tabela; os itens sem linha herdam o cadastro geral.</li>
+    <li><strong>Ajuste a permissão</strong>: se o agente também puder trocar a tabela durante a conversa, ligue <code>allowagentpricetable</code> na fila; sem isso, só administrador e supervisor trocam.</li>
+    <li><strong>Feche o pedido</strong> e confira na oportunidade que a tabela usada ficou registrada — as oportunidades fechadas guardam o id histórico, mesmo que a tabela seja excluída depois.</li>
+  </ol>
+
+  <h2 id="8-pela-api">8. Pela API e pelo MCP</h2>
+  <table class="doc">
+    <thead><tr><th>Ferramenta</th><th>O que faz</th></tr></thead>
+    <tbody>
+      <tr><td><code>price_tables_list</code></td><td>Lista as tabelas na ordem de exibição, com <code>usage</code> (quantos produtos têm linha em cada uma) e o teto do plano.</td></tr>
+      <tr><td><code>price_tables_get</code></td><td>Uma tabela por <code>id</code> ou por <code>code</code>, com o uso.</td></tr>
+      <tr><td><code>price_tables_create</code></td><td>Cria com <code>code</code> e <code>name</code> obrigatórios. Os preços por produto entram depois, em <code>products_update</code> ou pela importação.</td></tr>
+      <tr><td><code>price_tables_update</code></td><td>Edita nome, ID interno, moeda, política, ativação e ordem. Mudar o <code>code</code> é recusado (<code>PRT_006</code>) — ele é imutável.</td></tr>
+      <tr><td><code>price_tables_delete</code></td><td>Exclui sem desfazer. Em segundo plano remove a linha da tabela de todos os produtos; oportunidades <strong>abertas</strong> voltam ao cadastro geral, as fechadas guardam o id histórico e os atendimentos passam a usar o geral. Com produtos usando a tabela, exige <code>confirm: true</code>.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout tip">
+    <strong>Para suspender, não exclua.</strong> <code>price_tables_update {"id": 7, "enabled": 0}</code> tira a tabela de circulação na hora — ninguém novo entra nela e quem já usa vê os preços gerais — mantendo as linhas dos produtos para quando a ação voltar. Excluir apaga as linhas e não tem desfazer.
+  </div>
+  <p>As tabelas também são lidas pelo fluxo e pelas automações: <code>automations_get_system_data ["price_tables"]</code> devolve id, código, nome, ID interno, moeda e política de cada uma — é a lista para preencher o <code>priceTable</code> do elemento e as chaves de <code>priceTables</code> nos itens do catálogo.</p>
+
+  <h2 id="9-limites-e-cuidados">9. Limites e cuidados</h2>
+  <ul>
+    <li><strong>200 tabelas</strong> por instância. O contador da tela mostra o consumo.</li>
+    <li><strong>Código imutável:</strong> renomear exige criar outra tabela e migrar as linhas. Pense no código como contrato, não como rótulo.</li>
+    <li><strong>Tabela desativada não é tabela inexistente:</strong> ela continua na lista, mas não pode ser aplicada e não resolve preço — o produto cai no geral.</li>
+    <li><strong>Ordem de resolução:</strong> linha do produto na tabela → política da tabela (geral ou indisponível). Preço promocional, quando existe, é o que o cliente vê.</li>
+    <li><strong>Moeda por tabela</strong> vale para os valores daquela tabela; produto sem moeda própria usa a da tabela.</li>
+    <li><strong>Histórico:</strong> a troca de tabela fica registrada na oportunidade, com quem trocou e quando — é o rastro para conferir por que um pedido saiu com aquele preço.</li>
+  </ul>
+
+  <div class="pagenav">
+    <a href="datastore.html"><span>← Anterior</span> Datastore (SQLite da instância)</a>
+    <a class="next" href="webchat-identidade.html"><span>Próximo →</span> WebChat V2 — Identidade do Visitante</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

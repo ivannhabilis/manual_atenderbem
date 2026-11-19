@@ -28,6 +28,7 @@
         <div class="navdropdown">
           <a href="crm.html">CRM e Funil de Vendas</a>
           <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="tabelas-de-preco.html">Tabelas de Preço</a>
           <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
           <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
         </div>
@@ -36,6 +37,7 @@
         <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
         <div class="navdropdown">
           <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+          <a href="webchat-identidade.html">WebChat V2: Identidade do Visitante</a>
         </div>
       </div>
     <div class="navgroup">
@@ -92,6 +94,7 @@
         <div class="navdropdown">
           <a href="relatorios.html">Relatórios</a>
           <a class="active" href="relatorios-personalizados.html">Relatórios Personalizados</a>
+          <a href="datastore.html">Datastore (SQLite da instância)</a>
         </div>
       </div>
     <div class="navgroup">
@@ -158,6 +161,7 @@
       <li class="toc-h3"><a href="#8-4-configuracoes-de-metricas">8.4 Configurações de métricas</a></li>
       <li class="toc-h3"><a href="#8-5-configuracao-geral-do-componente">8.5 Configuração Geral do componente</a></li>
       <li><a href="#9-uso-diario-portabilidade-e-boas-praticas">9. Uso diário, portabilidade e boas práticas</a></li>
+      <li><a href="#10-fonte-sqlite-datastore">10. Fonte SQLite (Datastore)</a></li>
     </ol>
   </nav>
   <!-- /AUTO-TOC -->
@@ -395,6 +399,12 @@
     <li><strong>Revisão de layout:</strong> após salvar, utilize o botão <strong>“Visualizar”</strong> no topo do editor para conferir a disposição final dos painéis.</li>
     <li>Aproveite o módulo para <strong>mapear gargalos</strong>, medir volumes de demanda e garantir que a operação esteja fluindo com excelência.</li>
   </ul>
+
+  <h2 id="10-fonte-sqlite-datastore">10. Fonte SQLite (Datastore)</h2>
+  <p>Um elemento de relatório pode ler do <strong>Datastore</strong> — o banco SQLite da instância — em vez de um cubo. É o caminho para cruzar dado do atendimento com uma tabela própria, sem exportar planilha. A configuração vai no <code>dataConfig</code> do elemento, com uma instrução de leitura e parâmetros nomeados ligados aos filtros globais do relatório.</p>
+  <div class="callout info">
+    <strong>Detalhes, exemplos e limites:</strong> <a href="datastore.html#9-relatorios-com-fonte-sqlite">Datastore — relatórios com fonte SQLite</a>. Antes de gravar o elemento, teste o SQL isoladamente: a ferramenta <code>reports_run_sql</code> devolve as colunas detectadas e as linhas, com os filtros simulados.
+  </div>
 
   <div class="pagenav">
     <a href="relatorios.html"><span>← Anterior</span> Relatórios (menu principal)</a>

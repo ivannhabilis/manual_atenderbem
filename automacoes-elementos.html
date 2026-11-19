@@ -29,6 +29,7 @@
         <div class="navdropdown">
           <a href="crm.html">CRM e Funil de Vendas</a>
           <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="tabelas-de-preco.html">Tabelas de Preço</a>
           <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
           <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
         </div>
@@ -37,6 +38,7 @@
         <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
         <div class="navdropdown">
           <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+          <a href="webchat-identidade.html">WebChat V2: Identidade do Visitante</a>
         </div>
       </div>
     <div class="navgroup">
@@ -93,6 +95,7 @@
         <div class="navdropdown">
           <a href="relatorios.html">Relatórios</a>
           <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+          <a href="datastore.html">Datastore (SQLite da instância)</a>
         </div>
       </div>
     <div class="navgroup">
@@ -348,6 +351,9 @@
 <tr><td><a href="automacoes-atendimento.html#el-removeChatGuests">removeChatGuests</a></td><td>Remove agentes convidados do atendimento, com o mesmo efeito de o agente desmarcá-los no diálogo "Convidados": o convidado deixa de ver o atendimen...</td><td><a href="automacoes-atendimento.html">Atendimento, fila e bloqueios</a></td></tr>
 <tr><td><a href="automacoes-mensagens.html#el-sendWaGroupMessage">sendWaGroupMessage</a></td><td>Envia uma mensagem a um GRUPO do WhatsApp em nome do sistema (sem o nome de um agente). Não depende de atendimento: roda em URA e em automação, com...</td><td><a href="automacoes-mensagens.html">Mensagens e conteúdo</a></td></tr>
 <tr><td><a href="automacoes-catalogo-pedidos.html#el-manageProducts">manageProducts</a></td><td>Gerencia produtos do CADASTRO do catálogo (o mesmo do menu Produtos): cria, atualiza e remove, gravando pelo mesmo caminho do painel (o painel é av...</td><td><a href="automacoes-catalogo-pedidos.html">Catálogo, pedidos e estoque</a></td></tr>
+<tr><td><a href="datastore.html#6-consultar-e-gravar-dentro-do-fluxo">datastoreQuery</a></td><td>Executa uma instrução no Datastore (o banco SQLite da instância): leitura, escrita e upsert, com os valores sempre em parâmetros. Saída única — o desfecho fica nas variáveis de resultado e de erro.</td><td><a href="datastore.html">Datastore</a></td></tr>
+<tr><td><a href="datastore.html#5-preparar-o-banco-com-um-script">datastoreScript</a></td><td>Executa um script SQL no Datastore, em transação única: criar e alterar tabelas, índices, visões e gatilhos, e manutenção em lote. Sem variáveis e sem parâmetros.</td><td><a href="datastore.html">Datastore</a></td></tr>
+<tr><td><a href="tabelas-de-preco.html#6-tabela-no-fluxo">setPriceTable</a></td><td>Define a tabela de preço do atendimento (e da oportunidade em contexto). A partir daí carrinho, catálogo do WebChat, assistente e variáveis de produto usam os valores da tabela.</td><td><a href="tabelas-de-preco.html">Tabelas de preço</a></td></tr>
 </tbody></table></div>
 
   <h2 id="5-como-testar-antes-de-publicar">5. Como testar antes de publicar</h2>
