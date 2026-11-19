@@ -13,3 +13,7 @@ _mcp_schemas/
 
 # Acervo de enriquecimento (pesado — nao versionar)
 enriquecer_dados/
+
+# Bytecode Python (gerado por tools/build_nav.py)
+__pycache__/
+*.pyc
