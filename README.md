@@ -18,9 +18,11 @@ Páginas:
 - `contatos.html` — Contatos e Empresas
 - `crm.html` — CRM e Funil de Vendas
 - `carrinho-sincronizado.html` — Carrinho Sincronizado com CRM
+- `tabelas-de-preco.html` — Tabelas de Preço (preço/promoção/estoque/oferta por loja, atacado ou contrato; elemento `setPriceTable` e variáveis `chat_pricetable_*`)
 - `base/config/cataloglist/index.html` — Catálogo de Produtos
 - `documentos-a-partir-de-modelo.html` — Documentos a partir de um Modelo (.docx com variáveis; geração por CRM, tarefa ou automação)
 - `canais-whatsapp-meta.html` — WhatsApp, Cloud API e Meta
+- `webchat-identidade.html` — WebChat V2: identidade do visitante (token de sessão, assinatura HMAC do clientId, modo estrito, vínculos do contato)
 - `ia.html` — IA Básica e IA Avançada (inclui novidades dos assistentes v14.1)
 - `integracoes.html` — Integrações e Automações Externas
 - `tickets.html` — Tickets (mesa de ajuda / Kanban)
@@ -32,8 +34,8 @@ Páginas:
 - `pabx-simplepbx.html` — SimplePBX (Telefonia Simplificada): telefonia gerenciada dentro da plataforma (ramais, troncos, rotas, grupos de toque, gravações, Debug SIP, limites, importação/exportação e API de telefonia)
 - `pabx-simplepbx-configuracao.html` — SimplePBX: guia de configuração campo a campo (tronco WhatsApp Cloud API voz, tronco de operadora SIP, ramais WebRTC, rotas, grupos de toque, filas e URA), com capturas de tela
 - `assets/simplepbx/` — capturas de tela do SimplePBX usadas no guia de configuração
-- `automacoes-elementos.html` — catálogo dos 144 elementos do editor de Fluxo de Automação e URA (o que fazem, campos, ramos, exemplos)
-- `automacoes-variaveis.html` — variáveis e expressões do fluxo: sintaxe, operadores, filtros e as 439 variáveis por categoria
+- `automacoes-elementos.html` — catálogo dos 153 elementos do editor de Fluxo de Automação e URA (o que fazem, campos, ramos, exemplos)
+- `automacoes-variaveis.html` — variáveis e expressões do fluxo: sintaxe, operadores, filtros e as 468 variáveis por categoria
 - `automacoes-exemplos.html` — exemplos prontos de fluxos (passo a passo, compilados pelo validador do sistema e com arquivo `.ivr` para importar)
 - `automacoes/*.ivr` — 57 fluxos prontos para importar na tela Fluxo de Automação e URA (índice em `automacoes/INDICE.txt`)
 - `automacoes-*.html` — capítulos por grupo de elementos (mensagens, fluxo/lógica, atendimento, contatos, CRM/carrinho, catálogo/pedidos, tickets, IA, telefonia, pesquisas/WebChat, integrações, tarefas/admin)
@@ -44,9 +46,10 @@ Páginas:
 - `entrega/tutorial-modelo-documento.html` — tutorial avulso: gerar documento a partir de um modelo (imagens embutidas)
 - `relatorios.html` — Relatórios (menu principal)
 - `relatorios-personalizados.html` — Relatórios Personalizados (Custom Reports)
+- `datastore.html` — Datastore: banco SQLite da instância (elementos `datastoreQuery`/`datastoreScript`, API `datastore_*`, relatórios com fonte SQLite, ferramenta do assistente e concessão para extensões)
 - `configuracoes.html` — Configurações (Filas, Usuários, Pausas, Ajuda)
 - `extensoes.html` — Extensões (micro-frontends / SDK)
-- `extensoes-criar-publicar-instalar.html` — Extensões: criar, publicar, instalar e distribuir (whitelabel)
+- `extensoes-criar-publicar-instalar.html` — Extensões: criar, publicar, instalar e distribuir
 - `webapps.html` — Webapps: editor, manifest, permissões, publicação em CDN, registro na instância e SDK omniWebapp
 - `extensoes-bastidores.html` — Extensões: bastidores do projeto (método, armadilhas, regras de ouro)
 - `extensoes-tour-guiado.html` — Extensões: tour guiado (nível 2) que roda dentro do produto

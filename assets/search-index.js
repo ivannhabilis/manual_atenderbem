@@ -807,7 +807,7 @@ window.MANUAL_INDEX = [
     "a": "3-a-linguagem-do-fluxo"
    },
    {
-    "h": "4. Índice dos 150 elementos",
+    "h": "4. Índice dos 153 elementos",
     "a": "4-indice-dos-elementos"
    },
    {
