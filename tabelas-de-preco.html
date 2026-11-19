@@ -172,7 +172,7 @@
   </div>
 
   <h2 id="2-onde-fica-na-tela">2. Onde fica na tela</h2>
-  <p>O cadastro fica em <strong>Configurações › Catálogo › Tabelas de preço</strong>. A lista mostra as tabelas na ordem de exibição, com o contador de uso do plano (o teto é de 200 tabelas por instância).</p>
+  <p>O cadastro fica em <strong>Configurações › Tabelas de preço</strong>. A lista mostra as tabelas na ordem de exibição, com o contador de uso do plano (o teto é de 200 tabelas por instância).</p>
   <figure class="figure">
     <img src="assets/pricetables/tabelas-lista.png" alt="Tela de Tabelas de preço com as abas Catálogo e Adicionar, contador de tabelas e a lista">
     <figcaption>A tela abre na aba <strong>Catálogo</strong>, com o contador de tabelas cadastradas contra o teto. Sem nenhuma tabela, aparece “Nenhuma tabela de preço cadastrada” — e é justamente esse o estado em que a plataforma usa apenas os preços gerais do produto.</figcaption>
@@ -218,7 +218,7 @@
   <table class="doc">
     <thead><tr><th>Caminho</th><th>Como funciona</th><th>Configuração envolvida</th></tr></thead>
     <tbody>
-      <tr><td>Atendente, pelo chip “Tabela”</td><td>O agente escolhe a tabela do atendimento. Administrador e supervisor da fila sempre podem; o agente só com a permissão ligada.</td><td><code>allowagentpricetable</code> na fila</td></tr>
+      <tr><td>Atendente, pelo chip <strong>Tabela de preço</strong> do atendimento</td><td>O agente escolhe a tabela do atendimento. Administrador e supervisor da fila sempre podem; o agente só com a permissão ligada.</td><td><code>allowagentpricetable</code> na fila</td></tr>
       <tr><td>Fluxo de URA ou automação</td><td>O elemento <code>setPriceTable</code> aplica a tabela no meio do fluxo, inclusive a partir de uma variável.</td><td>Elemento tipo 157 + variáveis <code>chat_pricetable_*</code></td></tr>
       <tr><td>Integração do site (WebChat V2)</td><td>O site informa a tabela (código ou ID interno) ao abrir o widget e ela é aplicada ao atendimento, se existir e estiver ativa — só enquanto ninguém a tiver trocado.</td><td><code>acceptintegrationpricetable</code> na fila (só WebChat V2)</td></tr>
       <tr><td>Oportunidade / API</td><td><code>opportunities_update</code> com <code>priceTable</code> troca a tabela da oportunidade; exige a permissão “Alterar tabela de preço” do funil.</td><td>Permissão do funil</td></tr>
@@ -229,7 +229,7 @@
   </div>
 
   <h2 id="6-tabela-no-fluxo">6. A tabela no fluxo: elemento setPriceTable</h2>
-  <p>O elemento <strong>setPriceTable</strong> (tipo 157) tem saída única: o fluxo segue sempre e o desfecho fica nas variáveis. Ele aceita o código, o id numérico ou o ID interno da tabela — e aceita variável, que é o que permite decidir pelo perfil do cliente.</p>
+  <p>Na paleta do editor o elemento aparece como <strong>Definir tabela de preço</strong> (<code>setPriceTable</code>, tipo 157). Tem saída única: o fluxo segue sempre e o desfecho fica nas variáveis. Ele aceita o código, o id numérico ou o ID interno da tabela — e aceita variável, que é o que permite decidir pelo perfil do cliente.</p>
   <pre><code>aplica_tabela: setPriceTable priceTable="{{tabela_do_cliente}}" resultVariableName="tabela"
 confere: varCondition value="{{tabela_error}}" {
   case falhou conditionOperator="!=" conditionValue="" {
@@ -241,7 +241,7 @@ confere: varCondition value="{{tabela_error}}" {
 }</code></pre>
   <ul>
     <li><code>applyToOpportunity</code> já vem ligado (<code>1</code>): a tabela também vai para a oportunidade em contexto — o carrinho sincronizado do atendimento e, numa automação sobre oportunidade, a oportunidade da automação. Use <code>0</code> para valer só no atendimento.</li>
-    <li>Vazio, <code>0</code> ou <code>geral</code> devolve o atendimento aos preços do cadastro.</li>
+    <li>Vazio, <code>0</code> ou <code>geral</code> devolve o atendimento aos preços do cadastro — é o mesmo que o atendente escolhe no chip como <strong>Geral (preços do cadastro)</strong>.</li>
     <li><code>resultVariableName</code> é opcional: recebe o id da tabela aplicada (<code>0</code> = geral) e, com o sufixo <code>_error</code>, o motivo da falha.</li>
     <li>A tabela vigente aparece nas variáveis de sistema <code>chat_pricetable_id</code>, <code>chat_pricetable_code</code>, <code>chat_pricetable_name</code>, <code>chat_pricetable_internalid</code> e <code>chat_pricetable_currency</code> — e, na oportunidade, nas equivalentes <code>opportunity_pricetable_*</code>.</li>
     <li>Vale também em URA telefônica: a ligação carrega o carrinho e o assistente de voz usa a mesma tabela.</li>

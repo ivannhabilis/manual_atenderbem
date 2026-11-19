@@ -176,7 +176,7 @@
   </div>
 
   <h2 id="2-onde-fica-na-tela">2. Onde fica na tela</h2>
-  <p>A tela do Datastore fica em <strong>Configurações › Datastore</strong> e reúne o editor de consultas, a criação de tabelas e o consumo de espaço. Quando o pacote não está no plano, a rota não abre; quando o pacote está ativo mas nenhuma tabela foi criada, a tela explica que o arquivo nasce no primeiro <code>CREATE TABLE</code>.</p>
+  <p>A tela do Datastore fica em <strong>Configurações › Datastore</strong> — os dois elementos de fluxo que a usam dependem do pacote de relatórios personalizados da instância. A tela reúne o editor de consultas, a criação de tabelas e o consumo de espaço. Quando o pacote não está no plano, a rota não abre; quando o pacote está ativo mas nenhuma tabela foi criada, a tela explica que o arquivo nasce no primeiro <code>CREATE TABLE</code>.</p>
   <figure class="figure">
     <img src="assets/datastore/painel.png" alt="Tela do Datastore com editor de consultas, botões Nova consulta e Nova tabela e o consumo de espaço">
     <figcaption>O editor abre com uma aba numerada (“Consulta 1”). <strong>Executar</strong> roda a instrução sob o cursor ou a seleção; <strong>Executar tudo</strong> roda o conteúdo inteiro; <strong>Histórico</strong> traz as execuções anteriores. No pé aparecem o uso contra o teto do plano e a data da última manutenção.</figcaption>
@@ -210,7 +210,7 @@
   </ul>
 
   <h2 id="5-preparar-o-banco-com-um-script">5. Preparar o banco com um script</h2>
-  <p>A preparação (criar tabelas, índices, visões, gatilhos) é feita pelo elemento <strong>datastoreScript</strong> (tipo 159) ou pelo assistente “Nova tabela”. O elemento aceita várias instruções separadas por ponto e vírgula e roda tudo dentro de uma transação aberta por ele: se uma instrução falhar, nenhuma é gravada. Por isso <code>BEGIN</code>, <code>COMMIT</code> e <code>ROLLBACK</code> no nível do script são recusados — a transação já é dele.</p>
+  <p>A preparação (criar tabelas, índices, visões, gatilhos) é feita pelo elemento <strong>Script do Datastore</strong> (<code>datastoreScript</code>, tipo 159) ou pelo assistente “Nova tabela”. O elemento aceita várias instruções separadas por ponto e vírgula e roda tudo dentro de uma transação aberta por ele: se uma instrução falhar, nenhuma é gravada. Por isso <code>BEGIN</code>, <code>COMMIT</code> e <code>ROLLBACK</code> no nível do script são recusados — a transação já é dele.</p>
   <pre><code>preparar_estoque: datastoreScript resultVariableName="setup" sql="
 CREATE TABLE IF NOT EXISTS estoque_loja (
   loja      TEXT NOT NULL,
@@ -230,7 +230,7 @@ CREATE INDEX IF NOT EXISTS estoque_sku ON estoque_loja(sku);
   </ul>
 
   <h2 id="6-consultar-e-gravar-dentro-do-fluxo">6. Consultar e gravar dentro do fluxo</h2>
-  <p>O elemento <strong>datastoreQuery</strong> (tipo 158) executa <em>uma</em> instrução: <code>SELECT</code> (inclusive <code>WITH</code>), <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>, upsert com <code>ON CONFLICT</code> e <code>RETURNING</code>. Não executa DDL nem controle de transação — para isso existe o script. O elemento tem <strong>saída única</strong>: o fluxo sempre segue, e o desfecho é lido nas variáveis.</p>
+  <p>O elemento <strong>Consultar o Datastore</strong> (<code>datastoreQuery</code>, tipo 158) executa <em>uma</em> instrução: <code>SELECT</code> (inclusive <code>WITH</code>), <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>, upsert com <code>ON CONFLICT</code> e <code>RETURNING</code>. Não executa DDL nem controle de transação — para isso existe o script. O elemento tem <strong>saída única</strong>: o fluxo sempre segue, e o desfecho é lido nas variáveis.</p>
   <p>A regra que evita a maior parte dos defeitos: <strong>valor de variável nunca entra no texto do SQL</strong>. Escreva o marcador (<code>:nome</code>, <code>@nome</code>, <code>$nome</code>) e informe o valor em <code>params</code>. O conteúdo — inclusive texto digitado pelo cliente — é ligado ao prepared statement e não pode virar SQL.</p>
   <pre><code>consulta_limite: datastoreQuery sql="SELECT limite, saldo FROM clientes WHERE cpf = :cpf" params=[{name: "cpf", value: "{{chat_client_document}}"}] resultMode="first" resultVariableName="cliente"
 confere_erro: varCondition value="{{cliente_error}}" {
