@@ -24,6 +24,7 @@ Páginas:
 - `canais-whatsapp-meta.html` — WhatsApp, Cloud API e Meta
 - `webchat-identidade.html` — WebChat V2: identidade do visitante (token de sessão, assinatura HMAC do clientId, modo estrito, vínculos do contato)
 - `ia.html` — IA Básica e IA Avançada (inclui novidades dos assistentes v14.1)
+- `ia-controle-remoto.html` — Controle remoto da tela pelo assistente (conector `remote-control`, consentimento, modos ver/controlar, 16 ferramentas, gerações de `enabledTools`, limites e licenças)
 - `integracoes.html` — Integrações e Automações Externas
 - `tickets.html` — Tickets (mesa de ajuda / Kanban)
 - `tickets-faq.html` — FAQ de Tickets e Automações

@@ -2551,6 +2551,100 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Controle Remoto da Tela pelo Assistente",
+  "u": "ia-controle-remoto.html",
+  "s": [
+   {
+    "h": "1. O que o recurso faz",
+    "a": "1-o-que-o-recurso-faz"
+   },
+   {
+    "h": "2. Três recursos que parecem o mesmo",
+    "a": "2-tres-recursos-que-parecem-o-mesmo"
+   },
+   {
+    "h": "3. Pré-requisitos",
+    "a": "3-pre-requisitos"
+   },
+   {
+    "h": "4. O pedido de consentimento",
+    "a": "4-o-pedido-de-consentimento"
+   },
+   {
+    "h": "5. Modos de acesso: ver e controlar",
+    "a": "5-modos-de-acesso"
+   },
+   {
+    "h": "6. As ferramentas do conector",
+    "a": "6-as-ferramentas-do-conector"
+   },
+   {
+    "h": "7. Ajustes de custo e legibilidade",
+    "a": "7-ajustes-de-custo-e-legibilidade"
+   },
+   {
+    "h": "8. Como configurar",
+    "a": "8-como-configurar"
+   },
+   {
+    "h": "9. Gerações de ferramentas e o campo enabledTools",
+    "a": "9-geracoes-de-ferramentas-e-enabledtools"
+   },
+   {
+    "h": "10. Site e aplicativo desktop: o que muda",
+    "a": "10-site-e-aplicativo-desktop"
+   },
+   {
+    "h": "11. Limites do recurso",
+    "a": "11-limites-do-recurso"
+   },
+   {
+    "h": "12. Casos de uso",
+    "a": "12-casos-de-uso"
+   },
+   {
+    "h": "13. Roteiro de teste ponta a ponta",
+    "a": "13-roteiro-de-teste"
+   },
+   {
+    "h": "14. Problemas comuns",
+    "a": "14-problemas-comuns"
+   },
+   {
+    "h": "O assistente nunca pede acesso",
+    "a": "o-assistente-nunca-pede-acesso"
+   },
+   {
+    "h": "O cartão não aparece para o cliente",
+    "a": "o-cartao-nao-aparece-para-o-cliente"
+   },
+   {
+    "h": "Funciona em um atendimento e não em outro",
+    "a": "funciona-em-um-atendimento-e-nao-em-outro"
+   },
+   {
+    "h": "O assistente clica no lugar errado",
+    "a": "o-assistente-clica-no-lugar-errado"
+   },
+   {
+    "h": "A sessão não abre e o assistente avisa que não conseguiu",
+    "a": "a-sessao-nao-abre-e-o-assistente-avisa-que-nao-conseguiu"
+   },
+   {
+    "h": "O assistente vê a tela mas não consegue operar",
+    "a": "o-assistente-ve-a-tela-mas-nao-consegue-operar"
+   },
+   {
+    "h": "A captura chega ilegível",
+    "a": "a-captura-chega-borrada"
+   },
+   {
+    "h": "15. O que não é público",
+    "a": "15-o-que-nao-e-publico"
+   }
+  ]
+ },
+ {
   "t": "CRM e Funil de Vendas",
   "u": "crm.html",
   "s": [
@@ -4699,6 +4793,10 @@ window.MANUAL_INDEX = [
    {
     "h": "IA Básica e IA Avançada",
     "a": "ia-basica-e-ia-avancada"
+   },
+   {
+    "h": "Controle Remoto da Tela pelo Assistente",
+    "a": "controle-remoto-da-tela-pelo-assistente"
    },
    {
     "h": "Pesquisas e Satisfação",

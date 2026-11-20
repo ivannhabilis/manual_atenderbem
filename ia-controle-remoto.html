@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Controle remoto pelo assistente de IA: consentimento do cliente, modos ver e controlar, as dezesseis ferramentas do conector, ajustes de captura e limites do recurso.">
+<title>Controle Remoto da Tela pelo Assistente — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="tabelas-de-preco.html">Tabelas de Preço</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+          <a href="webchat-identidade.html">WebChat V2: Identidade do Visitante</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a class="active" href="ia-controle-remoto.html">Controle Remoto da Tela pelo Assistente</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+          <a href="datastore.html">Datastore (SQLite da instância)</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="webapps.html">Webapps (editor e instalação)</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › IA &amp; Automação › Controle remoto da tela</div>
+
+  <h1>Controle remoto da tela do cliente pelo assistente de IA</h1>
+  <p class="subtitle">O assistente pede licença ao cliente no meio da conversa e, aceito o pedido, vê a tela dele — e no modo completo clica, digita e rola por ele. É o recurso que transforma “não estou conseguindo” em uma orientação feita dentro da própria página, sem pedir que o cliente instale algo.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-o-que-o-recurso-faz">1. O que o recurso faz</a></li>
+      <li><a href="#2-tres-recursos-que-parecem-o-mesmo">2. Três recursos que parecem o mesmo</a></li>
+      <li><a href="#3-pre-requisitos">3. Pré-requisitos</a></li>
+      <li><a href="#4-o-pedido-de-consentimento">4. O pedido de consentimento</a></li>
+      <li><a href="#5-modos-de-acesso">5. Modos de acesso: ver e controlar</a></li>
+      <li><a href="#6-as-ferramentas-do-conector">6. As ferramentas do conector</a></li>
+      <li><a href="#7-ajustes-de-custo-e-legibilidade">7. Ajustes de custo e legibilidade</a></li>
+      <li><a href="#8-como-configurar">8. Como configurar</a></li>
+      <li><a href="#9-geracoes-de-ferramentas-e-enabledtools">9. Gerações de ferramentas e o campo enabledTools</a></li>
+      <li><a href="#10-site-e-aplicativo-desktop">10. Site e aplicativo desktop: o que muda</a></li>
+      <li><a href="#11-limites-do-recurso">11. Limites do recurso</a></li>
+      <li><a href="#12-casos-de-uso">12. Casos de uso</a></li>
+      <li><a href="#13-roteiro-de-teste">13. Roteiro de teste ponta a ponta</a></li>
+      <li><a href="#14-problemas-comuns">14. Problemas comuns</a></li>
+      <li class="toc-h3"><a href="#o-assistente-nunca-pede-acesso">O assistente nunca pede acesso</a></li>
+      <li class="toc-h3"><a href="#o-cartao-nao-aparece-para-o-cliente">O cartão não aparece para o cliente</a></li>
+      <li class="toc-h3"><a href="#funciona-em-um-atendimento-e-nao-em-outro">Funciona em um atendimento e não em outro</a></li>
+      <li class="toc-h3"><a href="#o-assistente-clica-no-lugar-errado">O assistente clica no lugar errado</a></li>
+      <li class="toc-h3"><a href="#a-sessao-nao-abre-e-o-assistente-avisa-que-nao-conseguiu">A sessão não abre e o assistente avisa que não conseguiu</a></li>
+      <li class="toc-h3"><a href="#o-assistente-ve-a-tela-mas-nao-consegue-operar">O assistente vê a tela mas não consegue operar</a></li>
+      <li class="toc-h3"><a href="#a-captura-chega-borrada">A captura chega ilegível</a></li>
+      <li><a href="#15-o-que-nao-e-publico">15. O que não é público</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <h2 id="1-o-que-o-recurso-faz">1. O que o recurso faz</h2>
+  <p>O <strong>Controle remoto</strong> é um conector de assistente: entra na configuração do assistente como qualquer outra ferramenta (catálogo, CRM, mensagens) e entrega ao modelo um conjunto de ações sobre a tela do cliente. O gatilho é conversacional — o cliente relata um problema e o assistente decide pedir acesso. Nada acontece na tela sem resposta positiva a um cartão de consentimento.</p>
+  <p>O alcance depende do canal em que o cliente está falando:</p>
+  <ul>
+    <li><strong>No site</strong>, com o WebChat incorporado e o carregador atualizado: o assistente opera a <em>página</em> do site. A permissão vale para todas as abas abertas do mesmo site, mas ele vê e opera <strong>uma aba por vez</strong> e pode trocar de aba. A janela do chat também pode ser ocultada enquanto ela cobre justamente o que precisa ser visto.</li>
+    <li><strong>No aplicativo desktop</strong> do WebChat: o assistente opera a tela do computador e, só nesse contexto, também lê e grava a área de transferência — útil para levar um código de barras ou um número entre a conversa e o sistema do cliente.</li>
+  </ul>
+  <div class="callout info">
+    <strong>O recurso é exclusivo de atendimento externo em fila de WebChat 2.0.</strong> Não existe em WhatsApp, Telegram, Instagram, e-mail nem em ligação. Se a operação atende por WhatsApp, o caminho equivalente continua sendo o Suporte Remoto com vídeo descrito em <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>.
+  </div>
+
+  <h2 id="2-tres-recursos-que-parecem-o-mesmo">2. Três recursos que parecem o mesmo</h2>
+  <p>“Acesso à tela do cliente” aparece em três lugares diferentes do produto, com atores diferentes. Confundir os três é a origem da maior parte dos chamados de suporte — inclusive de reclamação de que “o botão não aparece”.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Recurso</th><th>Quem opera</th><th>O que o cliente vê</th><th>Onde é acionado</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Suporte Remoto</strong></td>
+          <td>O atendente, com vídeo e áudio ao vivo, desenhando sobre a imagem da câmera do cliente</td>
+          <td>Um link que abre a câmera no navegador, sem instalar nada</td>
+          <td>Menu de assistência remota do atendimento, opção <em>Iniciar suporte remoto</em></td>
+        </tr>
+        <tr>
+          <td><strong>Assistência remota</strong></td>
+          <td>O atendente, vendo e operando a tela ou a página do cliente</td>
+          <td>Um pedido de acesso a esta tela, com opção de interromper a qualquer momento</td>
+          <td>Mesmo menu, opção <em>Iniciar assistência remota</em>; só o titular do atendimento pode iniciar</td>
+        </tr>
+        <tr>
+          <td><strong>Controle remoto</strong> (este capítulo)</td>
+          <td>O assistente de IA, a partir da conversa</td>
+          <td>O mesmo pedido de acesso, identificado como assistente virtual</td>
+          <td>Conector cadastrado no assistente; nenhum botão no painel do atendente</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Os três dependem da mesma permissão de fila e do mesmo saldo de licenças, mas o recurso de IA não é acionado à mão: quem decide pedir acesso é o modelo, e apenas quando o cliente descreve uma dificuldade que exige ver a tela. No painel do atendente não existe botão de “enviar controle remoto do assistente” — procurá-lo é perda de tempo.</p>
+
+  <h2 id="3-pre-requisitos">3. Pré-requisitos</h2>
+  <p>Faltando qualquer item desta lista, o conector é <strong>ignorado em silêncio</strong>: o assistente continua atendendo, mas sem nenhuma ferramenta de tela. Não há mensagem de erro na conversa, o que torna a conferência prévia obrigatória.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Requisito</th><th>Como conferir</th><th>O que acontece se faltar</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Modelo com entrada de imagem</strong></td>
+          <td>O catálogo de conectores devolve a lista de modelos compatíveis em <code>imageModels</code>; no editor, o modelo do assistente precisa aceitar imagem</td>
+          <td>O conector é ignorado. Um modelo só de texto não tem como ler as capturas — de nada adianta habilitar as ferramentas</td>
+        </tr>
+        <tr>
+          <td><strong>Fila de WebChat 2.0</strong></td>
+          <td>Tipo da fila igual a 26 (WebChat 2.0), e não uma fila de WhatsApp ou de telefonia</td>
+          <td>O conector não entra em operação; o requisito de tipo é declarado pelo próprio catálogo</td>
+        </tr>
+        <tr>
+          <td><strong>Assistência remota permitida na fila</strong></td>
+          <td>Cadastro da fila, campo <code>allowremotesupport</code></td>
+          <td>Sessão recusada; é a mesma trava que impede o atendente de iniciar assistência</td>
+        </tr>
+        <tr>
+          <td><strong>Licença de assistência remota livre</strong></td>
+          <td>Saldo de licenças da instância — o mesmo dos atendentes</td>
+          <td>Sem vaga, o assistente é avisado da recusa e passa a orientar por mensagens, sem acesso</td>
+        </tr>
+        <tr>
+          <td><strong>Cliente pronto</strong></td>
+          <td>Página do site com o carregador atualizado do WebChat, ou o aplicativo desktop instalado</td>
+          <td>O cartão de consentimento não chega; o pedido expira</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn">
+    <strong>O assistente precisa estar configurado para usar a fila certa.</strong> Um assistente que atende várias filas ao mesmo tempo só exerce o controle remoto quando a conversa acontece em uma fila de WebChat 2.0. Nas demais, o conector fica inerte — o que costuma ser lido como “funciona em um número e não em outro”.
+  </div>
+
+  <h2 id="4-o-pedido-de-consentimento">4. O pedido de consentimento</h2>
+  <p>O acesso começa com uma pergunta ao cliente, não com uma captura. O assistente chama a ferramenta de pedido de acesso e o cliente recebe um cartão na tela; a ferramenta <strong>fica esperando a resposta</strong> dentro do mesmo passo do assistente.</p>
+  <figure class="figure">
+    <svg viewBox="0 0 900 300" role="img" aria-label="Fluxo de consentimento: o assistente pede acesso, o cliente aceita ou recusa, a sessão de captura e operação acontece e o acesso é devolvido" style="width:100%;height:auto">
+      <defs>
+        <marker id="seta" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+          <path d="M0,0 L7,3 L0,6 z" fill="#555"></path>
+        </marker>
+      </defs>
+      <rect x="20" y="40" width="180" height="76" rx="8" fill="#eef4ff" stroke="#7a9bd8"></rect>
+      <text x="110" y="68" text-anchor="middle" font-size="13" fill="#123">Cliente relata</text>
+      <text x="110" y="88" text-anchor="middle" font-size="12" fill="#456">um problema na tela</text>
+
+      <rect x="250" y="30" width="180" height="96" rx="8" fill="#f6f1ff" stroke="#a58ad6"></rect>
+      <text x="340" y="58" text-anchor="middle" font-size="13" fill="#220f45">Assistente pede</text>
+      <text x="340" y="78" text-anchor="middle" font-size="12" fill="#553a80">acesso (cartão na</text>
+      <text x="340" y="94" text-anchor="middle" font-size="12" fill="#553a80">tela do cliente)</text>
+
+      <rect x="480" y="30" width="180" height="96" rx="8" fill="#fff8e8" stroke="#d6b06a"></rect>
+      <text x="570" y="58" text-anchor="middle" font-size="13" fill="#3a2a05">Aceite</text>
+      <text x="570" y="78" text-anchor="middle" font-size="12" fill="#6b5313">espera o cliente;</text>
+      <text x="570" y="94" text-anchor="middle" font-size="12" fill="#6b5313">sem resposta, expira</text>
+
+      <rect x="710" y="30" width="170" height="96" rx="8" fill="#eefaf1" stroke="#79bf90"></rect>
+      <text x="795" y="58" text-anchor="middle" font-size="13" fill="#0d2b18">Sessão aberta</text>
+      <text x="795" y="78" text-anchor="middle" font-size="12" fill="#2f5a3f">captura, clique,</text>
+      <text x="795" y="94" text-anchor="middle" font-size="12" fill="#2f5a3f">digitação, rolagem</text>
+
+      <line x1="200" y1="78" x2="246" y2="78" stroke="#555" stroke-width="1.6" marker-end="url(#seta)"></line>
+      <line x1="430" y1="78" x2="476" y2="78" stroke="#555" stroke-width="1.6" marker-end="url(#seta)"></line>
+      <line x1="660" y1="78" x2="706" y2="78" stroke="#555" stroke-width="1.6" marker-end="url(#seta)"></line>
+
+      <rect x="250" y="180" width="630" height="90" rx="8" fill="#fbfbfb" stroke="#ccc"></rect>
+      <text x="268" y="206" font-size="12" fill="#333">Recusa ou expiração: nada é capturado, o assistente é avisado e volta a orientar por texto.</text>
+      <text x="268" y="228" font-size="12" fill="#333">Durante a sessão, o cliente pode interromper a qualquer momento — a interrupção encerra o acesso na hora.</text>
+      <text x="268" y="250" font-size="12" fill="#333">Ao final, o assistente devolve o controle e a janela do chat reaparece sozinha, se havia sido ocultada.</text>
+    </svg>
+    <figcaption>O caminho feliz importa menos que os três atalhos de saída: recusa, silêncio e interrupção. Todos precisam estar previstos no texto do assistente, porque o retorno de cada um é diferente.</figcaption>
+  </figure>
+  <p>O tempo de espera é configurável (30 a 300 segundos, padrão 120). Sem resposta nesse intervalo, o pedido é cancelado e o assistente recebe a informação de que não houve aceite — o que ele faz com isso é decisão do prompt, não do recurso. O padrão recomendado é seguir com orientação por texto e oferecer outra forma de ajuda.</p>
+  <p>Do lado do cliente, a interface deixa um aviso permanente enquanto o acesso está ativo, com a opção de encerrar. O texto é o mesmo componente usado na assistência feita por uma pessoa, com a identificação trocada para “assistente virtual”: <em>“Pedido de acesso do suporte a esta tela. Clique para ver e responder.”</em> e, durante a sessão, <em>“Assistente virtual do suporte com acesso a esta tela. Clique para interromper.”</em> Em instâncias com a marca do fornecedor, as mesmas frases aparecem com o nome da marca no lugar de “suporte”.</p>
+
+  <h2 id="5-modos-de-acesso">5. Modos de acesso: ver e controlar</h2>
+  <p>O modo é uma escolha de configuração do conector, não do modelo. Ele define o que o pedido de consentimento pede ao cliente e, principalmente, quais ferramentas são carregadas:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Modo</th><th>O pedido ao cliente</th><th>Ferramentas disponíveis</th><th>Quando usar</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>control</code> (padrão)</td>
+          <td>Ver <strong>e operar</strong> a tela</td>
+          <td>Todas as permitidas no canal, incluindo clique, digitação, teclas, rolagem, arraste e área de transferência</td>
+          <td>Cliente travado em um formulário, erro em etapa específica, dificuldade de localizar um botão</td>
+        </tr>
+        <tr>
+          <td><code>view</code></td>
+          <td>Só ver a tela</td>
+          <td>As de entrada não são carregadas; as de abas continuam disponíveis</td>
+          <td>Diagnóstico e conferência de dados na tela, com postura mais conservadora de privacidade</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout tip">
+    <strong>Comece em <code>view</code>.</strong> O modo somente visualização resolve a maior parte dos casos (“o botão fica no canto superior”, “o campo está marcado como pendente”) sem que o assistente toque em nada do cliente. Trocar para <code>control</code> depois é uma alteração de um campo, sem reinstalar nada.
+  </div>
+
+  <h2 id="6-as-ferramentas-do-conector">6. As ferramentas do conector</h2>
+  <p>O conector expõe dezesseis ferramentas. As três primeiras são o núcleo e entram em qualquer lista de permissões; as demais podem ser liberadas ou bloqueadas uma a uma. A coluna <strong>entrada</strong> marca as ferramentas de operação — justamente as que desaparecem no modo <code>view</code>.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Ferramenta</th><th>O que faz</th><th>Entrada</th><th>Onde existe</th><th>Geração</th></tr></thead>
+      <tbody>
+        <tr><td><code>remote_request_access</code></td><td>Pede ao cliente permissão para ver (e, no modo controle, operar). O cliente vê o cartão e responde; a ferramenta aguarda</td><td>não</td><td>site e aplicativo</td><td>1</td></tr>
+        <tr><td><code>remote_screenshot</code></td><td>Captura a tela atual em JPEG. Todas as coordenadas das ações se referem à captura completa mais recente</td><td>não</td><td>site e aplicativo</td><td>1</td></tr>
+        <tr><td><code>remote_end_access</code></td><td>Devolve o controle ao cliente e encerra o acesso remoto</td><td>não</td><td>site e aplicativo</td><td>1</td></tr>
+        <tr><td><code>remote_zoom</code></td><td>Amplia uma região da última captura para leitura de detalhes, sem mudar o espaço de coordenadas</td><td>não</td><td>site e aplicativo</td><td>1</td></tr>
+        <tr><td><code>remote_mouse_move</code></td><td>Move o ponteiro até um ponto da tela (passar por cima)</td><td>sim</td><td>site e aplicativo</td><td>1</td></tr>
+        <tr><td><code>remote_click</code></td><td>Clique em um ponto: esquerdo, direito ou do meio; simples, duplo ou triplo</td><td>sim</td><td>site e aplicativo</td><td>1</td></tr>
+        <tr><td><code>remote_drag</code></td><td>Arrasta de um ponto a outro</td><td>sim</td><td>site e aplicativo</td><td>1</td></tr>
+        <tr><td><code>remote_type</code></td><td>Digita um texto no campo em foco</td><td>sim</td><td>site e aplicativo</td><td>1</td></tr>
+        <tr><td><code>remote_key</code></td><td>Pressiona uma tecla ou combinação (<code>Enter</code>, <code>Tab</code>, <code>ctrl+a</code>)</td><td>sim</td><td>site e aplicativo</td><td>1</td></tr>
+        <tr><td><code>remote_scroll</code></td><td>Rola a tela ou o painel sob um ponto</td><td>sim</td><td>site e aplicativo</td><td>1</td></tr>
+        <tr><td><code>remote_wait</code></td><td>Espera até cinco segundos e captura de novo, para carregamentos</td><td>não</td><td>site e aplicativo</td><td>1</td></tr>
+        <tr><td><code>remote_clipboard_get</code></td><td>Lê o texto da área de transferência do computador do cliente</td><td>não</td><td>só aplicativo desktop</td><td>1</td></tr>
+        <tr><td><code>remote_clipboard_set</code></td><td>Grava um texto na área de transferência do computador do cliente</td><td>sim</td><td>só aplicativo desktop</td><td>1</td></tr>
+        <tr><td><code>remote_list_tabs</code></td><td>Lista as abas do site abertas pelo cliente: título, endereço, em qual ele está e qual está sob controle</td><td>não</td><td>só no site</td><td>2</td></tr>
+        <tr><td><code>remote_switch_tab</code></td><td>Passa a ver e operar outra aba do mesmo site e captura a tela dela</td><td>não</td><td>só no site</td><td>2</td></tr>
+        <tr><td><code>remote_chat_window</code></td><td>Oculta ou reexibe a janela do chat quando ela cobre o que é preciso ver ou clicar</td><td>sim</td><td>só no site</td><td>3</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout info">
+    <strong>Coordene as ações pelas coordenadas da captura.</strong> O modelo trabalha com o retângulo da última captura completa: ampliar com <code>remote_zoom</code> ajuda a ler, mas não desloca o sistema de coordenadas. Depois de uma rolagem ou de uma troca de aba, a referência muda — a captura seguinte é que vale. Essa é a causa mais comum de clique no lugar errado quando o prompt não instrui o modelo a capturar antes de cada ação.
+  </div>
+  <p>Um detalhe de operação: fechar a janela do chat pelo <code>remote_chat_window</code> é reversível e temporário. O botão do chat continua na página e a janela volta sozinha ao fim do acesso — por isso a ferramenta é classificada como de entrada, e não existe no modo somente visualização.</p>
+
+  <h2 id="7-ajustes-de-custo-e-legibilidade">7. Ajustes de custo e legibilidade</h2>
+  <p>Seis campos controlam o comportamento do conector. Os quatro últimos existem porque captura de tela é imagem enviada a um provedor de IA: cada captura é cobrada como entrada de visão, e a diferença entre uma configuração econômica e uma configuração generosa aparece na fatura antes de aparecer em qualquer relatório.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Campo</th><th>Faixa e padrão</th><th>Efeito prático</th></tr></thead>
+      <tbody>
+        <tr><td><code>controlMode</code></td><td><code>control</code> (padrão) ou <code>view</code></td><td>Define o pedido de consentimento e as ferramentas de entrada carregadas</td></tr>
+        <tr><td><code>maxScreenshotsInContext</code></td><td>1 a 5; padrão 2</td><td>Quantas capturas recentes o modelo continua vendo dentro do mesmo turno. As mais antigas são trocadas por um aviso, em lotes. Entre turnos nenhuma imagem é mantida</td></tr>
+        <tr><td><code>consentTimeoutSec</code></td><td>30 a 300; padrão 120</td><td>Tempo que o cartão de consentimento fica aberto. Sem resposta, o pedido é cancelado</td></tr>
+        <tr><td><code>autoScreenshot</code></td><td>verdadeiro (padrão) / falso</td><td>Verdadeiro: depois das ações de um passo (clique, digitação, rolagem) o modelo recebe uma captura nova automaticamente, economizando uma chamada. Falso: ele precisa pedir</td></tr>
+        <tr><td><code>screenshotMaxEdge</code></td><td>768 a 1920 px; padrão 1280</td><td>Maior lado da captura enviada ao modelo. Maior é mais legível e mais caro</td></tr>
+        <tr><td><code>jpegQuality</code></td><td>40 a 90; padrão 70</td><td>Compressão JPEG. Abaixo de 50, texto pequeno e ícones finos começam a borrar</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Uma configuração que funciona bem na prática: <code>view</code> com <code>maxScreenshotsInContext: 2</code>, <code>screenshotMaxEdge: 1280</code> e <code>jpegQuality: 70</code> para diagnóstico; ao passar para <code>control</code>, subir a resolução para 1600 apenas se o site tiver texto pequeno ou tabelas densas. Aumentar o número de capturas no contexto ajuda em fluxos de vários passos, mas multiplica o custo de cada turno — quatro capturas é o teto razoável para formulários longos.</p>
+
+  <h2 id="8-como-configurar">8. Como configurar</h2>
+  <p>O conector é um item do catálogo de conectores do assistente. No editor, ele aparece na lista de conectores pré-definidos, na categoria <strong>Atendimento</strong>, com o nome <strong>Controle remoto</strong>. Habilitar significa adicionar o item ao assistente, preencher os campos do modo e salvar — não há instalação, licença por conector nem chave de API.</p>
+  <ol class="steps">
+    <li>Abra o assistente que atende a fila de WebChat 2.0 e confirme que o modelo escolhido aceita imagem.</li>
+    <li>Na aba de conectores, localize <strong>Controle remoto</strong> e adicione. Dê um nome que faça sentido no prompt (“Acesso à tela do cliente”) e uma descrição que diga <em>quando</em> usar — o modelo decide a chamada lendo esse texto.</li>
+    <li>Ajuste o modo e os campos de captura conforme a seção anterior.</li>
+    <li>Acrescente ao prompt a regra de conduta: pedir acesso apenas quando o cliente relatar dificuldade visual, encerrar o acesso ao terminar, e não insistir depois de uma recusa.</li>
+    <li>Salve e faça um atendimento de teste real em uma fila de WebChat 2.0 — a aba de teste do assistente não suporta o recurso.</li>
+  </ol>
+  <p>Pela API, o conector vive no array <code>presets</code> do assistente. Cada item tem o <code>type</code> igual ao identificador do catálogo (<code>remote-control</code>), o <code>enabled</code> em 1 e os campos do modo no mesmo nível. O exemplo abaixo é o payload de atualização de um assistente com o conector em modo visualização:</p>
+  <pre><code>{
+  "id": 42,
+  "presets": [
+    {
+      "type": "remote-control",
+      "name": "Acesso à tela do cliente",
+      "description": "Use quando o cliente não conseguir concluir uma ação no site e precisar de ajuda para localizar um campo, um botão ou uma mensagem de erro.",
+      "enabled": 1,
+      "params": {},
+      "controlMode": "view",
+      "maxScreenshotsInContext": 2,
+      "consentTimeoutSec": 120,
+      "autoScreenshot": true,
+      "screenshotMaxEdge": 1280,
+      "jpegQuality": 70,
+      "progresslabel": "Analisando a sua tela"
+    }
+  ]
+}</code></pre>
+  <p>Três cuidados ao editar por API:</p>
+  <ul>
+    <li>Leia o assistente antes de gravar. O item já existente tem um <code>id</code> (UUID da instância) próprio — reenviar sem ele cria um segundo conector, e <strong>só o primeiro conector habilitado deste tipo é usado</strong>.</li>
+    <li><code>progresslabel</code> é o texto que o cliente vê enquanto a ferramenta roda. Sem ele, aparece o rótulo padrão da ferramenta. É a diferença entre “Analisando a sua tela” e um rótulo técnico em inglês.</li>
+    <li>Habilitar o conector sem <code>enabledTools</code> libera todas as ferramentas do modo. Para restringir, veja a seção seguinte.</li>
+  </ul>
+
+  <h2 id="9-geracoes-de-ferramentas-e-enabledtools">9. Gerações de ferramentas e o campo enabledTools</h2>
+  <p>As ferramentas do conector cresceram em três levas: treze na primeira geração, as duas de abas na segunda e a da janela do chat na terceira. Como conector é configuração gravada em banco, o produto precisou de uma regra para que instalações antigas recebessem ferramentas novas <em>sem</em> que ninguém fosse obrigado a reeditar a lista.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Situação da lista <code>enabledTools</code></th><th>O que o produto faz</th></tr></thead>
+      <tbody>
+        <tr><td>Omitida ou vazia</td><td>Todas as ferramentas do modo são liberadas</td></tr>
+        <tr><td>Contém exatamente todas as ferramentas das gerações anteriores, e nenhuma da geração nova</td><td>É tratada como “lista completa de antes”: recebe automaticamente as ferramentas novas da geração</td></tr>
+        <tr><td>Já cita alguma ferramenta da geração nova, ou está sem alguma das anteriores</td><td>Fica exatamente como está — é uma escolha deliberada de quem configurou</td></tr>
+        <tr><td>Quaisquer casos</td><td><code>remote_request_access</code>, <code>remote_screenshot</code> e <code>remote_end_access</code> entram sempre</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>O campo <code>toolsGeneration</code> registra quantas gerações a lista já considera. Ele é gravado pelo editor e serve para os dois lados: para <em>manter</em> deliberadamente uma ferramenta nova fora, envia-se <code>toolsGeneration</code> igual ao número de gerações do catálogo — assim a lista passa a ser lida ao pé da letra. Ao reenviar um conector lido da instância, mantenha o <code>toolsGeneration</code> que veio; reescrever esse número é o jeito mais fácil de liberar ou bloquear ferramentas sem querer.</p>
+  <div class="callout warn">
+    <strong>Isso importa em auditoria de privacidade.</strong> Uma lista antiga que não citava a área de transferência passa a citar, se o conector tiver todas as treze originais e nenhuma das novas. Se a política da operação não admite leitura de área de transferência, a lista precisa ser editada de forma explícita — não basta confiar no que estava gravado no ano anterior.
+  </div>
+
+  <h2 id="10-site-e-aplicativo-desktop">10. Site e aplicativo desktop: o que muda</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Capacidade</th><th>Site com WebChat incorporado</th><th>Aplicativo desktop do WebChat</th></tr></thead>
+      <tbody>
+        <tr><td>O que o assistente vê</td><td>A página do site, em uma aba por vez</td><td>A tela do computador</td></tr>
+        <tr><td>Trocar de contexto</td><td><code>remote_list_tabs</code> e <code>remote_switch_tab</code>: lista as abas do mesmo site e alterna entre elas</td><td>Não se aplica</td></tr>
+        <tr><td>Janela do chat atrapalhando</td><td><code>remote_chat_window</code> oculta e reexibe</td><td>Não se aplica</td></tr>
+        <tr><td>Área de transferência</td><td>Não disponível</td><td><code>remote_clipboard_get</code> e <code>remote_clipboard_set</code></td></tr>
+        <tr><td>Limite de alcance</td><td>Só o mesmo site: outra aba de outro domínio fica fora</td><td>A tela inteira do computador</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Na prática, o site é o cenário de co-navegação: o cliente está no meio de um cadastro, o assistente vê a mesma página e aponta o campo. O aplicativo desktop é o cenário de suporte a sistema instalado, quando o problema está em um programa que não é o site — e aí a área de transferência resolve o vai-e-vem de códigos.</p>
+
+  <h2 id="11-limites-do-recurso">11. Limites do recurso</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Situação</th><th>Comportamento</th></tr></thead>
+      <tbody>
+        <tr><td>Aba “Testar” do assistente</td><td>Não funciona — o recurso exige um atendimento real em fila de WebChat 2.0</td></tr>
+        <tr><td>Modo copiloto (envio em nome do agente)</td><td>Não funciona</td></tr>
+        <tr><td>Ligação de voz</td><td>Não funciona; o conector não entra em atendimento telefônico</td></tr>
+        <tr><td>Execução única de fluxo (teste de automação)</td><td>Não funciona</td></tr>
+        <tr><td>Histórico da conversa</td><td>As capturas vão para o provedor de IA do assistente e <strong>não ficam</strong> no histórico; sobra apenas um recibo de texto da ação</td></tr>
+        <tr><td>Dois conectores de controle remoto habilitados</td><td>Só o primeiro é usado; o segundo é ignorado</td></tr>
+        <tr><td>Busca de ferramentas (assistentes com muitas ferramentas)</td><td>As ferramentas de controle remoto contam para o limiar que passa a esconder parte das ferramentas atrás da busca, mas elas próprias <strong>nunca</strong> são escondidas</td></tr>
+        <tr><td>Saldo de licenças</td><td>Cada sessão consome uma licença de assistência remota, do mesmo saldo dos atendentes; sem vaga, o assistente é avisado e orienta por mensagens</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="12-casos-de-uso">12. Casos de uso</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Cenário</th><th>Modo</th><th>Como o assistente conduz</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Cadastro travado no site</strong></td>
+          <td><code>control</code></td>
+          <td>Cliente diz que “o botão de finalizar não funciona”. O assistente pede acesso, captura, identifica o campo obrigatório em branco e preenche ou aponta; encerra o acesso ao concluir</td>
+        </tr>
+        <tr>
+          <td><strong>Leitura de mensagem de erro</strong></td>
+          <td><code>view</code></td>
+          <td>O cliente não consegue copiar o código do erro. O assistente captura, amplia a região com <code>remote_zoom</code> e lê o texto — sem tocar em nada</td>
+        </tr>
+        <tr>
+          <td><strong>Segunda aba com o pedido</strong></td>
+          <td><code>control</code></td>
+          <td>A informação necessária está em outra aba do mesmo site. O assistente lista as abas, muda para a certa, lê o dado e volta</td>
+        </tr>
+        <tr>
+          <td><strong>Chat cobrindo o menu</strong></td>
+          <td><code>control</code></td>
+          <td>A janela do chat fica em cima do menu que precisa ser clicado. O assistente oculta a janela, opera e a janela volta ao final</td>
+        </tr>
+        <tr>
+          <td><strong>Sistema instalado no computador</strong></td>
+          <td><code>control</code></td>
+          <td>Cliente usa o aplicativo desktop. O assistente lê o número do pedido na área de transferência, confere na tela e devolve o código de rastreio já copiado</td>
+        </tr>
+        <tr>
+          <td><strong>Onboarding assistido</strong></td>
+          <td><code>view</code></td>
+          <td>Primeiro acesso do cliente à área restrita: o assistente acompanha a tela e orienta etapa por etapa, sem operar</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="13-roteiro-de-teste">13. Roteiro de teste ponta a ponta</h2>
+  <ol class="steps">
+    <li>Confirme os quatro pré-requisitos: modelo com imagem, fila de WebChat 2.0, assistência remota permitida na fila e licença livre.</li>
+    <li>Cadastre o conector em modo <code>view</code> e publique a versão do assistente.</li>
+    <li>Abra o WebChat no site com o carregador atualizado (não use a aba de teste) e inicie uma conversa na fila correta.</li>
+    <li>Escreva algo que exija ver a tela (“não acho o campo de e-mail”). O cartão de consentimento deve aparecer; aceite.</li>
+    <li>Verifique se a captura chegou: a resposta do assistente deve descrever um elemento real da página, não uma suposição.</li>
+    <li>Peça uma ação de clique. Em <code>view</code>, o assistente deve orientar em vez de agir — é o sinal de que as ferramentas de entrada não foram carregadas.</li>
+    <li>Troque para <code>control</code>, repita e observe o clique acontecer. Depois peça para encerrar: a tela deve voltar ao cliente e o pedido de novo acesso deve funcionar na sequência.</li>
+    <li>Teste a recusa: recuse o cartão e confirme que o assistente volta a orientar por texto, sem insistir.</li>
+    <li>Teste a interrupção: durante a sessão, clique para interromper e confirme que o acesso cai imediatamente e que o assistente percebe a interrupção.</li>
+    <li>Por último, confira o consumo de licenças durante a sessão e o custo de visão no painel do provedor depois de uma conversa típica.</li>
+  </ol>
+
+  <h2 id="14-problemas-comuns">14. Problemas comuns</h2>
+  <div class="faq">
+    <h3 id="o-assistente-nunca-pede-acesso">O assistente nunca pede acesso</h3>
+    <p>Na ordem: o modelo aceita imagem? a fila é WebChat 2.0? a assistência remota está permitida no cadastro da fila? o conector está com <code>enabled</code> em 1 e é o primeiro do tipo? Por fim, o prompt menciona a possibilidade e descreve quando usar — sem isso, o modelo simplesmente não escolhe a ferramenta.</p>
+
+    <h3 id="o-cartao-nao-aparece-para-o-cliente">O cartão não aparece para o cliente</h3>
+    <p>O cliente está na página com o carregador antigo do WebChat ou em um navegador embutido de aplicativo que bloqueia o componente. O cartão só é entregue com o carregador atualizado; no aplicativo desktop, com o aplicativo instalado.</p>
+
+    <h3 id="funciona-em-um-atendimento-e-nao-em-outro">Funciona em um atendimento e não em outro</h3>
+    <p>Provavelmente são filas diferentes. O recurso é exclusivo de WebChat 2.0; em qualquer outro tipo de fila o conector fica inerte, mesmo habilitado no assistente.</p>
+
+    <h3 id="o-assistente-clica-no-lugar-errado">O assistente clica no lugar errado</h3>
+    <p>As coordenadas valem para a última captura completa. Se o prompt não instrui a capturar antes de cada ação — ou se houve rolagem, troca de aba ou carregamento entre a captura e o clique — o alvo muda. Com <code>autoScreenshot</code> ligado, boa parte disso desaparece; a instrução explícita no prompt resolve o resto.</p>
+
+    <h3 id="a-sessao-nao-abre-e-o-assistente-avisa-que-nao-conseguiu">A sessão não abre e o assistente avisa que não conseguiu</h3>
+    <p>Saldo de licenças de assistência remota esgotado. A sessão do assistente consome do mesmo saldo dos atendentes — duas sessões simultâneas precisam de duas licenças livres. Libere uma sessão ativa ou amplie o saldo.</p>
+
+    <h3 id="o-assistente-ve-a-tela-mas-nao-consegue-operar">O assistente vê a tela mas não consegue operar</h3>
+    <p>O conector está em <code>view</code>. Nesse modo as ferramentas de entrada não são carregadas de propósito — não é falha, é a configuração. Mude para <code>control</code> e publique a versão.</p>
+
+    <h3 id="a-captura-chega-borrada">A captura chega ilegível</h3>
+    <p>Resolução e qualidade baixas para o tipo de tela. Suba <code>screenshotMaxEdge</code> para 1600 e <code>jpegQuality</code> para 75–80. Em contrapartida, cada captura passa a custar mais — vale medir antes de generalizar a mudança.</p>
+  </div>
+
+  <h2 id="15-o-que-nao-e-publico">15. O que não é público</h2>
+  <p>Alguns pontos são decisão do modelo, não configuração: quando pedir acesso, como redigir o pedido, quanto detalhe descrever e quando encerrar. Isso vem do prompt do assistente, e não existe campo no conector para fixar esse comportamento. Da mesma forma, o custo exato por captura depende do provedor e do modelo escolhidos — o que o produto controla é o tamanho e a quantidade de imagens enviadas, exatamente os campos da seção 7.</p>
+
+  <div class="pagenav">
+    <a href="ia.html"><span>← Anterior</span> IA Básica e IA Avançada</a>
+    <a class="next" href="integracoes.html"><span>Próximo →</span> Integrações e Automações</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Material de uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
