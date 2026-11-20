@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SimplePBX: Guia de Configuração — Manual Omnichannel</title>
-<meta name="description" content="Passo a passo para configurar o SimplePBX (telefonia simplificada) do zero: tronco WhatsApp Cloud API (voz), tronco de operadora SIP, ramais WebRTC, rotas de entrada e saída, grupos de toque, filas, URA, gravações e Debug SIP — campo a campo.">
+<meta name="description" content="Trilha completa de configuração do SimplePBX (telefonia simplificada), na ordem oficial: Geral, ramais, troncos, rotas de saída, grupos de toque, filas de voz, URA em duas peças, assistente de IA por voz, rotas de entrada e chamadas do WhatsApp Cloud API — campo a campo, com regras de validação e armadilhas.">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -137,232 +137,990 @@
   <div class="breadcrumb"><a href="index.html">Início</a> &rsaquo; <a href="pabx.html">Telefonia (PABX)</a> &rsaquo; <a href="pabx-simplepbx.html">SimplePBX</a> &rsaquo; Guia de Configuração</div>
 
   <h1>SimplePBX — Guia de Configuração</h1>
-  <p class="subtitle">Como montar a telefonia simplificada do zero, campo a campo, nos mesmos canais que já operamos: WhatsApp Cloud API (voz oficial), tronco de operadora SIP, ramais, rotas, grupos de toque, filas e URA.</p>
+  <p class="subtitle">A trilha na ordem em que o sistema exige — cada peça só aceita apontar para algo que já existe. Campo a campo, com as regras de validação, os valores do exemplo oficial (Clínica Vida Plena) e as armadilhas que fazem a tela dizer &ldquo;salvo&rdquo; sem o PABX ter aceitado.</p>
 
   <!-- AUTO-TOC -->
   <nav class="toc" aria-label="Índice do capítulo">
     <h3>Neste capítulo</h3>
     <ol>
       <li><a href="#antes-de-comecar">Antes de começar</a></li>
-      <li><a href="#correspondencia">Como o SimplePBX corresponde ao PABX Fácil</a></li>
-      <li><a href="#tronco-whatsapp">1. Tronco WhatsApp Cloud API (voz oficial)</a></li>
-      <li class="toc-h3"><a href="#tronco-whatsapp-valores">Resumo dos valores do tronco WhatsApp</a></li>
-      <li><a href="#tronco-operadora">2. Tronco de operadora SIP</a></li>
-      <li><a href="#ramais">3. Ramais (WebRTC)</a></li>
-      <li><a href="#rotas-saida">4. Rotas de Saída</a></li>
-      <li><a href="#rotas-entrada">5. Rotas de Entrada</a></li>
-      <li><a href="#grupos-toque">6. Grupos de Toque</a></li>
-      <li><a href="#filas-ura">7. Filas de telefonia e URA</a></li>
-      <li><a href="#gravacoes">8. Gravações e cota</a></li>
-      <li><a href="#debug">9. Debug SIP</a></li>
-      <li><a href="#checklist">10. Conferência final</a></li>
-      <li class="toc-h3"><a href="#erros-comuns">Erros comuns ao configurar</a></li>
+      <li class="toc-h3"><a href="#ordem">A ordem obrigatória de configuração</a></li>
+      <li class="toc-h3"><a href="#exemplo">O exemplo usado neste guia</a></li>
+      <li><a href="#caminho-da-chamada">O caminho de uma ligação</a></li>
+      <li><a href="#correspondencia">SimplePBX e PABX Fácil: correspondência</a></li>
+      <li><a href="#etapa-geral">Etapa 1 &mdash; Geral: as regras da casa</a></li>
+      <li class="toc-h3"><a href="#geral-aba-geral">Aba Geral: idioma e política de gravação</a></li>
+      <li class="toc-h3"><a href="#geral-limites">Aba Limites: salvaguardas</a></li>
+      <li class="toc-h3"><a href="#geral-ips">Aba IPs confiáveis</a></li>
+      <li><a href="#etapa-ramais">Etapa 2 &mdash; Ramais</a></li>
+      <li class="toc-h3"><a href="#ramais-lista">A lista de ramais</a></li>
+      <li class="toc-h3"><a href="#ramais-cadastro">Cadastro campo a campo</a></li>
+      <li class="toc-h3"><a href="#ramais-usuarios">O outro caminho: associar pela tela Usuários</a></li>
+      <li class="toc-h3"><a href="#ramais-exemplo">Exemplo: os dois ramais da recepção</a></li>
+      <li class="toc-h3"><a href="#ramais-cuidados">Cuidados com ramais</a></li>
+      <li><a href="#etapa-troncos">Etapa 3 &mdash; Troncos</a></li>
+      <li class="toc-h3"><a href="#troncos-lista">A lista de troncos</a></li>
+      <li class="toc-h3"><a href="#troncos-campos">Cadastro campo a campo</a></li>
+      <li class="toc-h3"><a href="#troncos-exemplo">Exemplo: tronco de operadora</a></li>
+      <li class="toc-h3"><a href="#troncos-whatsapp">Tronco do WhatsApp Cloud API</a></li>
+      <li class="toc-h3"><a href="#troncos-cuidados">Cuidados com troncos</a></li>
+      <li><a href="#etapa-rotas-saida">Etapa 4 &mdash; Rotas de saída</a></li>
+      <li class="toc-h3"><a href="#saida-lista">A lista e os campos</a></li>
+      <li class="toc-h3"><a href="#padrao-discagem">A gramática do padrão de discagem</a></li>
+      <li class="toc-h3"><a href="#saida-visao-avancada">Visão avançada</a></li>
+      <li class="toc-h3"><a href="#saida-exemplo">Exemplo: fixo e celular</a></li>
+      <li class="toc-h3"><a href="#saida-cuidados">Cuidados com rotas de saída</a></li>
+      <li><a href="#etapa-grupos">Etapa 5 &mdash; Grupos de toque</a></li>
+      <li class="toc-h3"><a href="#grupos-campos">Cadastro campo a campo</a></li>
+      <li class="toc-h3"><a href="#grupos-exemplo">Exemplo: grupo 5000 Recepção</a></li>
+      <li class="toc-h3"><a href="#grupos-cuidados">Cuidados com grupos de toque</a></li>
+      <li><a href="#etapa-filas">Etapa 6 &mdash; Filas de atendimento de voz</a></li>
+      <li class="toc-h3"><a href="#filas-cadastro">Criar a fila</a></li>
+      <li class="toc-h3"><a href="#filas-config">Aba Configurações</a></li>
+      <li class="toc-h3"><a href="#filas-exemplo">Exemplo: Agendamentos (4001) e Financeiro (4002)</a></li>
+      <li class="toc-h3"><a href="#filas-vinculo">Vincular o atendente e entrar na fila</a></li>
+      <li class="toc-h3"><a href="#filas-cuidados">Cuidados com filas</a></li>
+      <li><a href="#etapa-ura">Etapa 7 &mdash; URA telefônica (duas peças)</a></li>
+      <li class="toc-h3"><a href="#ura-audio">Passo 1: o áudio na galeria</a></li>
+      <li class="toc-h3"><a href="#ura-fluxo">Passo 2: o fluxo no editor visual</a></li>
+      <li class="toc-h3"><a href="#ura-fila">Passo 3: a fila de URA</a></li>
+      <li class="toc-h3"><a href="#ura-cuidados">Cuidados com URAs</a></li>
+      <li><a href="#etapa-assistente">Etapa 8 &mdash; Assistente de IA por voz</a></li>
+      <li class="toc-h3"><a href="#assistente-chave">Antes: a chave de IA</a></li>
+      <li class="toc-h3"><a href="#assistente-lista">A lista de assistentes</a></li>
+      <li class="toc-h3"><a href="#assistente-editor">O editor, campo a campo</a></li>
+      <li class="toc-h3"><a href="#assistente-exemplo">Exemplo: Sofia</a></li>
+      <li class="toc-h3"><a href="#assistente-cuidados">Cuidados com assistentes</a></li>
+      <li><a href="#etapa-conectar-assistente">Etapa 9 &mdash; Conectar o assistente à telefonia</a></li>
+      <li class="toc-h3"><a href="#conectar-montagem">Montagem, passo a passo</a></li>
+      <li class="toc-h3"><a href="#conectar-teste">Teste</a></li>
+      <li class="toc-h3"><a href="#conectar-cuidados">Cuidados ao conectar</a></li>
+      <li><a href="#etapa-rotas-entrada">Etapa 10 &mdash; Rotas de entrada</a></li>
+      <li class="toc-h3"><a href="#entrada-lista">A lista</a></li>
+      <li class="toc-h3"><a href="#entrada-campos">Cadastro campo a campo</a></li>
+      <li class="toc-h3"><a href="#entrada-exemplo">Exemplo: o número principal</a></li>
+      <li class="toc-h3"><a href="#entrada-cuidados">Cuidados com rotas de entrada</a></li>
+      <li><a href="#etapa-whatsapp">Etapa 11 &mdash; Chamadas de voz do WhatsApp</a></li>
+      <li class="toc-h3"><a href="#whatsapp-passos">Habilitar, passo a passo</a></li>
+      <li class="toc-h3"><a href="#whatsapp-conferencia">Conferência obrigatória</a></li>
+      <li class="toc-h3"><a href="#whatsapp-cuidados">Cuidados</a></li>
+      <li><a href="#etapa-gravacoes">Etapa 12 &mdash; Gravações e Debug SIP</a></li>
+      <li><a href="#checklist">Conferência final</a></li>
+      <li><a href="#erros-comuns">Erros comuns ao configurar</a></li>
+      <li><a href="#origem">Origem do material</a></li>
     </ol>
   </nav>
   <!-- /AUTO-TOC -->
 
   <div class="callout info">
-    Este guia assume o <a href="pabx-simplepbx.html">SimplePBX</a> habilitado na instância. O objetivo é <strong>compatibilizar</strong> a configuração do SimplePBX com o que o PABX Fácil (Asterisk/FreePBX) já faz hoje, traduzindo cada item para o campo equivalente nas telas do sistema.
+    <strong>Como usar este guia.</strong> Cada etapa corresponde a um vídeo da trilha oficial do SimplePBX (<span class="badge">12 vídeos</span>). O exemplo é uma clínica fictícia &mdash; troque números e nomes pelos da sua operação, mas <strong>mantenha a ordem</strong>. Para a visão conceitual, as telas de referência, os limites e a API, veja <a href="pabx-simplepbx.html">SimplePBX — Telefonia Simplificada</a>.
+  </div>
+
+  <div class="callout tip">
+    <strong>A regra de ouro.</strong> A chamada caminha do tronco para a rota de entrada e da rota para um destino. Na hora de configurar, faça o inverso: <strong>comece de trás para a frente</strong>. Uma rota de entrada só lista destinos que já existem; um grupo de toque só aceita ramais que já existem.
   </div>
 
   <h2 id="antes-de-comecar">Antes de começar</h2>
   <ul>
+    <li><strong>Perfil administrador.</strong> As telas de telefonia, os grupos de toque, as rotas de entrada e a habilitação de voz no WhatsApp só aparecem por completo para o administrador. O supervisor faz parte das etapas e não conclui a habilitação do WhatsApp.</li>
     <li><strong>Módulo habilitado.</strong> Com a telefonia simplificada ativa, o menu <strong>Telefonia</strong> aparece com: Geral, Ramais, Troncos, Rotas de Entrada, Rotas de Saída, Grupos de Toque, Gravações e Debug SIP.</li>
-    <li><strong>Se aparecer "Telefonia indisponível",</strong> pare: é falha do serviço de telefonia (bootstrap/AMI), não de cadastro. Reaplicar configuração ou recarregar a tela não resolve — acione o suporte.</li>
-    <li><strong>Chave de API global.</strong> Importar/exportar cadastros e usar a API de telefonia exigem a chave de API global da instância (Configurações &gt; Geral).</li>
-    <li><strong>Ordem recomendada:</strong> Troncos → Ramais → Rotas de Saída → Rotas de Entrada → Grupos de Toque → Fila/URA. As telas avisam quando falta a peça anterior (por exemplo, "Nenhum tronco cadastrado" ao criar rota de saída).</li>
-    <li><strong>Gravação e limites</strong> ficam na tela <strong>Geral</strong>: política de gravação padrão (cascata <code>não gravar &gt; gravar &gt; indiferente</code>), limites de proteção (chamadas simultâneas, duração máxima, tempo em automação) e IPs confiáveis.</li>
+    <li><strong>Se aparecer &ldquo;Telefonia indisponível&rdquo;,</strong> pare: é falha do serviço de telefonia (bootstrap/AMI), não de cadastro. Reaplicar configuração ou recarregar a tela não resolve &mdash; acione o suporte.</li>
+    <li><strong>Dados da operadora em mãos.</strong> Endereço do servidor SIP, usuário, senha e o número que deve aparecer como bina. Sem isso não há tronco de operadora.</li>
+    <li><strong>Chave de IA</strong> (só se houver assistente de voz): <strong>Configurações &rsaquo; Geral &rsaquo; aba IA</strong> &mdash; OpenAI para modelos GPT, Google AI Studio para Gemini. Use <strong>Testar chave</strong> antes de qualquer diagnóstico.</li>
+    <li><strong>Chave de API global.</strong> Importar/exportar cadastros e usar a API de telefonia exigem a chave de API global da instância.</li>
+    <li><strong>Nada de servidor.</strong> O PABX é compartilhado na nuvem e cada empresa enxerga somente os seus cadastros. O que você configura aqui é a sua parte do prédio.</li>
   </ul>
 
-  <h2 id="correspondencia">Como o SimplePBX corresponde ao PABX Fácil</h2>
-  <p>A tradução entre o que já existe no servidor Asterisk/FreePBX e as telas do SimplePBX:</p>
+  <h3 id="ordem">A ordem obrigatória de configuração</h3>
+  <ol class="steps">
+    <li><strong>Geral</strong> &mdash; idioma, política de gravação, limites e IPs confiáveis.</li>
+    <li><strong>Ramais</strong> &mdash; as mesas de cada pessoa (número de quatro dígitos).</li>
+    <li><strong>Troncos</strong> &mdash; a linha que liga o PABX à operadora.</li>
+    <li><strong>Rotas de Saída</strong> &mdash; quais números saem por qual tronco.</li>
+    <li><strong>Grupos de Toque</strong> &mdash; campainha coletiva de uma sala.</li>
+    <li><strong>Filas</strong> &mdash; a sala de espera organizada (tipo Telefonia).</li>
+    <li><strong>URA e assistente de voz</strong> &mdash; o menu de voz e a recepcionista virtual (é a URA que dá número ao assistente).</li>
+    <li><strong>Rotas de Entrada</strong> &mdash; por último: o DID aponta para o que já existe.</li>
+  </ol>
+  <p>O WhatsApp com voz entra depois, na própria fila do canal &mdash; ali o sistema cria tronco e rota sozinho (Etapa 11).</p>
+
+  <h3 id="exemplo">O exemplo usado neste guia</h3>
+  <p>Números e nomes da clínica fictícia que percorre as doze etapas:</p>
   <div class="table-wrap"><table class="doc">
-    <thead><tr><th>No PABX Fácil (Asterisk/FreePBX)</th><th>No SimplePBX</th></tr></thead>
+    <thead><tr><th>Peça</th><th>Nome / número</th><th>Papel</th></tr></thead>
     <tbody>
-      <tr><td>Trunk PJSIP (Settings &gt; Trunks)</td><td>Telefonia &gt; <strong>Troncos</strong></td></tr>
-      <tr><td>Extension (Applications &gt; Extensions)</td><td>Telefonia &gt; <strong>Ramais</strong></td></tr>
-      <tr><td>Inbound Route</td><td>Telefonia &gt; <strong>Rotas de Entrada</strong></td></tr>
-      <tr><td>Outbound Route + Dial Patterns</td><td>Telefonia &gt; <strong>Rotas de Saída</strong> (Padrão de discagem)</td></tr>
-      <tr><td>Ring Group</td><td>Telefonia &gt; <strong>Grupos de Toque</strong></td></tr>
-      <tr><td>Queue</td><td><strong>Fila de telefonia</strong> do sistema, recebida pelo destino "Fila"</td></tr>
-      <tr><td>IVR / Announcement</td><td><strong>URA (IVR)</strong> do Fluxo de Automação e URA, recebida pelo destino "URA (IVR)"</td></tr>
-      <tr><td>Custom Destination / ARI Bridge</td><td>Elementos de <strong>automação/URA</strong> (não há equivalente direto)</td></tr>
-      <tr><td>SIP Settings (TLS, Codecs, SRTP)</td><td><strong>Visão avançada</strong> do tronco + Codecs habilitados</td></tr>
-      <tr><td>CDR (Reports &gt; CDR Reports)</td><td>Telefonia &gt; <strong>Gravações</strong> + Relatórios &gt; CDR e Gravações</td></tr>
-      <tr><td>Console/CLI do Asterisk</td><td>Telefonia &gt; <strong>Debug SIP</strong></td></tr>
+      <tr><td>Ramal</td><td><code>1010</code> Recepção 1</td><td>Webphone embutido (navegador), usuária Ana</td></tr>
+      <tr><td>Ramal</td><td><code>1011</code> Recepção 2</td><td>Aparelho externo, sem usuário associado</td></tr>
+      <tr><td>Grupo de toque</td><td><code>5000</code> Recepção</td><td>Toca no 1010 e no 1011; se ninguém atender, vai para a fila</td></tr>
+      <tr><td>Fila de voz</td><td><code>4001</code> Agendamentos</td><td>Transborda para o ramal 1011 após 120 s</td></tr>
+      <tr><td>Fila de voz</td><td><code>4002</code> Financeiro</td><td>Fila com os padrões de fábrica</td></tr>
+      <tr><td>URA</td><td><code>6100</code> Boas-vindas</td><td>Menu 1/2/3 &rarr; 4001, 4002 e 5000</td></tr>
+      <tr><td>Assistente de IA</td><td>Sofia &mdash; Clínica Vida Plena</td><td>Recepcionista virtual por voz</td></tr>
+      <tr><td>URA do assistente</td><td><code>6200</code> URA Sofia</td><td>Fila de URA que entrega a chamada à Sofia</td></tr>
+      <tr><td>Tronco</td><td><code>operadora_exemplo</code></td><td>Linha SIP da operadora, bina 1140001000</td></tr>
+      <tr><td>Rota de entrada</td><td>DID <code>1140001000</code></td><td>Número principal &rarr; URA 6100</td></tr>
     </tbody>
   </table></div>
 
-  <h2 id="tronco-whatsapp">1. Tronco WhatsApp Cloud API (voz oficial)</h2>
-  <p>É o canal de voz dos números oficiais da Meta. No PABX Fácil ele é um tronco PJSIP seguro (TLS/SRTP/Opus). No SimplePBX, o mesmo é cadastrado em <strong>Telefonia &gt; Troncos</strong>.</p>
+  <h2 id="caminho-da-chamada">O caminho de uma ligação</h2>
+  <p>Entender o desenho evita a maior parte dos erros de cadastro. Na entrada, a operadora entrega a chamada ao PABX pelo <strong>tronco</strong>; a <strong>rota de entrada</strong> lê o número discado (o DID) e escolhe o destino; o destino atende.</p>
+
+  <figure class="figure">
+    <svg viewBox="0 0 900 470" role="img" aria-labelledby="inTitle inDesc" style="width:100%;height:auto;display:block;padding:10px;">
+      <title id="inTitle">Caminho de uma ligação recebida no SimplePBX</title>
+      <desc id="inDesc">O cliente disca o número da empresa; a operadora entrega a chamada pelo tronco; a rota de entrada lê o DID e encaminha para um ramal, grupo de toque, fila, URA ou assistente de IA; um atendente atende pelo webphone do painel.</desc>
+      <defs>
+        <marker id="seta-in" markerWidth="10" markerHeight="10" refX="8.5" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L8.5,3 L0,6 z" fill="#6b7280"/>
+        </marker>
+        <style>
+          .bx{fill:#ffffff;stroke:#6c3fb5;stroke-width:1.6}
+          .bx-plataforma{fill:#f1ebfa;stroke:#6c3fb5;stroke-width:1.8}
+          .bx-excecao{fill:#f3f4f6;stroke:#9ca3af;stroke-width:1.6}
+          .t{fill:#1f2430;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;text-anchor:middle}
+          .s{fill:#6b7280;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:11.5px;text-anchor:middle}
+          .lb{fill:#4a2a82;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;text-anchor:middle}
+          .ar{fill:none;stroke:#6b7280;stroke-width:1.8;marker-end:url(#seta-in)}
+        </style>
+      </defs>
+
+      <rect class="bx" x="250" y="14" width="400" height="52" rx="8"/>
+      <text class="t" x="450" y="36">CLIENTE DISCA O NÚMERO</text>
+      <text class="s" x="450" y="55">fixo, celular ou botão de telefone do WhatsApp</text>
+
+      <rect class="bx" x="250" y="106" width="400" height="52" rx="8"/>
+      <text class="t" x="450" y="128">OPERADORA</text>
+      <text class="s" x="450" y="147">entrega a chamada pela linha contratada</text>
+
+      <rect class="bx-plataforma" x="250" y="198" width="400" height="52" rx="8"/>
+      <text class="t" x="450" y="220">TRONCO</text>
+      <text class="s" x="450" y="239">o cabo que entra no prédio — operadora SIP ou WhatsApp</text>
+
+      <rect class="bx-plataforma" x="240" y="290" width="420" height="52" rx="8"/>
+      <text class="t" x="450" y="312">ROTA DE ENTRADA (DID)</text>
+      <text class="s" x="450" y="331">lê o número discado e consulta a lista de destinos</text>
+
+      <rect class="bx" x="18" y="392" width="150" height="56" rx="8"/>
+      <text class="t" x="93" y="415">RAMAL</text>
+      <text class="s" x="93" y="433">4 dígitos</text>
+
+      <rect class="bx" x="182" y="392" width="150" height="56" rx="8"/>
+      <text class="t" x="257" y="415">GRUPO DE TOQUE</text>
+      <text class="s" x="257" y="433">vários telefones</text>
+
+      <rect class="bx" x="346" y="392" width="150" height="56" rx="8"/>
+      <text class="t" x="421" y="415">FILA</text>
+      <text class="s" x="421" y="433">espera + música</text>
+
+      <rect class="bx" x="510" y="392" width="150" height="56" rx="8"/>
+      <text class="t" x="585" y="415">URA</text>
+      <text class="s" x="585" y="433">menu de voz</text>
+
+      <rect class="bx-excecao" x="674" y="392" width="208" height="56" rx="8"/>
+      <text class="t" x="778" y="409">ASSISTENTE DE IA</text>
+      <text class="s" x="778" y="425">entra por dentro da URA</text>
+      <text class="s" x="778" y="440">ou Desligar: bloqueia o número</text>
+
+      <path class="ar" d="M450,66 L450,106"/>
+      <path class="ar" d="M450,158 L450,198"/>
+      <path class="ar" d="M450,250 L450,290"/>
+      <path class="ar" d="M430,342 L93,392"/>
+      <path class="ar" d="M438,342 L257,392"/>
+      <path class="ar" d="M450,342 L421,392"/>
+      <path class="ar" d="M462,342 L585,392"/>
+      <path class="ar" d="M478,342 L778,392"/>
+    </svg>
+    <figcaption>Entrada: tronco &rarr; rota de entrada (DID) &rarr; um dos cinco destinos. A rota de entrada <strong>não conhece horário</strong>; o fora do expediente se resolve dentro da URA.</figcaption>
+  </figure>
+
+  <figure class="figure">
+    <svg viewBox="0 0 900 175" role="img" aria-labelledby="outTitle outDesc" style="width:100%;height:auto;display:block;padding:10px;">
+      <title id="outTitle">Caminho de uma ligação originada</title>
+      <desc id="outDesc">O atendente disca no ramal; a rota de saída compara o número com os padrões de discagem; o tronco leva a chamada à operadora; a chamada que veio de fora nunca sai de novo.</desc>
+      <defs>
+        <marker id="seta-out" markerWidth="10" markerHeight="10" refX="8.5" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L8.5,3 L0,6 z" fill="#6b7280"/>
+        </marker>
+        <style>
+          .bx{fill:#ffffff;stroke:#6c3fb5;stroke-width:1.6}
+          .bx-plataforma{fill:#f1ebfa;stroke:#6c3fb5;stroke-width:1.8}
+          .t{fill:#1f2430;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;text-anchor:middle}
+          .s{fill:#6b7280;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:11.5px;text-anchor:middle}
+          .ar{fill:none;stroke:#6b7280;stroke-width:1.8;marker-end:url(#seta-out)}
+        </style>
+      </defs>
+      <rect class="bx" x="10" y="58" width="180" height="60" rx="8"/>
+      <text class="t" x="100" y="84">RAMAL DISCA</text>
+      <text class="s" x="100" y="102">ex.: 11 91234-5678</text>
+
+      <rect class="bx-plataforma" x="230" y="58" width="220" height="60" rx="8"/>
+      <text class="t" x="340" y="84">ROTA DE SAÍDA</text>
+      <text class="s" x="340" y="102">padrão de discagem</text>
+
+      <rect class="bx-plataforma" x="490" y="58" width="180" height="60" rx="8"/>
+      <text class="t" x="580" y="84">TRONCO</text>
+      <text class="s" x="580" y="102">operadora_exemplo</text>
+
+      <rect class="bx" x="710" y="58" width="180" height="60" rx="8"/>
+      <text class="t" x="800" y="84">OPERADORA</text>
+      <text class="s" x="800" y="102">completa a chamada</text>
+
+      <path class="ar" d="M190,88 L230,88"/>
+      <path class="ar" d="M450,88 L490,88"/>
+      <path class="ar" d="M670,88 L710,88"/>
+      <text class="s" x="450" y="150">Só ligação discada por um ramal sai. Chamada que veio de fora é barrada — ninguém paga tarifa por engano.</text>
+    </svg>
+    <figcaption>Saída: ramal &rarr; rota de saída (padrão de discagem) &rarr; tronco. Cada rota usa um único tronco &mdash; não existe desvio automático.</figcaption>
+  </figure>
+
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Peça</th><th>No prédio</th><th>Função no PABX</th></tr></thead>
+    <tbody>
+      <tr><td>Tronco</td><td>O cabo que entra pela portaria</td><td>Conecta o PABX à operadora; por ele as chamadas entram e saem</td></tr>
+      <tr><td>Rota de entrada</td><td>A recepcionista do térreo</td><td>Lê o DID e decide o destino (sem horário)</td></tr>
+      <tr><td>Ramal</td><td>A mesa de cada pessoa</td><td>Telefone de 4 dígitos atendido por uma pessoa</td></tr>
+      <tr><td>Grupo de toque</td><td>A campainha coletiva da sala</td><td>Uma ligação, vários ramais tocando</td></tr>
+      <tr><td>Fila</td><td>A sala de espera do andar</td><td>Espera com música e distribuição por regra; o atendente entra e sai pelo painel</td></tr>
+      <tr><td>URA</td><td>A recepcionista eletrônica</td><td>Menu de voz que encaminha pela tecla digitada</td></tr>
+      <tr><td>Assistente de IA</td><td>A recepcionista virtual</td><td>Conversa por voz em tempo real; mora dentro da URA</td></tr>
+      <tr><td>Rota de saída</td><td>O porteiro da cancela</td><td>Escolhe por qual tronco a ligação sai</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="correspondencia">SimplePBX e PABX Fácil: correspondência</h2>
+  <p>Quem vem do servidor Asterisk/FreePBX encontra os mesmos conceitos com outro nome:</p>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>No PABX Fácil (Asterisk/FreePBX)</th><th>No SimplePBX</th></tr></thead>
+    <tbody>
+      <tr><td>Trunk PJSIP (Settings &gt; Trunks)</td><td>Telefonia &rsaquo; <strong>Troncos</strong></td></tr>
+      <tr><td>Extension (Applications &gt; Extensions)</td><td>Telefonia &rsaquo; <strong>Ramais</strong></td></tr>
+      <tr><td>Inbound Route</td><td>Telefonia &rsaquo; <strong>Rotas de Entrada</strong></td></tr>
+      <tr><td>Outbound Route + Dial Patterns</td><td>Telefonia &rsaquo; <strong>Rotas de Saída</strong> (Padrão de discagem)</td></tr>
+      <tr><td>Ring Group</td><td>Telefonia &rsaquo; <strong>Grupos de Toque</strong></td></tr>
+      <tr><td>Queue</td><td><strong>Fila de atendimento</strong> do sistema, tipo <em>Telefonia</em>, recebida pelo destino &ldquo;Fila&rdquo;</td></tr>
+      <tr><td>IVR / Announcement</td><td><strong>Fluxo de Automação e URA</strong> + <strong>fila de URA</strong> (número de discagem), recebida pelo destino &ldquo;URA&rdquo;</td></tr>
+      <tr><td>Custom Destination / ARI Bridge</td><td>Elementos de <strong>automação/URA</strong> (não há equivalente direto)</td></tr>
+      <tr><td>SIP Settings (TLS, Codecs, SRTP)</td><td><strong>Visão avançada</strong> do tronco + Codecs habilitados</td></tr>
+      <tr><td>CDR (Reports &gt; CDR Reports)</td><td>Telefonia &rsaquo; <strong>Gravações</strong> + Relatórios &rsaquo; CDR e Gravações</td></tr>
+      <tr><td>Console/CLI do Asterisk</td><td>Telefonia &rsaquo; <strong>Debug SIP</strong></td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="etapa-geral">Etapa 1 &mdash; Geral: as regras da casa</h2>
+  <p><span class="badge">Vídeo 01 · Conceitos e Geral</span></p>
+  <p><strong>Configurações &rsaquo; Telefonia &rsaquo; Geral.</strong> Atenção: esta tela <strong>não abre página, abre uma janela</strong>. No alto o sistema mostra a qual empresa as regras pertencem; abaixo ficam três abas: <strong>Geral</strong>, <strong>Limites</strong> e <strong>IPs confiáveis</strong>. Essas regras valem para todo o PABX da empresa &mdash; não pertencem a uma peça só.</p>
+
+  <h3 id="geral-aba-geral">Aba Geral: idioma e política de gravação</h3>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Campo</th><th>O que controla</th></tr></thead>
+    <tbody>
+      <tr><td>Idioma padrão dos prompts</td><td>Idioma da voz das frases automáticas do PABX (ocupado, caixa postal). Três opções: português, inglês e espanhol. Vale para <strong>todos</strong> os ramais.</td></tr>
+      <tr><td>Política padrão de gravação</td><td>Aplicada quando o ramal, a fila ou o tronco não têm regra própria: <strong>gravar todas as chamadas</strong>, <strong>indiferente</strong> (deixa a decisão para as outras regras) ou <strong>não gravar por padrão</strong>. Em conflito, <strong>não gravar pesa mais</strong>.</td></tr>
+    </tbody>
+  </table></div>
+  <p>O botão <strong>Salvar idioma e gravação</strong> acende quando algo muda. Cada aba salva sozinha: o botão de uma aba não grava o que você mexeu nas outras.</p>
+
+  <h3 id="geral-limites">Aba Limites: salvaguardas</h3>
+  <p>Impedem que um problema de aplicação consuma todos os recursos da central. Passe o mouse sobre o campo para ler a explicação e o valor sugerido.</p>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Campo</th><th>O que faz</th></tr></thead>
+    <tbody>
+      <tr><td>Chamadas simultâneas máximas</td><td>Quantas ligações a empresa pode ter ao mesmo tempo; acima disso o PABX recusa a nova. O sistema <strong>recalcula esse número a cada ramal criado ou removido</strong> &mdash; um valor digitado à mão vale só até a próxima mudança de ramais.</td></tr>
+      <tr><td>Duração máxima por chamada (s)</td><td>Derruba qualquer ligação que passe do tempo &mdash; proteção contra chamadas presas.</td></tr>
+      <tr><td>Tempo máximo em automação (s)</td><td>Limita quanto tempo uma ligação pode ficar dentro de uma URA.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 id="geral-ips">Aba IPs confiáveis</h3>
+  <p>O PABX <strong>bane endereços</strong> que erram a senha repetidas vezes; os endereços desta lista nunca são banidos. Útil quando vários ramais saem pelo mesmo IP público.</p>
   <ol class="steps">
-    <li><strong>Obtenha os dados do canal.</strong> No painel do sistema, em <strong>Configurações &gt; Filas</strong>, no número WhatsApp Cloud API Oficial, use o botão <strong>"Configurar telefonia"</strong>. Ele mostra o servidor SIP (com o sufixo <code>-direct</code>) e a senha do canal.</li>
-    <li><strong>Abra Telefonia &gt; Troncos e clique em Adicionar.</strong></li>
-    <li><strong>Nome do tronco.</strong> Um rótulo curto, por exemplo <code>whatsapp_meta</code>.</li>
-    <li><strong>Conexão.</strong> Em <strong>Host</strong> informe <code>wa.meta.vc</code> (servidor oficial de telefonia da Meta); em <strong>Porta</strong> use <code>5061</code> (TLS); em <strong>Transporte</strong> escolha <strong>TLS (criptografia de sinalização)</strong>.</li>
-    <li><strong>Registro e autenticação.</strong> A Meta não usa REGISTER nem autenticação SIP tradicional: deixe <strong>Direção do registro = Nenhum</strong> e <strong>Autenticação = Nenhum</strong>.</li>
-    <li><strong>Caller ID padrão (ANI).</strong> Informe o número do WhatsApp com DDI+DDD (ex.: <code>5511987654321</code>).</li>
-    <li><strong>Codecs.</strong> Marque <strong>Opus</strong> (voz em banda larga, usada pelo WhatsApp) e deixe desmarcados os codecs estreitos desnecessários.</li>
-    <li><strong>Visão avançada.</strong> Em <strong>Mídia &gt; Media encryption</strong>, escolha criptografia de mídia: para transporte TLS, <strong>DTLS-SRTP (chaves via handshake)</strong> é o par natural; <strong>SDES (chaves no SDP)</strong> é a alternativa. Em <strong>DTMF mode</strong>, mantenha <strong>RFC 4733</strong>.</li>
-    <li><strong>Política de gravação</strong> e <strong>Adicionar</strong>.</li>
+    <li>Digite o <strong>Endereço IP</strong> &mdash; um por vez, <strong>sem máscara de rede</strong> (com <code>/24</code> a tela recusa e explica o motivo).</li>
+    <li>Opcionalmente, uma <strong>Descrição</strong> (ex.: <em>Matriz</em>).</li>
+    <li>Clique em <strong>Adicionar</strong>. O botão <strong>Usar meu IP atual</strong> descobre o IP de quem está no painel e preenche o campo.</li>
+    <li>O contador <strong>Cadastrados</strong> mostra quantos endereços já estão na lista &mdash; até <strong>256</strong>. A tabela traz IP, descrição, quem adicionou e a lixeira.</li>
   </ol>
-  <figure class="figure">
-    <img src="assets/simplepbx/tronco-whatsapp-meta.jpg" alt="Formulário do tronco WhatsApp Cloud API preenchido">
-    <figcaption>Telefonia &gt; Troncos: tronco do WhatsApp oficial — host <code>wa.meta.vc</code>, porta 5061, transporte TLS, registro/autenticação Nenhum e codec Opus.</figcaption>
-  </figure>
-  <figure class="figure">
-    <img src="assets/simplepbx/tronco-visao-avancada.jpg" alt="Visão avançada do tronco (identidade SIP, mídia e identificação inbound)">
-    <figcaption>Visão avançada do tronco: identidade SIP (from_user/from_domain), Media encryption, DTMF mode, SIP Bundle, RTCP-MUX, Rewrite Contact (NAT) e Tipo de match inbound.</figcaption>
-  </figure>
+  <p>Aqui <strong>não existe botão Salvar</strong>: adicionar e remover valem na hora.</p>
   <div class="callout warn">
-    <strong>Aviso de identificação inbound.</strong> Ao deixar Autenticação = Nenhum, a tela pode alertar que "a identificação inbound foi para Padrão (PJSIP global)". As opções de identificar pelo usuário, pelo cabeçalho SIP ou por IP ficam indisponíveis sem autenticação — é o comportamento esperado para o canal da Meta, que roteia por IP/TLS. Mantenha <strong>Padrão (PJSIP global)</strong>.
+    <strong>Quatro cuidados.</strong> (1) Cada aba salva sozinha &mdash; mudou o idioma e foi para Limites sem salvar? A mudança se perde. (2) O idioma vale para todos os ramais: trocar para inglês muda a voz da empresa inteira. (3) Não conte com chamadas simultâneas digitadas à mão: elas se ajustam sozinhas quando os ramais mudam. (4) IP confiável é um por vez, sem máscara, e só de endereços que você conhece.
   </div>
 
-  <h3 id="tronco-whatsapp-valores">Resumo dos valores do tronco WhatsApp</h3>
+  <h2 id="etapa-ramais">Etapa 2 &mdash; Ramais</h2>
+  <p><span class="badge">Vídeo 02 · Ramais</span></p>
+  <p><strong>Configurações &rsaquo; Telefonia &rsaquo; Ramais.</strong> O ramal é a mesa de cada pessoa: um telefone com <strong>número de quatro dígitos</strong> que funciona como o crachá dela. No caminho da ligação, é a chegada.</p>
+
+  <h3 id="ramais-lista">A lista de ramais</h3>
+  <ul>
+    <li>Colunas: <strong>Número</strong>, <strong>Nome</strong>, <strong>Modo</strong>, <strong>Usuário</strong> e <strong>Status</strong>.</li>
+    <li>No topo, o contador <strong>Em uso</strong> mostra quantos ramais existem e quantos o contrato permite (ex.: 4 de 10).</li>
+    <li><strong>Importar/Exportar</strong> cadastra vários de uma vez por arquivo &mdash; com limite de 1.000 linhas por operação.</li>
+    <li>No fim de cada linha: <strong>dados de conexão</strong>, <strong>editar</strong>, <strong>webhooks de chamada</strong> e <strong>excluir</strong>.</li>
+  </ul>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Status</th><th>Significado</th></tr></thead>
+    <tbody>
+      <tr><td>Online</td><td>Há um telefone conectado a este ramal.</td></tr>
+      <tr><td>Offline</td><td>Nenhum telefone conectado.</td></tr>
+      <tr><td>Desconhecido</td><td>Normal em ramal recém-criado &mdash; não é defeito.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 id="ramais-cadastro">Cadastro campo a campo</h3>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Campo</th><th>Regra</th></tr></thead>
+    <tbody>
+      <tr><td>Número</td><td><strong>Sempre quatro dígitos</strong> &mdash; com três ou cinco a tela não deixa salvar, porque a telefonia só alcança ramais de quatro dígitos. Em dúvida, use <strong>Sugerir próximo livre</strong>.</td></tr>
+      <tr><td>Senha SIP</td><td>A chave do telefone para entrar na central. Já vem forte; pode gerar outra. Manual: <strong>12 a 64 caracteres</strong>, misturando letras, números e símbolos (sem espaços nem <code>, : @ \ &quot; ;</code>). A tela mostra a força e recusa sequências comuns.</td></tr>
+      <tr><td>Nome</td><td>O que aparece no visor de quem recebe a ligação.</td></tr>
+      <tr><td>Modo</td><td><strong>Webphone embutido</strong> (dentro do navegador, via WebRTC) ou <strong>Aparelho externo</strong> (telefone de mesa ou aplicativo softphone).</td></tr>
+      <tr><td>Usuário associado</td><td>Quem usa o ramal. Assim a pessoa atende pelo painel e os relatórios mostram quem atendeu. <strong>Para equipamentos, deixe em branco.</strong></td></tr>
+      <tr><td>Destino em caso de falha</td><td>O que fazer se ligarem direto para este ramal e ele não atender: <em>Encerrar</em> ou enviar a outro ramal, grupo de toque, fila ou URA.</td></tr>
+      <tr><td>Captura de chamadas</td><td>Opcional &mdash; <em>Grupo de captura</em> (quais ramais este pode capturar) e <em>Grupo deste ramal</em>. Útil para recepções.</td></tr>
+      <tr><td>Política de gravação</td><td>O padrão segue a regra geral da empresa. Ver o alerta abaixo: <strong>&ldquo;Nunca gravar&rdquo; não é absoluto</strong>.</td></tr>
+      <tr><td>Visão avançada</td><td>Codecs e criptografia. Os padrões já vêm certos por modo &mdash; no dia a dia não precisa mexer.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout warn">
+    <strong>&ldquo;Nunca gravar&rdquo; não é absoluto.</strong> Se a ligação vier de uma fila ou de um grupo de toque que grava, ela <strong>será gravada mesmo assim</strong>. A cascata é <code>não gravar &gt; gravar &gt; indiferente</code>, mas a origem que grava vence o &ldquo;nunca&rdquo; do ramal de destino.
+  </div>
+  <p>O ponto de interrogação ao lado de cada campo abre a explicação correspondente.</p>
+
+  <figure class="figure">
+    <img src="assets/simplepbx/ramal.jpg" alt="Formulário de novo ramal preenchido: número, senha SIP, nome, modo, usuário associado e destino em caso de falha">
+    <figcaption>Telefonia &rsaquo; Ramais &rsaquo; Adicionar: número de 4 dígitos, senha SIP forte, nome (visor), modo Webphone/Aparelho externo, usuário associado e destino em caso de falha.</figcaption>
+  </figure>
+
+  <h3 id="ramais-usuarios">O outro caminho: associar pela tela Usuários</h3>
+  <ol class="steps">
+    <li>Abra <strong>Configurações &rsaquo; Usuários</strong> e localize a pessoa.</li>
+    <li>No campo <strong>Ramal SIP</strong>, clique em <strong>Associar</strong>.</li>
+    <li>Crie um ramal novo ou escolha um que esteja <strong>sem dono</strong>.</li>
+  </ol>
+
+  <h3 id="ramais-exemplo">Exemplo: os dois ramais da recepção</h3>
+  <ol class="steps">
+    <li><strong>Ramal 1010 &mdash; Recepção 1 (webphone).</strong> Adicionar, digite o número, mantenha a senha gerada. Em <strong>Usuário associado</strong> escolha a Ana &mdash; o Nome é preenchido com o nome dela, então troque por <em>Recepção 1</em>. Modo <strong>Webphone embutido</strong>, destino <em>Encerrar</em>. Adicionar.</li>
+    <li><strong>Ramal 1011 &mdash; Recepção 2 (aparelho externo).</strong> Modo <strong>Aparelho externo</strong>, usuário em branco. Em <strong>Destino em caso de falha</strong>, escolha <em>Ramal</em> e o <code>1010</code>: se a Recepção 2 não atender, a ligação cai na Recepção 1. Adicionar.</li>
+    <li><strong>Dados de conexão do 1011.</strong> Na linha do ramal, o botão de dados de conexão mostra <strong>usuário de autenticação</strong>, <strong>servidor</strong> e <strong>senha</strong>, com botões para copiar. Feche a janela ao terminar: o sistema <strong>audita cada exibição da senha</strong>.</li>
+  </ol>
+
+  <h3 id="ramais-cuidados">Cuidados com ramais</h3>
+  <ul>
+    <li><strong>Quatro dígitos, sempre.</strong> Com três ou cinco a tela não salva.</li>
+    <li><strong>Desconhecido não é defeito.</strong> O ramal novo fica assim até um telefone conectar.</li>
+    <li><strong>Usuário de autenticação do aparelho externo</strong> leva o nome da empresa na frente: use <strong>exatamente</strong> o que aparece em Dados de conexão.</li>
+    <li><strong>Ramal em uso não pode ser excluído.</strong> Se ele é destino de uma rota de entrada ou membro de fila/grupo de toque, tire-o de lá primeiro. A exclusão ainda pede a <strong>palavra de segurança</strong>, que é o próprio número do ramal.</li>
+  </ul>
+
+  <h2 id="etapa-troncos">Etapa 3 &mdash; Troncos</h2>
+  <p><span class="badge">Vídeo 03 · Troncos</span></p>
+  <p><strong>Configurações &rsaquo; Telefonia &rsaquo; Troncos.</strong> O tronco é a linha que liga o PABX à operadora: por ele as chamadas chegam de fora e é por ele que elas saem.</p>
+
+  <h3 id="troncos-lista">A lista de troncos</h3>
+  <ul>
+    <li>Colunas: <strong>Nome</strong>, <strong>Tipo</strong>, <strong>Host</strong> (endereço do servidor da operadora) e <strong>Status</strong>.</li>
+    <li><strong>Tipo = Manual</strong> nos troncos que você cadastra.</li>
+    <li><strong>Status = Desconhecido</strong> é esperado: essa coluna ainda não diz se a linha da operadora funciona. Só uma ligação de teste diz.</li>
+    <li>À direita de cada linha: <strong>plugue</strong> (dados de conexão), <strong>lápis</strong> (editar) e <strong>X</strong> (excluir).</li>
+    <li>No topo, <strong>Importar/Exportar</strong> leva a lista de/para uma planilha; <strong>Adicionar</strong> cria.</li>
+  </ul>
+
+  <h3 id="troncos-campos">Cadastro campo a campo</h3>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Campo</th><th>Regra</th></tr></thead>
+    <tbody>
+      <tr><td>Nome do tronco</td><td>Apelido interno: <strong>só minúsculas, números, hífen e underline</strong>. Se errar, o sistema avisa e sugere o nome certo. <strong>Não pode ser trocado depois de criado.</strong></td></tr>
+      <tr><td>Host</td><td>Endereço do servidor SIP da operadora.</td></tr>
+      <tr><td>Porta / Transporte</td><td>Já vêm com <code>5060</code> e <strong>UDP</strong>. Só mude se a operadora orientar.</td></tr>
+      <tr><td>Direção do registro</td><td><strong>Enviar</strong> faz o PABX avisar &ldquo;estou aqui, pode mandar as ligações&rdquo;.</td></tr>
+      <tr><td>Autenticação</td><td><strong>Outbound</strong>: é o PABX que prova quem é. Em operadoras tradicionais, deixe registro e autenticação como vêm.</td></tr>
+      <tr><td>Usuário / Senha</td><td>Exatamente os que a operadora entregou. O olhinho mostra ou esconde a senha digitada.</td></tr>
+      <tr><td>Caller ID padrão (bina)</td><td>Número mostrado nas ligações que saem por este tronco. Opcional, mas a operadora costuma exigir um número da própria conta. <strong>Só números.</strong></td></tr>
+      <tr><td>Codecs habilitados</td><td>O padrão funciona; garanta que os dois <strong>G.711</strong> continuem marcados (G.729 quando a operadora oferece).</td></tr>
+      <tr><td>Política de gravação</td><td><em>Herdar do tenant</em> segue a regra geral da conta; <em>Sempre gravar</em> e <em>Nunca gravar</em> valem só para este tronco.</td></tr>
+      <tr><td>Visão avançada</td><td>Identidade do tronco e criptografia do áudio &mdash; só se a operadora pedir.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 id="troncos-exemplo">Exemplo: tronco de operadora</h3>
+  <ol class="steps">
+    <li><strong>Adicionar</strong> e nome <code>operadora_exemplo</code> (minúsculas, underline no lugar do espaço).</li>
+    <li><strong>Host</strong> com o endereço do servidor da operadora; porta <code>5060</code> e transporte <code>UDP</code> como estão.</li>
+    <li><strong>Registro e autenticação</strong>: mantenha <em>Enviar</em> e <em>Outbound</em>.</li>
+    <li><strong>Usuário e senha</strong> da operadora (a senha fica escondida).</li>
+    <li><strong>Bina</strong>: só os números, sem parênteses nem traço (ex.: <code>1140001000</code>).</li>
+    <li>Codecs e gravação como estão &rarr; <strong>Adicionar</strong>. O tronco aparece na lista com Tipo <em>Manual</em> e Status <em>Desconhecido</em> &mdash; normal.</li>
+  </ol>
+  <p>Se a operadora pedir <strong>o endereço e as portas do seu PABX</strong>, clique no <strong>plugue</strong>: aparecem o nome completo do tronco, o servidor do PABX e as portas.</p>
+
+  <figure class="figure">
+    <img src="assets/simplepbx/tronco-operadora-sip.jpg" alt="Formulário do tronco de operadora SIP preenchido: host, porta 5060, transporte UDP, registro enviado e autenticação outbound">
+    <figcaption>Tronco de operadora: host, porta/transporte, direção do registro <em>Enviar</em>, autenticação <em>Outbound</em>, usuário/senha e bina apenas com números.</figcaption>
+  </figure>
+
+  <h3 id="troncos-whatsapp">Tronco do WhatsApp Cloud API</h3>
+  <p>O tronco de voz do WhatsApp oficial <strong>não é cadastrado à mão</strong> no fluxo normal: ele nasce junto com a habilitação feita na fila do canal (<a href="#etapa-whatsapp">Etapa 11</a>), com o nome <code>wacall</code> seguido do código da fila. O cadastro manual abaixo só se aplica quando o suporte orientar a fazê-lo &mdash; e os dados do canal (servidor com sufixo <code>-direct</code> e senha) aparecem no diálogo <strong>Configurar telefonia</strong> da fila WhatsApp Cloud API.</p>
   <div class="table-wrap"><table class="doc">
     <thead><tr><th>Campo</th><th>Valor</th></tr></thead>
     <tbody>
-      <tr><td>Nome do tronco</td><td>ex.: <code>whatsapp_meta</code></td></tr>
-      <tr><td>Host (FQDN ou IP)</td><td><code>wa.meta.vc</code></td></tr>
-      <tr><td>Porta</td><td><code>5061</code></td></tr>
-      <tr><td>Transporte</td><td>TLS (criptografia de sinalização)</td></tr>
-      <tr><td>Direção do registro</td><td>Nenhum</td></tr>
-      <tr><td>Autenticação</td><td>Nenhum</td></tr>
-      <tr><td>Caller ID padrão (ANI)</td><td>número do WhatsApp com DDI+DDD</td></tr>
-      <tr><td>Codecs habilitados</td><td>Opus</td></tr>
-      <tr><td>Media encryption (avançado)</td><td>DTLS-SRTP (ou SDES)</td></tr>
+      <tr><td>Host (FQDN)</td><td><code>wa.meta.vc</code></td></tr>
+      <tr><td>Porta / Transporte</td><td><code>5061</code> / <strong>TLS</strong></td></tr>
+      <tr><td>Direção do registro / Autenticação</td><td><strong>Nenhum</strong> / <strong>Nenhum</strong> (a Meta não usa REGISTER nem autenticação SIP tradicional)</td></tr>
+      <tr><td>Caller ID padrão</td><td>número do WhatsApp com DDI+DDD (ex.: <code>5511987654321</code>)</td></tr>
+      <tr><td>Codecs</td><td><strong>Opus</strong> (voz em banda larga do WhatsApp)</td></tr>
+      <tr><td>Media encryption (avançado)</td><td><strong>DTLS-SRTP</strong> (par natural do TLS) ou SDES</td></tr>
       <tr><td>DTMF mode (avançado)</td><td>RFC 4733</td></tr>
       <tr><td>Tipo de match inbound (avançado)</td><td>Padrão (PJSIP global)</td></tr>
     </tbody>
   </table></div>
-
-  <h2 id="tronco-operadora">2. Tronco de operadora SIP</h2>
-  <p>Para operadoras VoIP (Vivo, Embratel, TotalVoice, Directcall e provedores SIP locais), o tronco exige credenciais e registro.</p>
-  <ol class="steps">
-    <li><strong>Adicionar</strong> em Telefonia &gt; Troncos.</li>
-    <li><strong>Nome do tronco:</strong> ex.: <code>operadora_sip</code>.</li>
-    <li><strong>Conexão:</strong> Host = endereço SIP da operadora; Porta = <code>5060</code>; Transporte = <strong>UDP</strong> (ou TCP, conforme a operadora).</li>
-    <li><strong>Direção do registro:</strong> <strong>Enviar (PBX → Provedor)</strong> — o sistema registra-se na operadora.</li>
-    <li><strong>Autenticação:</strong> <strong>Outbound (PBX autentica saindo)</strong> e informe <strong>Usuário (auth)</strong> e <strong>Senha (auth)</strong> fornecidos pela operadora.</li>
-    <li><strong>Caller ID padrão (ANI):</strong> o número de origem das chamadas.</li>
-    <li><strong>Codecs:</strong> marque os que a operadora suporta (normalmente <strong>G.711 µ-law</strong> e <strong>A-law</strong>; <strong>G.729</strong> quando a operadora oferece).</li>
-    <li>Defina a <strong>Política de gravação</strong> e clique em <strong>Adicionar</strong>.</li>
-  </ol>
   <figure class="figure">
-    <img src="assets/simplepbx/tronco-operadora-sip.jpg" alt="Formulário do tronco de operadora SIP preenchido">
-    <figcaption>Tronco de operadora: registro enviado ao provedor, autenticação outbound com usuário e senha e codecs da operadora.</figcaption>
+    <img src="assets/simplepbx/tronco-whatsapp-meta.jpg" alt="Formulário do tronco WhatsApp Cloud API preenchido: host wa.meta.vc, porta 5061, transporte TLS">
+    <figcaption>Tronco do WhatsApp oficial: host <code>wa.meta.vc</code>, porta 5061, transporte TLS, registro/autenticação Nenhum e codec Opus.</figcaption>
   </figure>
-
-  <h2 id="ramais">3. Ramais (WebRTC)</h2>
-  <p>No SimplePBX o atendente fala pelo <strong>softphone no navegador (WebRTC)</strong> — não é preciso instalar telefone IP. Crie um ramal por atendente e associe-o ao usuário do sistema.</p>
-  <ol class="steps">
-    <li><strong>Telefonia &gt; Ramais &gt; Adicionar.</strong> Use <strong>Sugerir próximo livre</strong> para o número.</li>
-    <li><strong>Senha SIP:</strong> entre 12 e 64 caracteres, com pelo menos três destes: minúscula, maiúscula, número e símbolo; sem espaços e sem <code>, : @ \ " ;</code>. A tela mostra a força da senha e recusa sequências comuns.</li>
-    <li><strong>Nome / CallerID:</strong> o que aparece para quem recebe (ex.: <em>Recepção</em>).</li>
-    <li><strong>Modo:</strong> <strong>Webphone embutido (WebRTC)</strong> para atender pelo sistema; <strong>Aparelho externo</strong> para telefone IP/softphone.</li>
-    <li><strong>Usuário associado (opcional):</strong> vincule o ramal ao usuário do sistema.</li>
-    <li><strong>Destino em caso de falha:</strong> para onde vai a chamada se o ramal não atender (Encerrar, Ramal, Grupo de toque, Fila ou URA).</li>
-    <li><strong>Captura de chamadas:</strong> <em>Grupo de captura</em> (quais ramais este pode capturar) e <em>Grupo deste ramal</em> — útil para recepções.</li>
-    <li><strong>Visão avançada:</strong> permite fixar os <strong>Codecs habilitados</strong> do próprio ramal.</li>
-  </ol>
   <figure class="figure">
-    <img src="assets/simplepbx/ramal.jpg" alt="Formulário de novo ramal preenchido">
-    <figcaption>Telefonia &gt; Ramais: número, senha SIP forte, nome/CallerID, modo Webphone (WebRTC), destino em caso de falha e grupos de captura.</figcaption>
+    <img src="assets/simplepbx/tronco-visao-avancada.jpg" alt="Visão avançada do tronco: identidade SIP, mídia e identificação inbound">
+    <figcaption>Visão avançada do tronco: identidade SIP (from_user/from_domain), Media encryption, DTMF mode, SIP Bundle, RTCP-MUX, Rewrite Contact (NAT) e Tipo de match inbound.</figcaption>
   </figure>
-  <div class="callout tip">
-    <strong>Ramais fixos nas filas.</strong> Além do vínculo com o usuário, uma fila de telefonia pode ter seus próprios <strong>ramais fixos</strong>. Eles só existem em filas de telefonia (não em filas de outros canais) e a fila precisa ter um número no PABX.
+  <div class="callout warn">
+    <strong>Aviso de identificação inbound.</strong> Com Autenticação = Nenhum, a tela alerta que &ldquo;a identificação inbound foi para Padrão (PJSIP global)&rdquo; e desabilita identificar por usuário/cabeçalho/IP. É o comportamento esperado para o canal da Meta, que roteia por IP/TLS &mdash; mantenha <strong>Padrão (PJSIP global)</strong>.
   </div>
 
-  <h2 id="rotas-saida">4. Rotas de Saída</h2>
-  <p>Definem por onde saem as chamadas e qual padrão de discagem casa com cada rota. Equivalem às Outbound Routes/Dial Patterns do PABX Fácil.</p>
-  <ol class="steps">
-    <li><strong>Telefonia &gt; Rotas de Saída &gt; Adicionar.</strong></li>
-    <li><strong>Descrição:</strong> ex.: <em>Fixo BR</em>, <em>Celular BR</em>.</li>
-    <li><strong>Padrão de discagem:</strong> aceita os padrões do estilo Asterisk, por exemplo <code>_NXXNXXXXXXX</code> (fixo BR), <code>_9NXXXXXXXX</code> (celular BR), <code>_55X.</code> (com DDI) e <code>_190</code> (número curto, literal).</li>
-    <li><strong>Tronco:</strong> selecione o tronco por onde a rota sai (é preciso ter um tronco cadastrado antes).</li>
-    <li><strong>Política de gravação</strong> e <strong>Adicionar</strong>. A <strong>Prioridade</strong> define a ordem de avaliação entre as rotas.</li>
-  </ol>
-  <figure class="figure">
-    <img src="assets/simplepbx/rota-saida.jpg" alt="Formulário de rota de saída">
-    <figcaption>Rota de saída: descrição, padrão de discagem no estilo Asterisk (ex.: <code>_NXXNXXXXXXX</code>) e o tronco de saída.</figcaption>
-  </figure>
-
-  <h2 id="rotas-entrada">5. Rotas de Entrada</h2>
-  <p>Dizem para onde vai cada chamada que chega, pelo DID (número discado).</p>
-  <ol class="steps">
-    <li><strong>Telefonia &gt; Rotas de Entrada &gt; Adicionar.</strong></li>
-    <li><strong>DID (número discado):</strong> o número de entrada (ex.: <code>1140041000</code>).</li>
-    <li><strong>Descrição:</strong> ex.: <em>Recepção SP</em>.</li>
-    <li><strong>Destino &gt; Tipo de destino:</strong> <strong>Ramal</strong>, <strong>Fila</strong>, <strong>Grupo de toque</strong>, <strong>URA (IVR)</strong> ou <strong>Desligar</strong>. Depois selecione o destino específico. Se o tipo ainda não tiver cadastro, a tela avisa ("Nenhum destino deste tipo cadastrado neste tenant").</li>
-    <li><strong>Política de gravação</strong> e <strong>Adicionar</strong>.</li>
-  </ol>
-  <figure class="figure">
-    <img src="assets/simplepbx/rota-entrada.jpg" alt="Formulário de rota de entrada">
-    <figcaption>Rota de entrada: DID, descrição e o tipo de destino (Ramal, Fila, Grupo de toque, URA ou Desligar).</figcaption>
-  </figure>
-
-  <h2 id="grupos-toque">6. Grupos de Toque</h2>
-  <p>Chamam vários ramais por uma única extensão — para setores que atendem em conjunto.</p>
-  <ol class="steps">
-    <li><strong>Telefonia &gt; Grupos de Toque &gt; Adicionar.</strong></li>
-    <li><strong>Número</strong> (a extensão do grupo) e <strong>Nome</strong>.</li>
-    <li><strong>Estratégia:</strong> <em>Tocar em todos (ringall)</em>, <em>Sequencial (hunt)</em>, <em>Memória (memory)</em> ou <em>Aleatório (random)</em>.</li>
-    <li><strong>Tempo de toque (segundos):</strong> quanto cada ramal toca antes de passar adiante.</li>
-    <li><strong>Membros:</strong> busque e marque os ramais e ajuste a <strong>Ordem de toque</strong>.</li>
-    <li><strong>Destino se ninguém atender (Tipo)</strong> e a <strong>Política de gravação</strong>; clique em <strong>Adicionar</strong>.</li>
-  </ol>
-  <figure class="figure">
-    <img src="assets/simplepbx/grupo-de-toque.jpg" alt="Formulário de grupo de toque">
-    <figcaption>Grupo de toque: número, nome, estratégia (ringall/hunt/memory/random), tempo de toque, membros e destino se ninguém atender.</figcaption>
-  </figure>
-
-  <h2 id="filas-ura">7. Filas de telefonia e URA</h2>
-  <p>A <strong>fila</strong> em si é do sistema (AtenderBem), não do SimplePBX. A chamada chega à fila pelo <strong>destino "Fila"</strong> de uma rota de entrada (ou de um grupo de toque/ramal). Para o fluxo com menu de opções, use o destino <strong>"URA (IVR)"</strong>, apontando para um <strong>Fluxo de Automação e URA</strong>.</p>
+  <h3 id="troncos-cuidados">Cuidados com troncos</h3>
   <ul>
-    <li><strong>Receber direto na fila:</strong> rota de entrada com destino <em>Fila</em> → fila de telefonia.</li>
-    <li><strong>Com menu (URA):</strong> rota de entrada com destino <em>URA (IVR)</em> → automação que, conforme a tecla (DTMF), envia para uma fila, um ramal ou um grupo de toque.</li>
-    <li><strong>Ramais fixos:</strong> a fila de telefonia lista os ramais que devem tocar; em filas de outros canais isso não se aplica.</li>
-    <li><strong>Gravação por etapa:</strong> a política de gravação pode ser definida no tronco, na rota, no ramal ou no grupo — a cascata é <code>não gravar &gt; gravar &gt; indiferente</code>.</li>
+    <li><strong>O nome não muda depois de criado.</strong> <code>operadora_exemplo</code> está certo; <em>Operadora Exemplo</em>, não.</li>
+    <li><strong>&ldquo;Desconhecido&rdquo; não quer dizer problema &mdash; nem que está tudo bem.</strong> Faça uma ligação de teste quando a rota de saída estiver pronta.</li>
+    <li><strong>O usuário do tronco é único em todo o PABX.</strong> Como o PABX é compartilhado, dois clientes não podem usar o mesmo; se for recusado por isso, fale com o suporte.</li>
+    <li><strong>Tronco usado por rota de saída não pode ser excluído.</strong> Remova a rota primeiro &mdash; o aviso pode falar em &ldquo;número em uso&rdquo;, mas é isso que acontece. Para excluir, digite o nome do tronco na confirmação.</li>
+    <li><strong>Tronco sozinho não faz ligação sair.</strong> Quem decide quais números usam o tronco é a rota de saída.</li>
   </ul>
-  <div class="callout tip">
-    <strong>Vindo do PABX Fácil.</strong> Onde hoje existe um Custom Destination/ARI Bridge apontando a chamada para a fila do sistema, no SimplePBX use o destino <strong>Fila</strong> (ou <strong>URA</strong>, quando houver menu) diretamente na rota de entrada.
+
+  <h2 id="etapa-rotas-saida">Etapa 4 &mdash; Rotas de saída</h2>
+  <p><span class="badge">Vídeo 04 · Rotas de saída</span></p>
+  <p><strong>Configurações &rsaquo; Telefonia &rsaquo; Rotas de Saída.</strong> A rota de saída é o porteiro da cancela: olha o número discado e decide por qual tronco a ligação sai.</p>
+
+  <h3 id="saida-lista">A lista e os campos</h3>
+  <p>A lista mostra a <strong>descrição</strong>, o <strong>padrão de discagem</strong>, o <strong>tronco</strong> usado e o <strong>estado</strong>. <strong>Importar</strong> e <strong>Exportar</strong> trabalham com planilhas; <strong>Adicionar</strong> cria uma rota.</p>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Campo</th><th>Regra</th></tr></thead>
+    <tbody>
+      <tr><td>Descrição</td><td>Nome livre, só para reconhecer a rota (ex.: <em>Saída Nacional</em>, <em>Saída Celular</em>).</td></tr>
+      <tr><td>Padrão de discagem</td><td>Um molde: só os números que couberem nele saem por esta rota. <strong>Começa sempre com sublinhado</strong> <code>_</code>.</td></tr>
+      <tr><td>Tronco</td><td>Um único tronco por rota. Se a lista estiver vazia, cadastre o tronco primeiro.</td></tr>
+      <tr><td>Política de gravação</td><td>Segue a regra geral, ou força <em>Sempre gravar</em> / <em>Nunca gravar</em> nesta rota.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 id="padrao-discagem">A gramática do padrão de discagem</h3>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Símbolo</th><th>Significa</th></tr></thead>
+    <tbody>
+      <tr><td><code>_</code></td><td>Prefixo obrigatório do padrão.</td></tr>
+      <tr><td><code>X</code></td><td>Qualquer dígito, de 0 a 9.</td></tr>
+      <tr><td><code>[1-9]</code></td><td>Um dígito dentro da faixa indicada.</td></tr>
+      <tr><td><code>.</code></td><td>Curinga de tamanho livre.</td></tr>
+      <tr><td><code>N</code></td><td>Equivalente a <code>[2-9]</code> nos padrões no estilo Asterisk.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout warn">
+    <strong>Regra de segurança do curinga.</strong> Se o padrão usa curinga, ele precisa exigir <strong>ao menos quatro dígitos</strong>. Um molde como <code>_X.</code> é recusado pela tela &mdash; ele aceitaria até o número de uma fila interna.
   </div>
+  <p>Os exemplos exibidos logo abaixo do campo servem para entender a escrita, mas <strong>não funcionam para o DDD 11</strong>. E não comece o padrão por zero.</p>
 
-  <h2 id="gravacoes">8. Gravações e cota</h2>
-  <p>A tela <strong>Telefonia &gt; Gravações</strong> mostra o uso da cota, a próxima e a última execução da limpeza automática, os bytes liberados e permite forçar a limpeza. Abaixo, a lista por período com <strong>Data, Origem, Destino, Duração, Disposition e Áudio</strong> (player e download).</p>
-  <figure class="figure">
-    <img src="assets/simplepbx/gravacoes.jpg" alt="Tela de gravações com cota e fila de limpeza">
-    <figcaption>Gravações: uso da cota, próxima/última execução da limpeza, "Forçar limpeza agora" e a lista com player de áudio.</figcaption>
-  </figure>
+  <h3 id="saida-visao-avancada">Visão avançada</h3>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Campo</th><th>Efeito</th></tr></thead>
+    <tbody>
+      <tr><td>Strip</td><td>Tira dígitos do começo do número antes de enviar à operadora.</td></tr>
+      <tr><td>Prepend</td><td>Acrescenta dígitos na frente &mdash; como o <code>55</code> do Brasil.</td></tr>
+      <tr><td>CallerID override</td><td>Troca a bina mostrada a quem recebe. Vazio = vale a bina do tronco. <strong>Só números</strong> (com parênteses e traço a tela avisa).</td></tr>
+      <tr><td>Tag de contexto</td><td>Para automações avançadas &mdash; deixe em branco.</td></tr>
+      <tr><td>Rota ativa</td><td>Apenas uma marcação: <strong>desmarcar não desliga a rota</strong>. Para parar de usar, exclua.</td></tr>
+    </tbody>
+  </table></div>
 
-  <h2 id="debug">9. Debug SIP</h2>
-  <p>Para investigar registro e chamada, o <strong>Debug SIP</strong> captura o tráfego e permite <strong>Exportar JSON</strong>. Equivale a ligar o logger do Asterisk (<code>pjsip set logger on</code>), porém pela interface.</p>
-  <figure class="figure">
-    <img src="assets/simplepbx/debug-sip.jpg" alt="Tela de Debug SIP">
-    <figcaption>Debug SIP: tipo, ramal, identificador e duração; botões Iniciar captura e Exportar JSON.</figcaption>
-  </figure>
-
-  <h2 id="checklist">10. Conferência final</h2>
+  <h3 id="saida-exemplo">Exemplo: fixo e celular</h3>
   <ol class="steps">
-    <li><strong>Troncos</strong> cadastrados e com <em>Status</em> conectado (WhatsApp em TLS 5061; operadora com registro enviado).</li>
-    <li><strong>Ramais</strong> criados com senha forte, modo correto (WebRTC/aparelho externo) e usuário associado.</li>
-    <li><strong>Rota de saída</strong> com padrão de discagem e tronco; faça uma chamada de teste.</li>
-    <li><strong>Rota de entrada</strong> apontando para Fila, Grupo de toque ou URA.</li>
-    <li><strong>Fila</strong> com os ramais (fixos) e, se houver menu, a <strong>URA</strong> roteando por DTMF.</li>
-    <li><strong>Gravação</strong> conforme a política desejada; confira a cota em Gravações.</li>
-    <li><strong>Limites e IPs confiáveis</strong> revisados em Geral.</li>
+    <li><strong>Saída Nacional</strong> (fixos). Descrição <em>Saída Nacional</em>. Padrão: sublinhado, duas casas de 1 a 9 (o DDD) e oito <code>X</code> &rarr; <code>_[1-9][1-9]XXXXXXXX</code>, dez dígitos. Se aparecer um aviso laranja, ele some quando o padrão fica completo.</li>
+    <li>Tronco <code>operadora_exemplo</code>; gravação e visão avançada como estão (a bina do tronco já serve) &rarr; <strong>Adicionar</strong>. A mensagem <em>Rota salva</em> confirma e a rota entra no fim da lista.</li>
+    <li><strong>Saída Celular.</strong> O celular tem um dígito a mais (o nove): <code>_[1-9][1-9]9XXXXXXXX</code>, onze dígitos, mesmo tronco &rarr; <strong>Adicionar</strong>.</li>
+  </ol>
+  <p>Na prática: fixo com DDD sai pela Saída Nacional, celular sai pela Saída Celular, as duas pelo mesmo tronco. <strong>Os dois padrões esperam o número com DDD.</strong></p>
+
+  <figure class="figure">
+    <img src="assets/simplepbx/rota-saida.jpg" alt="Formulário de rota de saída com descrição, padrão de discagem e tronco">
+    <figcaption>Rota de saída: descrição, padrão de discagem começando por <code>_</code> e o tronco de saída. Cada rota usa um único tronco.</figcaption>
+  </figure>
+
+  <h3 id="saida-cuidados">Cuidados com rotas de saída</h3>
+  <ul>
+    <li><strong>Padrão com curinga exige 4+ dígitos.</strong> <code>_X.</code> é recusado.</li>
+    <li><strong>Sem DDD não sai.</strong> Oriente a equipe a discar sempre com DDD; números curtos como <code>190</code> precisam de uma rota própria.</li>
+    <li><strong>Um tronco por rota, sem plano B.</strong> Se o tronco falhar, a ligação não desvia sozinha para outro.</li>
+    <li><strong>Rota ativa não desliga nada.</strong> Para parar de usar, exclua.</li>
+    <li><strong>Editar recria a rota.</strong> Se aparecer <em>Rota de saída perdida</em>, é só cadastrar de novo.</li>
+  </ul>
+
+  <h2 id="etapa-grupos">Etapa 5 &mdash; Grupos de toque</h2>
+  <p><span class="badge">Vídeo 05 · Grupos de toque</span></p>
+  <p><strong>Configurações &rsaquo; Telefonia &rsaquo; Grupos de Toque</strong> &mdash; só o administrador enxerga este menu. O grupo é a campainha coletiva de uma sala: uma ligação, vários ramais tocando. Ele tem número próprio, é um destino possível da rota de entrada ou da URA, e um ramal também pode discá-lo.</p>
+
+  <h3 id="grupos-campos">Cadastro campo a campo</h3>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Campo</th><th>Regra</th></tr></thead>
+    <tbody>
+      <tr><td>Número</td><td>O que se disca para chamar o grupo: <strong>3 a 8 dígitos</strong>. Divide o mesmo espaço dos ramais, filas e URAs &mdash; <strong>não pode repetir nenhum deles</strong>.</td></tr>
+      <tr><td>Nome</td><td>Rótulo para listas e relatórios. Ninguém disca o nome.</td></tr>
+      <tr><td>Estratégia</td><td><strong>Tocar em todos</strong> (todos ao mesmo tempo; quem atender primeiro fica), <strong>Sequencial</strong> (um de cada vez, na ordem da lista) ou <strong>Memória</strong> (rodízio que lembra onde parou). Há <strong>Aleatório</strong>, mas prefira uma das três primeiras: o comportamento é previsível.</td></tr>
+      <tr><td>Tempo de toque</td><td>Quantos segundos o grupo chama antes de desistir: <strong>mínimo 5</strong>, máximo 600. Entre 20 e 30 s costuma funcionar bem.</td></tr>
+      <tr><td>Membros</td><td>Clique na linha do ramal para marcar. Dá para buscar por número ou nome e marcar/desmarcar todos os visíveis.</td></tr>
+      <tr><td>Ordem de toque</td><td>Só faz diferença no <strong>Sequencial</strong> e na <strong>Memória</strong> (setinhas para subir/descer). No tocar em todos, a ordem não muda nada.</td></tr>
+      <tr><td>Destino se ninguém atender</td><td><em>Encerrar</em> desliga; as outras opções mandam a ligação a um ramal, outro grupo, uma fila ou uma URA.</td></tr>
+      <tr><td>Política de gravação</td><td>Neste cadastro já vem <strong>Sempre gravar</strong>. Há também <em>Herdar do tenant</em> e <em>Nunca gravar</em> &mdash; confirme a regra da empresa antes de mudar.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 id="grupos-exemplo">Exemplo: grupo 5000 Recepção</h3>
+  <ol class="steps">
+    <li><strong>Número</strong> <code>5000</code>, <strong>Nome</strong> <em>Recepção</em>.</li>
+    <li><strong>Estratégia</strong> <em>Tocar em todos</em> &mdash; os dois telefones da recepção tocam juntos.</li>
+    <li><strong>Tempo de toque</strong> <code>20</code> segundos.</li>
+    <li><strong>Membros</strong>: busque e marque o <code>1010</code> e o <code>1011</code>; o contador mostra dois selecionados.</li>
+    <li><strong>Destino se ninguém atender</strong>: tipo <em>Fila</em> &rarr; fila <em>Agendamentos</em>. Assim ninguém fica sem resposta.</li>
+    <li><strong>Adicionar</strong> &rarr; <em>Grupo salvo</em>; o grupo já pode ser escolhido como destino numa rota de entrada.</li>
   </ol>
 
-  <h3 id="erros-comuns">Erros comuns ao configurar</h3>
+  <figure class="figure">
+    <img src="assets/simplepbx/grupo-de-toque.jpg" alt="Formulário de grupo de toque com número, nome, estratégia, tempo de toque e membros">
+    <figcaption>Grupo de toque: número (3&ndash;8 dígitos), estratégia, tempo de toque, membros com ordem e destino se ninguém atender.</figcaption>
+  </figure>
+
+  <h3 id="grupos-cuidados">Cuidados com grupos de toque</h3>
+  <ul>
+    <li><strong>Botão Adicionar cinza?</strong> Confira o número (3&ndash;8 dígitos) e o tempo de toque (5&ndash;600 s).</li>
+    <li><strong>No Sequencial e na Memória o tempo de toque vale por ramal.</strong> Três ramais com 20 s podem levar até um minuto para o grupo desistir.</li>
+    <li><strong>O destino padrão é Encerrar</strong> &mdash; derruba a ligação. Escolha sempre para onde ela deve ir.</li>
+    <li><strong>Dentro do grupo vale o destino do grupo</strong>, não o do ramal.</li>
+    <li><strong>A gravação já vem em Sempre gravar</strong>, diferente de outras telas que seguem a regra geral.</li>
+  </ul>
+
+  <h2 id="etapa-filas">Etapa 6 &mdash; Filas de atendimento de voz</h2>
+  <p><span class="badge">Vídeo 06 · Filas</span></p>
+  <p><strong>Configurações &rsaquo; Filas.</strong> A fila é a sala de espera organizada: se todos os atendentes estão ocupados, o cliente aguarda ouvindo música e a central chama quem ficar livre, seguindo a regra escolhida. Diferente do grupo de toque (membros fixos), aqui o atendente <strong>entra e sai pelo painel</strong>.</p>
+
+  <h3 id="filas-cadastro">Criar a fila</h3>
+  <ol class="steps">
+    <li><strong>Adicionar</strong> &rarr; <strong>Nome da fila</strong> (o que atendentes e supervisores veem).</li>
+    <li><strong>Tipo</strong>: cuidado, a lista começa em WhatsApp e a opção de voz fica no final. Escolha <strong>Telefonia &rsaquo; Fila de atendimento</strong> (<strong>Telefonia &rsaquo; URA</strong> é o menu de voz &mdash; <a href="#etapa-ura">Etapa 7</a>).</li>
+    <li><strong>Número da fila</strong>: o número interno pelo qual a rota de entrada, a URA e as transferências chamam a fila. Não pode repetir ramal, grupo ou outra fila &mdash; e o botão <strong>Adicionar só acende quando o número está preenchido</strong>.</li>
+    <li>Confirme. A fila aparece na lista com o <strong>selo Telefone</strong> e o número. Em <strong>Servidor</strong> mostra <em>Desabilitado</em>: normal, esse interruptor só é usado nas filas de URA.</li>
+  </ol>
+  <p><strong>O número da fila não muda depois de criada.</strong> Se errar, exclua a fila e crie de novo.</p>
+
+  <h3 id="filas-config">Aba Configurações</h3>
   <div class="table-wrap"><table class="doc">
-    <thead><tr><th>Sintoma</th><th>Causa provável</th></tr></thead>
+    <thead><tr><th>Campo</th><th>Opções / efeito</th></tr></thead>
     <tbody>
-      <tr><td>"Nenhum tronco cadastrado" ao criar rota de saída</td><td>Cadastre o tronco em Troncos primeiro.</td></tr>
-      <tr><td>"Nenhum destino deste tipo cadastrado neste tenant" na rota de entrada</td><td>Cadastre o destino (Ramal/Fila/Grupo de toque/URA) antes de escolhê-lo.</td></tr>
-      <tr><td>Senha SIP fraca (recusa ao salvar)</td><td>Use 12–64 caracteres com pelo menos três classes e sem sequências comuns.</td></tr>
-      <tr><td>Aviso de identificação inbound ao usar Autenticação = Nenhum</td><td>Esperado para o canal da Meta; mantenha "Padrão (PJSIP global)".</td></tr>
-      <tr><td>"Volume excedido (limite 1000 linhas)" ao importar</td><td>Divida o arquivo em lotes de até 1.000 linhas.</td></tr>
-      <tr><td>"Telefonia indisponível" em todas as telas</td><td>Serviço de telefonia fora do ar — acione o suporte.</td></tr>
+      <tr><td>Estratégia</td><td><strong>Tocar em todos</strong> (todos os livres ao mesmo tempo), <strong>Menos recente</strong> (quem está há mais tempo sem atender), <strong>Menos chamadas</strong> (quem atendeu menos), <strong>Aleatório</strong>, <strong>Round-robin com memória</strong> (rodízio lembrando quem atendeu por último).</td></tr>
+      <tr><td>Música em espera</td><td><em>Padrão</em> usa a música da central. Para a da empresa, envie o áudio à <strong>Galeria de arquivos</strong> marcando <strong>Enviar para o PABX</strong>.</td></tr>
+      <tr><td>Política de gravação</td><td><em>Gravar</em>, <em>Não gravar</em> ou <em>Herdar</em> (segue a regra geral).</td></tr>
+      <tr><td>Tempo máximo de espera</td><td>Segundos na fila antes de sair; <strong>zero = sem limite</strong>.</td></tr>
+      <tr><td>Máximo de chamadas em espera</td><td>Com a fila cheia, quem ligar <strong>não entra</strong> nela.</td></tr>
+      <tr><td>Tempo de toque por agente</td><td>Quantos segundos o telefone do atendente toca.</td></tr>
+      <tr><td>Intervalo entre tentativas</td><td>Espera antes de chamar o mesmo atendente de novo.</td></tr>
+      <tr><td>Pausa pós-atendimento</td><td>Descanso entre uma ligação e outra (ex.: 10 s).</td></tr>
+      <tr><td>Transbordo</td><td>Para onde vai a chamada que sai da fila sem ser atendida (tempo esgotado ou fila cheia): <em>Encerrar a chamada</em> (padrão), <em>Ramal</em>, <em>Grupo de toque</em>, <em>Outra fila</em> ou <em>URA</em>.</td></tr>
+      <tr><td>Ramais fixos</td><td>Ramais que ficam <strong>sempre</strong> na fila, sem login nem logout.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 id="filas-exemplo">Exemplo: Agendamentos (4001) e Financeiro (4002)</h3>
+  <ol class="steps">
+    <li><strong>Agendamentos</strong>, tipo Telefonia &rsaquo; Fila de atendimento, número <code>4001</code>.</li>
+    <li>Na aba Configurações: estratégia <em>Round-robin com memória</em>, gravação <em>Gravar</em>, <strong>tempo máximo de espera 120 s</strong>, <strong>máximo de chamadas em espera 10</strong>, pausa pós-atendimento 10 s.</li>
+    <li><strong>Transbordo</strong>: tipo <em>Ramal</em>, destino <code>1011</code> (recepção) &mdash; quem esperar mais de dois minutos é encaminhado. Sem transbordo, a chamada é <strong>encerrada</strong>.</li>
+    <li>Nenhum ramal fixo marcado: o atendente entra pelo painel. <strong>Salvar</strong>.</li>
+    <li><strong>Financeiro</strong>, número <code>4002</code>, com os padrões de fábrica (já nasce em rodízio).</li>
+  </ol>
+
+  <h3 id="filas-vinculo">Vincular o atendente e entrar na fila</h3>
+  <ol class="steps">
+    <li><strong>Configurações &rsaquo; Usuários</strong> &rarr; abra a pessoa &rarr; aba <strong>Filas e Atendimento</strong> &rarr; campo <strong>Filas</strong> &rarr; escolha <em>Agendamentos</em> &rarr; <strong>Salvar</strong>.</li>
+    <li><strong>Conferir na central</strong>: abra <strong>Rotas de Entrada &rsaquo; Adicionar</strong>, escolha o tipo de destino <em>Fila</em> e veja se as duas aparecem na lista. Se não aparecerem, a central não recebeu o cadastro.</li>
+    <li><strong>No painel do atendente</strong>: o cartão <strong>Ramal</strong> mostra <em>Disponível</em> quando o telefone do painel está conectado. A fila aparece como <em>Deslogado</em> &mdash; clique nela e confirme em <strong>Logar</strong>. Para sair, clique de novo e confirme em <strong>Deslogar</strong>.</li>
+  </ol>
+  <div class="callout warn">
+    <strong>Sem os três, nada toca.</strong> O atendente precisa estar <strong>vinculado</strong> à fila, <strong>logado</strong> nela e com o <strong>ramal Disponível</strong>. Faltando um, ele não recebe chamada.
+  </div>
+
+  <h3 id="filas-cuidados">Cuidados com filas</h3>
+  <ul>
+    <li><strong>Número imutável.</strong> Errar o número obriga a excluir e recriar a fila.</li>
+    <li><strong>Sem transbordo, a chamada morre.</strong> Tempo esgotado ou fila cheia sem destino = chamada encerrada.</li>
+    <li><strong>O aviso verde de sucesso nem sempre garante a central.</strong> Se ela recusar o número, a tela pode mostrar sucesso mesmo assim &mdash; confira na lista de destinos da rota de entrada.</li>
+    <li><strong>Ramais fixos só existem em filas de telefonia</strong> e a fila precisa ter número no PABX.</li>
+  </ul>
+
+  <h2 id="etapa-ura">Etapa 7 &mdash; URA telefônica (duas peças)</h2>
+  <p><span class="badge">Vídeo 07 · URA telefônica</span></p>
+  <p>A URA é a recepcionista eletrônica do térreo: atende, toca uma mensagem e, conforme a tecla digitada, encaminha para o andar certo. No sistema ela é feita de <strong>duas peças</strong> &mdash; e as duas são obrigatórias:</p>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Peça</th><th>Onde fica</th><th>O que faz</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Fluxo</strong> (Ura avançada)</td><td>Configurações &rsaquo; Automação &rsaquo; Fluxo de Automação e URA</td><td>O roteiro: cartões de áudio, espera, condição e transferência</td></tr>
+      <tr><td><strong>Fila de URA</strong></td><td>Configurações &rsaquo; Filas &rsaquo; tipo <em>Telefonia (URA)</em></td><td>Dá ao roteiro um <strong>número de discagem</strong> e liga o servidor</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>Fluxo sem fila de URA não atende ninguém.</strong></p>
+  <div class="callout tip">
+    <strong>O áudio não é gerado a cada ligação.</strong> Gere a voz <strong>uma vez</strong> na galeria, envie para o PABX, e a URA apenas a toca &mdash; mais rápido e mais barato. O elemento <em>Gerar áudio com IA</em> dentro do fluxo cria a voz a cada chamada, com custo e espera: use só quando o texto muda de uma ligação para outra.
+  </div>
+
+  <h3 id="ura-audio">Passo 1: o áudio na galeria</h3>
+  <ol class="steps">
+    <li><strong>Configurações &rsaquo; Cadastros &rsaquo; Galeria de arquivos &rsaquo; Adicionar &rsaquo; Gerar áudio com IA.</strong></li>
+    <li>Dê um <strong>Título</strong> e escreva o <strong>Texto</strong> que a URA vai falar. Provedor, modelo e voz já vêm preenchidos.</li>
+    <li><strong>Gerar prévia</strong> e <strong>ouça</strong> antes de salvar.</li>
+    <li>Ligue a chave <strong>Enviar para o PABX</strong> &mdash; é isso que deixa o áudio disponível para a URA &mdash; e <strong>Salvar</strong>.</li>
+    <li>Repita para o aviso de <strong>opção inválida</strong>. Na lista, o visto verde <em>Enviado ao PABX</em> mostra o que já está lá.</li>
+  </ol>
+
+  <h3 id="ura-fluxo">Passo 2: o fluxo no editor visual</h3>
+  <p>Em <strong>Fluxo de Automação e URA</strong>, a lista mostra URAs de chat, automações e as URAs de telefonia (selo <em>URA Telefonia</em>). Na coluna <strong>Funções</strong>, o primeiro botão abre o editor; os outros mostram histórico, clonam, exportam e excluem. <strong>Adicionar</strong> pede nome e tipo (ex.: <em>Ura avançada (Telefonia)</em>) e cria um fluxo <strong>vazio</strong> &mdash; o desenho vem depois.</p>
+  <p>No editor, o <strong>triângulo verde</strong> é o Início; cada cartão é um passo; as setas mostram o caminho. A barra de cima traz os elementos, agrupados:</p>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Grupo</th><th>Elementos</th><th>Uso no menu de voz</th></tr></thead>
+    <tbody>
+      <tr><td>Telefone</td><td>Tocar áudio, Aguardar interação, Transferir chamada, Encerrar chamada</td><td>O corpo da URA</td></tr>
+      <tr><td>Estrela (IA)</td><td>Assistente, Gerar áudio com IA</td><td>Recepcionista virtual; voz gerada por chamada</td></tr>
+      <tr><td>Lógica</td><td>Laço de repetição, Condição de variável</td><td>Repetir o menu e ramificar pela tecla</td></tr>
+    </tbody>
+  </table></div>
+  <p>Passe o mouse sobre um cartão para <strong>editar, clonar ou remover</strong>. O <strong>triângulo laranja</strong> é um passo sem configurar; a <strong>bolinha na borda direita</strong> é a saída, que você arrasta até o próximo cartão. No canto ficam <strong>Salvar</strong> (verde) e <strong>Fechar</strong> (vermelho, descarta o que não foi salvo).</p>
+  <p>O roteiro do exemplo (URA <em>Boas-vindas</em>):</p>
+  <ol class="steps">
+    <li><strong>Laço de repetição</strong>: <em>Repetir um número de vezes</em>, <code>3</code>. O Início liga ao laço.</li>
+    <li><strong>Tocar áudio</strong>: arquivo <em>Boas-vindas</em> da galeria; ligue <strong>Parar áudio se o usuário digitar algo</strong>. A saída <em>Repetir</em> do laço liga a este cartão.</li>
+    <li><strong>Aguardar interação do usuário</strong>: <code>10</code> segundos de espera pela tecla. O fluxo segue quando o cliente digita ou quando o tempo acaba.</li>
+    <li><strong>Condição de variável</strong>: em <em>Conteúdo para comparação</em> escreva <code>{{call_digits}}</code> &mdash; a variável da tecla digitada, já pronta no sistema. Crie três ramos e troque <em>Nova condição</em> por <code>1</code>, <code>2</code> e <code>3</code>. O ramo <strong>Padrão</strong> pega qualquer outra tecla (ou nenhuma).</li>
+    <li><strong>Transferir chamada</strong> em cada ramo &mdash; sempre pelo <strong>número</strong>, nunca pelo nome: <code>4001</code>, <code>4002</code> e <code>5000</code>.</li>
+    <li>No ramo <strong>Padrão</strong>: outro <strong>Tocar áudio</strong> com o aviso <em>Opção inválida</em>, devolvendo a saída ao <strong>Laço de repetição</strong> &mdash; assim o menu toca de novo. Quando as três tentativas acabam, o laço sai por <strong>Concluído</strong>: ligue a um <strong>Transferir chamada</strong> para a recepção (<code>5000</code>).</li>
+    <li>Sem nenhum triângulo laranja, <strong>Salvar</strong> e fechar o editor.</li>
+  </ol>
+  <p><strong>Só vale destino interno:</strong> ramal, fila, grupo de toque ou outra URA.</p>
+
+  <h3 id="ura-fila">Passo 3: a fila de URA</h3>
+  <ol class="steps">
+    <li><strong>Configurações &rsaquo; Filas &rsaquo; Adicionar</strong>, nome <em>URA Boas-vindas</em>, tipo <strong>Telefonia (URA)</strong>. Aqui <strong>não há campo de número</strong>: ele vem depois.</li>
+    <li>Expanda a linha e, na aba <strong>Conexão</strong>, ligue <strong>Habilitar Servidor</strong> &mdash; é o que coloca a URA no ar.</li>
+    <li>Na aba <strong>Configurações</strong>: <strong>Número de discagem</strong> <code>6100</code> (3 a 8 dígitos) e o <strong>fluxo</strong> <em>Boas-vindas</em>. <strong>Salvar</strong>.</li>
+  </ol>
+
+  <h3 id="ura-cuidados">Cuidados com URAs</h3>
+  <ul>
+    <li><strong>São duas peças.</strong> O fluxo sozinho não atende: falta a fila de URA com número, fluxo e <em>Habilitar Servidor</em> ligado.</li>
+    <li><strong>O número de discagem falha em silêncio.</strong> Use 3&ndash;8 dígitos sem repetir outro número da telefonia; se repetir, a tela diz que salvou e nada acontece.</li>
+    <li><strong>O Tocar áudio só lista arquivos enviados ao PABX.</strong> Sem marcar <em>Enviar para o PABX</em> na galeria, a lista fica vazia.</li>
+    <li><strong>Dê limite ao menu repetido.</strong> Laço com poucas voltas e uma saída para a recepção; ligar o Padrão direto ao áudio prende quem não digita.</li>
+  </ul>
+
+  <h2 id="etapa-assistente">Etapa 8 &mdash; Assistente de IA por voz</h2>
+  <p><span class="badge">Vídeo 08 · Assistente de IA por voz</span></p>
+  <p>O assistente é a recepcionista virtual da portaria: escuta o cliente, responde em português na hora e consulta o que a empresa ensinou. Ele precisa de quatro peças: <strong>voz</strong> (modelo que fala e escuta), <strong>memória</strong> (regras da casa), <strong>saída</strong> (transferir ou encerrar) e <strong>tempo máximo</strong> de conversa.</p>
+
+  <h3 id="assistente-chave">Antes: a chave de IA</h3>
+  <p><strong>Configurações &rsaquo; Geral &rsaquo; aba IA.</strong> Ali ficam as chaves dos provedores &mdash; <strong>OpenAI</strong> (modelos GPT) e <strong>Google AI Studio</strong> (modelos Gemini). Ficam ocultas, e o botão <strong>Testar chave</strong> confirma se funcionam. Sem chave válida o assistente <strong>atende, mas fica mudo</strong>.</p>
+
+  <h3 id="assistente-lista">A lista de assistentes</h3>
+  <p><strong>Configurações &rsaquo; Assistentes.</strong> Cada linha mostra <strong>ID</strong>, <strong>Tipo</strong> (modelo de texto), <strong>Nome</strong> e <strong>Sucesso</strong>. Na coluna Funções: perguntas não respondidas, últimos atendimentos, estatísticas, configuração e exclusão.</p>
+  <div class="callout warn">
+    <strong>Criar já grava.</strong> Ao confirmar em <strong>Criar</strong>, o assistente é salvo na hora com o nome <em>Novo assistente</em>. Só depois você abre a engrenagem e edita.
+  </div>
+
+  <h3 id="assistente-editor">O editor, campo a campo</h3>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Aba / campo</th><th>O que faz</th></tr></thead>
+    <tbody>
+      <tr><td>Geral &rsaquo; Nome do assistente</td><td>Organização na lista &mdash; <strong>a IA não usa</strong>.</td></tr>
+      <tr><td>Geral &rsaquo; Assinatura</td><td>Vale <strong>só para o chat</strong>.</td></tr>
+      <tr><td>Geral &rsaquo; Modelo de IA</td><td>O modelo de texto, que ajuda nas consultas durante a ligação.</td></tr>
+      <tr><td>Geral &rsaquo; Contexto inicial</td><td>O mais importante: quem ele é, como deve falar e quando transferir. Vale para <strong>voz e chat</strong>.</td></tr>
+      <tr><td>Geral &rsaquo; Marcadores de saída</td><td>Os motivos que ele pode informar ao transferir &mdash; a URA pode usar esse motivo. Digite cada um sem espaços e confirme com Enter (ex.: <code>falar-com-recepcao</code>).</td></tr>
+      <tr><td>Realtime &rsaquo; Modelo Realtime</td><td>O modelo que <strong>escuta e fala</strong> (Google ou OpenAI) &mdash; é outro campo, separado do Modelo de IA.</td></tr>
+      <tr><td>Realtime &rsaquo; Voz</td><td>O timbre. A lista separa femininas e masculinas, cada uma com estilo (Calorosa, Suave, Firme). Todas falam português do Brasil.</td></tr>
+      <tr><td>Realtime &rsaquo; Duração máxima</td><td>Limite da conversa em segundos. Quando acaba, a ligação é <strong>transferida, sem despedida</strong>.</td></tr>
+      <tr><td>Realtime &rsaquo; Iniciar conversa proativamente</td><td>Faz o assistente falar primeiro, assim que a ligação é atendida.</td></tr>
+      <tr><td>Realtime &rsaquo; Introdução</td><td>A frase de abertura, dita <strong>exatamente como escrita</strong> &mdash; use para o nome da empresa e o aviso de gravação.</td></tr>
+      <tr><td>Realtime &rsaquo; Resultado ao transferir / ao encerrar</td><td>Marcam o desfecho como <em>Neutro</em>, <em>Sucesso</em> ou <em>Falha</em>, para os relatórios.</td></tr>
+      <tr><td>Conhecimento</td><td>Liga a base de conhecimento da empresa.</td></tr>
+      <tr><td>Funções</td><td>Libera ações extras.</td></tr>
+      <tr><td>Testar</td><td>Chat de texto com a última versão salva. <strong>Não testa a voz.</strong></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 id="assistente-exemplo">Exemplo: Sofia</h3>
+  <ol class="steps">
+    <li><strong>Adicionar &rsaquo; Criar</strong>; abra a engrenagem do <em>Novo assistente</em>.</li>
+    <li><strong>Nome</strong>: <em>Sofia - Clínica Vida Plena</em>. <strong>Assinatura</strong>: <em>Sofia</em>.</li>
+    <li><strong>Contexto inicial</strong>: fala em português com frases curtas, ajuda a agendar consultas, consulta a base de conhecimento e transfere quando o cliente pedir uma pessoa ou falar de pagamento.</li>
+    <li><strong>Marcadores de saída</strong>: <code>falar-com-recepcao</code>, <code>agendamento-concluido</code>, <code>assunto-financeiro</code>, <code>fora-do-escopo</code>.</li>
+    <li><strong>Modelo Realtime</strong>: <em>Gemini 3.8 live</em> (o padrão de um assistente novo é outro, mais antigo). <strong>Voz</strong>: <em>Sulafat</em> (feminina, calorosa). <strong>Duração máxima</strong>: <code>300</code> s.</li>
+    <li>Ligue <strong>Iniciar conversa proativamente</strong> e escreva a <strong>Introdução</strong>: nome da clínica, quem é a Sofia, aviso de gravação e a pergunta &ldquo;como posso ajudar?&rdquo;.</li>
+    <li><strong>Salvar</strong>. A Sofia já conversa &mdash; mas ainda não atende ligações: falta conectá-la a uma URA.</li>
+  </ol>
+
+  <h3 id="assistente-cuidados">Cuidados com assistentes</h3>
+  <ul>
+    <li><strong>Confira os padrões.</strong> Todo assistente novo nasce com o primeiro modelo da lista (mais antigo) e apenas <strong>120 segundos</strong> de conversa.</li>
+    <li><strong>Escolha o modelo antes da voz</strong> &mdash; trocar de modelo pode mudar a voz.</li>
+    <li><strong>A aba Testar é chat de texto</strong> e não testa a voz. Para ouvir, só ligando.</li>
+    <li><strong>Sem conversa proativa</strong> ele espera o cliente falar primeiro; <strong>sem Introdução</strong> a saudação muda a cada ligação e o aviso de gravação não é garantido.</li>
+    <li><strong>Sem chave válida ele não fala.</strong> Antes de investigar o fluxo, use <strong>Testar chave</strong>.</li>
+  </ul>
+
+  <h2 id="etapa-conectar-assistente">Etapa 9 &mdash; Conectar o assistente à telefonia</h2>
+  <p><span class="badge">Vídeo 09 · Conectar o assistente</span></p>
+  <p>O assistente não atende sozinho: a ligação precisa chegar até ele. O caminho é sempre o mesmo &mdash; e o assistente mora <strong>dentro de uma URA</strong>.</p>
+
+  <figure class="figure">
+    <svg viewBox="0 0 900 380" role="img" aria-labelledby="connTitle connDesc" style="width:100%;height:auto;display:block;padding:10px;">
+      <title id="connTitle">Montagem do assistente de voz na telefonia</title>
+      <desc id="connDesc">A rota de entrada entrega o DID à fila de URA 6200; a fila abre o fluxo Atendimento Sofia; o elemento Assistente conversa com o cliente e sai por Encerrado, ligado a Encerrar chamada, ou por Transferido, ligado a Transferir chamada 5000.</desc>
+      <defs>
+        <marker id="seta-c" markerWidth="10" markerHeight="10" refX="8.5" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L8.5,3 L0,6 z" fill="#6b7280"/>
+        </marker>
+        <style>
+          .bx{fill:#ffffff;stroke:#6c3fb5;stroke-width:1.6}
+          .bx-plataforma{fill:#f1ebfa;stroke:#6c3fb5;stroke-width:1.8}
+          .bx-ia{fill:#fff7e6;stroke:#d98a00;stroke-width:1.8}
+          .bx-excecao{fill:#f3f4f6;stroke:#9ca3af;stroke-width:1.6}
+          .t{fill:#1f2430;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;font-weight:700;text-anchor:middle}
+          .s{fill:#6b7280;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:11px;text-anchor:middle}
+          .lb{fill:#4a2a82;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;text-anchor:middle}
+          .ar{fill:none;stroke:#6b7280;stroke-width:1.8;marker-end:url(#seta-c)}
+        </style>
+      </defs>
+
+      <rect class="bx-plataforma" x="14" y="70" width="180" height="76" rx="8"/>
+      <text class="t" x="104" y="96">ROTA DE ENTRADA</text>
+      <text class="s" x="104" y="114">DID da empresa</text>
+      <text class="s" x="104" y="130">destino: URA</text>
+
+      <rect class="bx-plataforma" x="232" y="70" width="190" height="76" rx="8"/>
+      <text class="t" x="327" y="96">FILA DE URA</text>
+      <text class="s" x="327" y="114">6200 URA Sofia</text>
+      <text class="s" x="327" y="130">Servidor habilitado</text>
+
+      <rect class="bx" x="460" y="70" width="170" height="76" rx="8"/>
+      <text class="t" x="545" y="96">FLUXO</text>
+      <text class="s" x="545" y="114">Atendimento Sofia</text>
+      <text class="s" x="545" y="130">Ura avançada</text>
+
+      <rect class="bx-ia" x="668" y="70" width="218" height="76" rx="8"/>
+      <text class="t" x="777" y="92">ELEMENTO ASSISTENTE</text>
+      <text class="s" x="777" y="110">a Sofia conversa com o cliente</text>
+      <text class="s" x="777" y="126">saídas: Encerrado / Transferido</text>
+
+      <rect class="bx-excecao" x="460" y="230" width="170" height="66" rx="8"/>
+      <text class="t" x="545" y="256">ENCERRAR CHAMADA</text>
+      <text class="s" x="545" y="274">motivo: atendimento concluído</text>
+
+      <rect class="bx-excecao" x="668" y="230" width="218" height="66" rx="8"/>
+      <text class="t" x="777" y="256">TRANSFERIR CHAMADA</text>
+      <text class="s" x="777" y="274">5000 — grupo de toque Recepção</text>
+
+      <path class="ar" d="M194,108 L232,108"/>
+      <path class="ar" d="M422,108 L460,108"/>
+      <path class="ar" d="M630,108 L668,108"/>
+      <path class="ar" d="M777,146 L777,190 L545,190 L545,230"/>
+      <path class="ar" d="M777,146 L777,230"/>
+      <text class="lb" x="636" y="180">Encerrado</text>
+      <text class="lb" x="836" y="196">Transferido</text>
+      <text class="s" x="450" y="336">Saída solta = ligação sem desfecho: o assistente nunca desliga nem transfere sozinho.</text>
+    </svg>
+    <figcaption>Três peças: rota de entrada &rarr; fila de URA com o servidor ligado &rarr; fluxo com o elemento <em>Assistente</em>, cujas saídas <em>Encerrado</em> e <em>Transferido</em> precisam terminar em Encerrar/Transferir.</figcaption>
+  </figure>
+
+  <h3 id="conectar-montagem">Montagem, passo a passo</h3>
+  <ol class="steps">
+    <li><strong>Confira a chave de IA</strong> (Configurações &rsaquo; Geral &rsaquo; IA) com <strong>Testar chave</strong>. A Sofia usa modelo do Google &rarr; vale a chave do Google AI Studio.</li>
+    <li><strong>O assistente precisa existir</strong> com a voz configurada (<a href="#etapa-assistente">Etapa 8</a>).</li>
+    <li><strong>Fluxo</strong>: Configurações &rsaquo; Automação &rsaquo; Fluxo de Automação e URA &rsaquo; Adicionar &rarr; nome <em>Atendimento Sofia</em>, tipo <em>Ura avançada (Telefonia)</em> &rarr; <strong>Configurar fluxo</strong>.</li>
+    <li>No menu das estrelas, escolha <strong>Assistente</strong>. Ele <strong>já nasce com as duas saídas</strong> (<em>Encerrado</em> e <em>Transferido</em>). Edite e escolha a Sofia; <strong>Aplicar</strong>. Ligue o <strong>Início</strong> ao Assistente.</li>
+    <li><strong>Saída Encerrado</strong> &rarr; elemento <strong>Encerrar chamada</strong> (motivo <em>atendimento concluído</em>).</li>
+    <li><strong>Saída Transferido</strong> &rarr; <strong>Transferir chamada</strong> com número <code>5000</code> (grupo de toque da Recepção).</li>
+    <li>Sem triângulo laranja, <strong>Salvar</strong> e fechar.</li>
+    <li><strong>Fila de URA</strong>: Filas &rsaquo; Adicionar &rarr; <em>URA Sofia</em>, tipo <em>Telefonia (URA)</em>. Ligue <strong>Habilitar Servidor</strong>; em Configurações, <strong>Número de discagem</strong> <code>6200</code> e o fluxo <em>Atendimento Sofia</em>. <strong>Salvar</strong>.</li>
+    <li><strong>Rota de entrada</strong>: Adicionar &rarr; DID do número da Sofia, tipo de destino <em>URA</em>, destino <em>URA Sofia</em>.</li>
+  </ol>
+
+  <h3 id="conectar-teste">Teste</h3>
+  <ol class="steps">
+    <li>No <strong>painel de um atendente</strong> com ramal webphone <em>Disponível</em>, disque o número da fila de URA &mdash; <code>6200</code> &mdash; e não o DID da empresa.</li>
+    <li>A Sofia deve atender, apresentar-se, avisar da gravação e, ao pedido de &ldquo;falar com a recepção&rdquo;, transferir: o telefone da recepção toca.</li>
+    <li>Só depois de o teste passar é que o DID da empresa deve apontar para o assistente.</li>
+  </ol>
+
+  <h3 id="conectar-cuidados">Cuidados ao conectar</h3>
+  <ul>
+    <li><strong>A ordem importa:</strong> chave de IA &rarr; assistente &rarr; fluxo &rarr; fila de URA com servidor ligado &rarr; e só no fim a rota de entrada, que só aceita uma URA que já existe.</li>
+    <li><strong>O assistente não desliga nem transfere sozinho.</strong> Quem faz isso são os elementos ligados às saídas.</li>
+    <li><strong>Três relógios contam o tempo</strong> e <strong>vale o menor</strong>: a Duração máxima do assistente, o Tempo máximo em automação do PABX e a Duração máxima por chamada. Estourou o do assistente, ela é transferida sem despedida.</li>
+    <li><strong>Ligação muda não é defeito do fluxo.</strong> Comece pela chave (<strong>Testar chave</strong>) e ligue a conversa proativa com Introdução.</li>
+  </ul>
+
+  <h2 id="etapa-rotas-entrada">Etapa 10 &mdash; Rotas de entrada</h2>
+  <p><span class="badge">Vídeo 10 · Rotas de entrada</span></p>
+  <p><strong>Configurações &rsaquo; Telefonia &rsaquo; Rotas de Entrada</strong> &mdash; só o administrador vê o menu. A rota lê o número que o cliente discou &mdash; o <strong>DID</strong> &mdash; e consulta a lista: este número vai para tal destino.</p>
+
+  <h3 id="entrada-lista">A lista</h3>
+  <ul>
+    <li>Colunas: <strong>DID</strong>, <strong>Descrição</strong>, <strong>Destino</strong> e <strong>Estado</strong> (ativa/inativa).</li>
+    <li>A coluna <strong>Prioridade</strong> mostra a posição de cada rota; as setas mudam a posição, mas <strong>a nova ordem só vale depois de clicar em Publicar nova ordenação</strong>. <em>Descartar</em> volta atrás.</li>
+    <li>Como cada número tem uma só rota, não há disputa entre rotas: quem atende a ligação é a rota do número discado.</li>
+  </ul>
+
+  <h3 id="entrada-campos">Cadastro campo a campo</h3>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Campo</th><th>Regra</th></tr></thead>
+    <tbody>
+      <tr><td>DID</td><td>O número que o cliente discou, <strong>do jeito que a operadora entrega</strong>: só números, sem espaço, parênteses ou traço. Pode ser o número completo com DDD ou só o final, conforme a operadora &mdash; na dúvida, pergunte a ela. <strong>Não muda depois de salvo</strong> (aparece com cadeado ao editar).</td></tr>
+      <tr><td>Descrição</td><td>Nome fácil de reconhecer. Só aparece nas listas; não muda o caminho da ligação.</td></tr>
+      <tr><td>Tipo de destino</td><td><strong>Ramal</strong>, <strong>Fila</strong>, <strong>Grupo de toque</strong>, <strong>URA</strong> ou <strong>Desligar</strong> (encerra na hora &mdash; útil para bloquear um número).</td></tr>
+      <tr><td>Destino</td><td>A segunda lista traz os destinos daquele tipo que já existem, <strong>com o número entre parênteses</strong>. Lista vazia = cadastre o destino primeiro (a tela avisa que não há destino daquele tipo).</td></tr>
+      <tr><td>Política de gravação</td><td><em>Herdar do tenant</em> segue a regra geral da empresa; <em>Sempre gravar</em> e <em>Nunca gravar</em> valem para este número.</td></tr>
+      <tr><td>Visão avançada &rsaquo; Filtro de CallerID</td><td>Faz a rota valer só para ligações de certos números; quem liga de outro número não entra nela.</td></tr>
+      <tr><td>Visão avançada &rsaquo; Rota ativa</td><td>Apenas organização: <strong>desmarcar não faz o número parar de atender</strong>. Para isso, só excluindo a rota.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 id="entrada-exemplo">Exemplo: o número principal</h3>
+  <ol class="steps">
+    <li><strong>DID</strong>: <code>1140001000</code> (só números).</li>
+    <li><strong>Descrição</strong>: <em>Número principal da clínica</em>.</li>
+    <li><strong>Tipo de destino</strong>: <em>URA</em> &rarr; destino <em>Boas-vindas</em>, <code>6100</code>.</li>
+    <li><strong>Política de gravação</strong>: <em>Herdar do tenant</em>.</li>
+    <li><strong>Adicionar</strong> &rarr; <em>Rota salva</em>; a rota entra no fim da lista, <em>Ativa</em>. Faça uma ligação de teste.</li>
+  </ol>
+
+  <figure class="figure">
+    <img src="assets/simplepbx/rota-entrada.jpg" alt="Formulário de rota de entrada com DID, descrição e tipo de destino">
+    <figcaption>Rota de entrada: DID (só números, imutável), descrição e o tipo de destino &mdash; Ramal, Fila, Grupo de toque, URA ou Desligar.</figcaption>
+  </figure>
+
+  <h3 id="entrada-cuidados">Cuidados com rotas de entrada</h3>
+  <ul>
+    <li><strong>Cada número tem uma só rota.</strong> Uma segunda rota para o mesmo DID &mdash; mesmo com filtro de CallerID &mdash; é recusada com <em>Número em uso</em>. Errou o número? Exclua a rota e crie outra.</li>
+    <li><strong>Destino novo não aparece na lista?</strong> A tela guarda essa lista no navegador por <strong>30 segundos</strong>. Aguarde meio minuto ou recarregue com F5 e abra a tela de novo.</li>
+    <li><strong>Desmarcar Rota ativa não desliga o número.</strong> Exclua a rota.</li>
+    <li><strong>Mudar destino ou filtro recria a rota por trás dos panos.</strong> Se aparecer aviso de rota perdida, cadastre de novo.</li>
+    <li><strong>A rota de entrada não conhece horário.</strong> O fora do expediente se resolve dentro da URA, com o elemento de verificação de horário de atendimento.</li>
+  </ul>
+
+  <h2 id="etapa-whatsapp">Etapa 11 &mdash; Chamadas de voz do WhatsApp</h2>
+  <p><span class="badge">Vídeo 11 · WhatsApp com voz</span></p>
+  <p>O WhatsApp da empresa ganha uma linha telefônica escondida no PABX, criada sozinha pelo sistema com um clique. Ao habilitar, ele <strong>liga as chamadas na Meta</strong>, cria o <strong>tronco</strong> e cria a <strong>rota de entrada</strong>. Você só escolhe o destino.</p>
+  <div class="callout warn">
+    <strong>Mão única.</strong> O sistema <strong>só recebe</strong> as ligações do WhatsApp; ligar para o cliente por lá não é possível.
+  </div>
+
+  <h3 id="whatsapp-passos">Habilitar, passo a passo</h3>
+  <ol class="steps">
+    <li><strong>Configurações &rsaquo; Filas</strong>, como administrador. Abra o filtro da coluna <strong>Tipo</strong> e escolha <strong>WA Cloud API</strong>.</li>
+    <li>Clique na setinha à esquerda e abra a fila. Na aba <strong>Conexão</strong> está o botão <strong>Configurar telefonia</strong> (ao lado, <em>Verificar saúde do número</em>).</li>
+    <li>O diálogo <strong>Configuração de Telefonia</strong> pergunta à Meta como o número está e mostra três indicadores: <strong>Status da Telefonia</strong> (chamadas habilitadas?), <strong>Visibilidade do Ícone de Chamada</strong> (o botão de telefone aparece para o cliente?) e <strong>SIP Habilitado</strong> (a Meta já entrega as ligações ao PABX?).</li>
+    <li>Clique em <strong>Habilitar Telefonia</strong> e escolha o <strong>Destino padrão</strong> &mdash; toda ligação que chegar a este WhatsApp vai para ele (depois dá para mudar editando a rota). Tipos: <em>Ramal</em>, <em>Fila</em>, <em>Grupo de toque</em>, <em>URA</em> (menu ou assistente) e <em>Desligar</em> (bloqueia chamadas).</li>
+    <li><strong>Confirmar e habilitar</strong> só funciona com um destino escolhido. Acompanhe as etapas na tela &mdash; habilitar na Meta, buscar credenciais (pode levar alguns segundos), cadastrar o tronco e criar a rota &mdash; e <strong>não feche a janela até acabar</strong>.</li>
+    <li>Ao final: <em>Telefonia habilitada e roteada com sucesso</em>; status <strong>Habilitada</strong>, ícone <strong>Visível</strong> e SIP <strong>habilitado</strong>.</li>
+  </ol>
+
+  <h3 id="whatsapp-conferencia">Conferência obrigatória</h3>
+  <ul>
+    <li><strong>Telefonia &rsaquo; Troncos</strong>: existe um tronco chamado <code>wacall</code> seguido do código da fila. Ele <strong>só nasce por este botão</strong>; o status <em>Desconhecido</em> é esperado, porque esse tronco não usa registro.</li>
+    <li><strong>Telefonia &rsaquo; Rotas de Entrada</strong>: procure <em>WhatsApp Cloud API</em> seguido do número. O destino é o que você escolheu &mdash; para mudar, edite esta rota.</li>
+  </ul>
+  <p><strong>Desabilitar Telefonia</strong> fica no mesmo diálogo. Por segurança, o sistema pede que você digite o número do WhatsApp; só então desliga na Meta e <strong>apaga o tronco e a rota</strong>.</p>
+
+  <h3 id="whatsapp-cuidados">Cuidados</h3>
+  <ul>
+    <li><strong>O aviso verde não prova que deu tudo certo.</strong> Se uma etapa falhar <em>depois</em> de ligar na Meta, ele continua aparecendo &mdash; confira sempre Troncos e Rotas de Entrada.</li>
+    <li><strong>Só o administrador conclui.</strong> O supervisor liga a chamada na Meta, mas não cria o tronco nem a rota.</li>
+    <li><strong>As regras são da Meta.</strong> O número precisa ser oficial, fora do modo <em>Coexistence</em>, com limite diário liberado e pagamento válido; o portfólio empresarial no Meta Business precisa estar verificado. Recusa da Meta aparece na tela.</li>
+    <li><strong>Cadastre o destino antes.</strong> Lista de destino vazia = cadastre primeiro o recurso (a URA, a fila etc.).</li>
+    <li><strong><em>Número em uso</em></strong> significa que já existe uma rota para ele.</li>
+  </ul>
+
+  <h2 id="etapa-gravacoes">Etapa 12 &mdash; Gravações e Debug SIP</h2>
+  <p><span class="badge">Vídeo 12 · Acompanhamento</span></p>
+  <p><strong>Telefonia &rsaquo; Gravações</strong> mostra o uso da cota, a próxima e a última execução da limpeza automática, os bytes liberados e o botão <strong>Forçar limpeza agora</strong>. Abaixo, a lista por período com <strong>Data, Origem, Destino, Duração, Disposition e Áudio</strong> (player e download).</p>
+  <figure class="figure">
+    <img src="assets/simplepbx/gravacoes.jpg" alt="Tela de gravações com cota, limpeza automática e lista com player de áudio">
+    <figcaption>Gravações: cota, próxima/última limpeza, &ldquo;Forçar limpeza agora&rdquo; e a lista com player. O download sai em <strong>OGG</strong> na telefonia simplificada.</figcaption>
+  </figure>
+  <p><strong>Telefonia &rsaquo; Debug SIP</strong> captura o tráfego SIP para investigar registro e chamada e permite <strong>Exportar JSON</strong> &mdash; equivale a ligar o logger do Asterisk, mas pela interface.</p>
+  <figure class="figure">
+    <img src="assets/simplepbx/debug-sip.jpg" alt="Tela de Debug SIP com tipo, ramal, identificador e duração">
+    <figcaption>Debug SIP: tipo, ramal, identificador e duração; botões <em>Iniciar captura</em> e <em>Exportar JSON</em>.</figcaption>
+  </figure>
+
+  <h2 id="checklist">Conferência final</h2>
+  <ol class="steps">
+    <li><strong>Geral</strong>: idioma e política de gravação salvos na aba certa; limites revisados; IPs confiáveis só de endereços conhecidos.</li>
+    <li><strong>Ramais</strong>: 4 dígitos, senha forte, modo correto, usuário associado (vazio nos aparelhos) e destino em caso de falha.</li>
+    <li><strong>Troncos</strong>: nome válido e imutável, host/porta/transporte, usuário e senha da operadora, bina só com números, G.711 marcados.</li>
+    <li><strong>Rotas de saída</strong>: padrão começando por <code>_</code>, curinga com 4+ dígitos, um tronco, e uma ligação de teste feita.</li>
+    <li><strong>Grupos de toque</strong>: número de 3&ndash;8 dígitos sem colisão, tempo de toque, membros e destino se ninguém atender.</li>
+    <li><strong>Filas</strong>: tipo <em>Telefonia &rsaquo; Fila de atendimento</em>, número, estratégia, tempos e <strong>transbordo definido</strong>.</li>
+    <li><strong>URA</strong>: fluxo salvo sem triângulo laranja + fila de URA com número e <em>Habilitar Servidor</em> ligado + áudios <em>Enviados ao PABX</em>.</li>
+    <li><strong>Assistente</strong> (se houver): chave testada, modelo Realtime definido antes da voz, duração máxima, proativa e Introdução, e as duas saídas ligadas.</li>
+    <li><strong>Rotas de entrada</strong>: DID só com números, destino existente, ordem publicada e ligação de teste concluída.</li>
+    <li><strong>WhatsApp</strong> (se houver): tronco <code>wacall</code> e rota <em>WhatsApp Cloud API</em> presentes.</li>
+  </ol>
+
+  <h2 id="erros-comuns">Erros comuns ao configurar</h2>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>Sintoma</th><th>Causa provável / correção</th></tr></thead>
+    <tbody>
+      <tr><td>Ramal não salva</td><td>Número com 3 ou 5 dígitos &mdash; use sempre quatro.</td></tr>
+      <tr><td>Ramal novo em <em>Desconhecido</em></td><td>Normal: nenhum telefone conectou ainda.</td></tr>
+      <tr><td>Não consegue excluir o ramal</td><td>Ele é destino de rota ou membro de fila/grupo. Remova dessas listas primeiro. A confirmação pede o número do ramal.</td></tr>
+      <tr><td>Senha SIP fraca (recusa ao salvar)</td><td>Use 12&ndash;64 caracteres com letras, números e símbolos, sem sequências comuns.</td></tr>
+      <tr><td>&ldquo;Nenhum tronco cadastrado&rdquo; na rota de saída</td><td>Cadastre o tronco antes (Etapa 3).</td></tr>
+      <tr><td>Nome de tronco recusado</td><td>Só minúsculas, números, hífen e underline &mdash; e não muda depois de criado.</td></tr>
+      <tr><td>Tronco não pode ser excluído (&ldquo;número em uso&rdquo;)</td><td>Uma rota de saída usa este tronco. Exclua a rota primeiro.</td></tr>
+      <tr><td>Padrão de discagem recusado</td><td>Falta o sublinhado inicial ou o curinga não exige 4 dígitos.</td></tr>
+      <tr><td>Ligação externa não sai</td><td>Discou sem DDD; número curto (190) precisa de rota própria; ou a rota não existe mais (editar recria).</td></tr>
+      <tr><td>Botão Adicionar do grupo de toque cinza</td><td>Número fora de 3&ndash;8 dígitos ou tempo de toque fora de 5&ndash;600 s.</td></tr>
+      <tr><td>Grupo demora mais que o tempo configurado</td><td>Sequencial/Memória multiplicam o tempo por ramal.</td></tr>
+      <tr><td>Fila não aparece nos destinos da rota</td><td>O número colidiu com outro da telefonia (a tela pode ter dito &ldquo;salvo&rdquo;); recrie a fila com número livre.</td></tr>
+      <tr><td>Atendente não recebe chamada</td><td>Falta vínculo com a fila, login na fila ou ramal <em>Disponível</em> no painel.</td></tr>
+      <tr><td>URA não atende / silêncio</td><td>Falta a fila de URA com <em>Habilitar Servidor</em>, ou o número de discagem está repetido, ou o áudio não foi enviado ao PABX.</td></tr>
+      <tr><td>Assistente atende mudo</td><td>Chave de IA inválida (<strong>Testar chave</strong>) ou conversa proativa/Introdução desligadas.</td></tr>
+      <tr><td>Assistente não transfere</td><td>Saída <em>Transferido</em> sem elemento de transferência ligado &mdash; saída solta não tem desfecho.</td></tr>
+      <tr><td>DID recusado como &ldquo;Número em uso&rdquo;</td><td>Já existe rota para o número, mesmo que com filtro de CallerID.</td></tr>
+      <tr><td>Destino novo não aparece na rota</td><td>Cache de 30 s no navegador: aguarde ou recarregue com F5.</td></tr>
+      <tr><td>&ldquo;Telefonia habilitada&rdquo; mas o WhatsApp não toca</td><td>Confira o tronco <code>wacall</code> e a rota <em>WhatsApp Cloud API</em>; o aviso verde aparece mesmo se uma etapa falhar depois da Meta.</td></tr>
+      <tr><td>&ldquo;Telefonia indisponível&rdquo; em todas as telas</td><td>Serviço de telefonia fora do ar (bootstrap/AMI) &mdash; acione o suporte.</td></tr>
+      <tr><td>&ldquo;Volume excedido (limite 1000 linhas)&rdquo; ao importar</td><td>Divida o arquivo em lotes de até 1.000 linhas; remova colunas <code>tenant*</code>.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="origem">Origem do material</h2>
+  <p>Este guia foi consolidado a partir da trilha oficial em vídeo do SimplePBX (transcrita de legendas .srt/.vtt), que percorre a configuração completa numa clínica fictícia:</p>
+  <div class="table-wrap"><table class="doc">
+    <thead><tr><th>#</th><th>Tema</th><th>Cobre</th></tr></thead>
+    <tbody>
+      <tr><td>01</td><td>Conceitos de telefonia</td><td>PABX compartilhado, caminho da ligação, as peças, ordem de configuração, regras da casa (Geral)</td></tr>
+      <tr><td>02</td><td>Ramais</td><td>Lista, status, cadastro campo a campo, dados de conexão, exclusão e armadilhas</td></tr>
+      <tr><td>03</td><td>Troncos</td><td>Registro/autenticação, codecs, bina, nome imutável, dados de conexão</td></tr>
+      <tr><td>04</td><td>Rotas de saída</td><td>Gramática do padrão, regra do curinga, strip/prepend/callerID, rota ativa</td></tr>
+      <tr><td>05</td><td>Grupos de toque</td><td>Número compartilhado, estratégias, tempo de toque, membros e destino</td></tr>
+      <tr><td>06</td><td>Filas</td><td>Tipo Telefonia, número, estratégias, tempos, transbordo, vínculo e login do atendente</td></tr>
+      <tr><td>07</td><td>URA telefônica</td><td>Áudio na galeria, editor visual, laço e condição, fila de URA e número de discagem</td></tr>
+      <tr><td>08</td><td>Assistente de IA por voz</td><td>Chave de IA, editor do assistente, modelo Realtime, voz, duração e introdução</td></tr>
+      <tr><td>09</td><td>Conectar o assistente</td><td>Elemento Assistente, saídas Encerrado/Transferido, fila de URA, teste por ramal</td></tr>
+      <tr><td>10</td><td>Rotas de entrada</td><td>DID, destinos, prioridade/publicação da ordem, filtro de CallerID, cache de 30 s</td></tr>
+      <tr><td>11</td><td>WhatsApp com voz</td><td>Habilitar telefonia na fila Cloud API, tronco <code>wacall</code>, rota automática, regras da Meta</td></tr>
+      <tr><td>12</td><td>Geral (detalhe)</td><td>Abas Geral, Limites e IPs confiáveis &mdash; idioma, gravação, salvaguardas e banimento</td></tr>
     </tbody>
   </table></div>
 

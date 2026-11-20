@@ -156,6 +156,10 @@
       <li class="toc-h3"><a href="#rota-entrada">Rotas de entrada</a></li>
       <li class="toc-h3"><a href="#rota-saida">Rotas de saída</a></li>
       <li><a href="#grupos-toque">Grupos de Toque</a></li>
+      <li><a href="#ura-assistente-whatsapp">URA, assistente de voz e chamadas do WhatsApp</a></li>
+      <li class="toc-h3"><a href="#ura-duas-pecas">URA: fluxo + fila de URA</a></li>
+      <li class="toc-h3"><a href="#assistente-voz">Assistente de IA por voz</a></li>
+      <li class="toc-h3"><a href="#whatsapp-voz">Chamadas de voz do WhatsApp Cloud API</a></li>
       <li><a href="#gravacoes">Gravações</a></li>
       <li><a href="#cdr">Relatório de chamadas (CDR e Gravações)</a></li>
       <li><a href="#debug-sip">Debug SIP</a></li>
@@ -174,7 +178,7 @@
   </div>
 
   <div class="callout tip">
-    <strong>Configurar na prática:</strong> o passo a passo campo a campo — tronco WhatsApp Cloud API (voz), tronco de operadora SIP, ramais WebRTC, rotas, grupos de toque, filas e URA, com capturas de tela — está no <a href="pabx-simplepbx-configuracao.html">Guia de Configuração do SimplePBX</a>.
+    <strong>Configurar na prática:</strong> o passo a passo está no <a href="pabx-simplepbx-configuracao.html">Guia de Configuração do SimplePBX</a> — a trilha em <strong>12 etapas</strong> na ordem em que o sistema exige (Geral, ramais, troncos, rotas de saída, grupos, filas, URA, assistente de voz, rotas de entrada e WhatsApp), com as regras de validação, o exemplo completo e as armadilhas de cada tela.
   </div>
 
   <h2 id="o-que-e">O que é e quando usar</h2>
@@ -187,7 +191,7 @@
   </ul>
 
   <h2 id="menu">Onde fica no sistema</h2>
-  <p>O módulo aparece no menu <strong>Telefonia</strong> e reúne as seguintes telas:</p>
+  <p>O módulo aparece no menu <strong>Telefonia</strong> e reúne as seguintes telas. Duas delas não abrem página: <strong>Geral</strong> abre uma <strong>janela</strong> com as abas Geral, Limites e IPs confiáveis, e <strong>Gravações</strong> concentra cota e lista por período. As <strong>filas de voz</strong>, as <strong>URAs</strong> e os <strong>assistentes de IA</strong> não ficam neste menu &mdash; vivem em Configurações (Filas, Fluxo de Automação e URA e Assistentes), porque são recursos de todos os canais:</p>
   <div class="table-wrap"><table class="doc">
     <thead><tr><th>Tela</th><th>Rota</th><th>Para que serve</th></tr></thead>
     <tbody>
@@ -245,6 +249,13 @@
     <li><strong>Registro SIP.</strong> A instância expõe host público e portas SIP <code>5060</code> (UDP/TCP) e <code>5061</code> (TLS) para os ramais.</li>
     <li><strong>Senha forte obrigatória.</strong> Senhas fracas são recusadas: exige-se no mínimo <strong>12 caracteres</strong>, com maiúsculas, minúsculas e demais critérios de segurança.</li>
     <li><strong>Ramais fixos em filas de telefonia.</strong> Uma fila de telefonia pode ter um conjunto de ramais fixos; não é possível configurá-los em fila de outro canal ("Ramais fixos só existem em filas de telefonia"), e há limite de membros por fila.</li>
+    <li><strong>Número de quatro dígitos, sem exceção.</strong> Com três ou cinco a tela não salva — a telefonia só alcança ramais de quatro dígitos. Em dúvida, use <em>Sugerir próximo livre</em>.</li>
+    <li><strong>Status do ramal:</strong> <em>Online</em> (há telefone conectado), <em>Offline</em> (nenhum) e <em>Desconhecido</em> — este último é o normal de um ramal recém-criado, não é defeito.</li>
+    <li><strong>Senha SIP:</strong> já vem forte; se digitar a sua, use 12 a 64 caracteres misturando letras, números e símbolos. A tela mostra a força e recusa sequências comuns.</li>
+    <li><strong>Usuário associado</strong> liga o ramal a uma pessoa (atendimento pelo painel e identificação nos relatórios). Para equipamentos (telefone de mesa, softphone), deixe em branco. O vínculo também pode ser feito pelo caminho inverso: Configurações › Usuários › <em>Ramal SIP › Associar</em>.</li>
+    <li><strong>Destino em caso de falha:</strong> se ligarem direto para o ramal e ninguém atender, a chamada vai para outro ramal, grupo de toque, fila ou URA — ou é encerrada.</li>
+    <li><strong>&ldquo;Nunca gravar&rdquo; não é absoluto:</strong> se a chamada vier de uma fila ou grupo que grava, ela é gravada mesmo assim.</li>
+    <li><strong>Exclusão protegida:</strong> o sistema pede a palavra de segurança, que é o próprio número do ramal. Ramal que é destino de rota ou membro de fila/grupo não pode ser excluído antes de sair dessas listas.</li>
   </ul>
 
   <h2 id="troncos">Troncos</h2>
@@ -258,6 +269,13 @@
       <tr><td>Status</td><td>Situação atual da conexão do tronco.</td></tr>
     </tbody>
   </table></div>
+  <ul>
+    <li><strong>Tipo = Manual</strong> nos troncos cadastrados por você. O status <strong>&ldquo;Desconhecido&rdquo; é esperado</strong> nessa coluna: ela não diz se a linha da operadora funciona — só uma ligação de teste diz.</li>
+    <li><strong>O nome do tronco é imutável.</strong> Aceita apenas minúsculas, números, hífen e underline; o sistema avisa e sugere a forma correta na hora do cadastro.</li>
+    <li><strong>O usuário do tronco é único em todo o PABX.</strong> Como a central é compartilhada, dois clientes não podem usar o mesmo — recusa desse tipo se resolve com o suporte.</li>
+    <li><strong>Tronco usado por rota de saída não é excluído</strong> (o aviso pode falar em &ldquo;número em uso&rdquo;): remova a rota primeiro. A confirmação da exclusão pede o nome do tronco.</li>
+    <li><strong>Tronco do WhatsApp:</strong> no fluxo normal não se cadastra à mão — nasce com a habilitação de voz na fila do canal, com o nome <code>wacall</code> seguido do código da fila, e não usa registro.</li>
+  </ul>
 
   <h2 id="rotas">Rotas de entrada e de saída</h2>
   <p>As rotas decidem para onde vão as chamadas que chegam e por onde saem as que partem.</p>
@@ -284,6 +302,9 @@
       <tr><td>Estado</td><td>Ativa ou inativa.</td></tr>
     </tbody>
   </table></div>
+  <div class="callout warn">
+    <strong>Regras que a tela cobra.</strong> (1) O <strong>padrão de discagem começa sempre com <code>_</code></strong>; <code>X</code> vale qualquer dígito e <code>[1-9]</code> limita a faixa. (2) <strong>Padrão com curinga precisa exigir ao menos quatro dígitos</strong> — <code>_X.</code> é recusado. (3) O <strong>DID não muda depois de salvo</strong> e aceita só números. (4) Desmarcar <strong>Rota ativa</strong> não desliga nada: para parar de receber ou de sair, exclua a rota. (5) Editar destino ou filtro <strong>recria a rota</strong>; se aparecer aviso de rota perdida, cadastre de novo. (6) Cada rota de saída usa <strong>um único tronco</strong>, sem desvio automático.
+  </div>
 
   <h2 id="grupos-toque">Grupos de Toque</h2>
   <p>Um grupo de toque chama vários ramais ao mesmo tempo (ou em sequência, conforme a estratégia) — útil para setores que atendem em conjunto.</p>
@@ -296,6 +317,25 @@
       <tr><td>Membros</td><td>Ramais que participam do grupo.</td></tr>
     </tbody>
   </table></div>
+  <ul>
+    <li><strong>Número de 3 a 8 dígitos</strong>, dividindo o mesmo espaço de ramais, filas e URAs — não pode colidir com nenhum deles.</li>
+    <li><strong>Tempo de toque de 5 a 600 segundos.</strong> No <em>Sequencial</em> e na <em>Memória</em> o tempo vale <strong>por ramal</strong>: três ramais com 20 s podem levar até um minuto para o grupo desistir.</li>
+    <li><strong>Ordem de toque</strong> só tem efeito no Sequencial e na Memória. No <em>Tocar em todos</em>, quem atender primeiro fica com a ligação.</li>
+    <li><strong>Dentro do grupo vale o destino do grupo</strong>, não o do ramal. O padrão é <em>Encerrar</em> — escolha sempre para onde a chamada deve ir.</li>
+    <li><strong>A política de gravação deste cadastro já vem em Sempre gravar</strong>, diferente de outras telas que seguem a regra geral.</li>
+  </ul>
+
+  <h2 id="ura-assistente-whatsapp">URA, assistente de voz e chamadas do WhatsApp</h2>
+  <p>Três recursos de voz não ficam no menu Telefonia, mas são eles que dão o atendimento automatizado. O passo a passo de cada um está no <a href="pabx-simplepbx-configuracao.html#etapa-ura">Guia de Configuração</a>.</p>
+
+  <h3 id="ura-duas-pecas">URA: fluxo + fila de URA</h3>
+  <p>A URA é feita de <strong>duas peças</strong> e as duas são obrigatórias: o <strong>fluxo</strong> (o roteiro visual, em Configurações › Automação › Fluxo de Automação e URA, do tipo <em>Ura avançada</em>) e a <strong>fila de URA</strong> (Configurações › Filas, tipo <em>Telefonia (URA)</em>), que dá ao roteiro um <strong>número de discagem</strong> de 3 a 8 dígitos e precisa estar com <strong>Habilitar Servidor</strong> ligado. Fluxo sozinho não atende ninguém.</p>
+
+  <h3 id="assistente-voz">Assistente de IA por voz</h3>
+  <p>A recepcionista virtual precisa de quatro peças: <strong>voz</strong> (modelo Realtime que escuta e fala), <strong>memória</strong> (contexto inicial e base de conhecimento), <strong>saída</strong> (elementos ligados a <em>Encerrado</em> e <em>Transferido</em>) e <strong>tempo máximo</strong> de conversa. Ele é criado em Configurações › <strong>Assistentes</strong> e só atende <strong>dentro de uma URA</strong>, pelo elemento <em>Assistente</em>. Duas armadilhas: a aba <em>Testar</em> é chat de texto e <strong>não testa a voz</strong>; e sem chave de IA válida em Configurações › Geral › aba <strong>IA</strong> ele atende mudo.</p>
+
+  <h3 id="whatsapp-voz">Chamadas de voz do WhatsApp Cloud API</h3>
+  <p>Na fila do canal (<em>Tipo = WA Cloud API</em>, aba Conexão) o botão <strong>Configurar telefonia</strong> habilita as chamadas na Meta e o sistema <strong>cria sozinho o tronco <code>wacall</code> e a rota de entrada</strong>, levando a chamada ao destino escolhido (ramal, fila, grupo, URA ou desligar). É <strong>mão única</strong>: o sistema recebe as ligações do WhatsApp, não liga para o cliente por lá. O aviso verde de sucesso não prova a criação das duas peças — confira sempre Troncos e Rotas de Entrada.</p>
 
   <h2 id="gravacoes">Gravações</h2>
   <p>A tela <strong>Telefonia › Gravações</strong> permite ouvir e baixar as gravações por período e por origem/destino.</p>
@@ -411,6 +451,9 @@
     <li><strong>Vigie a cota de gravações.</strong> A limpeza é automática e por espaço: se as gravações antigas importam, baixe/arquive antes de a cota apertar.</li>
     <li><strong>Use a API para levar dados ao BI</strong>, respeitando os limites (31 dias, 500 linhas/página, 60 downloads/min) e ampliando um dia a janela por causa do fuso UTC.</li>
     <li><strong>Antes de acionar o suporte</strong>, reúna o código de erro exato (o campo costuma identificar a causa), o ramal/tronco envolvido e o horário da ocorrência.</li>
+    <li><strong>Configure de trás para a frente.</strong> Ramais, troncos, rotas de saída, grupos, filas, URA e assistente — e só no fim as rotas de entrada, que só aceitam apontar para destinos existentes.</li>
+    <li><strong>Desconfie do aviso verde.</strong> Em filas, URAs e WhatsApp, a tela pode confirmar sucesso e a central recusar o cadastro; a prova é o destino aparecer na lista da rota de entrada (e uma ligação de teste).</li>
+    <li><strong>Um número por peça.</strong> Ramais (4 dígitos), grupos, filas e URAs compartilham o mesmo espaço de numeração: um número repetido falha em silêncio.</li>
   </ol>
 
   <div class="pagenav">

@@ -5933,56 +5933,260 @@ window.MANUAL_INDEX = [
     "a": "antes-de-comecar"
    },
    {
-    "h": "Como o SimplePBX corresponde ao PABX Fácil",
+    "h": "A ordem obrigatória de configuração",
+    "a": "ordem"
+   },
+   {
+    "h": "O exemplo usado neste guia",
+    "a": "exemplo"
+   },
+   {
+    "h": "O caminho de uma ligação",
+    "a": "caminho-da-chamada"
+   },
+   {
+    "h": "SimplePBX e PABX Fácil: correspondência",
     "a": "correspondencia"
    },
    {
-    "h": "1. Tronco WhatsApp Cloud API (voz oficial)",
-    "a": "tronco-whatsapp"
+    "h": "Etapa 1 &mdash; Geral: as regras da casa",
+    "a": "etapa-geral"
    },
    {
-    "h": "Resumo dos valores do tronco WhatsApp",
-    "a": "tronco-whatsapp-valores"
+    "h": "Aba Geral: idioma e política de gravação",
+    "a": "geral-aba-geral"
    },
    {
-    "h": "2. Tronco de operadora SIP",
-    "a": "tronco-operadora"
+    "h": "Aba Limites: salvaguardas",
+    "a": "geral-limites"
    },
    {
-    "h": "3. Ramais (WebRTC)",
-    "a": "ramais"
+    "h": "Aba IPs confiáveis",
+    "a": "geral-ips"
    },
    {
-    "h": "4. Rotas de Saída",
-    "a": "rotas-saida"
+    "h": "Etapa 2 &mdash; Ramais",
+    "a": "etapa-ramais"
    },
    {
-    "h": "5. Rotas de Entrada",
-    "a": "rotas-entrada"
+    "h": "A lista de ramais",
+    "a": "ramais-lista"
    },
    {
-    "h": "6. Grupos de Toque",
-    "a": "grupos-toque"
+    "h": "Cadastro campo a campo",
+    "a": "ramais-cadastro"
    },
    {
-    "h": "7. Filas de telefonia e URA",
-    "a": "filas-ura"
+    "h": "O outro caminho: associar pela tela Usuários",
+    "a": "ramais-usuarios"
    },
    {
-    "h": "8. Gravações e cota",
-    "a": "gravacoes"
+    "h": "Exemplo: os dois ramais da recepção",
+    "a": "ramais-exemplo"
    },
    {
-    "h": "9. Debug SIP",
-    "a": "debug"
+    "h": "Cuidados com ramais",
+    "a": "ramais-cuidados"
    },
    {
-    "h": "10. Conferência final",
+    "h": "Etapa 3 &mdash; Troncos",
+    "a": "etapa-troncos"
+   },
+   {
+    "h": "A lista de troncos",
+    "a": "troncos-lista"
+   },
+   {
+    "h": "Cadastro campo a campo",
+    "a": "troncos-campos"
+   },
+   {
+    "h": "Exemplo: tronco de operadora",
+    "a": "troncos-exemplo"
+   },
+   {
+    "h": "Tronco do WhatsApp Cloud API",
+    "a": "troncos-whatsapp"
+   },
+   {
+    "h": "Cuidados com troncos",
+    "a": "troncos-cuidados"
+   },
+   {
+    "h": "Etapa 4 &mdash; Rotas de saída",
+    "a": "etapa-rotas-saida"
+   },
+   {
+    "h": "A lista e os campos",
+    "a": "saida-lista"
+   },
+   {
+    "h": "A gramática do padrão de discagem",
+    "a": "padrao-discagem"
+   },
+   {
+    "h": "Visão avançada",
+    "a": "saida-visao-avancada"
+   },
+   {
+    "h": "Exemplo: fixo e celular",
+    "a": "saida-exemplo"
+   },
+   {
+    "h": "Cuidados com rotas de saída",
+    "a": "saida-cuidados"
+   },
+   {
+    "h": "Etapa 5 &mdash; Grupos de toque",
+    "a": "etapa-grupos"
+   },
+   {
+    "h": "Cadastro campo a campo",
+    "a": "grupos-campos"
+   },
+   {
+    "h": "Exemplo: grupo 5000 Recepção",
+    "a": "grupos-exemplo"
+   },
+   {
+    "h": "Cuidados com grupos de toque",
+    "a": "grupos-cuidados"
+   },
+   {
+    "h": "Etapa 6 &mdash; Filas de atendimento de voz",
+    "a": "etapa-filas"
+   },
+   {
+    "h": "Criar a fila",
+    "a": "filas-cadastro"
+   },
+   {
+    "h": "Aba Configurações",
+    "a": "filas-config"
+   },
+   {
+    "h": "Exemplo: Agendamentos (4001) e Financeiro (4002)",
+    "a": "filas-exemplo"
+   },
+   {
+    "h": "Vincular o atendente e entrar na fila",
+    "a": "filas-vinculo"
+   },
+   {
+    "h": "Cuidados com filas",
+    "a": "filas-cuidados"
+   },
+   {
+    "h": "Etapa 7 &mdash; URA telefônica (duas peças)",
+    "a": "etapa-ura"
+   },
+   {
+    "h": "Passo 1: o áudio na galeria",
+    "a": "ura-audio"
+   },
+   {
+    "h": "Passo 2: o fluxo no editor visual",
+    "a": "ura-fluxo"
+   },
+   {
+    "h": "Passo 3: a fila de URA",
+    "a": "ura-fila"
+   },
+   {
+    "h": "Cuidados com URAs",
+    "a": "ura-cuidados"
+   },
+   {
+    "h": "Etapa 8 &mdash; Assistente de IA por voz",
+    "a": "etapa-assistente"
+   },
+   {
+    "h": "Antes: a chave de IA",
+    "a": "assistente-chave"
+   },
+   {
+    "h": "A lista de assistentes",
+    "a": "assistente-lista"
+   },
+   {
+    "h": "O editor, campo a campo",
+    "a": "assistente-editor"
+   },
+   {
+    "h": "Exemplo: Sofia",
+    "a": "assistente-exemplo"
+   },
+   {
+    "h": "Cuidados com assistentes",
+    "a": "assistente-cuidados"
+   },
+   {
+    "h": "Etapa 9 &mdash; Conectar o assistente à telefonia",
+    "a": "etapa-conectar-assistente"
+   },
+   {
+    "h": "Montagem, passo a passo",
+    "a": "conectar-montagem"
+   },
+   {
+    "h": "Teste",
+    "a": "conectar-teste"
+   },
+   {
+    "h": "Cuidados ao conectar",
+    "a": "conectar-cuidados"
+   },
+   {
+    "h": "Etapa 10 &mdash; Rotas de entrada",
+    "a": "etapa-rotas-entrada"
+   },
+   {
+    "h": "A lista",
+    "a": "entrada-lista"
+   },
+   {
+    "h": "Cadastro campo a campo",
+    "a": "entrada-campos"
+   },
+   {
+    "h": "Exemplo: o número principal",
+    "a": "entrada-exemplo"
+   },
+   {
+    "h": "Cuidados com rotas de entrada",
+    "a": "entrada-cuidados"
+   },
+   {
+    "h": "Etapa 11 &mdash; Chamadas de voz do WhatsApp",
+    "a": "etapa-whatsapp"
+   },
+   {
+    "h": "Habilitar, passo a passo",
+    "a": "whatsapp-passos"
+   },
+   {
+    "h": "Conferência obrigatória",
+    "a": "whatsapp-conferencia"
+   },
+   {
+    "h": "Cuidados",
+    "a": "whatsapp-cuidados"
+   },
+   {
+    "h": "Etapa 12 &mdash; Gravações e Debug SIP",
+    "a": "etapa-gravacoes"
+   },
+   {
+    "h": "Conferência final",
     "a": "checklist"
    },
    {
     "h": "Erros comuns ao configurar",
     "a": "erros-comuns"
+   },
+   {
+    "h": "Origem do material",
+    "a": "origem"
    }
   ]
  },
@@ -6041,6 +6245,22 @@ window.MANUAL_INDEX = [
    {
     "h": "Grupos de Toque",
     "a": "grupos-toque"
+   },
+   {
+    "h": "URA, assistente de voz e chamadas do WhatsApp",
+    "a": "ura-assistente-whatsapp"
+   },
+   {
+    "h": "URA: fluxo + fila de URA",
+    "a": "ura-duas-pecas"
+   },
+   {
+    "h": "Assistente de IA por voz",
+    "a": "assistente-voz"
+   },
+   {
+    "h": "Chamadas de voz do WhatsApp Cloud API",
+    "a": "whatsapp-voz"
    },
    {
     "h": "Gravações",
