@@ -419,6 +419,11 @@
     </tbody>
   </table></div>
   <p>O botão <strong>Salvar idioma e gravação</strong> acende quando algo muda. Cada aba salva sozinha: o botão de uma aba não grava o que você mexeu nas outras.</p>
+  <figure class="figure">
+    <img src="assets/simplepbx/telefonia-geral.jpg" alt="Janela Configurações gerais de telefonia, aba Geral, com idioma padrão dos prompts e política padrão de gravação">
+    <figcaption>Telefonia &rsaquo; Geral abre uma <strong>janela</strong>, não uma página: no topo as três abas e, na aba Geral, o <em>Idioma padrão dos prompts</em> e a <em>Política padrão de gravação</em>, com o botão <em>Salvar idioma e gravação</em> no rodapé.</figcaption>
+  </figure>
+
 
   <h3 id="geral-limites">Aba Limites: salvaguardas</h3>
   <p>Impedem que um problema de aplicação consuma todos os recursos da central. Passe o mouse sobre o campo para ler a explicação e o valor sugerido.</p>
@@ -440,6 +445,11 @@
     <li>O contador <strong>Cadastrados</strong> mostra quantos endereços já estão na lista &mdash; até <strong>256</strong>. A tabela traz IP, descrição, quem adicionou e a lixeira.</li>
   </ol>
   <p>Aqui <strong>não existe botão Salvar</strong>: adicionar e remover valem na hora.</p>
+  <figure class="figure">
+    <img src="assets/simplepbx/ips-confiaveis.jpg" alt="Aba IPs confiáveis com campo de IP, descrição, botão Usar meu IP atual, contador de cadastrados e tabela de endereços">
+    <figcaption>Aba <em>IPs confiáveis</em>: endereço e descrição, botão <em>Usar meu IP atual</em>, contador <em>Cadastrados</em> (limite 256) e a tabela com IP, descrição, quem adicionou e a lixeira. Sem botão de salvar &mdash; vale na hora.</figcaption>
+  </figure>
+
   <div class="callout warn">
     <strong>Quatro cuidados.</strong> (1) Cada aba salva sozinha &mdash; mudou o idioma e foi para Limites sem salvar? A mudança se perde. (2) O idioma vale para todos os ramais: trocar para inglês muda a voz da empresa inteira. (3) Não conte com chamadas simultâneas digitadas à mão: elas se ajustam sozinhas quando os ramais mudam. (4) IP confiável é um por vez, sem máscara, e só de endereços que você conhece.
   </div>
@@ -731,6 +741,10 @@
       <tr><td>Ramais fixos</td><td>Ramais que ficam <strong>sempre</strong> na fila, sem login nem logout.</td></tr>
     </tbody>
   </table></div>
+  <figure class="figure">
+    <img src="assets/simplepbx/fila-configuracoes.jpg" alt="Fila 4001 com selo Telefone expandida na aba Configurações, mostrando estratégia, música em espera, gravação, tempos e transbordo">
+    <figcaption>Fila de voz expandida na aba <em>Configurações</em> (bloco &ldquo;Telefonia (SimplePBX)&rdquo;): estratégia, música em espera, política de gravação, tempo máximo de espera, máximo de chamadas em espera, tempo de toque por agente, intervalo e pausa pós-atendimento, <strong>Transbordo</strong> e <strong>Ramais fixos</strong>. Na captura os tempos estão em <code>0</code> &mdash; que significa <em>sem limite</em> e <em>sem pausa</em>.</figcaption>
+  </figure>
 
   <h3 id="filas-exemplo">Exemplo: Agendamentos (4001) e Financeiro (4002)</h3>
   <ol class="steps">
@@ -795,6 +809,11 @@
     </tbody>
   </table></div>
   <p>Passe o mouse sobre um cartão para <strong>editar, clonar ou remover</strong>. O <strong>triângulo laranja</strong> é um passo sem configurar; a <strong>bolinha na borda direita</strong> é a saída, que você arrasta até o próximo cartão. No canto ficam <strong>Salvar</strong> (verde) e <strong>Fechar</strong> (vermelho, descarta o que não foi salvo).</p>
+  <figure class="figure">
+    <img src="assets/simplepbx/ura-editor.jpg" alt="Editor visual do fluxo da URA com o Início, laço de repetição, tocar áudio, aguardar interação, condição de variável e transferir chamada">
+    <figcaption>Editor visual do fluxo: <strong>Início</strong> (triângulo verde) &rarr; <em>Laço de repetição</em> (ramos <em>Repetir</em> e <em>Concluído</em>) &rarr; <em>Tocar áudio</em> &rarr; <em>Aguardar interação do usuário</em> &rarr; <em>Condição de variável</em> com os ramos 1, 2, 3 e <em>Padrão</em>, cada um terminando em <em>Transferir chamada</em>. Saídas soltas são os passos ainda não ligados.</figcaption>
+  </figure>
+
   <p>O roteiro do exemplo (URA <em>Boas-vindas</em>):</p>
   <ol class="steps">
     <li><strong>Laço de repetição</strong>: <em>Repetir um número de vezes</em>, <code>3</code>. O Início liga ao laço.</li>
@@ -813,6 +832,11 @@
     <li>Expanda a linha e, na aba <strong>Conexão</strong>, ligue <strong>Habilitar Servidor</strong> &mdash; é o que coloca a URA no ar.</li>
     <li>Na aba <strong>Configurações</strong>: <strong>Número de discagem</strong> <code>6100</code> (3 a 8 dígitos) e o <strong>fluxo</strong> <em>Boas-vindas</em>. <strong>Salvar</strong>.</li>
   </ol>
+
+  <figure class="figure">
+    <img src="assets/simplepbx/ura-fila.jpg" alt="Modal Adicionar nova fila com nome URA Boas-vindas e tipo Telefonia (URA), sobre a lista de filas de voz">
+    <figcaption>A <strong>fila de URA</strong> nasce em Filas &rsaquo; Adicionar com o tipo <em>Telefonia (URA)</em>: aqui só entram nome e tipo &mdash; o <strong>número de discagem</strong> vem depois, na aba Configurações. Na lista, as filas de voz aparecem com o selo <em>Telefone</em>.</figcaption>
+  </figure>
 
   <h3 id="ura-cuidados">Cuidados com URAs</h3>
   <ul>
@@ -855,6 +879,11 @@
       <tr><td>Testar</td><td>Chat de texto com a última versão salva. <strong>Não testa a voz.</strong></td></tr>
     </tbody>
   </table></div>
+
+  <figure class="figure">
+    <img src="assets/simplepbx/assistente-editor.jpg" alt="Editor do assistente com abas, perfil público, nome, assinatura, modelo de IA, contexto inicial, marcadores de saída e configurações realtime">
+    <figcaption>Editor do assistente: abas <em>Geral</em>, <em>Conhecimento</em>, <em>Procedimentos</em>, <em>Funções</em> (e as demais), com <strong>Perfil público</strong>, <strong>Nome</strong>, <strong>Assinatura</strong>, <strong>Modelo de IA</strong>, <strong>Contexto inicial</strong>, <strong>Marcadores de saída</strong> e o bloco <strong>Configurações Realtime</strong> (modelo, duração máxima e voz). Na captura: <code>gpt-4o-mini</code>, 120 s e voz Sulafat.</figcaption>
+  </figure>
 
   <h3 id="assistente-exemplo">Exemplo: Sofia</h3>
   <ol class="steps">
@@ -1033,11 +1062,21 @@
     <li>Ao final: <em>Telefonia habilitada e roteada com sucesso</em>; status <strong>Habilitada</strong>, ícone <strong>Visível</strong> e SIP <strong>habilitado</strong>.</li>
   </ol>
 
+  <figure class="figure">
+    <img src="assets/simplepbx/telefonia-whatsapp-destino.jpg" alt="Diálogo Configuração de Telefonia no passo Destino padrão, com Tipo de destino Fila e o campo Destino">
+    <figcaption>Passo do <strong>Destino padrão</strong>: escolha o <em>Tipo de destino</em> (no exemplo, <em>Fila</em>) e depois o destino. <em>Confirmar e habilitar</em> só habilita com um destino escolhido &mdash; toda ligação que chegar a este WhatsApp vai para ele.</figcaption>
+  </figure>
+
   <h3 id="whatsapp-conferencia">Conferência obrigatória</h3>
   <ul>
     <li><strong>Telefonia &rsaquo; Troncos</strong>: existe um tronco chamado <code>wacall</code> seguido do código da fila. Ele <strong>só nasce por este botão</strong>; o status <em>Desconhecido</em> é esperado, porque esse tronco não usa registro.</li>
     <li><strong>Telefonia &rsaquo; Rotas de Entrada</strong>: procure <em>WhatsApp Cloud API</em> seguido do número. O destino é o que você escolheu &mdash; para mudar, edite esta rota.</li>
   </ul>
+  <figure class="figure">
+    <img src="assets/simplepbx/telefonia-whatsapp-status.jpg" alt="Diálogo Configuração de Telefonia com Status da Telefonia Habilitada, ícone Visível, SIP Habilitado Sim e o botão Desabilitar Telefonia">
+    <figcaption>Depois de habilitar: <strong>Status da Telefonia</strong> = Habilitada, <strong>Visibilidade do Ícone de Chamada</strong> = Visível e <strong>SIP Habilitado</strong> = Sim, com o aviso de que <em>tronco e rota de entrada</em> foram criados automaticamente. O botão vermelho é o <em>Desabilitar Telefonia</em>.</figcaption>
+  </figure>
+
   <p><strong>Desabilitar Telefonia</strong> fica no mesmo diálogo. Por segurança, o sistema pede que você digite o número do WhatsApp; só então desliga na Meta e <strong>apaga o tronco e a rota</strong>.</p>
 
   <h3 id="whatsapp-cuidados">Cuidados</h3>
