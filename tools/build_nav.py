@@ -42,6 +42,7 @@ GROUPS = [
     ("IA & Automação", [
         ("ia.html", "IA Básica e IA Avançada"),
         ("ia-controle-remoto.html", "Controle Remoto da Tela pelo Assistente"),
+        ("ia-assistentes-desempenho-custos.html", "Desempenho e Custos dos Assistentes"),
         ("integracoes.html", "Integrações e Automações"),
         ("automacoes-elementos.html", "Automações e URA — Catálogo de Elementos"),
         ("automacoes-variaveis.html", "Automações: Variáveis e Expressões"),

@@ -3237,6 +3237,168 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Desempenho e Custos dos Assistentes",
+  "u": "ia-assistentes-desempenho-custos.html",
+  "s": [
+   {
+    "h": "1. As três visões e onde elas ficam",
+    "a": "1-as-tres-visoes-e-onde-elas-ficam"
+   },
+   {
+    "h": "2. Qual é a base dos números",
+    "a": "2-qual-e-a-base-dos-numeros"
+   },
+   {
+    "h": "2.1 Períodos disponíveis",
+    "a": "2-1-periodos-disponiveis"
+   },
+   {
+    "h": "3. Aba Desempenho",
+    "a": "3-aba-desempenho"
+   },
+   {
+    "h": "3.1 Indicadores principais",
+    "a": "3-1-indicadores-principais"
+   },
+   {
+    "h": "3.2 Contadores de apoio",
+    "a": "3-2-contadores-de-apoio"
+   },
+   {
+    "h": "3.3 Dia a dia",
+    "a": "3-3-dia-a-dia"
+   },
+   {
+    "h": "3.4 Distribuição de resultados",
+    "a": "3-4-distribuicao-de-resultados"
+   },
+   {
+    "h": "3.5 Motivo de saída",
+    "a": "3-5-motivo-de-saida"
+   },
+   {
+    "h": "3.6 Quando os atendimentos acontecem",
+    "a": "3-6-quando-os-atendimentos-acontecem"
+   },
+   {
+    "h": "3.7 Por fila",
+    "a": "3-7-por-fila"
+   },
+   {
+    "h": "4. Aba Histórico de alterações",
+    "a": "4-aba-historico-de-alteracoes"
+   },
+   {
+    "h": "4.1 O que é registrado",
+    "a": "4-1-o-que-e-registrado"
+   },
+   {
+    "h": "4.2 Como ler a diferença",
+    "a": "4-2-como-ler-a-diferenca"
+   },
+   {
+    "h": "4.3 O bloco de impacto",
+    "a": "4-3-o-bloco-de-impacto"
+   },
+   {
+    "h": "4.4 Quando a aba está vazia",
+    "a": "4-4-quando-a-aba-esta-vazia"
+   },
+   {
+    "h": "5. Aba Versões",
+    "a": "5-aba-versoes"
+   },
+   {
+    "h": "6. Custos do assistente",
+    "a": "6-custos-do-assistente"
+   },
+   {
+    "h": "6.1 Pré-requisito: a chave da empresa",
+    "a": "6-1-pre-requisito-a-chave-da-empresa"
+   },
+   {
+    "h": "6.2 Cotação do dólar",
+    "a": "6-2-cotacao-do-dolar"
+   },
+   {
+    "h": "6.3 Visão geral",
+    "a": "6-3-visao-geral"
+   },
+   {
+    "h": "6.4 Atendimentos",
+    "a": "6-4-atendimentos"
+   },
+   {
+    "h": "6.5 Copiloto e grupos",
+    "a": "6-5-copiloto-e-grupos"
+   },
+   {
+    "h": "6.6 Modelos",
+    "a": "6-6-modelos"
+   },
+   {
+    "h": "6.7 Versões",
+    "a": "6-7-versoes-de-custo"
+   },
+   {
+    "h": "6.8 Avisos que mudam a leitura",
+    "a": "6-8-avisos-que-mudam-a-leitura"
+   },
+   {
+    "h": "7. Custo por sucesso não é custo médio dos sucessos",
+    "a": "7-custo-por-sucesso-nao-e-custo-medio-dos-sucessos"
+   },
+   {
+    "h": "8. Roteiro de leitura em sete passos",
+    "a": "8-roteiro-de-leitura-em-sete-passos"
+   },
+   {
+    "h": "9. Os mesmos dados pela API",
+    "a": "9-os-mesmos-dados-pela-api"
+   },
+   {
+    "h": "10. Perguntas frequentes",
+    "a": "10-perguntas-frequentes"
+   },
+   {
+    "h": "O painel mostra 0% de sucesso, mas o assistente responde",
+    "a": "o-painel-mostra-0-de-sucesso-mas-o-assistente-responde"
+   },
+   {
+    "h": "A taxa de sucesso aparece com traço e não com 0%",
+    "a": "a-taxa-de-sucesso-aparece-com-traco"
+   },
+   {
+    "h": "O custo não aparece, mesmo com atendimentos",
+    "a": "o-custo-nao-aparece-mesmo-com-atendimentos"
+   },
+   {
+    "h": "As médias por atendimento mostram “—”",
+    "a": "as-medias-por-atendimento-mostram-traco"
+   },
+   {
+    "h": "O histórico está vazio, mas o assistente já foi editado",
+    "a": "o-historico-esta-vazio-e-o-assistente-ja-foi-editado"
+   },
+   {
+    "h": "A versão nova não aparece na comparação",
+    "a": "a-versao-nova-nao-aparece-na-comparacao"
+   },
+   {
+    "h": "O histórico mostra “MCP” em vez do nome da pessoa",
+    "a": "o-historico-mostra-mcp-e-nao-o-nome-da-pessoa"
+   },
+   {
+    "h": "Posso recuperar uma credencial pelo histórico",
+    "a": "posso-recuperar-uma-credencial-pelo-historico"
+   },
+   {
+    "h": "11. Checklist de acompanhamento",
+    "a": "11-checklist-de-acompanhamento"
+   }
+  ]
+ },
+ {
   "t": "Documentos a partir de um Modelo",
   "u": "documentos-a-partir-de-modelo.html",
   "s": [
@@ -4793,6 +4955,10 @@ window.MANUAL_INDEX = [
    {
     "h": "IA Básica e IA Avançada",
     "a": "ia-basica-e-ia-avancada"
+   },
+   {
+    "h": "Desempenho e Custos dos Assistentes",
+    "a": "desempenho-e-custos-dos-assistentes"
    },
    {
     "h": "Controle Remoto da Tela pelo Assistente",

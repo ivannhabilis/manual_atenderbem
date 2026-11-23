@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Desempenho, histórico de alterações e custo dos assistentes de IA: indicadores do painel, leitura dos gráficos, diferenças entre versões salvas e relatório de custo por atendimento, por contexto e por modelo.">
+<title>Desempenho e Custos dos Assistentes — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="tabelas-de-preco.html">Tabelas de Preço</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+          <a href="webchat-identidade.html">WebChat V2: Identidade do Visitante</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="ia-controle-remoto.html">Controle Remoto da Tela pelo Assistente</a>
+          <a class="active" href="ia-assistentes-desempenho-custos.html">Desempenho e Custos dos Assistentes</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+          <a href="datastore.html">Datastore (SQLite da instância)</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="webapps.html">Webapps (editor e instalação)</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › IA &amp; Automação › Desempenho e custos dos assistentes</div>
+
+  <h1>Desempenho, versões e custos do assistente de IA</h1>
+  <p class="subtitle">Cada assistente tem um painel próprio com o que aconteceu nos atendimentos, um histórico do que mudou a cada salvamento e um relatório de custo por atendimento, por contexto e por modelo. Os três respondem perguntas diferentes — e é justamente por isso que precisam ser lidos juntos.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-as-tres-visoes-e-onde-elas-ficam">1. As três visões e onde elas ficam</a></li>
+      <li><a href="#2-qual-e-a-base-dos-numeros">2. Qual é a base dos números</a></li>
+      <li class="toc-h3"><a href="#2-1-periodos-disponiveis">2.1 Períodos disponíveis</a></li>
+      <li><a href="#3-aba-desempenho">3. Aba Desempenho</a></li>
+      <li class="toc-h3"><a href="#3-1-indicadores-principais">3.1 Indicadores principais</a></li>
+      <li class="toc-h3"><a href="#3-2-contadores-de-apoio">3.2 Contadores de apoio</a></li>
+      <li class="toc-h3"><a href="#3-3-dia-a-dia">3.3 Dia a dia</a></li>
+      <li class="toc-h3"><a href="#3-4-distribuicao-de-resultados">3.4 Distribuição de resultados</a></li>
+      <li class="toc-h3"><a href="#3-5-motivo-de-saida">3.5 Motivo de saída</a></li>
+      <li class="toc-h3"><a href="#3-6-quando-os-atendimentos-acontecem">3.6 Quando os atendimentos acontecem</a></li>
+      <li class="toc-h3"><a href="#3-7-por-fila">3.7 Por fila</a></li>
+      <li><a href="#4-aba-historico-de-alteracoes">4. Aba Histórico de alterações</a></li>
+      <li class="toc-h3"><a href="#4-1-o-que-e-registrado">4.1 O que é registrado</a></li>
+      <li class="toc-h3"><a href="#4-2-como-ler-a-diferenca">4.2 Como ler a diferença</a></li>
+      <li class="toc-h3"><a href="#4-3-o-bloco-de-impacto">4.3 O bloco de impacto</a></li>
+      <li class="toc-h3"><a href="#4-4-quando-a-aba-esta-vazia">4.4 Quando a aba está vazia</a></li>
+      <li><a href="#5-aba-versoes">5. Aba Versões</a></li>
+      <li><a href="#6-custos-do-assistente">6. Custos do assistente</a></li>
+      <li class="toc-h3"><a href="#6-1-pre-requisito-a-chave-da-empresa">6.1 Pré-requisito: a chave da empresa</a></li>
+      <li class="toc-h3"><a href="#6-2-cotacao-do-dolar">6.2 Cotação do dólar</a></li>
+      <li class="toc-h3"><a href="#6-3-visao-geral">6.3 Visão geral</a></li>
+      <li class="toc-h3"><a href="#6-4-atendimentos">6.4 Atendimentos</a></li>
+      <li class="toc-h3"><a href="#6-5-copiloto-e-grupos">6.5 Copiloto e grupos</a></li>
+      <li class="toc-h3"><a href="#6-6-modelos">6.6 Modelos</a></li>
+      <li class="toc-h3"><a href="#6-7-versoes-de-custo">6.7 Versões</a></li>
+      <li class="toc-h3"><a href="#6-8-avisos-que-mudam-a-leitura">6.8 Avisos que mudam a leitura</a></li>
+      <li><a href="#7-custo-por-sucesso-nao-e-custo-medio-dos-sucessos">7. Custo por sucesso não é custo médio dos sucessos</a></li>
+      <li><a href="#8-roteiro-de-leitura-em-sete-passos">8. Roteiro de leitura em sete passos</a></li>
+      <li><a href="#9-os-mesmos-dados-pela-api">9. Os mesmos dados pela API</a></li>
+      <li><a href="#10-perguntas-frequentes">10. Perguntas frequentes</a></li>
+      <li class="toc-h3"><a href="#o-painel-mostra-0-de-sucesso-mas-o-assistente-responde">O painel mostra 0% de sucesso, mas o assistente responde</a></li>
+      <li class="toc-h3"><a href="#a-taxa-de-sucesso-aparece-com-traco">A taxa de sucesso aparece com traço e não com 0%</a></li>
+      <li class="toc-h3"><a href="#o-custo-nao-aparece-mesmo-com-atendimentos">O custo não aparece, mesmo com atendimentos</a></li>
+      <li class="toc-h3"><a href="#as-medias-por-atendimento-mostram-traco">As médias por atendimento mostram “—”</a></li>
+      <li class="toc-h3"><a href="#o-historico-esta-vazio-e-o-assistente-ja-foi-editado">O histórico está vazio, mas o assistente já foi editado</a></li>
+      <li class="toc-h3"><a href="#a-versao-nova-nao-aparece-na-comparacao">A versão nova não aparece na comparação</a></li>
+      <li class="toc-h3"><a href="#o-historico-mostra-mcp-e-nao-o-nome-da-pessoa">O histórico mostra “MCP” em vez do nome da pessoa</a></li>
+      <li class="toc-h3"><a href="#posso-recuperar-uma-credencial-pelo-historico">Posso recuperar uma credencial pelo histórico</a></li>
+      <li><a href="#11-checklist-de-acompanhamento">11. Checklist de acompanhamento</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <h2 id="1-as-tres-visoes-e-onde-elas-ficam">1. As três visões e onde elas ficam</h2>
+  <p>Na tela <strong>Assistentes de atendimento</strong>, cada linha da grade traz, à direita, os atalhos do assistente daquela linha. Os dois que interessam a este capítulo são o gráfico e a moeda:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Atalho na linha</th><th>O que abre</th><th>Para que serve</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Dashboard de estatísticas</strong> (ícone de barras)</td><td>Janela <strong>Dashboard</strong>, com as abas <em>Desempenho</em>, <em>Histórico de alterações</em> e <em>Versões</em></td><td>Entender o comportamento do assistente: volume, resultado, motivo de saída, horários, filas e o que mudou entre uma configuração e outra.</td></tr>
+        <tr><td><strong>Custos do assistente</strong> (ícone de moedas)</td><td>Janela <strong>Custos do assistente</strong>, com as abas <em>Visão geral</em>, <em>Atendimentos</em>, <em>Copiloto e grupos</em>, <em>Modelos</em> e <em>Versões</em></td><td>Ver quanto o assistente consumiu, onde esse consumo aconteceu e quanto custou cada atendimento resolvido.</td></tr>
+        <tr><td><strong>Perguntas não respondidas</strong></td><td>Lista de perguntas que o assistente não soube responder</td><td>Priorizar lacunas de conhecimento. Ver o capítulo de IA.</td></tr>
+        <tr><td><strong>Últimos atendimentos</strong></td><td>Lista dos atendimentos recentes do assistente</td><td>Conferir caso a caso o que o painel mostra agregado.</td></tr>
+        <tr><td><strong>Configurar assistente</strong></td><td>Editor do assistente</td><td>Alterar prompt, conhecimento, funções e conectores. Cada salvamento passa a aparecer no histórico.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure class="figure">
+    <img src="assets/ia/assistentes-lista.jpg" alt="Lista de assistentes de atendimento com os atalhos de cada linha: perguntas não respondidas, últimos atendimentos, dashboard de estatísticas, custos do assistente, configurar e excluir." width="1400" height="553">
+    <figcaption>Os atalhos ficam no fim de cada linha, sempre visíveis: o gráfico abre o <em>Dashboard</em> e a moeda abre <em>Custos do assistente</em>. Os nomes dos assistentes foram desfocados nesta imagem.</figcaption>
+  </figure>
+
+  <h2 id="2-qual-e-a-base-dos-numeros">2. Qual é a base dos números</h2>
+  <p>Antes de comparar dois assistentes — ou o mesmo assistente em dois meses — vale fixar quatro regras que explicam quase toda leitura errada:</p>
+  <ul>
+    <li><strong>O recorte é por data de início do atendimento.</strong> Um atendimento que começou em março e terminou em abril entra em março.</li>
+    <li><strong>O resultado é o que o assistente registrou.</strong> Enquanto ele não fecha um desfecho, o atendimento conta como <em>Em andamento</em> — inclusive quando já foi encerrado por outra pessoa ou por uma regra. Isso é o que faz um assistente parecer “sem sucesso” mesmo tendo conversado muito.</li>
+    <li><strong>A comparação é com o período anterior de mesmo tamanho.</strong> Um recorte de 1 a 31 de agosto é comparado com 1 a 31 de julho; um recorte de 30 dias é comparado com os 30 dias imediatamente anteriores.</li>
+    <li><strong>O período escolhido vale apenas para a aba Desempenho.</strong> A própria janela avisa isso com a etiqueta <em>O período vale só para a aba Desempenho</em>. Histórico e versões são sempre completos; no relatório de custo, a aba <em>Versões</em> também não depende do período.</li>
+  </ul>
+
+  <h3 id="2-1-periodos-disponiveis">2.1 Períodos disponíveis</h3>
+  <p>O seletor <strong>Período</strong> abre com <em>Últimos 30 dias</em> e oferece <em>Este mês</em>, <em>Mês anterior</em>, <em>Últimos 7 dias</em>, <em>Últimos 90 dias</em> e <em>Personalizado</em>. No modo personalizado aparecem os campos <strong>De</strong> e <strong>Até</strong> e o botão <strong>Aplicar</strong>. O intervalo é validado na hora:</p>
+  <ul>
+    <li><em>Informe as duas datas do período.</em> — falta uma das pontas.</li>
+    <li><em>A data inicial é posterior à data final.</em> — as datas estão invertidas.</li>
+    <li><em>O período pode ter no máximo 366 dias.</em> — recortes maiores precisam ser fatiados.</li>
+  </ul>
+  <div class="callout tip">
+    <strong>Sem dados, a tela diz o que fazer.</strong> Quando o recorte não tem atendimentos suficientes para desenhar os gráficos, eles são substituídos por <em>Nenhum atendimento neste período</em> e pela sugestão <em>Escolha um período maior para ver os gráficos.</em> Para ver tendência use 90 dias; para investigar um dia específico, use o modo personalizado.
+  </div>
+
+  <h2 id="3-aba-desempenho">3. Aba Desempenho</h2>
+  <p>É o retrato do assistente no período: oito indicadores no topo, cinco contadores de apoio, quatro gráficos e uma tabela por fila. Cada indicador traz um ícone de informação com a definição oficial — o texto abaixo reproduz o que a tela explica.</p>
+
+  <h3 id="3-1-indicadores-principais">3.1 Indicadores principais</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Indicador</th><th>O que conta</th><th>Como interpretar</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Atendimentos</strong></td><td>Atendimentos e ligações em que o assistente atuou, iniciados no período.</td><td>Quando há ligações, a linha de apoio mostra quantas foram por voz. É o denominador de todos os percentuais.</td></tr>
+        <tr><td><strong>Taxa de sucesso</strong></td><td>Atendimentos que o assistente concluiu com resultado de sucesso.</td><td>Fica “—” quando não há resultado registrado no período — o que é diferente de 0%.</td></tr>
+        <tr><td><strong>Taxa de falha</strong></td><td>Atendimentos que terminaram com resultado de falha.</td><td>Sucesso + falha + neutro + em andamento fecham o total de atendimentos.</td></tr>
+        <tr><td><strong>Transferências</strong></td><td>Atendimentos que saíram do assistente por transferência — feita por ele ou por fora dele.</td><td>Transferir não é erro: é o desfecho esperado quando o assunto exige uma pessoa. O que se acompanha é a proporção.</td></tr>
+        <tr><td><strong>Duração média</strong></td><td>Tempo médio dos atendimentos encerrados no período.</td><td>A linha de apoio traz <em>Até o resultado: …</em>, o tempo médio até o assistente registrar o desfecho.</td></tr>
+        <tr><td><strong>CX Score médio</strong></td><td>Nota de 1 a 5 dada pela análise de IA de cada atendimento.</td><td>A linha de apoio mostra quantas notas entraram na média. Sem notas, aparece <em>Sem notas no período</em>.</td></tr>
+        <tr><td><strong>Avaliação média</strong></td><td>Média das avaliações dadas pelos clientes na pesquisa de satisfação.</td><td>Depende da pesquisa estar ativa na fila e de o cliente responder. Sem respostas, <em>Sem avaliações no período</em>.</td></tr>
+        <tr><td><strong>Em andamento agora</strong></td><td>Atendimentos com este assistente ainda abertos neste momento.</td><td>Recorte de agora, não do período: serve para saber se há conversa travada em andamento.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="3-2-contadores-de-apoio">3.2 Contadores de apoio</h3>
+  <p>Abaixo dos indicadores principais há uma faixa menor, com o volume de trabalho do assistente: <strong>Mensagens enviadas</strong> (enviadas pelo assistente aos clientes), <strong>Mensagens recebidas</strong> (dos clientes), <strong>Consultas à base de conhecimento</strong>, <strong>Funções executadas</strong> (funções, conectores e procedimentos) e <strong>Tempo em ligações</strong>, que mostra também quantas ligações compõem o total.</p>
+  <p>Essa faixa é o melhor lugar para descobrir <em>por que</em> o custo subiu sem o volume de atendimentos subir: mais consultas por atendimento, mais funções executadas ou chamadas de voz mais longas explicam consumo mesmo com a mesma quantidade de conversas.</p>
+
+  <h3 id="3-3-dia-a-dia">3.3 Dia a dia</h3>
+  <p>Barras de <em>Atendimentos</em> e <em>Transferências</em> no eixo da esquerda e uma linha de <em>Taxa de sucesso</em> no eixo da direita, com os dias organizados na ordem do calendário. Duas leituras úteis:</p>
+  <ul>
+    <li>Pico de barras com linha de sucesso baixa indica dia atípico — vale abrir o mesmo recorte na aba <em>Por fila</em> para descobrir se o volume veio de uma fila específica.</li>
+    <li>Barras de transferência acompanhando o volume, com taxa de sucesso estável, indicam que o assistente está triando e encaminhando como deveria.</li>
+  </ul>
+
+  <h3 id="3-4-distribuicao-de-resultados">3.4 Distribuição de resultados</h3>
+  <p>Rosca com os quatro desfechos possíveis: <strong>Sucesso</strong>, <strong>Falha</strong>, <strong>Neutro</strong> e <strong>Em andamento</strong>. Só aparecem as fatias com valor maior que zero — uma rosca dominada por <em>Em andamento</em> é o sintoma clássico de assistente que conversa e não conclui: o desfecho nunca é registrado.</p>
+
+  <h3 id="3-5-motivo-de-saida">3.5 Motivo de saída</h3>
+  <p>A segunda rosca mostra <em>por onde</em> o atendimento saiu do assistente. São quatro rótulos fixos:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Motivo</th><th>Definição na tela</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Transferido fora do assistente</strong></td><td>Transferido por um atendente ou por uma regra fora do assistente.</td></tr>
+        <tr><td><strong>Transferido pelo assistente</strong></td><td>O próprio assistente transferiu o atendimento.</td></tr>
+        <tr><td><strong>Encerrado fora do assistente</strong></td><td>Encerrado por um atendente, pelo cliente ou por uma regra fora do assistente.</td></tr>
+        <tr><td><strong>Encerrado pelo assistente</strong></td><td>O próprio assistente encerrou o atendimento.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>A diferença entre “pelo assistente” e “fora do assistente” é o que separa autonomia de intervenção humana. Uma proporção alta de <em>Transferido fora do assistente</em> costuma significar que o time assume a conversa antes de o assistente terminar — normalmente por falta de confiança no roteiro, não por falha técnica.</p>
+
+  <h3 id="3-6-quando-os-atendimentos-acontecem">3.6 Quando os atendimentos acontecem</h3>
+  <p>Mapa de calor de segunda a domingo por hora do dia (0 a 23). A legenda vai de <em>menos</em> a <em>mais</em> e cada quadro mostra, ao passar o mouse, o dia, a hora, o total de atendimentos e a taxa de sucesso daquela combinação. Use para decidir janela de atendimento e escala: blocos escuros fora do horário comercial indicam demanda que hoje cai em fila sem gente.</p>
+
+  <h3 id="3-7-por-fila">3.7 Por fila</h3>
+  <p>Fecha a aba com a distribuição por fila: <strong>Fila</strong>, <strong>Total</strong> e os percentuais de <strong>Sucesso</strong>, <strong>Falha</strong> e <strong>Transf.</strong> sobre o total daquela fila, ordenado do maior volume para o menor. Atendimentos sem fila aparecem como <em>Sem fila</em>.</p>
+  <div class="callout info">
+    <strong>Percentual, não contagem.</strong> Nas colunas Sucesso, Falha e Transf. o número é a fatia da fila, não a quantidade. Uma fila com 1.046 atendimentos e 0% de sucesso tem 1.046 conversas sem desfecho registrado — o problema está no encerramento, não no volume.
+  </div>
+
+  <figure class="figure">
+    <img src="assets/ia/assistentes-dashboard-desempenho.jpg" alt="Aba Desempenho do painel do assistente: período personalizado, indicadores, gráfico dia a dia, roscas de resultado e motivo de saída, mapa de calor e tabela por fila." width="1300" height="1280">
+    <figcaption>Um recorte de seis meses com dados reais: volume concentrado em poucos dias, rosca de resultado dominada por <em>Em andamento</em> e transferências aparecendo em uma única fila. Nome do assistente e nomes das filas foram desfocados.</figcaption>
+  </figure>
+
+  <h2 id="4-aba-historico-de-alteracoes">4. Aba Histórico de alterações</h2>
+  <p>O histórico não é um log técnico: é a linha do tempo das configurações salvas do assistente, com o que mudou em cada uma. A tela explica o próprio escopo — <em>Todas as alterações salvas neste assistente, independentemente do período escolhido.</em></p>
+
+  <h3 id="4-1-o-que-e-registrado">4.1 O que é registrado</h3>
+  <ul>
+    <li><strong>Cada salvamento, de qualquer origem.</strong> A própria tela diz: <em>Cada vez que alguém salvar este assistente, pelo painel ou pelo MCP, a alteração aparece aqui com o que mudou.</em> O rótulo de origem aparece como <em>Painel</em> ou <em>MCP</em>.</li>
+    <li><strong>Quem salvou.</strong> O nome do usuário; quando não há identificação, aparece <em>Usuário não identificado</em>.</li>
+    <li><strong>Quais campos mudaram.</strong> Um conjunto de etiquetas resume os campos alterados (até quatro na lista; o restante no detalhe).</li>
+    <li><strong>O antes e o depois.</strong> Selecionar uma alteração abre o detalhe com <em>Antes</em> e <em>Depois</em>.</li>
+  </ul>
+
+  <h3 id="4-2-como-ler-a-diferenca">4.2 Como ler a diferença</h3>
+  <p>Textos longos — contexto inicial, descrição da base, procedimentos — aparecem como diff, linha a linha: <code>+</code> para o que entrou, <code>−</code> para o que saiu e <em>… N linhas sem alteração …</em> para os trechos preservados. Três avisos merecem atenção:</p>
+  <ul>
+    <li><strong>Credencial alterada (o valor não é exibido).</strong> Chaves e senhas entram no histórico como evento, nunca como conteúdo — o histórico não é caminho para recuperar segredo.</li>
+    <li><strong>Diferenças demais para comparar linha a linha.</strong> Em mudanças grandes, a tela mostra o texto anterior inteiro e o novo inteiro, sem diff. É sinal de reescrita, não de ajuste fino.</li>
+    <li><strong>Esta alteração não tem detalhes registrados.</strong> O evento existe, mas o conteúdo da alteração não foi guardado — normalmente ajustes anteriores à entrada do recurso.</li>
+  </ul>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Etiqueta</th><th>Campo do assistente</th></tr></thead>
+      <tbody>
+        <tr><td>Criação do assistente</td><td>Evento inicial do cadastro</td></tr>
+        <tr><td>Nome do assistente</td><td>Nome exibido na lista</td></tr>
+        <tr><td>Assinatura</td><td>Assinatura usada nas mensagens</td></tr>
+        <tr><td>Descrição do perfil / Descrição interna</td><td>Textos de caracterização do assistente</td></tr>
+        <tr><td>Contexto inicial</td><td>Prompt principal</td></tr>
+        <tr><td>Descrição da base de conhecimento / Resultados da busca</td><td>Como a base é descrita e quantos resultados a busca traz</td></tr>
+        <tr><td>Automação de pré-processamento / pós-processamento</td><td>Fluxos ligados antes e depois da resposta</td></tr>
+        <tr><td>Limite de mensagens</td><td>Teto de mensagens por atendimento</td></tr>
+        <tr><td>Funções, Servidores MCP, Conectores, Procedimentos</td><td>Ferramentas que o assistente pode executar</td></tr>
+        <tr><td>FAQs e grupos de FAQ</td><td>Conteúdo de conhecimento vinculado</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="4-3-o-bloco-de-impacto">4.3 O bloco de impacto</h3>
+  <p>Depois do diff, a alteração mostra o efeito medido: <em>Depois desta alteração:</em> com o número de <strong>Sucesso</strong> e o <strong>Custo por sucesso</strong> do período seguinte àquele salvamento. É o único lugar do produto que responde “essa mudança de prompt melhorou alguma coisa?” com número em vez de opinião. Dois avisos qualificam a leitura:</p>
+  <ul>
+    <li><strong>amostra pequena (N atendimentos)</strong> — abaixo de vinte atendimentos a taxa e o custo ainda variam muito.</li>
+    <li><strong>parcial</strong> — parte do consumo usou modelo sem preço conhecido; o custo está subestimado.</li>
+  </ul>
+
+  <h3 id="4-4-quando-a-aba-esta-vazia">4.4 Quando a aba está vazia</h3>
+  <p><em>Nenhuma alteração registrada ainda</em> significa que o assistente ainda não foi salvo depois que o recurso entrou em operação. Criar o assistente e nunca editar produz exatamente esse estado. O detalhe à direita mostra <em>Escolha uma alteração na lista para ver o que mudou.</em> até você selecionar uma entrada.</p>
+
+  <figure class="figure">
+    <img src="assets/ia/assistentes-dashboard-historico.jpg" alt="Aba Histórico de alterações vazia, com o aviso de que nenhuma alteração foi registrada e a explicação do que aparece ali." width="1300" height="362">
+    <figcaption>Estado inicial do histórico: a aba existe desde o primeiro dia, mas só ganha conteúdo a partir do próximo salvamento do assistente.</figcaption>
+  </figure>
+
+  <h2 id="5-aba-versoes">5. Aba Versões</h2>
+  <p>Cada salvamento que muda a configuração gera uma versão. A aba cruza, versão por versão, o desempenho e o custo do período em que aquela configuração esteve em vigor — e é o lugar correto para responder “a versão nova é melhor que a anterior?”.</p>
+  <ul>
+    <li><strong>Até as 15 alterações mais recentes.</strong> O histórico completo continua na aba anterior; aqui entram as quinze últimas.</li>
+    <li><strong>As setas comparam cada versão com a anterior.</strong> Verde é melhora (mais sucesso, menos custo), vermelho é piora.</li>
+    <li><strong>Custos das versões são estimados em dólar</strong> — o mesmo critério do relatório de custo.</li>
+    <li><strong>A primeira versão não tem com o que comparar.</strong> Ela aparece com <em>Período anterior à primeira alteração registrada.</em></li>
+    <li><strong>Menos de 20 atendimentos em uma versão</strong> gera o aviso de que a taxa e o custo ainda podem mudar muito.</li>
+  </ul>
+  <p>O botão <strong>Ver o que mudou nesta versão</strong> leva ao detalhe da alteração correspondente, com o diff da seção 4.</p>
+
+  <figure class="figure">
+    <img src="assets/ia/assistentes-dashboard-versoes.jpg" alt="Aba Versões vazia, explicando que a partir da próxima alteração salva cada versão aparece com desempenho e custo do período em que esteve em vigor." width="1300" height="341">
+    <figcaption>Enquanto não há alteração salva, a aba explica a própria regra de funcionamento em vez de mostrar uma grade vazia.</figcaption>
+  </figure>
+
+  <h2 id="6-custos-do-assistente">6. Custos do assistente</h2>
+  <p>O relatório de custo responde onde o dinheiro foi consumido, com que modelo e com qual resultado. Ele não é um espelho da fatura do provedor: é uma estimativa calculada a partir do consumo registrado.</p>
+
+  <h3 id="6-1-pre-requisito-a-chave-da-empresa">6.1 Pré-requisito: a chave da empresa</h3>
+  <p>A medição só existe para consumo feito com a <strong>chave própria</strong> cadastrada na IA Avançada. Sem isso a janela abre com <em>Nenhum consumo neste período</em> e a explicação: <em>Este assistente não usou a chave da empresa no período escolhido. Experimente um período maior. A aba Versões não depende do período.</em> Quando a medição começou no meio do recorte, o aviso muda para <em>O consumo deste assistente passou a ser medido em dd/mm/aaaa.</em></p>
+
+  <h3 id="6-2-cotacao-do-dolar">6.2 Cotação do dólar</h3>
+  <p>O campo <strong>Cotação do dólar (R$)</strong>, na barra superior, converte os valores estimados em dólar para reais na leitura corrente. O botão ao lado remove a cotação e volta a exibir apenas dólar. É um recurso de leitura: não altera o valor gravado nem a origem do cálculo.</p>
+
+  <h3 id="6-3-visao-geral">6.3 Visão geral</h3>
+  <p>Seis indicadores e três blocos:</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Indicador</th><th>Como é calculado</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Custo total</strong></td><td>Soma do consumo do período, com a linha de apoio mostrando quantas chamadas ao modelo entraram.</td></tr>
+        <tr><td><strong>Atendimentos</strong></td><td>Atendimentos que começaram no período, com custo atribuído.</td></tr>
+        <tr><td><strong>Custo médio por atendimento</strong></td><td>Média por atendimento iniciado. Traz também a <strong>mediana</strong> (metade custou menos que isso) e <strong>90% até</strong> (teto de nove em cada dez atendimentos).</td></tr>
+        <tr><td><strong>Custo por sucesso</strong></td><td>Custo de todos os atendimentos — inclusive falhas, neutros e em andamento — dividido pelo número de sucessos.</td></tr>
+        <tr><td><strong>Custo por mensagem</strong></td><td>Custo dividido pelas mensagens trocadas.</td></tr>
+        <tr><td><strong>Custo por minuto de voz</strong></td><td>Custo das ligações dividido pelos minutos de conversa por voz.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Os blocos fecham a visão: <strong>Custo dia a dia</strong> (série diária), <strong>Onde o assistente foi usado</strong> — contexto, custo e parte do total, com contextos como Agente, Assistente de IA, URA, Automação, Campanha, API e agendamentos, Celular e Sistema e integrações — e <strong>No que o custo foi gasto</strong>, por categoria, com chamadas, custo e participação.</p>
+
+  <h3 id="6-4-atendimentos">6.4 Atendimentos</h3>
+  <p>Transforma o custo em decisão operacional: <strong>Custo por resultado</strong> (sucesso, falha, neutro, em andamento), <strong>Custo por motivo de saída</strong>, <strong>Custo por fila</strong> e <strong>Os N atendimentos mais caros</strong>, com início, fila, canal, resultado, motivo de saída, duração, mensagens e custo. Em cada linha há o atalho <strong>Ver histórico do atendimento</strong>. O custo mostrado é só deste assistente — não é o custo total daquele atendimento.</p>
+
+  <h3 id="6-5-copiloto-e-grupos">6.5 Copiloto e grupos</h3>
+  <p>Separa dois usos que não passam pelo fluxo normal: <strong>Copiloto, por usuário</strong> — <em>Uso do assistente pelos atendentes, dentro dos atendimentos</em>, com dias com uso, chamadas e custo por usuário — e <strong>Grupos do WhatsApp e do Telegram</strong> — <em>Respostas do assistente em grupos</em>, por grupo e por fila. É assim que se descobre se o custo está vindo do atendimento automático ou do apoio ao time.</p>
+
+  <h3 id="6-6-modelos">6.6 Modelos</h3>
+  <p>Tabela <strong>Consumo por modelo de IA</strong> com <strong>Modelo</strong>, <strong>Provedor</strong>, <strong>Chamadas</strong>, <strong>Entrada</strong>, <strong>Do cache</strong>, <strong>Saída</strong>, <strong>Raciocínio</strong>, <strong>Áudio</strong>, <strong>Custo</strong> e <strong>Origem do valor</strong>. A dica da tela resume o uso: <em>Passe o mouse sobre um número para ver a quantidade exata.</em></p>
+  <p>Duas colunas explicam a maior parte das divergências: <strong>Do cache</strong> mostra o que foi reaproveitado (token em cache custa uma fração do token novo) e <strong>Origem do valor</strong> diz se o custo veio do provedor ou do preço de tabela.</p>
+
+  <h3 id="6-7-versoes-de-custo">6.7 Versões</h3>
+  <p><strong>Efetividade e custo por versão</strong> repete, no relatório de custo, o cruzamento da aba Versões do painel: cada configuração com o desempenho e o custo do período em que esteve em vigor, comparada com a anterior. Não depende do período selecionado.</p>
+
+  <h3 id="6-8-avisos-que-mudam-a-leitura">6.8 Avisos que mudam a leitura</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Aviso na tela</th><th>O que significa</th></tr></thead>
+      <tbody>
+        <tr><td><em>Valores estimados em dólar pelo preço de tabela de dd/mm/aaaa; confira os valores oficiais no painel do provedor.</em></td><td>O cálculo usa tabela de preço, não a fatura. Divergência de centavos é esperada.</td></tr>
+        <tr><td><em>N chamada(s) usaram um modelo sem preço conhecido e não entram no total: o custo real é maior que o mostrado.</em></td><td>Modelo sem preço cadastrado. O consumo existe, o valor não é somado.</td></tr>
+        <tr><td><em>O período tem atendimentos demais para uma única consulta: as métricas de atendimento consideram só parte deles.</em></td><td>Recorte excessivo: reduza o período para ter números completos.</td></tr>
+        <tr><td><em>Nenhum atendimento com este assistente começou no período: todo o custo veio de …</em></td><td>Houve consumo (testes, copiloto, grupos) sem atendimento iniciado — por isso as médias aparecem como “—”.</td></tr>
+        <tr><td><em>“Testes” é o uso na aba “Testar” do editor e não entra nas métricas de atendimento.</em></td><td>Simulações do editor aparecem como consumo, mas ficam fora das métricas de atendimento.</td></tr>
+        <tr><td><em>Valor parcial: parte das chamadas usou um modelo sem preço conhecido.</em></td><td>Marca as linhas em que o valor está subestimado.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure class="figure">
+    <img src="assets/ia/assistentes-custos-visao-geral.jpg" alt="Relatório de custo do assistente aberto na aba Visão geral, com o campo de cotação do dólar, as cinco abas e o aviso de que ainda não há consumo medido no período." width="1300" height="331">
+    <figcaption>Sem consumo medido com a chave da empresa, a janela mostra a etiqueta <em>sem medição ainda</em> e explica o motivo em vez de exibir zeros.</figcaption>
+  </figure>
+
+  <h2 id="7-custo-por-sucesso-nao-e-custo-medio-dos-sucessos">7. Custo por sucesso não é custo médio dos sucessos</h2>
+  <div class="callout warn">
+    <p><strong>Custo por sucesso:</strong> custo de <em>todos</em> os atendimentos do período — inclusive falhas, neutros e em andamento — dividido pelo número de sucessos. Responde “quanto custou, de fato, cada atendimento resolvido”.</p>
+    <p><strong>Custo médio dos atendimentos com sucesso:</strong> média apenas entre os atendimentos que terminaram com sucesso. Responde “quanto custa um atendimento quando dá certo”.</p>
+    <p>Os dois números são diferentes por definição, e o segundo é sempre menor ou igual ao primeiro. Comparar um com o outro como se fossem o mesmo indicador é o erro mais comum em relatório de custo de IA.</p>
+  </div>
+
+  <h2 id="8-roteiro-de-leitura-em-sete-passos">8. Roteiro de leitura em sete passos</h2>
+  <ol class="steps">
+    <li><strong>Escolha o período e olhe só os indicadores.</strong> Um mês fechado costuma ser melhor que “últimos 30 dias”: a comparação com o período anterior fica alinhada ao calendário.</li>
+    <li><strong>Confira a taxa de sucesso contra a rosca de resultados.</strong> Se <em>Em andamento</em> domina, o problema é de desfecho registrado, não de qualidade da conversa — corrija o encerramento antes de mexer no prompt.</li>
+    <li><strong>Abra Motivo de saída.</strong> Muita transferência “fora do assistente” indica que o time assume antes do fim; muita transferência “pelo assistente” indica roteiro de escalonamento funcionando.</li>
+    <li><strong>Vá para Por fila.</strong> Uma fila concentrando o volume explica sozinha o resultado geral; ajuste a leitura por fila antes de concluir qualquer coisa sobre o assistente.</li>
+    <li><strong>Abra Histórico de alterações e veja a última mudança.</strong> O bloco de impacto mostra sucesso e custo por sucesso depois daquela alteração — é a evidência para manter ou reverter.</li>
+    <li><strong>Abra Versões</strong> quando houver mais de duas mudanças no período: a comparação entre versões mostra tendência, o histórico mostra causa.</li>
+    <li><strong>Feche no relatório de custo.</strong> Confira <em>Custo por sucesso</em>, depois <em>Modelos</em> e <em>Copiloto e grupos</em>. Se o custo subiu sem o volume subir, a resposta está em <em>Modelos</em> (modelo trocado, mais tokens de entrada, menos cache) ou em <em>Copiloto</em>.</li>
+  </ol>
+
+  <h2 id="9-os-mesmos-dados-pela-api">9. Os mesmos dados pela API</h2>
+  <p>As três abas leem endpoints próprios do backend, autenticados com o mesmo token do login (<code>POST /login</code> devolve <code>token</code>; use <code>Authorization: Bearer &lt;token&gt;</code>). Todos são de leitura e devolvem o objeto dentro de <code>data</code>.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Endpoint</th><th>Parâmetros</th><th>Devolve</th></tr></thead>
+      <tbody>
+        <tr><td><code>/assistantchathistory/performance</code></td><td><code>fk_assistant</code>, <code>from</code>, <code>to</code> (AAAA-MM-DD)</td><td>Período atual e anterior, indicadores, série diária, mapa de calor e distribuição por fila.</td></tr>
+        <tr><td><code>/assistantchathistory/costReport</code></td><td><code>fk_assistant</code>, <code>from</code>, <code>to</code></td><td>Totais de consumo, custo por atendimento, por contexto, por categoria, por modelo, copiloto, grupos e atendimentos mais caros.</td></tr>
+        <tr><td><code>/assistantchathistory/revisions</code></td><td><code>fk_assistant</code></td><td>Lista de alterações salvas, com autor, origem e campos alterados.</td></tr>
+        <tr><td><code>/assistantchathistory/revision</code></td><td><code>fk_assistant</code>, <code>id</code></td><td>Detalhe da alteração, com o conteúdo anterior e o novo.</td></tr>
+        <tr><td><code>/assistantchathistory/versions</code></td><td><code>fk_assistant</code></td><td>Versões com desempenho e custo do período em que estiveram em vigor.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Exemplo de leitura do painel de um assistente em um mês fechado:</p>
+  <pre><code>TOKEN=$(curl -s -X POST https://sua-instancia.atenderbem.com/login \
+  -H 'Content-Type: application/json' \
+  -d '{"username":"usuario","password":"senha"}' | jq -r .token)
+
+curl -s "https://sua-instancia.atenderbem.com/assistantchathistory/performance?fk_assistant=12&amp;from=2026-08-01&amp;to=2026-08-31" \
+  -H "Authorization: Bearer $TOKEN"</code></pre>
+  <p>Resposta recortada (chaves reais; valores de exemplo de um assistente em operação):</p>
+  <pre><code>{
+  "data": {
+    "period": { "from": "2026-08-01", "to": "2026-08-31", "days": 31 },
+    "previousPeriod": { "from": "2026-07-01", "to": "2026-07-31" },
+    "current": {
+      "total": 1067, "success": 0, "failure": 0, "neutral": 1, "inProgress": 1066,
+      "successRate": 0, "failureRate": 0, "transferRate": 0.0937,
+      "exitReasons": { "externalTransfer": 1, "assistantTransfer": 0,
+                       "externalClose": 0, "assistantClose": 0 },
+      "avgDurationSeconds": 1287, "avgTimeToResultSeconds": 0,
+      "kbQueries": 0, "funcExecutions": 0,
+      "msgsSent": 0, "msgsReceived": 0, "calls": 0, "voiceSeconds": 0,
+      "avgAiScore": 0, "avgGrade": null, "aiScoreCount": 1, "gradeCount": 0
+    },
+    "inProgressNow": 0,
+    "daily": [ { "day": "2026-08-12", "total": 41, "success": 0, "failure": 0,
+                 "transfers": 0, "avgDurationSeconds": 0 } ],
+    "heatmap": [ { "weekday": 3, "hour": 15, "total": 84, "success": 0 } ],
+    "byQueue": [ { "queueId": 174, "total": 1046, "success": 0, "failure": 0, "transfers": 0 } ]
+  }
+}</code></pre>
+  <div class="callout info">
+    <strong>Leia <code>inProgress</code> antes de acusar falha.</strong> No exemplo, 1.066 de 1.067 atendimentos não têm desfecho registrado — o painel mostra 0% de sucesso e isso não quer dizer que o assistente não atendeu: quer dizer que ninguém fechou o resultado. O número que denuncia o problema é <code>inProgress</code>, não <code>successRate</code>.
+  </div>
+
+  <h2 id="10-perguntas-frequentes">10. Perguntas frequentes</h2>
+  <div class="faq">
+    <h3 id="o-painel-mostra-0-de-sucesso-mas-o-assistente-responde">O painel mostra 0% de sucesso, mas o assistente responde</h3>
+    <p>Quase sempre é desfecho não registrado. Olhe a fatia <em>Em andamento</em> na aba Desempenho e o campo <code>inProgress</code> na API: se ela concentra o volume, o assistente conversa e não conclui. Ajuste o roteiro para registrar o resultado (ou encerrar) antes de concluir que a qualidade caiu.</p>
+
+    <h3 id="a-taxa-de-sucesso-aparece-com-traco">A taxa de sucesso aparece com traço e não com 0%</h3>
+    <p>Traço significa “não há base de cálculo” — nenhum atendimento com desfecho no período. 0% significa que houve atendimentos e nenhum terminou com sucesso. São leituras diferentes: a primeira pede mais dados, a segunda pede correção.</p>
+
+    <h3 id="o-custo-nao-aparece-mesmo-com-atendimentos">O custo não aparece, mesmo com atendimentos</h3>
+    <p>O relatório de custo só mede consumo feito com a chave própria da empresa. Se o assistente rodou com a cota ou a chave compartilhada, a janela mostra <em>Nenhum consumo neste período</em>. Verifique também se a medição começou depois do início do recorte — a etiqueta <em>sem medição ainda</em> e o aviso de data inicial de medição indicam isso.</p>
+
+    <h3 id="as-medias-por-atendimento-mostram-traco">As médias por atendimento mostram “—”</h3>
+    <p>Acontece quando houve consumo sem nenhum atendimento iniciado no período (testes no editor, copiloto ou respostas em grupo). A própria tela explica: <em>Nenhum atendimento com este assistente começou no período: todo o custo veio de …</em>. Dividir custo por zero atendimento não é um número válido — por isso o traço.</p>
+
+    <h3 id="o-historico-esta-vazio-e-o-assistente-ja-foi-editado">O histórico está vazio, mas o assistente já foi editado</h3>
+    <p>O registro começa a valer a partir do primeiro salvamento feito com o recurso em operação. Edições anteriores não são reconstruídas. O assistente criado e nunca editado também aparece vazio — não há alteração para listar.</p>
+
+    <h3 id="a-versao-nova-nao-aparece-na-comparacao">A versão nova não aparece na comparação</h3>
+    <p>Duas causas: a aba mostra <strong>até as 15 alterações mais recentes</strong> — em assistentes com muitas edições, a versão antiga sai da lista; ou a versão ainda não teve atendimentos no período em que esteve em vigor, e nesse caso não há número para comparar.</p>
+
+    <h3 id="o-historico-mostra-mcp-e-nao-o-nome-da-pessoa">O histórico mostra “MCP” em vez do nome da pessoa</h3>
+    <p>A origem <em>MCP</em> indica alteração feita por integração, não pelo painel. O autor aparece quando o sistema o identifica; caso contrário, a entrada traz <em>Usuário não identificado</em>. Para auditoria nominal, combine o histórico com o Log de Auditoria.</p>
+
+    <h3 id="posso-recuperar-uma-credencial-pelo-historico">Posso recuperar uma credencial pelo histórico</h3>
+    <p>Não. Credenciais aparecem como <em>Credencial alterada (o valor não é exibido)</em>. O histórico registra o evento para auditoria, não guarda o segredo — a chave precisa ser cadastrada novamente na configuração do assistente.</p>
+  </div>
+
+  <h2 id="11-checklist-de-acompanhamento">11. Checklist de acompanhamento</h2>
+  <ul>
+    <li>Definir um período fechado (mês anterior) e manter o mesmo recorte em todas as leituras.</li>
+    <li>Conferir <em>Taxa de sucesso</em> junto de <em>Em andamento</em> antes de qualquer conclusão.</li>
+    <li>Ler <em>Transferências</em> separando “pelo assistente” de “fora do assistente”.</li>
+    <li>Olhar <em>Por fila</em> quando o número geral mudar sem explicação.</li>
+    <li>Ler o bloco de impacto da última alteração antes de mexer no prompt de novo.</li>
+    <li>Comparar <em>Custo por sucesso</em> entre versões, não entre assistentes diferentes.</li>
+    <li>Registrar, no próprio histórico, o motivo de cada mudança — o próximo a ler o diff é você mesmo.</li>
+  </ul>
+
+  <div class="pagenav">
+    <a href="ia.html"><span>← Anterior</span> IA Básica e IA Avançada</a>
+    <a class="next" href="ia-controle-remoto.html"><span>Próximo →</span> Controle remoto da tela</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
