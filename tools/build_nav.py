@@ -37,6 +37,7 @@ GROUPS = [
     ]),
     ("Canais & WhatsApp", [
         ("canais-whatsapp-meta.html", "WhatsApp, Cloud API e Meta"),
+        ("canais-whatsapp-uso-custos.html", "Uso e Custos da Conta WhatsApp (Meta)"),
         ("webchat-identidade.html", "WebChat V2: Identidade do Visitante"),
     ]),
     ("IA & Automação", [

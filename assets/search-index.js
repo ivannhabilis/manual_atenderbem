@@ -4949,6 +4949,10 @@ window.MANUAL_INDEX = [
     "a": "whatsapp-cloud-api-e-meta"
    },
    {
+    "h": "Uso e Custos da Conta WhatsApp",
+    "a": "uso-e-custos-da-conta-whatsapp"
+   },
+   {
     "h": "WebChat V2: Identidade do Visitante",
     "a": "webchat-v2-identidade-do-visitante"
    },
@@ -7805,6 +7809,108 @@ window.MANUAL_INDEX = [
    {
     "h": "6. Horário de Atendimento Dentro do Fluxo da URA",
     "a": "6-horario-de-atendimento-dentro-do-fluxo-da-ura"
+   }
+  ]
+ },
+ {
+  "t": "Uso e Custos da Conta WhatsApp (Meta)",
+  "u": "canais-whatsapp-uso-custos.html",
+  "s": [
+   {
+    "h": "1. Para que serve e o que ele não é",
+    "a": "1-para-que-serve-e-o-que-ele-nao-e"
+   },
+   {
+    "h": "2. Onde abrir",
+    "a": "2-onde-abrir"
+   },
+   {
+    "h": "3. Período",
+    "a": "3-periodo"
+   },
+   {
+    "h": "4. Como os dados chegam",
+    "a": "4-como-os-dados-chegam"
+   },
+   {
+    "h": "5. Quando não há dados: o que cada aviso significa",
+    "a": "5-quando-nao-ha-dados"
+   },
+   {
+    "h": "6. Resumo do período",
+    "a": "6-resumo-do-periodo"
+   },
+   {
+    "h": "7. Dia a dia",
+    "a": "7-dia-a-dia"
+   },
+   {
+    "h": "8. Mensagens e custo por categoria",
+    "a": "8-mensagens-e-custo-por-categoria"
+   },
+   {
+    "h": "9. Quem enviou as mensagens",
+    "a": "9-quem-enviou-as-mensagens"
+   },
+   {
+    "h": "10. Templates e os insights da Meta",
+    "a": "10-templates-e-os-insights-da-meta"
+   },
+   {
+    "h": "11. Por país e Tráfego geral",
+    "a": "11-por-pais-e-trafego-geral"
+   },
+   {
+    "h": "12. Valores de referência",
+    "a": "12-valores-de-referencia"
+   },
+   {
+    "h": "13. Fechamento mensal: exemplo completo",
+    "a": "13-fechamento-mensal-passo-a-passo"
+   },
+   {
+    "h": "14. Os mesmos números pela API",
+    "a": "14-os-mesmos-numeros-pela-api"
+   },
+   {
+    "h": "15. Perguntas frequentes",
+    "a": "15-perguntas-frequentes"
+   },
+   {
+    "h": "O total do painel fica abaixo da fatura. Está errado?",
+    "a": "o-total-do-painel-fica-abaixo-da-fatura"
+   },
+   {
+    "h": "Por que as entregues não batem com a soma das pagas e gratuitas?",
+    "a": "por-que-as-entregues-nao-batem-com-a-soma-das-pagas-e-gratuitas"
+   },
+   {
+    "h": "O custo de hoje está menor do que o real",
+    "a": "o-custo-do-dia-de-hoje-esta-menor"
+   },
+   {
+    "h": "Não vejo o ícone de uso e custos na minha fila",
+    "a": "nao-vejo-o-icone-na-minha-fila"
+   },
+   {
+    "h": "Posso desligar os insights depois de habilitar?",
+    "a": "posso-desligar-os-insights"
+   },
+   {
+    "h": "A taxa de leitura de um template antigo caiu",
+    "a": "a-taxa-de-leitura-de-um-template-antigo-caiu"
+   },
+   {
+    "h": "Por que a origem das mensagens não carrega?",
+    "a": "por-que-a-origem-das-mensagens-nao-carrega"
+   },
+   {
+    "h": "Os valores de referência mudam a fatura?",
+    "a": "os-valores-de-referencia-mudam-a-fatura"
+   },
+   {
+    "h": "16. Checklist de leitura",
+    "a": "16-checklist"
    }
   ]
  },

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Uso e custos da conta WhatsApp Business por fila: período, coleta diária, mensagens pagas e gratuitas, custo por categoria, origem do tráfego, desempenho de templates, insights da Meta e valores de referência para estimar o custo.">
+<title>Uso e Custos da Conta WhatsApp (Meta) — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="tabelas-de-preco.html">Tabelas de Preço</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+          <a class="active" href="canais-whatsapp-uso-custos.html">Uso e Custos da Conta WhatsApp (Meta)</a>
+          <a href="webchat-identidade.html">WebChat V2: Identidade do Visitante</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="ia-controle-remoto.html">Controle Remoto da Tela pelo Assistente</a>
+          <a href="ia-assistentes-desempenho-custos.html">Desempenho e Custos dos Assistentes</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+          <a href="datastore.html">Datastore (SQLite da instância)</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="webapps.html">Webapps (editor e instalação)</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › Canais &amp; WhatsApp › Uso e custos da conta WhatsApp</div>
+
+  <h1>Uso e Custos da Conta WhatsApp (Meta)</h1>
+  <p class="subtitle">O relatório por fila que mostra quanto a conta do WhatsApp Business consumiu, do que esse consumo era feito e por onde ele entrou. Serve para fechar o mês com número na mão, para achar a fila que está gastando demais e para decidir template e categoria com base em custo — não em impressão.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-para-que-serve-e-o-que-ele-nao-e">1. Para que serve e o que ele não é</a></li>
+      <li><a href="#2-onde-abrir">2. Onde abrir</a></li>
+      <li><a href="#3-periodo">3. Período</a></li>
+      <li><a href="#4-como-os-dados-chegam">4. Como os dados chegam</a></li>
+      <li><a href="#5-quando-nao-ha-dados">5. Quando não há dados: o que cada aviso significa</a></li>
+      <li><a href="#6-resumo-do-periodo">6. Resumo do período</a></li>
+      <li><a href="#7-dia-a-dia">7. Dia a dia</a></li>
+      <li><a href="#8-mensagens-e-custo-por-categoria">8. Mensagens e custo por categoria</a></li>
+      <li><a href="#9-quem-enviou-as-mensagens">9. Quem enviou as mensagens</a></li>
+      <li><a href="#10-templates-e-os-insights-da-meta">10. Templates e os insights da Meta</a></li>
+      <li><a href="#11-por-pais-e-trafego-geral">11. Por país e Tráfego geral</a></li>
+      <li><a href="#12-valores-de-referencia">12. Valores de referência</a></li>
+      <li><a href="#13-fechamento-mensal-passo-a-passo">13. Fechamento mensal: exemplo completo</a></li>
+      <li><a href="#14-os-mesmos-numeros-pela-api">14. Os mesmos números pela API</a></li>
+      <li><a href="#15-perguntas-frequentes">15. Perguntas frequentes</a></li>
+      <li class="toc-h3"><a href="#o-total-do-painel-fica-abaixo-da-fatura">O total do painel fica abaixo da fatura. Está errado?</a></li>
+      <li class="toc-h3"><a href="#por-que-as-entregues-nao-batem-com-a-soma-das-pagas-e-gratuitas">Por que as entregues não batem com a soma das pagas e gratuitas?</a></li>
+      <li class="toc-h3"><a href="#o-custo-do-dia-de-hoje-esta-menor">O custo de hoje está menor do que o real</a></li>
+      <li class="toc-h3"><a href="#nao-vejo-o-icone-na-minha-fila">Não vejo o ícone de uso e custos na minha fila</a></li>
+      <li class="toc-h3"><a href="#posso-desligar-os-insights">Posso desligar os insights depois de habilitar?</a></li>
+      <li class="toc-h3"><a href="#a-taxa-de-leitura-de-um-template-antigo-caiu">A taxa de leitura de um template antigo caiu</a></li>
+      <li class="toc-h3"><a href="#por-que-a-origem-das-mensagens-nao-carrega">Por que a origem das mensagens não carrega?</a></li>
+      <li class="toc-h3"><a href="#os-valores-de-referencia-mudam-a-fatura">Os valores de referência mudam a fatura?</a></li>
+      <li><a href="#16-checklist">16. Checklist de leitura</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <h2 id="1-para-que-serve-e-o-que-ele-nao-e">1. Para que serve e o que ele não é</h2>
+  <p>A cobrança da Meta é por mensagem, e a maior parte do que uma operação envia é mensagem de template: lembrete, aviso de pedido, código de acesso, campanha. Quem paga a conta precisa de três respostas: quanto foi, de que categoria veio e qual fila puxou o volume. Este relatório entrega as três, fila por fila, lendo os dados direto da conta do WhatsApp Business.</p>
+  <p>Três limites precisam estar claros antes de abrir a tela:</p>
+  <ul>
+    <li><strong>É orientativo.</strong> Os valores vêm da Meta, mas podem chegar com atraso e com ajuste retroativo. A tela diz isso no pé da janela: <em>Relatório orientativo, com valores aproximados obtidos da Meta. Não substitui as informações oficiais de faturamento do Gerenciador do WhatsApp da Meta.</em></li>
+    <li><strong>É por fila, não por conta.</strong> Uma conta do WhatsApp Business pode alimentar vários números. O relatório mostra o que aquela fila originou; para o total da conta, some as filas ou leia o Gerenciador.</li>
+    <li><strong>Precisa de coleta.</strong> Nada aparece antes da primeira coleta da fila. A rotina automática roda de madrugada; a primeira leitura de uma fila recém-conectada costuma exigir o botão <em>Coletar agora</em>.</li>
+  </ul>
+
+  <h2 id="2-onde-abrir">2. Onde abrir</h2>
+  <p>A tela fica na lista de filas, em <strong>Configurações › Filas</strong>. A coluna <em>Funções</em> de cada linha traz o ícone de gráfico com a dica <em>Uso e custos da Meta</em>.</p>
+  <p>O botão existe apenas nas filas de WhatsApp Cloud API — as duas modalidades: <strong>WA Cloud API (Dev App)</strong> e <strong>WA Cloud API</strong> (Tech Provider). Filas de outros canais (WAMD, WebChat, Telegram, e-mail, Instagram) não exibem o ícone, porque não têm cobrança de mensagem na Meta. Se o ícone não aparece em uma fila de WhatsApp, confira primeiro o tipo da fila: uma fila antiga conectada por outro método não tem esse dado.</p>
+
+  <figure class="figure">
+    <img src="assets/whatsapp-meta/uso-custos-1-lista.png" alt="Lista de filas com o ícone de uso e custos na coluna Funções, com a dica Uso e custos da Meta" loading="lazy">
+    <figcaption>Na coluna <em>Funções</em>, o ícone de barras abre o relatório da fila. A dica com o nome da ação aparece ao passar o mouse — é o mesmo ponto onde ficam as demais ações da fila.</figcaption>
+  </figure>
+
+  <p>A janela abre sobre a própria lista, larga e alta, e fecha com o X no canto. O filtro e a rolagem da grade continuam como estavam.</p>
+
+  <h2 id="3-periodo">3. Período</h2>
+  <p>O seletor de período abre com <strong>Este mês</strong>. As opções e o intervalo que cada uma monta:</p>
+  <div class="table-wrap">
+  <table class="doc">
+    <thead><tr><th>Opção</th><th>Intervalo</th></tr></thead>
+    <tbody>
+      <tr><td>Este mês</td><td>Do dia 1º até hoje.</td></tr>
+      <tr><td>Mês anterior</td><td>O mês fechado anterior, do primeiro ao último dia.</td></tr>
+      <tr><td>Últimos 7 dias</td><td>De seis dias atrás até hoje.</td></tr>
+      <tr><td>Últimos 30 dias</td><td>De 29 dias atrás até hoje.</td></tr>
+      <tr><td>Últimos 90 dias</td><td>De 89 dias atrás até hoje.</td></tr>
+      <tr><td>Personalizado</td><td>Duas datas escolhidas à mão, aplicadas com o botão <em>Aplicar</em>.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>No modo personalizado valem três regras: as duas datas são obrigatórias; a data inicial não pode ser posterior à final; e o intervalo não pode passar de <strong>366 dias</strong> — quem tenta recebe <em>O período pode ter no máximo 366 dias</em>. O limite não é capricho: a origem das mensagens é calculada mensagem a mensagem e um recorte longo demais estoura o tempo de resposta.</p>
+  <p>Ao lado do período aparece o intervalo efetivo (por exemplo <em>01/11/2026 – 24/11/2026</em>) e, quando a data final ficou no passado, o atalho <strong>Atualizar até hoje</strong>, que estica o fim do recorte sem mexer no início.</p>
+
+  <figure class="figure">
+    <img src="assets/whatsapp-meta/uso-custos-3-periodo.png" alt="Seletor de período aberto com as opções Este mês, Mês anterior, Últimos 7, 30 e 90 dias e Personalizado" loading="lazy">
+    <figcaption>Os atalhos cobrem o fechamento de mês e as janelas curtas de investigação. Para comparar dois meses, use <em>Personalizado</em> e mantenha o mesmo número de dias nos dois recortes.</figcaption>
+  </figure>
+
+  <h2 id="4-como-os-dados-chegam">4. Como os dados chegam</h2>
+  <p>A coleta é automática e roda de madrugada, trazendo os dados até o dia anterior. O rodapé da janela mostra o carimbo <em>Dados até dd/mm</em> — é a data que você deve citar em qualquer conversa sobre número.</p>
+  <p>Dois detalhes explicam leituras que parecem erradas:</p>
+  <ul>
+    <li><strong>A Meta ainda ajusta os últimos 3 dias.</strong> Os números recentes podem subir ou descer na coleta seguinte. Fechamento de mês sério espera dois ou três dias.</li>
+    <li><strong>Hoje é parcial.</strong> O dia corrente só aparece completo depois da coleta do dia seguinte.</li>
+  </ul>
+  <p>Quando não se quer esperar a madrugada, o botão <strong>Coletar agora</strong> dispara a coleta na hora. Enquanto ela roda, a janela mostra <em>Buscando na Meta…</em> e consulta o andamento a cada poucos segundos por até quinze minutos. O aviso da própria tela é literal: <em>Pode levar alguns minutos. Você pode fechar esta janela: a busca continua e o relatório mostra os dados novos quando você voltar</em>. Fechar não cancela nada.</p>
+
+  <h2 id="5-quando-nao-ha-dados">5. Quando não há dados: o que cada aviso significa</h2>
+  <p>Um relatório vazio não é um relatório zerado. A tela distingue “não consegui falar com a Meta” de “a Meta respondeu e não houve cobrança”. Os avisos e o que fazer:</p>
+  <div class="table-wrap">
+  <table class="doc">
+    <thead><tr><th>Situação na tela</th><th>O que aconteceu</th><th>Ação</th></tr></thead>
+    <tbody>
+      <tr><td><em>A Meta recusou o acesso desta fila (token expirado ou revogado)</em></td><td>O token da conexão não vale mais.</td><td>Reconectar a fila. Nenhuma coleta acontece até isso ser resolvido.</td></tr>
+      <tr><td><em>O acesso desta fila não tem permissão para ler o uso da conta</em></td><td>A conexão foi autorizada sem a permissão de gerenciamento da conta do WhatsApp Business.</td><td>Reconectar concedendo a permissão de gerenciamento.</td></tr>
+      <tr><td><em>A conta do WhatsApp Business desta fila não foi encontrada na Meta</em></td><td>A conta referenciada não existe mais ou está inacessível para o token.</td><td>Conferir a conexão da fila e a conta correta no Gerenciador.</td></tr>
+      <tr><td><em>O número desta fila não pertence à conta do WhatsApp Business configurada</em></td><td>O número e a conta não batem.</td><td>Conferir a conexão. É o aviso mais comum em fila remontada com número de outra conta.</td></tr>
+      <tr><td><em>Ainda não há dados desta fila</em> + <em>A primeira coleta acontece automaticamente na madrugada</em></td><td>Fila conectada e sem coleta ainda.</td><td>Usar <em>Coletar agora</em> se o número for urgente.</td></tr>
+      <tr><td><em>A coleta só começa depois de resolvido o problema de conexão indicado acima</em></td><td>Há um aviso de conexão na própria janela.</td><td>Resolver o aviso primeiro; o botão de coleta fica bloqueado.</td></tr>
+      <tr><td><em>O período é longo demais para calcular a origem das mensagens</em></td><td>Só o bloco de origem falhou; o resto do relatório está válido.</td><td>Reduzir o período.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <figure class="figure">
+    <img src="assets/whatsapp-meta/uso-custos-2-dialogo.png" alt="Janela de uso e custos da Meta com o seletor de período, o aviso de conexão e o estado sem dados" loading="lazy">
+    <figcaption>O aviso de conexão vem antes de qualquer número — de propósito. Enquanto ele estiver na tela, os cartões e tabelas não têm o que mostrar, e o botão de coleta fica desabilitado.</figcaption>
+  </figure>
+
+  <h2 id="6-resumo-do-periodo">6. Resumo do período</h2>
+  <p>Quatro cartões resumem o recorte. A leitura correta depende de saber o que cada um conta:</p>
+  <div class="table-wrap">
+  <table class="doc">
+    <thead><tr><th>Cartão</th><th>O que mostra</th><th>Como ler</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Custo no período</strong></td><td>O valor cobrado, com um selo que diz a origem do número: <em>Informado pela Meta</em>, <em>Parcialmente estimado</em> ou <em>Estimado</em>.</td><td>Se o selo não for “Informado pela Meta”, o valor é conta feita com os valores de referência — trate como estimativa.</td></tr>
+      <tr><td><strong>Mensagens pagas</strong></td><td>As mensagens que a Meta cobra, com uma linha de contexto <em>de N entregues</em>.</td><td>É o volume que gera custo. A dica do cartão explica: as entregues no período são a soma das pagas com as gratuitas.</td></tr>
+      <tr><td><strong>Mensagens gratuitas</strong></td><td>As entregues sem cobrança, quebradas por motivo (franquia de atendimento, entrada por anúncio).</td><td>Volume alto aqui é bom: atendimento dentro da janela e conversa vinda de anúncio não são cobrados.</td></tr>
+      <tr><td><strong>Atendimentos</strong></td><td>Quantos atendimentos a fila teve no período e o custo médio por atendimento.</td><td>É o número que interessa para o negócio: custo por conversa, não custo por mensagem.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>O selo do custo tem três leituras e a própria tela as explica:</p>
+  <ul>
+    <li><em>Informado pela Meta</em> — a conta recebeu o custo real de tudo que foi cobrado.</li>
+    <li><em>Parcialmente estimado</em> — parte veio da Meta, parte foi calculada pelos valores de referência.</li>
+    <li><em>Estimado</em> — a Meta não informou o custo desta conta; o valor é o total de mensagens pagas multiplicado pelo valor por mensagem cadastrado.</li>
+  </ul>
+  <p>Quando existe mensagem paga sem custo da Meta e sem valor cadastrado, a tela avisa e não maquia: <em>Mensagens pagas fora do custo: N</em>, seguido de <em>Falta o valor por mensagem de …</em>. Essas mensagens ficam fora do total. É a causa mais frequente de o painel ficar abaixo da fatura.</p>
+
+  <h2 id="7-dia-a-dia">7. Dia a dia</h2>
+  <p>O gráfico diário mostra o período dia a dia, com duas visões alternáveis: <strong>Mensagens</strong> (empilhadas por categoria) e <strong>Custo</strong>. A dica de cada coluna traz o dia, o valor e, quando a categoria tem mais de uma parcela, o total do dia.</p>
+  <p>O gráfico não junta dias: dia sem movimento fica sem coluna, e não com zero. Um vale no meio do mês costuma ser dia sem disparo de campanha, não falha de coleta — para confirmar, olhe a tabela de categorias e o carimbo de dados.</p>
+
+  <h2 id="8-mensagens-e-custo-por-categoria">8. Mensagens e custo por categoria</h2>
+  <p>A tabela cruza categoria, mensagens pagas e gratuitas. As categorias são as da Meta, com o nome traduzido na tela:</p>
+  <div class="table-wrap">
+  <table class="doc">
+    <thead><tr><th>Categoria</th><th>Nome na tela</th><th>O que entra</th></tr></thead>
+    <tbody>
+      <tr><td>MARKETING</td><td>Marketing</td><td>Promoções, ofertas e convites enviados por template.</td></tr>
+      <tr><td>MARKETING_LITE</td><td>Marketing (MM Lite)</td><td>Variante de marketing de custo reduzido, quando a conta está habilitada a usá-la.</td></tr>
+      <tr><td>UTILITY</td><td>Utilidade</td><td>Avisos de pedido, entrega, cobrança e outras atualizações enviadas por template.</td></tr>
+      <tr><td>AUTHENTICATION</td><td>Autenticação</td><td>Códigos de verificação e de acesso.</td></tr>
+      <tr><td>AUTHENTICATION_INTERNATIONAL</td><td>Autenticação internacional</td><td>O mesmo tipo de código, com tarifa internacional.</td></tr>
+      <tr><td>SERVICE</td><td>Serviço</td><td>Respostas dentro da janela de 24 horas aberta pelo cliente.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Use esta tabela para responder “o que puxou o custo”. Em operações de varejo o padrão é Marketing dominar o volume; quando Utilidade cresce sem o volume de pedidos crescer, quase sempre é automação disparando aviso em duplicidade.</p>
+  <p>Se uma linha aparece com volume e outra não, não conclua que a categoria não existe na conta: a tabela só lista categoria com movimento no período.</p>
+
+  <h2 id="9-quem-enviou-as-mensagens">9. Quem enviou as mensagens</h2>
+  <p>Este bloco responde a pergunta que o total não responde: de onde veio o tráfego da fila. As colunas são <em>Origem</em>, <em>Tipo</em>, <em>Mensagens enviadas</em>, <em>% das enviadas</em> e <em>Custo aproximado</em>.</p>
+  <p>O <em>Tipo</em> classifica a cobrança daquela origem:</p>
+  <ul>
+    <li><strong>Paga</strong> — a mensagem foi cobrada.</li>
+    <li><strong>Franquia de atendimento</strong> — conversa dentro da janela aberta pelo cliente, sem cobrança.</li>
+    <li><strong>Entrada por anúncio</strong> — conversa aberta por um ponto de entrada gratuito, como anúncio com clique para o WhatsApp.</li>
+  </ul>
+  <p>A porcentagem é sempre sobre o total de mensagens <em>enviadas pela fila</em> no período — não sobre as pagas. Por isso a soma das origens fecha em 100% mesmo quando boa parte é gratuita.</p>
+  <p>O custo por origem é aproximado e rateado: a tela avisa quando não consegue atribuir tudo (<em>Não inclui o custo de …</em>). Para rateio fino, use a tabela de categorias e o custo por template.</p>
+  <p>Este é o bloco mais caro de calcular. Ele aparece depois do resto e tem três estados próprios: <em>Calculando a origem das mensagens…</em>, o erro de período longo e o erro de falha. Nenhum deles invalida os cartões e as outras tabelas.</p>
+
+  <h2 id="10-templates-e-os-insights-da-meta">10. Templates e os insights da Meta</h2>
+  <p>A tabela de templates é a mais acionável do relatório: <em>Template</em>, <em>Categoria</em>, <em>Idioma</em>, <em>Enviados</em>, <em>Entregues</em>, <em>Lidos</em>, <em>Taxa de leitura (%)</em>, <em>Cliques</em> e <em>Custo</em>. Com ela você descobre o template que gasta e não é lido, e o que sustenta a operação.</p>
+  <p>Duas notas da própria tela mudam a leitura:</p>
+  <ul>
+    <li><strong>A Meta atualiza leituras e cliques só até 7 dias após o envio.</strong> Template antigo não “perde” leitura: ele deixa de ser atualizado. Taxa de leitura de campanha velha é número congelado, não desempenho atual.</li>
+    <li><strong>Sem insights habilitados, a conta pode não informar custo por template.</strong> Aí a tabela traz os volumes e o aviso <em>A Meta não informa o custo por template desta conta</em>.</li>
+  </ul>
+  <p>Os insights são o recurso da Meta que libera enviados, entregues, lidos, cliques e custo por template. Sem eles, esse bloco fica limitado. Habilitar é decisão de administrador e tem consequências que a tela apresenta antes de qualquer clique:</p>
+  <ul>
+    <li><strong>É irreversível.</strong> <em>Depois de habilitados, os insights não podem ser desligados.</em></li>
+    <li><strong>Vale para a conta inteira</strong>, não só para a fila que está aberta.</li>
+    <li><strong>A Meta passa a rastrear os cliques nos links das mensagens e a usar dados anonimizados das conversas.</strong></li>
+    <li><strong>Os dados aparecem a partir da próxima coleta</strong> — habilitar não preenche o passado.</li>
+  </ul>
+  <p>Quem não é administrador vê o aviso <em>Peça a um administrador para habilitar os insights</em> e o botão desabilitado. A confirmação exige marcar <em>Entendo que esta ação não pode ser desfeita</em> e só então libera <em>Habilitar insights definitivamente</em>.</p>
+  <p>A tabela de templates pode ser exportada para Excel a partir da própria janela, com o nome do arquivo carregando o identificador da fila e o intervalo do período — útil para anexar ao fechamento.</p>
+
+  <h2 id="11-por-pais-e-trafego-geral">11. Por país e Tráfego geral</h2>
+  <p>O bloco de detalhe tem duas visões, <em>País</em> e <em>Tráfego geral</em>. A primeira abre pagas, gratuitas e custo por país de destino — serve para detectar DDI errado em cadastro, que gera tarifa internacional sem ninguém notar.</p>
+  <p>A segunda é a que costuma gerar dúvida, e a própria tela se antecipa: a <em>Contagem geral do número</em> vem de outro relatório da Meta, com outros critérios, e inclui mensagens que não entram na cobrança, como as recebidas dos clientes. Por isso ela nunca fecha com o resumo de pagas e gratuitas, e isso não é erro de soma.</p>
+  <p>Regra prática: para custo e volume cobrado, use os cartões e as categorias; para dimensionar o movimento do número, use o tráfego geral. Não misture os dois no mesmo relatório.</p>
+
+  <h2 id="12-valores-de-referencia">12. Valores de referência</h2>
+  <p>É o cadastro que permite estimar custo quando a Meta não informa o valor. Você informa a moeda e quanto custa uma mensagem paga em cada categoria; categorias que a operação não usa ficam em branco.</p>
+  <div class="table-wrap">
+  <table class="doc">
+    <thead><tr><th>Campo</th><th>Regra</th></tr></thead>
+    <tbody>
+      <tr><td>Moeda</td><td>Código de três letras, como <code>USD</code> ou <code>BRL</code>. O campo aceita só letras e corta em três posições.</td></tr>
+      <tr><td>Marketing</td><td>Valor por mensagem paga desta categoria.</td></tr>
+      <tr><td>Marketing (MM Lite)</td><td>Idem, para a variante de custo reduzido.</td></tr>
+      <tr><td>Utilidade</td><td>Idem.</td></tr>
+      <tr><td>Autenticação</td><td>Idem.</td></tr>
+      <tr><td>Autenticação internacional</td><td>Idem.</td></tr>
+      <tr><td>Serviço</td><td>Idem.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Três avisos guiam o preenchimento: <em>Somente administradores podem alterar os valores de referência</em>; a data do último salvamento aparece como <em>Atualizado em …</em>; e, quando há volume pago sem valor naquela categoria, aparece <em>Há mensagens pagas sem valor nesta categoria</em> — é o convite para completar o cadastro.</p>
+  <p>O efeito prático é direto: enquanto faltar valor, o custo daquelas mensagens fica fora do total e o selo do cartão muda para <em>Parcialmente estimado</em>. Preencher com os valores da própria fatura resolve a estimativa sem inventar tarifa.</p>
+
+  <figure class="figure">
+    <img src="assets/whatsapp-meta/uso-custos-4-valores.png" alt="Formulário de valores de referência com o campo de moeda e as seis categorias de cobrança" loading="lazy">
+    <figcaption>O cadastro é por categoria, na moeda da conta. Deixar em branco é a forma de dizer “não uso esta categoria” — não é o mesmo que valor zero.</figcaption>
+  </figure>
+
+  <h2 id="13-fechamento-mensal-passo-a-passo">13. Fechamento mensal: exemplo completo</h2>
+  <p>Cenário: operação com três filas de WhatsApp Cloud API, fechamento do mês anterior, moeda USD. Os números abaixo são de exemplo, para mostrar a mecânica.</p>
+  <ol class="steps">
+    <li><strong>Abra cada fila com o mesmo período.</strong> Selecione <em>Mês anterior</em> nas três. Anote o carimbo <em>Dados até</em> de cada uma — se uma delas estiver um dia atrás das outras, o fechamento fica torto.</li>
+    <li><strong>Anote os quatro cartões por fila.</strong> Na fila principal do exemplo: 12.480 mensagens pagas, 8.320 gratuitas, 20.800 entregues (12.480 + 8.320), 1.120 atendimentos e custo de US$ 154,75 com selo <em>Informado pela Meta</em>.</li>
+    <li><strong>Confira o custo por atendimento.</strong> 154,75 ÷ 1.120 = <strong>0,1382</strong>, ou seja, cerca de 14 centavos de dólar por atendimento. Esse é o número que se leva para a diretoria; o custo por mensagem não diz nada sozinho.</li>
+    <li><strong>Olhe as categorias.</strong> Se Marketing responde por 9.120 das 12.480 pagas (73,1% do volume pago), o custo é uma decisão de campanha — cortar lembrete de utilidade não resolve.</li>
+    <li><strong>Verifique as mensagens fora do custo.</strong> Se o rodapé do cartão de custo apontar <em>Mensagens pagas fora do custo: 940</em>, essas mensagens não entraram no total. Com valor de Utilidade a US$ 0,008, elas representam 940 × 0,008 = <strong>US$ 7,52</strong>.</li>
+    <li><strong>Feche com a estimativa corrigida.</strong> 154,75 + 7,52 = <strong>US$ 162,27</strong> como valor provável do período.</li>
+    <li><strong>Compare com a fatura.</strong> Fatura do Gerenciador: US$ 161,20. A diferença de 1,07 é ruído de arredondamento e do ajuste dos últimos dias — dentro do esperado. Diferença grande e sistemática é cadastro faltando ou fila não somada.</li>
+    <li><strong>Guarde a evidência.</strong> Exporte a tabela de templates de cada fila e anexe ao fechamento com o período e o carimbo de dados. Sem isso, o número não é reproduzível três meses depois.</li>
+  </ol>
+  <div class="callout tip"><strong>Regra de ouro do fechamento.</strong> Sempre o mesmo recorte, sempre o mesmo conjunto de filas, sempre o carimbo de data junto. Fechamento que muda de método a cada mês não permite comparar mês nenhum.</div>
+
+  <h2 id="14-os-mesmos-numeros-pela-api">14. Os mesmos números pela API</h2>
+  <p>A janela conversa com o backend por um conjunto pequeno de rotas. Todas exigem sessão autenticada e recebem a fila por <code>queueId</code>:</p>
+  <div class="table-wrap">
+  <table class="doc">
+    <thead><tr><th>Rota</th><th>Método</th><th>Parâmetros</th><th>Para que serve</th></tr></thead>
+    <tbody>
+      <tr><td><code>/metausage/report</code></td><td>GET</td><td><code>queueId</code>, <code>from</code>, <code>to</code> (<code>AAAA-MM-DD</code>)</td><td>Relatório do período: totais, categorias, dias, países e o estado da coleta.</td></tr>
+      <tr><td><code>/metausage/origins</code></td><td>GET</td><td><code>queueId</code>, <code>from</code>, <code>to</code></td><td>Origem das mensagens enviadas, com tipo de cobrança e custo aproximado.</td></tr>
+      <tr><td><code>/metausage/prices</code></td><td>GET</td><td><code>queueId</code></td><td>Valores de referência cadastrados e a data do último salvamento.</td></tr>
+      <tr><td><code>/metausage/prices</code></td><td>PUT</td><td><code>queueId</code>, <code>currency</code>, <code>rates</code></td><td>Grava os valores por categoria. Restrito a administrador.</td></tr>
+      <tr><td><code>/metausage/status</code></td><td>GET</td><td><code>queueId</code></td><td>Andamento da coleta, usada pela janela enquanto a busca roda.</td></tr>
+      <tr><td><code>/metausage/refresh</code></td><td>POST</td><td><code>queueId</code></td><td>Dispara a coleta imediata (o <em>Coletar agora</em>).</td></tr>
+      <tr><td><code>/metausage/enableInsights</code></td><td>POST</td><td><code>queueId</code></td><td>Habilita os insights na conta do WhatsApp Business. Irreversível.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>O relatório devolve ainda o bloco de sincronização com o estado da fila (<code>status</code>, <code>running</code>, <code>lastRunAt</code>, <code>lastOkAt</code>, <code>lastManualAt</code>, <code>syncedThrough</code>, <code>insightsEnabled</code>, <code>costAvailable</code>, <code>currency</code>, <code>waba</code>, <code>phone</code>). É esse bloco que decide o aviso exibido — vale checá-lo antes de automatizar qualquer leitura.</p>
+  <p>Quem consome esses dados por integração deve tratar dois casos que a tela trata: coleta bloqueada (o número não cresce porque nada foi coletado) e custo parcial (o total é estimativa). Somar os dois sem ler o estado produz relatório financeiro errado.</p>
+
+  <h2 id="15-perguntas-frequentes">15. Perguntas frequentes</h2>
+  <div class="faq">
+    <h3 id="o-total-do-painel-fica-abaixo-da-fatura">O total do painel fica abaixo da fatura. Está errado?</h3>
+    <p>Provavelmente não. Verifique o aviso de <em>mensagens pagas fora do custo</em>: mensagem paga sem custo da Meta e sem valor de referência cadastrado não entra no total. Complete os valores de referência e o número se aproxima. Se a diferença persistir e for grande, confira se há outra fila usando o mesmo número.</p>
+
+    <h3 id="por-que-as-entregues-nao-batem-com-a-soma-das-pagas-e-gratuitas">Por que as entregues não batem com a soma das pagas e gratuitas?</h3>
+    <p>Nessa tela elas batem por definição: entregues é pagas mais gratuitas. Quando o número não fecha é porque um dos lados é de outro bloco — normalmente a <em>Contagem geral do número</em>, no tráfego geral, que inclui mensagens recebidas dos clientes e usa outros critérios.</p>
+
+    <h3 id="o-custo-do-dia-de-hoje-esta-menor">O custo de hoje está menor do que o real</h3>
+    <p>Sim, e é esperado. A coleta automática traz dados até o dia anterior, e os últimos três dias ainda podem ser ajustados pela Meta. Para um número de hoje, use <em>Coletar agora</em> e leia sabendo que ele é parcial.</p>
+
+    <h3 id="nao-vejo-o-icone-na-minha-fila">Não vejo o ícone de uso e custos na minha fila</h3>
+    <p>O recurso existe para filas de WhatsApp Cloud API, nas modalidades Dev App e Tech Provider. Uma fila conectada por outro método não tem esse dado na Meta. Confira o tipo da fila na própria lista antes de procurar o botão.</p>
+
+    <h3 id="posso-desligar-os-insights">Posso desligar os insights depois de habilitar?</h3>
+    <p>Não. A habilitação é definitiva e vale para a conta do WhatsApp Business inteira, não só para a fila. Ela também muda o comportamento do lado da Meta: passa a rastrear cliques nos links das mensagens e a usar dados anonimizados das conversas. Decida com essa informação na mão.</p>
+
+    <h3 id="a-taxa-de-leitura-de-um-template-antigo-caiu">A taxa de leitura de um template antigo caiu</h3>
+    <p>Ela não cai — ela para de ser atualizada. A Meta atualiza leituras e cliques só até 7 dias após o envio. Número de campanha antiga é fotografia, não tendência.</p>
+
+    <h3 id="por-que-a-origem-das-mensagens-nao-carrega">Por que a origem das mensagens não carrega?</h3>
+    <p>Esse bloco é calculado mensagem a mensagem e é o mais pesado do relatório. Em período longo a tela desiste e pede um recorte menor; em falha de rede, mostra erro só nesse bloco. Os cartões e as outras tabelas continuam válidos.</p>
+
+    <h3 id="os-valores-de-referencia-mudam-a-fatura">Os valores de referência mudam a fatura?</h3>
+    <p>Não. Eles servem apenas para estimar, dentro da plataforma, o custo que a Meta não informou. A cobrança real é sempre da Meta, e a única fonte oficial é o Gerenciador do WhatsApp.</p>
+  </div>
+
+  <h2 id="16-checklist">16. Checklist de leitura</h2>
+  <ul>
+    <li>Confirmar o tipo da fila: só Cloud API tem esse relatório.</li>
+    <li>Ler o aviso de conexão antes de qualquer número.</li>
+    <li>Anotar o carimbo <em>Dados até</em> e o intervalo efetivo do período.</li>
+    <li>Olhar o selo do custo: informado, parcial ou estimado.</li>
+    <li>Conferir o aviso de mensagens pagas fora do custo antes de comparar com a fatura.</li>
+    <li>Separar categoria (o que custou) de origem (de onde veio) — são perguntas diferentes.</li>
+    <li>Não usar taxa de leitura de template com mais de 7 dias como desempenho atual.</li>
+    <li>Fechar o mês com o mesmo recorte e o mesmo conjunto de filas, sempre com exportação anexada.</li>
+  </ul>
+
+  <div class="pagenav">
+    <a href="canais-whatsapp-meta.html"><span>← Anterior</span> WhatsApp, Cloud API e Meta</a>
+    <a class="next" href="webchat-identidade.html"><span>Próximo →</span> WebChat V2: identidade do visitante</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
