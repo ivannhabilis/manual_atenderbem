@@ -23,6 +23,7 @@ Páginas:
 - `documentos-a-partir-de-modelo.html` — Documentos a partir de um Modelo (.docx com variáveis; geração por CRM, tarefa ou automação)
 - `canais-whatsapp-meta.html` — WhatsApp, Cloud API e Meta
 - `canais-whatsapp-uso-custos.html` — Uso e custos da conta WhatsApp por fila (mensagens pagas e gratuitas, custo por categoria, origem do tráfego, desempenho de templates, insights da Meta, valores de referência e rotas `/metausage/*`)
+- `campanhas.html` — Campanhas de disparo ativo por template (assistente em quatro etapas, audiência em CSV com a ordem das colunas, opções por botão do template, liberação e agendamento, limite por hora, painel de entrega/resposta e conversão em CRM)
 - `webchat-identidade.html` — WebChat V2: identidade do visitante (token de sessão, assinatura HMAC do clientId, modo estrito, vínculos do contato)
 - `ia.html` — IA Básica e IA Avançada (inclui novidades dos assistentes v14.1)
 - `ia-controle-remoto.html` — Controle remoto da tela pelo assistente (conector `remote-control`, consentimento, modos ver/controlar, 16 ferramentas, gerações de `enabledTools`, limites e licenças)

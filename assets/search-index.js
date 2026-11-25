@@ -1295,6 +1295,120 @@ window.MANUAL_INDEX = [
   ]
  },
  {
+  "t": "Campanhas de Disparo Ativo (WhatsApp Cloud API)",
+  "u": "campanhas.html",
+  "s": [
+   {
+    "h": "1. O que é uma campanha aqui",
+    "a": "1-o-que-e-uma-campanha-aqui"
+   },
+   {
+    "h": "2. Quando usar",
+    "a": "2-quando-usar"
+   },
+   {
+    "h": "3. A tela de campanhas",
+    "a": "3-a-tela-de-campanhas"
+   },
+   {
+    "h": "Ações de cada campanha",
+    "a": "acoes-de-cada-campanha"
+   },
+   {
+    "h": "4. O assistente de nova campanha",
+    "a": "4-o-assistente-de-nova-campanha"
+   },
+   {
+    "h": "5. A audiência",
+    "a": "5-a-audiencia"
+   },
+   {
+    "h": "Quem não recebe",
+    "a": "quem-nao-recebe"
+   },
+   {
+    "h": "6. Opções por botão do template",
+    "a": "6-opcoes-por-botao-do-template"
+   },
+   {
+    "h": "7. Respostas, destino e ritmo",
+    "a": "7-respostas-destino-e-ritmo"
+   },
+   {
+    "h": "Tempo de resposta",
+    "a": "tempo-de-resposta"
+   },
+   {
+    "h": "Destino da resposta",
+    "a": "destino-da-resposta"
+   },
+   {
+    "h": "Cliente com atendimento em andamento",
+    "a": "cliente-com-atendimento-aberto"
+   },
+   {
+    "h": "Limite de envios por hora",
+    "a": "limite-por-hora"
+   },
+   {
+    "h": "8. Liberação",
+    "a": "8-liberacao"
+   },
+   {
+    "h": "9. Acompanhamento",
+    "a": "9-acompanhamento"
+   },
+   {
+    "h": "Funil de entrega",
+    "a": "funil-de-entrega"
+   },
+   {
+    "h": "Conversão em oportunidades",
+    "a": "conversao-em-oportunidades"
+   },
+   {
+    "h": "Detalhes linha a linha",
+    "a": "detalhes-linha-a-linha"
+   },
+   {
+    "h": "10. Exemplo completo ponta a ponta",
+    "a": "10-exemplo-completo-ponta-a-ponta"
+   },
+   {
+    "h": "11. Armadilhas",
+    "a": "11-armadilhas"
+   },
+   {
+    "h": "12. Checklist",
+    "a": "12-checklist"
+   },
+   {
+    "h": "Perguntas frequentes",
+    "a": "faq"
+   },
+   {
+    "h": "Posso editar a campanha depois de criada?",
+    "a": "faq-editar"
+   },
+   {
+    "h": "A campanha está como \"Enviada\", mas nada saiu. Por quê?",
+    "a": "faq-liberar"
+   },
+   {
+    "h": "Apagar uma campanha já enviada afeta os atendimentos gerados?",
+    "a": "faq-apagar"
+   },
+   {
+    "h": "O disparo respeita quem pediu para não receber?",
+    "a": "faq-marketing"
+   },
+   {
+    "h": "Qual a diferença entre \"Enviar teste\" e \"Enviar agora\"?",
+    "a": "faq-teste"
+   }
+  ]
+ },
+ {
   "t": "Canais e Conexões",
   "u": "faq-canais-conexoes.html",
   "s": [
@@ -4951,6 +5065,10 @@ window.MANUAL_INDEX = [
    {
     "h": "Uso e Custos da Conta WhatsApp",
     "a": "uso-e-custos-da-conta-whatsapp"
+   },
+   {
+    "h": "Campanhas de Disparo Ativo",
+    "a": "campanhas-de-disparo-ativo"
    },
    {
     "h": "WebChat V2: Identidade do Visitante",

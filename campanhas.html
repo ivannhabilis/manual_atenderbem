@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Campanhas de disparo ativo por template no WhatsApp Cloud API: a lista, o assistente em quatro etapas, o formato da audiência, as opções por botão do template, a liberação, o limite por hora e o painel de estatísticas com entrega, resposta e conversão em CRM.">
+<title>Campanhas de Disparo Ativo (WhatsApp Cloud API) — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="tabelas-de-preco.html">Tabelas de Preço</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+          <a href="canais-whatsapp-uso-custos.html">Uso e Custos da Conta WhatsApp (Meta)</a>
+          <a class="active" href="campanhas.html">Campanhas de Disparo Ativo</a>
+          <a href="webchat-identidade.html">WebChat V2: Identidade do Visitante</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="ia-controle-remoto.html">Controle Remoto da Tela pelo Assistente</a>
+          <a href="ia-assistentes-desempenho-custos.html">Desempenho e Custos dos Assistentes</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+          <a href="datastore.html">Datastore (SQLite da instância)</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="webapps.html">Webapps (editor e instalação)</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › Canais &amp; WhatsApp › Campanhas de disparo ativo</div>
+
+  <h1>Campanhas de Disparo Ativo (WhatsApp Cloud API)</h1>
+  <p class="subtitle">Como montar um disparo em massa por template aprovado, decidir quem recebe, em que ritmo e com qual liberação, e acompanhar o que aconteceu com cada mensagem até virar — ou não — oportunidade no CRM. O módulo ainda aparece marcado como <span class="badge">BETA</span> na tela.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-o-que-e-uma-campanha-aqui">1. O que é uma campanha aqui</a></li>
+      <li><a href="#2-quando-usar">2. Quando usar</a></li>
+      <li><a href="#3-a-tela-de-campanhas">3. A tela de campanhas</a></li>
+      <li class="toc-h3"><a href="#acoes-de-cada-campanha">Ações de cada campanha</a></li>
+      <li><a href="#4-o-assistente-de-nova-campanha">4. O assistente de nova campanha</a></li>
+      <li><a href="#5-a-audiencia">5. A audiência</a></li>
+      <li class="toc-h3"><a href="#quem-nao-recebe">Quem não recebe</a></li>
+      <li><a href="#6-opcoes-por-botao-do-template">6. Opções por botão do template</a></li>
+      <li><a href="#7-respostas-destino-e-ritmo">7. Respostas, destino e ritmo</a></li>
+      <li class="toc-h3"><a href="#tempo-de-resposta">Tempo de resposta</a></li>
+      <li class="toc-h3"><a href="#destino-da-resposta">Destino da resposta</a></li>
+      <li class="toc-h3"><a href="#cliente-com-atendimento-aberto">Cliente com atendimento em andamento</a></li>
+      <li class="toc-h3"><a href="#limite-por-hora">Limite de envios por hora</a></li>
+      <li><a href="#8-liberacao">8. Liberação</a></li>
+      <li><a href="#9-acompanhamento">9. Acompanhamento</a></li>
+      <li class="toc-h3"><a href="#funil-de-entrega">Funil de entrega</a></li>
+      <li class="toc-h3"><a href="#conversao-em-oportunidades">Conversão em oportunidades</a></li>
+      <li class="toc-h3"><a href="#detalhes-linha-a-linha">Detalhes linha a linha</a></li>
+      <li><a href="#10-exemplo-completo-ponta-a-ponta">10. Exemplo completo ponta a ponta</a></li>
+      <li><a href="#11-armadilhas">11. Armadilhas</a></li>
+      <li><a href="#12-checklist">12. Checklist</a></li>
+      <li><a href="#faq">Perguntas frequentes</a></li>
+      <li class="toc-h3"><a href="#faq-editar">Posso editar a campanha depois de criada?</a></li>
+      <li class="toc-h3"><a href="#faq-liberar">A campanha está como "Enviada", mas nada saiu. Por quê?</a></li>
+      <li class="toc-h3"><a href="#faq-apagar">Apagar uma campanha já enviada afeta os atendimentos gerados?</a></li>
+      <li class="toc-h3"><a href="#faq-marketing">O disparo respeita quem pediu para não receber?</a></li>
+      <li class="toc-h3"><a href="#faq-teste">Qual a diferença entre "Enviar teste" e "Enviar agora"?</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <h2 id="1-o-que-e-uma-campanha-aqui">1. O que é uma campanha aqui</h2>
+  <p>Campanha é o envio ativo de uma mensagem de template, em massa, por uma fila de WhatsApp Cloud API. Você escolhe o template aprovado, monta a audiência com os destinatários e o valor de cada variável do corpo, e o sistema cria um registro de envio por linha — é esse registro que o disparador consome depois, no ritmo que você definir.</p>
+  <p>A campanha não é uma automação e não é uma URA. Automação e URA <em>reagem</em> a algo que chegou (mensagem, chamada, gatilho). Campanha <em>começa</em> a conversa: sai do sistema para uma lista de números que ainda não falaram com você. Quando o cliente responde, o atendimento nasce como qualquer outro e cai no destino que você indicou na etapa de respostas.</p>
+
+  <div class="callout info">
+    <strong>Três coisas definem uma campanha.</strong> O template (o que vai ser dito, na forma aprovada pela Meta), a fila (por qual número e por qual canal o disparo sai) e a audiência (para quem). Tudo o mais — ritmo, agendamento, destino da resposta, opções de botão — é ajuste fino em cima desses três.
+  </div>
+
+  <h2 id="2-quando-usar">2. Quando usar</h2>
+  <p>O uso certo é o que só o disparo ativo resolve. Se o cliente já está conversando com você naquele momento, o caminho é o atendimento, não a campanha.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Cenário</th><th>O que o operador faz</th><th>O que o sistema faz</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Aviso de utilidade para uma carteira</strong><br>mudança de horário de atendimento, novo endereço da loja, janela de manutenção</td>
+          <td>Separa os números da carteira, escolhe um template de <em>Utilidades</em> e agenda o disparo para o início do dia seguinte.</td>
+          <td>Cria um registro por destinatário, respeita o horário agendado, abre atendimento para quem responder e conta entregas, leituras e falhas no painel.</td>
+        </tr>
+        <tr>
+          <td><strong>Oferta segmentada</strong><br>promoção de uma linha de produto para quem já comprou daquela linha</td>
+          <td>Monta a lista a partir do filtro do CRM, usa um template de <em>Marketing</em> com variáveis de nome e produto e limita o envio por hora para não travar a fila.</td>
+          <td>Distribui o disparo ao longo do dia, marca quem pediu para não receber marketing e liga as respostas a oportunidades do funil.</td>
+        </tr>
+        <tr>
+          <td><strong>Retomada de base parada</strong><br>clientes que não compram há três meses</td>
+          <td>Gera a audiência, deixa a campanha em <em>Envio manual</em>, confere a prévia do template e libera quando o time estiver pronto para atender as respostas.</td>
+          <td>Mantém tudo pendente até a liberação; nada sai antes disso.</td>
+        </tr>
+        <tr>
+          <td><strong>Teste antes de valer para todos</strong><br>template novo, texto revisado, oferta com botão</td>
+          <td>Escolhe <em>Enviar teste agora e aguardar liberação</em> e define o tamanho do lote de teste.</td>
+          <td>Dispara só as primeiras linhas da audiência e segura o restante até a aprovação.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="3-a-tela-de-campanhas">3. A tela de campanhas</h2>
+  <p>A lista abre na rota <code>/base/config/campaignslist</code>. É uma grade simples, com busca e um único botão de criação: <em>Adicionar</em>. Cada linha é uma campanha — não um envio.</p>
+
+  <figure class="figure">
+    <img src="assets/campanhas/campanhas-lista.jpg" alt="Lista de campanhas com as colunas ID, Nome, Tipo, Template, Fila, Msgs, Teste, Estado, Data e Funções, e o botão Adicionar no canto superior direito" loading="lazy">
+    <figcaption>A coluna <em>Funções</em> concentra as quatro ações de cada campanha, na ordem: liberar para envio, detalhes, estatísticas e apagar. O número em <em>Msgs</em> é o tamanho da audiência que virou registro de envio; <em>Teste</em> é o lote de teste configurado.</figcaption>
+  </figure>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Coluna</th><th>O que mostra</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ID</td><td>Identificador da campanha. É o número que você usa em qualquer chamada de API ou suporte.</td></tr>
+        <tr><td>Nome</td><td>O nome dado na criação. É o rótulo que aparece no painel de estatísticas e nos relatórios de CRM.</td></tr>
+        <tr><td>Tipo</td><td>Categoria da campanha — <em>Marketing</em> ou <em>Utilidades</em>. Precisa ser coerente com a categoria do template, porque é ela que define a cobrança da Meta.</td></tr>
+        <tr><td>Template</td><td>Template do WhatsApp Cloud API usado no disparo. Fica em branco quando o template de origem não está mais carregado na instância.</td></tr>
+        <tr><td>Fila</td><td>Fila de envio, normalmente uma fila de WhatsApp Cloud API.</td></tr>
+        <tr><td>Msgs</td><td>Quantidade de registros de envio gerados na criação.</td></tr>
+        <tr><td>Teste</td><td>Tamanho do lote de teste, quando a campanha foi criada com disparo de teste.</td></tr>
+        <tr><td>Estado</td><td>Situação do disparo: não enviada, teste enviado, enviada ou agendada.</td></tr>
+        <tr><td>Data</td><td>Data e hora de referência da campanha (o agendamento, quando existe).</td></tr>
+        <tr><td>Funções</td><td>Ações da linha — detalhadas abaixo.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="acoes-de-cada-campanha">Ações de cada campanha</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Ação</th><th>Símbolo</th><th>Para que serve</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Liberar para envio</strong></td><td>play</td><td>Solta os registros que estavam aguardando autorização para o disparador. Fica desabilitado quando a campanha já foi liberada — não é possível "liberar de novo".</td></tr>
+        <tr><td><strong>Detalhes</strong></td><td>lista</td><td>Abre a lista de destinatários linha a linha: número, situação do disparo, dado extra, mensagem de erro, se houve resposta, data da resposta e as oportunidades de CRM ligadas ao atendimento gerado.</td></tr>
+        <tr><td><strong>Estatísticas</strong></td><td>gráfico</td><td>Abre o painel agregado da campanha: funil de entrega, taxas e conversão em oportunidades.</td></tr>
+        <tr><td><strong>Apagar campanha</strong></td><td>xis</td><td>Exclui a campanha e, junto, todo o histórico de envios dela. É irreversível.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+  <h2 id="4-o-assistente-de-nova-campanha">4. O assistente de nova campanha</h2>
+  <p><em>Adicionar</em> abre um assistente de quatro etapas, com <em>Voltar</em> e <em>Avançar</em>. A ordem não é decorativa: cada etapa depende do que foi respondido antes — a lista de templates só habilita depois que você escolhe a fila, e a prévia do template acompanha o que você digita no caminho.</p>
+
+  <figure class="figure">
+    <img src="assets/campanhas/campanhas-formulario.jpg" alt="Primeira etapa do assistente de nova campanha, com tipo da campanha, nome, fila, templates, grupo de visualização, comportamento com atendimento em andamento e a prévia do template" loading="lazy">
+    <figcaption>A primeira etapa é a única obrigatória para liberar o <em>Avançar</em>: tipo, nome, fila e template. À direita, a prévia mostra como a mensagem deve chegar ao cliente — é referência visual, o layout final depende do aparelho.</figcaption>
+  </figure>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Etapa</th><th>O que se define</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Início</strong></td>
+          <td>Tipo da campanha (Marketing ou Utilidades), nome, fila de disparo e template. Opcionais: grupo de visualização (restringe quais agentes enxergam o atendimento gerado) e o comportamento quando o cliente já tem atendimento aberto no momento do envio.</td>
+        </tr>
+        <tr>
+          <td><strong>2. Audiência</strong></td>
+          <td>O arquivo com os destinatários. O assistente oferece <em>Baixar modelo</em> — um CSV vazio no formato aceito — e o botão para carregar o arquivo preenchido. <em>Gerar audiência</em> converte as linhas em registros de envio.</td>
+        </tr>
+        <tr>
+          <td><strong>3. Respostas</strong></td>
+          <td>O período em que uma mensagem recebida conta como resposta (padrão de 2 dias) e o destino do atendimento aberto por essa resposta (padrão: a fila).</td>
+        </tr>
+        <tr>
+          <td><strong>4. Liberação</strong></td>
+          <td>Quando o disparo acontece — manual, teste, imediato ou agendado — e, opcionalmente, o limite de envios por hora.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Duas caixas de texto do assistente merecem atenção porque explicam o resto do capítulo. Na etapa <em>Audiência</em>: <em>“Qualquer campo não preenchido nos dados importados será automaticamente preenchido com o valor padrão do campo do cadastro do template.”</em> Ou seja, variável ausente não gera mensagem quebrada — ela sai com o valor padrão definido no template. Na etapa <em>Liberação</em>, o limite por hora existe para <em>“não sobrecarregar a entrada de atendimentos da sua operação”</em>: um disparo de dez mil mensagens sem limite vira dez mil conversas de uma vez.</p>
+
+  <h2 id="5-a-audiencia">5. A audiência</h2>
+  <p>A audiência é uma lista de linhas, uma por destinatário. O modelo CSV entregue pelo assistente já vem com as colunas na ordem que o sistema lê — e é essa ordem que vale, tanto no arquivo quanto na chamada de API:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Posição</th><th>Conteúdo</th><th>Quando se aplica</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>[0]</td><td>Número do destinatário, com DDI e DDD</td><td>Sempre. É o único campo obrigatório da linha.</td></tr>
+        <tr><td>[1]</td><td><code>extdata</code> — identificador livre (por exemplo, o id do contato no seu sistema)</td><td>Sempre. Pode ficar vazio, mas a coluna existe.</td></tr>
+        <tr><td>[2]</td><td>URL do arquivo de cabeçalho</td><td>Só quando o template tem cabeçalho de mídia (imagem, vídeo ou documento).</td></tr>
+        <tr><td>seguintes</td><td>Variáveis do corpo, na ordem em que aparecem no template</td><td>Sempre, começando em [2] quando não há cabeçalho de mídia e em [3] quando há.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>Linha sem destinatário válido é descartada, não corrigida.</strong> Linha vazia, com espaço ou traço na primeira coluna, ou com texto que não é telefone nem identificador aceito pelo canal, não gera disparo. A criação informa quantas linhas foram aceitas e quantas foram ignoradas — confira essa contagem antes de liberar. O valor do número é preservado como veio: tanto faz enviar com <code>+55</code> quanto sem.
+  </div>
+
+  <p>O <code>extdata</code> não é enfeite. Ele volta em cada registro de envio no <em>Detalhes</em>, é o que permite cruzar a resposta da campanha com a sua base (pedido, contrato, matrícula) sem depender do número de telefone, e é o campo que sobrevive quando o cliente troca de número.</p>
+
+  <h3 id="quem-nao-recebe">Quem não recebe</h3>
+  <p>O cadastro do contato tem chaves próprias para bloquear campanhas de marketing e campanhas de utilidade. Elas existem separadas porque as duas coisas incomodam de formas diferentes: quem aceita um aviso de entrega pode não querer promoção. No painel de estatísticas, o bloco <em>Bloqueadas</em> — descrito na tela como <em>“Contato bloqueado para envio ativo”</em> — é justamente o contador de mensagens que não saíram por esse motivo.</p>
+
+  <h2 id="6-opcoes-por-botao-do-template">6. Opções por botão do template</h2>
+  <p>Template com botão não é só texto com variáveis: cada tipo de botão espera um dado diferente no momento do envio. Essas opções valem para a campanha inteira — todos os destinatários recebem o mesmo botão, com os mesmos valores.</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Botão no template</th><th>O que informar</th><th>Observação</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>FLOW</td><td>Token devolvido na resposta do fluxo e, se quiser, os dados iniciais da primeira tela</td><td>Sem opção informada, o envio usa o token padrão <code>unused</code>.</td></tr>
+        <tr><td>CATALOG</td><td>Código (SKU) do produto usado como miniatura</td><td>Um produto por botão.</td></tr>
+        <tr><td>MPM (vários produtos)</td><td>Seções com título e lista de SKUs</td><td>Obrigatório: até 10 seções e 30 produtos no total. Botão MPM sem seções é recusado.</td></tr>
+        <tr><td>COPY_CODE</td><td>Cupom a ser copiado</td><td>Em branco, vale o cupom já cadastrado no template.</td></tr>
+        <tr><td>QUICK_REPLY</td><td>Payload devolvido quando o cliente toca no botão</td><td>É esse payload que chega na automação que trata a resposta.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Além dos botões, o mesmo bloco carrega a <strong>validade da oferta por tempo limitado</strong> (um carimbo de data e hora) — o recurso da Meta que mostra ao cliente até quando o preço vale. Um envio com três botões fica assim:</p>
+
+  <div class="table-wrap"><pre class="code"><code>"templateOptions": {
+  "buttons": [
+    { "index": 0, "flowToken": "pedido-2026", "flowActionData": { "origem": "campanha" } },
+    { "index": 1, "couponCode": "VOLTA10" },
+    { "index": 2, "payload": "QUERO_FALAR" }
+  ],
+  "limitedTimeOffer": { "expirationTimeMs": 1790000000000 }
+}</code></pre></div>
+
+  <p>Cada item é identificado pela posição do botão no template — <code>index</code> zero é o primeiro botão. Botão que não precisa de dado pode ser omitido; o que não pode é o MPM ficar sem <code>sections</code>.</p>
+
+  <h2 id="7-respostas-destino-e-ritmo">7. Respostas, destino e ritmo</h2>
+  <p>Três ajustes decidem o que acontece <em>depois</em> do disparo. Todos ficam nas etapas 1, 3 e 4, e todos têm consequência operacional.</p>
+
+  <h3 id="tempo-de-resposta">Tempo de resposta</h3>
+  <p>É a janela em que uma mensagem recebida é contada como resposta àquela campanha. O padrão é de 2 dias. Mensagem que chega fora da janela abre atendimento normalmente, mas não entra na taxa de resposta do painel. Janela curta demais subestima a campanha; longa demais mistura conversa antiga com disparo novo.</p>
+
+  <h3 id="destino-da-resposta">Destino da resposta</h3>
+  <p>Para onde vai o atendimento aberto quando o cliente responde. O padrão é a própria fila de envio. É aqui que a campanha conversa com o desenho da operação: disparo de cobrança pode ir para uma fila específica; disparo de oferta pode entrar numa URA antes de chegar ao time.</p>
+
+  <h3 id="cliente-com-atendimento-aberto">Cliente com atendimento em andamento</h3>
+  <p>Se o cliente já está em atendimento no momento em que a mensagem sairia, a campanha precisa escolher entre três caminhos: enviar mesmo assim (o padrão da tela), marcar como falha, ou manter na fila e enviar só depois que aquele atendimento encerrar. O terceiro é o mais conservador: não perde o disparo nem atropela a conversa em curso.</p>
+
+  <h3 id="limite-por-hora">Limite de envios por hora</h3>
+  <p>Opcional, definido na criação. Funciona como teto em janela deslizante de 60 minutos: numa campanha com limite 200, saem no máximo 200 mensagens em qualquer janela de uma hora, e o resto segue no ritmo. Zero ou vazio significa sem limite. O valor é fixado na criação — para outro ritmo, é preciso criar outra campanha.</p>
+
+  <h2 id="8-liberacao">8. Liberação</h2>
+  <p>A etapa 4 define <em>quando</em> os registros começam a ser consumidos. São quatro modos, e a diferença entre eles é grande o bastante para justificar atenção:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Modo</th><th>O que acontece ao concluir</th><th>Uso típico</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><em>Envio manual</em> (padrão)</td><td>Nada sai. Todos os registros ficam aguardando até a liberação pela ação <em>Liberar para envio</em>.</td><td>Campanha que será revisada por outra pessoa antes de sair.</td></tr>
+        <tr><td><em>Enviar teste agora e aguardar liberação</em></td><td>Sai apenas o lote de teste — as primeiras linhas da audiência, no tamanho que você informar. O restante fica pendente.</td><td>Validar o template e a variável com números reais antes de soltar a base.</td></tr>
+        <tr><td><em>Enviar agora</em></td><td>Todo o registro entra na fila de disparo imediatamente, respeitando o limite por hora.</td><td>Campanha já validada, com time pronto para atender.</td></tr>
+        <tr><td><em>Agendar envio</em></td><td>Só começa a partir da data e hora escolhidas.</td><td>Avisos que precisam sair em um horário comercial específico.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>Teste e envio imediato mandam mensagem de verdade.</strong> As duas opções disparam na criação, sem passar pela liberação — o cliente recebe, e a mensagem é cobrada pela Meta. Em compensação, a campanha criada em <em>Envio manual</em> não gasta nada até alguém liberar. Esse é o motivo de o padrão ser o envio manual.
+  </div>
+
+  <p>Pela API, o estado da campanha é um número, e ele não se confunde com a liberação dos registros:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Estado</th><th>Significado</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>0</td><td>Não enviada — rascunho ou aguardando autorização</td></tr>
+        <tr><td>1</td><td>Teste enviado</td></tr>
+        <tr><td>2</td><td>Enviada (liberada)</td></tr>
+        <tr><td>3</td><td>Agendada</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <strong>Gravar estado 2 não libera nada.</strong> Quem solta os registros pendentes é a ação de liberação (ou <code>campaigns_approve</code>, na API) — ela marca a campanha como enviada <em>e</em> muda os registros de aguardando para pronto. Editar o estado pela metade deixa a campanha "enviada" com tudo parado, que é o pior dos dois mundos.
+  </div>
+
+  <h2 id="9-acompanhamento">9. Acompanhamento</h2>
+  <p>O ícone de estatísticas abre um painel sobre a própria lista. Ele responde três perguntas em ordem: o disparo saiu, a mensagem foi lida, e alguém virou oportunidade.</p>
+
+  <figure class="figure">
+    <img src="assets/campanhas/campanhas-estatisticas.jpg" alt="Painel de estatísticas da campanha com total de disparos, fila, template, tipo, funil de entrega com pendentes, falhas, rejeitadas e bloqueadas, taxas de leitura, resposta e problemas, e o bloco de conversão em oportunidades" loading="lazy">
+    <figcaption>O topo identifica a campanha e traz o <em>Total de disparos</em>. O primeiro bloco é o funil de entrega; o segundo, a conversão no CRM. Quando ainda não há envio, o painel não desaparece: ele explica que os números aparecem a partir do primeiro despacho.</figcaption>
+  </figure>
+
+  <h3 id="funil-de-entrega">Funil de entrega</h3>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Indicador</th><th>Descrição na tela</th><th>Como ler</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Pendentes</td><td>Aguardando processamento ou retry</td><td>Ainda vão sair. Volume alto e parado indica limite por hora muito baixo, agendamento no futuro ou liberação não feita.</td></tr>
+        <tr><td>Falhas</td><td>Erros de envio definitivos</td><td>Não saem mais. A causa aparece linha a linha no <em>Detalhes</em>.</td></tr>
+        <tr><td>Rejeitadas</td><td>Negadas pelo provedor</td><td>A Meta recusou — template, categoria, variável ou política.</td></tr>
+        <tr><td>Bloqueadas</td><td>Contato bloqueado para envio ativo</td><td>O contato optou por não receber esse tipo de campanha.</td></tr>
+        <tr><td>Taxa de leitura</td><td>Lidas / Entregues</td><td>Qualidade do texto e do horário. Cai quando o template é genérico ou o disparo pega horário ruim.</td></tr>
+        <tr><td>Taxa de resposta</td><td>Respondidas / Entregues</td><td>Interesse real. É a taxa que conversa com a janela de resposta definida na etapa 3.</td></tr>
+        <tr><td>Taxa de problemas</td><td>Falhas + rejeições + bloqueios</td><td>Saúde técnica da lista. Acima de dois dígitos, pare e investigue antes da próxima campanha.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="conversao-em-oportunidades">Conversão em oportunidades</h3>
+  <p>O segundo bloco liga a campanha ao CRM: quantas oportunidades nasceram, quantas continuam abertas, quantas foram ganhas, perdidas, canceladas e congeladas, e quanto valem as ganhas — valor total e valor recorrente. As três taxas do topo são recortes diferentes do mesmo funil: <em>Conversão</em> (oportunidades sobre mensagens enviadas), <em>Sucesso</em> (ganhas sobre encerradas) e <em>Vitória global</em> (ganhas sobre criadas).</p>
+
+  <div class="callout tip">
+    <strong>Leia a conversão junto com o volume.</strong> Uma campanha de 300 mensagens com 10% de conversão vale mais que 3.000 mensagens com 0,5%. Comparar campanhas pela taxa, sem olhar o total, premia o disparo pequeno e esconde o caro.
+  </div>
+
+  <h3 id="detalhes-linha-a-linha">Detalhes linha a linha</h3>
+  <p>O <em>Detalhes</em> é a auditoria da campanha. Para cada destinatário, mostra o número, a situação do disparo, o <code>extdata</code> informado, a mensagem de erro quando houver, se houve resposta e quando, e as oportunidades de CRM ligadas ao atendimento gerado. Em campanha grande, essa lista é volumosa — trate-a como conferência de exceção: filtre pelo que deu errado, não leia tudo.</p>
+
+  <h2 id="10-exemplo-completo-ponta-a-ponta">10. Exemplo completo ponta a ponta</h2>
+  <p>Uma campanha de utilidade avisando 120 clientes sobre mudança de horário, com liberação manual. O caminho é o mesmo da tela, só que por API — útil quando a audiência nasce de outro sistema.</p>
+
+  <ol class="steps">
+    <li>
+      <strong>Separe os ingredientes.</strong> O <code>id</code> do template aprovado e o <code>id</code> da fila de WhatsApp Cloud API. Ambos podem ser listados sem tocar em nada:
+      <div class="table-wrap"><pre class="code"><code>campaigns_list { "limit": 20 }
+queues_list
+# templates do WhatsApp Cloud: use a listagem de templates da instância</code></pre></div>
+    </li>
+    <li>
+      <strong>Monte a audiência.</strong> Cada linha é uma pessoa. Este template de utilidade tem duas variáveis no corpo (nome e data), sem cabeçalho de mídia — então as variáveis começam na posição [2]:
+      <div class="table-wrap"><pre class="code"><code>importData = [
+  ["5511999990001", "pedido-8841", "Ana", "12/12"],
+  ["5511999990002", "pedido-8842", "Bruno", "12/12"],
+  ["5511999990003", "",            "Carla", "12/12"]
+]</code></pre></div>
+    </li>
+    <li>
+      <strong>Crie a campanha em modo seguro.</strong> <code>sendpolicy</code> 0 deixa tudo pendente; nada é enviado na criação.
+      <div class="table-wrap"><pre class="code"><code>campaigns_create {
+  "name": "Aviso de horário — dezembro",
+  "description": "Mudança de horário do atendimento a partir de 12/12",
+  "templateid": 42,
+  "queueid": 17,
+  "type": 2,
+  "sendpolicy": 0,
+  "replytime": 172800,
+  "actionwhenopen": 2,
+  "hourlylimit": 60,
+  "notbefore": "2026-12-11T09:00:00-03:00",
+  "importData": importData
+}</code></pre></div>
+      A resposta traz o <code>id</code> da campanha e a contagem de linhas aceitas e ignoradas. Linha com número inválido não entra — e não trava as outras.
+    </li>
+    <li>
+      <strong>Confira antes de liberar.</strong> Leia o registro criado e a audiência gerada:
+      <div class="table-wrap"><pre class="code"><code>campaigns_get { "id": 1201 }
+campaigns_get_messages { "id": 1201 }</code></pre></div>
+      Aqui você vê se o template, a fila e o agendamento ficaram como esperado, e se alguma variável saiu vazia.
+    </li>
+    <li>
+      <strong>Libere.</strong> A liberação é o único passo que realmente dispara:
+      <div class="table-wrap"><pre class="code"><code>campaigns_approve { "id": 1201, "confirm": true }</code></pre></div>
+      A partir daí o disparador consome os registros respeitando <code>notbefore</code> e o limite de 60 por hora.
+    </li>
+    <li>
+      <strong>Acompanhe.</strong> O agregado para o painel e a lista para a auditoria:
+      <div class="table-wrap"><pre class="code"><code>campaigns_get_stats { "id": 1201 }
+campaigns_get_messages { "id": 1201 }</code></pre></div>
+      O agregado devolve o funil (total, pendentes, enviadas, entregues, lidas, falhas, rejeitadas, bloqueadas, respondidas) e os números de CRM. A lista devolve o erro de cada linha que falhou.
+    </li>
+  </ol>
+
+  <div class="callout tip">
+    <strong>Ordem que evita susto:</strong> criar em manual, conferir, liberar, acompanhar. Quem inverte — cria já disparando e confere depois — descobre o erro de variável com a base inteira já impactada.
+  </div>
+
+  <h2 id="11-armadilhas">11. Armadilhas</h2>
+  <ul>
+    <li><strong>Template precisa existir e estar carregado.</strong> A criação valida o template; template apagado localmente (mas ainda aprovado na Meta) deixa a campanha sem referência e a coluna <em>Template</em> vazia na lista.</li>
+    <li><strong>Categoria da campanha e do template andam juntas.</strong> Marketing com template de utilidade (ou o contrário) é o caminho mais curto para rejeição — e a cobrança é diferente.</li>
+    <li><strong>A audiência não muda depois de criada.</strong> A edição da campanha mexe em metadados (nome, descrição, categoria, agendamento, destino); os registros de envio já gerados ficam como estão. Para outra lista, outra campanha.</li>
+    <li><strong>O limite por hora nasce fixo.</strong> Não é editável depois. Errou o ritmo, recrie.</li>
+    <li><strong>Apagar a campanha apaga o histórico.</strong> Os registros de envio somem junto, inclusive os erros. Se a prestação de contas importa, exporte antes.</li>
+    <li><strong>Liberar duas vezes não existe.</strong> A ação fica desabilitada quando a campanha já saiu; insistir pela API não reenvia nada — e é bom que não.</li>
+    <li><strong>Teste consome mensagem real.</strong> Lote de teste é disparo de verdade, com cobrança e com cliente do outro lado.</li>
+    <li><strong>Botão MPM sem seções é recusado.</strong> Não é erro de digitação: a Meta exige a lista de produtos do botão de vários itens.</li>
+  </ul>
+
+  <h2 id="12-checklist">12. Checklist</h2>
+  <ul>
+    <li>Template aprovado, categoria coerente com o tipo da campanha.</li>
+    <li>Fila de envio correta — é ela que define o número que o cliente vê.</li>
+    <li>Audiência conferida: contagem de aceitas e ignoradas antes de liberar.</li>
+    <li>Variáveis do corpo na ordem certa; <code>extdata</code> preenchido quando você precisa cruzar a resposta com a sua base.</li>
+    <li>Opções de botão definidas (FLOW, CATALOG/MPM, COPY_CODE, QUICK_REPLY) e válvula da oferta, se houver.</li>
+    <li>Janela de resposta e destino do atendimento combinando com o time que vai atender.</li>
+    <li>Limite por hora definido para não afogar a fila.</li>
+    <li>Campanha criada em manual, liberada só depois da conferência.</li>
+    <li>Painel de estatísticas aberto no dia seguinte: pendentes, falhas, rejeitadas, bloqueadas e taxa de resposta.</li>
+  </ul>
+
+  <h2 id="faq">Perguntas frequentes</h2>
+  <div class="faq">
+    <h3 id="faq-editar">Posso editar a campanha depois de criada?</h3>
+    <p>Os metadados sim: nome, descrição, categoria, agendamento, janela de resposta e destino. A lista de destinatários não — ela é gerada na criação e não é recalculada. Se a audiência mudou, crie outra campanha.</p>
+
+    <h3 id="faq-liberar">A campanha está como "Enviada", mas nada saiu. Por quê?</h3>
+    <p>Provavelmente o estado foi alterado sem a ação de liberação. Marcar a campanha como enviada não solta os registros pendentes; quem faz isso é <em>Liberar para envio</em> (ou <code>campaigns_approve</code>). Confira também se o agendamento já venceu e se o limite por hora não está baixo demais.</p>
+
+    <h3 id="faq-apagar">Apagar uma campanha já enviada afeta os atendimentos gerados?</h3>
+    <p>Os atendimentos e as mensagens já trocadas continuam existindo no histórico; o que desaparece é o histórico de <em>envios</em> da campanha — os registros de disparo, seus erros e as contagens do painel. Por isso a exclusão é irreversível e exige confirmação.</p>
+
+    <h3 id="faq-marketing">O disparo respeita quem pediu para não receber?</h3>
+    <p>Sim. O cadastro do contato tem bloqueios separados para campanhas de marketing e de utilidade, e a mensagem que não sai por esse motivo é contada no bloco <em>Bloqueadas</em> do painel. Bloqueio de marketing não impede, por si, um aviso de utilidade — são permissões distintas.</p>
+
+    <h3 id="faq-teste">Qual a diferença entre "Enviar teste" e "Enviar agora"?</h3>
+    <p>O teste dispara só as primeiras linhas da audiência, no tamanho que você definir, e deixa o resto pendente de liberação. O envio imediato coloca todo o registro na fila. Os dois mandam mensagem real na criação; o manual não manda nada até ser liberado.</p>
+  </div>
+
+  <div class="pagenav">
+    <a href="canais-whatsapp-uso-custos.html"><span>← Anterior</span> Uso e custos da conta WhatsApp</a>
+    <a class="next" href="webchat-identidade.html"><span>Próximo →</span> WebChat V2: identidade do visitante</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
