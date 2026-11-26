@@ -5115,6 +5115,10 @@ window.MANUAL_INDEX = [
     "a": "backups-e-restauracao"
    },
    {
+    "h": "Mural de Novidades",
+    "a": "mural-de-novidades"
+   },
+   {
     "h": "Playbook de Suporte Operacional",
     "a": "playbook-de-suporte-operacional"
    },
@@ -5337,6 +5341,80 @@ window.MANUAL_INDEX = [
    {
     "h": "13. Checklist de implantação e revisão",
     "a": "13-checklist-de-implantacao-e-revisao"
+   }
+  ]
+ },
+ {
+  "t": "Mural de Novidades (Comunicados)",
+  "u": "mural-de-novidades.html",
+  "s": [
+   {
+    "h": "1. Para que serve",
+    "a": "1-para-que-serve"
+   },
+   {
+    "h": "2. Quando usar",
+    "a": "2-quando-usar"
+   },
+   {
+    "h": "3. A tela",
+    "a": "3-a-tela"
+   },
+   {
+    "h": "4. Montar um comunicado",
+    "a": "4-montar-um-comunicado"
+   },
+   {
+    "h": "Passo a passo",
+    "a": "passo-a-passo"
+   },
+   {
+    "h": "5. Como o leitor recebe",
+    "a": "5-como-o-leitor-recebe"
+   },
+   {
+    "h": "6. Acesso por API",
+    "a": "6-acesso-por-api"
+   },
+   {
+    "h": "7. Exemplo completo",
+    "a": "7-exemplo-completo"
+   },
+   {
+    "h": "8. Armadilhas",
+    "a": "8-armadilhas"
+   },
+   {
+    "h": "9. Checklist antes de divulgar",
+    "a": "9-checklist-antes-de-divulgar"
+   },
+   {
+    "h": "Perguntas frequentes",
+    "a": "perguntas-frequentes"
+   },
+   {
+    "h": "Qual a diferença entre novidade pública e interna?",
+    "a": "qual-a-diferenca-entre-novidade-publica-e-interna"
+   },
+   {
+    "h": "Como sei se o comunicado está no ar?",
+    "a": "como-sei-se-o-comunicado-esta-no-ar"
+   },
+   {
+    "h": "Consigo apontar o comunicado para uma equipe ou fila específica?",
+    "a": "consigo-apontar-o-comunicado-para-uma-equipe-ou-fila-especifica"
+   },
+   {
+    "h": "O leitor pode avaliar o comunicado?",
+    "a": "o-leitor-pode-avaliar-o-comunicado"
+   },
+   {
+    "h": "Apagar o comunicado remove o histórico de leitura?",
+    "a": "apagar-o-comunicado-remove-o-historico-de-leitura"
+   },
+   {
+    "h": "O que acontece se dois comunicados estiverem marcados para popup no login?",
+    "a": "o-que-acontece-se-dois-comunicados-estiverem-marcados-para-popup-no-login"
    }
   ]
  },

@@ -97,6 +97,7 @@ GROUPS = [
         ("webapps.html", "Webapps (editor e instalação)"),
         ("tour-guiado-planejamento.html", "Tour Guiado no Sistema (Planejamento)"),
         ("backups.html", "Backups e Restauração"),
+        ("mural-de-novidades.html", "Mural de Novidades (Comunicados)"),
         ("novidades-14-2.html", "Novidades da versão 14.2"),
         ("links-compartilhamento.html", "Links de Compartilhamento"),
     ]),

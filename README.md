@@ -61,6 +61,7 @@ Páginas:
 - `tour-guiado-planejamento.html` — planejamento para levar o tour guiado ao sistema inteiro
 - `ext/kit-extensao-exemplo/` — kit de exemplo para criar uma extensão (manifest + tela + guia)
 - `backups.html` — Backups e Restauração
+- `mural-de-novidades.html` — Mural de Novidades (comunicados internos e públicos, validade, público por perfil, popup no login e API de leitura)
 - `faq.html` — Base de Conhecimento (FAQ): índice dos capítulos de perguntas frequentes
 - `faq-canais-conexoes.html` — FAQ: Canais e Conexões (WhatsApp, Instagram, Facebook, Telegram, Webchat, marketplaces)
 - `faq-whatsapp-business.html` — FAQ: WhatsApp Business (políticas, limites, cobrança e qualidade da Meta)

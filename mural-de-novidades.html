@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mural de Novidades do AtenderBem / Habilis: publicar comunicados internos e públicos, definir validade, escolher quem vê, exibir popup no login e entender como o leitor recebe o aviso.">
+<title>Mural de Novidades (Comunicados) — Manual Omnichannel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><a href="index.html">Manual Omnichannel</a></div>
+  <nav class="navmenu" aria-label="Navegação principal">
+    <a class="navlink" href="index.html">Início</a>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Operação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="dashboard.html">Dashboard e Indicadores</a>
+          <a href="agentes.html">Agentes (Agent Dashboard)</a>
+          <a href="produtividade.html">Monitoramento de Produtividade</a>
+          <a href="tarefas.html">Tarefas (My tasks)</a>
+          <a href="chat-interno.html">Chat Interno</a>
+          <a href="contatos.html">Contatos e Empresas</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Vendas & CRM<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="crm.html">CRM e Funil de Vendas</a>
+          <a href="carrinho-sincronizado.html">Carrinho Sincronizado com CRM</a>
+          <a href="tabelas-de-preco.html">Tabelas de Preço</a>
+          <a href="base/config/cataloglist/index.html">Catálogo de Produtos</a>
+          <a href="documentos-a-partir-de-modelo.html">Documentos a partir de Modelo</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Canais & WhatsApp<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="canais-whatsapp-meta.html">WhatsApp, Cloud API e Meta</a>
+          <a href="canais-whatsapp-uso-custos.html">Uso e Custos da Conta WhatsApp (Meta)</a>
+          <a href="campanhas.html">Campanhas de Disparo Ativo</a>
+          <a href="webchat-identidade.html">WebChat V2: Identidade do Visitante</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">IA & Automação<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="ia.html">IA Básica e IA Avançada</a>
+          <a href="ia-controle-remoto.html">Controle Remoto da Tela pelo Assistente</a>
+          <a href="ia-assistentes-desempenho-custos.html">Desempenho e Custos dos Assistentes</a>
+          <a href="integracoes.html">Integrações e Automações</a>
+          <a href="automacoes-elementos.html">Automações e URA — Catálogo de Elementos</a>
+          <a href="automacoes-variaveis.html">Automações: Variáveis e Expressões</a>
+          <a href="automacoes-exemplos.html">Automações: Exemplos Prontos</a>
+          <a href="automacoes-mensagens.html">Automações: Mensagens e Conteúdo</a>
+          <a href="automacoes-fluxo-logica.html">Automações: Fluxo, Lógica e Gatilhos</a>
+          <a href="automacoes-atendimento.html">Automações: Atendimento e Fila</a>
+          <a href="automacoes-contatos-dados.html">Automações: Contatos e Dados</a>
+          <a href="automacoes-crm-carrinho.html">Automações: CRM e Carrinho</a>
+          <a href="automacoes-catalogo-pedidos.html">Automações: Catálogo e Pedidos</a>
+          <a href="automacoes-tickets.html">Automações: Tickets</a>
+          <a href="automacoes-ia-assistentes.html">Automações: IA e Assistentes</a>
+          <a href="automacoes-telefonia.html">Automações: Telefonia (voz)</a>
+          <a href="automacoes-pesquisas-webchat.html">Automações: Pesquisas e WebChat</a>
+          <a href="automacoes-integracoes.html">Automações: Integrações e Webhooks</a>
+          <a href="automacoes-admin.html">Automações: Tarefas e Administração</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Suporte & Qualidade<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="tickets.html">Tickets (Mesa de Ajuda)</a>
+          <a href="tickets-faq.html">FAQ — Tickets e Automações</a>
+          <a href="pesquisas.html">Pesquisas e Satisfação</a>
+          <a href="suporte-visual-remoto.html">Suporte Visual Remoto</a>
+          <a href="suporte-operacional.html">Playbook de Suporte</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Telefonia (PABX)<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="pabx.html">PABX Fácil e Telefonia VoIP</a>
+          <a href="pabx-simplepbx.html">SimplePBX (Telefonia Simplificada)</a>
+          <a href="pabx-simplepbx-configuracao.html">SimplePBX — Guia de Configuração</a>
+          <a href="pabx-troncos.html">Troncos SIP</a>
+          <a href="pabx-rotas.html">Rotas de Entrada/Saída</a>
+          <a href="pabx-ramais.html">Ramais</a>
+          <a href="pabx-filas.html">Filas de Telefonia</a>
+          <a href="pabx-ura-audios.html">URAs e Áudios</a>
+          <a href="pabx-horarios.html">Horários de Funcionamento</a>
+          <a href="pabx-custom.html">Custom & ARI</a>
+          <a href="pabx-cdr-auditoria.html">CDR e Auditoria</a>
+          <a href="pabx-cli-troubleshooting.html">CLI e Troubleshooting</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Relatórios & Gestão<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="relatorios.html">Relatórios</a>
+          <a href="relatorios-personalizados.html">Relatórios Personalizados</a>
+          <a href="datastore.html">Datastore (SQLite da instância)</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Configurações & Admin<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="configuracoes.html">Configurações</a>
+          <a href="extensoes.html">Extensões (SDK)</a>
+          <a href="extensoes-criar-publicar-instalar.html">Extensões: Criar e Instalar</a>
+          <a href="extensoes-bastidores.html">Extensões: Bastidores do Projeto</a>
+          <a href="extensoes-tour-guiado.html">Extensões: Tour Guiado</a>
+          <a href="webapps.html">Webapps (editor e instalação)</a>
+          <a href="tour-guiado-planejamento.html">Tour Guiado no Sistema (Planejamento)</a>
+          <a href="backups.html">Backups e Restauração</a>
+          <a class="active" href="mural-de-novidades.html">Mural de Novidades (Comunicados)</a>
+          <a href="novidades-14-2.html">Novidades da versão 14.2</a>
+          <a href="links-compartilhamento.html">Links de Compartilhamento</a>
+        </div>
+      </div>
+    <div class="navgroup">
+        <button class="navbtn" type="button" aria-haspopup="true" aria-expanded="false">Base de Conhecimento<span class="caret" aria-hidden="true">&#9660;</span></button>
+        <div class="navdropdown">
+          <a href="faq.html">Base de Conhecimento (FAQ)</a>
+          <a href="faq-canais-conexoes.html">FAQ — Canais e Conexões</a>
+          <a href="faq-whatsapp-business.html">FAQ — WhatsApp Business</a>
+          <a href="faq-ia-assistentes.html">FAQ — IA e Assistentes</a>
+          <a href="faq-automacao-fluxos.html">FAQ — Automação e URA</a>
+          <a href="faq-crm-contatos.html">FAQ — CRM e Contatos</a>
+          <a href="faq-catalogo-vendas.html">FAQ — Catálogo e Vendas</a>
+          <a href="faq-tickets.html">FAQ — Tickets e SLA</a>
+          <a href="faq-relatorios-metricas.html">FAQ — Relatórios e Métricas</a>
+          <a href="faq-telefonia-pabx.html">FAQ — Telefonia e PABX</a>
+          <a href="faq-admin-operacao.html">FAQ — Administração e Operação</a>
+        </div>
+      </div>
+  </nav>
+</header>
+
+<main class="container article">
+  <div class="breadcrumb"><a href="index.html">Início</a> › Configurações &amp; Admin › Mural de Novidades</div>
+
+  <h1>Mural de Novidades (comunicados)</h1>
+  <p class="subtitle">O mural onde a instância publica avisos para a própria equipe — mudança de procedimento, manutenção programada, novo horário — e, quando o comunicado é público, também para quem conversa pelo Web Chat. Este capítulo mostra como cada aviso é montado, por quanto tempo fica no ar, quem o recebe e como o leitor o encontra dentro do sistema.</p>
+
+  <!-- AUTO-TOC -->
+  <nav class="toc" aria-label="Índice do capítulo">
+    <h3>Neste capítulo</h3>
+    <ol>
+      <li><a href="#1-para-que-serve">1. Para que serve</a></li>
+      <li><a href="#2-quando-usar">2. Quando usar</a></li>
+      <li><a href="#3-a-tela">3. A tela</a></li>
+      <li><a href="#4-montar-um-comunicado">4. Montar um comunicado</a></li>
+      <li class="toc-h3"><a href="#passo-a-passo">Passo a passo</a></li>
+      <li><a href="#5-como-o-leitor-recebe">5. Como o leitor recebe</a></li>
+      <li><a href="#6-acesso-por-api">6. Acesso por API</a></li>
+      <li><a href="#7-exemplo-completo">7. Exemplo completo</a></li>
+      <li><a href="#8-armadilhas">8. Armadilhas</a></li>
+      <li><a href="#9-checklist-antes-de-divulgar">9. Checklist antes de divulgar</a></li>
+      <li><a href="#perguntas-frequentes">Perguntas frequentes</a></li>
+      <li class="toc-h3"><a href="#qual-a-diferenca-entre-novidade-publica-e-interna">Qual a diferença entre novidade pública e interna?</a></li>
+      <li class="toc-h3"><a href="#como-sei-se-o-comunicado-esta-no-ar">Como sei se o comunicado está no ar?</a></li>
+      <li class="toc-h3"><a href="#consigo-apontar-o-comunicado-para-uma-equipe-ou-fila-especifica">Consigo apontar o comunicado para uma equipe ou fila específica?</a></li>
+      <li class="toc-h3"><a href="#o-leitor-pode-avaliar-o-comunicado">O leitor pode avaliar o comunicado?</a></li>
+      <li class="toc-h3"><a href="#apagar-o-comunicado-remove-o-historico-de-leitura">Apagar o comunicado remove o histórico de leitura?</a></li>
+      <li class="toc-h3"><a href="#o-que-acontece-se-dois-comunicados-estiverem-marcados-para-popup-no-login">O que acontece se dois comunicados estiverem marcados para popup no login?</a></li>
+    </ol>
+  </nav>
+  <!-- /AUTO-TOC -->
+
+  <h2 id="1-para-que-serve">1. Para que serve</h2>
+  <p>O mural de novidades é um caderno de recados com prazo de validade. Em vez de mandar a mesma orientação por chat interno para trinta pessoas, você publica uma vez, escolhe os perfis que devem ver e define até quando o aviso continua aparecendo. Quem ainda não leu vê um contador no ícone de jornal da barra superior; quem abre o comunicado passa a vê-lo como lido.</p>
+  <p>Cada novidade tem um dos dois tipos abaixo, e a diferença é de alcance, não de formato:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Tipo</th><th>Quem vê</th><th>Uso típico</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Pública</strong></td>
+          <td>A equipe marcada em <em>Exibir para</em> e as filas de Web Chat. A tela avisa que o conteúdo público fica em cache por até 6 horas, então uma publicação nova pode demorar esse tempo para aparecer nos atendimentos do Web Chat.</td>
+          <td>Aviso de recesso, mudança de horário de atendimento, comunicado sobre instabilidade — informação que o visitante do site também pode ler.</td>
+        </tr>
+        <tr>
+          <td><strong>Interna</strong></td>
+          <td>Somente a equipe marcada em <em>Exibir para</em>. Não é distribuída para as filas de Web Chat.</td>
+          <td>Procedimento interno, meta do mês, reforço de script de atendimento, senha de campanha.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="2-quando-usar">2. Quando usar</h2>
+  <p>O mural funciona bem para o que vale mais de uma leitura e perde valor rápido. Os cenários abaixo são os que mais aparecem na operação:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Cenário</th><th>O que o operador faz</th><th>O que o sistema faz</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Manutenção programada do ERP</td>
+          <td>Publica uma novidade interna com data de início e fim iguais à janela da manutenção.</td>
+          <td>O aviso aparece para os perfis escolhidos durante a janela e sai sozinho depois, sem precisar apagar nada.</td>
+        </tr>
+        <tr>
+          <td>Novo procedimento de cancelamento</td>
+          <td>Publica uma novidade interna com o passo a passo no corpo, sem data final.</td>
+          <td>Fica no mural até ser substituída ou apagada; o popup no login garante que ninguém entre no turno sem ver.</td>
+        </tr>
+        <tr>
+          <td>Aviso de feriado para o visitante</td>
+          <td>Publica uma novidade pública, com o texto que o cliente deve ler, e marca <em>Exibir para</em> todos os perfis.</td>
+          <td>Além de aparecer para a equipe, o conteúdo entra na distribuição das filas de Web Chat dentro da janela de cache de 6 horas.</td>
+        </tr>
+        <tr>
+          <td>Reforço de qualidade para um turno</td>
+          <td>Publica uma novidade interna visível só para agentes, com validade de um dia.</td>
+          <td>Supervisores e administradores não recebem o aviso; ele desaparece no fim do dia.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="3-a-tela">3. A tela</h2>
+  <p>O cadastro fica em <strong>Configurações › Novidades</strong> (rota <code>/base/config/newslist</code>). A tela abre com o aviso do cache de 6 horas, o botão <em>Adicionar</em> e a grade dos comunicados já cadastrados.</p>
+
+  <figure class="figure">
+    <img src="assets/novidades/novidades-lista.png" alt="Grade de novidades com as colunas ID, Título, Criador, Tipo, Avaliação, Válida e Funções, e o botão Adicionar" loading="lazy">
+    <figcaption>A grade mostra o essencial para decidir o que ainda está valendo: o <em>Tipo</em> separa público de interno e a coluna <em>Válida</em> indica se o comunicado está dentro da janela de exibição. As colunas de título e criador aparecem ocultas nesta imagem porque o conteúdo pertence à base de quem opera a instância.</figcaption>
+  </figure>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Coluna</th><th>O que mostra</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ID</td><td>Número do comunicado, usado nas chamadas de API.</td></tr>
+        <tr><td>Título</td><td>O título curto que aparece na lista do leitor e no topo do comunicado aberto.</td></tr>
+        <tr><td>Criador</td><td>Quem publicou, com a foto de perfil. Quando o comunicado vem de fora da instância, o autor não é exibido ao leitor.</td></tr>
+        <tr><td>Tipo</td><td><em>Pública</em> ou <em>Interna</em>.</td></tr>
+        <tr><td>Avaliação</td><td>A nota registrada no comunicado (campos <code>rating</code> e <code>votes</code> no registro). Aparece como <code>-</code> enquanto ninguém avaliou.</td></tr>
+        <tr><td>Válida</td><td>Situação da janela de validade: comunicados com a janela vencida aparecem fora do ar, mesmo continuando na grade.</td></tr>
+        <tr><td>Funções</td><td>Três ações por linha: <em>Pré-visualizar</em>, <em>Editar texto</em> e <em>Excluir texto</em>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="4-montar-um-comunicado">4. Montar um comunicado</h2>
+  <p>O botão <em>Adicionar</em> abre o formulário <em>Novidade</em>. A ordem dos campos segue a leitura que o leitor fará depois: imagem, título, tipo, janela de validade, público, popup, subtítulo, palavras-chave, etiquetas e corpo.</p>
+
+  <figure class="figure">
+    <img src="assets/novidades/novidades-formulario.png" alt="Formulário Novidade com os campos Link da Imagem Principal, Título, Tipo, Válido a partir, Válido até, Exibir para, Exibir popup no login, Subtítulo, Palavras-chave, Etiquetas e o botão Editar HTML" loading="lazy">
+    <figcaption>O campo de imagem já traz a medida recomendada — 1200×400 px, proporção 3:1 — porque ela é exibida como capa no topo do comunicado. O corpo do texto fica no editor aberto por <em>Editar HTML</em>; os demais campos são metadados de exibição e busca.</figcaption>
+  </figure>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Campo</th><th>Para que serve</th><th>Campo no registro</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Link da Imagem Principal</td><td>Capa do comunicado. Medida ideal 1200×400 px (3:1). Sem imagem, o comunicado abre só com texto.</td><td><code>mainimage</code></td></tr>
+        <tr><td>Título</td><td>Chamada curta. Na lista do leitor ele é truncado com reticências quando passa da largura da coluna, então vale manter em poucas palavras.</td><td><code>title</code></td></tr>
+        <tr><td>Tipo</td><td><em>Pública</em> (equipe e filas de Web Chat) ou <em>Interna</em> (só equipe).</td><td><code>type</code> — 0 pública, 1 interna</td></tr>
+        <tr><td>Válido a partir</td><td>Data a partir da qual o comunicado pode ser exibido. É a mesma data que o comunicado aberto exibe como <em>Publicado em</em>.</td><td><code>validafter</code></td></tr>
+        <tr><td>Válido até</td><td>Data até a qual ele deve ser exibido. É o fim da janela de validade do comunicado.</td><td><code>validuntil</code></td></tr>
+        <tr><td>Exibir para</td><td>Três caixas independentes: <em>Admins</em>, <em>Supervisores</em>, <em>Agentes</em>. Marcar mais de uma vale para todos os perfis marcados.</td><td><code>showadmins</code>, <code>showsupervisors</code>, <code>showagents</code></td></tr>
+        <tr><td>Exibir popup no login</td><td>Abre o comunicado automaticamente na entrada do usuário, desde que ele ainda não o tenha lido.</td><td><code>popuponlogin</code></td></tr>
+        <tr><td>Subtítulo</td><td>Linha de apoio exibida abaixo do título, na lista e no comunicado.</td><td><code>description</code></td></tr>
+        <tr><td>Palavras-chave</td><td>Termos livres para busca e classificação do comunicado.</td><td><code>keywords</code></td></tr>
+        <tr><td>Etiquetas</td><td>Etiquetas já cadastradas na instância, exibidas como chips coloridos no comunicado.</td><td><code>tags</code></td></tr>
+        <tr><td>Editar HTML</td><td>Abre o editor do corpo do comunicado, com formatação de texto, tamanho, fonte e títulos.</td><td><code>content</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="passo-a-passo">Passo a passo</h3>
+  <ol class="steps">
+    <li>Abra <strong>Configurações › Novidades</strong> e clique em <em>Adicionar</em>.</li>
+    <li>Cole o link da imagem de capa (1200×400 px) ou deixe em branco.</li>
+    <li>Escreva o <em>Título</em> e escolha o <em>Tipo</em>.</li>
+    <li>Preencha <em>Válido a partir</em> e <em>Válido até</em> conforme o prazo do aviso: é essa janela que decide quando ele entra e quando sai do mural.</li>
+    <li>Marque em <em>Exibir para</em> os perfis que precisam ler. Marque <em>Exibir popup no login</em> apenas quando for obrigatório ler antes de começar o turno.</li>
+    <li>Preencha o <em>Subtítulo</em>, as <em>Palavras-chave</em> e as <em>Etiquetas</em> que ajudem a reencontrar o comunicado depois.</li>
+    <li>Clique em <em>Editar HTML</em> e escreva o corpo do aviso.</li>
+    <li>Use <em>Pré-visualizar</em>, na grade, para conferir como o comunicado será lido antes de divulgar.</li>
+  </ol>
+
+  <div class="callout tip">
+    <strong>Um comunicado por assunto.</strong> É tentador juntar manutenção, meta e mudança de script em um único aviso. Como a validade é do comunicado inteiro, o aviso que vence leva junto os assuntos que ainda estavam valendo. Separe por tema e por prazo.
+  </div>
+
+  <h2 id="5-como-o-leitor-recebe">5. Como o leitor recebe</h2>
+  <p>Do lado de quem lê, o caminho é sempre o mesmo, independentemente do perfil:</p>
+  <ol class="steps">
+    <li>Na entrada, o sistema carrega os comunicados destinados àquele usuário e conta quantos ainda não foram lidos.</li>
+    <li>O ícone de jornal da barra superior ganha um contador com esse número. Sem comunicado pendente, o contador fica neutro, em zero.</li>
+    <li>Se algum comunicado não lido estiver marcado para <em>Exibir popup no login</em>, o mais recente deles abre sozinho. Sem essa marcação, o aviso espera o usuário clicar no ícone.</li>
+    <li>Dentro do mural, os não lidos aparecem primeiro; entre os não lidos, vale a data mais recente.</li>
+    <li>Ao abrir um comunicado, o conteúdo é carregado e ele é marcado como lido — o contador cai na mesma hora.</li>
+  </ol>
+  <p>O comunicado aberto mostra, nesta ordem: imagem de capa (quando houver), título, autor, data (<em>Publicado em</em>), subtítulo, etiquetas e o corpo. Autor e etiquetas são omitidos quando o comunicado vem de fora da instância; nesse caso ele aparece apenas com o conteúdo e a data.</p>
+
+  <h2 id="6-acesso-por-api">6. Acesso por API</h2>
+  <p>O mural é servido pela API REST da própria instância, com o mesmo token JWT do login. As chamadas abaixo são as que a interface usa para exibir o mural ao usuário:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Chamada</th><th>O que devolve</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>GET /news/getMyNews</code></td><td>Lista dos comunicados destinados ao usuário autenticado, com a marca de já lido.</td></tr>
+        <tr><td><code>POST /news/getContent</code> <code>{"id": 12}</code></td><td>Corpo em HTML do comunicado indicado.</td></tr>
+        <tr><td><code>POST /news/markAsSeen</code> <code>{"id": 12}</code></td><td>Marca o comunicado como lido para aquele usuário.</td></tr>
+        <tr><td><code>GET /news/getAllNews</code></td><td>Todos os comunicados da instância, com o registro completo — é a visão que alimenta a grade de cadastro.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>O registro completo de um comunicado tem os campos abaixo. Vale conhecer os que não aparecem no formulário porque eles explicam o comportamento de leitura:</p>
+
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Campo</th><th>Conteúdo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>id</code>, <code>uuid</code></td><td>Identificador numérico e identificador estável do comunicado.</td></tr>
+        <tr><td><code>title</code>, <code>description</code>, <code>content</code></td><td>Título, subtítulo e corpo em HTML. <code>mjml</code> aparece quando o corpo foi montado como e-mail.</td></tr>
+        <tr><td><code>type</code></td><td>0 para pública, 1 para interna.</td></tr>
+        <tr><td><code>validafter</code>, <code>validuntil</code>, <code>valid</code></td><td>Janela de exibição e o indicador de vigência calculado a partir dela.</td></tr>
+        <tr><td><code>showadmins</code>, <code>showsupervisors</code>, <code>showagents</code></td><td>Público-alvo por perfil.</td></tr>
+        <tr><td><code>popuponlogin</code></td><td>1 quando o comunicado abre sozinho no login.</td></tr>
+        <tr><td><code>seenby</code></td><td>Lista dos identificadores de usuário que já leram.</td></tr>
+        <tr><td><code>rating</code>, <code>votes</code></td><td>Nota e quantidade de avaliações registradas.</td></tr>
+        <tr><td><code>queues</code>, <code>tags</code>, <code>keywords</code></td><td>Filas associadas, etiquetas e palavras-chave.</td></tr>
+        <tr><td><code>writtenby</code>, <code>writtenbyname</code></td><td>Autor do comunicado.</td></tr>
+        <tr><td><code>fromremote</code></td><td>1 quando o comunicado não foi escrito na instância. Nesse caso o leitor não vê autor nem etiquetas.</td></tr>
+        <tr><td><code>version</code>, <code>createdAt</code>, <code>updatedAt</code></td><td>Controle de alteração do registro.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="7-exemplo-completo">7. Exemplo completo</h2>
+  <p>Cenário: a instância vai ficar sem o ERP no sábado, das 8h ao meio-dia, e o atendimento passa a registrar pedidos no formulário de contingência. O aviso precisa aparecer para agentes e supervisores na sexta e sair do ar no sábado à tarde.</p>
+  <ol class="steps">
+    <li><strong>Monte o registro.</strong> Tipo interna, título curto, janela de validade na sexta de manhã até sábado ao meio-dia, público restrito a supervisores e agentes, popup ligado — o turno começa sem o ERP e ninguém pode entrar sem saber.</li>
+    <li><strong>Escreva o corpo no editor HTML.</strong> Um parágrafo com a janela de indisponibilidade e um passo a passo numerado do formulário de contingência.</li>
+    <li><strong>Pré-visualize.</strong> Confira se a imagem de capa carrega e se o texto cabe nas primeiras linhas, que é o que o leitor vê antes de rolar.</li>
+    <li><strong>Publique e confira pelo lado do leitor.</strong> Entre com um usuário agente da instância: o contador do ícone de jornal deve subir, o popup deve abrir e, depois de fechar, o contador deve voltar a zero.</li>
+    <li><strong>Confira a saída automática.</strong> Depois da janela, o comunicado continua na grade de cadastro, mas deixa de ser entregue — é assim que se evita apagar histórico.</li>
+  </ol>
+
+  <p>O registro equivalente, como a API o devolve:</p>
+  <pre><code>{
+  "id": 18,
+  "uuid": "3f0c9d21-5b7e-4a1c-9e42-0b8d6a4412aa",
+  "title": "ERP indisponível no sábado",
+  "description": "Das 8h ao meio-dia, pedidos pelo formulário de contingência.",
+  "content": "&lt;p&gt;O ERP fica fora do ar no sábado, das 8h ao meio-dia.&lt;/p&gt;\n&lt;ol&gt;\n  &lt;li&gt;Abra o formulário de contingência no menu Pedidos.&lt;/li&gt;\n  &lt;li&gt;Preencha cliente, itens e forma de pagamento.&lt;/li&gt;\n  &lt;li&gt;Marque &lt;strong&gt;pedido manual&lt;/strong&gt; e envie.&lt;/li&gt;\n&lt;/ol&gt;\n&lt;p&gt;A importação para o ERP acontece na segunda, automaticamente.&lt;/p&gt;",
+  "type": 1,
+  "validafter": "2026-11-27T11:00:00.000Z",
+  "validuntil": "2026-11-28T15:00:00.000Z",
+  "valid": 1,
+  "showsupervisors": 1,
+  "showadmins": 0,
+  "showagents": 1,
+  "popuponlogin": 1,
+  "keywords": ["erp", "contingência", "sábado"],
+  "tags": [4],
+  "queues": [],
+  "rating": 0,
+  "votes": 0,
+  "seenby": "",
+  "writtenby": 513,
+  "writtenbyname": "Coordenação",
+  "fromremote": 0,
+  "version": 1
+}</code></pre>
+
+  <p>Depois de publicado, cada usuário do público-alvo resolve a leitura em três chamadas: <code>GET /news/getMyNews</code> devolve o item com <code>seenby</code> vazio, <code>POST /news/getContent</code> com <code>{"id": 18}</code> devolve o HTML exibido e <code>POST /news/markAsSeen</code> com o mesmo id encerra a pendência daquele usuário.</p>
+
+  <h2 id="8-armadilhas">8. Armadilhas</h2>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead>
+        <tr><th>Sintoma</th><th>Causa provável</th><th>O que fazer</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Publiquei e ninguém viu.</td>
+          <td>Janela de validade vencida, público-alvo sem o perfil certo, ou o comunicado é público e ainda está dentro das 6 horas de cache do Web Chat.</td>
+          <td>Confira a coluna <em>Válida</em>, revise as três caixas de <em>Exibir para</em> e, para o Web Chat, aguarde a janela de cache.</td>
+        </tr>
+        <tr>
+          <td>O popup abriu para um agente e para outro não.</td>
+          <td>O popup só dispara para comunicado não lido. Quem já leu não recebe de novo, e quem não está no público-alvo nunca recebe.</td>
+          <td>Verifique <code>seenby</code> no registro e as caixas de perfil.</td>
+        </tr>
+        <tr>
+          <td>O título aparece cortado na lista do leitor.</td>
+          <td>A lista do mural trunca títulos longos com reticências.</td>
+          <td>Encurte o título e leve o detalhe para o subtítulo ou para o corpo.</td>
+        </tr>
+        <tr>
+          <td>Apaguei o comunicado e o aviso continua no Web Chat.</td>
+          <td>O conteúdo público já distribuído segue a janela de cache de 6 horas informada na própria tela.</td>
+          <td>Considere o prazo ao publicar algo que possa precisar de correção urgente; para correções, publique um aviso novo.</td>
+        </tr>
+        <tr>
+          <td>O comunicado aparece sem autor e sem etiquetas.</td>
+          <td>É um comunicado vindo de fora da instância (<code>fromremote</code>).</td>
+          <td>Comportamento esperado: só título, data, subtítulo e corpo são exibidos.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="9-checklist-antes-de-divulgar">9. Checklist antes de divulgar</h2>
+  <div class="callout info">
+    <ul>
+      <li>O tipo está correto — o texto pode ser lido por cliente? Se sim, pública; se não, interna.</li>
+      <li>A janela de validade cobre exatamente o período do aviso e não deixa um aviso vencido no ar.</li>
+      <li>As três caixas de <em>Exibir para</em> estão coerentes com quem precisa agir.</li>
+      <li>O popup está ligado só quando a leitura é obrigatória.</li>
+      <li>Título curto, subtítulo informativo e imagem em 1200×400 px.</li>
+      <li>O corpo foi conferido pelo <em>Pré-visualizar</em>, incluindo a primeira dobra.</li>
+    </ul>
+  </div>
+
+  <h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+  <div class="faq">
+    <h3 id="qual-a-diferenca-entre-novidade-publica-e-interna">Qual a diferença entre novidade pública e interna?</h3>
+    <p>Pública é entregue para a equipe marcada e também entra nas filas de Web Chat, com o cache de 6 horas avisado na tela. Interna fica restrita à equipe. Nos dois casos a marcação de perfis em <em>Exibir para</em> continua valendo — uma novidade pública pode, por exemplo, ser exibida apenas para supervisores.</p>
+
+    <h3 id="como-sei-se-o-comunicado-esta-no-ar">Como sei se o comunicado está no ar?</h3>
+    <p>Pela coluna <em>Válida</em>, na grade, e pelo campo <code>valid</code> no registro devolvido pela API. Comunicados fora da janela continuam cadastrados, mas não são entregues.</p>
+
+    <h3 id="consigo-apontar-o-comunicado-para-uma-equipe-ou-fila-especifica">Consigo apontar o comunicado para uma equipe ou fila específica?</h3>
+    <p>Pelo formulário, o recorte é por perfil de usuário: administradores, supervisores e agentes. O registro também guarda as filas associadas ao comunicado, usadas na distribuição do conteúdo público.</p>
+
+    <h3 id="o-leitor-pode-avaliar-o-comunicado">O leitor pode avaliar o comunicado?</h3>
+    <p>O registro tem nota e contagem de avaliações, exibidas na coluna <em>Avaliação</em>, que aparece como <code>-</code> enquanto não houver nenhuma. Um comunicado sem avaliação é o normal em murais internos.</p>
+
+    <h3 id="apagar-o-comunicado-remove-o-historico-de-leitura">Apagar o comunicado remove o histórico de leitura?</h3>
+    <p>Sim. O registro e a lista de quem leu vão junto, porque a marcação de leitura pertence ao próprio comunicado. Se a intenção é só tirar o aviso do ar, prefira encerrar a validade em vez de apagar.</p>
+
+    <h3 id="o-que-acontece-se-dois-comunicados-estiverem-marcados-para-popup-no-login">O que acontece se dois comunicados estiverem marcados para popup no login?</h3>
+    <p>Só o mais recente abre automaticamente. Os outros ficam pendentes no mural, com o contador aceso, até serem abertos.</p>
+  </div>
+
+  <div class="pagenav">
+    <a href="extensoes-tour-guiado.html"><span>← Anterior</span> Extensões: tour guiado</a>
+    <a class="next" href="configuracoes.html"><span>Próximo →</span> Configurações</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Manual Omnichannel — AtenderBem / Habilis. Uso interno e educativo.</p>
+</footer>
+<script src="assets/search-index.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
