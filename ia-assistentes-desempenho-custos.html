@@ -173,6 +173,7 @@
       <li class="toc-h3"><a href="#6-6-modelos">6.6 Modelos</a></li>
       <li class="toc-h3"><a href="#6-7-versoes-de-custo">6.7 Versões</a></li>
       <li class="toc-h3"><a href="#6-8-avisos-que-mudam-a-leitura">6.8 Avisos que mudam a leitura</a></li>
+      <li class="toc-h3"><a href="#6-9-rodadas-por-resposta">6.9 Rodadas por resposta</a></li>
       <li><a href="#7-custo-por-sucesso-nao-e-custo-medio-dos-sucessos">7. Custo por sucesso não é custo médio dos sucessos</a></li>
       <li><a href="#8-roteiro-de-leitura-em-sete-passos">8. Roteiro de leitura em sete passos</a></li>
       <li><a href="#9-os-mesmos-dados-pela-api">9. Os mesmos dados pela API</a></li>
@@ -418,6 +419,12 @@
     <img src="assets/ia/assistentes-custos-visao-geral.jpg" alt="Relatório de custo do assistente aberto na aba Visão geral, com o campo de cotação do dólar, as cinco abas e o aviso de que ainda não há consumo medido no período." width="1300" height="331">
     <figcaption>Sem consumo medido com a chave da empresa, a janela mostra a etiqueta <em>sem medição ainda</em> e explica o motivo em vez de exibir zeros.</figcaption>
   </figure>
+
+  <h3 id="6-9-rodadas-por-resposta">6.9 Rodadas por resposta</h3>
+  <p>O custo de uma mensagem não é o custo de uma chamada ao modelo: é o custo de quantas rodadas o assistente precisou para responder. Cada rodada consulta ferramentas — base de conhecimento, produtos, carrinho, funções, conectores, MCP — e a redação final também ocupa uma rodada. Por isso a coluna <strong>Chamadas</strong> da tabela de modelos cresce mais rápido que o número de mensagens enviadas.</p>
+  <p>O teto de rodadas é configurado por assistente (<code>turnmaxsteps</code>): 0 usa o padrão de 15, valores explícitos vão de 5 a 40. Quando ele sobe para atender pedidos longos, o consumo por atendimento sobe junto sem que o volume de conversas mude — e é esse descolamento que a faixa de <strong>Consultas à base de conhecimento</strong> e <strong>Funções executadas</strong> mostra na aba Desempenho.</p>
+  <p>Leitura prática: antes de subir o limite, verifique se o assistente está repetindo consultas que já fez; depois de subir, compare o custo por sucesso do período seguinte com o anterior na aba Versões. Teto maior sem ganho de resolução é custo sem retorno.</p>
+  <p>O comportamento do limite — o que acontece quando as etapas acabam e por que a resposta final conta como uma delas — está em <a href="ia.html#10-1-etapas-por-resposta">IA Básica e IA Avançada, seção 10.1</a>.</p>
 
   <h2 id="7-custo-por-sucesso-nao-e-custo-medio-dos-sucessos">7. Custo por sucesso não é custo médio dos sucessos</h2>
   <div class="callout warn">

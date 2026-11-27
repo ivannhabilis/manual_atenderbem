@@ -3459,6 +3459,10 @@ window.MANUAL_INDEX = [
     "a": "6-8-avisos-que-mudam-a-leitura"
    },
    {
+    "h": "6.9 Rodadas por resposta",
+    "a": "6-9-rodadas-por-resposta"
+   },
+   {
     "h": "7. Custo por sucesso não é custo médio dos sucessos",
     "a": "7-custo-por-sucesso-nao-e-custo-medio-dos-sucessos"
    },
@@ -4805,6 +4809,10 @@ window.MANUAL_INDEX = [
    {
     "h": "10. Ajustes avançados do modelo",
     "a": "10-ajustes-avancados-do-modelo"
+   },
+   {
+    "h": "10.1 Etapas por resposta",
+    "a": "10-1-etapas-por-resposta"
    },
    {
     "h": "11. Observabilidade, testes e qualidade",

@@ -171,6 +171,7 @@
       <li class="toc-h3"><a href="#8-3-resposta-em-audio-no-chat">8.3 Resposta em áudio no chat</a></li>
       <li><a href="#9-voz-e-realtime">9. Voz e Realtime</a></li>
       <li><a href="#10-ajustes-avancados-do-modelo">10. Ajustes avançados do modelo</a></li>
+      <li class="toc-h3"><a href="#10-1-etapas-por-resposta">10.1 Etapas por resposta</a></li>
       <li><a href="#11-observabilidade-testes-e-qualidade">11. Observabilidade, testes e qualidade</a></li>
       <li class="toc-h3"><a href="#11-1-langfuse">11.1 Langfuse</a></li>
       <li class="toc-h3"><a href="#11-2-indicadores-do-assistente">11.2 Indicadores do assistente</a></li>
@@ -479,6 +480,7 @@
       <thead><tr><th>Parâmetro</th><th>Faixa no material</th><th>Efeito documentado</th></tr></thead>
       <tbody>
         <tr><td><strong>Limite de tokens por resposta</strong></td><td>0 a 4096+</td><td>Controla o tamanho máximo. O valor 0 mantém o padrão do provedor. O material aproxima 4096 tokens de 3.000 palavras.</td></tr>
+        <tr><td><strong>Etapas por resposta</strong></td><td>0 (padrão do produto: 15) ou 5 a 40</td><td>Quantas rodadas de consulta o assistente pode dar para preparar uma única resposta. Cada rodada pode acionar várias ferramentas ao mesmo tempo, e a redação da resposta também consome uma etapa.</td></tr>
         <tr><td><strong>Temperatura</strong></td><td>0,0 a 1,2</td><td>0,0–0,3 favorece respostas objetivas e previsíveis; 0,8–1,2 aumenta criatividade e risco de alucinação.</td></tr>
         <tr><td><strong>Penalidade de frequência</strong></td><td>-2,0 a 2,0</td><td>Valores positivos, como 0,2–1,0, reduzem repetição. O material indica suporte em OpenAI e Groq.</td></tr>
         <tr><td><strong>Penalidade de presença</strong></td><td>-2,0 a 2,0</td><td>Valores positivos incentivam a introdução de novos tópicos.</td></tr>
@@ -489,6 +491,24 @@
   <div class="callout warn">
     <strong>Responsabilidade:</strong> o material recomenda manter o padrão de segurança do provedor. Selecionar <strong>Sem Bloqueio</strong> transfere a responsabilidade operacional pelo comportamento da IA à empresa administradora.
   </div>
+
+  <h3 id="10-1-etapas-por-resposta">10.1 Etapas por resposta</h3>
+  <p>Nem toda mensagem do cliente se resolve em uma única ida ao modelo. Para montar a resposta, o assistente pode precisar consultar a base de conhecimento, procurar produtos, ler ou gravar o carrinho, executar funções e falar com conectores ou servidores MCP. Cada uma dessas rodadas é uma <strong>etapa</strong>: uma chamada ao modelo que pode acionar <em>várias</em> ferramentas ao mesmo tempo. Agrupar consultas dentro da mesma etapa é o que segura o custo e o tempo.</p>
+  <p>A redação da resposta também ocupa uma etapa — e é por isso que o número precisa de folga. Um assistente que gasta todas as etapas apurando dados chega ao fim sem margem para escrever. Ao atingir o teto sem ter falado com o cliente, ele responde com o que já apurou, ou transfere/encerra com o motivo, e não abre novas consultas: o cliente recebe uma resposta parcial em vez de silêncio, e o atendimento não fica preso em laço.</p>
+  <div class="table-wrap">
+    <table class="doc">
+      <thead><tr><th>Valor</th><th>Significado</th></tr></thead>
+      <tbody>
+        <tr><td><strong>0</strong></td><td>Padrão do produto: 15 etapas.</td></tr>
+        <tr><td><strong>5 a 40</strong></td><td>Limite explícito, gravado por assistente.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>O ajuste é por assistente: fica no campo <code>turnmaxsteps</code> do cadastro e volta em toda leitura dele. O valor <strong>0</strong> quer dizer “usar o padrão”, não “sem etapas”. A mudança passa a valer a partir do <strong>turno seguinte</strong> ao salvamento; um turno já em andamento termina com o valor anterior.</p>
+  <div class="callout tip">
+    <strong>Aumente quando</strong> o pedido é longo — orçamento com muitos itens, comparação de vários produtos — ou quando a apuração passa por mais de um sistema. <strong>Não aumente por reflexo:</strong> cada etapa a mais pesa em tempo de resposta e em consumo. Depois de mudar, confira o efeito em <a href="ia-assistentes-desempenho-custos.html#6-9-rodadas-por-resposta">Custos do assistente</a>.
+  </div>
+  <p>Duas exceções de escopo: o atendimento por <strong>voz</strong> não usa esse limite, e o <strong>Controle remoto</strong> da tela aplica um teto próprio. Se a queixa é “a IA para no meio de uma consulta comprida”, este é o primeiro número a conferir; se a queixa é custo, o caminho é o inverso — baixar etapas, encurtar o contexto e revisar quantos resultados a busca recupera.</p>
 
   <h2 id="11-observabilidade-testes-e-qualidade">11. Observabilidade, testes e qualidade</h2>
   <h3 id="11-1-langfuse">11.1 Langfuse</h3>
@@ -516,6 +536,7 @@
         <tr><td><strong>Esgotamento da cota básica</strong></td><td>Acompanhar limite, uso, percentual e renovação; opcionalmente ativar continuidade com chave própria.</td></tr>
         <tr><td><strong>Conta excessiva no provedor</strong></td><td>O webinar recomenda limites de cobrança/uso para reduzir impacto de ataque ou consumo anormal.</td></tr>
         <tr><td><strong>Loop ou abuso por conversa</strong></td><td>Definir limite de mensagens, que transfere com <code>limit_reached</code>.</td></tr>
+        <tr><td><strong>Muitas rodadas por resposta</strong></td><td>Rever o teto de etapas por resposta e o tamanho do contexto; juntar consultas na mesma rodada evita etapas extras.</td></tr>
         <tr><td><strong>Prompt extenso e caro</strong></td><td>Manter contexto inicial curto e mover fatos para Conhecimento e processos para Procedimentos.</td></tr>
         <tr><td><strong>Recuperação excessiva</strong></td><td>Começar com 6 resultados de busca e aumentar apenas quando os testes justificarem.</td></tr>
         <tr><td><strong>Alucinação</strong></td><td>Usar baixa temperatura em suporte e rotinas rígidas, base bem descrita, procedimentos explícitos e filtros do provedor.</td></tr>
